@@ -1,0 +1,1 @@
+All the pc admin logo will be saved to this folder

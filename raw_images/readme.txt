@@ -1,0 +1,1 @@
+all the raw images will be stored with respective order number like order_{{order_number}} folder here

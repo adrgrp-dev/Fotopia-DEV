@@ -1,0 +1,1 @@
+When downloading images as zip archieve, this folder will hold the download temporarily.
