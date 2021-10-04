@@ -176,7 +176,7 @@ $taxpercentage=0;
 else
 {
 $csr_id=$_SESSION['admin_loggedin_id'];
-						    $taxpercent=mysqli_query($con,"select tax from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id='csr_id' and type_of_user='CSR')");
+						    $taxpercent=mysqli_query($con,"select tax from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id='$csr_id' and type_of_user='CSR')");
 
 }
 $available=mysqli_num_rows($taxpercent);
@@ -373,7 +373,7 @@ else
 
 						 //  $product=mysqli_query($con,"select sum(total_price)+sum(photographer_cost)+sum(other_cost) as total_value,GROUP_CONCAT(product_title,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
 
-						     $product=mysqli_query($con,"select sum(price*quantity) as total_value,GROUP_CONCAT(product_title,' X ',quantity,' - $',price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
+						     $product=mysqli_query($con,"select sum(total_price*quantity) as total_value,GROUP_CONCAT(product_title,' X ',quantity,' - $',price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
 
 						 // $product=mysqli_query($con,"select * from order_products where order_id=$order_id")
                              $product_detail=mysqli_fetch_array($product);
