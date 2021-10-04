@@ -831,8 +831,16 @@ if($i<=$ratingIs)
 <p align="center" style="font-weight:600" adr_trans="label_photo_companies">Photo Companies</p>
 <form name="searchByLocation" method="post" action="./csrRealtorDashboard.php" style="margin-left:5px;">
 
-				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search City " />
-
+				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search City "list="cities" onchange="this.form.submit()" />
+<datalist id="cities">
+ <?php
+							$city1=mysqli_query($con,"select cities from norway_states_cities");
+							while($city=mysqli_fetch_array($city1))
+							{
+							?>
+							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
+							<?php } ?>
+</datalist>
 				 </form>
 
 				<?php
@@ -844,10 +852,9 @@ $knowMore="";
 if(isset($_REQUEST['companySearch']))
 {
 $companySearch=$_REQUEST['companySearch'];
-$where="and organization_name like '$companySearch%'";
+$where="location like '%$companySearch%' and ";
 }
-
-				$photo=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' $where and id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
+				$photo=mysqli_query($con,"select * from photo_company_profile where $where id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
 
@@ -856,11 +863,11 @@ $where="and organization_name like '$companySearch%'";
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:15px;border:none">
 
 				 <?php
-                if ($ph=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' $where and id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc")) {
+                if ($ph=mysqli_query($con,"select * from photo_company_profile where $where id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc")) {
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_know_more">Know More</span></a>';
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="data:<?php echo $photo1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($photo1['profile_pic']); ?>" width="120" height="100"  style="max-width: 70px;"/>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="data:<?php echo $photo1['logo_image_type']; ?>;base64,<?php echo base64_encode($photo1['logo']); ?>" width="120" height="100"  style="max-width: 70px;"/>
 				 <i class="fa fa-heart close" style="position:absolute;top:80px;right:1px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Remove from wishlist" onClick="removeFromWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['id'];?>)"></i>
 				   <?php
                 }
@@ -903,7 +910,7 @@ if($i<=$ratingIs)
 					<?php } ?>
 
 <?php
-        $photo=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' $where and id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
+        $photo=mysqli_query($con,"select * from photo_company_profile where $where id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
         while($photo1=mysqli_fetch_array($photo))
         {
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_know_more">Know More</span></a>';
@@ -914,7 +921,7 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
 <center>
 
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="data:<?php echo $photo1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($photo1['profile_pic']); ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['id'];?>)"></i>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="data:<?php echo $photo1['logo_image_type']; ?>;base64,<?php echo base64_encode($photo1['logo']); ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['id'];?>)"></i>
 <p align="center" style="padding-top:3px;width:75px!important;word-break:break-all;font-size: 13px;"><?php echo strtoupper(substr($photo1['organization_name'],0,8)); ?>
  </p>
 
