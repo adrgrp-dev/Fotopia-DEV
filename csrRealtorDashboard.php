@@ -286,7 +286,7 @@ margin-left:0px!important;
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
                          <i class="fa fa-calendar icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#FF0000!important;"></i>
                           <?php
-                            $get_ongoing_query=mysqli_query($con,"SELECT count(id) as total FROM orders where status_id<>3 and created_by_id='$loggedin_id'");
+                            $get_ongoing_query=mysqli_query($con,"SELECT count(id) as total FROM orders where status_id<>3 and created_by_id='$loggedin_id' and created_by_type='Realtor'");
                             $get_ongoing=mysqli_fetch_assoc($get_ongoing_query);
                             ?>
 

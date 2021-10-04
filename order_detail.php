@@ -235,6 +235,7 @@ if(isset($_REQUEST['rework']))
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
     $file="rework_images/order_".$id_url."/".$data1[2]."/".$get_image['img'];
   rename($file1,$file);
+  header("location:order_detail.php?id=$id_url");
   }
 
   $comment=@$_REQUEST['comment'];
@@ -468,7 +469,7 @@ html{	background-color:#FFF; }
 	background-repeat: no-repeat;
   background-size:60px 80px;
 }
-.mfp-container 
+.mfp-container
 {
 background:none!important;
 }
@@ -482,7 +483,7 @@ function chechcond()
       return true;
     }
     else {
-     
+
 	  var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
@@ -997,7 +998,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
   				<?php } ?>
 
   				</table>
-          
+
   				</div>
   				<div class="col-md-6">
 
@@ -1046,7 +1047,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Klikk på bilde for å laste ned eller gjør om";
+		alertmsg="Klikk pï¿½ bilde for ï¿½ laste ned eller gjï¿½r om";
 		}
 		else
 		{
@@ -1069,7 +1070,7 @@ alert(alertmsg);
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Klikk på bilde for å laste ned eller gjør om";
+		alertmsg="Klikk pï¿½ bilde for ï¿½ laste ned eller gjï¿½r om";
 		}
 		else
 		{
@@ -1091,7 +1092,7 @@ function check3(){
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Klikk på bilde for å laste ned eller gjør om";
+		alertmsg="Klikk pï¿½ bilde for ï¿½ laste ned eller gjï¿½r om";
 		}
 		else
 		{
@@ -1113,7 +1114,7 @@ function check4(){
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Klikk på bilde for å laste ned eller gjør om";
+		alertmsg="Klikk pï¿½ bilde for ï¿½ laste ned eller gjï¿½r om";
 		}
 		else
 		{
@@ -1250,7 +1251,7 @@ $('.icons'+iconid1).css("visibility","hidden");
                                         <div class="modal-content" style="height:260px;">
                                            <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px" title="asfsadsdasds"/></center>
+                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px" title=""/></center>
                                            <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                              <?php
                                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -1287,7 +1288,7 @@ $('.icons'+iconid1).css("visibility","hidden");
 
                               ?>
 
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="<?php echo @$get_link['comments'] ?>"placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style=""  required /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
@@ -1413,7 +1414,7 @@ $('.icons'+iconid1).css("visibility","hidden");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="<?php  echo @$get_link['comments']?>"placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style=""  required /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
 
@@ -1537,7 +1538,7 @@ $('.icons'+iconid1).css("visibility","hidden");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment23"  value="<?php echo @$get_comment['comments']; ?>"placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment23"  value="" placeholder="Enter the comment " style=""  required /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/Drone_photos"; ?>">
 
@@ -1662,7 +1663,7 @@ $('.icons'+iconid1).css("visibility","hidden");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment24"  value="<?php echo @$get_link['comments'] ?>"placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment24"  value="" placeholder="Enter the comment " style=""  required /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/hdr_photos"; ?>">
 
@@ -1704,7 +1705,7 @@ if($get_order1['status_id']==3)
 <div class="panel" id="tab5">
   <div id="printtable"></div>
     <div id="print">
-     
+
       <header id="inv_header" >
         <?php
         @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
@@ -1785,13 +1786,13 @@ if($get_order1['status_id']==3)
                 <?php
               }
            ?>
-         
-  
+
+
 
      </td>
 	 <td style="width:50%">
           <table style="width:100%">
-          
+
 <br />
           <?php
 
@@ -1811,8 +1812,8 @@ if($get_order1['status_id']==3)
   <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
-      
-       
+
+
         </table>
 </td></tr></table>
 
@@ -1822,8 +1823,8 @@ if($get_order1['status_id']==3)
       <article>
 
 
-       
-               
+
+
         <table id="inv_table1" class="inventory"  style="width:100%">
           <thead>
             <tr>

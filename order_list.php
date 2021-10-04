@@ -4,11 +4,13 @@ ob_start();
 include "connection1.php";
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
-if(@$_REQUEST['filterByStatus']){
+//echo $_REQUEST['filterByStatus'];
+if(isset($_REQUEST['filterByStatus'])){
   $_SESSION['status']=@$_REQUEST['filterByStatus'];
+  //echo $_SESSION['status'];
 }
 
-
+//exit;
 
 
 //echo "INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Approved','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,now())";
@@ -170,7 +172,7 @@ header("location:order_list.php?app=1");
   <div style="width:100%; overflow:scroll">
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
-<option value="">-- Select Status --</option>
+<option value="0">All</option>
 <option value="1" <?php if(@$_REQUEST['filterByStatus']==1||@$_SESSION['status']==1) { echo "selected"; } ?> adr_trans="label_completed">Created</option>
 <option value="2" <?php if(@$_REQUEST['filterByStatus']==2||@$_SESSION['status']==2) { echo "selected"; } ?>>Work in progress</option>
 <option value="4" <?php if(@$_REQUEST['filterByStatus']==4||@$_SESSION['status']==4) { echo "selected"; } ?>>Rework</option>
@@ -312,7 +314,7 @@ header("location:order_list.php?app=1");
           }
 		  elseif(@$_REQUEST['filterByStatus']!=0)
 		  {
-		  $statusId=$_REQUEST['filterByStatus'];
+		    $statusId=$_REQUEST['filterByStatus'];
 		    $get_order_query=mysqli_query($con,"SELECT * FROM orders where (photographer_id='$loggedin_id' or created_by_id='$loggedin_id') and  status_id='$statusId' and created_by_type='Realtor' order by id desc limit $limit");
 		  }
 

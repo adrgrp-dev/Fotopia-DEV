@@ -3,9 +3,6 @@
 include "connection1.php";
 
 
-
-
-
     $file =$_REQUEST['id'];
     $file_exp=explode("/",$file);
     $order_id=$_REQUEST['od'];
@@ -34,6 +31,12 @@ include "connection1.php";
       if(count(glob("./rework_images/order_".$order_id."/".$file_exp[3]."/"."*"))!=0)
       {
         $data=3;
+      }
+      else{
+      if(count(glob("./raw_images/order_".$order_id."/".$file_exp[3]."/"."*"))!=0)
+      {
+          $data=3;
+      }
       }
       //echo $data;
 

@@ -705,7 +705,7 @@ alert(alertmsg);
  };
  xhttp.open("GET","comment.php?id="+a+"&data="+c, true);
  xhttp.send();
- alert("comment changed");
+ //alert("comment changed");
 
 
 
@@ -1283,7 +1283,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                        ?>
                                                <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                <hr class="space s">
-                                                  <center><input type="button" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>')" value="Disapprove"/></center>
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
                                                      </div>
                                                   </div>
 
@@ -1304,8 +1304,14 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                         ?>
                                         <script>
-                                        function Getstandard(data)
+                                        function Getstandard(data,comment_id)
                                         {
+                                        if($("#s"+comment_id).val()=="")
+                                        {
+                                         alert("Please enter the comment");
+                                        }
+                                        else{
+                                          Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
                                           // alert(a);
@@ -1319,9 +1325,16 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","rework1.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                         }
                                         }
-                                        function disapprovestandard(data)
+                                        function disapprovestandard(data,comment_id)
                                         {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
                                           // alert(a);
@@ -1335,6 +1348,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                        }
                                         }
                                         </script>
 
@@ -1408,7 +1422,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                          ?>
                                                  <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                  <hr class="space s">
-                                                 <center><input type="button" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>')" value="Disapprove"/></center>
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
                                                        </div>
                                                     </div>
 
@@ -1422,8 +1436,14 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           }
                                           ?>
                                           <script>
-                                          function Getfloor(data)
+                                          function Getfloor(data,comment_id)
                                           {
+                                            if($("#s"+comment_id).val()=="")
+                                            {
+                                             alert("Please enter the comment");
+                                            }
+                                            else{
+                                              Getcomment(comment_id);
                                             var a=data;
                                             var c=$("#getdata").val();
 
@@ -1437,9 +1457,16 @@ header("location:photographerDashboard.php?private=1"); exit;
                                              xhttp.open("GET","rework1.php?id="+a+"&od="+c, true);
                                              xhttp.send();
                                              location.reload();
+                                           }
                                           }
-                                          function disapprovefloor(data)
+                                          function disapprovefloor(data,comment_id)
                                           {
+                                            if($("#s"+comment_id).val()=="")
+                                            {
+                                             alert("Please enter the comment");
+                                            }
+                                            else{
+                                              Getcomment(comment_id);
                                             var a=data;
                                             var c=$("#getdata").val();
                                             // alert(a);
@@ -1453,6 +1480,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                              xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
                                              xhttp.send();
                                              location.reload();
+                                           }
                                           }
                                           </script>
                                           </div>
@@ -1520,7 +1548,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                          ?>
                                                  <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                  <hr class="space s">
-                                                 <center><input type="button" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/><span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Getdrone('<?php echo "./rework_images/order_".$id_url."/Drone_photos"."/".$image;?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovedrone('<?php echo "./rework_images/order_".$id_url."/Drone_photos"."/".$image;?>')" value="Disapprove"/></center>
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/><span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Getdrone('<?php echo "./rework_images/order_".$id_url."/Drone_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovedrone('<?php echo "./rework_images/order_".$id_url."/Drone_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
 
                                                        </div>
                                                     </div>
@@ -1542,8 +1570,14 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                         ?>
                                         <script>
-                                        function Getdrone(data)
+                                        function Getdrone(data,comment_id)
                                         {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
 
@@ -1557,9 +1591,16 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","rework1.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                         }
                                         }
-                                        function disapprovedrone(data)
+                                        function disapprovedrone(data,comment_id)
                                         {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
                                           // alert(a);
@@ -1573,6 +1614,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                         }
                                         }
                                         </script>
 
@@ -1645,7 +1687,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                          ?>
                                                  <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                  <hr class="space s">
-                                                 <center><input type="button" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/><span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Gethdr('<?php echo "./rework_images/order_".$id_url."/HDR_photos"."/".$image;?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovehdr('<?php echo "./rework_images/order_".$id_url."/HDR_photos"."/".$image;?>')" value="Disapprove"/></center>
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/><span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Gethdr('<?php echo "./rework_images/order_".$id_url."/HDR_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovehdr('<?php echo "./rework_images/order_".$id_url."/HDR_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
 
                                                        </div>
                                                     </div>
@@ -1667,8 +1709,14 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                         ?>
                                         <script>
-                                        function Gethdr(data)
+                                        function Gethdr(data,comment_id)
                                         {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
 
@@ -1682,9 +1730,16 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","rework1.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                         }
                                         }
-                                        function disapprovehdr(data)
+                                        function disapprovehdr(data,comment_id)
                                         {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
                                           var a=data;
                                           var c=$("#getdata").val();
                                           // alert(a);
@@ -1698,6 +1753,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                            xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
                                            xhttp.send();
                                            location.reload();
+                                         }
                                         }
                                         </script>
 
@@ -1816,7 +1872,7 @@ header("location:photographerDashboard.php?private=1"); exit;
      </td>
 	 <td style="width:50%">
           <table style="">
-          
+
 <br />
 
     <?php
@@ -1836,7 +1892,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
 
 
-       
+
         </table>
 </td></tr></table>
 
@@ -2048,8 +2104,8 @@ function printPage()
                                                               </div>
 
                                                             </div>
-                                                            <a class="img-box " style="" href="<?php echo $imagesDirectory_standard."/".$image; ?>"   style="">
-                                                                <i class="fa fa-home "  style=""></i>
+                                                          <?php /*  <a class="img-box " style="" href="<?php echo $imagesDirectory_standard."/".$image; ?>"   style="">
+                                                                <i class="fa fa-home "  style=""></i> */?>
 
                                                             </a>
 
@@ -2173,8 +2229,8 @@ function printPage()
                                                               </div>
 
                                                             </div>
-                                                            <a class="img-box " style="" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   style="">
-                                                                <i class="fa fa-home "  style=""></i>
+                                                        <?php /*     <a class="img-box " style="" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   style="">
+                                                                <i class="fa fa-home "  style=""></i> */ ?>
 
                                                             </a>
 
@@ -2297,8 +2353,8 @@ function printPage()
                                                               </div>
 
                                                             </div>
-                                                            <a class="img-box " style="" href="<?php echo $imagesDirectory_Drone."/".$image; ?>"   style="">
-                                                                <i class="fa fa-home "  style=""></i>
+                                                          <?php /*  <a class="img-box " style="" href="<?php echo $imagesDirectory_Drone."/".$image; ?>"   style="">
+                                                                <i class="fa fa-home "  style=""></i> */ ?>
 
                                                             </a>
 
@@ -2422,8 +2478,8 @@ function printPage()
                                                               </div>
 
                                                             </div>
-                                                            <a class="img-box " style="" href="<?php echo $imagesDirectory_hdr."/".$image; ?>"   style="">
-                                                                <i class="fa fa-home "  style=""></i>
+                                                          <?php /*  <a class="img-box " style="" href="<?php echo $imagesDirectory_hdr."/".$image; ?>"   style="">
+                                                                <i class="fa fa-home "  style=""></i> */ ?>
 
                                                             </a>
 
