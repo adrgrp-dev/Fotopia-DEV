@@ -374,11 +374,11 @@ $realtorDiscountPrice=0;
 			?>
 						<div class="col-sm-6">
 									<ul class="pagination ">
-										<li class="first disabled" aria-disabled="true"><a href="./super_Product.php?page=1" class="button adr-save"><<</a></li>
-										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
+										<li class="first disabled" aria-disabled="true"><a href="./PhotographerProducts.php?page=1" class="button adr-save"><<</a></li>
+										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($Page_check);?>" class="button adr-save">>></a></li></ul></div>
+										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($Page_check);?>" class="button adr-save">>></a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>
