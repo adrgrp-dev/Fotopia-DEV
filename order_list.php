@@ -183,7 +183,7 @@ header("location:order_list.php?app=1");
 </form>
       <table class="table-stripped" style="width:100%">
           <thead>
-          <tr><th class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+          <tr><th class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
                           Order#
 
@@ -464,7 +464,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
       <table class="table-striped" aria-busy="false" style="width:100%">
           <thead>
-              <tr><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+              <tr><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
                           Order#
 

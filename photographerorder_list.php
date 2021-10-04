@@ -117,7 +117,7 @@ $pht = $_SESSION['loggedin_id'];
 <div id="" style="width:100%;overflow:scroll;">
       <table class="" aria-busy="false" width="100%">
           <thead>
-              <tr><th  class="text-left" style="" id="label_s.no"  ><span adr_trans="label_s.no">
+              <tr><th  class="text-left" style="" id="label_s.no"  ><span adr_trans="label_order_no">
                           Order#
 
                  </span></th>
@@ -308,7 +308,7 @@ $pht = $_SESSION['loggedin_id'];
 <div id="" style="width:100%;overflow:scroll;">
       <table class="" aria-busy="false" style="width:100%">
           <thead>
-						<tr><th  class="text-left" style="" id="label_s.no"  ><span adr_trans="label_s.no">
+						<tr><th  class="text-left" style="" id="label_s.no"  ><span adr_trans="label_order_no">
 												Order#
 
 							 </span></th>
