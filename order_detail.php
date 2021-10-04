@@ -1897,7 +1897,7 @@ if($get_order1['status_id']==3)
             <td id="inv_th"  style="text-align: right;"><span ><span adr_trans="label_tax">Tax</span>(<?php echo $get_information['tax']; ?>%)</span><span >:</span></td>
             <?php
             $percentage = $get_information['tax'];
-            $totalcost = $prodsList1['total']+$invoice_check['other_cost'];
+            $totalcost = $prodsList1['total'];
             $new_cost = ($percentage / 100) * $totalcost;
              ?>
             <td id="inv_td" style="text-align: center;"><span data-prefix>$</span><span><?php echo $new_cost; ?></span></td>
