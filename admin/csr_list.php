@@ -35,7 +35,7 @@ if(isset($_REQUEST['loginbtn']))
                 	<div class="tab-box" data-tab-anima="show-scale">
                     <h5 class="text-center">List of users</h5>
 					<?php if(isset($_REQUEST['c'])) { ?>
-					
+
 					<p align="center" class="text-success">CSR created Successfully!.</p>
 					<?php } ?>
 					<?php if(isset($_REQUEST['cu'])) { ?>
@@ -55,7 +55,7 @@ if(isset($_REQUEST['loginbtn']))
 				<option value="All">All</option>
 			    <option value="SuperCSR" <?php if(@$_REQUEST['user_type1']=="SuperCSR") { echo "selected"; } ?>>SuperCSR</option>
 			    <option value="StandaloneCSR" <?php if(@$_REQUEST['user_type1']=="StandaloneCSR") { echo "selected"; } ?>>StandaloneCSR</option>
-			   
+
   		</select>
 		</form>
 <p align="right"><a href="create_users.php" class="btn btn-primary">+ Create Super CSR</a></p>
@@ -87,7 +87,7 @@ if(isset($_REQUEST['loginbtn']))
                                 City
 
                         </span>
- 
+
 						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
 
                                 State
@@ -118,8 +118,12 @@ if(isset($_REQUEST['loginbtn']))
                         </span><span class="icon fa "></span></a></th></tr>
                 </thead>
                 <tbody>
-				<?php 
+				<?php
 				                    //	---------------------------------  pagination starts ---------------------------------------
+														if(@$_GET["page"]<0)
+													  {
+													  $_GET["page"]=1;
+													  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -137,7 +141,7 @@ if(isset($_REQUEST['loginbtn']))
 
 									if(isset($_REQUEST['user_type1']))
 	     						 {
-	   
+
 	     $_SESSION['usertype1']=$_REQUEST['user_type1'];
 	     if( $_SESSION['usertype1'] == "All")
 	     {
@@ -154,7 +158,7 @@ $q1="select count(*) as total from admin_users where type_of_user in ('SuperCSR'
 				}
 
 				elseif(!empty($_SESSION['usertype1']))
-	     { 
+	     {
 
 if( $_SESSION['usertype1'] == "All")
 	     {
@@ -164,7 +168,7 @@ $q1="select count(*) as total from admin_users where type_of_user in ('SuperCSR'
 	     	$q1 = "select count(*) as total from admin_users where type_of_user='".$_SESSION['usertype1']."'" ;
 		 }
 		}
-	      
+
 									$result=mysqli_query($con,$q1);
 									$data=mysqli_fetch_assoc($result);
 									$total_no=$data['total'];
@@ -194,7 +198,7 @@ $q1="select count(*) as total from admin_users where type_of_user in ('SuperCSR'
 
 									if(isset($_REQUEST['user_type1']))
 	     						 {
-	   
+
 	     $_SESSION['usertype1']=$_REQUEST['user_type1'];
 if( $_SESSION['usertype1'] == "All")
 	     {
@@ -213,7 +217,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				}
 
 				elseif(!empty($_SESSION['usertype1']))
-	     { 
+	     {
 	     	if( $_SESSION['usertype1'] == "All")
 	     {
 $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR') LIMIT " . $start_no_users . ',' . $number_of_pages;
@@ -232,7 +236,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
@@ -249,7 +253,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				</tr>
 				<?php } ?></tbody>
             </table>
-			
+
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./csr_list.php?page=1" class="button"><<</a></li><li class="prev disabled" aria-disabled="true">
@@ -257,7 +261,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list.php?page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 
@@ -333,7 +337,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
                         </span><span class="icon fa "></span></a></th></tr>
                 </thead>
                 <tbody>
-				<?php 
+				<?php
 				if(empty($_GET["page1"]))
 									{
 										$_SESSION["page1"]=1;
@@ -376,7 +380,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
@@ -392,8 +396,8 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				</tr>
 				<?php } ?></tbody>
             </table>
-			
-						
+
+
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./csr_list.php?page1=1" class="button"><<</a></li><li class="prev disabled" aria-disabled="true">
@@ -401,7 +405,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 							<a href="#1" class="button"><?php echo $_SESSION["page1"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list.php?page1=".($_SESSION["page1"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list.php?page1=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 
@@ -472,8 +476,8 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
                         </span><span class="icon fa "></span></a></th></tr>
                 </thead>
                 <tbody>
-				<?php 
-				
+				<?php
+
 				if(empty($_GET["page2"]))
 									{
 										$_SESSION["page2"]=1;
@@ -516,7 +520,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
@@ -532,9 +536,9 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				</tr>
 				<?php } ?></tbody>
             </table>
-			
-						
-						
+
+
+
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./csr_list.php?page2=1" class="button"><<</a></li><li class="prev disabled" aria-disabled="true">
@@ -542,7 +546,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 							<a href="#1" class="button"><?php echo $_SESSION["page2"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list.php?page2=".($_SESSION["page2"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list.php?page2=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 </div>
@@ -569,7 +573,7 @@ $("#tab3").removeClass("active");
 <?php } ?>
 
 
-<?php if(isset($_GET["page1"]) ) 
+<?php if(isset($_GET["page1"]) )
 { ?>
 <script>
 $("#tab2").addClass("active");
@@ -579,7 +583,7 @@ $("#tab3").removeClass("active");
 <?php } ?>
 
 
-<?php if(isset($_GET["page2"]) ) 
+<?php if(isset($_GET["page2"]) )
 { ?>
 <script>
 $("#tab3").addClass("active");

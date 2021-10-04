@@ -186,7 +186,11 @@ var days = 1;
                                     <tbody>
                             <?php
                                        //	---------------------------------  pagination starts ---------------------------------------
-                            if(empty($_GET["page"]))
+																		if(@$_GET["page"]<0)
+					 													{
+					 														$_GET["page"]=1;
+					 													}
+													  if(empty($_GET["page"]))
                             {
                               $_SESSION["page"]=1;
                             }
@@ -411,7 +415,7 @@ $_SESSION['filterby']=$filterBy;
                                //	---------------------------------  pagination starts ---------------------------------------
                             ?>
                             <tr data-row-id="0">
-                            <td class="text-left" style=""><?php echo $cnt; ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <?php
                               $hs_id=$get_order["home_seller_id"];
                               $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
@@ -459,10 +463,10 @@ $_SESSION['filterby']=$filterBy;
                           $prodQuan.=$product_title['quantity'].',';
                         }
                           ?>
-                         
+
 
                             <?php
-                         
+
 						  $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
 						   $createdByQr="";
@@ -474,13 +478,13 @@ $_SESSION['filterby']=$filterBy;
 						   {
 						    $createdByQr="SELECT * FROM user_login where id='$created_by_id'";
 						   }
-						  
+
                           $get_create_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$created_by_id'");
                           $get_name_create=mysqli_fetch_assoc($get_create_name_query);
 
                              $get_create_name_query2 = mysqli_query($con,$createdByQr);
 
-                         
+
 
 
                           $get_name_create=mysqli_fetch_assoc($get_create_name_query2);

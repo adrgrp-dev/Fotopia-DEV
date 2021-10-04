@@ -28,22 +28,22 @@ background:none!important;
 	</style>
 
 <script>
-	
+
  function confirmDelete() {
             var doc;
              var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at vil slette redigeringsbyrået";
+		alertmsg="Er du sikker pï¿½ at vil slette redigeringsbyrï¿½et";
 		}
 		else
 		{
 		alertmsg="Are you sure want to delete the editor";
 		}
 alert(alertmsg);
-			
-			
+
+
             var result = confirm(alertmsg+"?");
             if (result == true) {
                return true;
@@ -120,11 +120,11 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
         <div class="container" style="margin-left:0px;height:inherit">
 
 <div class="container">
-		
-		
-                 
+
+
+
 					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
-                      	   
+
 					<table class="table table-responsive"><tr><td>
 					<h5 class="text-center" style="color:#000000!important;" id="label_create_editor" adr_trans="label_create_editor">Create editor</h5>
 
@@ -134,18 +134,18 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
                                 <p id="label_first_name" adr_trans="label_first_name">First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="5" maxlength="20" value="<?php echo @$res11['first_name']; ?>" class="form-control form-value" required="">
                               </div>
-                            
+
 						<div class="col-md-6">
 							<p id="label_last_name" adr_trans="label_last_name">Last Name</p>
                                   <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" minlength="5" maxlength="20" value="<?php echo @$res11['last_name']; ?>" class="form-control form-value" required="">
                             </div>
-							
+
 								<div class="col-md-6">
                                <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center"  class="alert-warning"></span>
 						</p>
 	<input id="email" name="email" placeholder="Email" value="<?php echo @$res11['email']; ?>" type="email" autocomplete="off" class="form-control form-value" required="">
                             </div>
-							
+
 							<div class="col-md-6">
                                 <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
                                   <input id="contactno" name="contactno" placeholder="Contact number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12" autocomplete="off" value="<?php echo @$res11['contact_number']; ?>" class="form-control form-value" required="">
@@ -154,33 +154,33 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 
 							<div class="col-md-6">
                                  <p id="label_organization" adr_trans="label_organization">Organization</p>
-                                <input id="org" name="org" minlength="5" maxlength="20" placeholder="Organization" 
+                                <input id="org" name="org" minlength="5" maxlength="20" placeholder="Organization"
                                 value="<?php echo @$res11['organization_name']; ?>" type="text" autocomplete="off" class="form-control form-value" required="" >
                             </div>
 
-						
+
 						<div class="col-md-6">
-                               
+
                                 <p id="label_photographer" adr_trans="label_photographer">Photogapher</p>
                                 <input id="photogapher" name="photogapher" placeholder="Photogapher" type="text" autocomplete="off" value="<?php echo $_SESSION['loggedin_name']; ?>" class="form-control form-value" readonly required="" >
                             </div>
 
-							
+
 
 							<div class="col-md-12">
-                                <p align="center" style="padding-top:10px;"> 
+                                <p align="center" style="padding-top:10px;">
                                 	<button id="label_save" adr_trans="label_save" class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Save</button>
                          &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn" href="editor_list.php"><i class="fa fa-times"></i>Cancel</a>
 								</p>
                             </div>
 							</form>
 							</td></tr></table>
-							
-						   
+
+
 						   </div>
-						   
-						   
-						   
+
+
+
                     </div>
 
 
@@ -195,8 +195,8 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
                 <div class="col-md-10">
                 	<div class="tab-box" data-tab-anima="show-scale">
                     <h5 class="text-center" id="label_editor_list" adr_trans="label_editor_list">List of Editors</h5>
-                   
-					
+
+
 					<?php if(isset($_REQUEST['e'])) { ?>
 
 					<p id="label_editor_created_msg" adr_trans="label_editor_created_msg" align="center" class="text-success">Editor created Successfully!.</p>
@@ -212,7 +212,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 					<p id="label_editor_deleted_msg" adr_trans="label_editor_deleted_msg" align="center" class="text-success">Editor deleted Successfully!.</p>
 					<?php } ?>
 
-					
+
 
 
 
@@ -238,14 +238,14 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
                         </span>
 
 
-						
+
 						 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_email_address" adr_trans="label_email_address">
 
                                 Email address
 
-                        </span> 
- 
-					
+                        </span>
+
+
 						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
@@ -267,6 +267,10 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
                 <tbody>
 				<?php
 				//	---------------------------------  pagination starts ---------------------------------------
+				if(@$_GET["page"]<0)
+			  {
+			  $_GET["page"]=1;
+			  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -300,7 +304,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 
 										//starting number to print the users shown in page
 									$start_no_users = ($_SESSION["page"]-1) * $number_of_pages;
-									
+
 					         $cnt=$start_no_users;
 									$q = "SELECT * FROM editor where photographer_id='$created_by_id' LIMIT " . $start_no_users . ',' . $number_of_pages;
 									$res=mysqli_query($con,$q);
@@ -317,14 +321,14 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>						
+				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $_SESSION['loggedin_name']; ?></td>
-				
+
 				<td class="text-left" style=""><a target="" href="editor_list.php?editor_id=<?php echo $res1['id']; ?>&edit=1" class="link">
 				<i class="fa fa-pencil" title="Edit editor details"></i></a> &nbsp;
 				                 <a href="editor_list.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
@@ -339,7 +343,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./editor_list.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./editor_list.php?page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?> <span adr_trans="label_to">to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></div></div>
+										<div class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></div></div>
 									</div>
 								</div>
 
@@ -348,7 +352,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 
 					<?php
 
-					
+
 
 					if(isset($_REQUEST['edit']))
 					{
@@ -380,8 +384,8 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 			$( document ).ready(function() {
    $("#addedit").click();
 });
-			
+
 			</script>
-			
+
 			<?php } ?>
 		<?php include "footer.php";  ?>

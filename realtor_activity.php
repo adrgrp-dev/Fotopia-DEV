@@ -67,7 +67,10 @@ $realtor_count_query="select count(*) as total from user_actions where (action_d
                 <tbody>
                   <?php
                     //	---------------------------------  pagination starts ---------------------------------------
-
+                    if(@$_GET["page"]<0)
+                    {
+                    $_GET["page"]=1;
+                    }
                   if(empty($_GET["page"]))
                   {
                     $_SESSION["page"]=1;
@@ -121,16 +124,16 @@ $realtor_count_query="select count(*) as total from user_actions where (action_d
                        <?php
                        if($get_action['module']=="Order" || $get_action['module']=="Rework" || $get_action['module']=="Appointment" || $get_action['module']=="Profile"||$get_action['module']=="Canceled")
                        {?>
-                           <tr><td><?php echo $cnt; ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                           <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                       <?php }
                       elseif($get_action['module']=="Rating" )
                       {?>
-                          <tr><td><?php echo $cnt; ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                      <?php }
                          else {
                              $get_action_done_name=explode("@",$get_action['action_done_by_name']);
                         ?>
-                          <tr><td><?php echo $cnt; ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                   <?php  }
                 } }?>
                </tbody>
@@ -144,7 +147,7 @@ $realtor_count_query="select count(*) as total from user_actions where (action_d
                           <li class="next disabled" aria-disabled="true"><a href="<?php echo "./realtor_activity.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                           <li class="last disabled" aria-disabled="true"><a href="<?php echo "./realtor_activity.php?page=".($Page_check);?>" class="button">»</a></li></ul>  </div>
                           <div class="col-sm-6 infoBar"style="margin-top:24px">
-                          <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php echo $start_no_users+1; ?> <span adr_trans="label_to">to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+                          <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                             <br>  <br>
                           </div>
 

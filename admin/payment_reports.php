@@ -93,7 +93,7 @@ var days = 1;
 <div class="col-md-3">
 <p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By Realtor</h5></p>
 <select name="realtor_id" class="form-control" list="realtors_list">
-<option value="">-- Choose RealtorCompany --</option>					
+<option value="">-- Choose RealtorCompany --</option>
 						<?php
 
 						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
@@ -224,7 +224,10 @@ $available=mysqli_num_rows($taxpercent);
                             <?php
                                        //	---------------------------------  pagination starts ---------------------------------------
 
-
+																			 if(@$_GET["page"]<0)
+					 													  {
+					 													  $_GET["page"]=1;
+					 													  }
                             if(empty($_GET["page"]))
                             {
                               $_SESSION["page"]=1;
@@ -363,7 +366,7 @@ else
   														$get_invoice_query=mysqli_query($con,"SELECT * FROM `invoice` WHERE order_id=$order_id");
   														$get_invoice=mysqli_fetch_assoc($get_invoice_query);
   														?>
-                            <td class="text-left" style=""><?php echo $cnt; ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
                             <td class="text-left" style=""><?php echo "FOT#".$get_invoice['order_id']; ?></td>
                             <?php  $product_id_is=$get_order2['product_id'];

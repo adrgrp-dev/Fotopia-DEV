@@ -51,6 +51,10 @@ p{
                 <tbody>
 									<?php
 										//	---------------------------------  pagination starts ---------------------------------------
+										if(@$_GET["page"]<0)
+									  {
+									  $_GET["page"]=1;
+									  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -64,13 +68,13 @@ p{
 									}
 
 									$res=mysqli_query($con,"SELECT * FROM admin_users where id='$loggedin_id'");
-									
+
 									$res1=mysqli_fetch_array($res);
 									$pc_admin_id =  $res1['pc_admin_id'];
 
-							
+
 									$count_query="select count(*) as total FROM products where id in(select product_id from photographer_product_cost where photographer_id in(select id from user_login where csr_id=$loggedin_id))";
-								
+
 									$count_result=mysqli_query($con,$count_query);
 									$data=mysqli_fetch_assoc($count_result);
 									$total_no=$data['total'];
@@ -95,21 +99,21 @@ p{
 									$cnt=$start_no_users;
                   $limit=$start_no_users. ',' . $number_of_pages;
 								//	print_r($limit);
-                 
+
 
 								if($total_no!=0)
 								{
-									
+
 						 // $res=mysqli_query($con,"select * from  `photographer_product_cost` where photographer_id=$loggedin_id");
-									
+
 							// 		$res1=mysqli_fetch_array($res);
 							// 		$photo_cost =  $res1['photography_cost'];
 
-							
+
 
 								 $get_product_result=mysqli_query($con,"SELECT * FROM products where id in(select product_id from photographer_product_cost where photographer_id in(select id from user_login where csr_id=$loggedin_id)) limit $limit");
-							
-				         
+
+
 
                   while($get_product=mysqli_fetch_array($get_product_result))
                   {
@@ -117,12 +121,12 @@ p{
 				          ?>
                     <tr>
                         <th scope="row"><?php echo $cnt;?></th>
-                        <td><?php echo $get_product['product_name']; ?></td>   
+                        <td><?php echo $get_product['product_name']; ?></td>
                         <td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['product_cost']; ?></td>
-				        <td><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>       
+				        <td><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
                     </tr>
-                 
+
 
 				   <?php } } else { ?>
 				   <tr><td colspan="7" id="label_no_product" adr_trans="label_no_product">No products found.</td></tr>
@@ -141,13 +145,13 @@ p{
 										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./csr_products.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
 										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./csr_products.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?> <span adr_trans="label_to">to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 										</div><?php } ?>
-				
 
 
-		
-					
+
+
+
 							<!-- </div> -->
 
 

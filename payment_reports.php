@@ -108,8 +108,8 @@ var days = 1;
                                            </span>
 
                                             <span class="icon fa "></span></a></th>
-											
-											
+
+
 										<!--	<th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
 
 
@@ -119,8 +119,8 @@ var days = 1;
                                           </span>
 
                                            <span class="icon fa "></span></a></th>-->
-										   
-										   
+
+
 										   <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_total_value">
 
                                           Total Value
@@ -151,6 +151,10 @@ var days = 1;
                                     <tbody>
                             <?php
                                        //	---------------------------------  pagination starts ---------------------------------------
+																			 if(@$_GET["page"]<0)
+																		   {
+																		   $_GET["page"]=1;
+																		   }
                             if(empty($_GET["page"]))
                             {
                               $_SESSION["page"]=1;
@@ -286,7 +290,7 @@ var days = 1;
 															 $get_invoice=mysqli_fetch_array($get_invoiced_name_query);
 
 																					?>
-                            <td class="text-left" style=""><?php echo $cnt; ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
                             <td class="text-left" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
 
@@ -305,12 +309,12 @@ var days = 1;
 																						  				?>
 													<?php	$total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
 															 $total_cost1=mysqli_fetch_array($total_cost);?>
-                               
+
                             <td class="text-left" style=""><?php  echo @substr($prodName,0,-1); ?></td>
 
                              <?php
                            $prodQuan="";
-                           
+
 
                             $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id ='$order_id'");
 

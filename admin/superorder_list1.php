@@ -204,6 +204,10 @@ header("location:subcsrOrder_list1.php?app=1");
           <?php
           $loggedin_id=$_SESSION['admin_loggedin_id'];
             //  ---------------------------------  pagination starts ---------------------------------------
+            if(@$_GET["page"]<0)
+            {
+            $_GET["page"]=1;
+            }
           if(empty($_GET["page"]))
           {
             $_SESSION["page"]=1;
@@ -257,7 +261,7 @@ header("location:subcsrOrder_list1.php?app=1");
           ?>
           <tr>
           <td class="text-center" style=""><?php echo @$get_order['id']; ?></td>
-          <?php 
+          <?php
 		  $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
 						   $csr_id=$get_order['csr_id'];
@@ -380,7 +384,7 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                               <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                               <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -468,6 +472,10 @@ header("location:subcsrOrder_list1.php?app=1");
           <?php
           $loggedin_id=$_SESSION['admin_loggedin_id'];
             //  ---------------------------------  pagination starts ---------------------------------------
+            if(@$_GET["page"]<0)
+            {
+            $_GET["page"]=1;
+            }
           if(empty($_GET["page"]))
           {
             $_SESSION["page"]=1;
@@ -640,7 +648,7 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -728,6 +736,10 @@ header("location:subcsrOrder_list1.php?app=1");
           <?php
           $loggedin_id=$_SESSION['admin_loggedin_id'];
             //  ---------------------------------  pagination starts ---------------------------------------
+            if(@$_GET["page"]<0)
+            {
+            $_GET["page"]=1;
+            }
           if(empty($_GET["page"]))
           {
             $_SESSION["page"]=1;
@@ -889,7 +901,7 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -982,6 +994,10 @@ header("location:subcsrOrder_list1.php?app=1");
           <?php
           $loggedin_id=$_SESSION['admin_loggedin_id'];
             //  ---------------------------------  pagination starts ---------------------------------------
+            if(@$_GET["page"]<0)
+            {
+            $_GET["page"]=1;
+            }
           if(empty($_GET["page"]))
           {
             $_SESSION["page"]=1;
@@ -1127,8 +1143,8 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?c=1&page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
                                 <div class="infos">
-						<p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p>		
-				<?php /* <p align="right">Showing <?php echo $start_no_users+1; ?> to <?php echo $cnt; ?> of <?php echo $total_no; ?> entries</p> */ ?>
+						<p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p>
+				<?php /* <p align="right">Showing <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> to <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> entries</p> */ ?>
 								</div>
                                 </div>
                               </div>

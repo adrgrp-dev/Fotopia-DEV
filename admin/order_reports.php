@@ -274,6 +274,10 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
                                   <tbody>
                           <?php
                                      //	---------------------------------  pagination starts ---------------------------------------
+																		 if(@$_GET["page"]<0)
+																	   {
+																	   $_GET["page"]=1;
+																	   }
                           if(empty($_GET["page"]))
                           {
                             $_SESSION["page"]=1;
@@ -487,7 +491,7 @@ $res="";
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
                           <tr data-row-id="0">
-                          <td class="text-left" style=""><?php echo $cnt; ?></td>
+                          <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                           <?php
                             $hs_id=$get_order["home_seller_id"];
                             $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
@@ -535,7 +539,7 @@ $res="";
                           $prodQuan.=$product_title['quantity'].',';
                         }
                           ?>
-                      
+
 
 
 

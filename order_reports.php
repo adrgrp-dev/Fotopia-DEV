@@ -175,7 +175,7 @@ $realtorID=$_SESSION['loggedin_id'];
                                           </span>
 
                                            <span class="icon fa "></span></a></th>
-										   
+
 										 <!--  <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
 
 
@@ -185,8 +185,8 @@ $realtorID=$_SESSION['loggedin_id'];
                                           </span>
 
                               <span class="icon fa "></span></a></th> -->
-										   
-										   
+
+
 										   <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_total_value">
 
                                         Total Value
@@ -210,6 +210,10 @@ $realtorID=$_SESSION['loggedin_id'];
                                   <tbody>
                           <?php
                                      //	---------------------------------  pagination starts ---------------------------------------
+																		 if(@$_GET["page"]<0)
+																	   {
+																	   $_GET["page"]=1;
+																	   }
                           if(empty($_GET["page"]))
                           {
                             $_SESSION["page"]=1;
@@ -404,7 +408,7 @@ $res="";
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
                           <tr data-row-id="0">
-                          <td class="text-left" style=""><?php echo $cnt; ?></td>
+                          <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                           <?php
                             $hs_id=$get_order["home_seller_id"];
                             $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
@@ -430,8 +434,8 @@ $res="";
 													<?php
 	$prodName="";
 								  				 $prodsList=mysqli_query($con,"SELECT * from products where id in(select product_id from order_products WHERE order_id='$order_id')");
-												 
-												 
+
+
 								              while($prodsList1=mysqli_fetch_array($prodsList))
 								  			{
 											$prodID=$prodsList1['id'];

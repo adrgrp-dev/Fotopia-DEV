@@ -15,7 +15,7 @@ $realtor_id=$_REQUEST['realtor_id'];
 $product_id=$_REQUEST['product_id'];
 $product_cost=$_REQUEST['product_cost'];
 $discount_price=$_REQUEST['discount_price'];
-						
+
 
 mysqli_query($con,"delete from realtor_product_cost where pc_admin_id='$loggedin_id' and realtor_id='$realtor_id'");
 
@@ -64,7 +64,7 @@ border-top:none!important;
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil slette produktet";
+		alertmsg="Er du sikker pï¿½ at du vil slette produktet";
 		}
 		else
 		{
@@ -79,7 +79,7 @@ border-top:none!important;
             }
 
         }
-		
+
 		function calculateTotal()
 		{
 		var product_cost=$("#product_cost").val();
@@ -94,18 +94,18 @@ border-top:none!important;
 		{
 		total_cost1=parseFloat(product_cost)+parseFloat(tax);
 		}
-		
+
 		$("#total_cost").val(total_cost1);
-		
+
 		}
     </script>
  <div class="section-empty bgimage3">
         <div class="container">
-		
-		
-                 
+
+
+
 					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
-                      	   
+
 					<table class="table table-responsive"><tr><td>
 					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
 
@@ -120,12 +120,12 @@ border-top:none!important;
                                 <p id="label_description" adr_trans="label_description" style="color:#000!important;">Description</p>
        <textarea id="desc" name="desc" class="form-control form-value"><?php echo @$res11['description']; ?></textarea>
                             </div>
-							
+
 								<div class="col-md-12">
                                 <p id="label_timeline" adr_trans="label_timeline" style="color:#000!important;">Timeline</p>
                                <input id="timeline" name="timeline"  type="text" autocomplete="off" class="form-control form-value" required value="<?php echo @$res11['timeline']; ?>">
                             </div>
-							
+
 							<div class="col-md-12">
                                 <p id="label_product_cost" adr_trans="label_product_cost" style="color:#000!important;">Product Cost ($)</p>
                                 <input id="product_cost" name="product_cost" placeholder="Product Cost" type="number" autocomplete="off" class="form-control form-value" required value="<?php echo @$res11['product_cost']; ?>" onkeyUp="calculateTotal()">
@@ -137,13 +137,13 @@ border-top:none!important;
                              <input id="tax" name="tax"  type="number" autocomplete="off" class="form-control form-value"  value="<?php echo @$res11['tax']; ?>" required  onkeyUp="calculateTotal()">
                             </div>
 
-						
+
 <div class="col-md-12">
                                 <p id="label_total_cost" adr_trans="label_total_cost" style="color:#000!important;">Total Cost ($)</p>
                                 <input id="total_cost" name="total_cost" placeholder="Total Cost" type="number" autocomplete="off" class="form-control form-value" readonly value="<?php echo @$res11['total_cost']; ?>">
                             </div>
 
-							
+
 
 							<div class="col-md-12">
                                 <p align="center" style="padding-top:10px;"> <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="prodbtn"><i class="fa fa-sign-in" id="label_save" adr_trans="label_save"></i>Save</button>
@@ -153,12 +153,12 @@ border-top:none!important;
                             </div>
 							</form>
 							</td></tr></table>
-							
-						   
+
+
 						   </div>
-						   
-						   
-						   
+
+
+
                     </div>
                 </div>
             <div class="row">
@@ -186,7 +186,7 @@ border-top:none!important;
                         </div>
 						<?php }  ?>
 						</center>
-				
+
 						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px;border:solid 1px #000;">
 
 <center>
@@ -197,26 +197,26 @@ border-top:none!important;
 </div>
 </center>
 <br><br><br />
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products 
-						<?php 
-					
-						
-						if(@$_REQUEST['realtor']) { 
-						
+						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products
+						<?php
+
+
+						if(@$_REQUEST['realtor']) {
+
 							$selectrealtor123=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id='$_REQUEST[realtor]'");
 						$selectrealtor1234=mysqli_fetch_array($selectrealtor123);
-						
+
 						echo "of ".$selectrealtor1234['first_name']." ".$selectrealtor1234['last_name']; } ?>
-						
+
 						</h5>
-						
+
 						<p align="left">
 						<form name="filterfrm" method="post" action="">
 						<input type="text" name="realtor" class="form-control" style="width:200px;" list="realtors" onChange="this.form.submit();" placeholder="Select Realtor">
-						
+
 						<datalist id="realtors">
-						
-						<?php 
+
+						<?php
 						$selectrealtor=mysqli_query($con,"select * from user_login where type_of_user='Realtor'");
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
@@ -224,7 +224,7 @@ border-top:none!important;
 						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['first_name']; ?>&nbsp;<?php echo $selectrealtor1['last_name']; ?></option>
 						<?php } ?>
 						</datalist>
-						
+
 						</form>
 						</p>
 						  <div style="width:100%;overflow:scroll">
@@ -233,10 +233,10 @@ border-top:none!important;
 				$total_no=0;
 				if(@$_REQUEST['realtor'])
 				{
-				
+
 				$realtor_id=$_REQUEST['realtor'];
-				
-				
+
+
 				 ?><thead>
                     <tr>
                         <th>#</th>
@@ -249,10 +249,14 @@ border-top:none!important;
                 </thead>
 <form name="submitFrm" method="post" action="">
                 <tbody>
-				
-				
+
+
 									<?php
 										//	---------------------------------  pagination starts ---------------------------------------
+										if(@$_GET["page"]<0)
+									  {
+									  $_GET["page"]=1;
+									  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -297,18 +301,18 @@ $realtorDiscountPrice=0;
                   {
 	                  $cnt++;
 					  $proID=$get_product['id'];
-					  
+
 					  $realtorDiscountPrice=$get_product['total_cost'];
-					  
+
 	$realtorRate=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$loggedin_id' and realtor_id='$realtor_id' and product_id='$proID'");
-					  
+
 					  $rowsExist=mysqli_num_rows($realtorRate);
 					  if($rowsExist>0)
 					  {
 					  $realtorRate1=mysqli_fetch_array($realtorRate);
 					  $realtorDiscountPrice=$realtorRate1['discount_price'];
 					  }
-					  
+
 				          ?>
                     <tr>
                         <th scope="row"><?php echo $cnt;?></th>
@@ -322,21 +326,21 @@ $realtorDiscountPrice=0;
 						<input type="hidden" name="pc_admin_id" value="<?php echo $loggedin_id; ?>">
 						<input type="hidden" name="realtor_id" value="<?php echo $realtor_id; ?>">
 						</td>
-						
-				               
+
+
                     </tr>
-                 
+
 				   <?php } } else { ?>
 				   <tr><td colspan="7" id="label_no_product" adr_trans="label_no_product">No products found.</td></tr>
 				   <?php }  } else  { ?>
-				   
+
 				   <center><br><span id="label_select_realtor_price" adr_trans="label_select_realtor_price" style="font-weight:600;color:#006600;">Select a Realtor from the list to show the Realtor based product discount price</span><br><br></center>
-				   
+
 				   <?php } ?>
-				   <?php 
+				   <?php
 					if(@$_REQUEST['realtor']) { ?>
-				 <tr><td colspan="4">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn btn-default btn-sm"></td></tr> 
-				 <?php } ?> 
+				 <tr><td colspan="4">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn btn-default btn-sm"></td></tr>
+				 <?php } ?>
                 </tbody>
 				</form>
             </table></div>
@@ -346,13 +350,13 @@ $realtorDiscountPrice=0;
 			?>
 						<div class="col-sm-6">
 									<ul class="pagination ">
-										<li class="first disabled" aria-disabled="true"><a href="./super_Product.php?page=1" class="button adr-save">«</a></li>
+										<li class="first disabled" aria-disabled="true"><a href="./super_Product.php?page=1" class="button adr-save">ï¿½</a></li>
 										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
 										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./super_Product.php?page=".($Page_check);?>" class="button adr-save">ï¿½</a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>
 				</div>
 
@@ -370,7 +374,7 @@ $realtorDiscountPrice=0;
 
 					?>
 
-					
+
 							</div></div></div></div>
 
             <?php if(@$_REQUEST['edit'])
@@ -380,10 +384,10 @@ $realtorDiscountPrice=0;
 			$( document ).ready(function() {
    $("#addedit").click();
 });
-			
+
 			</script>
-			
+
 			<?php } ?>
-		
-		
+
+
 		<?php include "footer.php";  ?>

@@ -28,9 +28,9 @@ include "connection1.php";
               {
               ?>
               <option value="<?php echo $all_modules['module']; ?>" <?php if(@$_REQUEST['module']==$all_modules['module']) { echo "selected"; } ?>><?php echo $all_modules['module']; ?></option>
-              <?php } ?> 
+              <?php } ?>
       </select>
-      </center> 
+      </center>
     </form>
 <div class="col-md-10">
 
@@ -67,6 +67,10 @@ include "connection1.php";
           <?php
 
             //  ---------------------------------  pagination starts ---------------------------------------
+            if(@$_GET["page"]<0)
+            {
+            $_GET["page"]=1;
+            }
           if(empty($_GET["page"]))
           {
             $_SESSION["page"]=1;
@@ -237,7 +241,7 @@ if($get_action['module']== $new)
 
   ?>
          <tr>
-          <td class="text-center"><?php echo $cnt; ?></td>
+          <td class="text-center"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
           <td class="text-center"><?php echo $get_action['module'] ?> </td>
           <td class="text-center"><?php echo $get_action['action'] ?> </td>
           <td class="text-center"><?php echo $get_action['action_done_by_name'] ?></td>
@@ -279,5 +283,5 @@ if($get_action['module']== $new)
             </div>
         </div>
 
-    
+
     <?php include "footer.php";  ?>

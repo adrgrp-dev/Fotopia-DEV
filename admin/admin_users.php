@@ -86,6 +86,10 @@ if(isset($_REQUEST['loginbtn']))
 
 									<?php
                     //	---------------------------------  pagination starts ---------------------------------------
+										if(@$_GET["page"]<0)
+													{
+														$_GET["page"]=1;
+													}
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -128,7 +132,7 @@ if(isset($_REQUEST['loginbtn']))
 				//-----------------------------------pagination end---------------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style=""><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
@@ -148,7 +152,7 @@ if(isset($_REQUEST['loginbtn']))
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./admin_users.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./admin_users.php?page=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?> <span adr_trans="label_to">to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 								</div>
                 </div>
             </div>

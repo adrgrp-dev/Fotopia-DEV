@@ -191,6 +191,10 @@ tr:nth-child(even) {
                 <tbody>
 				<?php
 				//	---------------------------------  pagination starts ---------------------------------------
+				if(@$_GET["page"]<0)
+			  {
+			  $_GET["page"]=1;
+			  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -241,7 +245,7 @@ tr:nth-child(even) {
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
 				<!-- <td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td> -->
@@ -266,7 +270,7 @@ tr:nth-child(even) {
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?a=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?a=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 
@@ -343,6 +347,10 @@ tr:nth-child(even) {
                 <tbody>
 				<?php
 				//	---------------------------------  pagination starts ---------------------------------------
+				if(@$_GET["page"]<0)
+				{
+				$_GET["page"]=1;
+				}
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -400,7 +408,7 @@ tr:nth-child(even) {
 
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo @$admin1['first_name']; ?></td>
@@ -426,7 +434,7 @@ tr:nth-child(even) {
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?c=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?c=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 
@@ -499,6 +507,10 @@ tr:nth-child(even) {
                 <tbody>
 				<?php
 				//	---------------------------------  pagination starts ---------------------------------------
+				if(@$_GET["page"]<0)
+			  {
+			  $_GET["page"]=1;
+			  }
 									if(empty($_GET["page"]))
 									{
 										$_SESSION["page"]=1;
@@ -549,7 +561,7 @@ tr:nth-child(even) {
 				$cnt++;
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php
@@ -592,7 +604,7 @@ tr:nth-child(even) {
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?p=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?p=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div><!--Panel 3 ends-->
 
@@ -608,15 +620,15 @@ tr:nth-child(even) {
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at vil slette redigeringsbyrået";
+		alertmsg="Er du sikker pï¿½ at vil slette redigeringsbyrï¿½et";
 		}
 		else
 		{
 		alertmsg="Are you sure want to delete the editor";
 		}
 alert(alertmsg);
-			
-			
+
+
             var result = confirm(alertmsg+"?");
 			            if (result == true) {
                return true;
@@ -746,7 +758,7 @@ header("location:csr_list1.php?ed=1");
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
@@ -767,7 +779,7 @@ header("location:csr_list1.php?ed=1");
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?e=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?e=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to"> to </span><?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
 									</div>
 								</div>
 

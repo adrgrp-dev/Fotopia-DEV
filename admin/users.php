@@ -94,7 +94,7 @@ if(isset($_REQUEST['loginbtn']))
 		alertmsg="Enter a user name in the search bar";
 		}
 alert(alertmsg);
-			
+
             return false;
         }
 }
@@ -200,6 +200,10 @@ var initialArray = [];
                 <tbody>
 				<?php
                    //	---------------------------------  pagination starts ---------------------------------------
+									 if(@$_GET["page"]<0)
+								   {
+								   $_GET["page"]=1;
+								   }
 				if(empty($_GET["page"]))
 				{
 					@$_SESSION["page"]=1;
@@ -368,7 +372,7 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
@@ -395,7 +399,7 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 							<a href="#1" class="button"><?php echo @$_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page=".(@$_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -732,7 +736,7 @@ if(@$_SESSION['usertype2']!='PCAdmin')
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;word-break:break-all;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $pending_data2['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['type_of_user']; ?></td>
@@ -760,7 +764,7 @@ if(@$_SESSION['usertype2']!='PCAdmin')
 							<a href="#1" class="button"><?php echo @$_SESSION["page1"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page1=".(@$_SESSION["page1"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page1=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -1112,7 +1116,7 @@ if(@$_SESSION['usertype3']!='PCAdmin')
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0">
-				<td class="text-left" style=""><?php echo $cnt; ?></td>
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;word-break:break-all;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $denied_data2['organization']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['type_of_user']; ?></td>
@@ -1139,7 +1143,7 @@ if(@$_SESSION['usertype3']!='PCAdmin')
 							<a href="#1" class="button"><?php echo @$_SESSION["page2"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page2=".(@$_SESSION["page2"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page2=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php echo $start_no_users+1; ?><span adr_trans="label_to">  to</span> <?php echo $cnt; ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 

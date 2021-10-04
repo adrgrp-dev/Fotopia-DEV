@@ -67,7 +67,10 @@ $pc_admin_count_query="select count(*) as total from user_actions where (action_
                  <?php
   //	---------------------------------  pagination starts ---------------------------------------
 
-
+  if(@$_GET["page"]<0)
+  {
+  $_GET["page"]=1;
+  }
 if(empty($_GET["page"]))
 {
   $_SESSION["page"]=1;
@@ -153,10 +156,10 @@ $limit=$start_no_users. ',' . $number_of_pages;
      <?php
      if($get_action['module']=="Profile" || $get_action['module']=="Product" || $get_action['module']=="Declined" || $get_action['module']=="Working")
      { ?>
-         <tr><td><?php echo $cnt; ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+         <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                       <?php }
                        else {  ?>
-                          <tr><td><?php echo $cnt; ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
 
   <?php   } ?>
 
