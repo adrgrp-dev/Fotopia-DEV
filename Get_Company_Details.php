@@ -133,7 +133,9 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:150px
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;\">
                                ".$portFolio."
                             </div>
-							<hr class=\"space s\"><center><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>";
+							</div>
+							<hr class=\"space s\"><center style=\"position:fixed;padding-top:50px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>
+							";
 /*<p align=\"center\">
 
 <a class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i>Check Availability</a>&nbsp;&nbsp;&nbsp;
