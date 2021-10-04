@@ -127,13 +127,12 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:150px
 							 <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;\">
                                ".$product."<br>
                             </div>
-                            <div class=\"panel\" id=\"contactDiv\" style=\"height:580px;\">
+                            <div class=\"panel\" id=\"contactDiv\" style=\"height:fit-content;margin-bottom:-20px;\">
                                ".$contact."
                             </div>
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;\">
                                ".$portFolio."
                             </div>
-							</div>
 							<hr class=\"space s\"><center style=\"position:fixed;padding-top:50px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>
 							";
 /*<p align=\"center\">
