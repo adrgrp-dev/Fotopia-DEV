@@ -51,29 +51,29 @@ td, th {
 
 			</div>
                 <div class="col-md-10">
-    
+
                   <div class="row">
 
                    <h5 align="center" style="color:#333333;">Client Details</h5><br />
 
                    <div class="col-md-1">
 
-                    
+
                    </div>
 
 
                    <div class="col-md-8">
-				   
+
              <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
 			   <hr class="space s">
                      <table class="table-striped" style="width:100%; border:solid">
-					 <tr><td rowspan="8" style="width:200px;"> 
+					 <tr><td rowspan="8" style="width:200px;">
 					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="190" height="200" />
 					 </td></tr>
                        <tr>
                          <td align="left" class="text"><span adr_trans="label_name">Name</span></td>
                          <td>:</td>
-                         <td align="left"><?php  echo @$get_data['organization_name']?></td>
+                         <td align="left"><?php  echo @$get_data['first_name']?></td>
                        </tr>
                        <tr>
                          <td align="left"><span adr_trans="label_role">Role</span></td>
@@ -107,7 +107,7 @@ td, th {
                      <hr class="space s">
 					 <div>
                       <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                     <table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.9;width:100%;border-radius:25px;"> 
+                     <table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.9;width:100%;border-radius:25px;">
                           <tr>
                            <th style="color:black;"><span> S.no</span></th>
                              <th style="color:black;"><span adr_trans="label_product">Product</span></th>
@@ -150,7 +150,7 @@ td, th {
                      <div>
 
           </div>
-        
+
         </div>
 
 </div>

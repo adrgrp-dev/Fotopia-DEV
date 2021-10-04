@@ -552,8 +552,9 @@ $res="";
                           <?php
                         $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
+							 $csr_id=$get_order['csr_id'];
 						   $createdByQr="";
-						   if($created_by_id==$pcAdminId)
+						   if($created_by_id==$pcAdminId||$created_by_id==$csr_id)
 						   {
 						   $createdByQr="SELECT * FROM admin_users where id='$created_by_id'";
 						   }

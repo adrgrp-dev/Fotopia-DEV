@@ -74,7 +74,7 @@ var days = 1;
 <input type="date" id="end" name="ending" class="form-control" style="">
 </div>
 <div class="col-md-3" style="margin-top:23px;padding-left:30px;">
-    <button type="submit" id="submit" class="btn btn-primary s" style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
+    <button type="submit" id="submit" class="btn btn-default " style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
 
                           <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
@@ -96,16 +96,26 @@ var days = 1;
                                               Order Cost No
 
                                             </span>
-                                            <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_order_reference">
+                                            <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="">
 
-                                             Order Reference
+                                             Ref #
 
                                             </span>
                                            <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_products">
 
-                                           Products
+                                          Products & Value
 
                                            </span>
+																					 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_otherCost">
+
+                                          Other Cost
+
+                                           </span>
+																					 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" >
+
+																					Tax
+
+																					 </span>
 
                                             <span class="icon fa "></span></a></th>
 
@@ -293,38 +303,85 @@ var days = 1;
                             <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
                             <td class="text-left" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
+														<?php
+														$taxpercentage=0;
+														 $pc_admin_id=$get_order2['pc_admin_id'];
+														 $taxpercent="";
 
-																											<?php
-															$prodName="";
-		 $prodsList=mysqli_query($con,"SELECT * from products where id in(select product_id from order_products WHERE order_id='$order_id')");
-		// echo "select product_id from order_products WHERE order_id='$order_id'";
-																						              while($prodsList1=mysqli_fetch_array($prodsList))
-																						  			{
-																						  				//$prodName.=$prodsList1['product_name'].',';
-																										$prodID=$prodsList1['id'];
-											$prodQty1 =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id ='$order_id' and product_id='$prodID'");
-											$prodQty=mysqli_fetch_array($prodQty1);
-								  				$prodName.=$prodsList1['product_name'].'&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;'.$prodQty['quantity'].'<br>';
-																										}
-																						  				?>
-													<?php	$total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
-															 $total_cost1=mysqli_fetch_array($total_cost);?>
-
-                            <td class="text-left" style=""><?php  echo @substr($prodName,0,-1); ?></td>
-
-                             <?php
-                           $prodQuan="";
+																				    $taxpercent=mysqli_query($con,"select tax from photo_company_profile where pc_admin_id='$pc_admin_id'");
 
 
-                            $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id ='$order_id'");
+														$available=mysqli_num_rows($taxpercent);
+																						if($available>0)
+																						{
+																					   $taxpercent1=mysqli_fetch_array($taxpercent);
+																					   $taxpercentage=$taxpercent1['tax'];
+																					   }
+														?>
+														<?php  $product_id_is=$get_order2['product_id'];
 
-                              while($product_title=mysqli_fetch_array($get_product))
-                        {
-                          $prodQuan.=$product_title['quantity'].',';
-                        }
-                          ?>
+						 //  $product=mysqli_query($con,"select sum(total_price)+sum(photographer_cost)+sum(other_cost) as total_value,GROUP_CONCAT(product_title,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
+
+								 $product=mysqli_query($con,"select sum(total_price*quantity) as total_value,GROUP_CONCAT(product_title,' X ',quantity,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
+
+						 // $product=mysqli_query($con,"select * from order_products where order_id=$order_id")
+														 $product_detail=mysqli_fetch_array($product);
+
+
+
+							 $photography=mysqli_query($con,"select sum(photographer_cost) as photography_value,GROUP_CONCAT(product_title,' - $',photographer_cost SEPARATOR '\n') as photography_title from order_products where order_id='$order_id'");
+
+								$photography1=mysqli_fetch_array($photography);
+
+
+								$otherCost=mysqli_query($con,"select other_cost from invoice where order_id='$order_id'");
+								 $otherCost1=mysqli_fetch_array($otherCost);
+
+								 $totalCostIs=$product_detail['total_value']+$otherCost1['other_cost'];
+								// echo ""
+
+
+
+
+                 $grandTotal=0;
+								 $totalOrderValue=0;
+								 $taxation=0;
+								 if($taxpercentage==0)
+								 {
+									$totalOrderValue=$totalCostIs;
+								$grandTotal=$grandTotal+$totalOrderValue;
+								 }
+								 else
+								 {
+								 $taxation=($totalCostIs*$taxpercentage)/100;
+								 $totalOrderValue=$totalCostIs+$taxation;
+								 $grandTotal=$grandTotal+$totalOrderValue;
+								 }
+
+														?>
+														<td class="text-left" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
+																<td class="text-center" style=""><?php echo "$".$otherCost1['other_cost']; ?></td>
+																	<td class="text-leenterft" style=""><?php echo "$".$taxation; ?></td>
+
+
+
+
+														 <?php
+													 $prodQuan="";
+
+
+														$get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id ='$order_id'");
+
+															while($product_title=mysqli_fetch_array($get_product))
+												{
+													$prodQuan.=$product_title['quantity'].',';
+												}
+													?>
+
+
+
                          <?php /* <td class="text-left" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
-                            <td class="text-left" style=""><?php echo "$".@$total_cost1['totalPrice']; ?></td>
+                            <td class="text-center" style=""><?php echo "$".$totalOrderValue; ?></td>
 														<?php
 	                          $pc_id=$get_order2['pc_admin_id'];
 														 $order_id=$get_order2['id'];

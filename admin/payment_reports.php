@@ -444,7 +444,8 @@ else
                            $created_by_id=$get_order2['created_by_id'];
 						   $pcAdminId=$get_order2['pc_admin_id'];
 						   $createdByQr="";
-						   if($created_by_id==$pcAdminId)
+							  $csr_id=$get_order2['csr_id'];
+						   if($created_by_id==$pcAdminId||$created_by_id==$csr_id)
 						   {
 						   $createdByQr="SELECT * FROM admin_users where id='$created_by_id'";
 						   }

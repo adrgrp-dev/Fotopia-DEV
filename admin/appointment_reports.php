@@ -110,7 +110,7 @@ var days = 1;
 
 
 <div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:30px;">
-  <button type="submit" id="label_search" adr_trans="label_search" class="btn btn-primary s" style="border-radius:20px 20px 20px 20px;">Search</button>
+  <button type="submit" id="label_search" adr_trans="label_search" class="btn btn-default" style="border-radius:20px 20px 20px 20px;">Search</button>
 
    <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
@@ -470,7 +470,8 @@ $_SESSION['filterby']=$filterBy;
 						  $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
 						   $createdByQr="";
-						   if($created_by_id==$pcAdminId)
+							  $csr_id=$get_order['csr_id'];
+						   if($created_by_id==$pcAdminId||$created_by_id==$csr_id)
 						   {
 						   $createdByQr="SELECT * FROM admin_users where id='$created_by_id'";
 						   }
