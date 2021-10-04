@@ -65,18 +65,18 @@ var days = 1;
 </script>
 <form>
 <div class="row">
-<div class="col-md-3" style="padding-left:30px;">
+<div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
 <input type="date" id="start" name="starting" class="form-control" style="display:inline-table">
 </div>
-<div class="col-md-3" style="padding-left:30px;">
+<div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
 <input type="date" id="end" name="ending" class="form-control" style="">
 </div>
 <div class="col-md-3" style="margin-top:23px;padding-left:30px;">
     <button type="submit" id="submit" class="btn btn-primary s" style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
 
   </div>
