@@ -61,9 +61,13 @@ var days = 1;
   else
     return '0' + val;
 }
+function PCAdminSearch()
+{
+$("#submit").click();
 
+}
 </script>
-<form>
+<form name="searchForm" method="post" action="">
 <div class="row">
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
@@ -72,6 +76,19 @@ var days = 1;
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
 <input type="date" id="end" name="ending" class="form-control" style="">
+</div>
+<div class="col-md-2" style="padding-left:10px;width:180px;">
+<p><h5 adr_trans="label_photo_company">Photo Company</h5></p>
+<input type="text" name="pcfilter" id="pcfilter" class="form-control" list="pclist" onchange="PCAdminSearch()" />
+<datalist id="pclist">
+ <?php
+							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile");
+							while($city=mysqli_fetch_array($city1))
+							{
+							?>
+							<option value="<?php echo $city['pc_admin_id']; ?>"><?php echo $city['org']; ?></option>
+							<?php } ?>
+</datalist>
 </div>
 <div class="col-md-3" style="margin-top:23px;padding-left:30px;">
     <button type="submit" id="submit" class="btn btn-default " style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
@@ -160,6 +177,14 @@ var days = 1;
                                     </thead>
                                     <tbody>
                             <?php
+							
+							$pc_admin_filter="";
+							if(@$_REQUEST['pcfilter'])
+							{
+							$pcadmin=$_REQUEST['pcfilter'];
+							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+							
+							}
                                        //	---------------------------------  pagination starts ---------------------------------------
 																			 if(@$_GET["page"]<0)
 																		   {
@@ -186,10 +211,10 @@ var days = 1;
 
                           if($_SESSION['user_type']=="Realtor")
                            {
-                              $q1="select count(*) as total FROM `orders` where status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'  ORDER BY session_from_datetime asc";
+                              $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'  ORDER BY session_from_datetime asc";
                             }
                             else {
-                              $q1="select count(*) as total FROM `orders`  WHERE status_id=3 AND created_by_id=$realtorID AND DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
+                              $q1="select count(*) as total FROM `orders`  WHERE $pc_admin_filter status_id=3 AND created_by_id=$realtorID AND DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
                             }
                           }
                           elseif (!empty($_SESSION['starting_time'])) {
@@ -198,22 +223,23 @@ var days = 1;
 
                             if($_SESSION['user_type']=="Realtor")
                            {
-                              $q1="select count(*) as total FROM `orders` where status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'   ORDER BY session_from_datetime asc ";
+                              $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'   ORDER BY session_from_datetime asc ";
                             }
                             else {
-                              $q1="select count(*) as total FROM `orders`  WHERE status_id=3 AND created_by_id=$realtorID AND DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
+                              $q1="select count(*) as total FROM `orders`  WHERE $pc_admin_filter status_id=3 AND created_by_id=$realtorID AND DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
                             }
                           }
                           else{
 
                           if($_SESSION['user_type']=="Realtor")
                            {
-                              $q1="select count(*) as total FROM `orders` where created_by_id=$realtorID and status_id=3";
+                              $q1="select count(*) as total FROM `orders` where $pc_admin_filter created_by_id=$realtorID and status_id=3";
                             }
                             else {
-                              $q1="select count(*) as total FROM `orders` where status_id=3 AND created_by_id=$realtorID";
+                              $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID";
                             }
                           }
+						  
                             $result=mysqli_query($con,$q1);
                             $data=mysqli_fetch_assoc($result);
                             $number_of_pages=5;
@@ -249,11 +275,11 @@ var days = 1;
                             $end = $_SESSION['ending_time'] ;
 
                             if($_SESSION['user_type']=="Realtor"){
-                             $res2=mysqli_query($con,"SELECT * FROM `orders` where status_id=3 and created_by_id=$realtorID and
+                             $res2=mysqli_query($con,"SELECT * FROM `orders` where $pc_admin_filter status_id=3 and created_by_id=$realtorID and
                             DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
                            }
                            else {
-                            $res2=mysqli_query($con,"SELECT * FROM `orders` WHERE status_id=3 and created_by_id=$realtorID DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
+                            $res2=mysqli_query($con,"SELECT * FROM `orders` WHERE $pc_admin_filter status_id=3 and created_by_id=$realtorID DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
                            }
                            }
 
@@ -262,11 +288,11 @@ var days = 1;
                              $end = $_SESSION['ending_time'] ;
 
                            if($_SESSION['user_type']=="Realtor"){
-                             $res2=mysqli_query($con,"SELECT * FROM `orders` where status_id=3 and created_by_id=$realtorID and
+                             $res2=mysqli_query($con,"SELECT * FROM `orders` where $pc_admin_filter status_id=3 and created_by_id=$realtorID and
                             DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
                            }
                            else {
-                            $res2=mysqli_query($con,"SELECT * FROM `orders` WHERE status_id=3 and created_by_id=$realtorID DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
+                            $res2=mysqli_query($con,"SELECT * FROM `orders` WHERE $pc_admin_filter status_id=3 and created_by_id=$realtorID DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages);
 
                            }
 
@@ -275,12 +301,13 @@ var days = 1;
                            else{
 
                             if($_SESSION['user_type']=="Realtor"){
-                             $res2=mysqli_query($con,"SELECT * FROM `orders` where status_id=3 and created_by_id=$realtorID ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
+                             $res2=mysqli_query($con,"SELECT * FROM `orders` where $pc_admin_filter status_id=3 and created_by_id=$realtorID ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
                            }
                            else {
-                            $res2=mysqli_query($con,"SELECT * FROM `orders` where status_id=3 and created_by_id=$realtorID ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
+                            $res2=mysqli_query($con,"SELECT * FROM `orders` where $pc_admin_filter status_id=3 and created_by_id=$realtorID ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
                            }
                            }
+
 
                             if($res2)
 														{

@@ -831,7 +831,7 @@ if($i<=$ratingIs)
 <p align="center" style="font-weight:600" adr_trans="label_photo_companies">Photo Companies</p>
 <form name="searchByLocation" method="post" action="./csrRealtorDashboard.php" style="margin-left:5px;">
 
-				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search City "list="cities" onchange="this.form.submit()" />
+				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search City " list="cities" onchange="this.form.submit()" />
 <datalist id="cities">
  <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities");
