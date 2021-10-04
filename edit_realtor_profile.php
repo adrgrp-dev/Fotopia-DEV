@@ -83,7 +83,7 @@ $contact_number=$_REQUEST['contact_number'];
 $fname=$_REQUEST['fname'];
 $lname=$_REQUEST['lname'];
 $user_id=$_REQUEST['user_id'];
-//$password=$_REQUEST['password'];
+$password=$_REQUEST['password'];
 // $profile_pic=$_REQUEST['profile_pic'];
 
 
@@ -92,7 +92,7 @@ if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0) {
 
 mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
 
-mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
+mysqli_query($con,"update user_login set password='$password',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
 mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
 
@@ -103,7 +103,7 @@ elseif($_FILES['profile_pic']['size'] == 0){
 
   mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
 
-  mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
+  mysqli_query($con,"update user_login set password='$password',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
   mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
 
@@ -114,7 +114,7 @@ elseif($_FILES['logo']['size'] == 0){
 
   mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
-  mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+  mysqli_query($con,"update user_login set password='$password',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
 mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
 
@@ -124,7 +124,7 @@ else {
 
 mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
-mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+mysqli_query($con,"update user_login set password='$password',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
 mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
 

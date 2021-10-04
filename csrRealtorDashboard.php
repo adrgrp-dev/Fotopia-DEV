@@ -437,7 +437,7 @@ margin-left:0px!important;
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{
@@ -472,7 +472,7 @@ margin-left:0px!important;
 					      $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where created_by_id=$_SESSION[loggedin_id]) order by rand() limit 4");
 					      while($get_latest_delivered=mysqli_fetch_array($get_latest_delivered_query))
 					      {
-						  
+
 						  $orderIDIs=$get_latest_delivered['order_id'];
 						  $get_address1=mysqli_query($con,"SELECT * FROM orders where id='$orderIDIs'");
 						  $get_address=mysqli_fetch_array($get_address1);
@@ -483,9 +483,9 @@ margin-left:0px!important;
 					        <img src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="130" style="padding-bottom:10px;"/>
 					     <span style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
 						    </a>
-							
-							
-			
+
+
+
 
 					        </div>
 					  <?php		}
@@ -831,7 +831,7 @@ if($i<=$ratingIs)
 <p align="center" style="font-weight:600" adr_trans="label_photo_companies">Photo Companies</p>
 <form name="searchByLocation" method="post" action="./csrRealtorDashboard.php" style="margin-left:5px;">
 
-				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search " />
+				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search City " />
 
 				 </form>
 
