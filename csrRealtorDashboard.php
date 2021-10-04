@@ -867,7 +867,7 @@ $where="location like '%$companySearch%' and ";
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_know_more">Know More</span></a>';
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php echo $photo1['logo_image_url']; ?>" width="120" height="100"  style="max-width: 70px;"/>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/>
 				 <i class="fa fa-heart close" style="position:absolute;top:80px;right:1px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Remove from wishlist" onClick="removeFromWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
 				   <?php
                 }
@@ -877,7 +877,7 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
 
 
 <?php
-$phidIs=$photo1['id'];
+$phidIs=$photo1['pc_admin_id'];
 //echo "select ROUND(avg(rating)) as avgRating,super_csr_id from photographer_rating group by realtor_id having super_csr_id='$phidIs'";
 $rating=mysqli_query($con,"select ROUND(avg(rating)) as avgRating,super_csr_id from photographer_rating group by realtor_id,super_csr_id having super_csr_id='$phidIs'");
 $ratingIs=0;
@@ -921,13 +921,13 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
 <center>
 
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php echo $photo1['logo_image_url']; ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['id'];?>)"></i>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
 <p align="center" style="padding-top:3px;width:75px!important;word-break:break-all;font-size: 13px;"><?php echo strtoupper(substr($photo1['organization_name'],0,8)); ?>
  </p>
 
 
  <?php
- $phidIs=$photo1['id'];
+ $phidIs=$photo1['pc_admin_id'];
  //echo "select avg(rating) as avgRating,photographer_id from photographer_rating group by realtor_id having photographer_id='$phidIs'";
  $rating=mysqli_query($con,"select ROUND(avg(rating)) as avgRating,super_csr_id from photographer_rating group by realtor_id,super_csr_id having super_csr_id='$phidIs'");
  $ratingIs=0;
