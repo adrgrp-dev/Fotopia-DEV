@@ -66,8 +66,29 @@ function PCAdminSearch()
 $("#submit").click();
 
 }
+function validateDates()
+{
+var start=$("#submit").val();
+var end=$("#end").val();
+var pcfilter=$("#pcfilter").val();
+
+if(start=='' && end=='' && pcfilter=='')
+{
+alert("please select dates or photocompany to search");
+return false;
+}
+
+
+if(start!='' && end=='')
+{
+$("#end").attr("min",start);
+alert("please select the To date");
+return false;
+}
+return true;
+}
 </script>
-<form name="searchForm" method="post" action="">
+<form name="searchForm" method="post" action="" onsubmit="return validateDates()">
 <div class="row">
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
@@ -181,8 +202,8 @@ $("#submit").click();
 							$pc_admin_filter="";
 							if(@$_REQUEST['pcfilter'])
 							{
-							$pcadmin=$_REQUEST['pcfilter'];
-							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+							$_SESSION['pcfilter']=$_REQUEST['pcfilter'];
+							
 							
 							}
                                        //	---------------------------------  pagination starts ---------------------------------------
@@ -239,6 +260,29 @@ $("#submit").click();
                               $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID";
                             }
                           }
+						  
+						  
+						  
+						  
+						  if(empty($_SESSION['starting_time']) && !empty($_SESSION['pcfilter']))
+						  {
+						  $pcadmin=$_SESSION['pcfilter'];
+							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+						   $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID";
+						  
+						  }
+						  
+						  if(!empty($_SESSION['starting_time']) && !empty($_SESSION['pcfilter']))
+						  {
+						  
+						  $pcadmin=$_SESSION['pcfilter'];
+							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+							 $start = $_SESSION['starting_time'];
+                             $end = $_SESSION['ending_time'] ;
+						   $q1="select count(*) as total FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end'";
+						  
+						  }
+						  
 						  
                             $result=mysqli_query($con,$q1);
                             $data=mysqli_fetch_assoc($result);
@@ -308,7 +352,24 @@ $("#submit").click();
                            }
                            }
 
-
+ if(empty($_SESSION['starting_time']) && !empty($_SESSION['pcfilter']))
+						  {
+						  $pcadmin=$_SESSION['pcfilter'];
+							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+						   $res2=mysqli_query($con,"select * FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID  ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
+						  
+						  }
+						  
+						  if(!empty($_SESSION['starting_time']) && !empty($_SESSION['pcfilter']))
+						  {
+						  
+						  $pcadmin=$_SESSION['pcfilter'];
+							$pc_admin_filter="pc_admin_id='$pcadmin' and ";
+							 $start = $_SESSION['starting_time'];
+                             $end = $_SESSION['ending_time'] ;
+						  $res2=mysqli_query($con,"select * FROM `orders` where $pc_admin_filter status_id=3 AND created_by_id=$realtorID and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' ORDER BY id DESC LIMIT " . $start_no_users . ',' . $number_of_pages);
+						  
+						  }
                             if($res2)
 														{
                             while(@$get_order2=mysqli_fetch_array($res2))

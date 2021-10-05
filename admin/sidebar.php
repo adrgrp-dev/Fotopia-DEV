@@ -213,9 +213,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 </button>
 <a href="admin_users.php" name="Home" id="home61" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(6)"><span adr_trans="label_admin_users">Admin Users</span> &nbsp;<i class="fa fa-user-secret"></i></a>
 <br />
-<button name="Home" id="home8" class="btn btn-default" style="margin-bottom:10px;padding-left:20px;transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 3ms;border-radius:0px 20px 20px 0px;" onclick="showHide(8)"><i class="fa fa-user text-l"></i>
-</button>
-<a href="csr_list.php" name="Home" id="home81" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(8)"><span adr_trans="label_csr">CSR</span> &nbsp;<i class="fa fa-user"></i></a>
+
 
 <button name="Home" id="home7" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:18px;border-radius:0px 20px 20px 0px;" onclick="showHide(7)"><i class="fa fa-bar-chart text-l"></i>
 </button>
