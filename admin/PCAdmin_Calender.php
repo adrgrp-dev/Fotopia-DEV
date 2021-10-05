@@ -24,6 +24,12 @@ mysqli_query($con,"delete from `appointments` where id='$busyid'");
 
 header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name");
 }
+
+
+ if(!empty(@$_REQUEST['ph_name']) && empty(@$_REQUEST['ph_id']))
+ {
+ header("location:PCAdmin_Calender.php?notexist=1");
+}
 ?>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage3">
@@ -66,7 +72,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name");
 
 <table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
 <tr>
-<td align="left" style="width:200px;"><form name="" method="post" action="" id="filterForm">
+<td align="left" style="width:200px;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
 <input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
 
  <datalist id="phList">
@@ -83,7 +89,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name");
                   </datalist>
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
 				  </form></td>
-				  <td align="left" style="color:#000080;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
+				  <td align="left" style="color:#000080;padding-left:20px;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." <br>(Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please search and select the Photographer <br>&nbsp;&nbsp;from the dropdown list.</span>"; } ?> </td>
 				  <td>
 
 
