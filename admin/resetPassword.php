@@ -21,7 +21,15 @@ if(isset($_REQUEST['passresetbtn']))
 {
 $email=$_REQUEST['email'];
 $password=$_REQUEST['password'];
+if(isset($_REQUEST['pcadmin']))
+{
+  mysqli_query($con,"update photo_company_admin set password='$password' where email='$email'");  
+}
+else
+{
 mysqli_query($con,"update admin_users set password='$password' where email='$email'");
+}
+
 header("location:passwordResetSuccess.php");
 }
 
@@ -39,10 +47,14 @@ else{
 $res=mysqli_query($con,"SELECT * FROM `admin_users` WHERE secret_code='$resetcode' and email='$email'");
 }
 $exist=mysqli_num_rows($res);
-
+$url="";
+if(isset($_REQUEST['pcadmin']))
+{
+ $url="&pcadmin=1";
+}
 if($exist==1)
 {
-  echo'<script>window.location="resetPassword.php?resetpass=1&email='.$email.'"</script>';
+  echo'<script>window.location="resetPassword.php?resetpass=1&email='.$email.$url.'"</script>';
 
 }
 else
