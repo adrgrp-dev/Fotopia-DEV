@@ -69,7 +69,7 @@ function email($template,$fname,$email,$password,$secret_code,$con)
  $mail->Body=str_replace('{{email}}',$email, $mail->Body);
 
 	 $mail->Body.="<br><br></td></tr></table></html>";
-	 echo $mail->Body;exit;
+	 //echo $mail->Body;exit;
  try {
 		 $mail->send();
 		 echo "Message has been sent successfully";

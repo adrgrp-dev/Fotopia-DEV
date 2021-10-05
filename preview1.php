@@ -122,7 +122,7 @@ if(isset($_POST['floor_email']))
 {
   $secret_code=getName(16);
   $editor_email=$_REQUEST["floor_email"];
-
+$comment=$_REQUEST['commentall'];
   $split=explode("/",$_SERVER["HTTP_REFERER"]);
   $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["loggedin_id"];
@@ -134,7 +134,7 @@ if(isset($_POST['floor_email']))
 
   $filecount = count(glob("./raw_images/order_$id_url/floor_plans/" . "*"));
 
-  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2,'$filecount')";
+  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
   email($secret_code,$photographer_Name,$editor_email,$id_url);
   header("location:photographerorder_detail.php?id=".$id_url);
@@ -144,7 +144,7 @@ if(isset($_POST['Drone_email']))
 {
   $secret_code=getName(16);
   $editor_email=$_REQUEST["Drone_email"];
-
+$comment=$_REQUEST['commentall'];
   $split=explode("/",$_SERVER["HTTP_REFERER"]);
   $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["loggedin_id"];
@@ -153,7 +153,7 @@ if(isset($_POST['Drone_email']))
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
   $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
   $filecount = count(glob("./raw_images/order_$id_url/Drone_photos/" . "*"));
-  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,3,'$filecount')";
+  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,3,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
   email($secret_code,$photographer_Name,$editor_email,$id_url);
 
@@ -167,7 +167,7 @@ if(isset($_POST['Drone_email']))
  {
    $secret_code=getName(16);
    $editor_email=$_REQUEST["hdr_email"];
-
+   $comment=$_REQUEST['commentall'];
    $split=explode("/",$_SERVER["HTTP_REFERER"]);
    $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
    $SESSION=$_SESSION["loggedin_id"];
@@ -176,7 +176,7 @@ if(isset($_POST['Drone_email']))
    $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
    $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
     $filecount = count(glob("./raw_images/order_$id_url/Hdr_photos/" . "*"));
-   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,4,'$filecount')";
+   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,4,'$comment','$filecount')";
    $insert=mysqli_query($con,$query);
    email($secret_code,$photographer_Name,$editor_email,$id_url);
    header("location:photographerorder_detail.php?id=".$id_url);

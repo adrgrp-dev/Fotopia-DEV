@@ -66,6 +66,8 @@ function email($fname,$email,$secret_code,$con)
 
 
    $url=$_SESSION['project_url']."admin/";
+   $add_pcadmin_id="&pcadmin=1&secret_code";
+   $mail->Body=str_replace('&secret_code',$add_pcadmin_id, $mail->Body);
   $mail->Body=str_replace('{{secret_code}}',$secret_code, $mail->Body);
   $mail->Body=str_replace('{{Name}}',$fname, $mail->Body);
   $mail->Body=str_replace('{{project_url}}',$url, $mail->Body);

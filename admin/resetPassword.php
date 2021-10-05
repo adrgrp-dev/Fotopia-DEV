@@ -30,10 +30,16 @@ if(isset($_REQUEST['confirmbtn']))
 $email=$_REQUEST['emailhidden'];
 $resetcode=$_REQUEST['resetcode'];
 
-
+if(isset($_REQUEST['pcadmin']))
+{
+  $res=mysqli_query($con,"SELECT * FROM `photo_company_admin` WHERE secret_code='$resetcode' and email='$email'");
+}
 //echo "SELECT * FROM `admin_users` WHERE secret_code='$resetcode' and email='$email'";
+else{
 $res=mysqli_query($con,"SELECT * FROM `admin_users` WHERE secret_code='$resetcode' and email='$email'");
+}
 $exist=mysqli_num_rows($res);
+
 if($exist==1)
 {
   echo'<script>window.location="resetPassword.php?resetpass=1&email='.$email.'"</script>';
