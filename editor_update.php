@@ -4,7 +4,7 @@ include "connection.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($x,$y,$z,$v,$k)
+function email($x,$y,$z,$v,$k,$status_id)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -61,7 +61,13 @@ Finished images has been uploaded by {{Editor_email}} for the order reference
 <br><br>
 Thanks,<br>
 Fotopia Team.";
+
 $project_url=$_SESSION['project_url'];
+if($status_id==4)
+{
+	$mail->Body=str_replace('Finished images','Rework finished images', $mail->Body);
+}
+
 	$mail->Body=str_replace('{{project_url}}',$project_url, $mail->Body);
   $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
 	$mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
@@ -104,7 +110,8 @@ else{
 $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$order_id");
 $get_images=mysqli_fetch_assoc($get_rawimages_query);
 $email_id=$get_images["editor_email"];
-email($photographer_Name,$email_id,$order_id,$email_address,$realtor_email);
+$status_id=$get_order["photographer_id"];
+email($photographer_Name,$email_id,$order_id,$email_address,$realtor_email,$status_id);
 mysqli_query($con,"UPDATE `raw_images` SET status=6 WHERE order_id=$order_id and service_name=$service");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`, `photographer_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$photographer_id,$photographer_id,now())");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$realtor_id,$realtor_id,now())");
