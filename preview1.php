@@ -65,7 +65,7 @@ function email($v,$x,$y,$z)
 	$mail->isHTML(true);
 
 	$mail->Subject = "Image Upload successfully";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE UPLOAD SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE UPLOAD SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="Hello {{Editor_email}},<br>
 
@@ -775,7 +775,7 @@ var a;
           var c=$("#comment_all1").val();
           if(c=='')
           {
-           
+
 			var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
@@ -864,7 +864,7 @@ alert(alertmsg);
         $(".stdImg3").each(function(){
 
             if($.trim($(this).val()) === '') {
-            
+
                 alert('Please fill the naming for each image in Standard Photos.');
             exit(0);
             return false;
@@ -895,7 +895,7 @@ alert(alertmsg);
           var c=$("#comment_all2").val();
           if(c=='')
           {
-            
+
 			var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')

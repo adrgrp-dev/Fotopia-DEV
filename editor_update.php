@@ -49,7 +49,7 @@ function email($x,$y,$z,$v,$k)
 	$mail->isHTML(true);
 
 	$mail->Subject = "Editor Upload successfully";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR UPLOAD SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR UPLOAD SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="
 Hello {{Photographer_Name}},<br>
@@ -61,7 +61,7 @@ Finished images has been uploaded by {{Editor_email}} for the order reference
 <br><br>
 Thanks,<br>
 Fotopia Team.";
-$project_url="http://fotopia.adrgrp.com/photo";
+$project_url=$_SESSION['project_url'];
 	$mail->Body=str_replace('{{project_url}}',$project_url, $mail->Body);
   $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
 	$mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);

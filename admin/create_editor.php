@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($fname,$email,$admin_name,$organization)
+function email($fname,$email,$admin_name,$organization,$con)
 {
  /* Exception class. */
  require 'C:\PHPMailer\src\Exception.php';
@@ -48,9 +48,15 @@ function email($fname,$email,$admin_name,$organization)
 
  //Send HTML or Plain Text email
  $mail->isHTML(true);
-
+ $pc_admin_id=$_SESSION['admin_loggedin_id'];
+ //echo "SELECT * FROM `photo_company_profile` WHERE id=$pc_admin_id";
+ $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+ $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+ $pcadmin_email=$get_profile['email'];
+ $pcadmin_contact=$get_profile['contact_number'];
  $mail->Subject = "Create Editor";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">Created editor Successfully</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Csr User Created Successfully!</td>
+ <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.="Hi {{name}},<br/>
 
@@ -128,7 +134,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$get_organization=mysqli_fetch_assoc($get_organization_query);
 	$organization=$get_organization['organization'];
 	$admin_name=$get_organization['first_name'];
-   email($fname,$email,$admin_name,$organization);
+   email($fname,$email,$admin_name,$organization,$con);
 
 
 	header("location:csr_list1.php?e=1");
@@ -190,7 +196,7 @@ function validate_email(val)
 
 
 
-                         
+
 
 
 

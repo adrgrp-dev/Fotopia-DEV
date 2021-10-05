@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($template,$fname,$email,$password)
+function email($template,$fname,$email,$password,$secret_code,$con)
 {
  /* Exception class. */
  require 'C:\PHPMailer\src\Exception.php';
@@ -48,20 +48,28 @@ function email($template,$fname,$email,$password)
 
  //Send HTML or Plain Text email
  $mail->isHTML(true);
+ $pc_admin_id=$_SESSION['admin_loggedin_id'];
+ //echo "SELECT * FROM `photo_company_profile` WHERE id=$pc_admin_id";
+ $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+ $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+ $pcadmin_email=$get_profile['email'];
+ $pcadmin_contact=$get_profile['contact_number'];
 
- $mail->Subject = "Create Photographer";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">Created Phototgrapher Successfully</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Subject = "Your are created as an Photographer user ";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"{{project_url}}logo.png\" /></td><td align=\"center\" class=\"titleCss\">Photographer User Created Successfully!</td>
+ <td align=\"right\"><img src=\""."{{project_url}}".$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.=$template;
 
- $mail->Body=str_replace('{{user_type}}','Photographer', $mail->Body);
- // $mail->Body=str_replace('{{secret_code}}',$z, $mail->Body);
+
+ $mail->Body=str_replace('{{secret_code}}',$secret_code, $mail->Body);
  $mail->Body=str_replace('{{Name}}',$fname, $mail->Body);
- $mail->Body=str_replace('{{user_id}}',$email, $mail->Body);
- $mail->Body=str_replace('{{password}}',$password, $mail->Body);
+ $mail->Body=str_replace('{{project_url}}',$_SESSION['project_url'], $mail->Body);
+ $mail->Body=str_replace('{{name of the company}}',$_SESSION['admin_loggedin_org'], $mail->Body);
+ $mail->Body=str_replace('{{email}}',$email, $mail->Body);
 
 	 $mail->Body.="<br><br></td></tr></table></html>";
-	// echo $mail->Body;exit;
+	 echo $mail->Body;exit;
  try {
 		 $mail->send();
 		 echo "Message has been sent successfully";
@@ -145,7 +153,7 @@ if ($CSR_ID1[0]=='C') {
 
 
 
-	$email_verification_code=getName(10);
+
 
 	$imgData="";
 	$imageProperties="";
@@ -167,7 +175,7 @@ if ($CSR_ID1[0]=='C') {
 
 		//echo "insert into user_login (first_name,last_name,email,password,type_of_user,organization,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on,email_verified,created_by_id)values('$fname','$lname','$email','$password','Photographer','$org','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','','$imageType',now(),1,$created_by_id)";exit;
 $org=$_REQUEST['org'];
-
+	$email_verification_code=getName(10);
   $res=mysqli_query($con,"insert into user_login (first_name,last_name,email,password,type_of_user,organization_name,contact_number,address_line1,address_line2,city,state,postal_code,country,email_verification_code,profile_pic,profile_pic_image_type,registered_on,email_verified,pc_admin_id,csr_id,pc_admin_user_id)values('$fname','$lname','$email','$password','Photographer','$org','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$email_verification_code','$imgData','$imageType',now(),1,$pc_admin_id,$csr_id_new,$admin_user_id)");
   $inserted_id=mysqli_insert_id($con);
 
@@ -177,7 +185,7 @@ $org=$_REQUEST['org'];
   $get_template_query=mysqli_query($con,"SELECT * FROM `email_template` WHERE template_title='New user created' and pc_admin_id='$pc_admin_id'");
   $get_template=mysqli_fetch_array($get_template_query);
   $template=$get_template['template_body_text'];
-  email($template,$fname,$email,$password);
+  email($template,$fname,$email,$password,$email_verification_code,$con);
 
 
 
@@ -485,7 +493,7 @@ else if($_SESSION['admin_loggedin_type'] == "CSR")
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{

@@ -57,7 +57,7 @@ function email($y,$z)
 	$mail->isHTML(true);
 
 	$mail->Subject = "Approved successfully";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">ADMIN APPROVED SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ADMIN APPROVED SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -183,9 +183,9 @@ $id=@$_REQUEST['id'];
 
 								if(@$_REQUEST['val'] == 0) {
 								?>
-									
+
 									<a id="label_back_users_list" adr_trans="label_back_users_list" class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-sign-in"></i>Back to users list</a>
-								<?php } 
+								<?php }
 				if(@$_REQUEST['val'] == 1) {
 					?>
 					<a id="label_back_users_list" adr_trans="label_back_users_list" class="anima-button circle-button btn-sm btn" href="csr_list.php"><i class="fa fa-sign-in"></i>Back to users list</a>

@@ -55,8 +55,8 @@ function email($realtor_name,$realtor_email,$order_id,$con)
 	$mail->isHTML(true);
 
 	$mail->Subject = "Appointment updated successfully.";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/photo-dev/logo.png\" /></td><td align=\"center\" class=\"titleCss\">Appointment Updated Successfully</td>
-  <td align=\"right\"><img src=\""."http://fotopia.adrgrp.com/photo-dev/".$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."photo-dev/logo.png\" /></td><td align=\"center\" class=\"titleCss\">Appointment Updated Successfully</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -101,10 +101,10 @@ Fotopia Team.";
   $Photographer_id=$_REQUEST['Photographer_id'];
 $home_seller_id=$_REQUEST['hs_id'];
 //   $other_cost=$_REQUEST['other_cost'];
- 
-  
-  
-  
+
+
+
+
   $product_id=$_REQUEST['product_id'];
   $product_name=$_REQUEST['product_name'];
   $quantity=$_REQUEST['quantity'];
@@ -146,7 +146,7 @@ $photography_cost1=$photographer_cost[$i];
 
  mysqli_query($con,"insert into order_products(order_id,product_id,photographer_id,product_title,quantity,price,total_price,photographer_cost,other_cost,created_on)values('$order_id','$product_id1','$Photographer_id','$product_title','$qty','$product_price','$total_price1','$photography_cost1','0',now())");
  }
- 
+
  }
  $order_id=$_REQUEST['od'];
  $get_realtor_name_query=mysqli_query($con,"select * from orders where id=$order_id");
@@ -395,7 +395,7 @@ background-color:#DDD;
 {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
-}	
+}
 .btn-default
 {
 border-radius:0px;
@@ -613,7 +613,7 @@ var $changeInputs = $('input.sTotal');
     $changeInputs.each(function(idx, el) {
       TotalValueis += Number($(el).val());
       });
-	  
+
 	  $("#totalValue").html(TotalValueis);
 
 
@@ -639,7 +639,7 @@ var $changeInputs = $('input.sTotal');
     $changeInputs.each(function(idx, el) {
       TotalValueis += Number($(el).val());
       });
-	  
+
 	  $("#totalValue").html(TotalValueis);
 
 }
@@ -808,7 +808,7 @@ $selectProductIDs="checked";
 </table></div>
 <table class="table-stripped" width="100%" style="margin-top:20px;">
 <tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span> &nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p></td></tr>
-<tr><td align="left"><a href="create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td> 
+<tr><td align="left"><a href="create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td>
 
 <td align="right"><button type="submit" id="saveBtn" name="save" class="anima-button circle-button btn-sm btn" onClick="return chkBox()" style="float:right;"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_submit">Submit</span></button></td></tr>
 </table></div>

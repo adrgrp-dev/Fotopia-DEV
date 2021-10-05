@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($x,$y,$z)
+function email($fname,$email,$secret_code,$con)
 {
  /* Exception class. */
  require 'C:\PHPMailer\src\Exception.php';
@@ -36,7 +36,7 @@ function email($x,$y,$z)
  // //$mail->addAddress("lakshminarayanan@adrgrp.com","Lakshmi"); //Recipient name is optional
  // //$mail->addAddress("srivatsan@adrgrp.com","Srivatsan");
  // $mail->addAddress("bharathwaj.v@adrgrp.com","Bharath");
-	$mail->addAddress($y);
+	$mail->addAddress($email);
 
 
  //Address to which recipient will reply
@@ -48,28 +48,31 @@ function email($x,$y,$z)
 
  //Send HTML or Plain Text email
  $mail->isHTML(true);
+ $pc_admin_id=$_SESSION['admin_loggedin_id'];
+ //echo "SELECT * FROM `photo_company_profile` WHERE id=$pc_admin_id";
+ $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+ $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+ $pcadmin_email=$get_profile['email'];
+ $pcadmin_contact=$get_profile['contact_number'];
+ $get_template_query=mysqli_query($con,"SELECT * FROM `email_template` WHERE template_title='New user created' and pc_admin_id='$pc_admin_id'");
+ $get_template=mysqli_fetch_array($get_template_query);
+ $template=$get_template['template_body_text'];
 
- $mail->Subject = "Create subcsr";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">CREATED SuperCSR SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Subject = "Your are created as an Admin user";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Admin User Created Successfully!</td>
+ <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
- $mail->Body.="
- Hello {{Realtor_Name}},<br>
-
- You are successfully created SubCSR in your company  <br>
- You will be notified in email when Company approved your registration. <br />
- you can resetpassword using secret code <b>{{project_url}}</b>.
- <a href='http://fotopia.adrgrp.com/photo/admin/resetPassword.php?email={{email}}&secret_code={{project_url}}' target='_blank'>ResetPassword</a>
- <br><br>
- Thanks,<br>
- Fotopia Team.";
+ $mail->Body.=$template;
 
 
-   $mail->Body=str_replace('{{project_url}}',$z, $mail->Body);
-	 $mail->Body=str_replace('{{Realtor_Name}}',$x, $mail->Body);
-	 $mail->Body=str_replace('{{email}}',$y, $mail->Body);
-
+   $url=$_SESSION['project_url']."admin/";
+  $mail->Body=str_replace('{{secret_code}}',$secret_code, $mail->Body);
+  $mail->Body=str_replace('{{Name}}',$fname, $mail->Body);
+  $mail->Body=str_replace('{{project_url}}',$url, $mail->Body);
+  $mail->Body=str_replace('{{name of the company}}',$_SESSION['admin_loggedin_org'], $mail->Body);
+  $mail->Body=str_replace('{{email}}',$email, $mail->Body);
 	 $mail->Body.="<br><br></td></tr></table></html>";
-	//echo $mail->Body;exit;
+	 //echo $mail->Body;exit;
  try {
 		 $mail->send();
 		 echo "Message has been sent successfully";
@@ -146,7 +149,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$res=mysqli_query($con,"insert into photo_company_admin (first_name,last_name,email,password,type_of_user,organization_name,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on,pc_admin_id,secret_code)values('$fname','$lname','$email','$password','PCAdmin','$org','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now(),'$pc_admin_id','$email_verification_code')");
 
 	//echo "select * from user_login where email='$email' and password='$pass'";
-   email($fname,$email,$email_verification_code);
+   email($fname,$email,$email_verification_code,$con);
 
 
 	header("location:csr_list1.php?a=1");
@@ -357,7 +360,7 @@ function validate_email(val)
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{

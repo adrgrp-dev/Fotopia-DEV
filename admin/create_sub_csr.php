@@ -50,7 +50,7 @@ function email($x,$y,$z)
  $mail->isHTML(true);
 
  $mail->Subject = "Create subcsr";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"http://fotopia.adrgrp.com/logo.png\" /></td><td align=\"center\" class=\"titleCss\">CREATED SuperCSR SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">CREATED SuperCSR SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.="
  Hello {{Realtor_Name}},<br>
@@ -208,7 +208,7 @@ function validate_email(val)
 
 
 
-                         
+
 
 
 
@@ -340,9 +340,9 @@ function validate_email(val)
 
 
               </div>
-         
 
-			
+
+
         <script>
 
 
@@ -370,7 +370,7 @@ function validate_email(val)
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{
@@ -380,7 +380,7 @@ function validate_email(val)
       $("#profilepic").val("");
         }
     });
- 
+
 
 
 
