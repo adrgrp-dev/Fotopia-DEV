@@ -286,12 +286,12 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
 													if($_SESSION['user_type']=="Realtor")
                            {
 														 // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
-														  $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID'";
+														  $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor'";
 												  	}
 
 														else {
                               // echo "select count(*) as total FROM `orders`  WHERE $filterBy  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
-														  $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID'";
+														  $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor'";
 														}
                           }
 
@@ -304,11 +304,11 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
                            {
 														 // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
 
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID and created_by_type='Realtor'";
                             }
                             else {
 
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID'";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor'";
                             }
 
                           }
@@ -317,10 +317,10 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
                           if($_SESSION['user_type']=="Realtors")
                            {
 														  // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id= $realtorID ";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id= $realtorID  and created_by_type='Realtor'";
                             }
                             else {
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID' ";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID'  and created_by_type='Realtor'";
                             }
                           }
 
@@ -362,12 +362,12 @@ $res="";
 
 														if($_SESSION['user_type']=="Realtor")
 	                           {
-															  $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID LIMIT " . $start_no_users . ',' . $number_of_pages;
+															  $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 													  	}
 
 															else {
 	                              // echo "select count(*) as total FROM `orders`  WHERE $filterBy  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' order by session_from_datetime asc";
-															  $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' LIMIT " . $start_no_users . ',' . $number_of_pages;
+															  $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 															}
 	                          }
 
@@ -378,11 +378,11 @@ $res="";
 
 	                            if($_SESSION['user_type']=="Realtor")
 	                           {
-	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	                            }
 	                            else {
 
-	                              $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	                            }
 
 	                          }
@@ -390,10 +390,10 @@ $res="";
 
 	                          if($_SESSION['user_type']=="Realtors")
 	                           {
-	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	                            }
 	                            else {
-	                              $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	                            }
 
 	                          }

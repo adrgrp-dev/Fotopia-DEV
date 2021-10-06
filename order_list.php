@@ -540,7 +540,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
             $_SESSION["page"]=1;
           }
           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
-          $q1="SELECT count(*) as total FROM orders where (photographer_id='$loggedin_id' or created_by_id='$loggedin_id') and status_id='3'";
+          $q1="SELECT count(*) as total FROM orders where (photographer_id='$loggedin_id' or created_by_id='$loggedin_id') and created_by_type='Realtor' and status_id='3'";
           $result=mysqli_query($con,$q1);
           $data=mysqli_fetch_assoc($result);
           $total_no=$data['total'];

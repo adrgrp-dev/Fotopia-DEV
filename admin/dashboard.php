@@ -24,7 +24,7 @@ if(isset($_REQUEST['loginbtn']))
 
 					<div class="row hidden-xs hidden-sm">
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#5CB85C;border-radius:35px 35px 35px 35px;opacity:0.8">
                         <a href="order_reports.php"><i  class="fa fa-database icon circle anima" aid="0.33201800164139406" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;"></i></a>
                         <h3>Orders</h3>
@@ -54,7 +54,7 @@ if(isset($_REQUEST['loginbtn']))
 												</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#337AB7;border-radius:35px 35px 35px 35px;opacity:0.8">
                        <a href="users.php"> <i class="fa fa-users icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;"></i></a>
                         <h3>Users</h3>

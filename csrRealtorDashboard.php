@@ -271,7 +271,7 @@ margin-left:0px!important;
                         <i class="fa fa-check icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#0000FF !important"></i>
 
                             <?php
-                              $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and created_by_id='$loggedin_id'");
+                              $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and created_by_id='$loggedin_id' and created_by_type='Realtor'");
                               $get_complete=mysqli_fetch_assoc($get_complete_query);
                               ?>
                             <h5 adr_trans="label_completed_orders">Completed Orders</h5>
@@ -305,7 +305,7 @@ margin-left:0px!important;
 
                                         <?php
 
-              $get_order_query=mysqli_query($con,"SELECT count(*) as dueToday FROM orders where created_by_id='$loggedin_id' and order_due_date=current_date()");
+              $get_order_query=mysqli_query($con,"SELECT count(*) as dueToday FROM orders where created_by_id='$loggedin_id' and order_due_date=current_date() and created_by_type='Realtor'");
                                           $get_order=mysqli_fetch_assoc($get_order_query);
                                           ?>
                                         <h5 adr_trans="label_due_today">Due Today</h5>
@@ -469,7 +469,7 @@ margin-left:0px!important;
 
 					   <?php
 
-					      $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where created_by_id=$_SESSION[loggedin_id]) order by rand() limit 4");
+					      $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where created_by_id=$_SESSION[loggedin_id] and created_by_type='Realtor') order by rand() limit 4");
 					      while($get_latest_delivered=mysqli_fetch_array($get_latest_delivered_query))
 					      {
 

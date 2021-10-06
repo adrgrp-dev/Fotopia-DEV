@@ -70,7 +70,7 @@ mysqli_query($con,"insert into photo_company_profile(about_us,skills,portfolio,l
 
 if(isset($_REQUEST['profilebtn']))
 {
-$aboutus=$_REQUEST['aboutus'];
+$aboutus=addslashes($_REQUEST['aboutus']);
 $skills=$_REQUEST['skills'];
 $portfolio=$_REQUEST['portfolio'];
 $location=$_REQUEST['location'];
@@ -265,7 +265,7 @@ p{
 
 
 						<div class="col-md-6">
-                                <p id="label_about_me" adr_trans="label_about_me" style="color:#000;">About Us</p>
+                                <p id="label_about_me" adr_trans="label_about_us" style="color:#000;">About Us</p>
                                 <textarea id="aboutus" name="aboutus"  class="form-control form-value" required="" rows="2" cols="40"><?php echo @$res1['about_us']; ?></textarea>
 
 							</div>

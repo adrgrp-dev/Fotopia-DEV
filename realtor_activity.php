@@ -83,7 +83,8 @@ $realtor_count_query="select count(*) as total from user_actions where (action_d
                     $_SESSION["page"]=1;
                   }
 
-                  $count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=1";
+                  $count_query="select count(*) as total from user_actions where (realtor_id='$loggedin_id') and is_read=1";
+				  //   $count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=1";
                   $count_result=mysqli_query($con,$count_query);
                   $data=mysqli_fetch_assoc($count_result);
                   $total_no=$data['total'];
@@ -109,7 +110,7 @@ $realtor_count_query="select count(*) as total from user_actions where (action_d
 
                   $limit=$start_no_users. ',' . $number_of_pages;
 
-                  if($get_action_query=mysqli_query($con,"select * from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=1 ORDER BY id DESC limit $limit  "))
+                  if($get_action_query=mysqli_query($con,"select * from user_actions where (realtor_id='$loggedin_id') and is_read=1 ORDER BY id DESC limit $limit  "))
                    {
                    while($get_action=mysqli_fetch_assoc($get_action_query))
                    {   $cnt++;
