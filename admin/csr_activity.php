@@ -44,7 +44,7 @@ padding-left:5px;
                 <div class="col-md-10" style="font-family:Arial, Helvetica, sans-serif">
 <?php
 
-$csr_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or csr_id='$loggedin_id') and is_read=0";
+$csr_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='CSR') or csr_id='$loggedin_id') and is_read=0";
                   $csr_count_result=mysqli_query($con,$csr_count_query);
           $csr_data=mysqli_fetch_assoc($csr_count_result);
                   $countIs=$csr_data['total'];
@@ -82,7 +82,7 @@ if($_SESSION["page"] == 0)
   $_SESSION["page"]=1;
 }
 
-$count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or csr_id='$loggedin_id') and is_read=1";
+$count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='CSR') or csr_id='$loggedin_id') and is_read=1";
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];

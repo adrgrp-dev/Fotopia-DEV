@@ -45,7 +45,7 @@ padding:15px!important;
                 <div class="col-md-10" style="font-family:Arial, Helvetica, sans-serif">
 <?php
 
-$photographer_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and is_read=0";
+$photographer_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Photographer') or photographer_id='$loggedin_id') and is_read=0";
                   $photographer_count_result=mysqli_query($con,$photographer_count_query);
           $photographer_data=mysqli_fetch_assoc($photographer_count_result);
                   $countIs=$photographer_data['total'];
@@ -85,7 +85,7 @@ if($_SESSION["page"] == 0)
   $_SESSION["page"]=1;
 }
 
-$count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and is_read=1";
+$count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Photographer') or photographer_id='$loggedin_id') and is_read=1";
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];
