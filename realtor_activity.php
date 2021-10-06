@@ -6,6 +6,8 @@ $loggedin_id=$_SESSION['loggedin_id'];
 mysqli_query($con,"update user_actions set is_read=1 where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=0");
 
 
+
+
 ?>
 
 <style>
