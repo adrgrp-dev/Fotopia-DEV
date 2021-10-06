@@ -17,7 +17,7 @@ $get_action_detail_query=mysqli_query($con,"select * from orders where id='$orde
 $get_action_detail=mysqli_fetch_assoc($get_action_detail_query);
 $photographer_id=$get_action_detail['photographer_id'];
 
-mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Rejected','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,now())");
+// mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Rejected','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,now())");
 
 header("location:subcsrOrder_list1.php?rej=1");
 }
@@ -44,7 +44,7 @@ $get_action_detail_query=mysqli_query($con,"select * from orders where id='$orde
 $get_action_detail=mysqli_fetch_assoc($get_action_detail_query);
 $photographer_id=$get_action_detail['photographer_id'];
 
-mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Approved','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,now())");
+// mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Approved','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,now())");
 
 mysqli_query($con,"delete from appointment_updates where order_id='$order_id'");
 header("location:subcsrOrder_list1.php?app=1");

@@ -97,6 +97,7 @@ $Photographer_id1=$pht_id;
 
 						 $loggedin_name=$_SESSION['admin_loggedin_name'];
 						 $loggedin_id=$_SESSION['admin_loggedin_id'];
+             $loggedin_type=$_SESSION['admin_loggedin_type'];
              // echo "select * from user_login WHERE id=$pht_id";
 							$user_details_query=mysqli_query($con,"select * from user_login WHERE id='$Photographer_id1'");
 							$user_details_query1=mysqli_fetch_assoc($user_details_query);
@@ -111,6 +112,12 @@ $editProduct=1;
 
 $order_id=$_REQUEST['od'];
 
+$get_realtor_details=mysqli_query($con,"select * from orders WHERE id='$order_id'");
+$get_realtor_id=mysqli_fetch_assoc($get_realtor_details);
+
+$realtor_id = $get_realtor_id['created_by_id'];
+
+
 
  mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'");
 
@@ -122,7 +129,7 @@ mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 
 
 
- $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
+ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,'$loggedin_type',$pht_id,$realtor_id,$pc_admin_id1,$subCSR_ID,now())");
 
 }
 else
@@ -139,7 +146,7 @@ $order_id=mysqli_insert_id($con);
 
 
 
- $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Created','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
+ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Created','$loggedin_name',$loggedin_id,$loggedin_type,$pht_id,$pc_admin_id1,$subCSR_ID,now())");
 }
 //Sending email
 //email($photographer_Name,$order_id,$chk_from,$email_id);

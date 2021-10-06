@@ -87,7 +87,7 @@ else
        mysqli_query($con,"UPDATE `appointments` SET `from_datetime`='$chk_from',`to_datetime`='$chk_to' WHERE order_id='$id_url'");
        $loggedin_name=$_SESSION['loggedin_name'];
        $loggedin_id=$_SESSION['loggedin_id'];
-       $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,now())");
+       $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id``action_done_by_type`,,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,'Realtor',$pht_id,$loggedin_id,now())");
        mysqli_query($con,"delete from order_products where order_id='$id_url'");
   $products=mysqli_query($con,"select * from products where id in($product)");
 

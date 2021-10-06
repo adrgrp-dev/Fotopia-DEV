@@ -91,5 +91,5 @@ Fotopia Team.";
    $realtor_email=$get_name1['email'];
    $date = date('m/d/Y h:i:s a', time());
    email($loggedin_name,$realtor,$order_id,$date,$realtor_email);
-   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `photographer_id`, `action_date`) VALUES ('Invoice','Created','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `photographer_id`, `action_date`) VALUES ('Invoice','Created','$loggedin_name',$loggedin_id,'Photographer',$loggedin_id,now())");
  ?>

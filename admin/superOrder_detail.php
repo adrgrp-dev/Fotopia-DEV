@@ -218,16 +218,18 @@ $loggedin_id = $_SESSION['admin_loggedin_id'];
 
 $loggedin_name = $_SESSION['admin_loggedin_name'];
 
+$loggedin_type = $_SESSION['admin_loggedin_type'];
+
 if($order_staus_id == 6)
 {
 
-  $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`action_date`) VALUES ('Declined','order','$loggedin_name',$loggedin_id,$photographer_id,$realtor,$loggedin_id,now())");
+  $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`action_date`) VALUES ('Declined','order','$loggedin_name',$loggedin_id,'$loggedin_type',$photographer_id,$realtor,$loggedin_id,now())");
 
 }
 
 else{
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`action_date`) VALUES ('Working','with customer order','$loggedin_name',$loggedin_id,$photographer_id,$realtor,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`action_date`) VALUES ('Working','with customer order','$loggedin_name',$loggedin_id,'$loggedin_type',$photographer_id,$realtor,$loggedin_id,now())");
 }
 
 

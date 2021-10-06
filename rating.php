@@ -34,7 +34,7 @@ mysqli_query($con,"insert into photographer_rating(photographer_id,super_csr_id,
 
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `photographer_id`,`action_date`) VALUES ('Rating','provided','$loggedin_name',$loggedin_id,$photographer_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `photographer_id`,`action_date`) VALUES ('Rating','provided','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,now())");
 
 header("location:order_list.php?rate=1");
 }

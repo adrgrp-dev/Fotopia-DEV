@@ -68,7 +68,7 @@ if($_FILES['profile_pic']['size'] == 0) {
 
   mysqli_query($con,"update admin_users set contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
-  mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `csr_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+  mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `csr_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,'CSR',$loggedin_id,now())");
 
 }
 
@@ -78,7 +78,7 @@ else{
 
   mysqli_query($con,"update admin_users set contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
-  mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `csr_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+  mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `csr_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,'CSR',$loggedin_id,now())");
 
 }
 

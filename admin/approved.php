@@ -84,12 +84,15 @@ Fotopia Team.";
    $get_order_query=mysqli_query($con,"select * from orders where id=$order_id");
    $get_order=mysqli_fetch_assoc($get_order_query);
    $loggedin_name=$_SESSION['admin_loggedin_name'];
-   $loggedin_id=$get_order['created_by_id'];
-   $get_photgrapher_name_query1=mysqli_query($con,"SELECT * FROM user_login where id='$loggedin_id'");
-   $get_name1=mysqli_fetch_assoc($get_photgrapher_name_query1);
+   $loggedin_id=$_SESSION['admin_loggedin_id'];
+
+     $realtor_id=$get_order['created_by_id'];
+     $csr_id =$get_order['csr_id'];
+   $get_realtor_name_query1=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
+   $get_name1=mysqli_fetch_assoc($get_realtor_name_query1);
    $realtor=$get_name1["first_name"]."".$get_name1["last_name"];
    $realtor_email=$get_name1['email'];
    $date = date('m/d/Y h:i:s a', time());
    email($loggedin_name,$realtor,$order_id,$date,$realtor_email);
-   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `photographer_id`, `action_date`) VALUES ('Invoice','Created','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `csr_id`,`Realtor_id`,`pc_admin_id`, `action_date`) VALUES ('Invoice','Created','$loggedin_name',$loggedin_id,'PCAdmin','$csr_id','$realtor_id',$loggedin_id,now())");
  ?>

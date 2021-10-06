@@ -68,7 +68,7 @@ $realtor_id = $get_order1['created_by_id'];
               mysqli_query($con,"insert into appointment_updates (order_id,from_datetime,to_datetime,due_date,booking_notes,photographer_id,products)values('$id_url','$chk_from','$chk_to','$due_date','$notes','$loggedin_id','$product')");
 
 
-                   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,$loggedin_id,$realtor_id,now())");
+                   $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,'Photographer',$loggedin_id,$realtor_id,now())");
 
 
 

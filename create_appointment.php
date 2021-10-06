@@ -122,7 +122,7 @@ mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 
 
 
- $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
+ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,'Realtor',$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
 
 }
 else
@@ -140,7 +140,7 @@ $order_id=mysqli_insert_id($con);
 
 
 
- $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Created','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
+ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Created','$loggedin_name',$loggedin_id,'Realtor',$pht_id,$loggedin_id,$pc_admin_id1,$subCSR_ID,now())");
 }
 //Sending email
 //email($photographer_Name,$order_id,$chk_from,$email_id);

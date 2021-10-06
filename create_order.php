@@ -129,7 +129,7 @@ $inserted_id=mysqli_insert_id($con);
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`, `action_date`) VALUES ('Order','Created','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `Realtor_id`, `action_date`) VALUES ('Order','Created','$loggedin_name',$loggedin_id,'Realtor',$loggedin_id,now())");
 }
 
 else{
@@ -139,7 +139,7 @@ $res=mysqli_query($con,"UPDATE `home_seller_info` SET `name`='$sell_name',`addre
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`, `action_date`) VALUES ('Order','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `Realtor_id`, `action_date`) VALUES ('Order','Updated','$loggedin_name',$loggedin_id,'Realtor',$loggedin_id,now())");
 $pc_admin_id1=@$_REQUEST['pc_admin_id'];
 $Photographer_id1=@$_REQUEST['Photographer_id'];
 $params="hs_id=".$hs_id_is."&pc_admin_id=".$pc_admin_id1."&Photographer_id=".$Photographer_id1."&od=".$_REQUEST['od'];

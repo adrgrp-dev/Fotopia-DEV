@@ -19,7 +19,7 @@ $prodid=$_REQUEST['prodid'];
 
 mysqli_query($con,"delete from products where id='$prodid'");
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Product','Deleted','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Product','Deleted','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
 
 header("location:super_Product.php?d=1");
 }
@@ -43,7 +43,7 @@ if($prodid=="")
 
 mysqli_query($con,"insert into products (product_name,product_cost,tax,total_cost,timeline,description,pc_admin_id)values('$product_name','$product_cost','$tax','$total_cost','$timeline','$desc','$loggedin_id')");
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `pc_admin_id`,`action_date`) VALUES ('Product','Created','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Product','Created','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
 
 header("location:products.php?a=1");
 }
@@ -51,7 +51,7 @@ else
 {
 mysqli_query($con,"update products set product_name='$product_name',product_cost='$product_cost',tax='$tax',total_cost='$total_cost',timeline='$timeline',description='$desc',pc_admin_id='$loggedin_id' where id='$prodid'");
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `pc_admin_id`,`action_date`) VALUES ('Product','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Product','Updated','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
 
 header("location:products.php?u=1");
 }

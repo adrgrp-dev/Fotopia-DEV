@@ -116,7 +116,7 @@ $loggedin_name=$_SESSION['loggedin_name'];
   if($order_staus_id == 5)
   {
 
-    $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Canceled','order','$loggedin_name',$realtor,$photographer_id,$realtor,$pc_admin_id,$csr_id,now())");
+    $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Canceled','order','$loggedin_name',$realtor,'Realtor',$photographer_id,$realtor,$pc_admin_id,$csr_id,now())");
 
   }
   }
@@ -259,7 +259,7 @@ $pc_admin_id = $get_pc_admin_csr1['pc_admin_id'] ;
 
 $csr_id = $get_pc_admin_csr1['csr_id'] ;
 
-$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
 
 }
 
