@@ -92,11 +92,11 @@ $product=" ";
 $langIs=$_SESSION['Selected_Language_Session'];
 if($langIs=='en')
 {
-$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Product Name</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Timeline</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost' >Product Cost</span></td></tr></thead>";
+$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;\"><td  style=\"padding:5px;\"><span adr_trans='label_product_name' style=\"font-weight:bold;font-size:14px!important;\">Product Name</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline' style=\"font-weight:bold;font-size:14px!important;\"> Timeline</span></td><td style=\"padding:5px\"><span adr_trans='label_Actual_cost' style=\"font-weight:bold;font-size:14px!important;\">Actual Cost</span></td><td style=\"padding:5px\"><span adr_trans='label_cost_for_you' style=\"font-weight:bold;font-size:14px!important;\">Cost for you</span></td></tr></thead>";
 }
 else
 {
-$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Produktnavn</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Tidslinje</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost' >Produktkostnad</span></td></tr></thead>";
+$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:bold;font-size:14px!important;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name' style=\"font-weight:bold;font-size:14px!important;\">Produktnavn</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline' style=\"font-weight:bold;font-size:14px!important;\"> Tidslinje</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost' style=\"font-weight:bold;font-size:14px!important;\">Produktkostnad</span></td><td style=\"padding:5px\"><span adr_trans='label_cost_for_you' style=\"font-weight:bold;font-size:14px!important;\">Cost for you</span></td></tr></thead>";
 }
 
 
@@ -104,7 +104,7 @@ while($product_result1=mysqli_fetch_array($product_result))
 {
 $productIDIS=$product_result1['id'];
 $realtorDiscountPrice=$product_result1['total_cost'];
-
+$totalProdCost=$product_result1['total_cost'];
 $realtorCost1=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$super_csr_id' and realtor_id='$_SESSION[loggedin_id]' and product_id='$productIDIS'");
 
 $rowsFound=mysqli_num_rows($realtorCost1);
@@ -114,7 +114,7 @@ $realtorCost=mysqli_fetch_array($realtorCost1);
 $realtorDiscountPrice=$realtorCost['discount_price'];
 }
 
-$product.="<tr><td style=\"padding:5px\">".$product_result1['product_name']."</td><td style=\"padding:5px\">".$product_result1['timeline']."</td><td style=\"padding:5px\">".$realtorDiscountPrice."</td></tr>";
+$product.="<tr style=\"font-size:15px!important;\"><td style=\"padding:5px;font-size:15px!important\">".$product_result1['product_name']."</td><td style=\"padding:5px;font-size:15px!important\">".$product_result1['timeline']."</td><td style=\"padding:5px;font-size:15px!important\" align=\"center\">".$totalProdCost."</td><td style=\"padding:5px;font-size:15px!important\" align=\"center\">".$realtorDiscountPrice."</td></tr>";
 }
 $product.="</table></div>";
 echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:150px;\">
