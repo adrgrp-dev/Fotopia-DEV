@@ -181,7 +181,7 @@ margin:10px!important;
                         <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
                             <h5 adr_trans="label_my_earnings">My Earnings</h5>
                             <?php
-                          //  $total1=0;
+                            $total1=0;
                             @$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where status_id =3 and photographer_id=$user_id");
                             if(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
                             {

@@ -271,7 +271,8 @@ if($_SESSION['admin_loggedin_type']=='CSR')
 $detailsOdUser=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id='$loggedINID')");
 $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 }
-							?>
+
+						?>
 
 <?php
        if(isset($_SESSION['admin_loggedin_email']))
@@ -329,9 +330,17 @@ else { ?>
 
 <?php } ?>
 
+<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin') 
+{
+?>
+
+<img src="../logo.png" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
+<?php } else { ?>
+
+
 				<img src="data:<?php echo @$detailsOdUser1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$detailsOdUser1['logo']); ?>" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
 
-
+<?php } ?>
 
 
 
@@ -472,9 +481,18 @@ else { ?>
 <?php } ?>
 
 </div>
+<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin') 
+{
+?>
+
+<img src="../logo.png" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
+<?php } else { ?>
 
 
-	<img src="data:<?php echo @$detailsOdUser1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$detailsOdUser1['logo']); ?>" width="50" height="50" style="border-radius:60px;margin-left:-5px;margin-top:0px; display:inline-block" />
+			<img src="data:<?php echo @$detailsOdUser1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$detailsOdUser1['logo']); ?>" width="50" height="50" style="border-radius:60px;margin-left:-5px;margin-top:0px; display:inline-block" />
+<?php } ?>
+
+	
 
 
 		   <a href="notification.php" >
