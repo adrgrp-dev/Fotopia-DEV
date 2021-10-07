@@ -20,7 +20,7 @@ function getName($n) {
 }
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($v,$x,$y,$z)
+function email($v,$x,$y,$z,$con)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -64,20 +64,29 @@ function email($v,$x,$y,$z)
 	//Send HTML or Plain Text email
 	$mail->isHTML(true);
 
-	$mail->Subject = "Raw images upload by photographer";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE UPLOADED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Subject = "Raw Image Download Link";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE DOWNLOAD LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
-	$mail->Body.="Hello {{Editor_email}},<br>
+$id_url=$_REQUEST['id'];
+$get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
+$get_order_pcadmin1= mysqli_fetch_array($get_order_query);
+$get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
 
-You have been assigned for Photo edit work from {{Photographer_Name}} through
+$get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Raw images uploaded'");
+$get_email_content1 = mysqli_fetch_array($get_email_content);
+$get_content = $get_email_content1['template_body_text'];
+
+	$mail->Body.="
+{{content}}<br>  
 Fotopia with the order reference # F{{orderId}}.<br>
-<a href='{{project_url}}/download_raw_images.php?secret_code={{secret_code}}'
+<a href='{{project_url}}download_raw_images.php?secret_code={{secret_code}}'
 target='_blank'>Click here</a> to view and download the images.<br><br>
 You can upload the Finished images in the same link above.
 <br><br>
 Thanks,<br>
 Fotopia Team.
 ";
+  $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
   $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
   $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
@@ -87,11 +96,16 @@ Fotopia Team.
 	//echo $mail->Body;exit;
 	try {
 	    $mail->send();
-	    echo "Message has been sent successfully";
+	    // echo "Message has been sent successfully";
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	}
+
+echo $mail->Body;
+exit;    
+
+  
 }
 
 if(isset($_POST['email']))
@@ -109,8 +123,8 @@ if(isset($_POST['email']))
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
-  email($secret_code,$photographer_Name,$editor_email,$id_url);
+  $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+  email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
   header("location:superOrder_detail.php?id=".$id_url);
 
  }
@@ -129,7 +143,7 @@ if(isset($_POST['floor_email']))
   $filecount = count(glob("../raw_images/order_$id_url/floor_plans/" . "*"));
   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2','$comment','$filecount')";
   $insert=mysqli_query($con,$query);
-  email($secret_code,$photographer_Name,$editor_email,$id_url);
+  email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
   header("location:superOrder_detail.php?id=".$id_url);
 
   }
@@ -148,7 +162,7 @@ if(isset($_POST['Drone_email']))
   $filecount = count(glob("../raw_images/order_$id_url/Drone_photos/" . "*"));
   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,3,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
-  email($secret_code,$photographer_Name,$editor_email,$id_url);
+  email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
   $stdPicCount=0;
   $floorPicCount=0;
   $dronePicCount=0;
@@ -171,7 +185,7 @@ if(isset($_POST['Drone_email']))
    $filecount = count(glob("../raw_images/order_$id_url/Hdr_photos/" . "*"));
    $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,4,'$comment','$filecount')";
    $insert=mysqli_query($con,$query);
-   email($secret_code,$photographer_Name,$editor_email,$id_url);
+   email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
    header("location:superOrder_detail.php?id=".$id_url);
 
    }
