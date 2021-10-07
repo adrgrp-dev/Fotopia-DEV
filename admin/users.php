@@ -200,6 +200,9 @@ var initialArray = [];
                 <tbody>
 				<?php
                    //	---------------------------------  pagination starts ---------------------------------------
+								
+								$q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
+								$q="";
 									 if(@$_GET["page"]<0)
 								   {
 								   $_GET["page"]=1;
@@ -304,6 +307,9 @@ else {
 
          $cnt=$start_no_users;
      }
+	 
+	 
+	 $q = "SELECT *FROM user_login WHERE email_verified='1' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 if(isset($_REQUEST['user_type1']))
 {
 $user_type=$_REQUEST['user_type1'];
@@ -356,6 +362,9 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 		$q = "SELECT *FROM admin_users WHERE is_approved='1' AND (first_name='$fname' AND last_name='$lname') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 }
+
+
+
 
 				@$res=mysqli_query($con,@$q);
 				if(@$res == "0"){
