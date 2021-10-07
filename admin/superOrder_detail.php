@@ -52,6 +52,14 @@ mysqli_query($con,"UPDATE `invoice` SET `other_cost`='$cost',`other_cost_comment
 //header("location:./superOrder_detail.php?id=$id_url");
 }
 
+$get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
+  $get_detail=mysqli_fetch_array($get_orderdetail_query);
+  $pc_admin_id=$get_detail['pc_admin_id'];
+  $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+  $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+  $pcadmin_email=$get_profile['email'];
+  $pcadmin_contact=$get_profile['contact_number'];
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 if(isset($_REQUEST['link1']))
@@ -99,8 +107,9 @@ if(isset($_REQUEST['link1']))
   $mail->isHTML(true);
   if(!empty($_REQUEST['invoice']))
   {
-    $mail->Subject = "Order Cost shared";
-    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Order Cost Shared Successfully</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+    $mail->Subject = "Order Cost";
+    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">COST OF THE ORDER</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Hello {{share_email}},<br>
    Order Cost shared to You through Fotopia <br>
@@ -121,20 +130,47 @@ if(isset($_REQUEST['link1']))
     $mail->Body.="<br><br></td></tr></table></html>";
   }
   else{
-  $mail->Subject = "Images shared with you";
-  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Images shared with you</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+  $mail->Subject = "Image Link shared with you through Fotopia";
+  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
   //$mail->AltBody = "This is the plain text version of the email content";
-  $mail->Body.="Hello {{share_email}},<br>
+  $mail->Body.="
 
- Photo share from {{you}}through in Fotopia <br>
+  {{content}}<br>
+
 <a href='{{link}}'
 target='_blank'>Click here</a> to view the images.<br><br>
+Kindly check the order #{{Order_ID}} in your orders page for details
+Thank you for continued support.
+
 
 <br><br>
 Thanks,<br>
 Fotopia Team.
 ";
   // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
+
+$id_url=$_REQUEST['id'];
+$get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
+$get_order_pcadmin1= mysqli_fetch_array($get_order_query);
+$get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
+
+  if(@$_REQUEST['downloadoption'])
+  {
+
+$get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Send finished images'");
+
+  }
+
+  else{
+
+$get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Share finished images'");
+}
+
+$get_email_content1 = mysqli_fetch_array($get_email_content);
+$get_content = $get_email_content1['template_body_text'];
+
+
   @$link=explode('?',@$_REQUEST['link1']);
   $downloadoption="";
   if(@$_REQUEST['downloadoption'])
@@ -143,14 +179,16 @@ Fotopia Team.
   }
   $link1=@$_SESSION['project_url']."sharelink.php?".@$link[1].$downloadoption;
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
+
+   $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
+      $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
+
   // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
-    $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
-    $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
 }
-//  echo $mail->Body;
-  //exit;
+ // echo $mail->Body;
+ //  exit;
   try {
       $mail->send();
       //echo "Message has been sent successfully";
@@ -158,6 +196,104 @@ Fotopia Team.
     echo $e->getMessage();
       echo "Mailer Error: " . $mail->ErrorInfo;
   }
+}
+
+elseif(@$_REQUEST['status_id']==6)
+{
+    /* Exception class. */
+  require 'C:\PHPMailer\src\Exception.php';
+
+  /* The main PHPMailer class. */
+  require 'C:\PHPMailer\src\PHPMailer.php';
+
+  /* SMTP class, needed if you want to use SMTP. */
+  require 'C:\PHPMailer\src\SMTP.php';
+
+  $mail = new PHPMailer(true);
+  $mail->isSMTP();
+  $mail->Host = $_SESSION['emailHost'];
+  $mail->SMTPAuth = true;
+  // //paste one generated by Mailtrap
+  // //paste one generated by Mailtrap
+  $mail->Username =$_SESSION['emailUserID'];
+  $mail->Password =$_SESSION['emailPassword'];
+  $mail->SMTPSecure = 'tls';
+  $mail->Port = 587;
+  //$mail->Port = 465;
+  //From email address and name
+  $mail->From = $_SESSION['emailUserID'];
+  $mail->FromName = "Fotopia";
+
+  //To address and name
+  // ;
+  // // //Recipient name is optional
+  // //;
+  // ;
+
+  $id_url=$_REQUEST['id'];
+$get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
+$get_order_pcadmin1= mysqli_fetch_array($get_order_query);
+
+$realtor_id = $get_order_pcadmin1['created_by_id'];
+
+$get_realtor_info = mysqli_query($con,"select * from user_login where id='$realtor_id'");
+$get_realtor_info1 = mysqli_fetch_array($get_realtor_info);
+$realtor_email = $get_realtor_info1['email'];
+
+   $mail->addAddress($realtor_email);
+
+
+  //Address to which recipient will reply
+  $mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+
+  //CC and BCC
+  //$mail->addCC("cc@example.com");
+  //$mail->addBCC("bcc@example.com");
+
+  //Send HTML or Plain Text email
+  $mail->isHTML(true);
+
+    $mail->Subject = "Order Declined";
+   $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER HAS BEEN DECLINED</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+    //$mail->AltBody = "This is the plain text version of the email content";
+    
+
+$id_url=$_REQUEST['id'];
+$get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
+$get_order_pcadmin1= mysqli_fetch_array($get_order_query);
+$get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
+
+$get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Order declined'");
+$get_email_content1 = mysqli_fetch_array($get_email_content);
+$get_content = $get_email_content1['template_body_text'];
+
+
+    $mail->Body.="
+{{content}}<br><br>
+Kindly check the order #{{Order_ID}} in your orders page for details.<br>
+Thank you for continued support.
+
+
+  <br><br>
+  Thanks,<br>
+  Fotopia Team.
+  ";
+      $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
+      $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
+    $mail->Body.="<br><br></td></tr></table></html>";
+
+ echo $mail->Body;
+  exit;
+
+    try {
+      $mail->send();
+      //echo "Message has been sent successfully";
+  } catch (Exception $e) {
+    echo $e->getMessage();
+      echo "Mailer Error: " . $mail->ErrorInfo;
+  }
+
 }
 
  if(isset($_REQUEST['del']))

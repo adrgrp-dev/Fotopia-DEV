@@ -56,14 +56,14 @@ $raw_images=mysqli_fetch_assoc($get_raw_images);
   	//Send HTML or Plain Text email
   	$mail->isHTML(true);
 
-  	$mail->Subject = "Images shared with you";
-  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Images Shared with you</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+  	$mail->Subject = "Image Link shared with you through Fotopia";
+  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">SHARED IMAGES LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
   	//$mail->AltBody = "This is the plain text version of the email content";
-  	$mail->Body.="Hello Sir/Madam,<br>
+  	$mail->Body.="Hi,<br>
 
-   Photo share from you through in Fotopia <br>
+   Photo link shared to you through Fotopia <br>
   <a href='{{link}}'
-  target='_blank'>Click here</a> to view the images.<br><br>
+  target='_blank'>Click here</a> to view the shared images.<br><br>
 
   <br><br>
   Thanks,<br>

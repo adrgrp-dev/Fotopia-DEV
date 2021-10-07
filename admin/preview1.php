@@ -62,12 +62,9 @@ function email($v,$x,$y,$z,$con)
 	//$mail->addBCC("bcc@example.com");
 
 	//Send HTML or Plain Text email
-	$mail->isHTML(true);
 
-	$mail->Subject = "Raw Image Download Link";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE DOWNLOAD LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
-	//$mail->AltBody = "This is the plain text version of the email content";
-$id_url=$_REQUEST['id'];
+  $id_url=$_REQUEST['id'];
+
 $get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
 $get_order_pcadmin1= mysqli_fetch_array($get_order_query);
 $get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
@@ -75,6 +72,23 @@ $get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
 $get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Raw images uploaded'");
 $get_email_content1 = mysqli_fetch_array($get_email_content);
 $get_content = $get_email_content1['template_body_text'];
+
+  $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
+  $get_detail=mysqli_fetch_array($get_orderdetail_query);
+  $pc_admin_id=$get_detail['pc_admin_id'];
+  $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+  $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+  $pcadmin_email=$get_profile['email'];
+  $pcadmin_contact=$get_profile['contact_number'];
+
+
+	$mail->isHTML(true);
+
+	$mail->Subject = "Raw Image Download Link";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE DOWNLOAD LINK</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+	//$mail->AltBody = "This is the plain text version of the email content";
+
 
 	$mail->Body.="
 {{content}}<br>  
@@ -102,8 +116,8 @@ Fotopia Team.
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	}
 
-echo $mail->Body;
-exit;    
+// echo $mail->Body;
+// exit;    
 
   
 }

@@ -206,6 +206,8 @@ function get_email_content()
 								<option value="Order Cost">Order Cost</option>
 								<option value="Finished Images Upload">Finished Images Upload</option>
 								<option value="Order Completed">Order Completed</option>
+								<option value="Share finished images">Share finished images</option>
+								<option value="Send finished images">Send finished images</option>
 
 
 							</select>
