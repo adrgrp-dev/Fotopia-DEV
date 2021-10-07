@@ -3,7 +3,10 @@ ob_start();
 
 include "connection1.php";
 
+    
 
+
+    
   $id_url=$_REQUEST['id'];
 
   if(isset($_REQUEST['chattext']))
