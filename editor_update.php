@@ -4,7 +4,7 @@ include "connection.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($x,$y,$z,$v,$k,$status_id)
+function email($order_id,$con)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -30,12 +30,47 @@ function email($x,$y,$z,$v,$k,$status_id)
 	$mail->From = $_SESSION['emailUserID'];
 	$mail->FromName = "Fotopia";
 
+	$order_id=$order_id;
+	 $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
+	 $get_detail=mysqli_fetch_array($get_orderdetail_query);
+	 $pc_admin_id=$get_detail['pc_admin_id'];
+	$get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+	$get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+	$pcadmin_email=$get_profile['email'];
+	$pcadmin_contact=$get_profile['contact_number'];
+	 $get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
+	 $get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
+	 $PCAdmin_email=$get_pcadmindetail['email'];
+	 $photographer_id=@$get_detail['photographer_id'];
+	 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
+	 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
+	 $photographer_email=@$get_name["email"];
+	 $csr_id=$get_name['csr_id'];
+	 $get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
+	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
+	 $csr_email=$get_csrdetail['email'];
+	$realtor_id=$get_detail['created_by_id'];
+	$get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
+	$get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
+	 $realtor_email=$get_realtor_name['email'];
+	 $realtor_Name=$get_realtor_name['first_name'];
+
 	//To address and name
 	// ;
 	// // //Recipient name is optional
 	// //;
-	 $mail->addAddress($k);
-	 $mail->addAddress($v);
+	if($get_detail['created_by_type']=="Realtor")
+	{
+		 $mail->addAddress($realtor_email);
+		 $mail->addCC($PCAdmin_email);
+		 $mail->addCC($csr_email);
+		 $mail->addCC($photographer_email);
+	}
+	else{
+		$mail->addAddress($PCAdmin_email);
+		$mail->addCC($csr_email);
+	  $mail->addCC($photographer_email);
+	}
 
 
 	//Address to which recipient will reply
@@ -52,10 +87,10 @@ function email($x,$y,$z,$v,$k,$status_id)
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR UPLOADED FINISHED IMAGES</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="
-Hello {{Photographer_Name}},<br>
+Hello {{realtor_Name}},<br>
 
-Finished images has been uploaded by {{Editor_email}} for the order reference
-#F{{orderId}}, for further details please Login in to
+Finished images has been uploaded  for the order reference
+#{{orderId}}, for further details please Login in to
 <a href='{{project_url}}' target='_blank'>Fotopia</a>.
 
 <br><br>
@@ -63,17 +98,17 @@ Thanks,<br>
 Fotopia Team.";
 
 $project_url=$_SESSION['project_url'];
-if($status_id==4)
+if($get_detail['status_id']==4)
 {
 	$mail->Body=str_replace('Finished images','Rework finished images', $mail->Body);
 }
 
 	$mail->Body=str_replace('{{project_url}}',$project_url, $mail->Body);
-  $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
-	$mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
-  	$mail->Body=str_replace('{{Editor_email}}',$y, $mail->Body);
+  $mail->Body=str_replace('{{realtor_Name}}', $realtor_Name , $mail->Body);
+	$mail->Body=str_replace('{{orderId}}',$order_id, $mail->Body);
+  //	$mail->Body=str_replace('{{Editor_email}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-	//echo $mail->Body;exit;
+	echo $mail->Body;exit;
 	try {
 	    $mail->send();
 	    echo "Message has been sent successfully";
@@ -111,7 +146,7 @@ $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_i
 $get_images=mysqli_fetch_assoc($get_rawimages_query);
 $email_id=$get_images["editor_email"];
 $status_id=$get_order["photographer_id"];
-email($photographer_Name,$email_id,$order_id,$email_address,$realtor_email,$status_id);
+email($order_id,$con);
 mysqli_query($con,"UPDATE `raw_images` SET status=6 WHERE order_id=$order_id and service_name=$service");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `photographer_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$photographer_id,'Photographer',$photographer_id,now())");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `Realtor_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$realtor_id,'Realtor',$realtor_id,now())");

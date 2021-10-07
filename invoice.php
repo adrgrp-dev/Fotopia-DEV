@@ -116,17 +116,19 @@ $id = $_REQUEST['id'];
 
 
                 <div class="col-md-10">
-
+  <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 <div id="printtable"></div>
     <div id="print">
+
         <h1 id="inv_h1" style="font-size:50px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1>
       <link rel="stylesheet" href="./css/style_invoice.css">
       <header id="inv_header" >
         <?php
-        @$invoice_check_query=mysqli_query($con,"select * from invoice where invoice_id=$id");
-        @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);
-        $id_url=$invoice_check['order_id'];
-        $get_summary_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
+        // @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id");
+        // @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);
+        // $id=$invoice_check['order_id'];
+        // echo $id;
+        $get_summary_query=mysqli_query($con,"SELECT * from orders WHERE id='$id'");
         $get_summary=mysqli_fetch_array($get_summary_query);
         $hs_id=$get_summary['home_seller_id'];
         ?>
@@ -149,7 +151,7 @@ $id = $_REQUEST['id'];
           </tr>
           <tr>
             <td>
-              <p style="font-size:11px;text-align:center;"> <?php echo $id_url; ?></p>
+              <p style="font-size:11px;text-align:center;"> <?php echo $id; ?></p>
             </td>
             <td>
               <p style="
@@ -188,8 +190,8 @@ $id = $_REQUEST['id'];
               <?php
               }
               else {
-                 $created_Nam=$_SESSION["loggedin_id"];
-                $get_created_name_query=mysqli_query($con,"SELECT * FROM user_login where id=".$created_Nam);
+                 $created_Nam=$get_summary["pc_admin_id"];
+                $get_created_name_query=mysqli_query($con,"SELECT * FROM admin_users where id=".$created_Nam);
                 $get_name_create=mysqli_fetch_assoc($get_created_name_query);
                 ?>
                 <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
@@ -213,7 +215,7 @@ $id = $_REQUEST['id'];
           <div >
           <?php
 
-    $get_order_query=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
+    $get_order_query=mysqli_query($con,"SELECT * FROM orders where id='$id'");
     $get_order=mysqli_fetch_array($get_order_query);
 
     ?>
@@ -252,8 +254,8 @@ $id = $_REQUEST['id'];
               <td id="inv_td" style="margin-left : 10px;
 
        padding-left : 10px;" ><span ><?php
-        // echo "select group_concat(product_id) as product_id from order_products WHERE order_id='$id_url'";
-       $prodsList=mysqli_query($con,"select group_concat(product_id) as product_id,group_concat(product_title) as product_title,group_concat(quantity) as quantity,sum(total_price)+sum(other_cost) as total from order_products WHERE order_id='$id_url'");
+        // echo "select group_concat(product_id) as product_id from order_products WHERE order_id='$id'";
+       $prodsList=mysqli_query($con,"select group_concat(product_id) as product_id,group_concat(product_title) as product_title,group_concat(quantity) as quantity,sum(total_price)+sum(other_cost) as total from order_products WHERE order_id='$id'");
       $prodsList1=mysqli_fetch_array($prodsList);
       $product_id_is=$prodsList1['product_id'];
     //
@@ -287,8 +289,8 @@ $id = $_REQUEST['id'];
              $var=explode(',',$product_id_split);
              foreach($var as $row)
               {
-               // echo "SELECT * FROM order_products where product_id='$row' and order_id='$id_url'";
-              $price=mysqli_query($con,"SELECT * FROM order_products where product_id='$row' and order_id='$id_url'");
+               // echo "SELECT * FROM order_products where product_id='$row' and order_id='$id'";
+              $price=mysqli_query($con,"SELECT * FROM order_products where product_id='$row' and order_id='$id'");
               $get_price_info=mysqli_fetch_assoc($price);
              $total_cost=@$get_price_info["total_price"];
              echo "$".@$total_cost; ?> <br/><?php
@@ -298,6 +300,8 @@ $id = $_REQUEST['id'];
       ?></span></td>
 
             </tr>
+          <?php   $invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id");
+            @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);?>
             <tr>
 <td id="inv_th" colspan="1" style="text-align: right;"><span ></span></td>
             <td id="inv_th"  style="text-align: right;"><span adr_trans="label_other_cost" >Other cost</span><span><?php echo "(".$invoice_check['other_cost_comment'].")"?></span><span >:</span></td>
