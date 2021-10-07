@@ -4,7 +4,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($x,$y,$z,$v,$k)
+function email($editor_fname,$photographer_Name,$order_id,$editor_email)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -34,8 +34,7 @@ function email($x,$y,$z,$v,$k)
 	// ;
 	// // //Recipient name is optional
 	// //;
-	 $mail->addAddress($k);
-	 $mail->addAddress($v);
+	 $mail->addAddress($editor_email);
 
 
 	//Address to which recipient will reply
@@ -48,13 +47,15 @@ function email($x,$y,$z,$v,$k)
 	//Send HTML or Plain Text email
 	$mail->isHTML(true);
 
+
 	$mail->Subject = "Rework assigned to editor";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REWORK SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="
-  Hello {{Photographer_Name}},<br>
+  Hello {{Editor_Name}},<br>
 
-You have been assigned for Photo Rework from {{Realtor_Name}} through
+You have been assigned for Photo Rework from {{photographer_Name}} through
 Fotopia with the order reference # F{{orderId}}.<br>
 
 For further details please Login in to
@@ -65,9 +66,9 @@ Thanks,<br>
 Fotopia Team.";
 
 	$mail->Body=str_replace('{{project_url}}',$_SESSION['project_url'], $mail->Body);
-  $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
-	$mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
-  	$mail->Body=str_replace('{{Realtor_Name}}',$y, $mail->Body);
+  $mail->Body=str_replace('{{Editor_Name}}', $editor_fname , $mail->Body);
+	$mail->Body=str_replace('F{{orderId}}',$order_id, $mail->Body);
+  	$mail->Body=str_replace('{{photographer_Name}}',$photographer_Name, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 	//echo $mail->Body;exit;
 	try {
@@ -127,11 +128,14 @@ if(rename($file,$destinationFilePath) ) {
      $get_name1=mysqli_fetch_assoc($get_photgrapher_name_query1);
      $realtor=$get_name1["first_name"]."".$get_name1["last_name"];
 		 $editor_email_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$order_id and service_name=$service");
-		 $editor_email=mysqli_fetch_assoc($editor_email_query);
-		 $editor=$editor_email['editor_email'];
+		 $get_editor_email=mysqli_fetch_assoc($editor_email_query);
+		 $editor_email=$get_editor_email['editor_email'];
+		 $get_editordetail_query=mysqli_query($con,"select * from photographer_id=$photographer_id");
+		 $get_editor_details=mysqli_fetch_assoc($get_editordetail_query);
+		 $editor_fname=$get_editor_details['first_name'];
      if($get_order['status_id']==4)
 		 {
-		 email($photographer_Name,$realtor,$order_id,$editor,$photographer_email);
+		 email($editor_fname,$photographer_Name,$order_id,$editor_email);
 	   }
      mysqli_query($con,"UPDATE `orders` SET status_id=4 WHERE id=$order_id");
      }
