@@ -492,19 +492,22 @@ function show()
           {
    ?>
 <?php
+if(@$_REQUEST["hs_id"]!='')
+{
 $hs_id_is = @$_REQUEST["hs_id"];
 $appointment_update=mysqli_query($con,"select * from home_seller_info where id='$hs_id_is'");
 $appointment_update_details=mysqli_fetch_array($appointment_update);
+}
 ?>
    <div class="col-md-6">
     <center><label for="from_homeseller">
-          <input type="radio" id="from_homeseller" name="from_whom" value="homeseller" <?php if($appointment_update_details['lead_from']=="homeseller"){echo "checked"; };?>  required /><span adr_trans="label_from_homeseller"> FROM HOMESELLER</span>
+          <input type="radio" id="from_homeseller" name="from_whom" value="homeseller" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="homeseller"){ echo "checked"; } ?>  required /><span adr_trans="label_from_homeseller"> FROM HOMESELLER</span>
         </label>
       </center>
       </div>
       <div class="col-md-6">
         <center><label for="from_realtor">
-          <input type="radio" id="from_realtor" name="from_whom" value="realtor" <?php if($appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
+          <input type="radio" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
         </label>
         </center>
       </div>
@@ -601,7 +604,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                       </div>
     <div class="col-md-6">
        <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value"  value="<?php echo  @$appointment_update_details['city'];?>"  required="" <?php if(@$_REQUEST['u']) { echo "disabled"; } ?>>
+      <select name="city" class="form-control form-value"  value="<?php echo  @$appointment_update_details['city'];?>"  required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
         <option value="<?php echo  @$appointment_update_details['city'];?>" selected  hidden><?php echo @$appointment_update_details['city']; ?></option>
                     <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
@@ -615,7 +618,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
       <div class="col-md-6">
        <p id="label_state" adr_trans="label_state">STATE</p>
-      <select name="state" class="form-control form-value"  value="<?php echo  @$appointment_update_details['state'];?>" required="" <?php if(@$_REQUEST['u']) { echo "disabled"; } ?>>
+      <select name="state" class="form-control form-value"  value="<?php echo  @$appointment_update_details['state'];?>" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
         <option value="<?php echo  @$appointment_update_details['state'];?>" selected  hidden><?php echo @$appointment_update_details['state']; ?></option>
                    <?php
 							$state1=mysqli_query($con,"select distinct(states) from norway_states_cities order by states asc ");

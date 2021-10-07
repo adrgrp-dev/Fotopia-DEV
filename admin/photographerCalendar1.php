@@ -3,12 +3,15 @@ ob_start();
 
 include "connection1.php";
 
-
+$photographer_name_is="";
+if(@$_REQUEST['Photographer_id']!='')
+{
 $Photographer_id=@$_REQUEST['Photographer_id'];
 $phDetail1=mysqli_query($con,"select * from user_login where id='$Photographer_id'");
 $phDetail=mysqli_fetch_array($phDetail1);
 
 $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
+}
 ?>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage3">
