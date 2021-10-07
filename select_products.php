@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($photographer_Name,$order_id,$chk_from,$email_id)
+function email($order_id,$condition,$con)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -30,24 +30,63 @@ function email($photographer_Name,$order_id,$chk_from,$email_id)
 	//From email address and name
 	$mail->From = $_SESSION['emailUserID'];
 	$mail->FromName = "Fotopia";
+	 //echo "sarath";
+ //   echo $condition;
+ // exit;
 
-	//To address and name
-	// ;
-	// // //Recipient name is optional
-	// //;
-	 ;
-	if($_SESSION["loggedin_email"]!=$email_id)
+
+
+	$order_id=$order_id;
+	$get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
+	$get_detail=mysqli_fetch_array($get_orderdetail_query);
+	$pc_admin_id=$get_detail['pc_admin_id'];
+	$from_date=$get_detail['session_from_datetime'];
+	$date=date_create($from_date);
+  $formated_date=date_format($date,"Y/m/d H:i:s");
+	$get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
+	$get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
+	$get_org=$get_pcadmindetail['organization_name'];
+	$PCAdmin_email=$get_pcadmindetail['email'];
+	$photographer_id=@$get_detail['photographer_id'];
+	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
+	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
+	$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	$csr_id=$get_name['csr_id'];
+	//echo $csr_id;
+	$get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
+	$get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
+	$csr_email=$get_csrdetail['email'];
+
+  if($condition=="book now")
 	{
-		 $mail->addAddress($_SESSION["loggedin_email"]);
-	}
-	$mail->addAddress($email_id);
+		$mail->addAddress($PCAdmin_email);
+		//$mail->AddCC($email);
+		$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+		$mail->isHTML(true);
+	$mail->Subject = "New Order Created.";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER CREATED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	//$mail->AltBody = "This is the plain text version of the email content";
+
+	$mail->Body.="Dear {{PCAdmin Company name}},</br>
+  New Order has been created by {{Realtor_name}} successfully</br>
+  Please login and check in the Orders page</br></br>
+  Thanks,</br>
+  Fotopia Team.";
+  $mail->Body=str_replace('{{PCAdmin Company name}}', $get_org , $mail->Body);
+	$mail->Body=str_replace('{{Realtor_name}}', $_SESSION['loggedin_name'] , $mail->Body);
+
+	$mail->Body.="<br><br></td></tr></table></html>";
+	// echo $mail->Body;
+	// exit;
+}
+elseif($condition=="book online")
+{
+	$mail->addAddress($PCAdmin_email);
+	$mail->AddCC($csr_email);
 	//Address to which recipient will reply
 	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
-
-
 	$mail->isHTML(true);
-
-	$mail->Subject = "New Appointment created successfully.";
+	$mail->Subject = "New Appointment Created.";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT CREATEED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
@@ -55,7 +94,7 @@ function email($photographer_Name,$order_id,$chk_from,$email_id)
 
 	$mail->Body.="Hello {{Photographer_Name}},<br><br>
 
-YOU HAVE A PHOTOGRAPHY SESSION SCHEDULE FOR
+You Have a Photography Session Schedule For
 {{DateAndTime}} with reference to Order # F{{orderId}}.<br>
 Please arrive 10 minutes prior to your session,
 for further details please login to <a href='{{project_url}}'>Fotopia</a>.<br>
@@ -64,12 +103,15 @@ Thank you for continued support.
 <br><br>
 Thanks,<br>
 Fotopia Team.";
-  $mail->Body=str_replace('{{Photographer_Name}}', $photographer_Name , $mail->Body);
+	$mail->Body=str_replace('{{Photographer_Name}}', $photographer_Name , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
-  $mail->Body=str_replace('F{{orderId}}', $order_id , $mail->Body);
-	$mail->Body=str_replace('{{DateAndTime}}',$chk_from, $mail->Body);
+	$mail->Body=str_replace('F{{orderId}}', $order_id , $mail->Body);
+	$mail->Body=str_replace('{{DateAndTime}}',$formated_date, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-	// echo $mail->Body;exit;
+	// echo $mail->Body;
+	// exit;
+}
+
 
 
 
@@ -138,6 +180,17 @@ $photography_cost1=$photographer_cost[$i];
  mysqli_query($con,"insert into order_products(order_id,product_id,photographer_id,product_title,quantity,price,total_price,photographer_cost,other_cost,created_on)values('$order_id','$product_id1','$Photographer_id','$product_title','$qty','$product_price','$total_price1','$photography_cost1','0',now())");
  }
 
+ }
+ $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
+ $get_detail=mysqli_fetch_array($get_orderdetail_query);
+
+ if(empty($_REQUEST['Photographer_id'])||$get_detail['session_from_datetime']=="0000-00-00 00:00:00")
+ {
+	 email($order_id,"book now",$con);
+ }
+ elseif($_REQUEST['Photographer_id']!=0)
+ {
+	 email($order_id,"book online",$con);
  }
 
 

@@ -270,15 +270,16 @@ function get_email_content()
 
                                 <option value="" selected="" disabled="">Select an email title</option>
                                 <option value="Order assigned">Order assigned</option>
-								<option value="Order confirmation">Order confirmation</option>
 								<option value="Order declined">Order declined</option>
-								<option value="Appointment changed">Appointment changed</option>
+								<option value="Appointment updated">Appointment Updated</option>
 								<option value="Raw images uploaded">Raw images uploaded</option>
 								<option value="Order completed">Order completed</option>
 								<option value="New user created">New user created</option>
 								<option value="Inviting new clients">Inviting new clients</option>
 								<option value="Rework">Rework</option>
 								<option value="Realtor discount">Realtor discount</option>
+								<option value="Order Cost">Order Cost</option>
+								<option value="Finished Images Upload">Finished Images Upload</option>
 
 
 							</select>

@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($realtor_name,$realtor_email,$order_id,$con)
+function email($order_id,$realtor_email,$con)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -15,12 +15,7 @@ function email($realtor_name,$realtor_email,$order_id,$con)
 
 	/* SMTP class, needed if you want to use SMTP. */
 	require 'C:\PHPMailer\src\SMTP.php';
-	$pc_admin_id=$_SESSION['admin_loggedin_id'];
-	//echo "SELECT * FROM `photo_company_profile` WHERE id=$pc_admin_id";
-	$get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
-	$get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
-	$pcadmin_email=$get_profile['email'];
-	$pcadmin_contact=$get_profile['contact_number'];
+
 
 	$mail = new PHPMailer(true);
 	$mail->isSMTP();
@@ -42,41 +37,61 @@ function email($realtor_name,$realtor_email,$order_id,$con)
 	// // //Recipient name is optional
 	// //;
 	 // ;
+	 $order_id=$order_id;
+	 $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
+	 $get_detail=mysqli_fetch_array($get_orderdetail_query);
+	 $pc_admin_id=$get_detail['pc_admin_id'];
+	 $from_date=$get_detail['session_from_datetime'];
+	 $date=date_create($from_date);
+	 $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+	 $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+	 $pcadmin_email=$get_profile['email'];
+	 $pcadmin_contact=$get_profile['contact_number'];
+	 $formated_date=date_format($date,"Y/m/d H:i:s");
+	 $get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
+	 $get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
+	 $get_org=$get_pcadmindetail['organization_name'];
+	 $PCAdmin_email=$get_pcadmindetail['email'];
+	 $photographer_id=@$get_detail['photographer_id'];
+	 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
+	 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
+	 $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	 $photographer_email=@$get_name["email"];
+	 $csr_id=$get_name['csr_id'];
+	 $get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
+	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
+	 $csr_email=$get_csrdetail['email'];
+	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
+	 $get_template=mysqli_fetch_array($get_template_query);
+	 $appointment_updated_template=$get_template['template_body_text'];
 
 
-	// $mail->addAddress($realtor_email);
-		$mail->addAddress($realtor_email);
-	//	$mail->addAddress("sidambara.selvan@adrgrp.com");
-
-	//Address to which recipient will reply
+  $mail->addAddress($realtor_email);
+	$mail->AddCC($csr_email);
+	$mail->AddCC($pcadmin_email);
+	$mail->AddCC($photographer_email);
 	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
-
-
 	$mail->isHTML(true);
 
 	$mail->Subject = "Appointment updated";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."photo-dev/logo.png\" /></td><td align=\"center\" class=\"titleCss\">Appointment Updated Successfully</td>
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT UPDATED SUCCESSFULLY</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
+	$mail->Body.=$appointment_updated_template;
+  $mail->Body.="</br>Kindly check the order #{{Order_ID}} your orders page for details</br>
+  Thank you for continued support.
 
+  <br><br>
+  Thanks,<br>
+  Fotopia Team.";
 
-	$mail->Body.="Hello {{Realtor_Name}},<br><br>
-
-Your order update by {{admin}} and your orderID: F{{orderId}}<br>
-for further details please login to <a href='{{project_url}}'>Fotopia</a>.<br>
-Thank you for continued support.
-
-<br><br>
-Thanks,<br>
-Fotopia Team.";
-  $mail->Body=str_replace('{{Realtor_Name}}', $realtor_name , $mail->Body);
-	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
-  $mail->Body=str_replace('F{{orderId}}', $order_id , $mail->Body);
-	$mail->Body=str_replace('{{admin}}',$_SESSION['admin_loggedin_name'], $mail->Body);
+  $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-//	 echo $mail->Body;
-	 //exit;
+
+
+	 // echo $mail->Body;
+	 // exit;
 
 
 
@@ -152,7 +167,7 @@ $photography_cost1=$photographer_cost[$i];
  $get_realtor_name_query=mysqli_query($con,"select * from orders where id=$order_id");
  $get_realtor=mysqli_fetch_assoc($get_realtor_name_query);
    $realtor_id=$get_realtor['created_by_id'];
-	 if($realtor_id==$_SESSION['admin_loggedin_id'])
+	 if($realtor_id==$_SESSION['admin_loggedin_id']&&$get_realtor['created_by_type']!="Realtor")
 	 {
 		 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$realtor_id'");
 	 }
@@ -162,12 +177,16 @@ $photography_cost1=$photographer_cost[$i];
 
 	 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
 	 $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
-	 $email=$get_realtor_name['email'];
+	 $realtor_email=$get_realtor_name['email'];
 
 
 
   mysqli_query($con,"update orders set status_id='2' where id='$order_id'");
- email($get_realtor_name1,$email,$order_id,$con);
+
+
+	email($order_id,$realtor_email,$con);
+
+
   if(@$_REQUEST['u']==1)
 	{
 		header("location:summary.php?od=$order_id&pc_admin_id=$pc_admin_id&Photographer_id=$Photographer_id&hs_id=$home_seller_id&edit=1");
