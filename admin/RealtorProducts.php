@@ -64,8 +64,8 @@ function email($realtor_email,$con)
 	$mail->Body.="<br><br></td></tr></table></html>";
 
 
-	 echo $mail->Body;
-	 exit;
+	 // echo $mail->Body;
+	 // exit;
 
 
 
