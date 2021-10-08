@@ -310,10 +310,10 @@ $hs_id=$get_summary['home_seller_id'];
       <div class="col-md-12">
 
                  <?php
-            $photographer_id=$get_summary['photographer_id'];
+            $photographer_id=@$get_summary['photographer_id'];
             $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
-            $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-            $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+            @$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
+            $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
             ?>
 
 

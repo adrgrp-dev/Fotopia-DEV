@@ -40,6 +40,7 @@ function email($order_id,$realtor_email,$con)
 	 $order_id=$order_id;
 	 $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
 	 $get_detail=mysqli_fetch_array($get_orderdetail_query);
+	 $home_seller_id=$get_detail['home_seller_id'];
 	 $pc_admin_id=$get_detail['pc_admin_id'];
 	 $from_date=$get_detail['session_from_datetime'];
 	 $date=date_create($from_date);
@@ -64,12 +65,15 @@ function email($order_id,$realtor_email,$con)
 	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
 	 $get_template=mysqli_fetch_array($get_template_query);
 	 $appointment_updated_template=$get_template['template_body_text'];
+	 $get_hs_detail_query=mysqli_query($con,"select * from home_seller_info where id=$home_seller_id");
+	 $get_hs_detail=mysqli_fetch_array($get_hs_detail_query);
 
 
   $mail->addAddress($realtor_email);
 	$mail->AddCC($csr_email);
 	$mail->AddCC($pcadmin_email);
 	$mail->AddCC($photographer_email);
+	$mail->AddCC($get_hs_detail['email']);
 	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
 	$mail->isHTML(true);
 
