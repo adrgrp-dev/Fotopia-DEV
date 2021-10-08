@@ -62,7 +62,7 @@ function email($fname,$email,$admin_name,$organization,$con)
 
 Welcome to Real Estate Photography world!<br/>
 
-You are chosen as an Editor for our {{organization}}, we will send a link to download the Real estate raw images for editing.<br/>
+You are chosen as an Editor for our company {{organization}}, we will send a link to download the Real estate raw images for editing.<br/>
 
 For further quires on how to download & upload raw images & finished image, please follow the tutorials given below.<br/>
 
@@ -132,7 +132,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 
   $get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
 	$get_organization=mysqli_fetch_assoc($get_organization_query);
-	$organization=$get_organization['organization'];
+	$organization=$get_organization['organization_name'];
 	$admin_name=$get_organization['first_name'];
    email($fname,$email,$admin_name,$organization,$con);
 
