@@ -108,7 +108,7 @@ if($get_detail['status_id']==4)
 	$mail->Body=str_replace('{{orderId}}',$order_id, $mail->Body);
   //	$mail->Body=str_replace('{{Editor_email}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-	echo $mail->Body;exit;
+//	echo $mail->Body;exit;
 	try {
 	    $mail->send();
 	    echo "Message has been sent successfully";
