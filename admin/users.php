@@ -1211,13 +1211,7 @@ $("#tab11").removeClass("active");
 </script>
 <?php } ?>
 
-<script>
-$(document).ready(function(){
-   window.location="users.php";
-  });
-});
 
-</script>
 
 
 		<?php include "footer.php";  ?>
