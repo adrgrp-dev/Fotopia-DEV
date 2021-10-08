@@ -257,7 +257,7 @@ $realtor_email = $get_realtor_info1['email'];
    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER HAS BEEN DECLINED</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
-    
+
 
 $id_url=$_REQUEST['id'];
 $get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
@@ -2057,10 +2057,6 @@ alert(alertmsg);
                                                   </div>
 
                                                 </div>
-                                                <a class="img-box " style="" href="<?php echo $imagesDirectory_standard."/".$image; ?>"   style="">
-                                                    <i class="fa fa-home "  style=""></i>
-
-                                                </a>
 
                                             </div>
 
@@ -2212,10 +2208,7 @@ alert(alertmsg);
                                                   </div>
 
                                                 </div>
-                                                <a class="img-box " style="" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   style="">
-                                                    <i class="fa fa-home "  style=""></i>
 
-                                                </a>
 
                                             </div>
 
@@ -2361,10 +2354,7 @@ alert(alertmsg);
                                                   </div>
 
                                                 </div>
-                                                <a class="img-box " style="" href="<?php echo $imagesDirectory_Drone."/".$image; ?>"   style="">
-                                                    <i class="fa fa-home "  style=""></i>
 
-                                                </a>
 
                                             </div>
 
@@ -2510,10 +2500,7 @@ alert(alertmsg);
                                                   </div>
 
                                                 </div>
-                                                <a class="img-box " style="" href="<?php echo $imagesDirectory_hdr."/".$image; ?>"   style="">
-                                                    <i class="fa fa-home "  style=""></i>
-
-                                                </a>
+                                            
 
                                             </div>
 
