@@ -22,10 +22,10 @@ if(isset($_REQUEST['RateNow']))
 {
 $photographer_id=$_REQUEST['photographer_id'];
 
-$getSuperCSRID=mysqli_query($con,"select super_csr_id from user_login where id='$photographer_id'");
+$getSuperCSRID=mysqli_query($con,"select pc_admin_id from user_login where id='$photographer_id'");
 $getSuperCSRID1=mysqli_fetch_array($getSuperCSRID);
 
-$super_csr_id=$getSuperCSRID1['super_csr_id'];
+$super_csr_id=$getSuperCSRID1['pc_admin_id'];
 $realtor_id=$_REQUEST['realtor_id'];
 $order_id=$_REQUEST['order_id'];
 $rating=$_REQUEST['rating'];
