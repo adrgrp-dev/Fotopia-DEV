@@ -225,7 +225,7 @@ var xhttp= new XMLHttpRequest();
 				</div>
                                     <hr class="space s">
 
-									 <div style="width:100%;overflow:scroll">
+									 <div style="width:100%;overflow:scroll;height:500px;">
                                     <table style="width:100%" class="table-stripped">
                                        <tr>
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
@@ -296,7 +296,7 @@ $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='R
 				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
 				</div>
                                     <hr class="space s">
-									 <div style="width:100%;overflow:scroll">
+									 <div style="width:100%;overflow:scroll;height:500px;">
                                     <table style="width:100%" class="table-striped">
                                        <tr>
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
