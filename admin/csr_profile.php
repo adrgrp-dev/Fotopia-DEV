@@ -185,7 +185,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 				 <tr><th style="padding-left:20px;"><span id="label_zip_code" adr_trans="label_zip_code">Zip Code</span></th><th>:</th><td align="center"><?php echo @$res1['postal_code']; ?></td></tr>
 				  <tr><th style="padding-left:20px;"><span id="label_country" adr_trans="label_country">Country</span></th><th>:</th><td align="center"><?php echo @$res1['country']; ?></td></tr>
 
-			   <tr><th style="padding-left:20px;"><span id="label_logo" adr_trans="label_logo">Logo</span></th><th>:</th><td align="center"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="50" height="50" /></td></tr>
+			   <tr><th style="padding-left:20px;"><span id="label_logo" adr_trans="label_logo">Logo</span></th><th>:</th><td align="center"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /></td></tr>
 			   <tr><th style="padding-left:20px;">LinkedIN ID </th><th>:</th><td align="center"><?php echo @$res1['linkedin_id']; ?></td></tr>
 				<tr><th style="padding-left:20px;">Facebook ID</th><th>:</th><td align="center"><?php echo @$res1['facebook_id']; ?></td></tr>
 				<tr><th style="padding-left:20px;">Instagram ID</th><th>:</th><td align="center"><?php echo @$res1['instagram_id']; ?></td></tr>

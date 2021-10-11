@@ -46,6 +46,8 @@ function email($order_id,$con)
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
+		$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+		$mail->isHTML(true);
     $mail->Subject = "Order Placed";
     $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER PLACED SUCCESSFULLY</td>
     <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -70,6 +72,8 @@ Fotopia Team";
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
     $mail->addAddress($get_lead_detail['request_email']);
+		$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+		$mail->isHTML(true);
     $mail->Subject = "Order Placed";
     $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER PLACED SUCCESSFULLY</td>
     <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
