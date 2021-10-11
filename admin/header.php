@@ -265,6 +265,10 @@ $detailsOdUser1="";
 		{
 		$detailsOdUser=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$loggedINID'");
 $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
+
+$pc_admin_profile=mysqli_query($con,"select * from admin_users where id='$loggedINID'");
+$pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
+
 }
 if($_SESSION['admin_loggedin_type']=='CSR')
 {
@@ -338,7 +342,7 @@ else { ?>
 <?php } else { ?>
 
 
-				<img src="data:<?php echo @$detailsOdUser1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$detailsOdUser1['logo']); ?>" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
+				<img src="data:<?php echo @$pc_admin_profile1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$pc_admin_profile1['profile_pic']); ?>" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
 
 <?php } ?>
 
