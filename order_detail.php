@@ -87,7 +87,7 @@ $xyz123=0;
   	}
 
 // echo $mail->Body;
-// exit; 
+// exit;
 
   }
 
@@ -129,11 +129,11 @@ elseif (isset($_REQUEST['status_id']))
 $O_ID = $_REQUEST['id'];
 
 $get_order_info = mysqli_query($con,"select * from orders where id='$O_ID'");
-$get_order_info1 = mysqli_fetch_array($get_order_info); 
+$get_order_info1 = mysqli_fetch_array($get_order_info);
 $order_pc_admin_id = $get_order_info1['pc_admin_id'];
 
 $get_pc_admin_details = mysqli_query($con,"select * from admin_users where id='$order_pc_admin_id'");
-$get_pc_admin_details1 = mysqli_fetch_array($get_pc_admin_details); 
+$get_pc_admin_details1 = mysqli_fetch_array($get_pc_admin_details);
 $order_pc_admin_org = $get_pc_admin_details1['organization_name'];
 $order_pc_admin_email = $get_pc_admin_details1['email'];
 
@@ -160,12 +160,12 @@ Order with reference no #{{order no}} has been cancelled by the realtor {{realto
 Thanks,<br>
 Fotopia Team.
 ";
-   
+
     $mail->Body=str_replace('{{PCAdmin Company name}}', $order_pc_admin_org , $mail->Body);
     $mail->Body=str_replace('{{order no}}', $O_ID , $mail->Body);
     $mail->Body=str_replace('{{realtor name}}', $_SESSION['loggedin_name'] , $mail->Body);
- 
-     
+
+
     $mail->Body.="<br><br></td></tr></table></html>";
     // echo $mail->Body;exit;
     // exit;
@@ -178,7 +178,7 @@ Fotopia Team.
     }
 
 // echo $mail->Body;
-// exit;    
+// exit;
 
 }
 
@@ -1814,31 +1814,31 @@ if($get_order1['status_id']==3)
         <h1 id="inv_h1" style="font-size:50px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1><p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-top: -100px;color:white !important;" id="noprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <hr class="space s">
-         <table style="margin-left : 30px;width:100%">
+         <table style="margin-left : 0px;width:100%">
 
             <tr>
               <th style="width:30%">
-                <p style="font-size:14px" id="label_order_no" adr_trans="label_order_no"><strong>ORDER NO.</strong><br></p>
+                <p style="font-size:14px;text-align:left" id="label_order_no" adr_trans="label_order_no"><strong>ORDER #</strong><br></p>
               </th>
-			  <th style="width:40%;text-align:center" align="center">ORDER COST NO.</th>
+			  <th style="width:40%;text-align:center;" align="center">  <p style="font-size:14px;text-align:center" ><strong>ORDER COST NO.</strong><br></p></th>
               <th  style="width:30%" align="right">
-                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:30px;float:right;
+                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:0px;float:right;
         "><strong> DATE OF ISSUE </strong><br></p>
               </th>
             </tr>
             <tr>
               <td style="width:30%" align="left">
-                <p style="font-size:11px;text-align:left;"> <?php echo $id_url; ?></p>
+                <p style="font-size:14px;text-align:left;"> <?php echo $id_url; ?></p>
               </td>
 			   <td style="width:40%" align="center">
-                <p style="font-size:11px;text-align:center;"> <?php echo "FOT".@$invoice_check['invoice_id']; ?></p>
+                <p style="font-size:14px;text-align:center;"> <?php echo "FOT".@$invoice_check['invoice_id']; ?></p>
               </td>
               <td style="width:30%" align="right">
-                <p style="font-size:14px;float:right; margin-right:30px;"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
+                <p style="font-size:14px;float:right;"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
               </td>
             </tr>
           </table>
-<table style="width:100%!important;margin-left : 30px;">
+<table style="width:100%!important;margin-left : 0px;">
 <tr><td style="width:70%!important;">
         <br />
           <?php
@@ -1891,7 +1891,7 @@ if($get_order1['status_id']==3)
 
      </td>
 	 <td style="width:50%">
-          <table style="width:100%">
+          <table style="width:100%;float:right;text-align:right">
 
 <br />
           <?php
@@ -1907,11 +1907,11 @@ if($get_order1['status_id']==3)
               $get_information=mysqli_fetch_assoc($get_photo_info);
 
               ?>
-  <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
-  <tr><th align="left"><p style="font-size:11px"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
-  <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
-  <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
-  <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
+  <tr><th align="left"><p style="font-size:14px;text-align:right;"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
+  <tr><th align="left"><p style="font-size:11px;text-align:right;"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
+  <tr><td><p style="font-size:11px;margin-right: -15px"> <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
+  <tr><td><p style="font-size:11px;margin-right: -15px "> <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
+  <tr><td><p style="font-size:11px;margin-right: -15px "> <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
 
 
         </table>
@@ -1929,7 +1929,7 @@ if($get_order1['status_id']==3)
           <thead>
             <tr>
               <th id="inv_th" style="width:10% ;margin-left : 10px;
-       padding-left : 10px;"><span adr_trans="label_product_desc"> PRODUCTS DESCRIPTION</span></th>
+       padding-left : 10px;text-align:left;"><span adr_trans="label_product_desc"> PRODUCTS DESCRIPTION</span></th>
        <th id="inv_th" style="width:10% ;text-align: center;"><span>QUANTITY</span></th>
               <th id="inv_th" style="width:10% ;text-align: center;"><span adr_trans="label_costs">COSTS</span></th>
               <!-- <th id="inv_th" style="width:15%;text-align: center;"><span >OTHER COSTS</span></th>

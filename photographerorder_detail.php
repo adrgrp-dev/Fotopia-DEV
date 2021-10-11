@@ -1822,7 +1822,7 @@ header("location:photographerDashboard.php?private=1"); exit;
           <table style="margin-left : 30px;width:100%;margin-top:10px;">
 
             <tr>
-              <th style="width:30%">
+              <th style="width:30%;text-align:left">
                 <p style="font-size:14px" id="label_order_no" adr_trans="label_order_no"><strong>ORDER NO.</strong><br></p>
               </th>
 			  <th style="width:40%;text-align:center" align="center">&nbsp;</th>
@@ -1845,7 +1845,7 @@ header("location:photographerDashboard.php?private=1"); exit;
           </table>
 <table style="width:100%!important;margin-left : 30px;">
 <tr><td style="width:70%!important;">
-        <table style="width:100%!important;">
+        <table style="width:100%!important;float:right;text-align:left">
        <?php
 
    $get_order_query=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
@@ -1857,9 +1857,9 @@ header("location:photographerDashboard.php?private=1"); exit;
                 $get_created_name_query=mysqli_query($con,"SELECT * FROM photo_company_profile where pc_admin_id=".$created_Nam);
                 $get_name_create=mysqli_fetch_assoc($get_created_name_query);
                 ?>
-                <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
+                <tr><th><p style="font-size:14px;text-align:left"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo $get_name_create["organization_name"]?> </strong><br></p></th></tr>
+                  <th><p style="font-size:11px;text-align:left"><strong><?php  echo $get_name_create["organization_name"]?> </strong><br></p></th></tr>
                   <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
                   <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
@@ -1871,7 +1871,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
      </td>
 	 <td style="width:50%">
-          <table style="">
+          <table style="text-align:right;float:right">
 
 <br />
 
@@ -1882,8 +1882,8 @@ header("location:photographerDashboard.php?private=1"); exit;
               $photographer_Name=@$get_information['first_name']." ".@$get_information['last_name'];
 
               ?>
-  <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
-  <tr><th><p style="font-size:11px"><strong><?php  echo $photographer_Name; ?> </strong><br></p></th></tr>
+  <tr><th><p style="font-size:14px;text-align:right;padding-right:15px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
+  <tr><th><p style="font-size:11px;text-align:right;padding-right:15px"><strong><?php  echo $photographer_Name; ?> </strong><br></p></th></tr>
   <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
@@ -1909,7 +1909,7 @@ header("location:photographerDashboard.php?private=1"); exit;
           <thead>
             <tr>
               <th id="inv_th" style="width:60% ;margin-left : 10px;
-       padding-left : 10px;"><span adr_trans="label_product_desc" > PRODUCTS DESCRIPTION</span></th>
+       padding-left : 10px;text-align:left;"><span adr_trans="label_product_desc" > PRODUCTS DESCRIPTION</span></th>
               <th id="inv_th" style="width:10% ;text-align: center;"><span adr_trans="label_costs">COSTS</span></th>
 
             </tr>
