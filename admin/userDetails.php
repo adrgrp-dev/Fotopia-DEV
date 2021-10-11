@@ -160,7 +160,7 @@ elseif(isset($_REQUEST['block']))
 
 			</div>
                 <div class="col-md-10"  style="padding-top:30px;">
-                    <h5 class="text-center" style="margin-left:-300px;" adr_trans="label_photographer_details">Photographer Details</h5>
+                    <h5 class="text-center" style="margin-left:-300px;" adr_trans="label_user_details">User details</h5>
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
                         <div class="success-box" style="display:block;padding-left: 20%">

@@ -53,23 +53,25 @@ if(isset($_REQUEST['loginbtn']))
 
  <datalist id="Suggestions1"  >
  <?php
-							if(empty(@$_SESSION['usertype1']))
-							{
-
-								$user_name=mysqli_query($con,"select * from user_login where email_verified=1 order by id desc");
-						  }
+							// if(empty(@$_SESSION['usertype1']))
+							// {
+							//
+							// 	$user_name=mysqli_query($con,"select * from user_login where email_verified=1 order by id desc");
+						  // }
 							if(!empty(@$_SESSION['usertype1']))
 							{
-							if(@$_SESSION['usertype1']!='PCAdmin')
+							if($_SESSION['usertype1']!='PCAdmin')
 							{
-								$user_name=mysqli_query($con,"select * from user_login where email_verified=1 order by id desc");
+									echo "select * from user_login where type_of_user='Realtor' and email_verified=1 order by id desc";
+								$user_name=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and email_verified=1 order by id desc");
 							}
 							else
 							{
+								echo "select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc";
 								$user_name=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc");
 						  }
 						}
-						// echo $username;
+
 							while(@$user_first_name=mysqli_fetch_assoc(@$user_name))
 							{
 							?>
@@ -77,6 +79,7 @@ if(isset($_REQUEST['loginbtn']))
 
 							<?php } ?>
 </datalist>
+
 </form>
 </span>
 <script type="text/javascript">
@@ -201,7 +204,7 @@ var initialArray = [];
                 <tbody>
 				<?php
                    //	---------------------------------  pagination starts ---------------------------------------
-								
+
 								$q1 = "select count(*) as total from user_login WHERE email_verified='1' and type_of_user='Realtor'";
 								$q="";
 									 if(@$_GET["page"]<0)
@@ -308,8 +311,8 @@ else {
 
          $cnt=$start_no_users;
      }
-	 
-	 
+
+
 	 $q = "SELECT *FROM user_login WHERE email_verified='1' and type_of_user='Realtor' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 if(isset($_REQUEST['user_type1']))
 {
@@ -426,16 +429,16 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 
  <datalist id="Suggestions2"  >
  <?php
- if(empty(@$_SESSION['usertype2']))
+ // if(empty(@$_SESSION['usertype2']))
+ // {
+ //
+	//  $user_name2=mysqli_query($con,"select * from user_login where email_verified=0 order by id desc");
+ // }
+ if(!empty($_SESSION['usertype1']))
  {
-
-	 $user_name2=mysqli_query($con,"select * from user_login where email_verified=0 order by id desc");
- }
- if(!empty(@$_SESSION['usertype1']))
+ if($_SESSION['usertype1']!='PCAdmin')
  {
- if(@$_SESSION['usertype1']!='PCAdmin')
- {
-	 $user_name2=mysqli_query($con,"select * from user_login where email_verified=0 order by id desc");
+	 $user_name2=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and email_verified=0 order by id desc");
  }
  else
  {
@@ -445,6 +448,7 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 							while($user_first_name=mysqli_fetch_assoc($user_name2))
 							{
 							?>
+
 							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
 							<?php } ?>
@@ -584,14 +588,14 @@ var initialArray = [];
 				{
 					@$_SESSION["page1"]=1;
 				}
-				
+
 				if(isset($_REQUEST['user_type2']))
 	      {
 	      	if($_REQUEST['user_type2'] == "All"){
 	      		@$_SESSION['usertype2']=$_REQUEST['user_type2'];
 	      		$Pending = "select count(*) as total from user_login WHERE email_verified='0' ";
 	      	}
-			
+
 					elseif($_REQUEST['user_type2']=="PCAdmin")
 					{
 
@@ -637,14 +641,14 @@ $lname2 = $new2['1'];
 if(@$_SESSION['usertype2']!='PCAdmin')
 {
 
-	$Pending = "select count(*) as total from user_login WHERE email_verified='0' AND (first_name='$fname1' AND last_name='$lname1') ";
+	$Pending = "select count(*) as total from user_login WHERE email_verified='0' AND (first_name='$fname2' AND last_name='$lname2') ";
 }
 else {
-	$Pending = "select count(*) as total from admin_users WHERE  is_approved='0' AND (first_name='$fname1' AND last_name='$lname1') ";
+	$Pending = "select count(*) as total from admin_users WHERE  is_approved='0' AND (first_name='$fname2' AND last_name='$lname2') ";
 }
 }
 
- 
+
 				//$Pending="select count(*) as total from user_login WHERE type_of_user=''";
 				@$pending1=mysqli_query($con,@$Pending);
 				if(@$pending1 == "0"){
@@ -727,14 +731,14 @@ $lname_2 = $new_2['1'];
 
 if(@$_SESSION['usertype2']!='PCAdmin')
 {
-	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND (first_name='$fname' AND last_name='$lname' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND (first_name='$fname_2' AND last_name='$lname_2' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 	else {
-		$Pending_data = "SELECT *FROM admin_users WHERE is_approved='0' AND (first_name='$fname' AND last_name='$lname') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+		$Pending_data = "SELECT *FROM admin_users WHERE is_approved='0' AND (first_name='$fname_2' AND last_name='$lname_2') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 }
 
-		
+
 				@$pending_data1=mysqli_query($con,@$Pending_data);
 				if(@$pending_data1 == "0"){
 					?><h5 align="center"> <?php echo "No Pending Users are Found";?> </h5>
@@ -944,7 +948,7 @@ var initialArray = [];
                 <tbody>
 				<?php
                    //	---------------------------------  pagination starts ---------------------------------------
-				   
+
 				   $denied = "select count(*) as total from admin_users WHERE WHERE is_approved='2' AND type_of_user='PCAdmin'";
 				if(empty($_GET["page2"]))
 				{
@@ -1021,10 +1025,10 @@ $lname3 = $new3['1'];
 if(@$_SESSION['usertype3']!='PCAdmin')
 {
 
-	$denied = "select count(*) as total from user_login WHERE email_verified='2' AND (first_name='$fname1' AND last_name='$lname1') ";
+	$denied = "select count(*) as total from user_login WHERE email_verified='2' AND (first_name='$fname3' AND last_name='$lname3') ";
 }
 else {
-	$denied = "select count(*) as total from admin_users WHERE  is_approved='2' AND (first_name='$fname1' AND last_name='$lname1') ";
+	$denied = "select count(*) as total from admin_users WHERE  is_approved='2' AND (first_name='$fname3' AND last_name='$lname3') ";
 }
 }
 
@@ -1061,10 +1065,10 @@ else {
 
          $cnt=$start_no_users;
      }
-	 
+
 	$denied_data = "SELECT *FROM admin_users WHERE is_approved='2' AND type_of_user='PCAdmin' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	// $denied_data="";
-	 
+
 if(isset($_REQUEST['user_type3']))
 {
 $user_type=$_REQUEST['user_type3'];
@@ -1097,7 +1101,7 @@ elseif(!empty(@$_SESSION['usertype3']))
 	}
 
 	else{
-	
+
 	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND type_of_user='".@$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
@@ -1119,11 +1123,11 @@ $lname_3 = $new_3['1'];
 if(@$_SESSION['usertype3']!='PCAdmin')
 {
 
-	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND (first_name='$fname' AND last_name='$lname' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND (first_name='$fname_3' AND last_name='$lname_3' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 	else {
 
-		$denied_data = "SELECT *FROM admin_users WHERE is_approved='2' AND (first_name='$fname' AND last_name='$lname') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+		$denied_data = "SELECT *FROM admin_users WHERE is_approved='2' AND (first_name='$fname_3' AND last_name='$lname_3') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 
 }
