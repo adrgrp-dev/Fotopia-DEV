@@ -687,6 +687,36 @@ html{	background-color:#FFF; }
 {
 background:none!important;
 }
+
+@media only screen and (max-width: 600px) {
+
+td
+{
+min-width:100px!important;
+}
+#billedTo
+{
+margin-left:5px!important;
+margin-top:30px!important;
+width:120px!important;
+}
+#billedFrom
+{
+margin-left:5px!important;
+margin-left:5px!important;
+width:120px!important;
+margin-top:-220px!important;
+}
+#orderInfo
+{
+margin-left:5px!important;
+width:100%!important;
+}
+.panel
+{
+overflow:scroll!important;
+}
+}
  </style>
  <script>
  function showicons(iconid)
@@ -2630,7 +2660,7 @@ alert(alertmsg);
            }
           }
           </script>
-          <table style="margin-left : 30px;width:100%">
+          <table style="margin-left : 30px;width:100%" id="orderInfo">
 
             <tr>
               <th style="width:30%">
@@ -2656,7 +2686,7 @@ alert(alertmsg);
           </table>
           <br/><br/>
           <table style="margin-left : 30px;
-         padding-left : 30px;">
+         padding-left : 30px;" id="billedTo">
 
             <?php
                 $home_sell_id=$get_summary['home_seller_id'];
@@ -2714,7 +2744,7 @@ alert(alertmsg);
 
         <br/><br/>
             <table style="float: right;
-        margin-top: -164px;">
+        margin-top: -164px;" id="billedFrom">
             <div >
             <?php
 

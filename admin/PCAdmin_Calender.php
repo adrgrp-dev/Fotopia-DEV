@@ -15,6 +15,11 @@ mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `pho
 header("location:PCAdmin_Calender.php?ph_id=$Photographer_id&ph_name=$Photographer_name");
 }
 
+ if(!empty(@$_REQUEST['ph_name']) && empty(@$_REQUEST['ph_id']) && empty(@$_REQUEST['busy'])  && empty(@$_REQUEST['deleteBusy']))
+ {
+ header("location:PCAdmin_Calender.php?notexist=1");
+}
+
 if(@$_REQUEST['deleteBusy'])
 {
 $busyid=$_REQUEST['busyid'];
@@ -26,10 +31,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name");
 }
 
 
- if(!empty(@$_REQUEST['ph_name']) && empty(@$_REQUEST['ph_id']))
- {
- header("location:PCAdmin_Calender.php?notexist=1");
-}
+
 ?>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage3">

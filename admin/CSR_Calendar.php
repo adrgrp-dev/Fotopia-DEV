@@ -249,7 +249,42 @@ background: repeating-linear-gradient(
 {
 margin:2px!important;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:3px!important;
+font-size: 5px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:7px!important;
+
+}
+.forMobile
+{
+height:fit-content!important;
+}
+.fc-col-header-cell-cushion 
+{
+font-size:10px!important;
+}
+#label_create_new_order
+{
+float:right!important;
+margin-right:-160px!important;
+font-size:10px!important;
+margin-top:15px;
+}
+}
+
+
 				</style>
+				
+				
 				<script src='../lib/main.js'></script>
 			<?php
 			if(@$_REQUEST['ph_id'])

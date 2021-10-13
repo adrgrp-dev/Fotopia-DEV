@@ -12,6 +12,21 @@ $phDetail=mysqli_fetch_array($phDetail1);
 
 $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 }
+
+
+if(@$_REQUEST['deleteBusy'])
+{
+$busyid=$_REQUEST['busyid'];
+$ph_id=$_REQUEST['ph_id'];
+$pc_admin_id=$_REQUEST['pc_admin_id'];
+$ph_name=$_REQUEST['ph_name'];
+
+mysqli_query($con,"delete from `appointments` where id='$busyid'");
+
+header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photographer_id=$ph_id&pc_admin_id=$pc_admin_id");
+}
+
+
 ?>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage3">
@@ -76,6 +91,8 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 
                   </datalist>
 				  <input type="hidden" name=" Photographer_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
+				   <input type="hidden" name=" pc_admin_id" id="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
+				  
 				  </form></td>
 				  <td align="left" style="color:#000080;">&nbsp; <?php //if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
 				  <td>
@@ -353,6 +370,23 @@ alert(alertmsg);
 		else
 		{
    window.location.href = "photographerorder_detail.php?id="+even.extendedProps.orderId;
+   }
+  },
+   eventClick: function(info) {
+		if(info.event.extendedProps.status!='BUSY')
+		{
+		var even=info.event;
+   window.location.href = "superOrder_detail.php?id="+even.extendedProps.orderId;
+   }
+   else
+   {
+   var ph_name='<?php echo strtoupper(@$_REQUEST['ph_name']);?>';
+    var ph_id='<?php echo @$_REQUEST['Photographer_id'];?>';
+	  var pc_admin_id='<?php echo @$_REQUEST['pc_admin_id'];?>';
+   if(confirm("Are you sure want to remove the selected BUSY event of Mr."+ph_name+"?")) {
+   // alert(info.event.extendedProps.orderId);
+  window.location.href = "photographerCalendar1.php?deleteBusy=1&busyid="+info.event.extendedProps.orderId+"&ph_id="+ph_id+"&ph_name="+ph_name+"&pc_admin_id="+pc_admin_id;
+   }
    }
   }
     });

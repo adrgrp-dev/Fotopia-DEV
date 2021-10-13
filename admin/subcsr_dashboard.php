@@ -132,7 +132,23 @@ font-size: 10px!important;
 {
 font-size:10px!important;
 }
-
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:2px!important;
+font-size: 7px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:8px!important;
+}
+.forMobile
+{
+height:fit-content!important;
+}
+}
 </style>
 
 
@@ -439,7 +455,7 @@ $.ajax({
      <div class="col-md-6">
  <br />
               <center>    <h5 id="label_latest_delivered" adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
        <?php
 
           $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where csr_id=$_SESSION[admin_loggedin_id]) order by rand() limit 4");
@@ -576,7 +592,7 @@ if($i<=$ratingIs)
 
 
 
-		<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:336px;">
+		<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:336px; overflow:scroll;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_photographer_details" adr_trans="label_photographer_details" >PHOTOGRAPHER DETAILS</h5>
                             <hr class="space s">

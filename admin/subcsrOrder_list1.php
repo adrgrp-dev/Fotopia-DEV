@@ -7,7 +7,17 @@ $loggedin_id=$_SESSION['admin_loggedin_id'];
 
 
 ?>
+<style>
+@media only screen and (max-width: 600px) {
 
+td
+{
+min-width:100px!important;
+}
+
+}
+
+</style>
 <?php
 if(isset($_REQUEST['rejectbtn']))
 {
