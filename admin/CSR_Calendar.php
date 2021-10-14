@@ -243,7 +243,7 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
 }
 .fc-button
 {
@@ -268,7 +268,7 @@ font-size:7px!important;
 {
 height:fit-content!important;
 }
-.fc-col-header-cell-cushion 
+.fc-col-header-cell-cushion
 {
 font-size:10px!important;
 }
@@ -283,8 +283,8 @@ margin-top:15px;
 
 
 				</style>
-				
-				
+
+
 				<script src='../lib/main.js'></script>
 			<?php
 			if(@$_REQUEST['ph_id'])
@@ -359,12 +359,12 @@ businessHours: // specify an array instead
       },
 	   eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-    
+
 	if(info.event.extendedProps.status=='BUSY')
 	{
 	 info.revert();
 	}
-	
+
 	},
 	  selectOverlap: function(event) {
     return event.rendering === 'background';
@@ -469,12 +469,12 @@ var fromDate = new Date(fromDatetime);
 	var toDate=new Date(toDatetime);
     if(confirm("Are you sure want to mark  Mr."+phNameIs+" (Photographer) with BUSY status for "+fromDate.toDateString()+" "+fromDate.toLocaleTimeString()+" TO "+toDate.toLocaleTimeString()+"?"))
     {
-	
+
 	// var even=info.event;
  var dateMovedTo=fromDatetime;
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -482,10 +482,10 @@ var fromDate = new Date(fromDatetime);
  {
  alert("BUSY status cannot be marked to past date");
   info.revert();
- 
+
  }
  else
- {	
+ {
 	var phId1='<?php echo @$_REQUEST['ph_id']; ?>';
 	var phname1='<?php echo @$_REQUEST['ph_name']; ?>';
    window.location.href="./CSR_Calendar.php?busy=1&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&ph_name="+phname1;

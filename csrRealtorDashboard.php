@@ -140,6 +140,36 @@ font-size:9px!important;
 {
     color: #7c6f6f!important;
 	}
+
+	@media only screen and (max-width: 600px) {
+	  .fc-prev-button, .fc-next-button, .fc-button
+	{
+	background:#000!important;
+	color:#FFF!important;
+	margin:2px!important;
+	font-size: 7px!important;
+	}
+	.fc .fc-toolbar-title
+	{
+	font-size:8px!important;
+	}
+	.forMobile
+	{
+	height:fit-content!important;
+	}
+	#delivered_address
+	{
+		text-align: center;
+	}
+	#delivered_image
+	{
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+
+	}
+	}
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage9">
@@ -465,7 +495,7 @@ margin-left:0px!important;
 						<div class="col-md-6">
 						 <br />
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-	 <div class=" advs-box boxed-inverse"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+	 <div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
 
 					   <?php
 
@@ -478,10 +508,10 @@ margin-left:0px!important;
 						  $get_address=mysqli_fetch_array($get_address1);
 					        ?>
 
-					        <div class="col-md-6">
+					        <div class="col-md-6 ">
 					          <a href="order_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&f=1">
-					        <img src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="130" style="padding-bottom:10px;"/>
-					     <span style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+					        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="130" style="padding-bottom:10px;"/>
+					     <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
 						    </a>
 
 
@@ -602,7 +632,7 @@ if($i<=$ratingIs)
 				</table>
 
 
-<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #DDD;background:#000;color:#FFF;font-weight:600;opacity:0.8;width:145px;border-radius:25px 25px 25px 25px;width:100%">
+<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive " style="box-shadow:5px 5px 5px #DDD;background:#000;color:#FFF;font-weight:600;opacity:0.8;width:145px;border-radius:25px 25px 25px 25px;width:100%;">
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:25px;border:none">
 
 

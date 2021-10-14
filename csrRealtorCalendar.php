@@ -11,13 +11,13 @@ include "connection1.php";
         <div class="container" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
 			<hr class="space s">
-			
+
                 <div class="col-md-2" style="margin-left:-15px;">
 	<?php include "sidebar.php"; ?>
 
 
 			</div>
-               
+
 				<div class="col-md-10">
 <div class="row">
 <div class="col-md-12" style="padding-left:20px;height:30px;">
@@ -27,7 +27,7 @@ include "connection1.php";
 				<div class="col-md-6" style="float:right">
 				<!-- <a href="create_order.php" class="anima-button circle-button btn-sm btn" id="label_create_new_order" adr_trans="label_create_new_order" style="float:right;margin-top:-6px;"><i class="fa fa-calendar"></i> Create New Order</a> -->
 				</div></div>
-			</div>	
+			</div>
 
 
 
@@ -76,7 +76,7 @@ include "connection1.php";
 		background-color:#FED8B1!important;
         color:#FF8400!important;
         }
-		
+
 .fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {
 background:#FFF!important;
@@ -107,14 +107,14 @@ background: repeating-linear-gradient(
 background:#E8F0FE!important;
 border:solid 1px #01A8F2!important;
 }
-			
+
 h2.fc-toolbar-title
 {
 display:contents;
 color:#FFF!important;
 border:solid 1px #000!important;
 padding:10px;
-}	
+}
 
 
 .fc .fc-toolbar.fc-header-toolbar
@@ -152,6 +152,34 @@ font-weight:bold;
 .fc-timegrid-event .fc-event-time
 {
 margin-bottom:0px!important;
+}
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:3px!important;
+font-size: 10px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:7px!important;
+}
+.forMobile
+{
+height:fit-content!important;
+}
+.fc-col-header-cell-cushion
+{
+font-size:10px!important;
+}
+#label_create_new_order
+{
+float:right!important;
+margin-right:-160px!important;
+font-size:10px!important;
+margin-top:15px;
+}
 }
 </style>
 				<script src='lib/main.js'></script>
@@ -198,19 +226,19 @@ businessHours: // specify an array instead
       events: response,
 	  			 eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-    
+
    if(info.view.type=="timeGridDay")
 	  {
 	   var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
 	 var endDay=info.event.endStr;
-	 
+
 	  var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil flytte avtalen";
+		alertmsg="Er du sikker pï¿½ at du vil flytte avtalen";
 		}
 		else
 		{
@@ -229,20 +257,20 @@ businessHours: // specify an array instead
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment1.php?order_id="+order_id1+"&startDay="+startDay+"&endDay="+endDay,true);
   xhttp.send();
  }
- 
+
  return;
 	  }
-	  
-	  
+
+
  var even=info.event;
  var dateMovedTo=info.event.start.toISOString();
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -250,19 +278,19 @@ businessHours: // specify an array instead
  {
  alert("Appointment cannot be moved to past date");
   info.revert();
- 
+
  }
  else
  {
  // alert("future date");
 // console.log("***********"+even.extendedProps.orderId+"     "+dateMovedTo);
  var order_id=even.extendedProps.orderId;
- 
+
   var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil flytte avtalen til";
+		alertmsg="Er du sikker pï¿½ at du vil flytte avtalen til";
 		}
 		else
 		{
@@ -281,20 +309,20 @@ businessHours: // specify an array instead
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment.php?order_id="+order_id+"&date="+dateIS[0],true);
   xhttp.send();
  }
- 
- 
+
+
  }
- 
- 
-   
+
+
+
   }, eventResize: function(info) {
    // alert(info.event.title + " end is now " + info.event.end.toISOString());
 
-    
+
 	  var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
@@ -303,7 +331,7 @@ businessHours: // specify an array instead
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil forlenge avtalen";
+		alertmsg="Er du sikker pï¿½ at du vil forlenge avtalen";
 		}
 		else
 		{
@@ -322,14 +350,14 @@ businessHours: // specify an array instead
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment1.php?order_id="+order_id1+"&startDay="+startDay+"&endDay="+endDay,true);
   xhttp.send();
  }
-	
-	
-	
-	
+
+
+
+
   },
 	    eventClick: function(info) {
 		var even=info.event;
@@ -367,7 +395,7 @@ businessHours: // specify an array instead
 	</div>
 
 
-	
+
 
    <script>
 
@@ -398,7 +426,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{

@@ -21,7 +21,7 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 
 			</div>
                 <div class="col-md-10">
-				
+
 				<a class="lightbox btn btn-primary btn-sm circle-button" id="warningMsg" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;display:none;">+Add Product</a>
 
 <div class="row">
@@ -32,9 +32,9 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 				<div class="col-md-6" style="float:right">
 				<a href="create_order.php" class="anima-button circle-button btn-sm btn" id="label_create_new_order" adr_trans="label_create_new_order" style="float:right;margin-top:-6px;"><i class="fa fa-calendar"></i> Create New Order</a>
 				</div></div>
-			</div>	
+			</div>
 
-		
+
 				<link href='lib/main.css' rel='stylesheet' />
 				<style>
 
@@ -79,7 +79,7 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 		background-color:#FED8B1!important;
         color:#FF8400!important;
         }
-		
+
 .fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {
 background:#FFF!important;
@@ -110,14 +110,14 @@ background: repeating-linear-gradient(
 background:#E8F0FE!important;
 border:solid 1px #01A8F2!important;
 }
-			
+
 h2.fc-toolbar-title
 {
 display:contents;
 color:#FFF!important;
 border:solid 1px #000!important;
 padding:10px;
-}	
+}
 
 
 .fc .fc-toolbar.fc-header-toolbar
@@ -185,7 +185,35 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
+}
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:3px!important;
+font-size: 10px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:7px!important;
+}
+.forMobile
+{
+height:fit-content!important;
+}
+.fc-col-header-cell-cushion
+{
+font-size:10px!important;
+}
+#label_create_new_order
+{
+float:right!important;
+margin-right:-160px!important;
+font-size:10px!important;
+margin-top:15px;
+}
 }
 				</style>
 				<script src='lib/main.js'></script>
@@ -258,7 +286,7 @@ $.ajax({
  var dateMovedTo=info.start.toISOString();
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -268,9 +296,9 @@ $.ajax({
   return false;
 
  }		createEventDateTimeNew(info.startStr,info.endStr);
-		
+
 		}
-		
+
       },
 	  selectOverlap: function(event) {
     return event.rendering === 'background';
@@ -340,7 +368,7 @@ alert(alertmsg);
 
             </div>
         </div>
-		
+
 <script>
 
  $( document ).on( "click", "td.fc-day", function() {
@@ -354,7 +382,7 @@ alert(alertmsg);
 	var phId='<?php echo $_REQUEST['Photographer_id']; ?>';
      var FcTop=$(this).find("div.fc-daygrid-day-top");
      var existing=FcTop.html();
-	 
+
      FcTop.html(existing+"<a href='./create_order.php?date="+dateIs+"&Photographer_id="+phId+"&pc_admin_id="+pc_admin_id+"' class='fc-daygrid-day-number' id='createEvent' style='float:left;padding-right:20px;text-decoration:underline;color:blue'>Create event</a>");
     //console.log(FcTop);
     }
@@ -369,10 +397,10 @@ alert(alertmsg);
 
     var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
-		
+
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{
@@ -385,7 +413,7 @@ alert(alertmsg);
     }
 
     }
-	
+
 	function createEventDateTimeNew(fromDatetime,toDatetime)
     {
 	var fromDate = new Date(fromDatetime);
@@ -393,10 +421,10 @@ alert(alertmsg);
 //alert(dateFormat(date1, "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
-		
+
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{
@@ -421,7 +449,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 <div id="lb2" class="box-lightbox col-md-4" style="padding-left:20px;padding-right:20px;padding-bottom:10px;padding-top:20px;color:#000!important;border-radius:25px;border:none!important;">
                       	   <h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Booking Warning!<br /></h5>
 					<table class="table table-responsive"><tr><td>
-					
+
 
 
 <span adr_trans="label_booking_content">The appointment time needs to be approved by the photographer and is subject to change based on drive times etc. The photographer will reach out to confirm or adjust as needed</span>

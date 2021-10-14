@@ -60,6 +60,15 @@ font-weight:600!important;
 		text-align:left!important;
 		}
 
+		@media only screen and (max-width: 600px) {
+
+		td
+		{
+		min-width:100px!important;
+		}
+
+		}
+
 
 </style>
 <?php include "header.php";  ?>

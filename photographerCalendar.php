@@ -37,13 +37,13 @@ header("location:photographerCalendar.php");
 				<center><h5> <span class="text-center" adr_trans="label_calendar"> Calendar</span> - <?php echo strtoupper($_SESSION['loggedin_name']); ?>
 				</h5></center></div>
 				</div>
-			</div>	
+			</div>
 
 <?php
 $pht = $_SESSION['loggedin_id'];
 ?>
 
-       
+
 		<p align="center" class="text-success" style="display:none" id="appointment_msg">Your request for the order update has been sent to the Realtor for an approval.<br />You will be notified once the Realtor approves your request</p>
 				<link href='lib/main.css' rel='stylesheet' />
 				<style>
@@ -90,7 +90,7 @@ $pht = $_SESSION['loggedin_id'];
 		background-color:#FED8B1!important;
         color:#FF8400!important;
         }
-		
+
 .fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {
 background:#FFF!important;
@@ -121,14 +121,14 @@ background: repeating-linear-gradient(
 background:#E8F0FE!important;
 border:solid 1px #01A8F2!important;
 }
-			
+
 h2.fc-toolbar-title
 {
 display:contents;
 color:#FFF!important;
 border:solid 1px #000!important;
 padding:10px;
-}	
+}
 
 
 .fc .fc-toolbar.fc-header-toolbar
@@ -186,7 +186,36 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
+}
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:3px!important;
+font-size: 10px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:7px!important;
+
+}
+.forMobile
+{
+height:fit-content!important;
+}
+.fc-col-header-cell-cushion
+{
+font-size:10px!important;
+}
+#label_create_new_order
+{
+float:right!important;
+margin-right:-160px!important;
+font-size:10px!important;
+margin-top:15px;
+}
 }
 
 				</style>
@@ -261,7 +290,7 @@ $.ajax({
   },
      // ---- new-----
      dateClick: function(info) {
-	
+
 	  if(info.view.type=="timeGridDay")
 	  {
 	  var dateIs=info.dateStr;
@@ -276,7 +305,7 @@ $.ajax({
 			},
 			 eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-    
+
 	if(info.event.extendedProps.status!='BUSY')
 	{
    if(info.view.type=="timeGridDay")
@@ -289,7 +318,7 @@ $.ajax({
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil flytte avtalen";
+		alertmsg="Er du sikker pï¿½ at du vil flytte avtalen";
 		}
 		else
 		{
@@ -308,20 +337,20 @@ $.ajax({
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment1_ph.php?order_id="+order_id1+"&startDay="+startDay+"&endDay="+endDay,true);
   xhttp.send();
  }
- 
+
  return;
 	  }
-	  
-	  
+
+
  var even=info.event;
  var dateMovedTo=info.event.start.toISOString();
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -329,19 +358,19 @@ $.ajax({
  {
  alert("Appointment cannot be moved to past date");
   info.revert();
- 
+
  }
  else
  {
  // alert("future date");
 // console.log("***********"+even.extendedProps.orderId+"     "+dateMovedTo);
  var order_id=even.extendedProps.orderId;
- 
+
     var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil flytte avtalen til";
+		alertmsg="Er du sikker pï¿½ at du vil flytte avtalen til";
 		}
 		else
 		{
@@ -360,24 +389,24 @@ $.ajax({
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment_ph.php?order_id="+order_id+"&date="+dateIS[0],true);
   xhttp.send();
  }
- 
- 
+
+
  }
- 
+
  }
  else
  {
  info.revert();
  }
-   
+
   }, eventResize: function(info) {
    // alert(info.event.title + " end is now " + info.event.end.toISOString());
 
-    
+
 	  var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
@@ -386,7 +415,7 @@ $.ajax({
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil forlenge avtalen";
+		alertmsg="Er du sikker pï¿½ at du vil forlenge avtalen";
 		}
 		else
 		{
@@ -405,14 +434,14 @@ $.ajax({
 	    $("#appointment_msg").show();
     }
   };
-  
+
   xhttp.open("GET","move_appointment1_ph.php?order_id="+order_id1+"&startDay="+startDay+"&endDay="+endDay,true);
   xhttp.send();
  }
-	
-	
-	
-	
+
+
+
+
   },
 	  eventClick: function(info) {
 	  console.log(info);
@@ -436,7 +465,7 @@ $.ajax({
   window.location.href = "photographerCalendar.php?deleteBusy=1&busyid="+info.event.extendedProps.orderId;
    }
    }
-  
+
   }
     });
 
@@ -472,7 +501,7 @@ $(".fc-scrollgrid-sync-inner").mouseover(function(){
 
             </div>
         </div>
-		
+
     <script>
 
 
@@ -503,7 +532,7 @@ $(".fc-scrollgrid-sync-inner").mouseover(function(){
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{
@@ -515,9 +544,9 @@ $(".fc-scrollgrid-sync-inner").mouseover(function(){
     }
 
     }
-	
-	
-	
+
+
+
 	function createEventDateTimeNew(fromDatetime,toDatetime)
     {
 var fromDate = new Date(fromDatetime);
@@ -525,12 +554,12 @@ var fromDate = new Date(fromDatetime);
 
     if(confirm("Are you sure want to mark yourself BUSY for "+fromDate.toDateString()+" "+fromDate.toLocaleTimeString()+" TO "+toDate.toLocaleTimeString()+"?"))
     {
-	
+
 	// var even=info.event;
  var dateMovedTo=fromDatetime;
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -538,10 +567,10 @@ var fromDate = new Date(fromDatetime);
  {
  alert("BUSY status cannot be marked to past date");
   info.revert();
- 
+
  }
  else
- {	
+ {
 	var phId1='<?php echo $_SESSION['loggedin_id']; ?>';
    window.location.href="./photographerCalendar.php?busy=1&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1;
    }

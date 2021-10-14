@@ -381,6 +381,47 @@ html{	background-color:#FFF; }
   background-color: #000 !important;
   border-radius: 10px;
 }
+@media only screen and (max-width: 600px) {
+
+td
+{
+min-width:100px!important;
+}
+#billedTo
+{
+margin-left:5px!important;
+margin-top:30px!important;
+width:120px!important;
+}
+#billedFrom
+{
+margin-left:5px!important;
+margin-left:5px!important;
+width:120px!important;
+margin-top:-220px!important;
+}
+#orderInfo
+{
+margin-left:5px!important;
+width:100%!important;
+}
+.panel
+{
+overflow:scroll!important;
+}
+
+#inv_h1{
+  font-size: 32px !important;
+}
+.img1{
+  width:100% !important;
+}
+#mobileprint
+{
+  float: right;
+}
+
+}
  </style>
  <script>
 
@@ -1777,7 +1818,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       <div class="panel" id="tab5">
 
 
-        <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:85px;color:white !important;"  onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+        <p align="right"><a class="anima-button circle-button btn-sm btn adr-save " style="position: relative;margin-right:85px;color:white !important;" id="mobileprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
       <link rel="stylesheet" href="./css/style_invoice.css">
       <!-- <script src="script.js"></script> -->

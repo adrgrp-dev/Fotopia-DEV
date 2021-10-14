@@ -118,6 +118,15 @@ header("location:order_list.php?app=1");
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
 }
+@media only screen and (max-width: 600px) {
+
+td
+{
+min-width:100px!important;
+}
+
+}
+
      </style>
      <script>
 

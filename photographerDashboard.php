@@ -89,6 +89,36 @@ color:#FFF!important;
 margin:10px!important;
 
 }
+@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:2px!important;
+font-size: 7px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:8px!important;
+}
+.forMobile
+{
+height:fit-content!important;
+}
+#delivered_address
+{
+  text-align: center;
+}
+#delivered_image
+{
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+
+}
+
+}
 
 </style>
 <?php include "header.php";  ?>
@@ -101,7 +131,7 @@ margin:10px!important;
 
 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10 ">
               	<h5 class="text-center" id="label_photographer_dashboard" adr_trans="label_photographer_dashboard">Photographer Dashboard</h5>
 
 
@@ -369,7 +399,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
   </div>
   <div class="col-md-6">
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
 
    <?php
 
@@ -383,8 +413,8 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
 
         <div class="col-md-6">
           <a href="photographerorder_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&f=1">
-        <img src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="140" style="padding-bottom:15px;"/>
-		 <span style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="140" style="padding-bottom:15px;"/>
+		 <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
         </a>
         </div>
   <?php		}
