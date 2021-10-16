@@ -160,7 +160,7 @@ elseif(isset($_REQUEST['block']))
 
 			</div>
                 <div class="col-md-10"  style="padding-top:30px;">
-                    <h5 class="text-center" style="margin-left:-300px;" adr_trans="label_user_details">User details</h5>
+                    <h5 class="text-center" style="" adr_trans="label_user_details">User details</h5>
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
                         <div class="success-box" style="display:block;padding-left: 20%">
@@ -184,7 +184,7 @@ if(isset($_REQUEST['id']))
 				$res1=mysqli_fetch_array($res);
 
 				?>
-					<table class="table" aria-busy="false" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:70%;border-radius:30px 30px 30px 30px!important;">
+					<table class="table-stripped" aria-busy="false" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important; margin-left:20px;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
 	   <tr><th style="padding-left:20px;"><span adr_trans="label_profile_photo">Profile Photo</span></th><td>:</td><td><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td></tr>

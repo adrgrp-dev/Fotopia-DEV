@@ -185,6 +185,18 @@ padding-left:5px;
 background:none!important;
 
 }
+td,th
+{
+padding:10px!important;
+font-weight:500!important;
+}
+@media only screen and (max-width: 600px) {
+#changeemail,#changePassword,#changePersonal
+{
+width:100%!important;
+height:250px;
+}
+}
 </style>
 <script>
 function validate()
@@ -255,7 +267,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-<table class="table table-responsive" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:20px 20px 20px 20px;width:70%;font-weight:200; font-size:15px;" align="center">
+<table class="table-stripped" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:20px 20px 20px 20px;width:100%;font-weight:200; font-size:15px;" align="center">
 <tr><td colspan="3" align="center"><h5 adr_trans="label_settings">Settings</h5>
 
 <?php if(@isset($_REQUEST["u"])) { ?>
@@ -347,7 +359,7 @@ $("#moreInfoText").toggle(1000);
 
 
                             <hr class="space s">
-				<table class="table table-responsive">
+				<table class="table-stripped">
 
 
 				</td></tr>
@@ -386,7 +398,7 @@ $("#moreInfoText").toggle(1000);
 
 						<p style="margin-left:20px;color:red!important;display:none;font-style:italic;" class="text-danger" id="Email_exist_error" align="center"></p>
 						<hr class="space s">
-				<table class="table table-responsive">
+				<table class="table-stripped">
 
 
 				</td></tr>

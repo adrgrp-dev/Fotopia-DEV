@@ -47,6 +47,12 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+@media only screen and (max-width: 600px) {
+td
+{
+min-width:120px!important;
+}
+}
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
@@ -610,7 +616,8 @@ tr:nth-child(even) {
 
 </div>
 
-<div class="panel" id="tab4" >
+
+<div class="panel" id="tab4" style="width:100%;overflow:scroll;">
 
 <script>
 
@@ -656,7 +663,7 @@ header("location:csr_list1.php?ed=1");
 
 <p align="right"><a href="create_editor.php" class="btn btn-default"><span adr_trans="label_create_editor">Create Editor</span></a></p>
 
-<table class="table-striped" aria-busy="false">
+<table class="table-striped">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
 

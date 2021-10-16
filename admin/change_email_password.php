@@ -195,6 +195,15 @@ color:#000!important;
 td,th
 {
 padding:10px;
+font-weight:500;
+}
+
+@media only screen and (max-width: 600px) {
+#changeemail,#changePassword,#changePersonal
+{
+width:100%!important;
+height:250px;
+}
 }
 </style>
 <script>
@@ -262,7 +271,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-<table class="" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:20px 20px 20px 20px;width:70%;font-weight:200; font-size:15px;" align="center">
+<table class="" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:20px 20px 20px 20px;width:70%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
 <tr><td colspan="3" align="center" id="label_settings" adr_trans="label_settings"><h5 >Settings</h5>
 
 <?php if(@isset($_REQUEST["u"])) { ?>
@@ -298,7 +307,7 @@ $("#moreInfoText").toggle(1000);
 
 <tr><td colspan="3"><span id="moreInfoText" style="display:none" adr_trans="label_change_role">To change your role, kindly click on sign up in the home screen and register as a new user.</span></td></tr>
 </td></tr>
-<tr><td style="padding-left:20px;" id="label_user_name" adr_trans="label_user_name"><h5>User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a><br /></td></tr>
+<tr><td style="padding-left:20px;" id="label_user_name"><h5 adr_trans="label_user_name">User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a><br /></td></tr>
 <tr><td style="padding-left:20px;padding-bottom:20px;" ><h5 id="label_password" adr_trans="label_password">Password</h5></td><td>
 
  <?php
@@ -320,7 +329,7 @@ $("#moreInfoText").toggle(1000);
                             <h5 style="color:#333333" align="center" id="label_change_personal" adr_trans="label_change_personal">Change personal details</h5>
 
                             <hr class="space s">
-				<table class="table table-responsive">
+				<table class="table-stripped">
 
 
 				</td></tr>
@@ -350,7 +359,7 @@ $("#moreInfoText").toggle(1000);
 
 
                             <hr class="space s">
-				<table class="table table-responsive">
+				<table class="table-stripped">
 
 
 				</td></tr>
@@ -389,7 +398,7 @@ $("#moreInfoText").toggle(1000);
 
 						<p style="margin-left:20px;color:red!important;display:none;font-style:italic;" class="text-danger" id="Email_exist_error" align="center"></p>
 						<hr class="space s">
-				<table class="table table-responsive">
+				<table class="table-stripped">
 
 
 				</td></tr>

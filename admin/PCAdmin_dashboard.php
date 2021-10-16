@@ -200,6 +200,25 @@ font-size:11px!important;
 {
     color: #7c6f6f!important;
 	}
+	
+	
+	@media only screen and (max-width: 600px) {
+  .fc-prev-button, .fc-next-button, .fc-button
+{
+background:#000!important;
+color:#FFF!important;
+margin:2px!important;
+font-size: 7px!important;
+}
+.fc .fc-toolbar-title
+{
+font-size:8px!important;
+}
+.forMobile
+{
+height:fit-content!important;
+}
+}
 </style>
 			</div>
                 <div class="col-md-8">
@@ -461,7 +480,7 @@ $.ajax({
 <div class="col-md-6">
  <br />
               <center>    <h5 id="label_latest_delivered" adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 350px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 350px;">
  <?php
 
 		$get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where pc_admin_id=$_SESSION[admin_loggedin_id]) order by rand() limit 4");

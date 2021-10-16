@@ -193,12 +193,12 @@ background: repeating-linear-gradient(
 {
 background:#000!important;
 color:#FFF!important;
-margin:3px!important;
-font-size: 10px!important;
+margin:1px!important;
+font-size: 8px!important;
 }
 .fc .fc-toolbar-title
 {
-font-size:7px!important;
+font-size:9px!important;
 
 }
 .forMobile
@@ -216,6 +216,7 @@ margin-right:-160px!important;
 font-size:10px!important;
 margin-top:15px;
 }
+
 }
 
 				</style>

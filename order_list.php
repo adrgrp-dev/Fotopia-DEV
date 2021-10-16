@@ -144,8 +144,8 @@ min-width:100px!important;
   <h5 align="center" adr_trans="label_list_order">List of Orders</h5>
    <p align="right" style="position: absolute;right: 15px;" >
         <!-- <a href="create_order.php" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a> -->
-        </p><br /><br />
-<ul class="nav nav-tabs">
+        </p><br />
+<ul class="nav nav-tabs" style="padding-left:15px">
 <li  class="active"><a href="#tab1" id="click1" adr_trans="label_ongoing_orders">On Going Orders</a></li>
 <li ><a href="#tab2" id="click2" adr_trans="label_completed_orders">Completed Orders</a></li>
 </ul>

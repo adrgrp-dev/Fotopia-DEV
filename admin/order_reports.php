@@ -17,7 +17,7 @@ if(isset($_REQUEST['loginbtn']))
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  <div class="section-empty bgimage2">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%">
+        <div class="" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2">
@@ -32,7 +32,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="padding-left:15px;">
 
 
                   <hr class="space s">
@@ -216,7 +216,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 
 
 
-			<div style="width:100%;overflow:scroll">
+			<div style="width:100%;overflow:scroll;border:solid 1px #000">
 
                             <table id="dataTable" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
                                   <thead>

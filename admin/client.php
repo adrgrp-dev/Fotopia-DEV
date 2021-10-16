@@ -135,7 +135,7 @@ if(isset($_REQUEST['email']))
 ?>
 <?php include "header.php";  ?>
  <div class="">
-        <div class="container" style="margin-left:00px;height:fit-content;width:100%">
+        <div class="" style="margin-left:00px;height:fit-content;width:100%">
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2">
@@ -170,6 +170,17 @@ tr:nth-child(even) {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
 }
+@media only screen and (max-width: 600px) {
+td
+{
+min-width:100px!important;
+}
+.tab-box 
+{
+margin-left:15px!important;
+width:100%!important;
+}
+}
   </style>
 <script>
 function favourite(realtor_id,pc_admin_id)
@@ -200,7 +211,7 @@ var xhttp= new XMLHttpRequest();
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
 
-                  <div class="col-md-10" style="margin-left:20px;">
+                  <div class="col-md-12" style="margin-left:20px;">
                               <div class="tab-box " data-tab-anima="fade-right" style="">
                                   <ul class="nav nav-tabs  nav-justified" style="border-bottom:1px solid #000;">
                                       <li id="click1" class="active current-active"><a href="#" id="label_all_realtor" adr_trans="label_all_realtor">All Realtor</a></li>

@@ -149,7 +149,7 @@ $id=@$_REQUEST['id'];
 				$res1=mysqli_fetch_array($res);
 
 				?>
-					<table class="table" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.7;width:80%;border-radius:30px 30px 30px 30px!important;padding:20px;">
+					<table class="table-stripped" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.7;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px; margin-left:20px;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
 	   <tr><th><span adr_trans="label_profile_photo">Profile Photo</span></th><td>:</td><td><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td></tr>

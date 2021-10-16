@@ -689,7 +689,6 @@ background:none!important;
 }
 
 @media only screen and (max-width: 600px) {
-
 td
 {
 min-width:100px!important;
@@ -702,10 +701,9 @@ width:120px!important;
 }
 #billedFrom
 {
-margin-left:5px!important;
-margin-left:5px!important;
+
 width:120px!important;
-margin-top:-220px!important;
+
 }
 #orderInfo
 {
@@ -714,8 +712,21 @@ width:100%!important;
 }
 .panel
 {
+width:100%important;
 overflow:scroll!important;
 }
+.col-md-3
+{
+display:inline-block!important;
+}
+.btn-default
+{
+font-size:10px!important;
+padding:5px!important;
+margin-left:5px!important;
+display:inline!important;
+}
+
 }
  </style>
  <script>
@@ -1172,16 +1183,16 @@ alert(alertmsg);
  <link rel="stylesheet" href="../dropzone/dropzone.css">
 
  <div class="section-empty bgimage4">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%;">
+        <div class="" style="margin-left:0px;height:inherit;width:100%;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-left:15px;">
 
 	   <?php include "sidebar.php";  ?>
 
                 </div>
 
-                <div class="col-md-8" >
+                <div class="col-md-10" >
 
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
                   <ul class="nav nav-tabs">
@@ -1235,7 +1246,7 @@ alert(alertmsg);
 
 
 
-                    <div class="row" style="margin:20px;" id="printArea">
+                    <div class="row" style="" id="printArea">
                             <div class="col-md-6">
                             <p align="left" id="label_order_details" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
@@ -2111,21 +2122,21 @@ alert(alertmsg);
                                            <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                          <hr class="space s">
 
-                                         <div class="row" style="padding:10px">
-                                            <div class="col-md-3">
+                                          <div class="row" style="padding:10px">
+                                            <div class="" style="display:inline-block">
                                               <input type="submit" class="btn btn-default done"  onclick="downloadbtn()" name="ZIP" value="Download" >
                                             </div>
-                                            <div class="col-md-3"><center>
+                                            <div class="" style="display:inline-block"><center>
                                               &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>
                                                 <input type="submit"  class="btn btn-default rework"  name="rework"  value="Rework" />
                                               <?php } ?>
                                             </center>
                                             </div>
-                                            <div class="col-md-3">
-                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?><a href="#tnc1" style="float:right" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
+                                            <div class="" style="display:inline-block">
+                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
-                                            <div class="col-md-3">
-                                              <a href="#tnc1" style="float:right" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                            <div class="" style="display:inline-block">
+                                              <a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                             </div>
                                          </div>
 
@@ -2264,17 +2275,17 @@ alert(alertmsg);
                                          <hr class="space s">
 
                                          <div class="row" style="padding:10px">
-                                            <div class="col-md-3">
+                                            <div class="" style="display:inline-flex">
                                               <input type="submit" class="btn btn-default done" onclick="downloadbtn2()" name="ZIP"  value="Download" >
                                             </div>
-                                            <div class="col-md-3"><center>
+                                            <div class=""  style="display:inline-block"><center>
                                               &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php }?>
                                             </center></div>
-                                            <div class="col-md-3">
-                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>  <a href="#tnc1" style="float:right" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
+                                            <div class="" style="display:inline-block">
+                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>  <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
-                                            <div class="col-md-3">
-                                              <a href="#tnc1" style="float:right" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                            <div class="" style="display:inline-block">
+                                              <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                             </div>
                                          </div>
                                          </form>
@@ -2409,17 +2420,17 @@ alert(alertmsg);
                                          <hr class="space s">
 
                                          <div class="row" style="padding:10px">
-                                            <div class="col-md-3">
+                                            <div class="" style="display:inline-block">
                                               <input type="submit" class="btn btn-default done" onclick="downloadbtn3()" name="ZIP"  value="Download" >
                                             </div>
-                                            <div class="col-md-3"><center>
+                                            <div class="" style="display:inline-block"><center>
                                               &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php } ?>
                                             </center></div>
-                                            <div class="col-md-3">
-                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>  <a href="#tnc" style="float:right" class="btn btn-default lightbox link" onclick="shareme3('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
+                                            <div class="" style="display:inline-block">
+                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>  <a href="#tnc" style="" class="btn btn-default lightbox link" onclick="shareme3('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
-                                            <div class="col-md-3">
-                                              <a href="#tnc" style="float:right" class="btn btn-default lightbox link" onclick="shareme3('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                            <div class="" style="display:inline-block">
+                                              <a href="#tnc" style="" class="btn btn-default lightbox link" onclick="shareme3('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                             </div>
                                          </div>
                                          </form>
@@ -2556,17 +2567,17 @@ alert(alertmsg);
                                          <hr class="space s">
 
                                          <div class="row" style="padding:10px">
-                                            <div class="col-md-3">
+                                            <div class="" style="display:inline-block">
                                               <input type="submit" class="btn btn-default done" onclick="downloadbtn4()" name="ZIP"  value="Download" >
                                             </div>
-                                            <div class="col-md-3"><center>
+                                            <div class="" style="display:inline-block"><center>
                                               &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php } ?>
                                             </center></div>
-                                            <div class="col-md-3">
-                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?> <a href="#tnc1" style="float:right" class="btn btn-default lightbox link" onclick="shareme4('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
+                                            <div class="" style="display:inline-block">
+                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?> <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme4('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
-                                            <div class="col-md-3">
-                                             <a href="#tnc1" style="float:right" class="btn btn-default lightbox link" onclick="shareme4('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                            <div class="" style="display:inline-block">
+                                             <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme4('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                             </div>
                                          </div>
                                          </form>
@@ -2628,15 +2639,15 @@ alert(alertmsg);
          {
          if(@$invoice_check['approved']==0)
           {
-           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -76px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
+           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -80px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
           }
           else {
-              echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -76px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
+              echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
           }
         }
         else {
 
-            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -76px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
+            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
          }
 
           ?>

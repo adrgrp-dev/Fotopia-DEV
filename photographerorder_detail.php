@@ -420,8 +420,14 @@ overflow:scroll!important;
 {
   float: right;
 }
-
+#printArea
+{
+margin-left:0px!important;
 }
+}
+
+
+
  </style>
  <script>
 
@@ -2173,7 +2179,7 @@ function printPage()
                                                        <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                                      <hr class="space s">
 
-                                                    <p align="right"><input type="submit" class="btn btn-default done" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;">&nbsp;<a href="#tnc" class="btn btn-default lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a></center></p>
+                                                    <div class="row" style="margin-left:20px;"><div class="col-md-3" style="display:inline-block"><input type="submit" class="btn btn-default done" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;" style="display:inline-block"></div><div class="col-md-3" style="display:inline-block"><a href="#tnc" class="btn btn-default lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a></div></div>
 
                                                      </form>
                                                      <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;"/>

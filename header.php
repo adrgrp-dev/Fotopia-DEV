@@ -508,13 +508,13 @@ $(function(){
 
 
 
-<li><a href="photographerDashboard.php"><i class="fa fa-home" style="padding-right:10px;" adr_trans="label_home"></i>Home</a></li>
-<li><a href="photographerCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;" adr_trans="label_calendar"></i>Calendar</a></li>
-<li><a href="photographerorder_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;" adr_trans="label_order"></i>Orders</a></li>
-<li><a href="photographeractivity.php"><i class="fa fa-bell" style="padding-right:10px;" adr_trans="label_notification"></i>Notification</a></li>
+<li><a href="photographerDashboard.php"><i class="fa fa-home" style="padding-right:10px;"></i><span adr_trans="label_home">Home</span></a></li>
+<li><a href="photographerCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;"></i><span adr_trans="label_calendar">Calendar</span></a></li>
+<li><a href="photographerorder_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;"></i><span adr_trans="label_order">Orders</span></a></li>
+<li><a href="photographeractivity.php"><i class="fa fa-bell" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
 <!-- <li><a href="editor_list.php"><i class="fa fa-users" style="padding-right:10px;" adr_trans="label_editors"></i>Editors</a></li> -->
-<li><a href="products.php"><i class="fa fa-list" style="padding-right:10px;" adr_trans="label_products"></i>Products</a></li>
-<li><a href="photographer_profile.php"><i class="fa fa-user" style="padding-right:10px;" adr_trans="label_my_profile"></i>My profile</a></li>
+<li><a href="products.php"><i class="fa fa-list" style="padding-right:10px;"></i><span adr_trans="label_products">Products</span></a></li>
+<li><a href="photographer_profile.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_my_profile">My profile</span></a></li>
 
 
  </ul>
@@ -533,12 +533,12 @@ $(function(){
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="width:40px;float:right"><i class="fa fa-bars fa-2x"></i></span></a>
                            <ul class="dropdown-menu" style="top:50px;position:absolute;background-color:#000000;color:white;display:">
 
-<li><a href="csrRealtorDashboard.php"><i class="fa fa-home" style="padding-right:10px;" adr_trans="label_home"></i>Home</a></li>
-<li><a href="csrRealtorCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;" adr_trans="label_calendar"></i>Calendar</a></li>
-<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;" adr_trans="label_order">></i>Orders</a></li>
-<li><a href=""><i class="fa fa-file" style="padding-right:10px;"  adr_trans="label_order_reports"></i>Order reports</a></li>
-<li><a href="realtor_activity.php"><i class="fa fa-bell" style="padding-right:10px;" adr_trans="label_notification"></i>Notification</a></li>
-<li><a href="realtor_profile.php"><i class="fa fa-user" style="padding-right:10px;" adr_trans="label_my_profile"></i>My profile</a></li>
+<li><a href="csrRealtorDashboard.php"><i class="fa fa-home" style="padding-right:10px;"></i><span adr_trans="label_home">Home</span></a></li>
+<li><a href="csrRealtorCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;"></i><span adr_trans="label_calendar">Calendar</span></a></li>
+<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;">></i><span adr_trans="label_order">Orders</span></a></li>
+<li><a href=""><i class="fa fa-file" style="padding-right:10px;" ></i><span adr_trans="label_order_reports">Order reports</span></a></li>
+<li><a href="realtor_activity.php"><i class="fa fa-bell" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
+<li><a href="realtor_profile.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_my_profile">My profile</span></a></li>
 
 
 

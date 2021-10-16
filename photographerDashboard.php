@@ -131,7 +131,7 @@ height:fit-content!important;
 
 
 			</div>
-                <div class="col-md-10 ">
+                <div class="col-md-10" style="padiding-left:20px;">
               	<h5 class="text-center" id="label_photographer_dashboard" adr_trans="label_photographer_dashboard">Photographer Dashboard</h5>
 
 
