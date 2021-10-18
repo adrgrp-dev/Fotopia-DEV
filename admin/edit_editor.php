@@ -38,6 +38,16 @@ $id=$_REQUEST['id'];
 	$email=$_REQUEST['email'];
 	$contactno=$_REQUEST['contactno'];
 	$org=$_REQUEST['org'];
+
+  if(empty($_REQUEST["org_website"]))
+{
+  $org_website=0;
+}
+else
+{
+$org_website = $_REQUEST["org_website"];
+}
+
 $photographer_id=$_REQUEST['photographer_id'];
 
 	$email_verification_code=getName(10);
@@ -45,7 +55,7 @@ $photographer_id=$_REQUEST['photographer_id'];
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname',email='$email',contact_number='$contactno',organization_name='$org',photographer_id='$photographer_id' where id='$id'");
+	$res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname',email='$email',contact_number='$contactno',organization_name='$org',organization_website='$org_website',photographer_id='$photographer_id' where id='$id'");
 
 	//echo "select * from user_login where email='$email' and password='$pass'";
 
@@ -142,6 +152,11 @@ function validate_email(val)
                                 <p id="label_organization" adr_trans="label_organization">Organization</p>
                                 <input id="org" name="org" placeholder="Organization" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $editor['organization_name']; ?>">
                             </div>
+
+                              <div class="col-md-6">
+                                <p adr_trans="">Organization Website</p>
+                                <input id="org_website" name="org_website" placeholder="Organization Website" type="text" autocomplete="off" class="form-control form-value" value="<?php echo $editor['organization_website']; ?>">
+                            </div>       
 
          <div class="col-md-6">
 

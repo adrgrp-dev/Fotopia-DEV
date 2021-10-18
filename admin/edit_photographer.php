@@ -42,7 +42,16 @@ $id=$_REQUEST['id'];
 
 	$contactno=$_REQUEST['contactno'];
 	$addressline1=$_REQUEST['addressline1'];
-		$addressline2=$_REQUEST['addressline2'];
+
+		if(empty($_REQUEST['addressline2']))
+  {
+    $addressline2='';
+  }
+  else{
+
+    $addressline2=$_REQUEST['addressline2'];
+
+  }
 
 
 	$city=$_REQUEST['city'];
@@ -101,7 +110,7 @@ if ($CSR_ID1[0]=='C') {
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"update user_login set first_name='$fname',last_name='$lname',email='$email',type_of_user='Photographer',organization='$org',contact_number='$contactno',address_line1='$addressline1',address_line2='$addressline2',city='$city',state='$state',postal_code='$zip',csr_id='$csr_id_new',pc_admin_user_id='$admin_user_id' where id='$id'");
+	$res=mysqli_query($con,"update user_login set first_name='$fname',last_name='$lname',email='$email',type_of_user='Photographer',organization='$org',contact_number='$contactno',address_line1='$addressline1',address_line2='$addressline2',city='$city',state='$state',country='$country',postal_code='$zip',csr_id='$csr_id_new',pc_admin_user_id='$admin_user_id' where id='$id'");
 
   $res=mysqli_query($con,"update orders set csr_id='$csr_id_new' where photographer_id='$id'");
 
@@ -313,7 +322,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 
   							 <div class="col-md-6">
   						  <p id="label_address_line2" adr_trans="label_address_line2">Address Line 2</p>
-  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $csr['address_line2']; ?>">
+  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" value="<?php echo $csr['address_line2']; ?>">
   						 </div>
 
   						<div class="col-md-6">
@@ -345,6 +354,14 @@ while($CSRList1=mysqli_fetch_array($CSRList))
                                   <p id="label_zip_code" adr_trans="label_zip_code">Zip Code</p>
                                   <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value" required=""  value="<?php echo $csr['postal_code']; ?>">
                               </div>
+
+                              <div class="col-md-6">
+                 <p id="label_country" adr_trans="label_country">Country</p>
+                <select name="country" class="form-control form-value" required="">
+                                <option value="Norway" <?php if($csr['country']=='Norway') { echo "selected"; } ?>>Norway</option>
+                              <option value="US" <?php if($csr['country']=='US') { echo "selected"; } ?>>US</option>
+                              </select>
+                </div>
 
 <input type="hidden" name="id" value="<?php echo $_REQUEST['id']; ?>" />
 

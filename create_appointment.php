@@ -990,7 +990,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
            <div class="col-md-12">
 
-             <input id="address_same" value="1" onchange="setpropertyAddress()" name="address_same" type="checkbox" checked="" class="form-value">&nbsp;&nbsp; <span>The property address is different from sellers address</span>
+             <input id="address_same" value="1" onchange="setpropertyAddress()" name="address_same" type="checkbox" checked="checked" class="form-value">&nbsp;&nbsp; <span>The property address is different from sellers address</span>
 
            </div>
 
@@ -1056,6 +1056,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
        <p>Property Country</p>
       <select name="property_country" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 
@@ -1138,7 +1139,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
             <div class="col-md-6">
 
-       <p id="label_photographer_name" adr_trans="label_photographer_name">Photographer </p>
+       <p id="label_choose_photographer" adr_trans="label_choose_photographer">Select photographer or let us choose one </p>
       <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);"> -->
         <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()" <?php // if(@$_REQUEST['Photographer_id']) { echo "readonly"; } ?>  autocomplete="off" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>/>
         <datalist id="options">
@@ -1296,9 +1297,14 @@ $from123=preg_replace("/ /","T",$from123);
   $(document).ready(function(){
     $('#pht').click();
 	$('#pht').attr("readonly","readonly");
+ 
   })
+
+
 </script>
 
 <?php } ?>
-
+<script>
+   $("#address_same").click();
+</script>
 		<?php include "footer.php";  ?>

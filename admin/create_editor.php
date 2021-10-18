@@ -120,6 +120,15 @@ if(isset($_REQUEST['signupbtn']))
 	$contactno=$_REQUEST['contactno'];
 	$photographer_id=$_REQUEST['photographer_id'];
 
+  if(empty($_REQUEST["org_website"]))
+{
+  $org_website=0;
+}
+else
+{
+$org_website = $_REQUEST["org_website"];
+}
+
 $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$email_verification_code=getName(10);
 
@@ -127,7 +136,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,contact_number,registered_on,pc_admin_id,photographer_id)values('$fname','$lname','$email','$org','$contactno',now(),'$pc_admin_id','$photographer_id')");
+	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,organization_website,contact_number,registered_on,pc_admin_id,photographer_id)values('$fname','$lname','$email','$org','$org_website','$contactno',now(),'$pc_admin_id','$photographer_id')");
 
 
   $get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
@@ -234,6 +243,12 @@ function validate_email(val)
                                 <p id="label_organization" adr_trans="label_organization">Organization</p>
                                 <input id="org" name="org" placeholder="Organization" type="text" autocomplete="off" minlength="5" maxlength="20" class="form-control form-value" required="" >
                             </div>
+
+
+                     <div class="col-md-6">
+                                <p adr_trans="">Organization Website</p>
+                                <input id="org_website" name="org_website" placeholder="Organization Website" type="text" autocomplete="off" class="form-control form-value">
+                            </div>       
 
          <div class="col-md-6">
                                 <p id="label_photographer" adr_trans="label_photographer">Photographer</p>

@@ -162,6 +162,7 @@
 	"label_area": "Area (sq.ft)",
 	"label_rental_apartment": "This Property has a Rental Apartment/Dormitory",
 	"label_photographer_name": "Photographer name",
+	"label_choose_photographer":"Select photographer or let us choose one",
 	"label_appointment_from": "Appointment from date & time",
 	"label_from_date_time": "From date & time",
 	"label_appointment_to": "Appointment to date & time",

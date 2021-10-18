@@ -639,6 +639,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
        <p id="label_country" adr_trans="label_country">COUNTRY</p>
       <select name="country" class="form-control form-value"  value="<?php echo  @$appointment_update_details['country'];?>" required="" <?php if(@$_REQUEST['u']) { echo "disabled"; } ?>>
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 

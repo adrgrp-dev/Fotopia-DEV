@@ -299,6 +299,7 @@ function validate_email(val)
   							 <p>Country</p>
   							<select name="country" class="form-control form-value" required="">
   														<option value="Norway">Norway</option>
+  														<option value="US">US</option>
   														</select>
   							</div>
   						<div class="col-md-6">

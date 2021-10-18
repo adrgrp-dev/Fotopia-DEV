@@ -228,6 +228,7 @@ xhttp.send();
        <p>COUNTRY</p>
       <select name="country" class="form-control form-value"  value="<?php echo  $get_homeseller[''];?>" required="">
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 

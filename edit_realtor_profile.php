@@ -321,6 +321,7 @@ margin-left:0px!important;
                  <p style="color:#000;" adr_trans="label_country">Country</p>
                 <select name="country" class="form-control form-value" required="">
                               <option value="Norway">Norway</option>
+                              <option value="US">US</option>
                               </select>
                 </div>
 

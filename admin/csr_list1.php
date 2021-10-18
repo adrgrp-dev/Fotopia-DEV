@@ -680,6 +680,12 @@ header("location:csr_list1.php?ed=1");
 
                         </span>
 
+                        <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="">
+
+                                Organization Website
+
+                        </span>
+
 
 						 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_email_address" adr_trans="label_email_address">
 
@@ -768,6 +774,7 @@ header("location:csr_list1.php?ed=1");
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
+				<td class="text-left" style="word-break:break-all;"><?php if($res1['organization_website']==0){echo'NA';} else{echo $res1['organization_website'];} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res3['first_name']; ?></td>

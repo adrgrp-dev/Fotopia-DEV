@@ -42,7 +42,17 @@ $id=$_REQUEST['id'];
 
 	$contactno=$_REQUEST['contactno'];
 	$addressline1=$_REQUEST['addressline1'];
-		$addressline2=$_REQUEST['addressline2'];
+
+
+  if(empty($_REQUEST['addressline2']))
+  {
+		$addressline2='';
+  }
+  else{
+
+    $addressline2=$_REQUEST['addressline2'];
+
+  }
 
 
 	$city=$_REQUEST['city'];
@@ -203,7 +213,8 @@ function validate_email(val)
                   <div class="col-md-6">
                  <p id="label_country" adr_trans="label_country">Country</p>
                 <select name="country" class="form-control form-value" required="">
-                              <option value="Norway">Norway</option>
+                              	<option value="Norway" <?php if($pcAdmin['country']=='Norway') { echo "selected"; } ?>>Norway</option>
+                              <option value="US" <?php if($pcAdmin['country']=='US') { echo "selected"; } ?>>US</option>
                               </select>
                 </div>
 

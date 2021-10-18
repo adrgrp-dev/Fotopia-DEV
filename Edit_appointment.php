@@ -400,6 +400,7 @@ var property_contact_email="<?php echo @$get_order['property_contact_email']; ?>
        <p>Property Country</p>
       <select name="property_country" readonly class="form-control form-value" required="">
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 

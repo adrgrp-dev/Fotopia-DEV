@@ -354,6 +354,9 @@ $hs_id=$get_summary['home_seller_id'];
 				<tr>
 				<td id="label_area" adr_trans="label_area">Area</td><td>:</td><td><?php echo $get_summary['area']?></td>
 				</tr>
+        <tr>
+        <td adr_trans="">Photographer Name</td><td>:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
+        </tr>
 				<tr>
 				<td id="label_session_date_time" adr_trans="label_session_date_time">Session Date & Time</td><td>:</td><td><?php if($get_summary['session_from_datetime']!='0000-00-00 00:00:00') { echo date("d-m-Y H:i a",strtotime($get_summary['session_from_datetime'])); ?>
 				 - <?php echo date("d-m-Y H:i a",strtotime($get_summary['session_to_datetime'])); } else { echo "Session not booked yet.";  } ?></td>

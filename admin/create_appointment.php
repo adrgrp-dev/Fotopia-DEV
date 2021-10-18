@@ -1163,6 +1163,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
        <p id="label_property_country" adr_trans="label_property_country">Property Country</p>
       <select name="property_country" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 
@@ -1420,5 +1421,9 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 </script>
 
 <?php } ?>
+
+<script>
+   $("#address_same").click();
+</script>
 
 		<?php include "footer.php";  ?>

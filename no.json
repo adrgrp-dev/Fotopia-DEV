@@ -162,6 +162,7 @@
 	"label_area": "Areal",
 	"label_rental_apartment": "Denne eiendommen har utleieleilighet",
 	"label_photographer_name": "Navn på fotograf",
+	"label_choose_photographer":"",
 	"label_appointment_from": "Avtale fra dato og tid",
 	"label_from_date_time": "Fra dato og tid",
 	"label_appointment_to": "Avtale til dato og tid",

@@ -169,12 +169,28 @@ function get_email_content()
 
  </script>
 
+ <script>
+
+       function mouseover()
+       {
+
+         $('#click').toggleClass("hide");
+
+       }
+     </script>
+
+
 <div class="col-md-5"  style="padding-top:60px;">
 
 
 
 <table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;width:90%;" align="center"><tr><td style="padding:20px;">
-	 <h5 class="text-center" style="margin-left:-10px;color:#000!important;" adr_trans="label_email_settings" >Email Settings</h5>
+	 <h5 class="text-center" style="margin-left:-10px;color:#000!important;"  ><span adr_trans="label_email_settings">Email Settings</span><a onclick="mouseover()"><i class='fa fa-question-circle' aria-hidden='true'></i></a></h5>
+
+
+              <span class="text-center hide" id="click" colspan="9" style="background-color: white;
+color: black;" ><i><?php echo 'The Dynamic fields below can be used to customize the email content. Simply select an email title from dropdown and then enter email content to desired Email Content field to display for your customer'?> </i></span>
+           
 
 <?php if(@isset($_REQUEST["r"])) { ?>
                         <div class="success-box" style="display:block;margin-left:140px;">

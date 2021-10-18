@@ -273,6 +273,7 @@ var photographer_id;
        <p>Property Country</p>
       <select name="property_country" class="form-control form-value" readonly required="">
                     <option value="Norway">Norway</option>
+                    <option value="US">US</option>
                     </select>
       </div>
 

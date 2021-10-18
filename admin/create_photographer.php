@@ -5,6 +5,12 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+$pc_admin_id=$_SESSION['admin_loggedin_id'];
+ //echo "SELECT * FROM `photo_company_profile` WHERE id=$pc_admin_id";
+ $get_pcadmin_profile_query1=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
+ $get_profile1=mysqli_fetch_assoc($get_pcadmin_profile_query1);
+
 function email($template,$fname,$email,$password,$secret_code,$con)
 {
  /* Exception class. */
@@ -108,7 +114,16 @@ if(isset($_REQUEST['signupbtn']))
 
 	$contactno=$_REQUEST['contactno'];
 	$addressline1=$_REQUEST['addressline1'];
-	$addressline2=$_REQUEST['addressline2'];
+	 if(empty($_REQUEST['addressline2']))
+  {
+    $addressline2='';
+  }
+  else{
+
+    $addressline2=$_REQUEST['addressline2'];
+
+  }
+
 
 	$city=$_REQUEST['city'];
 	$state=$_REQUEST['state'];
@@ -343,10 +358,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
  															</div>
 
 
-  							 <div class="col-md-6">
-                                  <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
-                                  <input id="contactno" name="contactno" placeholder="Contact number" type="number" autocomplete="off" class="form-control form-value" required="">
-                              </div>
+  							 
                               <div class="col-md-6">
                                   <p id="label_password" adr_trans="label_password">Password</p>
                                   <input id="password" name="password" placeholder="password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
@@ -357,16 +369,19 @@ while($CSRList1=mysqli_fetch_array($CSRList))
                                   <input id="confirmpassword" name="confirmpassword" placeholder="Confirm password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                               </div>
 
-
+                <div class="col-md-6">
+                                  <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
+                                  <input id="contactno" name="contactno" placeholder="Contact number" type="number" autocomplete="off" class="form-control form-value" required="">
+                              </div>
 
   						 <div class="col-md-6">
   						  <p id="label_address_line1" adr_trans="label_address_line1">Address Line 1</p>
-  						   <input id="addressline1" name="addressline1" placeholder="Address line 1" type="text" autocomplete="off" class="form-control form-value" required="">
+  						   <input id="addressline1" name="addressline1" placeholder="Address line 1" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $get_profile1['address_line1']; ?>">
   						 </div>
 
   							 <div class="col-md-6">
   						  <p id="label_address_line2" adr_trans="label_address_line2">Address Line 2</p>
-  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" required="">
+  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" value="<?php echo $get_profile1['address_line2']; ?>">
   						 </div>
 
   						<div class="col-md-6">
@@ -377,7 +392,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 							while($city=mysqli_fetch_array($city1))
 							{
 							?>
-							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
+							<option value="<?php echo $city['cities']; ?>"<?php if($get_profile1['city']==$city['cities']) { echo "selected"; } ?>><?php echo $city['cities']; ?></option>
 							<?php } ?>
 							</select>
   							</div>
@@ -390,25 +405,26 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 							while($state=mysqli_fetch_array($state1))
 							{
 							?>
-							<option value="<?php echo $state['states']; ?>"><?php echo $state['states']; ?></option>
+							<option value="<?php echo $state['states']; ?>" <?php if($get_profile1['state']==$state['states']) { echo "selected"; } ?>><?php echo $state['states']; ?></option>
 							<?php } ?>
 							</select>
   							</div>
   						 <div class="col-md-6">
                                   <p id="label_zip_code" adr_trans="label_zip_code" >Zip Code</p>
-                                  <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value" required="" value="<?php echo $get_profile1['postal_code']; ?>">
                               </div>
 
 
   						<div class="col-md-6">
   							 <p id="label_country" adr_trans="label_country">Country</p>
   							<select name="country" class="form-control form-value" required="">
-  														<option value="Norway">Norway</option>
+  														<option value="Norway" <?php if($get_profile1['country']=='Norway') { echo "selected"; } ?>>Norway</option>
+                              <option value="US" <?php if($get_profile1['country']=='US') { echo "selected"; } ?>>US</option>
   														</select>
   							</div>
   						<div class="col-md-6">
                                   <p id="label_profile_pic" adr_trans="label_profile_pic">Profile Pic</p>
-                                  <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value">
                               </div>
 
 
