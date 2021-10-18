@@ -61,11 +61,13 @@ function email($template,$fname,$email,$password,$secret_code,$con)
  $pcadmin_email=$get_profile['email'];
  $pcadmin_contact=$get_profile['contact_number'];
 
- $mail->Subject = "Your are created as an Photographer";
+ $mail->Subject = "Your are created as an Photographer for".$get_profile['organization_name'];
  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"{{project_url}}logo.png\" /></td><td align=\"center\" class=\"titleCss\">Photographer User Created Successfully!</td>
  <td align=\"right\"><img src=\""."{{project_url}}".$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.=$template;
+ $mail->Body.="<br> You have been added as a Photographer for ".$get_profile['organization_name'];
+ $mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password";
 
 
  $mail->Body=str_replace('{{secret_code}}',$secret_code, $mail->Body);
@@ -75,7 +77,7 @@ function email($template,$fname,$email,$password,$secret_code,$con)
  $mail->Body=str_replace('{{email}}',$email, $mail->Body);
 
 	 $mail->Body.="<br><br></td></tr></table></html>";
-	 //echo $mail->Body;exit;
+	// echo $mail->Body;exit;
  try {
 		 $mail->send();
 		 echo "Message has been sent successfully";

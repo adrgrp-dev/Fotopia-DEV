@@ -64,11 +64,16 @@ function email($fname,$email,$secret_code,$con)
  $get_template=mysqli_fetch_array($get_template_query);
  $template=$get_template['template_body_text'];
 
- $mail->Subject = "Your are created as an Admin user";
+ $mail->Subject = "Your are created as an Admin user for".$get_profile['organization_name'];
  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Admin User Created Successfully!</td>
  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.=$template;
+
+ $mail->Body.="<br> You have been added as a Photographer for ".$get_profile['organization_name'];
+ $mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password";
+
+
 
 
    $url=$_SESSION['project_url']."admin/";

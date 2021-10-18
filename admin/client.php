@@ -175,7 +175,7 @@ td
 {
 min-width:100px!important;
 }
-.tab-box 
+.tab-box
 {
 margin-left:15px!important;
 width:100%!important;
@@ -210,9 +210,12 @@ var xhttp= new XMLHttpRequest();
 			</div>
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
-
+                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn"  style="float:right;margin-top:-6px;"><i class="fa fa-plus"></i>Add Realtor</a>
                   <div class="col-md-12" style="margin-left:20px;">
+
                               <div class="tab-box " data-tab-anima="fade-right" style="">
+
+
                                   <ul class="nav nav-tabs  nav-justified" style="border-bottom:1px solid #000;">
                                       <li id="click1" class="active current-active"><a href="#" id="label_all_realtor" adr_trans="label_all_realtor">All Realtor</a></li>
                                       <li id="click2"><a href="#" id="label_favourite_realtor" adr_trans="label_favourite_realtor">My Favourite Realtor</a></li>
