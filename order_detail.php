@@ -229,7 +229,9 @@ $from_user_id=$_SESSION["loggedin_id"];
 $chat_message=$_REQUEST['chattext'];
 $order_id=$_REQUEST['order_id'];
 //echo "insert into chat_message(to_user_id,from_user_id,chat_message,timestamp,order_id)values('$created_by_id','$from_user_id','$chat_message',now(),'$order_id'";exit;
-mysqli_query($con,"insert into chat_message(to_user_id,from_user_id,chat_message,timestamp,order_id)values('$created_by_id','$from_user_id','$chat_message',now(),'$order_id')");
+$from_user_type=$_SESSION['user_type'];
+$from_user_id=$_SESSION['loggedin_id'];
+mysqli_query($con,"insert into chat_message(from_user_id,from_user_type,chat_message,timestamp,order_id)values('$from_user_id','$from_user_type','$chat_message',now(),'$order_id')");
 }
   if(isset($_POST['ZIP']))
   {
@@ -987,7 +989,7 @@ alert("comment changed");
   <?php } ?>
 
  <div class="section-empty bgimage3">
-        <div class="container" style="margin-left:0px;height:inherit;">
+        <div class="" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2" style="margin-left:-15px;">
@@ -2121,14 +2123,14 @@ if($get_order1['status_id']==3)
           </div>
                  </div>
 <div class="col-md-2" style="border:none;background:#000;opacity:0.7;padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif;border-radius:15px;">
-  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Chat with <b> <?php
+  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
 
   $realtor1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
   $realtor=mysqli_fetch_array($realtor1);
-    echo @$realtor["first_name"];  ?></p>
+  //  echo @$realtor["first_name"];  ?></p>
   <div id="wrapper" style="width:100%">
   <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
-  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;" id="ChatBox" >
+  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
 </div>

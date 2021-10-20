@@ -776,10 +776,10 @@ alert(alertmsg);
  <link rel="stylesheet" href="dropzone/dropzone.css">
 
  <div class="section-empty bgimage4">
-        <div class="container" style="margin-left:0px;height:inherit;">
+        <div class="" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="">
+                <div class="col-md-2" style="padding-left:15px;">
 
 	   <?php include "sidebar.php";  ?>
 
@@ -2605,15 +2605,15 @@ function printPage()
           </div>
            </div>
 
-  <div class="col-md-2" id="chat" style="border:none;background:#000;opacity:0.7;padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif;border-radius:15px;margin-top:20px;	">
-  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center"> Chat with <b> <?php
+  <div class="col-md-2" id="chat" style="border:none;background:#000;opacity:0.7;padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif;border-radius:15px;margin-top:20px;">
+  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order  Chat box <b> <?php
   $created_id=@$get_summary['created_id'];
   @$realtor1=mysqli_query($con,"select * from user_login where id='@$created_id'");
   @$realtor=mysqli_fetch_array(@$realtor1);
-    echo @$created_Name;  ?></p>
+   // echo @$created_Name;  ?></p>
   <div id="wrapper" style="width:100%">
   <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
-  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;" id="ChatBox" >
+  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
 </div>

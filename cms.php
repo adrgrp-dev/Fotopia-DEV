@@ -16,7 +16,7 @@ $id=@$_REQUEST['id'];
         <div class="container" style="margin-left:0px;height:inherit;width:100%;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="left:-10px;">
 	<?php include "sidebar.php"; ?>
 
 
