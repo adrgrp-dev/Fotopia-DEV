@@ -77,6 +77,7 @@ $location=$_REQUEST['location'];
 
 $organization_name=$_REQUEST['organization_name'];
 $organization_branch=$_REQUEST['organization_branch'];
+$organization_number=strtoupper($_REQUEST['organization_number']);
 $contact_number=$_REQUEST['contact_number'];
 $email=$_REQUEST['email'];
 $address_line1=$_REQUEST['address_line1'];
@@ -98,7 +99,7 @@ if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0){
 	// echo "sarath";
 	// exit;
 
-mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',logo='$imgData1',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'
+mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',logo='$imgData1',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'
  where pc_admin_id='$loggedin_id'");
 
 mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country'
@@ -110,7 +111,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 
 elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
 
-    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country' where id='$loggedin_id'");
 
@@ -121,7 +122,7 @@ elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
 
 elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
-    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -132,7 +133,7 @@ elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
 else {
 
-	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -168,7 +169,7 @@ p{
 
 <table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;margin-left:30px;"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
-
+<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Its mandatory to complete the profile information for the realtor to understand you better</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" id="label_add_company_profile" adr_trans="label_add_company_profile" style="color:#000!important">Add / Edit company profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
@@ -189,6 +190,11 @@ p{
 								<div class="col-md-6">
                                 <p style="color:#000;" id="label_org_branch" adr_trans="label_org_branch">Organization branch</p>
                                 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_branch']; ?>">
+								</div>
+								
+									<div class="col-md-6">
+                                <p style="color:#000;" id="label_org_branch" adr_trans="label_org_number">Organization Number</p>
+                                <input id="organization_number" name="organization_number" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_number']; ?>">
 								</div>
 
 								<div class="col-md-6">

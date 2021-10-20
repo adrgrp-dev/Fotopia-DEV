@@ -14,6 +14,20 @@ if($type=="FotopiaAdmin")
 }
 if($type=="PCAdmin")
 {
+		$id=$_SESSION['admin_loggedin_id'];
+		$pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
+		$pc_profile1=mysqli_fetch_array($pc_profile);
+		$aboutPC=$pc_profile1['about_us'];
+		
+		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
+		$productsFound=mysqli_num_rows($products);
+		
+		if($aboutPC=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
+		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }  
+		
+
+
+
 $page="PCAdmin_dashboard.php";
 }
 if($type=="CSR")
@@ -21,6 +35,10 @@ if($type=="CSR")
 $page="subcsr_dashboard.php";
 }
 }
+
+
+
+
 
 ?>
 

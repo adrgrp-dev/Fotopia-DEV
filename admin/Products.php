@@ -136,6 +136,8 @@ border-top:none!important;
 					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
 
 					<table class="table table-responsive"><tr><td>
+					
+					
 					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
 
 						<form name="profile" method="post" action="">
@@ -214,6 +216,7 @@ border-top:none!important;
                             <div class="text-success" id="label_product_addedd" adr_trans="label_product_addedd">Product addedd successfully</div>
                         </div>
 						<?php }  ?>
+						<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Its mandatory to add atleast one Product for the realtor to see the products from you</h5></div> <?php } ?>
 						</center>
 						<a class="lightbox btn btn-primary btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
 						<hr class="space s" />

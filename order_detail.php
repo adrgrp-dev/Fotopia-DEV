@@ -1962,7 +1962,7 @@ if($get_order1['status_id']==3)
 
               ?>
   <tr><th align="left"><p style="font-size:14px;text-align:right;"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
-  <tr><th align="left"><p style="font-size:11px;text-align:right;"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
+  <tr><th align="left"><p style="font-size:11px;text-align:right;"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")";?> </strong><br></p></th></tr>
   <tr><td><p style="font-size:11px;margin-right: -15px"> <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
   <tr><td><p style="font-size:11px;margin-right: -15px "> <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
   <tr><td><p style="font-size:11px;margin-right: -15px "> <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>

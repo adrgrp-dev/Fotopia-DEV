@@ -112,13 +112,20 @@ header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofu
 		padding-top:20px;
 		padding-bottom:20px;
 	}
-	p{
-		font-weight:bold;
-		padding-bottom:0px;
-	}
+	
 input
 {
 box-shadow:5px 5px 5px 5px #DDD;
+}
+.mfp-container
+{
+background:none!important;
+}
+#tnc p
+{
+font-weight:bold;
+padding-bottom:0px;
+color:#333333!important;
 }
 	</style>
 	<script>
@@ -978,13 +985,11 @@ $("#country").css("border","none");
                             <hr>
                             <span class="sub" style="color:#333333">Read and accept our terms and conditions.<br /><br /></span>
 
-						 All information received by us from your registration on business-standard.com or other digital products of Business Standard will be used by Business Standard in accordance with our Privacy Policy. Kindly read the below mentioned details.
-<br /><br />
-On registration, we expect you to provide Business Standard with an accurate and complete information of the compulsory fields. We also expect you to keep the information secure, specifically access passwords and payment information. Kindly update the information periodically to keep your account relevant. Business Standard will rely on any information you provide to us.
-<br /><br />
-Each registration is for a single user only. On registration, you will choose a user name and password ("ID"). You are not allowed to share your ID or give access to your account to anyone else. Business Standard Premium subscription does not allow multiple users on a network or within an organization to use the same ID.
-<br /><br />
-On knowledge, Business Standard may cancel or suspend your access to Business Standard premium services if it comes across you sharing your personal access without further obligation to you.
+						<?php
+						$cmsPage=mysqli_query($con,"select * from cms_pages where id=2");
+						$cmsPage1=mysqli_fetch_array($cmsPage);
+						echo $cmsPage1['page_content'];
+						?>
 						 </div>
                     </div>
                 </div>

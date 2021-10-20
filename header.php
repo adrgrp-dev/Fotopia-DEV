@@ -318,6 +318,10 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span adr_trans="label_hi">Hi</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                   <li><a href="change_email_password.php"  adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
+				  <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
+				  <li><a href="cms.php?id=3"><i class="fa fa-question" style="padding-right:10px;"></i>FAQ</a></li>
+				  <li><a href="cms.php?id=4"><i class="fa fa-envelope-o" style="padding-right:10px;"></i>Help & Support</a></li>
+				  <li><a href="cms.php?id=2"><i class="fa fa-check-square-o" style="padding-right:10px;"></i>Terms & Conditions</a></li>
    <li><a href="logout.php" adr_trans="label_logout"><i class="fa fa-sign-out" style="padding-right:10px;" ></i>Logout</a></li>
                                 </ul>
                             </li>
@@ -455,6 +459,10 @@ if(isset($_SESSION['loggedin_email']))
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu"  style="width:200px;position:absolute; background:#000;color:#FFF;">
                   <li><a href="change_email_password.php" adr_trans="label_my_account">My Account</a></li>
+				    <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
+				  <li><a href="cms.php?id=3"><i class="fa fa-question" style="padding-right:10px;"></i>FAQ</a></li>
+				  <li><a href="cms.php?id=4"><i class="fa fa-envelope-o" style="padding-right:10px;"></i>Help & Support</a></li>
+				  <li><a href="cms.php?id=2"><i class="fa fa-check-square-o" style="padding-right:10px;"></i>Terms & Conditions</a></li>
    <li><a href="logout.php" adr_trans="label_logout">Logout</a></li>
                                 </ul>
                             </li>

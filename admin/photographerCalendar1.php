@@ -30,7 +30,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 ?>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage3">
-        <div class="container" style="margin-left:0px;height:inherit">
+        <div class="" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2">
@@ -60,10 +60,10 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 			<?php }  else { ?><h5 style="color:#006666;padding-top:20px;" class="text-center">Select a Photographer from the below list to create an Order</h5> <?php } ?>
 
 
-<table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
-<tr>
-<td align="center"><form name="" method="post" action="" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
+<div class="row" style="border-color:none!important;width:100%;background:#E8F0FE!important;box-shadow:10px 10px 10px 10px #DDD;border-radius:25px;">
+<div class="col-md-4" style="padding:10px;padding-left:30px;">
+<form name="" method="post" action="" id="filterForm">
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;margin-top:10px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
@@ -93,14 +93,15 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 				  <input type="hidden" name=" Photographer_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
 				   <input type="hidden" name=" pc_admin_id" id="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 				  
-				  </form></td>
-				  <td align="left" style="color:#000080;">&nbsp; <?php //if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
-				  <td>
-
-
-
-</table>
-        <hr class="space s" />
+				  </form></div>
+				 <div class="col-md-4" style="padding:10px;font-size:24px;text-align:center;top:10px;font-weight:bolder"><span style="text-shadow: 2px 2px #AAA;">OR</span></div>
+				 <div class="col-md-4" style="padding:20px;">
+<a href="quick_create_order.php?pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>" class="btn btn-default" style="border-radius:25px;">Skip to Order Detail screen
+<span style="font-size:10px"></span>
+</a>
+</div>
+</div>
+       
 				<link href='../lib/main.css' rel='stylesheet' />
 				<style>
 
@@ -431,9 +432,9 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 
     }
 </script>
-
+<?php if(@$_REQUEST['Photographer_id']!='') { ?>
 	<div id='calendar'  style="box-shadow:10px 10px 10px 10px #DDD;border:solid 1px #1C83DC;opacity:0.8"></div>
-
+<?php } ?>
                 </div>
 
 

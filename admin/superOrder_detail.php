@@ -2775,7 +2775,7 @@ alert(alertmsg);
 
                 ?>
     <tr><th><p style="font-size:14px" adr_trans="label_billed_from"><strong> Billed From </strong><br></p></th></tr>
-    <tr><th><p style="font-size:11px"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
+    <tr><th><p style="font-size:11px"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")"; ?> </strong><br></p></th></tr>
     <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
     <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
     <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>

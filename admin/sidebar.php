@@ -218,7 +218,12 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 <button name="Home" id="home7" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:18px;border-radius:0px 20px 20px 0px;" onclick="showHide(7)"><i class="fa fa-bar-chart text-l"></i>
 </button>
 <a href="order_reports.php" name="Home" id="home71" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(7)"><span adr_trans="label_reports">Reports</span> &nbsp;<i class="fa fa-bar-chart text-l"></i></a>
+
+
+
+
+<button name="Home" id="home8" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:18px;border-radius:0px 20px 20px 0px;" onclick="showHide(8)"><i class="fa fa-bars text-l"></i>
+</button>
+<a href="pages.php" name="Home" id="home81" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(8)"><span adr_trans="label_pages">Pages</span> &nbsp;<i class="fa fa-bars text-l"></i></a>
 </div>
-
-
 <?php } ?>
