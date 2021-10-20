@@ -91,7 +91,7 @@ $get_content = $get_email_content1['template_body_text'];
 
 
 	$mail->Body.="
-{{content}}<br>  
+{{content}}<br>
 Fotopia with the order reference # F{{orderId}}.<br>
 <a href='{{project_url}}download_raw_images.php?secret_code={{secret_code}}'
 target='_blank'>Click here</a> to view and download the images.<br><br>
@@ -117,9 +117,9 @@ Fotopia Team.
 	}
 
 // echo $mail->Body;
-// exit;    
+// exit;
 
-  
+
 }
 
 if(isset($_POST['email']))
@@ -155,7 +155,7 @@ if(isset($_POST['floor_email']))
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
   $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
   $filecount = count(glob("../raw_images/order_$id_url/floor_plans/" . "*"));
-  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2','$comment','$filecount')";
+  $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
   email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
   header("location:superOrder_detail.php?id=".$id_url);
@@ -213,59 +213,39 @@ if(isset($_POST['Drone_email']))
 
 </style>
 <script>
-function show_editbtn(d)
+function show_editbtn()
 {
 
   var c=$("#editor_email1").val();
 
-  if(c!=='')
-  {
-    $("#edit_button").show();
+
     $("#email1").val(c);
-  }
-  else {
-    $("#edit_button").hide();
-  }
+
 }
 function show_editbtn2()
 {
   var c=$("#editor_email2").val();
 
-  if(c!=='')
-  {
-    $("#edit_button1").show();
+
       $("#email2").val(c);
-  }
-  else {
-    $("#edit_button1").hide();
-  }
+
 }
 function show_editbtn3()
 {
   var c=$("#editor_email3").val();
 
-  if(c!=='')
-  {
-    $("#edit_button2").show();
+
       $("#email3").val(c);
 
-  }
-  else {
-    $("#edit_button2").hide();
-  }
+
 }
 function show_editbtn4()
 {
   var c=$("#editor_email4").val();
 
-  if(c!=='')
-  {
-    $("#edit_button3").show();
+
       $("#email4").val(c);
-  }
-  else {
-    $("#edit_button3").hide();
-  }
+
 }
 </script>
 
@@ -303,12 +283,12 @@ var a;
                   <h5 id="label_standard_photos" adr_trans="label_standard_photos" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px">Standard Photos</h5>
 
                    <button href="" class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
-                   <select name="editor_email" id="editor_email1" onchange="show_editbtn(this.val)" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
+                   <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                     <option value="">--Select Your Editor--</option>
                     <?php
                       $photographer_id=$get_order['photographer_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id'");
+                     $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE (photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id') and service=1");
 
                      while($editor=mysqli_fetch_array($editor_query))
                      {
@@ -406,7 +386,8 @@ var a;
                           <?php
                             $photographer_id=$get_order['photographer_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
-                           $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id'");
+                          
+                           $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE (photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id') and service=2");
                            while($editor=mysqli_fetch_array($editor_query))
                            {
                              ?>
@@ -494,6 +475,8 @@ var a;
                       </div>
                         <br><center><input type="text" name="commentall" id="comment_all2" placeholder="Comment here" style="width:90%;color: black;"/><center>
                       </div>
+                        <hr class="space l">
+                      <div style="display:none">
                       <hr class="space l">
                     <h5 id="label_drone_photos" adr_trans="label_drone_photos" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px">Drone Photos</h5>
                            <button href="" class="btn btn-primary"  id="edit_button2" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-50px"><span id="label_send" adr_trans="label_send"> Send</span></button>
@@ -502,7 +485,7 @@ var a;
                               <?php
                                 $photographer_id=$get_order['photographer_id'];
                                 $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id'");
+                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id' ");
                                while($editor=mysqli_fetch_array($editor_query))
                                {
                                  ?>
@@ -585,7 +568,8 @@ var a;
                       </div>
                         <br><center><input type="text" name="commentall" id="comment_all3" placeholder="Comment here" style="width:90%;color: black;"/><center>
                       </div>
-
+                    </div>
+                  <div style="display:none;">
                       <hr class="space l">
                     <h5 id="label_hdr_photos" adr_trans="label_hdr_photos" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px">HDR Photos</h5>
                            <button href=""  class="btn btn-primary" id="edit_button3" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-50px"><span id="label_send" adr_trans="label_send"> Send</span></button>
@@ -676,9 +660,11 @@ var a;
                       </div>
                         <br><center><input type="text" name="commentall" id="comment_all4" placeholder="Comment here" style="width:90%;color: black;"/><center>
                       </div>
+                    </div>
                     <br>
                     <br>
                 </div>
+
               </div>
           </div>
           <div id="tnc" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
@@ -758,19 +744,19 @@ var a;
                                                             {
                                                                 if($get_images["service_name"] == 1)
                                                                 {
-                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();</script>';
+                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();$("#edit_button").hide();</script>';
                                                                 }
                                                                 if( $get_images["service_name"] == 2)
                                                                 {
-                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();</script>';
+                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();$("#edit_button1").hide();</script>';
                                                                 }
                                                                 if($get_images["service_name"] == 3)
                                                                 {
-                                                                  echo '<script>$("#editor_email3").hide();$("#comment_all3").hide();</script>';
+                                                                  echo '<script>$("#editor_email3").hide();$("#comment_all3").hide();$("#edit_button2").hide();</script>';
                                                                 }
                                                                 if($get_images["service_name"] == 4)
                                                                 {
-                                                                  echo '<script>$("#editor_email4").hide();$("#comment_all4").hide();</script>';
+                                                                  echo '<script>$("#editor_email4").hide();$("#comment_all4").hide();$("#edit_button3").hide();</script>';
                                                                 }
 
                                                             }
@@ -793,26 +779,12 @@ var a;
                 //console.log('Everything has a value.');
             }
         	});
-          var c=$("#comment_all1").val();
-          if(c=='')
-          {
-            var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-		alertmsg="Vennligst skriv inn standardkommentarer";
-		}
-		else
-		{
-		alertmsg="Please enter the Standard Comments";
-		}
-alert(alertmsg);
-          }
-          else {
+
             var d=$("#comment_all1").val();
             $("#cmt1").val(d);
+            //show_editbtn();
              $("#standard_form").submit();
-          }
+
         });
 
 
@@ -831,26 +803,12 @@ alert(alertmsg);
                 //console.log('Everything has a value.');
             }
         	});
-          var c=$("#comment_all2").val();
-          if(c=='')
-          {
-            var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-		alertmsg="Vennligst skriv inn kommentarene til gulvet";
-		}
-		else
-		{
-		alertmsg="Please enter the Floor Comments";
-		}
-alert(alertmsg);
-          }
-          else {
+
               var d=$("#comment_all2").val();
               $("#cmt2").val(d);
+              //show_editbtn2();
               $("#floor_form").submit();
-          }
+
 
         });
 
@@ -869,26 +827,12 @@ alert(alertmsg);
                 //console.log('Everything has a value.');
             }
         	});
-          var c=$("#comment_all3").val();
-          if(c=='')
-          {
-           var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-		alertmsg="Vennligst skriv drone kommentarer";
-		}
-		else
-		{
-		alertmsg="Please enter the Drone Comments";
-		}
-alert(alertmsg);
-          }
-          else {
+
             var d=$("#comment_all3").val();
             $("#cmt3").val(d);
+            //show_editbtn3();
             $("#drone_form").submit();
-          }
+
         });
         $('#edit_button3').on('click', function (event) {
         $(".stdImg3").each(function(){
@@ -904,26 +848,12 @@ alert(alertmsg);
                 //console.log('Everything has a value.');
             }
         	});
-          var c=$("#comment_all4").val();
-          if(c=='')
-          {
-           var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-		alertmsg="Vennligst skriv HDR kommentarer";
-		}
-		else
-		{
-		alertmsg="Please enter the HDR Comments";
-		}
-alert(alertmsg);
-          }
-          else {
+
             var d=$("#comment_all4").val();
             $("#cmt4").val(d);
+            //show_editbtn4();
             $("#hdr_form").submit();
-          }
+
         });
 
         $('.stdImg').on('keypress', function (event) {

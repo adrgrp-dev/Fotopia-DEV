@@ -34,6 +34,7 @@ if(isset($_REQUEST['loginbtn']))
 			</div>
 
                 <div class="col-md-10">
+									<a href="create_organization.php" class="circle-button btn " style="float:right;"><i class="fa fa-plus" style="">&nbsp;Create</i></a>
                 	<div class="tab-box" data-tab-anima="show-scale">
                     <h5 class="text-center">List of users</h5>
                     <ul class="nav nav-tabs">

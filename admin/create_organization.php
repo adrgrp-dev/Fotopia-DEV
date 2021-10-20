@@ -51,7 +51,7 @@ $mail->addReplyTo("test.deve@adrgrp.com", "Reply");
 //Send HTML or Plain Text email
 $mail->isHTML(true);
 
-$mail->Subject = "Realtor Registration ";
+$mail->Subject = "User Registration ";
 $mail->Body = "<html><head><style>.button {
   background-color: black;
   border: none;
@@ -63,7 +63,7 @@ $mail->Body = "<html><head><style>.button {
   display: inline-block;
   font-size: 16px;
 }
-.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REALTOR REGISTRATION SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">USER REGISTRATION SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -71,10 +71,10 @@ $mail->Body = "<html><head><style>.button {
 
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
-{{PC_Organisation_Name}} has created you as a {{Type_of_user}} with fotopia application .<br>
+{{Organisation_Name}} has created you as a {{Type_of_user}} with fotopia application .<br>
 To register with Fotopia App please follow the options below, <br />
 <br><br>
-<a href='{{project_url}}admin/Realtor_approve.php?id={{id}}&profile_id={{profile_id}}&user_type={{Type_of_user}}&approve=1' class='button' style='background:#5cb85c !important' >Proceed</a>&nbsp;&nbsp;<a href='{{project_url}}admin/Realtor_approve.php?id={{id}}&profile_id={{profile_id}}&approve=0' class='button' style='background:#d9534f !important'>Decline</a>
+<a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&user_type={{Type_of_user}}&approve=1' class='button' style='background:#5cb85c !important' >Proceed</a>&nbsp;&nbsp;<a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&approve=0' class='button' style='background:#d9534f !important'>Decline</a>
 <br><br>
 
 Thanks,<br>
@@ -83,7 +83,7 @@ Fotopia Team.";
 $mail->Body.="<br><br></td></tr></table></html>";
 $mail->Body=str_replace('{{Type_of_user}}',$type_of_user, $mail->Body);
 $mail->Body=str_replace('{{project_url}}',$_SESSION['project_url'], $mail->Body);
-$mail->Body=str_replace('{{PC_Organisation_Name}}',$_SESSION['admin_loggedin_org'], $mail->Body);
+$mail->Body=str_replace('{{Organisation_Name}}','Fotopia', $mail->Body);
 $mail->Body=str_replace('{{id}}',$id, $mail->Body);
 $mail->Body=str_replace('{{profile_id}}',$profile_id, $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$first_name, $mail->Body);
@@ -164,12 +164,33 @@ $typeofuser = "Realtor";
 
    mysqli_query($con,"insert into user_login_temp (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,email_verification_code,email_verified,profile_pic,profile_pic_image_type,registered_on)values('$typeofuser','$org_name','$org_branch','$org_email','$org_no','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$email_verification_code',0,'$imgData','$imageType',now())");
 $inserted_id=mysqli_insert_id($con);
+
+
 mysqli_query($con,"insert into realtor_profile (organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,realtor_id)values('$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType','$inserted_id')");
 $profile_id=mysqli_insert_id($con);
 email($email,$typeofuser,$fname,$inserted_id,$profile_id);
+header("location:users.php");
+
+}
+
+else{
 
 
-header("location:client.php");
+$typeofuser = "Photographer company";
+
+$user = "PCAdmin";
+
+mysqli_query($con,"insert into admin_users_temp (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$user','$org_name','$org_branch','$org_email','$org_no','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())");
+$inserted_id=mysqli_insert_id($con);
+
+// echo "insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')";
+// exit;
+mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')");
+$profile_id=mysqli_insert_id($con);
+email($email,$typeofuser,$fname,$inserted_id,$profile_id);
+header("location:users.php");
+
+
 
 }
 
@@ -200,9 +221,9 @@ box-shadow:5px 5px 5px 5px #DDD;
 }
 	</style>
 	<script>
-	function validate_email(val)
+	function validate_email(val,type)
 {
-  
+//alert(type);
 if(val!="")
 {
   var xhttp= new XMLHttpRequest();
@@ -233,7 +254,7 @@ if(val!="")
      }
     }
   };
-  xhttp.open("GET","../validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email.php?id="+val+"&type="+type,true);
   xhttp.send();
   }
 }
@@ -704,8 +725,6 @@ $("#country").css("border","none");
             <div class="row">
 			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()">
 
-			<!-- <div class="col-md-6">&nbsp;
-      </div> -->
 
 
 
@@ -733,9 +752,9 @@ $("#country").css("border","none");
 
 
 
-                       <div class="col-md-12"><h3 align="center" > Realtor Registration</h3></div>
+                       <div class="col-md-12"><h3 align="center" > Create User</h3></div>
 
-
+                       <br><i class="col-md-12" style="word-wrap:break-word;padding-left:0px;text-align:center"><span style="">Please pick your option as Realtor or Photo Company</span></i><br><br>
 
                        <div class="error-box" id="validation_message" style="margin-left:20px;color:red;display:none;font-style:italic;" align="center">
                             <div class="text-warning" ></div>
@@ -744,10 +763,16 @@ $("#country").css("border","none");
 
           <div id="step1" name="step1">
 
+             <div class="col-md-6">
+    <center><label for="from_homeseller">
+          <input type="radio" id="for_whom" name="for_whom" value="realtor" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
+        </label>
+      </center>
+      </div>
 
-      <div class="col-md-12">
+      <div class="col-md-6">
         <center><label for="from_realtor">
-          <input type="radio" id="for_whom" style="display:none;" name="for_whom" checked value="realtor"  />&nbsp;&nbsp;<span  style="display:none;"> </span>
+          <input type="radio" id="for_whom" name="for_whom" value="photo_company"  />&nbsp;&nbsp;<span adr_trans="label_photo_company"> Photo company</span>
         </label>
         </center>
         <br>
@@ -778,8 +803,7 @@ $("#country").css("border","none");
 
                             <div class="col-md-6">
                                 <p id="label_email" adr_trans="label_email">Email</p>
-
-                                <input id="email" name="email" placeholder="Email" type="email"    autocomplete="off" class="form-control form-value" required="" onblur="validate_email(this.value)">
+                                <input id="email" name="email" placeholder="Email" type="email"    autocomplete="off" class="form-control form-value" required="" onblur="validate_email(this.value,document.getElementsByName('for_whom').value)">
                             </div>
 
 
@@ -802,7 +826,7 @@ $("#country").css("border","none");
 
 
                             </div>
-<div class="col-md-12"><span style="font-style:italic; line-height:normal; font-weight:500"></span></div>
+
                             <br>
 
                             <div class="col-md-6">
@@ -813,7 +837,7 @@ $("#country").css("border","none");
                             </div>
 
 
-                            <div class="col-md-12" align="center">
+                            <div class="col-md-6" align="left">
                                 <br><br>
 
                             <a class="anima-button circle-button btn-sm btn" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
@@ -858,7 +882,7 @@ $("#country").css("border","none");
 
 							 <div class="col-md-6">
 						  <p id="label_address_line2" adr_trans="label_address_line2">Address Line 2</p>
-						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value">
+						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" >
 						 </div>
 
 						<div class="col-md-6">
@@ -906,7 +930,7 @@ $("#country").css("border","none");
 							</div>
 						<div class="col-md-6">
                                 <p id="label_profile_pic" adr_trans="label_profile_pic">Profile Pic</p>
-           <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value" accept="image/*">
+           <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value"  accept="image/*">
                             </div>
 
 
@@ -933,7 +957,7 @@ $("#country").css("border","none");
                             <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                         </div>
 
-						  <a class="anima-button circle-button btn-sm btn" onclick="showStep1()" id="next" name="next" ><i class="fa fa-chevron-circle-left"></i>Back</a>&nbsp;&nbsp;<button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn" id="label_signup" adr_trans="label_signup" onclick="return step2Validation()"><i class="fa fa-sign-in"></i></button>
+						  <a class="anima-button circle-button btn-sm btn" onclick="showStep1()" id="next" name="next" ><i class="fa fa-chevron-circle-left"></i>Back</a>&nbsp;&nbsp;<button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn" id="label_signup" adr_trans="label_signup" onclick="return step2Validation()"><i class="fa fa-sign-in"></i>Signup</button>
 
 </center>
 					   </div>
@@ -965,6 +989,7 @@ On knowledge, Business Standard may cancel or suspend your access to Business St
 
 
     function validateData() {
+
 	$('.error-box').hide();
 	$('#error-msg').html('');
 

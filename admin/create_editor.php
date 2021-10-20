@@ -119,7 +119,7 @@ if(isset($_REQUEST['signupbtn']))
 	$org=$_REQUEST['org'];
 	$contactno=$_REQUEST['contactno'];
 	$photographer_id=$_REQUEST['photographer_id'];
-
+  $service=$_REQUEST['service'];
   if(empty($_REQUEST["org_website"]))
 {
   $org_website=0;
@@ -136,7 +136,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,organization_website,contact_number,registered_on,pc_admin_id,photographer_id)values('$fname','$lname','$email','$org','$org_website','$contactno',now(),'$pc_admin_id','$photographer_id')");
+	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,organization_website,contact_number,registered_on,pc_admin_id,photographer_id,service)values('$fname','$lname','$email','$org','$org_website','$contactno',now(),'$pc_admin_id','$photographer_id','$service')");
 
 
   $get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
@@ -248,16 +248,16 @@ function validate_email(val)
                      <div class="col-md-6">
                                 <p adr_trans="">Organization Website</p>
                                 <input id="org_website" name="org_website" placeholder="Organization Website" type="text" autocomplete="off" class="form-control form-value">
-                            </div>       
+                            </div>
 
          <div class="col-md-6">
                                 <p id="label_photographer" adr_trans="label_photographer">Photographer</p>
-                               <select name="photographer_id" class="form-control form-value" required="">
-                                <option selected disabled="" value="">Select a photographer</option>
+                               <select name="photographer_id[]" class="form-control form-value" multiple required="" size=1>
+
               <?php
 
               $type_of_user=$_SESSION['admin_loggedin_type'];
-  $editorList=NULL;
+              $editorList=NULL;
 
               // if($type_of_user=="PCAdmin")
               // {
@@ -280,10 +280,17 @@ function validate_email(val)
               while($editorList1=mysqli_fetch_array($editorList))
               {
               ?>
-              <option value="<?php echo $editorList1['id']; ?>"><?php echo $editorList1['first_name']; ?></option>
+              <option style="float:left" value="<?php echo $editorList1['id']; ?>"><?php echo $editorList1['first_name'].","; ?></option>
               <?php } ?>
               </select>
                             </div>
+                            <div class="col-md-6">
+                                       <p adr_trans="">Service</p>
+                                       <select  autocomplete="off" class="form-control form-value" id="service" name="service">
+                                         <option value="1">Photos</option>
+                                         <option value="2">Floor plans</option>
+                                       </select>
+                                   </div>
 
   						 <div class="row">
                               <div class="col-md-12"><center><hr class="space s">

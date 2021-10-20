@@ -478,6 +478,24 @@ th{
   z-index: 1;
 
 }
+#input2
+{
+  left: 20px;
+  width: 75% !important;
+  top: 240px;
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.3) !important;
+  border-radius: 11px;
+  display: inline-block;
+  overflow: hidden;
+  max-width: 100%;
+  outline: none !important;
+  text-align: left;
+  background: rgba(255,255,255,0.3) !important;
+  position: absolute;
+  z-index: 1;
+
+}
 .img-box:before{
   background: none !important;
 }
@@ -622,6 +640,17 @@ margin-left:0px!important;
 
 </style>
 <script>
+function  singleComment(data,id)
+{
+ var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+  $('#clicked_img'+id).prop('title',this.responseText);
+}
+};
+xhttp.open("GET","comment.php?id="+id+"&data="+data, true);
+xhttp.send();
+}
 function chechcond()
 {
   aler("check");
@@ -1280,12 +1309,14 @@ function showicons(iconid)
 {
   //alert(iconid);
 $('.icons'+iconid).css("visibility","visible");
+$('.input'+iconid).css("visibility","visible");
 
 }
 function hideicons(iconid1)
 {
     //alert(iconid1);
 $('.icons'+iconid1).css("visibility","hidden");
+$('.input'+iconid1).css("visibility","hidden");
 
 }
 
@@ -1322,8 +1353,8 @@ $('.icons'+iconid1).css("visibility","hidden");
                           <ul class="nav nav-pills nav-justified">
                               <li class="current-active active"><a href="#" adr_trans="label_standard_photos">Standard Photos</a></li>
                               <li class=""><a href="#" adr_trans="label_floor_plans1">Floor Plans</a></li>
-                              <li class=""><a href="#" adr_trans="label_drone_photos">Drone Photos</a></li>
-                                <li class=""><a href="#" adr_trans="label_hdr_photos">Hdr Photos</a></li>
+                              <!-- <li class=""><a href="#" adr_trans="label_drone_photos">Drone Photos</a></li>
+                                <li class=""><a href="#" adr_trans="label_hdr_photos">Hdr Photos</a></li> -->
                           </ul>
                           <div class="panel active fade-right" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;">
                             <div style="border-bottom: 1px solid black">
@@ -1393,8 +1424,11 @@ $('.icons'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                     </a>
+
+                                    <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
                                     </a>
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->
@@ -1446,8 +1480,8 @@ $('.icons'+iconid1).css("visibility","hidden");
                                  <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                <hr class="space s">
 
-                           
-							  
+
+
 							   <div class="row" style="margin-left:20px;"><div class="col-md-3" style="display:inline-block"><input type="submit" class="btn btn-default done mobilebtn-download" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;"></div><div class="col-md-3" style="display:inline-block"><a href="#tnc" class="btn btn-default lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a></div></div>
 
 

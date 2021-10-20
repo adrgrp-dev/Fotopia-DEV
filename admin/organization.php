@@ -101,12 +101,25 @@ if(@$_REQUEST['approve']==1)
 {
   // echo "INSERT INTO user_login(select * from user_login_temp where id=$id)";
   // exit;
+  if($_REQUEST['user_type']=="Realtor")
+  {
+
 mysqli_query($con,"INSERT INTO user_login(select * from user_login_temp where id=$id)");
 $inserted_id=mysqli_insert_id($con);
 $profile_id=@$_REQUEST['profile_id'];
 mysqli_query($con,"update realtor_profile set realtor_id=$inserted_id where id=$profile_id");
 mysqli_query($con,"delete from user_login_temp where id=$id");
-header("location:Realtor_approve.php?update_password=$inserted_id");
+}
+else{
+
+  mysqli_query($con,"INSERT INTO admin_users(select * from admin_users_temp where id=$id)");
+  $inserted_id=mysqli_insert_id($con);
+  $profile_id=@$_REQUEST['profile_id'];
+  mysqli_query($con,"update photo_company_profile set pc_admin_id=$inserted_id where id=$profile_id");
+  mysqli_query($con,"delete from admin_users_temp where id=$id");
+}
+$user_type=@$_REQUEST['user_type'];
+header("location:organization.php?update_password=$inserted_id&usertype=$user_type");
 }
 elseif(isset($_REQUEST['approve'])) {
 
@@ -114,16 +127,25 @@ elseif(isset($_REQUEST['approve'])) {
   $profile_id=@$_REQUEST['profile_id'];
   mysqli_query($con,"delete from realtor_profile where id=$profile_id");
   mysqli_query($con,"delete from user_login_temp where id=$id");
-  header("location:Realtor_approve.php?fail=1");
+  header("location:organization.php?fail=1");
 }
 if(isset($_REQUEST['passresetbtn']))
 {
   $id=@$_REQUEST['id'];
   $password=@$_REQUEST['password'];
+  $type_of_user=$_REQUEST['typeofuser'];
+
   // echo "UPDATE `user_login` SET `password`='$password' where id=$id";
   // exit;
-  mysqli_query($con,"update user_login set password='$password' where id=$id");
-  header("location:Realtor_approve.php?reg_success=1");
+  if($type_of_user=="Realtor")
+  {
+    mysqli_query($con,"update user_login set password='$password',email_verified=1 where id=$id");
+  }
+  else{
+    mysqli_query($con,"update admin_users set password='$password',is_approved=1 where id=$id");
+  }
+
+  header("location:organization.php?reg_success=1&typeofuser=$type_of_user");
 
 }
  if(isset($_REQUEST['reg_success'])) {
@@ -133,14 +155,17 @@ if(isset($_REQUEST['passresetbtn']))
                   <div class="col-md-12 text-center box-middle">
                       <div>
                           <hr class="space m">
-                          <h1 >Registration Successful!</h1>
-                          <h5>
-                          You are successfully registered as a Realtor<br />
-                          <span >You will be notified in the email when Admin approves your registration.</span> <br />
-                          <span >You can login only after admin approves your account.</span>
-                          </h5>
                           <hr class="space m">
-                          <a class="anima-button btn-ms btn adr-cancel circle-button"  href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
+                            <h1 style="font-size:80px"><i class="fa fa-check" style="color:green"></i></h1>
+                            <h1 id="label_registration_success" adr_trans="label_registration_success">Registration Successful!</h1>
+                            <h5>
+                            You are successfully registered as a <?php echo $_REQUEST['typeofuser'];?><br />
+                            <span id="label_admin_approved_email" adr_trans="label_admin_approved_email"> Welcome to Fotopia world! </span> <br />
+                            <span id="label_admin_not_approved" adr_trans="label_admin_not_approved">You can login to fotopia app and <?php if($_REQUEST['typeofuser']=="Realtor"){ echo "book a photography session for your property.";}else{ echo "avail application features.";} ?></span>
+
+                            </h5>
+                            <hr class="space m">
+                            <a class="anima-button btn-ms btn adr-cancel circle-button" id="label_go_back_home" adr_trans="label_go_back_home" href="<?php if($_REQUEST['typeofuser']=="Realtor"){  echo $_SESSION['project_url']."login.php"; }else{ echo $_SESSION['project_url']."admin/index.php"; } ?>"><i class="fa fa-long-arrow-left"></i>Go back to Login</a>
                       </div>
                   </div>
               </div>
@@ -156,7 +181,7 @@ if(isset($_REQUEST['fail'])) {
                        <hr class="space m">
                        <h1 style="font-size:80px"><i class="fa fa-frown-o" aria-hidden="true" style="color:orange"></i></h1>
                        <h3>
-                       Thanks & Hope you come back with us soon!<br />
+                      Thanks & Hope you come back with us soon!<br />
                       </h3>
                        <hr class="space m">
                        <a class="anima-button btn-ms btn adr-success circle-button" style="" id="label_go_back_home" adr_trans="label_go_back_home" href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
@@ -180,6 +205,7 @@ if(isset($_REQUEST['update_password']))
   <p align="left" id="label_password" adr_trans="label_password">Password</p>
   <input id="password" name="password" placeholder="password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
   <input type="hidden" name="id" value="<?php echo $_REQUEST['update_password']; ?>" />
+    <input type="hidden" name="typeofuser" value="<?php echo $_REQUEST['usertype']; ?>" />
   </div>
   </div>
 

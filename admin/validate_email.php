@@ -7,8 +7,12 @@ $type=$_REQUEST["type"];
 $ql="";
 if($type=='Photographer')
 {
-$q1="select * from user_login where email='$id'";
 
+  $q1="select * from user_login where email='$id'";
+
+}
+elseif ($type=='realtor') {
+  $q1="select * from user_login where email='$id'";
 }
 else
 {

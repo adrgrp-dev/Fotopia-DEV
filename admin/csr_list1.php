@@ -449,6 +449,7 @@ min-width:120px!important;
 
 <div class="panel" id="tab3" style="width:100%;overflow:scroll;">
 <!--Panel 3 starts-->
+  <center ><i style="font-size: 18px">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
 <p align="right"><a href="create_photographer.php" class="btn btn-default"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
 
 <table class="table-striped" aria-busy="false">
@@ -699,12 +700,17 @@ header("location:csr_list1.php?ed=1");
                                 Contact
 
                         </span>
+												<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_service" adr_trans="label_service">
 
+ 															 Service
+
+ 											 </span>
                         <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                 Photographer
 
                         </span>
+
 
 						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_details" adr_trans="label_details">
 
@@ -764,8 +770,10 @@ header("location:csr_list1.php?ed=1");
 									{
 				$photographer_id =  $res1['photographer_id'];
 
-				$res2=mysqli_query($con,"SELECT first_name FROM user_login where id='$photographer_id'");
-				$res3=mysqli_fetch_array($res2);
+				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id)");
+			  $res3=mysqli_fetch_array($res2);
+
+
 
 
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
@@ -777,7 +785,9 @@ header("location:csr_list1.php?ed=1");
 				<td class="text-left" style="word-break:break-all;"><?php if($res1['organization_website']==0){echo'NA';} else{echo $res1['organization_website'];} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php echo $res3['first_name']; ?></td>
+				<td class="text-left" style="word-break:break-all;"><?php if($res1['service']==1){ echo "Photos"; }else{ echo "Floor plans"; } ?></td>
+				<td class="text-left" style="word-break:break-all;"><?php echo 	$res3['first_name']; ?></td>
+
 
 				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;

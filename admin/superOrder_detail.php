@@ -1572,10 +1572,10 @@ alert(alertmsg);
                         <div class="tab-box pills" data-tab-anima="fade-left">
 
                           <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
-                            <option value="1">Standard photos <span class="badge"><?php if(!empty($standard_value)) {echo "(".$standard_value.")";}?></span></option>
+                            <option value="1">Photos <span class="badge"><?php if(!empty($standard_value)) {echo "(".$standard_value.")";}?></span></option>
                             <option value="2">Floor plans <span class="badge"><?php if(!empty($floor_value)) {echo "(".$floor_value.")";}?></span></option>
-                            <option value="3">Drone photos <span class="badge"><?php if(!empty($Drone_value)) {echo "(".$Drone_value.")";}?></span></option>
-                              <option value="4">HDR Photos <span class="badge"><?php if(!empty($hdr_value)) {echo "(".$hdr_value.")";}?></span></option>
+                            <!-- <option value="3">Drone photos <span class="badge"><?php //if(!empty($Drone_value)) {echo "(".$Drone_value.")";}?></span></option>
+                              <option value="4">HDR Photos <span class="badge"><?php //if(!empty($hdr_value)) {echo "(".$hdr_value.")";}?></span></option> -->
 
                             </select>
 
@@ -1990,7 +1990,7 @@ alert(alertmsg);
                                         <li class=""><a href="#">Drone Photos</a></li>
                                           <li class=""><a href="#">Hdr Photos</a></li>
                                     </ul> -->
-                                      <div class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
+                                      <div id="finished_images_standard_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
                                       <div style="border-bottom: 1px solid black">
 
                                            <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
@@ -2150,7 +2150,7 @@ alert(alertmsg);
                                         </div>
 
                                     </div>
-                                        <div class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
+                                        <div id="finished_images_floor_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;display:none;">
                                       <div style="border-bottom: 1px solid black">
 
                                            <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
@@ -2297,7 +2297,7 @@ alert(alertmsg);
                                         </div>
                                         </div>
                                     </div>
-                                  <div class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
+                                  <div id="finished_images_Drone_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;display:none;">
                                       <div style="border-bottom: 1px solid black">
 
                                            <form  onsubmit="return check3();" name="zipDownload" id="zipDownload3" method="post" action="">
@@ -2443,7 +2443,7 @@ alert(alertmsg);
                                         </div>
 
                                     </div>
-                                    <div class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
+                                    <div id="finished_images_HDR_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;display:none;">
                                       <div style="border-bottom: 1px solid black">
 
                                            <form  onsubmit="return check4();" name="zipDownload" id="zipDownload4" method="post" action="">
@@ -2545,7 +2545,7 @@ alert(alertmsg);
                                                   </div>
 
                                                 </div>
-                                            
+
 
                                             </div>
 
@@ -2978,15 +2978,15 @@ $percentage = @$get_information['tax'];
                                               }
                                               elseif( $get_images["service_name"] == 2)
                                               {
-                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green", "padding": "140px","font-size":"16px"});</script>';
+                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
                                               }
                                               elseif($get_images["service_name"] == 3)
                                               {
-                                                echo '<script>$("#drone_div").hide();$("#drone_booked").html("<center><span>Drone Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#drone_booked").css({"color": "green", "padding": "140px","font-size":"16px"});</script>';
+                                                echo '<script>$("#drone_div").hide();$("#drone_booked").html("<center><span>Drone Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#drone_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
                                               }
                                               elseif($get_images["service_name"] == 4)
                                               {
-                                                echo '<script>$("#hdr_div").hide();$("#hdr_booked").html("<center><span>HDR Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#hdr_booked").css({"color": "green", "padding": "140px","font-size":"16px"});</script>';
+                                                echo '<script>$("#hdr_div").hide();$("#hdr_booked").html("<center><span>HDR Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#hdr_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_HDR_photos").show();</script>';
                                               }
 
 
