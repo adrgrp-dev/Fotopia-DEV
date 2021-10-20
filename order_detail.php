@@ -992,7 +992,7 @@ alert("comment changed");
         <div class="" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="margin-left:-15px;">
+                <div class="col-md-2" style="margin-left:0px;">
 
 	   <?php include "sidebar.php";  ?>
 
