@@ -8,7 +8,6 @@
   padding: 15px;
   width:fit-content;
   text-decoration: none;
-  font-size: 20px;
   color: white;
   border-radius: 0 5px 5px 0;
 }
@@ -30,6 +29,9 @@ th, td
 vertical-align:top!important;
 padding:5px;
 }
+
+
+
 </style>
     <script>
   var a;

@@ -19,12 +19,12 @@ while($msg=mysqli_fetch_array($msg1))
 if($_SESSION["loggedin_id"]==$msg['from_user_id'] && $_SESSION["user_type"]==$msg['from_user_type'])
 {
 
-  $chat_List_options="<tr class='padding'><td align='right'><b style='float:right;color:#006600;font-size:9px!important;'>".$msg['from_user_type']." :</b><br /><span style='float:right;color:#000080;font-size:9px;text-align:justify;font-weight:600!important'>".$msg['chat_message']."</span><br /><span style='font-size:9px;float:right;color:black;'>".date("d M y h:i a",strtotime($msg['timestamp']))."</span></td></tr>";
+  $chat_List_options="<tr class='padding'><td align='right'><b style='float:right;color:#006600;font-size:9px!important;'>".$msg['from_user_type']." :</b><br /><span style='float:right;color:#000080;font-size:9px;text-align:justify;overflow-wrap:break-word;font-weight:600!important'>".$msg['chat_message']."</span><br /><span style='font-size:9px;float:right;color:black;'>".date("d M y h:i a",strtotime($msg['timestamp']))."</span></td></tr>";
   echo   $chat_List_options;
 }
 else {
 
-  $chat_List_options="<tr class='padding'><td align='left'><b style='float:left;color:#006600;font-size:9px!important;'>".$msg['from_user_type']." :</b><br /><span style='float:left;color:#000080;font-size:9px;text-align:justify;font-weight:600!important'>".$msg['chat_message']."</span><br /><span style='font-size:9px;float:left;color:#000;'>".date("d M y h:i a",strtotime($msg['timestamp']))."</span></td></tr>";
+  $chat_List_options="<tr class='padding'><td align='left'><b style='float:left;color:#006600;font-size:9px!important;'>".$msg['from_user_type']." :</b><br /><span style='float:left;color:#000080;font-size:9px;text-align:justify;overflow-wrap:break-word;font-weight:600!important'>".$msg['chat_message']."</span><br /><span style='font-size:9px;float:left;color:#000;'>".date("d M y h:i a",strtotime($msg['timestamp']))."</span></td></tr>";
   echo   $chat_List_options;
 }
 

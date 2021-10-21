@@ -1257,7 +1257,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
        <p id="label_photographer" adr_trans="label_photographer">Photographer </p>
       <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);"> -->
-        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" required />
+        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" />
         <datalist id="options">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
        <?php
@@ -1332,7 +1332,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 								}
 
 								 ?>
-                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>" minutestep="10" value="<?php echo $from123; ?>" <?php if(@$_SESSION['date']!='' || @$_SESSION['fromDatetime']!='' || @$_REQUEST['od']!=''||$_SESSION['admin_loggedin_type']=='PCAdmin'||$_SESSION['admin_loggedin_type']=='CSR') { echo "required";  } else { echo "readonly"; } ?>>
+                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>" minutestep="10" value="<?php echo $from123; ?>">
                             </div>
 
 							<?php
@@ -1378,19 +1378,19 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
                             ?>
             <div class="col-md-4">
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
-                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>" <?php if(@$_SESSION['date']!='' || @$_SESSION['fromDatetime']!='' || @$_REQUEST['od']!=''||$_SESSION['admin_loggedin_type']=='PCAdmin'||$_SESSION['admin_loggedin_type']=='CSR') { echo "required";  } else { echo "readonly"; } ?>>
+                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>">
                             </div>
 
             <div class="col-md-4">
                               <p id="label_due_date_time" adr_trans="label_due_date_time">Due Date & Time</p>
-                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php echo date('Y-m-d'); ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required>
                             </div>
 
 
 
                 <div class="col-md-12">
                                 <p id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</p>
-                     <input id="notes" name="notes" placeholder="enter the notes" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['booking_notes']; ?>" <?php //if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                     <input id="notes" name="notes" placeholder="enter the notes" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$order_fetch['booking_notes']; ?>" <?php //if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
 					 <input type="hidden" name="appointments_exist" id="appointments_exist" value="0" />
                 </div>
 

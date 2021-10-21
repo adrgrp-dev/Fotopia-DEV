@@ -371,6 +371,22 @@ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`
 
 
 }
+
+
+  if(isset($_REQUEST['chattext']))
+{
+
+$created_by_id=$_REQUEST['created_by_id'];
+$from_user_id=$_SESSION["loggedin_id"];
+$chat_message=$_REQUEST['chattext'];
+$order_id=$_REQUEST['order_id'];
+//echo "insert into chat_message(to_user_id,from_user_id,chat_message,timestamp,order_id)values('$created_by_id','$from_user_id','$chat_message',now(),'$order_id'";exit;
+$from_user_type=$_SESSION['user_type'];
+$from_user_id=$_SESSION['loggedin_id'];
+mysqli_query($con,"insert into chat_message(from_user_id,from_user_type,chat_message,timestamp,order_id)values('$from_user_id','$from_user_type','$chat_message',now(),'$order_id')");
+}
+
+
 if(isset($_POST['ZIP']))
 {
 
@@ -1192,7 +1208,7 @@ alert(alertmsg);
 
                 </div>
 
-                <div class="col-md-10" >
+                <div class="col-md-8">
 
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
                   <ul class="nav nav-tabs">
@@ -2959,7 +2975,84 @@ $percentage = @$get_information['tax'];
                     </div>
   </div>
 
+<div class="col-md-2" style="border:none;background:#000;opacity:0.7;padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif;border-radius:15px;">
+  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
 
+  $realtor1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
+  $realtor=mysqli_fetch_array($realtor1);
+  //  echo @$realtor["first_name"];  ?></p>
+  <div id="wrapper" style="width:100%">
+  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
+  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;font-size:10px!important;" id="ChatBox" >
+
+  </table>
+</div>
+</div>
+  <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
+   <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
+   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder="Type your msg, hit enter" required class="form-control" />
+
+
+  </div>
+  
+  
+  <script>
+
+  $('#chattext1').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)
+  {
+    var a=$("#created_by_id").val();
+    var b=$("#order_id").val();
+    var c=$("#logged_id").val();
+    var d= $("#chattext1").val();
+     $("#chattext1").val('');
+    var xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+ 
+    //document.getElementById("demo").innerHTML = this.responseText;
+   }
+
+ };
+ xhttp.open("GET","insert_chat.php?chattext="+d+"&order_id="+b, true);
+ xhttp.send();
+ viewchat();
+
+  }
+});
+
+function viewchat()
+{
+  var b='<?php echo @$_REQUEST['id']; ?>';
+  var c='123';
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("ChatBox").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET","view_chat.php?id="+b+"&id1="+c, true);
+  xhttp.send();
+}
+
+var scrolled = false;
+function updateScroll(){
+    if(!scrolled){
+        var element = document.getElementById("style-default");
+        element.scrollTop = element.scrollHeight;
+    }
+}
+
+  </script>
+    <script>
+
+	var intervalId = window.setInterval(function(){
+  viewchat();
+  updateScroll();
+}, 5000);
+	</script>
 
 	</div>
   </div>

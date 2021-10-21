@@ -70,9 +70,15 @@ function email($order_id,$realtor_email,$con)
 
 
   $mail->addAddress($realtor_email);
+	if(!empty($csr_email))
+	{
 	$mail->AddCC($csr_email);
+	}
 	$mail->AddCC($pcadmin_email);
+	if(!empty($photographer_email))
+	{
 	$mail->AddCC($photographer_email);
+	}
 	$mail->AddCC($get_hs_detail['email']);
 	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
 	$mail->isHTML(true);

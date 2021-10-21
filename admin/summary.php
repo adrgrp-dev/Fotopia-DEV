@@ -10,10 +10,10 @@ include "connection1.php";
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWF2v01q7IpMiUSICKhd9zndRFb_kxf8"></script>
 
  <div class="section-empty">
-        <div class="container" style="margin-left:0px;height:inherit;">
+        <div class="" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" >
+                <div class="col-md-2" style="padding-left:10px">
 	<?php include "sidebar.php"; ?>
   <style>
 

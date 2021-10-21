@@ -397,13 +397,129 @@ function show()
   }
 }
 
+function saveRealtor()
+{
+var realtor_name=$("#realtor_name").val();
+var realtor_contactNo=$("#realtor_contactNo").val();
+var realtor_email=$("#realtor_email").val();
+var realtor_address=$("#realtor_address").val();
+var realtor_employer_id=$("#realtor_employer_id").val();
+
+if(realtor_name=='')
+{
+$("#realtor_name").css("border","solid 2px red");
+$("#realtor_name").focus();
+return false;
+}
+else
+{
+$("#realtor_name").css("border","solid 1px grey");
+
+}
+
+if(realtor_contactNo=='')
+{
+$("#realtor_contactNo").css("border","solid 2px red");
+$("#realtor_contactNo").focus();
+return false;
+}
+else
+{
+$("#realtor_contactNo").css("border","solid 1px grey");
+
+}
+     
+
+if(realtor_email=='')
+{
+$("#realtor_email").css("border","solid 2px red");
+$("#realtor_email").focus();
+return false;
+}
+else
+{
+$("#realtor_email").css("border","solid 1px grey");
+
+}
+
+
+if(realtor_address=='')
+{
+$("#realtor_address").css("border","solid 2px red");
+$("#realtor_address").focus();
+return false;
+}
+else
+{
+$("#realtor_address").css("border","solid 1px grey");
+
+}
+
+if(realtor_employer_id=='')
+{
+$("#realtor_employer_id").css("border","solid 2px red");
+$("#realtor_employer_id").focus();
+return false;
+}
+else
+{
+$("#realtor_employer_id").css("border","solid 1px grey");
+
+}
+ xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	
+     $("#realtor_saved_msg").html(this.responseText);
+	 $("#realtor_saved_msg").show(300);
+	 $("#save_realtor").hide(600);
+	 
+    }
+  };
+  xhttp.open("GET", "save_realtor.php?realtor_name="+realtor_name+"&realtor_contactNo="+realtor_contactNo+"&realtor_email="+realtor_email+"&realtor_address="+realtor_address+"&realtor_employer_id="+realtor_employer_id, true);
+  xhttp.send();
+
+}
+
+function RealtorSearch(realtorId)
+{
+$("#realtor_saved_msg").hide(300);
+if(realtorId=='')
+{
+	 $("#realtor_name").val('');
+$("#realtor_contactNo").val('');
+$("#realtor_email").val('');
+$("#realtor_address").val('');
+$("#realtor_employer_id").val('');
+ $("#save_realtor").show(300);
+}
+else
+{
+ $("#save_realtor").hide(600);
+ 
+ xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    const abc=JSON.parse(this.responseText);
+	 $("#realtor_name").val(abc[0].first_name);
+$("#realtor_contactNo").val(abc[0].contact_number);
+$("#realtor_email").val(abc[0].email);
+$("#realtor_address").val(abc[0].address_line1);
+$("#realtor_employer_id").val(abc[0].realtor_employer_id);
+    }
+  };
+  xhttp.open("GET", "get_realtor_info.php?realtor_id="+realtorId, true);
+  xhttp.send();
+}
+
+}
 </script>
 
  <div class="section-empty bgimage3">
-        <div class="container" style="margin-left:0px;height:inherit">
+        <div class="" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding:10px">
 	<?php include "sidebar.php"; ?>
 
 			</div>
@@ -509,9 +625,9 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
        <label for="from_realtor" style="display:inline-block">
           <input type="radio" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
         </label>
-       
-	   <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;">
-<option value="">Choose Realtor Company</option>
+       &nbsp; &nbsp; &nbsp;
+	   <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;" onchange="RealtorSearch(this.value)">
+<option value="">Create New Realtor</option>
 						<?php
 
 						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
@@ -579,12 +695,22 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         <p>REALTOR EMAIL</p>
                         <input id="realtor_email" name="realtor_email" placeholder="Enter The Realtor email id" type="email" autocomplete="off"
                         value="<?php echo  @$appointment_update_details['request_email'];?>" class="form-control form-value" required>
-                              <br>
+                              
     </div>
     <div class="col-md-6">
                         <p>REALTOR ADDRESS</p>
                         <input id="realtor_address" name="realtor_address" placeholder="Enter The Realtor address" type="text" autocomplete="off"
                         value="<?php echo  @$appointment_update_details['request_address'];?>" class="form-control form-value" required>
+    </div>
+	 <div class="col-md-6">
+                        <p>REALTOR EMPLOYER ID</p>
+                        <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
+                        value="<?php echo  @$appointment_update_details['realtor_employer_id'];?>" class="form-control form-value" required>
+    </div>
+	 <div class="col-md-6">
+                        <p>&nbsp;</p>
+                 <input type="button" name="save_realtor" id="save_realtor" class="btn btn-default btn-sm" value="Save New Realtor" style="border-radius:25px;" onclick="saveRealtor()" />
+				&nbsp;&nbsp; <span id="realtor_saved_msg" style="color:#006600;font-size:13px; display:none"></span>
     </div>
 </div>
          <?php } ?>

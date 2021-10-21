@@ -65,6 +65,8 @@ if(isset($_REQUEST['profilebtn']))
 $portfolio=$_REQUEST['portfolio'];
 $organization_name=$_REQUEST['organization_name'];
 $organization_branch=$_REQUEST['organization_branch'];
+$realtor_employer_id=strtoupper($_REQUEST['realtor_employer_id']);
+
 $organization_contact_number=$_REQUEST['organization_contact_number'];
 $organization_email=$_REQUEST['organization_email'];
 
@@ -90,7 +92,7 @@ $password=$_REQUEST['password'];
 
 if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0) {
 
-mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
 
 mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
@@ -101,7 +103,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 elseif($_FILES['profile_pic']['size'] == 0){
 
 
-  mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
 
   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
@@ -113,7 +115,7 @@ elseif($_FILES['profile_pic']['size'] == 0){
 elseif($_FILES['logo']['size'] == 0){
 
 
-  mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -124,7 +126,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 
 else {
 
-mysqli_query($con,"update realtor_profile set portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
 mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -150,10 +152,10 @@ margin-left:0px!important;
 }
 </style>
  <div class="section-empty bgimage5">
-        <div class="container" style="margin-left:0px;height:inherit">
+        <div class="" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="margin-left:-15px;">
+                <div class="col-md-2" style="margin-left:0px;">
 	<?php include "sidebar.php"; ?>
 
 
@@ -178,6 +180,8 @@ margin-left:0px!important;
 <table id="profile" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;width:100%"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 
+				
+				<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_add_company_profile">Add / Edit company profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
@@ -202,6 +206,11 @@ margin-left:0px!important;
 								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_org_branch">Organization branch</p>
                                 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['organization_branch']; ?>">
+								</div>
+								
+								<div class="col-md-6">
+                                <p style="color:#000;">Realtor Employer ID</p>
+                                <input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['realtor_employer_id']; ?>">
 								</div>
 
 								<div class="col-md-6">

@@ -8,6 +8,17 @@ $type=$_SESSION['user_type'];
 
 if($type=="Realtor")
 {
+
+$id=$_SESSION['loggedin_id'];
+		$realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$id'");
+		$realtor_profile=mysqli_fetch_array($realtor_profile1);
+		$realtor_employer_id=$realtor_profile['realtor_employer_id'];
+		$organization_name=$realtor_profile['organization_name'];
+		if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
+		{ header("location:edit_realtor_profile.php?first=1"); exit; }
+		 
+		
+
  $page="csrRealtorDashboard.php";
 }
 if($type=="Photographer")
