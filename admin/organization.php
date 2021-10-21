@@ -157,15 +157,15 @@ if(isset($_REQUEST['passresetbtn']))
                           <hr class="space m">
                           <hr class="space m">
                             <h1 style="font-size:80px"><i class="fa fa-check" style="color:green"></i></h1>
-                            <h1 id="label_registration_success" adr_trans="label_registration_success">Registration Successful!</h1>
+                            <h1>Registration Successful!</h1>
                             <h5>
                             You are successfully registered as a <?php echo $_REQUEST['typeofuser'];?><br />
-                            <span id="label_admin_approved_email" adr_trans="label_admin_approved_email"> Welcome to Fotopia world! </span> <br />
-                            <span id="label_admin_not_approved" adr_trans="label_admin_not_approved">You can login to fotopia app and <?php if($_REQUEST['typeofuser']=="Realtor"){ echo "book a photography session for your property.";}else{ echo "avail application features.";} ?></span>
+                            <span > Welcome to Fotopia world! </span> <br />
+                            <span >You can login to fotopia app and <?php if($_REQUEST['typeofuser']=="Realtor"){ echo "book a photography session for your property.";}else{ echo "avail application features.";} ?></span>
 
                             </h5>
                             <hr class="space m">
-                            <a class="anima-button btn-ms btn adr-cancel circle-button" id="label_go_back_home" adr_trans="label_go_back_home" href="<?php if($_REQUEST['typeofuser']=="Realtor"){  echo $_SESSION['project_url']."login.php"; }else{ echo $_SESSION['project_url']."admin/index.php"; } ?>"><i class="fa fa-long-arrow-left"></i>Go back to Login</a>
+                            <a class="anima-button btn-ms btn adr-cancel circle-button" href="<?php if($_REQUEST['typeofuser']=="Realtor"){  echo $_SESSION['project_url']."login.php"; }else{ echo $_SESSION['project_url']."admin/index.php"; } ?>"><i class="fa fa-long-arrow-left"></i>Go back to Login</a>
                       </div>
                   </div>
               </div>

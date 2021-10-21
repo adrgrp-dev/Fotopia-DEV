@@ -182,7 +182,7 @@ min-width:100px!important;
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
-<option value="1" <?php if(@$_REQUEST['filterByStatus']==1||@$_SESSION['status']==1) { echo "selected"; } ?> adr_trans="label_completed">Created</option>
+<option value="1" <?php if(@$_REQUEST['filterByStatus']==1||@$_SESSION['status']==1) { echo "selected"; } ?>>Created</option>
 <option value="2" <?php if(@$_REQUEST['filterByStatus']==2||@$_SESSION['status']==2) { echo "selected"; } ?>>Work in progress</option>
 <option value="4" <?php if(@$_REQUEST['filterByStatus']==4||@$_SESSION['status']==4) { echo "selected"; } ?>>Rework</option>
 <option value="5" <?php if(@$_REQUEST['filterByStatus']==5||@$_SESSION['status']==5) { echo "selected"; } ?>>Cancelled</option>

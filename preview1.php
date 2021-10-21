@@ -389,7 +389,7 @@ var a;
                     <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here"  onkeyup="show_editbtn(this.form)" style="width:90%;color: black;"/><center>
                     </div>
                     <hr class="space l">
-                    <div style="display:none">
+
                     <h5 style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
                        <button  class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send"> Send</button>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
@@ -486,6 +486,7 @@ var a;
                       </div>
 
                       <hr class="space l">
+                        <div style="display:none">
                     <h5 style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px">Drone Photos</h5>
                            <button  class="btn btn-primary"  id="edit_button2" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send">Send</button>
 

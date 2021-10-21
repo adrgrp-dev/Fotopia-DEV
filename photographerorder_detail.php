@@ -1543,6 +1543,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                          <input type="text" class="form-control" name="commentall" value="<?php echo @$floor['comments'] ?>"/>
                                           </div>
                                           <hr class="space l">
+                                          <div style="display:none">
                                         <h5 id="zip_Drone" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px" adr_trans="label_drone_photos">Drone Photos</h5>
                                         <?php
                                         $imagesDirectory_Drone = "./rework_images/order_".$id_url."/Drone_photos";
@@ -1680,6 +1681,8 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           ?>
                                             <input type="text" class="form-control" name="commentall" value="<?php echo @$Drone['comments'] ?>"/>
                                           </div>
+                                        </div>
+                                          <div style="display:none">
                                           <hr class="space l">
                                         <h5 id="Hdr_Drone" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px" adr_trans="label_hdr_photos">Hdr Photos</h5>
 
@@ -1820,6 +1823,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                             <input type="text" class="form-control" name="commentall" value="<?php echo @$hdr['comments'] ?>"/>
                                           </div>
+                                        </div>
                                         <br>
                                         <br>
 

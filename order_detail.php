@@ -1424,9 +1424,9 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                     </a>
-
+                                    <?php if($get_comment['disapprove']!=1){?>
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-
+                                     <?php }?>
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
                          <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
                                     </a>
@@ -1555,8 +1555,11 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                     </a>
+                                    <?php if($get_comment['disapprove']!=1){?>
+                                    <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)"  value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+                                    <?php } ?>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)"   onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
                           </a>
 
 

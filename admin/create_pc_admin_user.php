@@ -71,7 +71,7 @@ function email($fname,$email,$secret_code,$con)
  $mail->Body.=$template;
 
  $mail->Body.="<br> You have been added as a Photographer for ".$get_profile['organization_name'];
- $mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password";
+ $mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password and using a {{secret_code}} code.";
 
 
 
@@ -261,7 +261,7 @@ function validate_email(val)
                                   <input id="contactno" name="contactno" placeholder="Contact number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12" autocomplete="off" class="form-control form-value" required="">
                               </div>
 
-                               
+
 
                               <div class="col-md-6">
                                   <p id="label_password" adr_trans="label_password">Password</p>

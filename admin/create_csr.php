@@ -62,12 +62,12 @@ function email($template,$Password,$fname,$email,$secret_code,$con)
  $pcadmin_contact=$get_profile['contact_number'];
 
  $mail->Subject = "Your are created as an CSR for".$get_profile['organization_name'];
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">You are registered as CSR Successfully!</td>
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">You are created as CSR Successfully!</td>
  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.=$template;
 $mail->Body.="<br> You have been added as a CSR for ".$get_profile['organization_name'];
-$mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password";
+$mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password and using a {{secret_code}} code.";
 
 
    $url=$_SESSION['project_url']."admin/";
@@ -143,7 +143,7 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$email_verification_code=getName(10);
 
 // if ($_FILES['profilepic']['size'] == 0) {
-  
+
 // }
 	$imgData="";
 	$imageProperties="";
@@ -226,7 +226,7 @@ function validate_email(val)
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email.php?id="+val+"&type=CSR",true);
   xhttp.send();
 }
 </script>
@@ -239,7 +239,7 @@ function validate_email(val)
 
 
 
-
+<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;">
 <div class="col-md-12"><h5 align="center" id="label_create_csr" adr_trans="label_create_csr"> Create CSR</h5></div>
 
@@ -258,7 +258,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p id="label_email" adr_trans="label_email">Email
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="validate_email(this.value)" class="form-control form-value" required="">
 

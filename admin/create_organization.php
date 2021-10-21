@@ -63,7 +63,7 @@ $mail->Body = "<html><head><style>.button {
   display: inline-block;
   font-size: 16px;
 }
-.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">USER REGISTRATION SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">USER REGISTRATION SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -652,26 +652,6 @@ $("#addressline1").css("border","none");
 }
 
 
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
-
-
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
 
 
 var city =  $("#city").val();

@@ -172,7 +172,7 @@ if($exist!=0)
                         <h5 id="label_reset_received" adr_trans="label_reset_received">
                             Enter the reset password code received in email :<br /><br />
 							<form method="post" action="">
-			<input type="hidden" name="emailhidden" value="<?php echo $_REQUEST['']; ?>" />
+			<input type="hidden" name="emailhidden" value="<?php echo $_REQUEST['email']; ?>" />
 			<input type="text" name="resetcode"  type="text" placeholder="" autocomplete="off" class="form-control form-value" required="" size="40"  />
 
 							<br /><br />
