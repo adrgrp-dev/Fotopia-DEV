@@ -431,6 +431,25 @@ border-radius:0px;
 color:#FFF!important;
 background:#000!important;
 }
+
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 45%;
+  right: 0;
+  border-top: 2px solid;
+  border-color: inherit;
+  color:red;
+  -webkit-transform:rotate(-7deg);
+  -moz-transform:rotate(-7deg);
+  -ms-transform:rotate(-7deg);
+  -o-transform:rotate(-7deg);
+  transform:rotate(-7deg);
+}
   </style>
   <script>
   function setSecondDate()
@@ -777,6 +796,18 @@ while($product_result1=mysqli_fetch_array($product_result))
 $productIDIS=$product_result1['id'];
 $realtorDiscountPrice=$product_result1['total_cost'];
 $ActualCostOfProduct=$product_result1['total_cost'];
+
+$hs_id=@$_REQUEST['hs_id'];
+
+$realtorID1=mysqli_query($con,"select id from user_login where type_of_user='Realtor' and  email=(select request_email from home_seller_info where lead_from='realtor' and id='$hs_id'");
+$realtorID1EX=mysqli_num_rows($realtorID1);
+if($realtorID1EX>0)
+{
+$realtorID=mysqli_fetch_array($realtorID1);
+$realtor_id=$realtorID['id'];
+}
+
+
 $realtorCost1=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$pc_admin_id1' and realtor_id='$realtor_id' and product_id='$productIDIS'");
 
 $rowsFound=mysqli_num_rows($realtorCost1);
