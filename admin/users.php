@@ -54,25 +54,19 @@ if(isset($_REQUEST['loginbtn']))
 
  <datalist id="Suggestions1"  >
  <?php
-							// if(empty(@$_SESSION['usertype1']))
-							// {
-							//
-							// 	$user_name=mysqli_query($con,"select * from user_login where email_verified=1 order by id desc");
-						  // }
+							$user_name="";
 							if(!empty(@$_SESSION['usertype1']))
 							{
 							if($_SESSION['usertype1']!='PCAdmin')
 							{
-									echo "select * from user_login where type_of_user='Realtor' and email_verified=1 order by id desc";
 								$user_name=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and email_verified=1 order by id desc");
 							}
 							else
 							{
-								echo "select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc";
 								$user_name=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc");
 						  }
 						}
-echo $user_name;
+
 							while(@$user_first_name=mysqli_fetch_assoc(@$user_name))
 							{
 							?>
