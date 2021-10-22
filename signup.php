@@ -892,7 +892,7 @@ $("#country").css("border","none");
 
 							 <div class="col-md-6">
 						  <p id="label_address_line2" adr_trans="label_address_line2">Address Line 2</p>
-						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" required="">
+						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value">
 						 </div>
 
 						<div class="col-md-6">
