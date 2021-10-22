@@ -386,7 +386,7 @@ $('#anc1').removeAttr('onclick');
 
 function show()
 {
-
+ $("#save_realtor").hide(600);
   if(document.getElementById('show').style.display == "none")
   {
     document.getElementById('show').style.display="block";
@@ -399,6 +399,7 @@ function show()
 
 function saveRealtor()
 {
+
 var realtor_name=$("#realtor_name").val();
 var realtor_contactNo=$("#realtor_contactNo").val();
 var realtor_email=$("#realtor_email").val();
@@ -483,7 +484,7 @@ $("#realtor_employer_id").css("border","solid 1px grey");
 
 function RealtorSearch(realtorId)
 {
-$("#realtor_saved_msg").hide(300);
+$("#save_realtor").hide(300);
 if(realtorId=='')
 {
 	 $("#realtor_name").val('');
@@ -630,7 +631,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 <option value="">Create New Realtor</option>
 						<?php
 
-						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
+						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and email_verified=1");
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>

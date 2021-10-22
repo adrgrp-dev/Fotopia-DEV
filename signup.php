@@ -967,7 +967,7 @@ $("#country").css("border","none");
                             <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                         </div>
 
-						  <a class="anima-button circle-button btn-sm btn" onclick="showStep1()" id="next" name="next" ><i class="fa fa-chevron-circle-left"></i>Back</a>&nbsp;&nbsp;<button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn" id="label_signup" adr_trans="label_signup" onclick="return step2Validation()"><i class="fa fa-sign-in"></i>Signup</button>
+						  <a class="anima-button circle-button btn-sm btn" onclick="showStep1()" id="next" name="next" ><i class="fa fa-chevron-circle-left"></i>Back</a>&nbsp;&nbsp;<button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn" id="label_signup" onclick="return step2Validation()"><i class="fa fa-sign-in"></i><span  adr_trans="label_signup">Signup</span></button>
 
 </center>
 					   </div>

@@ -13,14 +13,17 @@ use PHPMailer\PHPMailer\Exception;
 $checkRealtor=mysqli_query($con,"select * from user_login where email='$realtor_email' and type_of_user='Realtor'");
 $realtorExist=mysqli_num_rows($checkRealtor);
 
-if($realtorExist>0)
+$checkRealtorTemp=mysqli_query($con,"select * from user_login_temp where email='$realtor_email' and type_of_user='Realtor'");
+$realtorExistTemp=mysqli_num_rows($checkRealtorTemp);
+
+if($realtorExist>0 || $realtorExistTemp>0)
 {
 echo "There is another realtor registered already using the same email ID";
 }
 else
 {
 
-mysqli_query($con,"insert into user_login(first_name,contact_number,email,type_of_user,address_line1,email_verified,registered_on)values('$realtor_name','$realtor_contactNo','$realtor_email','Realtor','$realtor_address',0,now())");
+mysqli_query($con,"insert into user_login_temp(first_name,contact_number,email,type_of_user,address_line1,email_verified,registered_on)values('$realtor_name','$realtor_contactNo','$realtor_email','Realtor','$realtor_address',0,now())");
 $realtor_id=mysqli_insert_id($con);
 
 mysqli_query($con,"insert into realtor_profile(realtor_id,realtor_employer_id,first_name,contact_number,email,address_line1)values('$realtor_id','$realtor_employer_id','$realtor_name','$realtor_contactNo','$realtor_email','$realtor_address')");

@@ -57,7 +57,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 
 
 			<?php if(@$_REQUEST['Photographer_id']!='') { ?>	<h5 class="text-center"><?php echo $photographer_name_is; ?> - Photographer's Calendar</h5>
-			<?php }  else { ?><h5 style="color:#006666;padding-top:20px;" class="text-center">Select a Photographer from the below list to create an Order</h5> <?php } ?>
+			<?php }  else { ?><h5 style="color:#006666;padding-top:20px;" class="text-center">Select a Photographer from the below list to create an Order OR bypass to order detail screen</h5> <?php } ?>
 
 
 <div class="row" style="border-color:none!important;width:100%;background:#E8F0FE!important;box-shadow:10px 10px 10px 10px #DDD;border-radius:25px;">

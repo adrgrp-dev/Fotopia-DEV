@@ -257,7 +257,7 @@ var langval="";
 
 </div>
          <div class="col-md-4">
-       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;"><span adr_trans="label_photo_app_admin">Photography App - Adminstration</span></p>
+       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;"><span adr_trans="label_photo_app_admin" style="color:white">Photography App - Adminstration</span></p>
 
 
 </div>
@@ -305,7 +305,7 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 
                                <ul class="nav navbar-nav" style="display:inline-block;float:right;">
                                    <li class="dropdown current-active">
-   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,10)."..."; ?> <span class="caret"></span></a>
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,6)."..."; ?> <span class="caret"></span></a>
                            <ul class="dropdown-menu">
         <li><a href="change_email_password.php"><i class="fa fa-key" style="padding-right:10px;"></i><span adr_trans="label_my_account">My Account</span></a></li>
 
