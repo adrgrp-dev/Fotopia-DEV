@@ -54,7 +54,7 @@ if(isset($_REQUEST['loginbtn']))
 
  <datalist id="Suggestions1"  >
  <?php
-							$user_name="";
+							$user_name="select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc";
 							if(!empty(@$_SESSION['usertype1']))
 							{
 							if($_SESSION['usertype1']!='PCAdmin')
