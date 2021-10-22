@@ -655,7 +655,7 @@ $(function() {
      $("#from_whom").removeAttr('required');
 	 
 	  $("#realtor_id").css("visibility","visible");
-       $("#realtor_id").attr("required","required");
+     //  $("#realtor_id").attr("required","required");
 
      } else {
        $("#realtor_name").removeAttr('required');
