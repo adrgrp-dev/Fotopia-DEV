@@ -1321,7 +1321,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 	  ?>
 
         <hr class="space s" />
-             <div class="col-md-4">
+             <div class="col-md-4" style="display:none">
 
                                 <p id="label_appointment_from" adr_trans="label_appointment_from">From Date & Time  </p>
 								<?php
@@ -1376,7 +1376,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 
                             ?>
-            <div class="col-md-4">
+            <div class="col-md-4" style="display:none">
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
                               <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>">
                             </div>
@@ -1413,7 +1413,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 			</div>
 			<div class="col-md-3">
 
-			<div id='calendar' style="display:block"></div>
+			<div id='calendar' style="display:none"></div>
 
 			</div>
 

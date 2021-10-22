@@ -483,7 +483,7 @@ $("#realtor_employer_id").css("border","solid 1px grey");
 
 function RealtorSearch(realtorId)
 {
-$("#save_realtor").hide(300);
+$("#save_realtor").hide(100);
 if(realtorId=='')
 {
 	 $("#realtor_name").val('');
