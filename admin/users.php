@@ -54,7 +54,7 @@ if(isset($_REQUEST['loginbtn']))
 
  <datalist id="Suggestions1"  >
  <?php
-							$user_name="select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc";
+							$user_name="";
 							if(!empty(@$_SESSION['usertype1']))
 							{
 							if($_SESSION['usertype1']!='PCAdmin')
@@ -65,6 +65,11 @@ if(isset($_REQUEST['loginbtn']))
 							{
 								$user_name=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc");
 						  }
+						}
+						else
+						{
+						$user_name=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=1 order by id desc");
+
 						}
 
 							while(@$user_first_name=mysqli_fetch_assoc(@$user_name))
