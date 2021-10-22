@@ -631,11 +631,11 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 <option value="">Create New Realtor</option>
 						<?php
 
-						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and email_verified=1");
+						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user,first_name FROM `user_login` where organization_name!='' and type_of_user='Realtor' and email_verified=1");
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>
-						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['org']; ?></option>
+						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
 						<?php } ?>
 
 </select>
