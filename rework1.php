@@ -59,7 +59,7 @@ function email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_
 You have been assigned for Photo Rework from {{photographer_Name}} through
 Fotopia with the order reference # F{{orderId}}.<br>
 
-For further details 
+For further details
 <a href='{{project_url}}' target='_blank'>click here</a>.
 
 <br><br>
@@ -133,10 +133,11 @@ if(1)  {//rename($file,$destinationFilePath
 		 $editor_email_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$order_id and service_name=$service");
 		 $get_editor_email=mysqli_fetch_assoc($editor_email_query);
      $images_url=$get_editor_email['images_url'];
-		 $get_editordetail_query=mysqli_query($con,"select * from editor where photographer_id=$photographer_id");
+		 $service=$get_editor_email['service_name'];
+		 $get_editordetail_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and service_type=$service");
 		 $get_editor_details=mysqli_fetch_assoc($get_editordetail_query);
 		 $editor_fname=$get_editor_details['first_name'];
-		  $editor_email=$get_editor_details['email'];
+		 $editor_email=$get_editor_details['email'];
      if($get_order['status_id']==4)
 		 {
 		 email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_url);

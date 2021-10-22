@@ -263,15 +263,16 @@ function show_editbtn4()
 <script>
 var a;
                     function confirmEmail(a)
-					{
-                       // var a='Please confirm this is the right email - '+$("#email"+a).val();
-                       if(1)
+				           	{
+                       var email=$("#email"+a).val();
+                       if(email=="")
                        {
-                       return true;
+                       alert("Please contact your company admin to assign editor for this service");
+                       return false;
                        }
                        else
                        {
-                        return false;
+                        return true;
                         }
                    }
 
@@ -298,7 +299,7 @@ var a;
                     <?php
                       $photographer_id=$_SESSION['loggedin_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' and service=1 ");
+                     $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
 
                      while($editor=mysqli_fetch_array($editor_query))
                      {
@@ -396,7 +397,7 @@ var a;
                           <?php
                             $photographer_id=$_SESSION['loggedin_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
-                           $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' and service=2");
+                           $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
                            while($editor=mysqli_fetch_array($editor_query))
                            {
                              ?>

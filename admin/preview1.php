@@ -215,7 +215,7 @@ if(isset($_POST['Drone_email']))
 <script>
 function show_editbtn()
 {
-
+$("#edit_button").show();
   var c=$("#editor_email1").val();
 
 
@@ -224,6 +224,7 @@ function show_editbtn()
 }
 function show_editbtn2()
 {
+  $("#edit_button1").show();
   var c=$("#editor_email2").val();
 
 
@@ -288,7 +289,7 @@ var a;
                     <?php
                       $photographer_id=$get_order['photographer_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE (photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id') and service=1");
+                     $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type,COUNT(e.email) FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=$pc_admin_id and ep.service_type=1");
 
                      while($editor=mysqli_fetch_array($editor_query))
                      {
@@ -386,8 +387,8 @@ var a;
                           <?php
                             $photographer_id=$get_order['photographer_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
-                          
-                           $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE (photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id') and service=2");
+
+                           $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type,COUNT(e.email) FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=$pc_admin_id and ep.service_type=2");
                            while($editor=mysqli_fetch_array($editor_query))
                            {
                              ?>
@@ -485,7 +486,7 @@ var a;
                               <?php
                                 $photographer_id=$get_order['photographer_id'];
                                 $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id' ");
+                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE   pc_admin_id='$pc_admin_id' ");
                                while($editor=mysqli_fetch_array($editor_query))
                                {
                                  ?>
@@ -578,7 +579,7 @@ var a;
                               <?php
                                 $photographer_id=$get_order['photographer_id'];
                                 $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' or pc_admin_id='$pc_admin_id'");
+                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE  pc_admin_id='$pc_admin_id'");
                                while($editor=mysqli_fetch_array($editor_query))
                                {
                                  ?>
@@ -945,6 +946,7 @@ var a;
 // $("#edit_button").hide();
 $("#editor_email1").hide();
 $("#comment_all1").hide();
+
 </script>
 
 <?php } ?>

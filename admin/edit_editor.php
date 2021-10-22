@@ -49,7 +49,7 @@ else
 $org_website = $_REQUEST["org_website"];
 }
 
-$photographer_id=implode(',',$_REQUEST['photographer_id']);
+$photographer_id=$_REQUEST['photographer_id'];
  // print_r($photographer_id);
  // exit;
 	$email_verification_code=getName(10);
@@ -57,9 +57,13 @@ $photographer_id=implode(',',$_REQUEST['photographer_id']);
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname',email='$email',contact_number='$contactno',organization_name='$org',organization_website='$org_website',photographer_id='$photographer_id',service='$service' where id='$id'");
+	$res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname',email='$email',contact_number='$contactno',organization_name='$org',organization_website='$org_website' where id='$id'");
+  //$editor_id=mysqli_insert_id($con);
+	mysqli_query($con,"DELETE FROM `editor_photographer_mapping` WHERE editor_id=$id");
+foreach ($photographer_id as $key => $value) {
+	  mysqli_query($con,"INSERT INTO `editor_photographer_mapping`( `editor_id`, `photographer_id`, `service_type`) VALUES ($id,$value,$service)");
+}
 
-	//echo "select * from user_login where email='$email' and password='$pass'";
 
 
 
@@ -164,7 +168,7 @@ function validate_email(val)
 
           <?php
 
-        $photographer_id =  $editor['photographer_id'];
+        $photographer_id =  @$editor['photographer_id'];
         $res2=mysqli_query($con,"SELECT first_name FROM user_login where id='$photographer_id'");
         $res3=mysqli_fetch_array($res2);
 
@@ -206,8 +210,8 @@ function validate_email(val)
 														<div class="col-md-6">
 																			 <p adr_trans="">Service</p>
 																			 <select  autocomplete="off" class="form-control form-value" id="service" name="service" required>
-																				 <option value="1" <?php if($editor['service']==1){echo "checked";};?>>Photos</option>
-																				 <option value="2"  <?php if($editor['service']==2){echo "checked";};?>>Floor plans</option>
+																				 <option value="1" <?php if($_REQUEST['service']==1){echo "checked";};?>>Photos</option>
+																				 <option value="2"  <?php if($_REQUEST['service']==2){echo "checked";};?>>Floor plans</option>
 																			 </select>
 																	 </div>
 

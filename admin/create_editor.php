@@ -136,8 +136,11 @@ $pc_admin_id=$_SESSION['admin_loggedin_id'];
 
 		//echo "insert into admin_users (first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())";exit;
 
-	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,organization_website,contact_number,registered_on,pc_admin_id,photographer_id,service)values('$fname','$lname','$email','$org','$org_website','$contactno',now(),'$pc_admin_id','$photographer_id','$service')");
-
+	$res=mysqli_query($con,"insert into editor (first_name,last_name,email,organization_name,organization_website,contact_number,registered_on,pc_admin_id)values('$fname','$lname','$email','$org','$org_website','$contactno',now(),'$pc_admin_id')");
+  $editor_ID=mysqli_insert_id($con);
+  foreach ($photographer_id as $key => $value) {
+    mysqli_query($con,"INSERT INTO `editor_photographer_mapping`( `editor_id`, `photographer_id`, `service_type`) VALUES ($editor_ID,$value,$service)");
+  }
 
   $get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
 	$get_organization=mysqli_fetch_assoc($get_organization_query);
