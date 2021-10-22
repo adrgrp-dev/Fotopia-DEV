@@ -301,7 +301,7 @@ margin-left:0px!important;
                         <i class="fa fa-check icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#0000FF !important"></i>
 
                             <?php
-                              $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and created_by_id='$loggedin_id' and created_by_type='Realtor'");
+                              $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and realtor_id='$loggedin_id'");
                               $get_complete=mysqli_fetch_assoc($get_complete_query);
                               ?>
                             <h5 adr_trans="label_completed_orders">Completed Orders</h5>
@@ -316,7 +316,7 @@ margin-left:0px!important;
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
                          <i class="fa fa-calendar icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#FF0000!important;"></i>
                           <?php
-                            $get_ongoing_query=mysqli_query($con,"SELECT count(id) as total FROM orders where status_id<>3 and created_by_id='$loggedin_id' and created_by_type='Realtor'");
+                            $get_ongoing_query=mysqli_query($con,"SELECT count(id) as total FROM orders where status_id<>3 and realtor_id='$loggedin_id'");
                             $get_ongoing=mysqli_fetch_assoc($get_ongoing_query);
                             ?>
 
@@ -335,7 +335,7 @@ margin-left:0px!important;
 
                                         <?php
 
-              $get_order_query=mysqli_query($con,"SELECT count(*) as dueToday FROM orders where created_by_id='$loggedin_id' and order_due_date=current_date() and created_by_type='Realtor'");
+              $get_order_query=mysqli_query($con,"SELECT count(*) as dueToday FROM orders where realtor_id='$loggedin_id' and order_due_date=current_date() ");
                                           $get_order=mysqli_fetch_assoc($get_order_query);
                                           ?>
                                         <h5 adr_trans="label_due_today">Due Today</h5>

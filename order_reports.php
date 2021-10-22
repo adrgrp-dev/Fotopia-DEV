@@ -280,7 +280,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 													if($_SESSION['user_type']=="Realtor")
                            {
 														 // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
-														  $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id='$realtorID' and created_by_type='Realtor'";
+														  $q1="select count(*) as total FROM `orders` where $filterBy and realtor_id='$realtorID' ";
 												  	}
 
 
@@ -295,7 +295,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
                            {
 														 // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
 
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID and created_by_type='Realtor'";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and realtor_id=$realtorID ";
                             }
 
 
@@ -307,7 +307,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 																 else
 																 $filterBy=$_SESSION['filterby'];
 														  // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
-                              $q1="select count(*) as total FROM `orders` where $filterBy and created_by_id= $realtorID  and created_by_type='Realtor'";
+                              $q1="select count(*) as total FROM `orders` where $filterBy and realtor_id= $realtorID ";
 
 
                           }
@@ -352,7 +352,7 @@ $res="";
 
 														if($_SESSION['user_type']=="Realtor")
 	                           {
-															  $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
+															  $res="select * FROM `orders` where $filterBy and realtor_id= $realtorID  LIMIT " . $start_no_users . ',' . $number_of_pages;
 													  	}
 
 
@@ -365,7 +365,7 @@ $res="";
 
 	                            if($_SESSION['user_type']=="Realtor")
 	                           {
-	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and realtor_id= $realtorID LIMIT " . $start_no_users . ',' . $number_of_pages;
 	                            }
 
 	                          }
@@ -375,7 +375,7 @@ $res="";
 															 $filterBy=1;
 															 else
 															 $filterBy=$_SESSION['filterby'];
-	                              $res="select * FROM `orders` where $filterBy and created_by_id= $realtorID and created_by_type='Realtor' LIMIT " . $start_no_users . ',' . $number_of_pages;
+	                              $res="select * FROM `orders` where $filterBy and realtor_id= $realtorID  LIMIT " . $start_no_users . ',' . $number_of_pages;
 
 
 
