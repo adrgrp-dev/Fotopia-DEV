@@ -237,10 +237,15 @@ mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 }
 else
 {
-  // echo "INSERT INTO `orders` (`home_seller_id`, `property_type`, `number_of_floor_plans`, `area`,`property_address`,`property_city`,`property_state`,`property_country`,`property_zip`,`property_contact_mobile`,`property_contact_email`,`address_same`,`rental_dormitory`,  `photographer_id`, `session_from_datetime`, `session_to_datetime`, `order_due_date`, `booking_notes`, `created_by_id`,`pc_admin_id`,`csr_id`,`created_datetime`, `status_id`) VALUES ($home_seller_id, '$property', '$plan', '$area','$property_address','$property_city','$property_state','$property_country','$property_zip','$property_contact_mobile','$property_contact_email','$address_same','$rental_dormitory', '$Photographer_id1', '$chk_from', '$chk_to', '$chk_due', '$notes', '$created_id','$pc_admin_id1','$subCSR_ID',now(), '$status')";
-  // exit;
-//inserting in to order table
-    mysqli_query($con,"INSERT INTO `orders` (`home_seller_id`, `property_type`, `number_of_floor_plans`, `area`,`property_address`,`property_city`,`property_state`,`property_country`,`property_zip`,`property_contact_mobile`,`property_contact_email`,`address_same`,`rental_dormitory`,  `photographer_id`, `session_from_datetime`, `session_to_datetime`, `order_due_date`, `booking_notes`, `created_by_id`,`created_by_type`,`pc_admin_id`,`csr_id`,`created_datetime`, `status_id`) VALUES ($home_seller_id, '$property', '$plan', '$area','$property_address','$property_city','$property_state','$property_country','$property_zip','$property_contact_mobile','$property_contact_email','$address_same','$rental_dormitory', '$Photographer_id1', '$chk_from', '$chk_to', '$chk_due', '$notes', '$created_id','$_SESSION[admin_loggedin_type]','$pc_admin_id1','$subCSR_ID',now(), '$status')");
+$realtor_idIS=0;
+$realtorID1=mysqli_query($con,"select id from user_login where type_of_user='Realtor' and  email=(select request_email from home_seller_info where lead_from='realtor' and id='$home_seller_id')");
+$realtorID1EX=mysqli_num_rows($realtorID1);
+if($realtorID1EX>0)
+{
+$realtorID=mysqli_fetch_array($realtorID1);
+$realtor_idIS=$realtorID['id'];
+}
+    mysqli_query($con,"INSERT INTO `orders` (`home_seller_id`,`realtor_id`, `property_type`, `number_of_floor_plans`, `area`,`property_address`,`property_city`,`property_state`,`property_country`,`property_zip`,`property_contact_mobile`,`property_contact_email`,`address_same`,`rental_dormitory`,  `photographer_id`, `session_from_datetime`, `session_to_datetime`, `order_due_date`, `booking_notes`, `created_by_id`,`created_by_type`,`pc_admin_id`,`csr_id`,`created_datetime`, `status_id`) VALUES ($home_seller_id,'$realtor_idIS','$property', '$plan', '$area','$property_address','$property_city','$property_state','$property_country','$property_zip','$property_contact_mobile','$property_contact_email','$address_same','$rental_dormitory', '$Photographer_id1', '$chk_from', '$chk_to', '$chk_due', '$notes', '$created_id','$_SESSION[admin_loggedin_type]','$pc_admin_id1','$subCSR_ID',now(), '$status')");
 $order_id=mysqli_insert_id($con);
 
 
