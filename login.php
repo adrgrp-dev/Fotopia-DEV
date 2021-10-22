@@ -23,9 +23,8 @@ if(isset($_REQUEST['loginbtn']))
 
 	$res=mysqli_query($con,"select * from user_login where email='$email' and password='$pass'");
 
-	echo "select * from user_login where email='$email' and password='$pass'";
-  exit();
 	$user_exist=mysqli_num_rows($res);
+
 	$ipAddress = $_SERVER['REMOTE_ADDR'];
 	if($user_exist!=0)
 	{
