@@ -799,7 +799,7 @@ $ActualCostOfProduct=$product_result1['total_cost'];
 
 $hs_id=@$_REQUEST['hs_id'];
 
-$realtorID1=mysqli_query($con,"select id from user_login where type_of_user='Realtor' and  email=(select request_email from home_seller_info where lead_from='realtor' and id='$hs_id'");
+$realtorID1=mysqli_query($con,"select id from user_login where type_of_user='Realtor' and  email=(select request_email from home_seller_info where lead_from='realtor' and id='$hs_id')");
 $realtorID1EX=mysqli_num_rows($realtorID1);
 if($realtorID1EX>0)
 {
