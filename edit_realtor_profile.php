@@ -181,7 +181,7 @@ margin-left:0px!important;
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 
 				
-				<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>
+				<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_add_company_profile">Add / Edit company profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
