@@ -23,6 +23,14 @@ $id=$_SESSION['loggedin_id'];
 }
 if($type=="Photographer")
 {
+$id=$_SESSION['loggedin_id'];
+	$photographer_profile1=mysqli_query($con,"select * from photographer_profile where photographer_id='$id'");
+		$photographer_profile=mysqli_fetch_array($photographer_profile1);
+		$about_me=$photographer_profile['about_me'];
+		$skills=$photographer_profile['skills'];
+		if(($about_me=='' && !@$_REQUEST['first']) || ($skills=='' && !@$_REQUEST['first']))
+		{ header("location:edit_photographer_profile.php?first=1"); exit; }
+
 $page="photographerDashboard.php";
 }
 
