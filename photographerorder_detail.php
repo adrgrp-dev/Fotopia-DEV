@@ -53,9 +53,9 @@ if(isset($_REQUEST['link1']))
   //$mail->AltBody = "This is the plain text version of the email content";
   $mail->Body.="Hello {{share_email}},<br>
 
- Photo share from {{you}} through in Fotopia Link <br>
+ Photo Link shared from {{you}} through Fotopia Link <br>
  <a href='{{link}}'
- target='_blank'>Click here</a> to view the images.<br><br>
+ target='_blank'>Click here</a> to view the shared images.<br><br>
 
 <br><br>
 Thanks,<br>
@@ -65,8 +65,6 @@ Fotopia Team.
   $link=explode('?',$_REQUEST['link1']);
   $link1=$_SESSION['project_url']."sharelink.php?".$link[1];
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
-  // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
-  // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
     $mail->Body=str_replace('{{share_email}}',@$_REQUEST['email1'], $mail->Body);
     $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
