@@ -494,16 +494,16 @@ var a;
                             <select name="editor_email" onchange="show_editbtn3()" id="editor_email3" style="display: none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
 
                               <?php
-                                $photographer_id=$_SESSION['loggedin_id'];
-                                $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id'");
-                               while($editor=mysqli_fetch_array($editor_query))
-                               {
+                               //  $photographer_id=$_SESSION['loggedin_id'];
+                               //  $pc_admin_id=$get_order['pc_admin_id'];
+                               // $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id'");
+                               // while($editor=mysqli_fetch_array($editor_query))
+                               // {
                                  ?>
 
-                                 <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                                 <!-- <option value="<?php //echo $editor['email'] ?>"> <?php //echo $editor['organization_name'] ?></option> -->
                                  <?php
-                               }
+                               // }
                               ?>
                              </select>
                     <hr>
@@ -584,16 +584,16 @@ var a;
                             <select name="editor_email" id="editor_email4" onchange="show_editbtn4()" style="display: none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
 
                               <?php
-                                $photographer_id=$_SESSION['loggedin_id'];
-                                $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' ");
-                               while($editor=mysqli_fetch_array($editor_query))
-                               {
+                               //  $photographer_id=$_SESSION['loggedin_id'];
+                               //  $pc_admin_id=$get_order['pc_admin_id'];
+                               // $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE photographer_id='$photographer_id' ");
+                               // while($editor=mysqli_fetch_array($editor_query))
+                               // {
                                  ?>
 
-                                 <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                                 <!-- <option value="<?php //echo $editor['email'] ?>"> <?php //echo $editor['organization_name'] ?></option> -->
                                  <?php
-                               }
+                            //   }
                               ?>
                              </select>
                     <hr>
