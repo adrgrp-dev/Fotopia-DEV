@@ -36,15 +36,14 @@ if(isset($_REQUEST['link1']))
   // // //Recipient name is optional
   // //;
   // ;
-   $mail->addAddress($_REQUEST['email']);
+    //print_r($_REQUEST['email']);
+
 
 
   //Address to which recipient will reply
   $mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+  $mail->addAddress(@$_REQUEST['email1']);
 
-  //CC and BCC
-  //$mail->addCC("cc@example.com");
-  //$mail->addBCC("bcc@example.com");
 
   //Send HTML or Plain Text email
   $mail->isHTML(true);
@@ -55,8 +54,8 @@ if(isset($_REQUEST['link1']))
   $mail->Body.="Hello {{share_email}},<br>
 
  Photo share from {{you}}through in Fotopia Link <br>
-<a href='{{link}}'
-target='_blank'>Click here</a> to view the images.<br><br>
+ <a href='{{link}}'
+ target='_blank'>Click here</a> to view the images.<br><br>
 
 <br><br>
 Thanks,<br>
@@ -68,18 +67,18 @@ Fotopia Team.
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
   // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
-    $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
+    $mail->Body=str_replace('{{share_email}}',@$_REQUEST['email1'], $mail->Body);
     $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
   // echo $mail->Body;exit;
   // exit;
   try {
-      $mail->send();
-      //echo "Message has been sent successfully";
-  } catch (Exception $e) {
-    echo $e->getMessage();
-      echo "Mailer Error: " . $mail->ErrorInfo;
-  }
+	    $mail->send();
+	   // echo "Message has been sent successfully";
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	    echo "Mailer Error: " . $mail->ErrorInfo;
+	}
 }
 
 
@@ -1357,6 +1356,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                         <script>
                                         function Getstandard(data,comment_id)
                                         {
+
                                         if($("#s"+comment_id).val()=="")
                                         {
                                          alert("Please enter the comment");
@@ -2595,7 +2595,7 @@ function printPage()
                    <hr>
                    <center><span class="sub" id="error" style="color:green;"></span></center>
                    <form   method="post" name="stdform" action="" onsubmit="">
-                   <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" required>
+                   <input id="email1" name="email1" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" required>
                    <input type="hidden" name="link1" id="link"/>
                    <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  />
                    <hr class="space s">
