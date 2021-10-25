@@ -112,7 +112,7 @@ $service=3;
 else{
 		$service=4;
 }
-if(1)  {//rename($file,$destinationFilePath
+if(rename($file,$destinationFilePath))  {
 
 
      mysqli_query($con,"UPDATE `raw_images` SET status=4 WHERE order_id=$order_id and service_name=$service");
