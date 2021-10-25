@@ -449,7 +449,7 @@ min-width:120px!important;
 
 <div class="panel" id="tab3" style="width:100%;overflow:scroll;">
 <!--Panel 3 starts-->
-  <center ><i style="font-size: 18px">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
+  <center ><i style="font-size: 14px;color:darkgrey">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
 <p align="right"><a href="create_photographer.php" class="btn btn-default"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
 
 <table class="table-striped" aria-busy="false">

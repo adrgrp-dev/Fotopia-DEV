@@ -134,7 +134,7 @@ if(1)  {//rename($file,$destinationFilePath
 		 $get_editor_email=mysqli_fetch_assoc($editor_email_query);
      $images_url=$get_editor_email['images_url'];
 		 $service=$get_editor_email['service_name'];
-		 $get_editordetail_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and service_type=$service");
+		 $get_editordetail_query=mysqli_query($con,"select e.first_name,e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and service_type=$service");
 		 $get_editor_details=mysqli_fetch_assoc($get_editordetail_query);
 		 $editor_fname=$get_editor_details['first_name'];
 		 $editor_email=$get_editor_details['email'];
@@ -142,7 +142,6 @@ if(1)  {//rename($file,$destinationFilePath
 		 {
 		 email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_url);
 	   }
-		 exit;
      mysqli_query($con,"UPDATE `orders` SET status_id=4 WHERE id=$order_id");
      }
 
