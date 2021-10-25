@@ -173,6 +173,15 @@ $.ajax({
            // alert('Current view: ' + info.event.timeText)
 
 			},
+			eventDrop: function(info) {
+   //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+    
+	if(info.event.extendedProps.status=='BUSY')
+	{
+	 info.revert();
+	}
+	
+	},
 	  eventClick: function(info) {
 		var even=info.event;
 		even.extendedProps.gmail

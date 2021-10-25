@@ -33,7 +33,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
         <div class="" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-left:10px;">
 	<?php include "sidebar.php"; ?>
 <script>
 			function fillPhId()
@@ -372,6 +372,15 @@ alert(alertmsg);
    window.location.href = "photographerorder_detail.php?id="+even.extendedProps.orderId;
    }
   },
+  eventDrop: function(info) {
+   //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+    
+	if(info.event.extendedProps.status=='BUSY')
+	{
+	 info.revert();
+	}
+	
+	},
    eventClick: function(info) {
 		if(info.event.extendedProps.status!='BUSY')
 		{
