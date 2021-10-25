@@ -258,8 +258,8 @@ $("#dayVal").val(calid);
                       ?>
                       <p><span style="color:red;"></span><?php echo $get_comment['comments'];?></p>
                   </div>
-				  
-				  
+
+
           <?php
          }
         }
@@ -275,7 +275,7 @@ $("#dayVal").val(calid);
        echo  "<p align='left' style='' ><b> No Images to display </b></p>";
        }
        else{?>
-            <div style="font-size: 18px;color: black; font-style:italic;"><?php if(!empty($raw_images['comments'])){ echo "Comment";} ?></span><?php echo " : ".$raw_images['comments'];?></i></div>
+            <div style="font-size: 18px;color: black; font-style:italic;"><?php if(!empty($raw_images['comments'])){ echo "Comment :";} ?></span><?php echo "".$raw_images['comments'];?></i></div>
        <?php }
       ?>
 	  </div>
