@@ -7,10 +7,7 @@ $logged_id=$_REQUEST['id1'];
 $msg1=mysqli_query($con,"select * from chat_message where order_id='$id_url'");
 while($msg=mysqli_fetch_array($msg1))
 {
-  $from_user_id=$msg['from_user_id'];
-  $get_name_query=mysqli_query($con,"select * from user_login where id='$from_user_id'");
-  $get_name=mysqli_fetch_assoc($get_name_query);
-  $user_name=$get_name["first_name"];
+
 ?>
 
 <?php
