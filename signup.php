@@ -79,7 +79,7 @@ header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofu
 else{
 
 
-$typeofuser = "Photographer company";
+$typeofuser = "Photo Company";
 
 $user = "PCAdmin";
 
@@ -112,7 +112,7 @@ header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofu
 		padding-top:20px;
 		padding-bottom:20px;
 	}
-	
+
 input
 {
 box-shadow:5px 5px 5px 5px #DDD;
@@ -284,7 +284,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		{
 	 $("#validation_message").html("Please enter the last name!");
 		}
- 
+
   $("#validation_message").css("display","block");
   $("#lname").focus();
   return false;
@@ -329,7 +329,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		{
 	 $("#validation_message").html("Please enter email in the correct format!");
 		}
-  
+
   $("#validation_message").css("display","block");
   $("#email").focus();
   return false;
@@ -377,7 +377,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 	$("#validation_message").html("Please enter the password!");
 		}
 
-  
+
   $("#validation_message").css("display","block");
   $("#password").focus();
   return false;
@@ -400,7 +400,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		{
 	$("#validation_message").html("Please enter the confirm password! ");
 		}
-  
+
   $("#validation_message").css("display","block");
   $("#confirmpassword").focus();
   return false;
@@ -416,14 +416,14 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		 $("#validation_message").html("Passordet og det bekreftede passordet må være det samme!");
+		 $("#validation_message").html("Passordet og det bekreftede passordet mï¿½ vï¿½re det samme!");
 		}
 		else
 		{
 	 $("#validation_message").html("The password and confirm password should be same!");
 		}
-  
- 
+
+
   $("#validation_message").css("display","block");
   $("#confirmpassword").focus();
   return false;
@@ -449,8 +449,8 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		{
 	 $("#validation_message").html("Please enter password in the correct format!");
 		}
-  
-  
+
+
   $("#validation_message").css("display","block");
   $("#password").focus();
   return false;
@@ -479,7 +479,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		{
 	 $("#validation_message").html("Please select the user type!");
 		}
- 
+
   $("#validation_message").css("display","block");
   $("#for_whom").focus();
   return false;
@@ -787,7 +787,7 @@ $("#country").css("border","none");
         <br>
       </div>
 						<div class="col-md-6">
-                                <p><span id="label_first_name" adr_trans="label_first_name">First Name</span></p> 
+                                <p><span id="label_first_name" adr_trans="label_first_name">First Name</span></p>
                                 <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="" >
                             </div>
 
@@ -1030,7 +1030,7 @@ $("#country").css("border","none");
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{

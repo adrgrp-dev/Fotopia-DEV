@@ -176,7 +176,7 @@ header("location:users.php");
 else{
 
 
-$typeofuser = "Photographer company";
+$typeofuser = "Photo Company";
 
 $user = "PCAdmin";
 

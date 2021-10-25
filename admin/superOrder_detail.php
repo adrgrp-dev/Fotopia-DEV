@@ -377,12 +377,12 @@ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`
 {
 
 $created_by_id=$_REQUEST['created_by_id'];
-$from_user_id=$_SESSION["loggedin_id"];
+$from_user_id=$_SESSION["admin_loggedin_id"];
 $chat_message=$_REQUEST['chattext'];
 $order_id=$_REQUEST['order_id'];
 //echo "insert into chat_message(to_user_id,from_user_id,chat_message,timestamp,order_id)values('$created_by_id','$from_user_id','$chat_message',now(),'$order_id'";exit;
 $from_user_type=$_SESSION['user_type'];
-$from_user_id=$_SESSION['loggedin_id'];
+$from_user_id=$_SESSION['admin_loggedin_id'];
 mysqli_query($con,"insert into chat_message(from_user_id,from_user_type,chat_message,timestamp,order_id)values('$from_user_id','$from_user_type','$chat_message',now(),'$order_id')");
 }
 
@@ -2990,13 +2990,13 @@ $percentage = @$get_information['tax'];
 </div>
   <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
    <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
-   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
+   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["admin_loggedin_id"]; ?>" />
   <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder="Type your msg, hit enter" required class="form-control" />
 
 
   </div>
-  
-  
+
+
   <script>
 
   $('#chattext1').keypress(function (e) {
@@ -3011,7 +3011,7 @@ $percentage = @$get_information['tax'];
     var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
- 
+
     //document.getElementById("demo").innerHTML = this.responseText;
    }
 

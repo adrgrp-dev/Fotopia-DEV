@@ -486,14 +486,14 @@ var a;
                               <?php
                                 $photographer_id=$get_order['photographer_id'];
                                 $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE   pc_admin_id='$pc_admin_id' ");
-                               while($editor=mysqli_fetch_array($editor_query))
-                               {
+                               // $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE   pc_admin_id='$pc_admin_id' ");
+                               // while($editor=mysqli_fetch_array($editor_query))
+                               // {
                                  ?>
 
-                                 <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                              <!-- <option value="<?php// echo $editor['email'] ?>"> <?php //echo $editor['organization_name'] ?></option> -->
                                  <?php
-                               }
+                               //}
                               ?>
                              </select>
                     <hr>
@@ -579,14 +579,14 @@ var a;
                               <?php
                                 $photographer_id=$get_order['photographer_id'];
                                 $pc_admin_id=$get_order['pc_admin_id'];
-                               $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE  pc_admin_id='$pc_admin_id'");
-                               while($editor=mysqli_fetch_array($editor_query))
-                               {
+                               // $editor_query=mysqli_query($con,"SELECT * FROM `editor` WHERE  pc_admin_id='$pc_admin_id'");
+                               // while($editor=mysqli_fetch_array($editor_query))
+                               // {
                                  ?>
 
-                                 <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                                 <!-- <option value="<?php //echo $editor['email'] ?>"> <?php //echo $editor['organization_name'] ?></option> -->
                                  <?php
-                               }
+                               //}
                               ?>
                              </select>
                     <hr>
@@ -629,7 +629,6 @@ var a;
                        <option value="<?php echo $description['name'];?>" <?php if($get_comment['description']== $description['name']) {echo "selected";}?> ><?php echo $description['name'];?></option>
                <?php  }?>
              </datalist>
-
                           </div>
                           <script>
                           function myFunction3(e,data)
@@ -665,7 +664,6 @@ var a;
                     <br>
                     <br>
                 </div>
-
               </div>
           </div>
           <div id="tnc" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
