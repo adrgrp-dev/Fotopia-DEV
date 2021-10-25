@@ -299,13 +299,11 @@ var a;
                     <?php
                       $photographer_id=$_SESSION['loggedin_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
-
-                     while($editor=mysqli_fetch_array($editor_query))
+                     $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=1");
+                     while(@$editor=mysqli_fetch_array(@$editor_query))
                      {
                        ?>
-
-                       <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                       <option value="<?php echo @$editor['email'] ?>"> <?php echo @$editor['organization_name'] ?></option>
                        <?php
                      }
                     ?>
@@ -398,11 +396,11 @@ var a;
                             $photographer_id=$_SESSION['loggedin_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
                            $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
-                           while($editor=mysqli_fetch_array($editor_query))
+                           while(@$editor=mysqli_fetch_array(@$editor_query))
                            {
                              ?>
 
-                             <option value="<?php echo $editor['email'] ?>"> <?php echo $editor['organization_name'] ?></option>
+                             <option value="<?php echo @$editor['email'] ?>"> <?php echo @$editor['organization_name'] ?></option>
                              <?php
                            }
                           ?>
