@@ -39,11 +39,11 @@ if(isset($_REQUEST['loginbtn']))
 
 
 
-			<div style="width:100%;overflow:scroll;border:solid 1px #000">
+			<div style="width:100%;padding:10px;">
 
                             <table id="dataTable" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
                                   <thead>
-						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="cms_pages">CMS Pages</span><br /></b></center></th></tr>
+						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="cms_pages">CMS Pages</span><br /><br /></b></center></th></tr>
                                       <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                             S.No
@@ -53,7 +53,7 @@ if(isset($_REQUEST['loginbtn']))
                                           </span>
                               <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="page_content">
 
-                                           Content
+                                           Page Content
 
 
                                           </span>
@@ -61,7 +61,7 @@ if(isset($_REQUEST['loginbtn']))
 
                               <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_session_date_time" adr_trans="last_updated_date_time">
 
-                                         Last updated On
+                                         Last updated on
 
 
                                           </span>
