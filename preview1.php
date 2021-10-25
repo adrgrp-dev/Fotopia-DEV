@@ -299,7 +299,8 @@ var a;
                     <?php
                       $photographer_id=$_SESSION['loggedin_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=1");
+                      //echo "";
+                     $editor_query=mysqli_query($con,"select e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=1");
                      while(@$editor=mysqli_fetch_array(@$editor_query))
                      {
                        ?>
@@ -395,7 +396,8 @@ var a;
                           <?php
                             $photographer_id=$_SESSION['loggedin_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
-                           $editor_query=mysqli_query($con,"e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
+                            //echo "e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2";
+                           $editor_query=mysqli_query($con,"select e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where ep.photographer_id=$photographer_id and ep.service_type=2");
                            while(@$editor=mysqli_fetch_array(@$editor_query))
                            {
                              ?>
