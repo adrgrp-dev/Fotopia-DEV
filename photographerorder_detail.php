@@ -53,7 +53,7 @@ if(isset($_REQUEST['link1']))
   //$mail->AltBody = "This is the plain text version of the email content";
   $mail->Body.="Hello {{share_email}},<br>
 
- Photo Link shared from {{you}} through Fotopia Link <br>
+ Photo Link shared from {{you}} through Fotopia<br>
  <a href='{{link}}'
  target='_blank'>Click here</a> to view the shared images.<br><br>
 
