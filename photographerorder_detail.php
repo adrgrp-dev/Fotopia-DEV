@@ -82,11 +82,17 @@ Fotopia Team.
 
 $id_url=$_REQUEST['id'];
 
+
+
+
+//ZIP file
 if(isset($_POST['ZIP']))
 {
-//  mkdir('./temp');
 
-
+$OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
+$OrderCityState1=mysqli_fetch_array($OrderCityState);
+$property_city=$OrderCityState1['property_city'];
+$property_state=$OrderCityState1['property_state'];
 
   if(isset($_POST['directory']))
   {
@@ -111,7 +117,7 @@ copy($file1,$file);
   $dir = "./temp";
   }
 
- $zip_file = "FotopiaPh".time().".zip";
+ $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".time().".zip";
 // Get real path for our folder
 $rootPath = realpath($dir);
 
@@ -135,8 +141,27 @@ foreach ($files as $name => $file)
         $filePath = $file->getRealPath();
         $relativePath = substr($filePath, strlen($rootPath) + 1);
         // Add current file to archive
-        $zip->addFile($filePath, $relativePath);
+		$x=1;
+		$extn=$file->getExtension();
+		$ParsedFileNameIS=explode("_",$relativePath);
+		
+		
+		for($i=1;$i<50;$i++)
+		{
+	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+		if (file_exists("./temp/".$ParsedFileName)) {
+		$x++;
+		}
+		else
+		{
+		
+		rename("./temp/".$relativePath,"./temp/".$ParsedFileName);
+        
+		break 1;
+		}
     }
+	$zip->addFile("./temp/".$ParsedFileName, $ParsedFileName);
+	}
 }
 
 // Zip archive will be created only after closing object
