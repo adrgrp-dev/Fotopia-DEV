@@ -46,7 +46,7 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
 
 
     //Address to which recipient will reply
-    $mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+    $mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
     //CC and BCC
     //$mail->addCC("cc@example.com");

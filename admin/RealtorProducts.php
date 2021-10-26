@@ -46,7 +46,7 @@ function email($realtor_email,$con)
 
 
   $mail->addAddress($realtor_email);
-	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Product Discount";

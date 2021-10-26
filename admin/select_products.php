@@ -80,7 +80,7 @@ function email($order_id,$realtor_email,$con)
 	$mail->AddCC($photographer_email);
 	}
 	$mail->AddCC($get_hs_detail['email']);
-	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Appointment updated";

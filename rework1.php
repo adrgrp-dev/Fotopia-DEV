@@ -39,7 +39,7 @@ function email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_
 
 
 	//Address to which recipient will reply
-	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
 	//CC and BCC
 	//$mail->addCC("cc@example.com");

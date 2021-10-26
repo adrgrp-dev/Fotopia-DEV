@@ -40,7 +40,7 @@ function email($fname,$email,$admin_name,$organization,$con)
 
 
  //Address to which recipient will reply
- $mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+ $mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
  //CC and BCC
  //$mail->addCC("cc@example.com");

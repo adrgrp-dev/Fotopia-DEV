@@ -75,7 +75,7 @@ function email($order_id,$con)
     $mail->addCC($csr_email);
     $mail->addCC($photographer_email);
   }
-	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 
 	$mail->Subject = "Finished Images Uploaded";

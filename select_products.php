@@ -61,7 +61,7 @@ function email($order_id,$condition,$con)
 	{
 		$mail->addAddress($PCAdmin_email);
 		//$mail->AddCC($email);
-		$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
 	$mail->Subject = "New Order Created.";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER CREATED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -84,7 +84,7 @@ elseif($condition=="book online")
 	$mail->addAddress($PCAdmin_email);
 	$mail->AddCC($csr_email);
 	//Address to which recipient will reply
-	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 	$mail->Subject = "New Appointment Created.";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT CREATEED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";

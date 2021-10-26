@@ -39,7 +39,7 @@
 
 
    	//Address to which recipient will reply
-   	$mail->addReplyTo("test.deve@adrgrp.com", "Reply");
+   	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
     $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
     $get_detail=mysqli_fetch_array($get_orderdetail_query);
