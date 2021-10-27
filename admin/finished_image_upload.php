@@ -129,8 +129,8 @@ if(isset($_REQUEST['send']))
   $secret_code=getName(16);
   // $editor_email=@$_REQUEST["floor_email"];
   $type1=@$_REQUEST['type'];
-  $split=explode("/",$_SERVER["HTTP_REFERER"]);
-  $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
+  
+  $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
 
   // $get_admin_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$admin_users_id'");
   // $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);

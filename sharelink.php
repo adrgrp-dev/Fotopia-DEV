@@ -88,17 +88,70 @@ $raw_images=mysqli_fetch_assoc($get_raw_images);
   	    echo "Mailer Error: " . $mail->ErrorInfo;
   	}
   }
- ?>
-<?php
 
+
+
+
+function copy_folder($src, $dst) { 
+  
+    // open the source directory
+    $dir = opendir($src); 
+  
+    // Make the destination directory if not exist
+    @mkdir($dst); 
+  
+    // Loop through the files in source directory
+    while( $file = readdir($dir) ) { 
+  
+        if (( $file != '.' ) && ( $file != '..' )) { 
+            if ( is_dir($src . '/' . $file) ) 
+            { 
+  
+                // Recursively calling custom copy function
+                // for sub directory 
+                copy_folder($src . '/' . $file, $dst . '/' . $file); 
+  
+            } 
+            else { 
+                copy($src . '/' . $file, $dst . '/' . $file); 
+            } 
+        } 
+    } 
+  
+    closedir($dir);
+} 
+function getFileCount($path) {
+        $size = 0;
+        $ignore = array('.','..','cgi-bin','.DS_Store');
+        $files = scandir($path);
+        foreach($files as $t) {
+            if(in_array($t, $ignore)) continue;
+            if (is_dir(rtrim($path, '/') . '/' . $t)) {
+                $size += getFileCount(rtrim($path, '/') . '/' . $t);
+            } else {
+                $size++;
+            }   
+        }
+        return $size;
+    }
+	
+	
 if(isset($_POST['ZIP']))
 {
+$id_url=$_REQUEST['Order_ID'];
+$OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
+$OrderCityState1=mysqli_fetch_array($OrderCityState);
+$property_city=$OrderCityState1['property_city'];
+$property_state=$OrderCityState1['property_state'];
+$timeRandom=rand(1000000000,9999999999);
+mkdir("./temp/$timeRandom");
 
   $dir = $_POST['folderToZip'];
-  $zip_file = "Fotopia".$_POST['Order_ID'].time().".zip";
-
+  
+copy_folder($dir,"./temp/$timeRandom");
 // Get real path for our folder
-$rootPath = realpath($dir);
+$rootPath = realpath("./temp/$timeRandom");
+ $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";  
 
 // Initialize archive object
 $zip = new ZipArchive();
@@ -110,7 +163,7 @@ $files = new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator($rootPath),
     RecursiveIteratorIterator::LEAVES_ONLY
 );
-
+$totalNumberOdFiles=getFileCount("./temp/$timeRandom");
 foreach ($files as $name => $file)
 {
     // Skip directories (they would be added automatically)
@@ -119,9 +172,29 @@ foreach ($files as $name => $file)
         // Get real and relative path for current file
         $filePath = $file->getRealPath();
         $relativePath = substr($filePath, strlen($rootPath) + 1);
-
+$x=1;
+		$extn=$file->getExtension();
+		$ParsedFileNameIS=explode("_",$relativePath);
+		
+		
+		for($i=1;$i<$totalNumberOdFiles;$i++)
+		{
+	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
+		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF")) {
+		$x++;
+		}
+		else
+		{
+		
+		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
+        
+		break 1;
+		}
+    }
+	$zip->addFile("./temp/$timeRandom/".$ParsedFileName, $ParsedFileName);
         // Add current file to archive
-        $zip->addFile($filePath, $relativePath);
+       
     }
 }
 
@@ -139,7 +212,21 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
+delete_files("./temp/$timeRandom");
+rmdir("./temp/$timeRandom");
 }
+
+
+function delete_files($dir) {
+ 
+foreach(glob($dir . '/*') as $file) {
+  if(is_dir($file)) delete_files($file); else unlink($file);
+
+} ;
+
+
+}
+
 
  ?>
 
@@ -377,6 +464,8 @@ $("#dayVal").val(calid);
    </div>
    <form action="#" method="post">
    <input type="hidden" name="folderToZip" value="<?php echo "./finished_images/order_".$id_url."/".$service; ?>">
+   <input type="hidden" name="Order_ID" value="<?php echo $id_url; ?>">
+   
      <?php if(@$_REQUEST['d']==1){?>
      <input type="submit" class="btn btn-default btn-sm done" name="ZIP" value="Download" style="margin-top:10px;" >
    <?php } ?>

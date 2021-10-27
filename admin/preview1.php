@@ -127,8 +127,8 @@ if(isset($_POST['email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["email"];
 
-  $split=explode("/",$_SERVER["HTTP_REFERER"]);
-  $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
+  
+  $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["admin_loggedin_id"];
   $comment=$_REQUEST['commentall'];
   $filecount = count(glob("../raw_images/order_$id_url/standard_photos/" . "*"));
@@ -147,8 +147,8 @@ if(isset($_POST['floor_email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["floor_email"];
   $comment=$_REQUEST['commentall'];
-  $split=explode("/",$_SERVER["HTTP_REFERER"]);
-  $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
+  
+  $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["admin_loggedin_id"];
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
@@ -166,8 +166,8 @@ if(isset($_POST['Drone_email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["Drone_email"];
   $comment=$_REQUEST['commentall'];
-  $split=explode("/",$_SERVER["HTTP_REFERER"]);
-  $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
+  
+  $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["admin_loggedin_id"];
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
@@ -189,8 +189,8 @@ if(isset($_POST['Drone_email']))
    $secret_code=getName(16);
    $editor_email=$_REQUEST["hdr_email"];
 
-   $split=explode("/",$_SERVER["HTTP_REFERER"]);
-   $url=$split[0]."//".$split[2]."/".$split[3]."/download_raw_images.php?secret_code=".$secret_code;
+   
+   $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
    $SESSION=$_SESSION["admin_loggedin_id"];
    $photographer_id=$SESSION;
    $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");

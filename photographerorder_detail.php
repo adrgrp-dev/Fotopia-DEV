@@ -2,7 +2,6 @@
 ob_start();
 
 include "connection1.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 if(isset($_REQUEST['link1']))
@@ -82,18 +81,31 @@ Fotopia Team.
 
 $id_url=$_REQUEST['id'];
 
-
+function getFileCount($path) {
+        $size = 0;
+        $ignore = array('.','..','cgi-bin','.DS_Store');
+        $files = scandir($path);
+        foreach($files as $t) {
+            if(in_array($t, $ignore)) continue;
+            if (is_dir(rtrim($path, '/') . '/' . $t)) {
+                $size += getFileCount(rtrim($path, '/') . '/' . $t);
+            } else {
+                $size++;
+            }   
+        }
+        return $size;
+    }
 
 
 //ZIP file
 if(isset($_POST['ZIP']))
 {
-
 $OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
 $property_state=$OrderCityState1['property_state'];
-
+$timeRandom=rand(1000000000,9999999999);
+mkdir("./temp/$timeRandom");
   if(isset($_POST['directory']))
   {
    $dir=$_POST['directory'];
@@ -111,13 +123,13 @@ $get_image=mysqli_fetch_array(@$get_image_query);
 
 $file1=@$_POST['folderToZip']."/".@$get_image['img'];
 
-  $file="./temp/".@$get_image['img'];
+  $file="./temp/$timeRandom/".@$get_image['img'];
 copy($file1,$file);
 }
-  $dir = "./temp";
+  $dir = "./temp/$timeRandom";
   }
 
- $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".time().".zip";
+ $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 // Get real path for our folder
 $rootPath = realpath($dir);
 
@@ -131,7 +143,7 @@ $files = new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator($rootPath),
     RecursiveIteratorIterator::LEAVES_ONLY
 );
-
+$totalNumberOdFiles=getFileCount("./temp/$timeRandom");
 foreach ($files as $name => $file)
 {
     // Skip directories (they would be added automatically)
@@ -146,21 +158,23 @@ foreach ($files as $name => $file)
 		$ParsedFileNameIS=explode("_",$relativePath);
 		
 		
-		for($i=1;$i<50;$i++)
+		for($i=1;$i<$totalNumberOdFiles;$i++)
 		{
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
-		if (file_exists("./temp/".$ParsedFileName)) {
+		$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
+		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF")) {
 		$x++;
 		}
 		else
 		{
 		
-		rename("./temp/".$relativePath,"./temp/".$ParsedFileName);
+		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
         
 		break 1;
 		}
     }
-	$zip->addFile("./temp/".$ParsedFileName, $ParsedFileName);
+	$zip->addFile("./temp/$timeRandom/".$ParsedFileName, $ParsedFileName);
 	}
 }
 
@@ -178,10 +192,13 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
+delete_files("./temp/$timeRandom");
+rmdir("./temp/$timeRandom");
 }
-delete_files('./temp');
+
+
 function delete_files($dir) {
-  // echo '<script>alert("yes");</script>';
+ 
 foreach(glob($dir . '/*') as $file) {
   if(is_dir($file)) delete_files($file); else unlink($file);
 
@@ -189,7 +206,6 @@ foreach(glob($dir . '/*') as $file) {
 
 
 }
-
 ?>
 <?php include "header.php";  ?>
 
