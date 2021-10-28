@@ -188,6 +188,11 @@ foreach(glob($dir . '/*') as $file) {
     background-color: white;
     color: black;
   }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
+  {
+  background:#000!important;
+  color:#FFF!important;
+  }
 	</style>
 
 <script>
