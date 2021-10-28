@@ -463,7 +463,10 @@ overflow:scroll!important;
 margin-left:0px!important;
 }
 }
-
+.uploadFitHeight
+{
+height:fit-content!important;
+}
 
 
  </style>
@@ -1130,7 +1133,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       }
                     }
                   </script>
-                  <div class="panel" id="tab3">
+                  <div class="panel" id="tab3" style="height:500px!important;overflow:scroll;">
                       <?php
                       $standard_value=0;
                       $floor_value=0;
@@ -1169,7 +1172,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </div>
                                  <div id="standard_photos_div">
 
-                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=1" id='uploads' class="dropzone">
+                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=1" id='uploads' class="dropzone uploadFitHeight">
 
                                <span id="drop_files"></span>
                              </form>
