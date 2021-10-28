@@ -133,7 +133,7 @@ if(isset($_POST['email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["email"];
 
-  
+
   $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["loggedin_id"];
   $comment=$_REQUEST['commentall'];
@@ -153,7 +153,7 @@ if(isset($_POST['floor_email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["floor_email"];
 $comment=$_REQUEST['commentall'];
-  
+
   $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["loggedin_id"];
   $photographer_id=$SESSION;
@@ -175,7 +175,7 @@ if(isset($_POST['Drone_email']))
   $secret_code=getName(16);
   $editor_email=$_REQUEST["Drone_email"];
 $comment=$_REQUEST['commentall'];
-  
+
   $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
   $SESSION=$_SESSION["loggedin_id"];
   $photographer_id=$SESSION;
@@ -198,7 +198,7 @@ $comment=$_REQUEST['commentall'];
    $secret_code=getName(16);
    $editor_email=$_REQUEST["hdr_email"];
    $comment=$_REQUEST['commentall'];
-   
+
    $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
    $SESSION=$_SESSION["loggedin_id"];
    $photographer_id=$SESSION;
@@ -777,7 +777,7 @@ var a;
             if($.trim($(this).val()) === '') {
 
                  alert('Please fill the naming for each image in Standard Photos.');
-
+            exit(0);
         		return false;
 
             } else {
@@ -786,6 +786,7 @@ var a;
         	return true;
                 //console.log('Everything has a value.');
             }
+          
         	});
 
             var d=$("#comment_all1").val();
@@ -827,7 +828,7 @@ var a;
               $(this).css("border","solid 5px red");
               $(this).focus();
                 // alert('Please fill the naming for each image in Standard Photos.');
-
+              exit(0);
             return false;
 
             } else {
