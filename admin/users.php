@@ -14,7 +14,14 @@ if(isset($_REQUEST['loginbtn']))
 	header("location:index.php?failed=1");
 }
 //header("location:users.php");
+if(@$_REQUEST['user_type'])
+{
+	$_SESSION['usertype1']="Realtor";
+	$_SESSION['usertype2']="Realtor";
+	$_SESSION['usertype3']="Realtor";
+}
 ?>
+
 
 <style>
    .infos{
@@ -391,7 +398,7 @@ if($_SESSION['usertype1']!='PCAdmin')
 				<tr data-row-id="0">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['organization']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
@@ -760,7 +767,7 @@ if($_SESSION['usertype2']!='PCAdmin')
 				<tr data-row-id="0">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['organization']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['city']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['state']; ?></td>
@@ -1153,7 +1160,7 @@ if($_SESSION['usertype3']!='PCAdmin')
 				<tr data-row-id="0">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['organization']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['city']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['state']; ?></td>

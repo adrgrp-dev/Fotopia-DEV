@@ -770,13 +770,17 @@ header("location:csr_list1.php?ed=1");
 
 									while($res1=mysqli_fetch_array($res))
 									{
+										//$photographer_id=0;
 										$editor_ID=$res1['id'];
+										echo "";
 
-										$get_photographer_id_query=mysqli_query($con,"select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID");
-										$get_photographer_id=mysqli_fetch_array($get_photographer_id_query);
-			             	$photographer_id = $get_photographer_id['photographer_id'];
+										@$get_photographer_id_query=mysqli_query($con,"select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID");
+										@$get_photographer_id=mysqli_fetch_array(@$get_photographer_id_query);
+			             	@$photographer_id1 = @$get_photographer_id['photographer_id'];
+										//echo "$photographer_id";
 
-				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id)");
+        //echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in ($photographer_id1)";
+				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)");
 			  @$res3=mysqli_fetch_array(@$res2);
 
 
@@ -792,7 +796,7 @@ header("location:csr_list1.php?ed=1");
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php if($get_photographer_id['service_type']==1){ echo "Photos"; }else{ echo "Floor plans"; } ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php echo 	$res3['first_name']; ?></td>
+				<td class="text-left" style="word-break:break-all;"><?php echo 	@$res3['first_name']; ?></td>
 
 
 				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo $get_photographer_id['service_type']; ?>" class="link">

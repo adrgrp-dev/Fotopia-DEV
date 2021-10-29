@@ -39,7 +39,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 <hr class="space s">
-					<table class="table" style="background:#000;color:#FFF;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
+					<table class="table" style="background: #E8F0FE;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
 

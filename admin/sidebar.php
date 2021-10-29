@@ -58,7 +58,7 @@ padding:5px;
 
     <?php
   $loggedINID=$_SESSION['admin_loggedin_id'];
-  
+
     if($_SESSION['admin_loggedin_type']=="CSR")
     {
 
@@ -198,7 +198,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
 <button name="Cal" id="home2" class="btn btn-default" style="display:block;padding-left:20px;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onclick="showHide(2)"><i class="fa fa-users text-l"></i>
 </button>
-<a href="users.php" name="Home" id="home21" class="btn btn-default fade-left text-m" style="transition-duration:padding:10px; 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(2)"><span adr_trans="label_users">Users</span> &nbsp;<i class="fa fa-users"></i></a>
+<a href="users.php?user_type=1" name="Home" id="home21" class="btn btn-default fade-left text-m" style="transition-duration:padding:10px; 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(2)"><span adr_trans="label_users">Users</span> &nbsp;<i class="fa fa-users"></i></a>
 
 
 <button name="Home" id="home3" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:20px;border-radius:0px 20px 20px 0px;" onclick="showHide(3)"><i class="fa fa-bell text-l"></i>

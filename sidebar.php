@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -8,11 +8,11 @@ if(isset($_REQUEST['email']))
 
 $realtor_full_name=mysqli_query($con,"SELECT * FROM `user_login` WHERE id=$realtor_id");
 $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
-  
+
   $realtor_name=$realtor_full_name1['first_name'].' '.$realtor_full_name1['last_name'];
-  
+
   $email=$_REQUEST['email'];
-  
+
     /* Exception class. */
     require 'C:\PHPMailer\src\Exception.php';
 
@@ -232,7 +232,7 @@ vertical-align:top!important;
 
 <button name="Cal" id="home2" class="btn btn-default" style="display:block;padding-left:22px;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onclick="showHide(2)"><i class="fa fa-sm fa-stack-exchange text-l"></i>
 </button>
-<a href="order_list.php" name="Home2" id="home21" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;padding-right:30px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(2)"><span id="label_order" adr_trans="label_order">Order</span> &nbsp;&nbsp;<i class="fa fa-sm fa-stack-exchange 	"></i></a>
+<a href="order_list.php?status=1" name="Home2" id="home21" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;padding-right:30px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(2)"><span id="label_order" adr_trans="label_order">Order</span> &nbsp;&nbsp;<i class="fa fa-sm fa-stack-exchange 	"></i></a>
 
 <button name="cal" id="home5" class="btn btn-default" style="display:block;padding:10px;padding-left:22px;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onclick="showHide(5)"><i class="fa fa-sm fa-bar-chart" style="font-size:20px;"></i>
 </button>
@@ -258,7 +258,7 @@ vertical-align:top!important;
 
 
  <div>
-                                    <p style="margin-left: 40px;margin-top: 40px;"><a href="#tnc" class=" lightbox link">
+                                    <p style="margin-left: 40px;margin-top: 40px;"><a href="#tnc2" class=" lightbox link">
                                     <i style="
         color: blue;
         top: -43px;
@@ -268,7 +268,7 @@ vertical-align:top!important;
         " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
         </div>
 
-        <div id="tnc" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
+        <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
    <div class="subtitle g" style="color:#333333">
      <h5 style="color:#333333" align="center" id="label_enter_the_email" adr_trans="label_enter_the_email">Enter the Email</h5>
         <hr>

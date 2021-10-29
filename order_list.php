@@ -5,9 +5,15 @@ include "connection1.php";
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
 //echo $_REQUEST['filterByStatus'];
+//$_SESSION['status']=0;
+//echo isset($_SESSION['status']);
 if(isset($_REQUEST['filterByStatus'])){
   $_SESSION['status']=@$_REQUEST['filterByStatus'];
   //echo $_SESSION['status'];
+}
+if(@$_REQUEST['status'])
+{
+  $_SESSION['status']=0;
 }
 
 //exit;
@@ -272,7 +278,7 @@ min-width:100px!important;
           else {
             $_SESSION["page"]=$_GET["page"];
           }
-          if($_SESSION["page"] == 0)
+          if(isset($_SESSION["page"]) == 0)
           {
             $_SESSION["page"]=1;
           }
@@ -319,10 +325,12 @@ min-width:100px!important;
           if($_SESSION['status']!=0)
           {
             $statusId=$_SESSION['status'];
+            // echo "SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='$statusId' order by id desc limit $limit";
           $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='$statusId' order by id desc limit $limit");
           }
 		  elseif(@$_REQUEST['filterByStatus']!=0)
 		  {
+
 		    $statusId=$_REQUEST['filterByStatus'];
 		    $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='$statusId' order by id desc limit $limit");
 		  }

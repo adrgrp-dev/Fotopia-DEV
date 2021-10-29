@@ -39,7 +39,7 @@ include "connection1.php";
 
 
          <hr class="space s" />
-      <table class="table table-striped" style="background:#000;color:#FFF;opacity:0.8;width:90%;border-radius:30px 30px 30px 30px!important;">
+      <table class="table table-striped" style="background: #E8F0FE;color:#000;opacity:0.8;width:90%;border-radius:30px 30px 30px 30px!important;">
           <thead>
               <tr><th  class="text-center" style="">
                           S.No

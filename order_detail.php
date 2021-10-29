@@ -54,7 +54,7 @@ $xyz123=0;
   	// // //Recipient name is optional
   	// //;
   	// ;
-  	 $mail->addAddress($_REQUEST['email']);
+  	 $mail->addAddress($_REQUEST['email1']);
 
 
   	//Address to which recipient will reply
@@ -86,7 +86,7 @@ $xyz123=0;
   	$mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
     // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   	// $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
-    	$mail->Body=str_replace('{{Editor_email}}',$_REQUEST['email'], $mail->Body);
+    	$mail->Body=str_replace('{{Editor_email}}',$_REQUEST['email1'], $mail->Body);
       $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
   	$mail->Body.="<br><br></td></tr></table></html>";
   	// echo $mail->Body;exit;
@@ -1205,8 +1205,8 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <tr>
 
                                 <tr>
-        <td adr_trans="">Photographer name</td><td>:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
-        </tr>
+                           <td adr_trans="">Photographer name</td><td>:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
+                            </tr>
 
                             </tr>
                             <tr>
@@ -1215,24 +1215,24 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <tr>
                             <td id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td>:</td><td>
                               <?php
-                                $realtorID=$get_summary['created_by_id'];
+                                $realtorID=$get_summary['created_by_id']  ;
                                 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                echo $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
+                                echo $get_realtor_name1=@$get_realtor_name["first_name"]."".@$get_realtor_name["last_name"];
                                 ?>
                             </td>
                             </tr>
                             <tr>
-                            <td id="label_realtor_contact" adr_trans="label_realtor_contact">Realtors Contact</td><td>:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
+                            <td id="label_realtor_contact" adr_trans="label_realtor_contact">Realtors Contact</td><td>:</td><td><?php echo @$get_realtor_name["contact_number"]; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_realtor_email" adr_trans="label_realtor_email">Realtors Email</td><td>:</td><td><?php echo $get_realtor_name["email"]; ?></td>
+                            <td id="label_realtor_email" adr_trans="label_realtor_email">Realtors Email</td><td>:</td><td><?php echo @$get_realtor_name["email"]; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_due_date" adr_trans="label_due_date">Due Date</td><td>:</td><td><?php echo $get_summary['order_due_date']; ?></td>
+                            <td id="label_due_date" adr_trans="label_due_date">Due Date</td><td>:</td><td><?php echo @$get_summary['order_due_date']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
+                            <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo @$get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
                             <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:green;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:green;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
@@ -1510,7 +1510,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
 
-                                    <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_standard."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+                                    <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_standard."/".$image; ?>" title="<?php echo @$picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye" style="position:revert !important;top:50px;"></i>
                                     </a>
 
@@ -2240,7 +2240,7 @@ if($get_order1['status_id']==3)
           <hr>
           <center><span class="sub" id="error" style="color:green;"></span></center>
           <form   method="post" name="stdform" action="" onsubmit="">
-          <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" required>
+          <input id="email1" name="email1" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" required>
           <input type="hidden" name="link1" id="link"/>
           <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  />
           <hr class="space s">
