@@ -75,11 +75,11 @@ header("location:subcsrOrder_list1.php?app=1");
      <script>
      function mouseover(d)
      {
-      $('#click'+d).toggleClass("hide");
+      $('#viewclick'+d).toggleClass("hide");
      }
      function mouseover2(d)
      {
-      $('#click'+d).toggleClass("hide");
+      $('#viewclick'+d).toggleClass("hide");
      }
      </script>
 	 <style>
@@ -338,7 +338,7 @@ header("location:subcsrOrder_list1.php?app=1");
               {
                 ?>
                 <tr>
-                  <td class="text-left hide" id="click<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
+                  <td class="text-left hide" id="viewclick<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
     color: black;" ><span id='label_comments' adr_trans='label_comments' style="color:red;font-size:13px;">Comments:</span><?php echo $get_order['comment'];?> </td>
                 </tr>
             <?php  }
@@ -597,7 +597,7 @@ header("location:subcsrOrder_list1.php?app=1");
               {
                 ?>
                 <tr>
-                  <td class="text-center hide" id="click<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
+                  <td class="text-center hide" id="viewclick<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
     color: black;" ><span id='label_comments' adr_trans='label_comments'  style="color:red;font-size:13px;">Comment:</span><?php echo @$get_order['comment'];?> </td>
                 </tr>
             <?php  }
