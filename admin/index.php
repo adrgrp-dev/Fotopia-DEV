@@ -11,10 +11,10 @@ if(isset($_REQUEST['loginbtn']))
 	$pass=$_REQUEST['password'];
 
 	$res=mysqli_query($con,"select * from admin_users where email='$email' and password='$pass'");
-echo "asss".$user_exist=mysqli_num_rows($res);
+$user_exist=mysqli_num_rows($res);
 
 	$pc_admin_user=mysqli_query($con,"select * from photo_company_admin where email='$email' and password='$pass'");
-	echo "<br>".$pc_admin_user_exist=mysqli_num_rows($pc_admin_user);
+	$pc_admin_user_exist=mysqli_num_rows($pc_admin_user);
 	
 	$ipAddress = $_SERVER['REMOTE_ADDR'];
 	if($user_exist!=0)
