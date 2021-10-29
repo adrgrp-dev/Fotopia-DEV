@@ -278,11 +278,11 @@ $order_id=mysqli_insert_id($con);
                 <div class="col-md-2" >
 				<?php
 				$calDate="";
-				if($_SESSION['date']!="")
+				if(isset($_SESSION['date'])!="")
 				{
 				$calDate=$_SESSION['date'];
 				}
-				if($_SESSION['fromDatetime']!="")
+				if(isset($_SESSION['fromDatetime'])!="")
 				{
 				$calDate=$_SESSION['fromDatetime'];
 				}
@@ -510,11 +510,11 @@ font-size:11px!important;
 
  <?php
  $todayIs="";
- if($_SESSION['date'])
+ if(isset($_SESSION['date']))
  {
  $todayIs=$_SESSION['date'];
  }
- if($_SESSION['fromDatetime'])
+ if(isset($_SESSION['fromDatetime']))
  {
  $todayIs=$_SESSION['fromDatetime'];
  $todayIs1=explode("T",$todayIs);
@@ -1272,7 +1272,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 	   if(@$_REQUEST['pc_admin_id'])
 	   {
        $wherecod="";
-       if($_SESSION['admin_loggedin_type']=="CSR")
+       if(isset($_SESSION['admin_loggedin_type'])=="CSR")
        {
             $csr_id=$_SESSION['admin_loggedin_id'];
          $wherecod="and csr_id=$csr_id";
@@ -1310,12 +1310,12 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
    @$to123=date("Y-m-d H:i",strtotime(@$appointmentsAre1['to_datetime']));
    @$to123=preg_replace("/ /","T",$to123);
    }
-   if($_SESSION['date']!="")
+   if(isset($_SESSION['date'])!="")
    {
    $from123=$_SESSION['date']."T08:00:00";
     $to123=$_SESSION['date']."T08:00:00";
    }
-   if($_SESSION['fromDatetime']!="" && $_SESSION['toDatetime']!="")
+   if(isset($_SESSION['fromDatetime'])!="" && isset($_SESSION['toDatetime'])!="")
    {
    $from123=$_SESSION['fromDatetime'];
    $to123=$_SESSION['toDatetime'];
@@ -1344,7 +1344,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 							<?php
 
-							if($_SESSION['date']!="" || $_SESSION['fromDatetime']!="")
+							if(isset($_SESSION['date'])!="" || isset($_SESSION['fromDatetime'])!="")
 							{
 							?>
 							<script>
