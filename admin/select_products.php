@@ -42,13 +42,13 @@ function email($order_id,$realtor_email,$con)
 	 $get_detail=mysqli_fetch_array($get_orderdetail_query);
 	 $home_seller_id=$get_detail['home_seller_id'];
 	 $pc_admin_id=$get_detail['pc_admin_id'];
-	 $from_date=$get_detail['session_from_datetime'];
+	 $from_date=@$get_detail['session_from_datetime'];
 	 $date=date_create($from_date);
 	 $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
 	 $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
 	 $pcadmin_email=$get_profile['email'];
 	 $pcadmin_contact=$get_profile['contact_number'];
-	 $formated_date=date_format($date,"Y/m/d H:i:s");
+	 $formated_date=date_format($date,"d F Y g:ia");
 	 $get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
 	 $get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
 	 $get_org=$get_pcadmindetail['organization_name'];
@@ -89,14 +89,18 @@ function email($order_id,$realtor_email,$con)
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 	$mail->Body.=$appointment_updated_template;
-  $mail->Body.="</br>Kindly check the order #{{Order_ID}} your orders page for details</br>
-  Thank you for continued support.
+  $mail->Body.="<br>Hi! {{Photographer_Name}} will come for Photography session,<br>
+Appointment Session Date & Time - {{from}}.<br>
+Kindly check the order #4 in the orders page for any details, Thank you for continued support.<br>
 
   <br><br>
   Thanks,<br>
   Fotopia Team.";
 
   $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
+	$mail->Body=str_replace('{{from}}', $formated_date , $mail->Body);
+	$mail->Body=str_replace('{{Photographer_Name}}', $photographer_Name , $mail->Body);
+
 	$mail->Body.="<br><br></td></tr></table></html>";
 
 

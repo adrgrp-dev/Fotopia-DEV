@@ -266,7 +266,7 @@ $get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
 
 $get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Order declined'");
 $get_email_content1 = mysqli_fetch_array($get_email_content);
-$get_content = $get_email_content1['template_body_text'];
+$get_content = @$get_email_content1['template_body_text'];
 
 
     $mail->Body.="
@@ -283,8 +283,7 @@ Thank you for continued support.
       $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
     $mail->Body.="<br><br></td></tr></table></html>";
 
- echo $mail->Body;
-  exit;
+
 
     try {
       $mail->send();
