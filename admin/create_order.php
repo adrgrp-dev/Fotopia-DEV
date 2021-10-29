@@ -602,7 +602,7 @@ $("#realtor_employer_id").val(abc[0].realtor_employer_id);
 
 
       <?php
-   $user_type=@$_SESSION['admin_loggedin_type'];
+   $user_type=$_SESSION['admin_loggedin_type'];
 
           if($user_type=="PCAdmin"||$user_type=="CSR")
           {
@@ -843,7 +843,7 @@ if($user_type=="Photographer")
      <button class="anima-button circle-button btn-sm btn" type="submit" name="SaveOrder"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
 
 	 <?php
-	 $user_type=@$_SESSION['user_type'];
+	 $user_type=$_SESSION['user_type'];
 
 					if($user_type=="CSR")
 					{

@@ -157,7 +157,7 @@ else
      $status=1;
      $home_seller_id=$_REQUEST["hs_id"];
 
-     $created_id=@$_SESSION["admin_loggedin_id"];
+     $created_id=$_SESSION["admin_loggedin_id"];
      //-------------------------------------------------get value request method------------------------------------------//
      $from_date=$_REQUEST["from"];
      $to_date=$_REQUEST["to"];
@@ -278,13 +278,13 @@ $order_id=mysqli_insert_id($con);
                 <div class="col-md-2" >
 				<?php
 				$calDate="";
-				if(@$_SESSION['date']!="")
+				if($_SESSION['date']!="")
 				{
-				$calDate=@$_SESSION['date'];
+				$calDate=$_SESSION['date'];
 				}
-				if(@$_SESSION['fromDatetime']!="")
+				if($_SESSION['fromDatetime']!="")
 				{
-				$calDate=@$_SESSION['fromDatetime'];
+				$calDate=$_SESSION['fromDatetime'];
 				}
 				?>
 				<input type="hidden" name="calDate" id="calDate" value="<?php echo $calDate; ?>" />
@@ -510,11 +510,11 @@ font-size:11px!important;
 
  <?php
  $todayIs="";
- if(@$_SESSION['date'])
+ if($_SESSION['date'])
  {
  $todayIs=$_SESSION['date'];
  }
- if(@$_SESSION['fromDatetime'])
+ if($_SESSION['fromDatetime'])
  {
  $todayIs=$_SESSION['fromDatetime'];
  $todayIs1=explode("T",$todayIs);
@@ -841,13 +841,13 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo @$_SESSION['property_address']; ?>";
-var property_city="<?php echo @$_SESSION['property_city']; ?>";
-var property_state="<?php echo @$_SESSION['property_state']; ?>";
-var property_country="<?php echo @$_SESSION['property_country']; ?>";
-var property_zip="<?php echo @$_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo @$_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo @$_SESSION['property_contact_email']; ?>";
+var property_address="<?php echo $_SESSION['property_address']; ?>";
+var property_city="<?php echo $_SESSION['property_city']; ?>";
+var property_state="<?php echo $_SESSION['property_state']; ?>";
+var property_country="<?php echo $_SESSION['property_country']; ?>";
+var property_zip="<?php echo $_SESSION['property_zip']; ?>";
+var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
+var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
 
 
               if($("#address_same").prop('checked') == true)
@@ -1310,12 +1310,12 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
    @$to123=date("Y-m-d H:i",strtotime(@$appointmentsAre1['to_datetime']));
    @$to123=preg_replace("/ /","T",$to123);
    }
-   if(@$_SESSION['date']!="")
+   if($_SESSION['date']!="")
    {
    $from123=$_SESSION['date']."T08:00:00";
     $to123=$_SESSION['date']."T08:00:00";
    }
-   if(@$_SESSION['fromDatetime']!="" && @$_SESSION['toDatetime']!="")
+   if($_SESSION['fromDatetime']!="" && $_SESSION['toDatetime']!="")
    {
    $from123=$_SESSION['fromDatetime'];
    $to123=$_SESSION['toDatetime'];
@@ -1344,7 +1344,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 							<?php
 
-							if(@$_SESSION['date']!="" || @$_SESSION['fromDatetime']!="")
+							if($_SESSION['date']!="" || $_SESSION['fromDatetime']!="")
 							{
 							?>
 							<script>

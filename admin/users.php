@@ -59,7 +59,7 @@ if(isset($_REQUEST['loginbtn']))
  <datalist id="Suggestions1"  >
  <?php
 							$user_name="";
-							if(!empty(@$_SESSION['usertype1']))
+							if(!empty($_SESSION['usertype1']))
 							{
 							if($_SESSION['usertype1']!='PCAdmin')
 							{
@@ -217,50 +217,50 @@ var initialArray = [];
 								   }
 				if(empty($_GET["page"]))
 				{
-					@$_SESSION["page"]=1;
+					$_SESSION["page"]=1;
 				}
 				else {
-					@$_SESSION["page"]=$_GET["page"];
+					$_SESSION["page"]=$_GET["page"];
 				}
-				if(@$_SESSION["page"] < 0)
+				if($_SESSION["page"] < 0)
 				{
-					@$_SESSION["page"]=1;
+					$_SESSION["page"]=1;
 				}
 				if(isset($_REQUEST['user_type1']))
 	      {
 	      	if($_REQUEST['user_type1'] == "All"){
-	      		@$_SESSION['usertype1']=$_REQUEST['user_type1'];
+	      		$_SESSION['usertype1']=$_REQUEST['user_type1'];
 	      		$q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
 	      	}
 					elseif($_REQUEST['user_type1']=="PCAdmin")
 					{
 
 
-							@$_SESSION['usertype1']=$_REQUEST['user_type1'];
+							$_SESSION['usertype1']=$_REQUEST['user_type1'];
 							// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
-								$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".@$_SESSION['usertype1']."'";
+								$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
 					}
 	      	else{
-	     @$_SESSION['usertype1']=$_REQUEST['user_type1'];
-	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".@$_SESSION['usertype1']."'" ;
+	     $_SESSION['usertype1']=$_REQUEST['user_type1'];
+	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'" ;
 	 }
 	      }
-	   elseif(!empty(@$_SESSION['usertype1']))
+	   elseif(!empty($_SESSION['usertype1']))
 	     {
-	     	if (@$_SESSION['usertype1'] =="All") {
+	     	if ($_SESSION['usertype1'] =="All") {
 
 	     		$q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
 	     	}
-				elseif(@$_SESSION['usertype1']=="PCAdmin")
+				elseif($_SESSION['usertype1']=="PCAdmin")
 				{
 
-							$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".@$_SESSION['usertype1']."'";
+							$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
 				}
 	     	else{
-	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".@$_SESSION['usertype1']."'";
+	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'";
 	 }
 	      }
-				// elseif(empty(@$_SESSION['usertype1']))
+				// elseif(empty($_SESSION['usertype1']))
 				//  {
 				//   $q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
 				// }
@@ -272,7 +272,7 @@ var initialArray = [];
 $new1 = explode(" ",$user1);
  $fname1 = $new1['0'];
  $lname1 = $new1['1'];
-if(@$_SESSION['usertype1']!='PCAdmin')
+if($_SESSION['usertype1']!='PCAdmin')
 {
 
 	$q1 = "select count(*) as total from user_login WHERE email_verified='1' AND (first_name='$fname1' AND last_name='$lname1') ";
@@ -304,14 +304,14 @@ else {
 				else{
 					$Page_check=$Page_check+1;
 				}
-				if($Page_check<=@$_SESSION["page"])
+				if($Page_check<=$_SESSION["page"])
 				{
-					@$_SESSION["page"]=$Page_check;
+					$_SESSION["page"]=$Page_check;
 				}
 				// how many entries shown in page
 
 				//starting number to print the users shown in page
-				$start_no_users = (@$_SESSION["page"]-1) * $number_of_pages;
+				$start_no_users = ($_SESSION["page"]-1) * $number_of_pages;
 
          $cnt=$start_no_users;
      }
@@ -330,28 +330,28 @@ $q = "SELECT *FROM user_login WHERE email_verified='1' order by id desc LIMIT " 
 elseif($_REQUEST['user_type1']=="PCAdmin")
 {
       echo "";
-			$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".@$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . '5';
+			$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . '5';
 }
 else{
-$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".@$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-elseif(!empty(@$_SESSION['usertype1']))
+elseif(!empty($_SESSION['usertype1']))
 {
-	if (@$_SESSION['usertype1'] =="All") {
+	if ($_SESSION['usertype1'] =="All") {
 
 		$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
-	elseif(@$_SESSION['usertype1']=="PCAdmin")
+	elseif($_SESSION['usertype1']=="PCAdmin")
 	{
 
-				$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".@$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+				$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 	else{
-	$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".@$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-// elseif(empty(@$_SESSION['usertype1']))
+// elseif(empty($_SESSION['usertype1']))
 //  {
 // 	$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
 // }
@@ -362,7 +362,7 @@ if(isset($_REQUEST['user_name1']))
 $new = explode(" ",$userName1);
 $fname = $new['0'];
 $lname = $new['1'];
-if(@$_SESSION['usertype1']!='PCAdmin')
+if($_SESSION['usertype1']!='PCAdmin')
 {
 	$q = "SELECT *FROM user_login WHERE email_verified='1' AND (first_name='$fname' AND last_name='$lname' ) order by id desc  LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
@@ -399,8 +399,8 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if(@$_SESSION['usertype1']!='PCAdmin'){$approved=$res1['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$res1['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if(@$_SESSION['usertype1']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
+				<td class="text-left" style=""><?php if($_SESSION['usertype1']!='PCAdmin'){$approved=$res1['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$res1['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
+				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype1']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<?php }} ?>
@@ -412,9 +412,9 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./users.php?page=1" class="button">«</a></li><li class="prev disabled" aria-disabled="true">
-						<a href="<?php echo "./users.php?page=".(@$_SESSION["page"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
-							<a href="#1" class="button"><?php echo @$_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
-								<a href="<?php echo "./users.php?page=".(@$_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
+						<a href="<?php echo "./users.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
+							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
+								<a href="<?php echo "./users.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
@@ -433,7 +433,7 @@ if(@$_SESSION['usertype1']!='PCAdmin')
 
  <datalist id="Suggestions2"  >
  <?php
- // if(empty(@$_SESSION['usertype2']))
+ // if(empty($_SESSION['usertype2']))
  // {
  //
 	//  $user_name2=mysqli_query($con,"select * from user_login where email_verified=0 order by id desc");
@@ -583,20 +583,20 @@ var initialArray = [];
 				   $Pending="SELECT count(*) as total FROM user_login WHERE email_verified='0' and type_of_user='Realtor'";
 				if(empty($_GET["page1"]))
 				{
-					@$_SESSION["page1"]=1;
+					$_SESSION["page1"]=1;
 				}
 				else {
-					@$_SESSION["page1"]=$_GET["page1"];
+					$_SESSION["page1"]=$_GET["page1"];
 				}
-				if(@$_SESSION["page1"] < 0)
+				if($_SESSION["page1"] < 0)
 				{
-					@$_SESSION["page1"]=1;
+					$_SESSION["page1"]=1;
 				}
 
 				if(isset($_REQUEST['user_type2']))
 	      {
 	      	if($_REQUEST['user_type2'] == "All"){
-	      		@$_SESSION['usertype2']=$_REQUEST['user_type2'];
+	      		$_SESSION['usertype2']=$_REQUEST['user_type2'];
 	      		$Pending = "select count(*) as total from user_login WHERE email_verified='0' ";
 	      	}
 
@@ -604,31 +604,31 @@ var initialArray = [];
 					{
 
 
-							@$_SESSION['usertype2']=$_REQUEST['user_type2'];
+							$_SESSION['usertype2']=$_REQUEST['user_type2'];
 							// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
-								$Pending = "select count(*) as total from admin_users WHERE is_approved='0' and type_of_user='".@$_SESSION['usertype2']."'";
+								$Pending = "select count(*) as total from admin_users WHERE is_approved='0' and type_of_user='".$_SESSION['usertype2']."'";
 					}
 	      	else{
-	     @$_SESSION['usertype2']=$_REQUEST['user_type2'];
-	     $Pending = "select count(*) as total from user_login WHERE email_verified='0' AND type_of_user='".@$_SESSION['usertype2']."'" ;
+	     $_SESSION['usertype2']=$_REQUEST['user_type2'];
+	     $Pending = "select count(*) as total from user_login WHERE email_verified='0' AND type_of_user='".$_SESSION['usertype2']."'" ;
 	 }
 	      }
-	   elseif(!empty(@$_SESSION['usertype2']))
+	   elseif(!empty($_SESSION['usertype2']))
 	     {
-	     	if (@$_SESSION['usertype2'] =="All") {
+	     	if ($_SESSION['usertype2'] =="All") {
 
 	     		$Pending = "select count(*) as total from user_login WHERE email_verified='0' ";
 	     	}
-				elseif(@$_SESSION['usertype2']=="PCAdmin")
+				elseif($_SESSION['usertype2']=="PCAdmin")
 				{
-							$Pending = "select count(*) as total from admin_users WHERE is_approved='0' and type_of_user='".@$_SESSION['usertype2']."'";
+							$Pending = "select count(*) as total from admin_users WHERE is_approved='0' and type_of_user='".$_SESSION['usertype2']."'";
 				}
 	     	else{
-	     $Pending = "select count(*) as total from user_login WHERE email_verified='0' AND type_of_user='".@$_SESSION['usertype2']."'";
+	     $Pending = "select count(*) as total from user_login WHERE email_verified='0' AND type_of_user='".$_SESSION['usertype2']."'";
 	 }
 	      }
 		 // echo "coming 2 ".$Pending;
-				// elseif(empty(@$_SESSION['usertype2']))
+				// elseif(empty($_SESSION['usertype2']))
 				//  {
 				//   $Pending = "select count(*) as total from user_login WHERE email_verified='0' ";
 				// }
@@ -642,7 +642,7 @@ $new2 = explode(" ",$user2);
 $fname2 = $new2['0'];
 $lname2 = $new2['1'];
 
-if(@$_SESSION['usertype2']!='PCAdmin')
+if($_SESSION['usertype2']!='PCAdmin')
 {
 
 	$Pending = "select count(*) as total from user_login WHERE email_verified='0' AND (first_name='$fname2' AND last_name='$lname2') ";
@@ -674,14 +674,14 @@ else {
 				else{
 					$Page_check=$Page_check+1;
 				}
-				if($Page_check<=@$_SESSION["page1"])
+				if($Page_check<=$_SESSION["page1"])
 				{
-					@$_SESSION["page1"]=$Page_check;
+					$_SESSION["page1"]=$Page_check;
 				}
 				// how many entries shown in page
 
 				//starting number to print the users shown in page
-				$start_no_users = (@$_SESSION["page1"]-1) * $number_of_pages;
+				$start_no_users = ($_SESSION["page1"]-1) * $number_of_pages;
 
          $cnt=$start_no_users;
      }
@@ -698,28 +698,28 @@ $Pending_data = "SELECT *FROM user_login WHERE email_verified='0' LIMIT " . $sta
 elseif($_REQUEST['user_type2']=="PCAdmin")
 {
 
-			$Pending_data = "SELECT *FROM admin_users WHERE is_approved='0' AND type_of_user='".@$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+			$Pending_data = "SELECT *FROM admin_users WHERE is_approved='0' AND type_of_user='".$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 else{
-$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND type_of_user='".@$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND type_of_user='".$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-elseif(!empty(@$_SESSION['usertype2']))
+elseif(!empty($_SESSION['usertype2']))
 {
-	if (@$_SESSION['usertype2'] =="All") {
+	if ($_SESSION['usertype2'] =="All") {
 
 		$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
-	elseif(@$_SESSION['usertype2']=="PCAdmin")
+	elseif($_SESSION['usertype2']=="PCAdmin")
 	{
 
 				$Pending_data = "SELECT *FROM admin_users WHERE is_approved='0' AND type_of_user='".$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 	else{
-	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND type_of_user='".@$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND type_of_user='".$_SESSION['usertype2']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-// elseif(empty(@$_SESSION['usertype2']))
+// elseif(empty($_SESSION['usertype2']))
 //  {
 // 	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' LIMIT " . $start_no_users . ',' . $number_of_pages;
 // }
@@ -733,7 +733,7 @@ $fname_2 = $new_2['0'];
 $lname_2 = $new_2['1'];
 
 
-if(@$_SESSION['usertype2']!='PCAdmin')
+if($_SESSION['usertype2']!='PCAdmin')
 {
 	$Pending_data = "SELECT *FROM user_login WHERE email_verified='0' AND (first_name='$fname_2' AND last_name='$lname_2' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
@@ -768,8 +768,8 @@ if(@$_SESSION['usertype2']!='PCAdmin')
 				<img src="data:<?php echo $pending_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($pending_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style=""><?php echo $pending_data2['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if(@$_SESSION['usertype2']!='PCAdmin'){$approved=$pending_data2['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$pending_data2['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if(@$_SESSION['usertype2']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
+				<td class="text-left" style=""><?php if($_SESSION['usertype2']!='PCAdmin'){$approved=$pending_data2['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$pending_data2['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
+				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype2']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<?php } }?>
@@ -782,9 +782,9 @@ if(@$_SESSION['usertype2']!='PCAdmin')
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./users.php?page1=1" class="button">«</a></li><li class="prev disabled" aria-disabled="true">
-						<a href="<?php echo "./users.php?page1=".(@$_SESSION["page1"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
-							<a href="#1" class="button"><?php echo @$_SESSION["page1"]; ?></a></li><li class="next disabled" aria-disabled="true">
-								<a href="<?php echo "./users.php?page1=".(@$_SESSION["page1"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
+						<a href="<?php echo "./users.php?page1=".($_SESSION["page1"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
+							<a href="#1" class="button"><?php echo $_SESSION["page1"]; ?></a></li><li class="next disabled" aria-disabled="true">
+								<a href="<?php echo "./users.php?page1=".($_SESSION["page1"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page1=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
@@ -804,14 +804,14 @@ if(@$_SESSION['usertype2']!='PCAdmin')
 
  <datalist id="Suggestions3"  >
  <?php
- if(empty(@$_SESSION['usertype3']))
+ if(empty($_SESSION['usertype3']))
  {
 
 	 $user_name3=mysqli_query($con,"select * from user_login where email_verified=2 order by id desc");
  }
- if(!empty(@$_SESSION['usertype3']))
+ if(!empty($_SESSION['usertype3']))
  {
- if(@$_SESSION['usertype1']!='PCAdmin')
+ if($_SESSION['usertype1']!='PCAdmin')
  {
 	 $user_name3=mysqli_query($con,"select * from user_login where email_verified=2 order by id desc");
  }
@@ -956,53 +956,53 @@ var initialArray = [];
 				   $denied = "select count(*) as total from admin_users WHERE WHERE is_approved='2' AND type_of_user='PCAdmin'";
 				if(empty($_GET["page2"]))
 				{
-					@$_SESSION["page2"]=1;
+					$_SESSION["page2"]=1;
 				}
 				else {
-					@$_SESSION["page2"]=$_GET["page2"];
+					$_SESSION["page2"]=$_GET["page2"];
 				}
-				if(@$_SESSION["page2"] < 0)
+				if($_SESSION["page2"] < 0)
 				{
-					@$_SESSION["page2"]=1;
+					$_SESSION["page2"]=1;
 				}
 				if(isset($_REQUEST['user_type3']))
 	      {
 	      	if($_REQUEST['user_type3'] == "All"){
-	      		@$_SESSION['usertype3']=$_REQUEST['user_type3'];
+	      		$_SESSION['usertype3']=$_REQUEST['user_type3'];
 	      		$denied = "select count(*) as total from user_login WHERE email_verified='2' ";
 	      	}
 					elseif($_REQUEST['user_type3']=="PCAdmin")
 					{
 
 
-							@$_SESSION['usertype3']=$_REQUEST['user_type3'];
+							$_SESSION['usertype3']=$_REQUEST['user_type3'];
 							// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
-								$denied = "select count(*) as total from admin_users WHERE is_approved='2' and type_of_user='".@$_SESSION['usertype3']."'";
+								$denied = "select count(*) as total from admin_users WHERE is_approved='2' and type_of_user='".$_SESSION['usertype3']."'";
 					}
 	      	else{
-	     @$_SESSION['usertype3']=$_REQUEST['user_type3'];
-	     $denied = "select count(*) as total from user_login WHERE email_verified='2' AND type_of_user='".@$_SESSION['usertype3']."'" ;
+	     $_SESSION['usertype3']=$_REQUEST['user_type3'];
+	     $denied = "select count(*) as total from user_login WHERE email_verified='2' AND type_of_user='".$_SESSION['usertype3']."'" ;
 	 }
 	      }
-	   elseif(!empty(@$_SESSION['usertype3']))
+	   elseif(!empty($_SESSION['usertype3']))
 	     {
-	     	if (@$_SESSION['usertype3'] =="All") {
+	     	if ($_SESSION['usertype3'] =="All") {
 
 	     		$denied = "select count(*) as total from user_login WHERE email_verified='2' ";
 	     	}
-				elseif(@$_SESSION['usertype3'] =="PCAdmin")
+				elseif($_SESSION['usertype3'] =="PCAdmin")
 				{
 
 
 
 						// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
-							$denied = "select count(*) as total from admin_users WHERE is_approved='2' and type_of_user='".@$_SESSION['usertype3']."'";
+							$denied = "select count(*) as total from admin_users WHERE is_approved='2' and type_of_user='".$_SESSION['usertype3']."'";
 				}
 	     	else{
-	     $denied = "select count(*) as total from user_login WHERE email_verified='2' AND type_of_user='".@$_SESSION['usertype3']."'";
+	     $denied = "select count(*) as total from user_login WHERE email_verified='2' AND type_of_user='".$_SESSION['usertype3']."'";
 	      }
 	  }
-				// elseif(empty(@$_SESSION['usertype3']))
+				// elseif(empty($_SESSION['usertype3']))
 				//  {
 				//   $denied = "select count(*) as total from user_login WHERE email_verified='2'  ";
 				// }
@@ -1026,7 +1026,7 @@ $new3 = explode(" ",$user3);
 $fname3 = $new3['0'];
 $lname3 = $new3['1'];
 
-if(@$_SESSION['usertype3']!='PCAdmin')
+if($_SESSION['usertype3']!='PCAdmin')
 {
 
 	$denied = "select count(*) as total from user_login WHERE email_verified='2' AND (first_name='$fname3' AND last_name='$lname3') ";
@@ -1058,14 +1058,14 @@ else {
 				else{
 					$Page_check=$Page_check+1;
 				}
-				if($Page_check<=@$_SESSION["page2"])
+				if($Page_check<=$_SESSION["page2"])
 				{
-					@$_SESSION["page2"]=$Page_check;
+					$_SESSION["page2"]=$Page_check;
 				}
 				// how many entries shown in page
 
 				//starting number to print the users shown in page
-				$start_no_users = (@$_SESSION["page2"]-1) * $number_of_pages;
+				$start_no_users = ($_SESSION["page2"]-1) * $number_of_pages;
 
          $cnt=$start_no_users;
      }
@@ -1084,32 +1084,32 @@ $denied_data = "SELECT *FROM user_login WHERE email_verified='2' order by id des
 elseif($_REQUEST['user_type3']=="PCAdmin")
 {
 
-		$q = "SELECT *FROM admin_users WHERE is_approved='2' AND type_of_user='".@$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+		$q = "SELECT *FROM admin_users WHERE is_approved='2' AND type_of_user='".$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 else{
 
-$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND type_of_user='".@$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND type_of_user='".$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-elseif(!empty(@$_SESSION['usertype3']))
+elseif(!empty($_SESSION['usertype3']))
 {
 
-	if (@$_SESSION['usertype3'] =="All") {
+	if ($_SESSION['usertype3'] =="All") {
 
 		$denied_data = "SELECT *FROM user_login WHERE email_verified='2' LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
-	elseif(@$_SESSION['usertype3']=="PCAdmin")
+	elseif($_SESSION['usertype3']=="PCAdmin")
 	{
 
-				$denied_data = "SELECT *FROM admin_users WHERE is_approved='2' AND type_of_user='".@$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+				$denied_data = "SELECT *FROM admin_users WHERE is_approved='2' AND type_of_user='".$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 	}
 
 	else{
 
-	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND type_of_user='".@$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND type_of_user='".$_SESSION['usertype3']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 }
-// elseif(empty(@$_SESSION['usertype3']))
+// elseif(empty($_SESSION['usertype3']))
 //  {
 // 	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' and type_od_user LIMIT " . $start_no_users . ',' . $number_of_pages;
 // }
@@ -1124,7 +1124,7 @@ $fname_3 = $new_3['0'];
 $lname_3 = $new_3['1'];
 
 
-if(@$_SESSION['usertype3']!='PCAdmin')
+if($_SESSION['usertype3']!='PCAdmin')
 {
 
 	$denied_data = "SELECT *FROM user_login WHERE email_verified='2' AND (first_name='$fname_3' AND last_name='$lname_3' )  order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
@@ -1161,8 +1161,8 @@ if(@$_SESSION['usertype3']!='PCAdmin')
 				<img src="data:<?php echo $denied_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($denied_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style=""><?php echo $denied_data2['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if(@@$_SESSION['usertype3']!='PCAdmin'){$approved=$denied_data2['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$denied_data2['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if(@$_SESSION['usertype3']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
+				<td class="text-left" style=""><?php if(@$_SESSION['usertype3']!='PCAdmin'){$approved=$denied_data2['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }}else{$approved=$denied_data2['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; }} ?></td>
+				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype3']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<?php }} ?>
@@ -1174,9 +1174,9 @@ if(@$_SESSION['usertype3']!='PCAdmin')
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./users.php?page2=1" class="button">«</a></li><li class="prev disabled" aria-disabled="true">
-						<a href="<?php echo "./users.php?page2=".(@$_SESSION["page2"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
-							<a href="#1" class="button"><?php echo @$_SESSION["page2"]; ?></a></li><li class="next disabled" aria-disabled="true">
-								<a href="<?php echo "./users.php?page2=".(@$_SESSION["page2"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
+						<a href="<?php echo "./users.php?page2=".($_SESSION["page2"]-1);?>" class="button">&lt;</a></li><li class="page-1 active" aria-disabled="false" aria-selected="true">
+							<a href="#1" class="button"><?php echo $_SESSION["page2"]; ?></a></li><li class="next disabled" aria-disabled="true">
+								<a href="<?php echo "./users.php?page2=".($_SESSION["page2"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page2=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>

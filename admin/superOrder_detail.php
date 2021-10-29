@@ -177,7 +177,7 @@ $get_content = $get_email_content1['template_body_text'];
   {
     $downloadoption="&d=".@$_REQUEST['downloadoption'];
   }
-  $link1=@$_SESSION['project_url']."sharelink.php?".@$link[1].$downloadoption;
+  $link1=$_SESSION['project_url']."sharelink.php?".@$link[1].$downloadoption;
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
 
    $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
