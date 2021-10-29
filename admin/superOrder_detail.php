@@ -25,7 +25,7 @@ $invoice_check=mysqli_fetch_assoc($invoice_check_query);
  //echo $invoice_check['status_id'];
  //echo "SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'";
  $prodsList=mysqli_query($con,"SELECT sum(product_cost)as product_cost from products where id in(select product_id from order_products WHERE order_id='$order_id')");
-$prodsList1=mysqli_fetch_array($prodsList);
+ $prodsList1=mysqli_fetch_array($prodsList);
 
  $product_cost=$prodsList1['product_cost'];
 
@@ -52,7 +52,7 @@ mysqli_query($con,"UPDATE `invoice` SET `other_cost`='$cost',`other_cost_comment
 //header("location:./superOrder_detail.php?id=$id_url");
 }
 
-$get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
+  $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
   $get_detail=mysqli_fetch_array($get_orderdetail_query);
   $pc_admin_id=$get_detail['pc_admin_id'];
   $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
@@ -2706,8 +2706,8 @@ alert(alertmsg);
          @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
          @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);
 
-         if($_SESSION['admin_loggedin_id']!=$get_summary['created_by_id'])
-         {
+         // if($_SESSION['admin_loggedin_id']!=$get_summary['created_by_id'])
+         // {
          if(@$invoice_check['approved']==0)
           {
            echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -80px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
@@ -2715,11 +2715,11 @@ alert(alertmsg);
           else {
               echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
           }
-        }
-        else {
-
-            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
-         }
+        //}
+        // else {
+        //
+        //     echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
+        //  }
 
           ?>
           <script>
