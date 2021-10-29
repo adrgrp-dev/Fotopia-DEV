@@ -14,6 +14,9 @@ if($type=='Photographer')
 elseif ($type=='realtor') {
   $q1="select * from user_login where email='$id'";
 }
+elseif ($type=='PCAdminUser') {
+  $q1="select * from photo_company_admin where email='$id'";
+}
 else
 {
 $q1="select * from admin_users where email='$id'";

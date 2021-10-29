@@ -7,6 +7,19 @@ include "connection1.php";
 //this is for svn test
 $xyz123=0;
   $id_url=$_REQUEST['id'];
+  $userTYPE=$_SESSION['user_type'];
+  $userLoggedinID=$_SESSION['loggedin_id'];
+  $Check_Viewer_Is_Valid=mysqli_query($con,"select * from orders where (realtor_id='$userLoggedinID' or photographer_id='$userLoggedinID') and id='$id_url'");
+  $authorized=mysqli_num_rows($Check_Viewer_Is_Valid);
+ 
+  if($authorized==0 && $userTYPE=='Realtor')
+  {
+  header("location:csrRealtorDashboard.php?na=1");exit;
+  }
+  if($authorized==0 && $userTYPE=='Photographer')
+  {
+  header("location:photographerDashboard.php?na=1");exit;
+  }
 
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;

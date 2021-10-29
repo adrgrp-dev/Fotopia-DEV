@@ -210,7 +210,11 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 
 			</div>
                 <div class="col-md-8" style="padding-left:30px;">
+<?php if(@isset($_REQUEST["na"])) { ?>
 
+                            <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
+
+						<?php }  ?>
 					<div>
 
                 <div class="col-md-3">

@@ -269,7 +269,11 @@ margin-left:0px!important;
 
 
 		  	<h5 class="text-center" id="label_realtor_dashboard" adr_trans="label_realtor_dashboard" style="display:none">CSR / Realtor Dashboard</h5>
+<?php if(@isset($_REQUEST["na"])) { ?>
 
+                            <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
+
+						<?php }  ?>
 
 <?php if(@isset($_REQUEST["wl"])) { ?>
 

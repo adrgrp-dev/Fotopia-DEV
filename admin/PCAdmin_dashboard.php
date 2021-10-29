@@ -223,7 +223,11 @@ height:fit-content!important;
 </style>
 			</div>
                 <div class="col-md-8">
+<?php if(@isset($_REQUEST["na"])) { ?>
 
+                            <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
+
+						<?php }  ?>
 					<div class="row" style="margin-left:10px;">
 
                 <div class="col-md-3">

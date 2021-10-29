@@ -202,7 +202,6 @@ function validate_email(val)
     if(this.readyState == 4 && this.status == 200){
      if(this.responseText == "true")
      {
-
         var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
@@ -224,7 +223,7 @@ function validate_email(val)
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email.php?type=PCAdminUser&id="+val,true);
   xhttp.send();
 }
 </script>
@@ -249,7 +248,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p id="label_email"><span  adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="validate_email(this.value)" class="form-control form-value" required="">
 

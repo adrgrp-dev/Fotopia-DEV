@@ -123,7 +123,7 @@ height:fit-content!important;
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage9">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%;">
+        <div class="" style="margin-left:0px;height:inherit;width:100%;">
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2">
@@ -133,7 +133,11 @@ height:fit-content!important;
 			</div>
                 <div class="col-md-10" style="padiding-left:20px;">
               	<h5 class="text-center" id="label_photographer_dashboard" adr_trans="label_photographer_dashboard">Photographer Dashboard</h5>
+<?php if(@isset($_REQUEST["na"])) { ?>
 
+                            <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
+
+						<?php }  ?>
 
 <?php if(@isset($_REQUEST["private"])) { ?>
 
