@@ -835,14 +835,14 @@ header("location:subcsrOrder_list1.php?app=1");
           <?php
           $photographer_id=$get_order['photographer_id'];
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
-         if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
+         if($get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
          {
           $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
           $online=0;
          }
 
           ?>
-          <td class="text-center" style="word-break:break-all;"><?php echo $photographer_Name ?>&nbsp;<?php if($online==1) { ?>
+          <td class="text-center" style="word-break:break-all;"><?php echo @$photographer_Name ?>&nbsp;<?php if($online==1) { ?>
       <i class="fa fa-comment" style="color:#006600" data-touserid="<?php echo $photographer_id ?>" data-tousername="<?php echo $photographer_Name ?>"></i>
     <?php } ?></td>
       <td class="text-center" style=""><?php echo $get_order['property_address'];; ?></td>
