@@ -162,13 +162,13 @@ $order_id=mysqli_insert_id($con);
                 <div class="col-md-2"  style="margin-left:-15px;">
 				<?php
 				$calDate="";
-				if(@$_SESSION['date']!="")
+				if($_SESSION['date']!="")
 				{
-				$calDate=@$_SESSION['date'];
+				$calDate=$_SESSION['date'];
 				}
-				if(@$_SESSION['fromDatetime']!="")
+				if($_SESSION['fromDatetime']!="")
 				{
-				$calDate=@$_SESSION['fromDatetime'];
+				$calDate=$_SESSION['fromDatetime'];
 				}
 				?>
 				<input type="hidden" name="calDate" id="calDate" value="<?php echo $calDate; ?>" />
@@ -388,11 +388,11 @@ background: repeating-linear-gradient(
 
  <?php
  $todayIs="";
- if(@$_SESSION['date'])
+ if($_SESSION['date'])
  {
  $todayIs=$_SESSION['date'];
  }
- if(@$_SESSION['fromDatetime'])
+ if($_SESSION['fromDatetime'])
  {
  $todayIs=$_SESSION['fromDatetime'];
  $todayIs1=explode("T",$todayIs);
@@ -718,13 +718,13 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo @$_SESSION['property_address']; ?>";
-var property_city="<?php echo @$_SESSION['property_city']; ?>";
-var property_state="<?php echo @$_SESSION['property_state']; ?>";
-var property_country="<?php echo @$_SESSION['property_country']; ?>";
-var property_zip="<?php echo @$_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo @$_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo @$_SESSION['property_contact_email']; ?>";
+var property_address="<?php echo $_SESSION['property_address']; ?>";
+var property_city="<?php echo $_SESSION['property_city']; ?>";
+var property_state="<?php echo $_SESSION['property_state']; ?>";
+var property_country="<?php echo $_SESSION['property_country']; ?>";
+var property_zip="<?php echo $_SESSION['property_zip']; ?>";
+var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
+var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
 
 
               if($("#address_same").prop('checked') == true)
@@ -1182,12 +1182,12 @@ $from123=preg_replace("/ /","T",$from123);
    $to123=date("Y-m-d H:i",strtotime($appointmentsAre1['to_datetime']));
    $to123=preg_replace("/ /","T",$to123);
    }
-   if(@$_SESSION['date']!="")
+   if($_SESSION['date']!="")
    {
    $from123=$_SESSION['date']."T08:00:00";
     $to123=$_SESSION['date']."T08:00:00";
    }
-   if(@$_SESSION['fromDatetime']!="" && @$_SESSION['toDatetime']!="")
+   if($_SESSION['fromDatetime']!="" && $_SESSION['toDatetime']!="")
    {
    $from123=$_SESSION['fromDatetime'];
    $to123=$_SESSION['toDatetime'];
@@ -1200,7 +1200,7 @@ $from123=preg_replace("/ /","T",$from123);
 	  ?>
 
         <br />
-             <div class="col-md-4" <?php if(@$_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
+             <div class="col-md-4" <?php if($_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
 
                                 <p id="label_appointment_from" adr_trans="label_appointment_from">From Date & Time  </p>
                                 <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>"  value="<?php echo $from123; ?>" minutestep="10">
@@ -1208,7 +1208,7 @@ $from123=preg_replace("/ /","T",$from123);
 
 							<?php
 
-							if(@$_SESSION['date']!="" || @$_SESSION['fromDatetime']!="")
+							if($_SESSION['date']!="" || $_SESSION['fromDatetime']!="")
 							{
 							?>
 							<script>
@@ -1247,7 +1247,7 @@ $from123=preg_replace("/ /","T",$from123);
 
 
                             ?>
-            <div class="col-md-4"  <?php if(@$_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
+            <div class="col-md-4"  <?php if($_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
                               <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>">
                             </div>
@@ -1284,7 +1284,7 @@ $from123=preg_replace("/ /","T",$from123);
 			</div>
 			<div class="col-md-3">
 
-			<div id='calendar'  <?php if(@$_SESSION['date']=='' && @$_SESSION['fromDatetime']=='' && @$_SESSION['Photographer_id']=='') { echo "style='display:none'";  } else { echo "style='display:block'"; } ?>></div>
+			<div id='calendar'  <?php if($_SESSION['date']=='' && $_SESSION['fromDatetime']=='' && $_SESSION['Photographer_id']=='') { echo "style='display:none'";  } else { echo "style='display:block'"; } ?>></div>
 
 			</div>
 

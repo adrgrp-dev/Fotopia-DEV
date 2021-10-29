@@ -182,12 +182,12 @@ min-width:100px!important;
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
-<option value="1" <?php if(@$_REQUEST['filterByStatus']==1||@$_SESSION['status']==1) { echo "selected"; } ?>>Created</option>
-<option value="2" <?php if(@$_REQUEST['filterByStatus']==2||@$_SESSION['status']==2) { echo "selected"; } ?>>Work in progress</option>
-<option value="4" <?php if(@$_REQUEST['filterByStatus']==4||@$_SESSION['status']==4) { echo "selected"; } ?>>Rework</option>
-<option value="5" <?php if(@$_REQUEST['filterByStatus']==5||@$_SESSION['status']==5) { echo "selected"; } ?>>Cancelled</option>
-<option value="6" <?php if(@$_REQUEST['filterByStatus']==6||@$_SESSION['status']==6) { echo "selected"; } ?>>Declined</option>
-<option value="7" <?php if(@$_REQUEST['filterByStatus']==7||@$_SESSION['status']==7) { echo "selected"; } ?>>Working with customer</option>
+<option value="1" <?php if(@$_REQUEST['filterByStatus']==1||$_SESSION['status']==1) { echo "selected"; } ?>>Created</option>
+<option value="2" <?php if(@$_REQUEST['filterByStatus']==2||$_SESSION['status']==2) { echo "selected"; } ?>>Work in progress</option>
+<option value="4" <?php if(@$_REQUEST['filterByStatus']==4||$_SESSION['status']==4) { echo "selected"; } ?>>Rework</option>
+<option value="5" <?php if(@$_REQUEST['filterByStatus']==5||$_SESSION['status']==5) { echo "selected"; } ?>>Cancelled</option>
+<option value="6" <?php if(@$_REQUEST['filterByStatus']==6||$_SESSION['status']==6) { echo "selected"; } ?>>Declined</option>
+<option value="7" <?php if(@$_REQUEST['filterByStatus']==7||$_SESSION['status']==7) { echo "selected"; } ?>>Working with customer</option>
 </select>
 </form>
       <table class="table-stripped" style="width:100%">
@@ -276,9 +276,9 @@ min-width:100px!important;
           {
             $_SESSION["page"]=1;
           }
-          if(@$_SESSION['status']!=0)
+          if($_SESSION['status']!=0)
             {
-              $statusId=@$_SESSION['status'];
+              $statusId=$_SESSION['status'];
            $q1="SELECT count(*) as total FROM orders where  realtor_id='$loggedin_id' and status_id='$statusId' ";
             }
       elseif(@$_REQUEST['filterByStatus']!=0)
@@ -316,9 +316,9 @@ min-width:100px!important;
 
 
           $limit=$start_no_users . ',' . $number_of_pages;
-          if(@$_SESSION['status']!=0)
+          if($_SESSION['status']!=0)
           {
-            $statusId=@$_SESSION['status'];
+            $statusId=$_SESSION['status'];
           $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='$statusId' order by id desc limit $limit");
           }
 		  elseif(@$_REQUEST['filterByStatus']!=0)

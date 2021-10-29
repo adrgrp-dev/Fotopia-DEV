@@ -418,8 +418,8 @@ font-weight:bold;
                             </div>
 
 			<select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(@$_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(@$_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -507,8 +507,8 @@ if(isset($_SESSION['loggedin_email']))
 
 
 		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:20px;">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(@$_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(@$_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -525,7 +525,7 @@ $(function(){
 </script>
 <?php
 
- if(@$_SESSION['user_type']=="Photographer")
+ if($_SESSION['user_type']=="Photographer")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-5px;">
@@ -552,7 +552,7 @@ $(function(){
 
 <?php
 
- if(@$_SESSION['user_type']=="Realtor")
+ if($_SESSION['user_type']=="Realtor")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-10px;">

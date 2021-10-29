@@ -2758,7 +2758,7 @@ function updateScroll(){
 }, 5000);
 	</script>
   <?php
-    if(@$created_id==@$_SESSION['loggedin_id'])
+    if(@$created_id==$_SESSION['loggedin_id'])
     {
       echo '<script>$("#chat").css("display","none")</script>';
     }

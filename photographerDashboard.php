@@ -215,7 +215,7 @@ height:fit-content!important;
                             @$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where status_id =3 and photographer_id=$user_id");
                             if(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
                             {
-                              @$Photographer_id=@$_SESSION['loggedin_id'];
+                              @$Photographer_id=$_SESSION['loggedin_id'];
                               @$id=@$get_name['id'];
                               //echo "SELECT sum(photography_cost) as total_value FROM `photographer_product_cost` where photographer_id=$Photographer_id";
                               @$get_product_query=mysqli_query($con,"SELECT sum(photography_cost) as total_value FROM `photographer_product_cost` where photographer_id=$Photographer_id");

@@ -487,7 +487,7 @@ function show()
 
 
       <?php
-   $user_type=@$_SESSION['user_type'];
+   $user_type=$_SESSION['user_type'];
 
           if($user_type=="Photographer")
           {

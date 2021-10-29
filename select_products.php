@@ -557,13 +557,13 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo @$_SESSION['property_address']; ?>";
-var property_city="<?php echo @$_SESSION['property_city']; ?>";
-var property_state="<?php echo @$_SESSION['property_state']; ?>";
-var property_country="<?php echo @$_SESSION['property_country']; ?>";
-var property_zip="<?php echo @$_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo @$_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo @$_SESSION['property_contact_email']; ?>";
+var property_address="<?php echo $_SESSION['property_address']; ?>";
+var property_city="<?php echo $_SESSION['property_city']; ?>";
+var property_state="<?php echo $_SESSION['property_state']; ?>";
+var property_country="<?php echo $_SESSION['property_country']; ?>";
+var property_zip="<?php echo $_SESSION['property_zip']; ?>";
+var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
+var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
 
 
               if($("#address_same").prop('checked') == true)

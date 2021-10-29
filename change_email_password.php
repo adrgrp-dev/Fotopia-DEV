@@ -403,7 +403,7 @@ $("#moreInfoText").toggle(1000);
 
 				</td></tr>
 				<form name="verifyemail" method="post" action="">
-				<tr><td adr_trans="label_new_email">New Email</td><td>:</td><td><input type="email" name="newemail" id="newemail" class="form-control" value="<?php echo @$_SESSION['email_new']; ?>" required onblur="validate_email(this.value)" /></td></tr>
+				<tr><td adr_trans="label_new_email">New Email</td><td>:</td><td><input type="email" name="newemail" id="newemail" class="form-control" value="<?php echo $_SESSION['email_new']; ?>" required onblur="validate_email(this.value)" /></td></tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="sendcode" value="Send Verification Code" class="btn btn-warning" style="border-radius:20px 20px 20px 20px; background:#F0AD4E" /></td></tr>
 				</form>
 				<form name="changeemail" method="post" action="">
