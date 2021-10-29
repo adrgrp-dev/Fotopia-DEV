@@ -11,10 +11,10 @@ if(isset($_REQUEST['loginbtn']))
 	$pass=$_REQUEST['password'];
 
 	$res=mysqli_query($con,"select * from admin_users where email='$email' and password='$pass'");
-$user_exist=mysqli_num_rows($res);
+echo "asss".$user_exist=mysqli_num_rows($res);
 
 	$pc_admin_user=mysqli_query($con,"select * from photo_company_admin where email='$email' and password='$pass'");
-	$pc_admin_user_exist=mysqli_num_rows($pc_admin_user);
+	echo "<br>".$pc_admin_user_exist=mysqli_num_rows($pc_admin_user);
 	
 	$ipAddress = $_SERVER['REMOTE_ADDR'];
 	if($user_exist!=0)
@@ -67,10 +67,13 @@ $is_approved=$getres['is_approved'];
 	$getPCAdminUser=mysqli_fetch_array($pc_admin_user);
 	$pc_admin_id=$getPCAdminUser['pc_admin_id'];
 	
-	$Pc_admin_details=mysqli_query($con,"select * from admin_users id='$pc_admin_id' and type_of_user='PCAdmin'");
+	$Pc_admin_details=mysqli_query($con,"select * from admin_users where id='$pc_admin_id' and type_of_user='PCAdmin'");
+	
+	
 	
 	$getres=mysqli_fetch_array($Pc_admin_details);
-		$user_name=$getres['first_name'];
+		//$user_name=$getres['first_name'];
+		$user_name=$getPCAdminUser['first_name'];
 		$type=$getres['type_of_user'];
 		$org=$getres['organization_name'];
 		$emailIs=$getres['email'];
