@@ -247,7 +247,7 @@ function getFileCount($path) {
                 $size += getFileCount(rtrim($path, '/') . '/' . $t);
             } else {
                 $size++;
-            }   
+            }
         }
         return $size;
     }
@@ -256,7 +256,7 @@ function getFileCount($path) {
 
   if(isset($_POST['ZIP']))
   {
-  
+
 $OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
@@ -313,8 +313,8 @@ foreach ($files as $name => $file)
 		$x=1;
 		$extn=$file->getExtension();
 		$ParsedFileNameIS=explode("_",$relativePath);
-		
-		
+
+
 		for($i=1;$i<$totalNumberOdFiles;$i++)
 		{
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
@@ -325,9 +325,9 @@ foreach ($files as $name => $file)
 		}
 		else
 		{
-		
+
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
-        
+
 		break 1;
 		}
     }
@@ -769,6 +769,19 @@ function selectAllImages()
         $('.selectimg').prop("checked",false);
         $('#count').val('0');
   }
+  if($("#remove").prop("checked") == true)
+  {
+     $('.selectimg').prop("checked",true);
+     $('.icons').removeClass('fa fa-square');
+     $('.icons').addClass('fa fa-check-square');
+     $(".img1").css('opacity','0.7');
+  }
+  else{
+    $('.selectimg').prop("checked",false);
+    $('.icons').removeClass('fa fa-check-square');
+    $('.icons').addClass('fa fa-square');
+    $(".img1").css('opacity','1');
+  }
 
 
 
@@ -834,6 +847,19 @@ function selectAllImages2()
       $('.icons2').addClass('fa fa-square');
         $('.selectimg2').prop("checked",false);
          $('#count2').val('0');
+  }
+  if($("#remove2").prop("checked") == true)
+  {
+     $('.selectimg2').prop("checked",true);
+     $('.icons2').removeClass('fa fa-square');
+     $('.icons2').addClass('fa fa-check-square');
+     $(".img12").css('opacity','0.7');
+  }
+  else{
+    $('.selectimg2').prop("checked",false);
+    $('.icons2').removeClass('fa fa-check-square');
+    $('.icons2').addClass('fa fa-square');
+    $(".img12").css('opacity','1');
   }
 }
 function clickimg2(id)

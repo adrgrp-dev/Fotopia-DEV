@@ -22,6 +22,7 @@ elseif($user=="editor"||$user=="photo"||$user=="adminfinish")
   $new_image_name_fordb=strtoupper($data)."_".$image_name;
   rename($old_image_name,$new_image_name);
 }
+$data=strtoupper($data);
 mysqli_query($con,"UPDATE `image_naming` SET `description`='$data',image_name='$new_image_name_fordb' WHERE id=$id");
 mysqli_query($con,"UPDATE `img_upload` SET `img`='$new_image_name_fordb' where img='$image_name'");
 echo "true";

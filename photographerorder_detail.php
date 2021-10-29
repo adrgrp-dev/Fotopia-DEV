@@ -91,7 +91,7 @@ function getFileCount($path) {
                 $size += getFileCount(rtrim($path, '/') . '/' . $t);
             } else {
                 $size++;
-            }   
+            }
         }
         return $size;
     }
@@ -156,8 +156,8 @@ foreach ($files as $name => $file)
 		$x=1;
 		$extn=$file->getExtension();
 		$ParsedFileNameIS=explode("_",$relativePath);
-		
-		
+
+
 		for($i=1;$i<$totalNumberOdFiles;$i++)
 		{
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
@@ -168,9 +168,9 @@ foreach ($files as $name => $file)
 		}
 		else
 		{
-		
+
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
-        
+
 		break 1;
 		}
     }
@@ -198,7 +198,7 @@ rmdir("./temp/$timeRandom");
 
 
 function delete_files($dir) {
- 
+
 foreach(glob($dir . '/*') as $file) {
   if(is_dir($file)) delete_files($file); else unlink($file);
 
@@ -546,6 +546,20 @@ alert(alertmsg);
          $('.selectimg').prop("checked",false);
          $('#count').val('0');
    }
+   if($("#remove").prop("checked") == true)
+   {
+      $('.selectimg').prop("checked",true);
+      $('.icons').removeClass('fa fa-square');
+      $('.icons').addClass('fa fa-check-square');
+      $(".img1").css('opacity','0.7');
+   }
+   else{
+     $('.selectimg').prop("checked",false);
+     $('.icons').removeClass('fa fa-check-square');
+     $('.icons').addClass('fa fa-square');
+     $(".img1").css('opacity','1');
+   }
+
 
 
 
@@ -614,6 +628,19 @@ alert(alertmsg);
        $('.icons2').addClass('fa fa-square');
          $('.selectimg2').prop("checked",false);
           $('#count2').val('0');
+   }
+   if($("#remove2").prop("checked") == true)
+   {
+      $('.selectimg2').prop("checked",true);
+      $('.icons2').removeClass('fa fa-square');
+      $('.icons2').addClass('fa fa-check-square');
+      $(".img12").css('opacity','0.7');
+   }
+   else{
+     $('.selectimg2').prop("checked",false);
+     $('.icons2').removeClass('fa fa-check-square');
+     $('.icons2').addClass('fa fa-square');
+     $(".img12").css('opacity','1');
    }
 
 
