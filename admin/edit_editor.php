@@ -202,8 +202,12 @@ function validate_email(val)
 
               while($editorList1=mysqli_fetch_array($editorList))
               {
+			  $editor_ID=$editor['id'];
+			  $phId=$editorList1['id'];
+			  $get_photographer_id_query=mysqli_query($con,"select * from editor_photographer_mapping where editor_id='$editor_ID' and photographer_id='$phId'");
+			  $exist=mysqli_num_rows($get_photographer_id_query);
               ?>
-            <option value="<?php echo $editorList1['id']; ?>"><?php echo $editorList1['first_name']; ?></option>
+            <option value="<?php echo $editorList1['id']; ?>" <?php if($exist>0) { echo "Selected"; } ?>><?php echo $editorList1['first_name']; ?></option>
               <?php } ?>
               </select>
                             </div>
