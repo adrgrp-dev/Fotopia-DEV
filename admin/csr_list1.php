@@ -775,13 +775,14 @@ header("location:csr_list1.php?ed=1");
 										echo "";
 
 										@$get_photographer_id_query=mysqli_query($con,"select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID");
+										
+	echo "select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID";
 										@$get_photographer_id=mysqli_fetch_array(@$get_photographer_id_query);
 			             	@$photographer_id1 = @$get_photographer_id['photographer_id'];
 										//echo "$photographer_id";
 
         //echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in ($photographer_id1)";
 				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)");
-	echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)";
 				//exit;
 			  @$res3=mysqli_fetch_array(@$res2);
 
