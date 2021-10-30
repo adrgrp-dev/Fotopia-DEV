@@ -805,7 +805,7 @@ header("location:csr_list1.php?ed=1");
 				 ?></td>
 				
 
-				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo $serviceType; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
 				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
 				</tr>

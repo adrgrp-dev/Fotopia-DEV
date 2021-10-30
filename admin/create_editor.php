@@ -255,7 +255,7 @@ function validate_email(val)
 
          <div class="col-md-6">
                                 <p id="label_photographer" adr_trans="label_photographer">Photographer</p>
-                               <select name="photographer_id[]" class="form-control form-value" multiple required="" size=1>
+                               <select name="photographer_id[]" class="form-control form-value" multiple required="" size="5">
 
               <?php
 
@@ -283,7 +283,7 @@ function validate_email(val)
               while($editorList1=mysqli_fetch_array($editorList))
               {
               ?>
-              <option style="float:left" value="<?php echo $editorList1['id']; ?>"><?php echo $editorList1['first_name'].","; ?></option>
+              <option style="float:left" value="<?php echo $editorList1['id']; ?>"><?php echo $editorList1['first_name']; ?></option>
               <?php } ?>
               </select>
                             </div>
