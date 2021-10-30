@@ -56,10 +56,10 @@ min-width:120px!important;
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%">
+        <div class="" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-left:10px;">
 	<?php include "sidebar.php"; ?>
 
 
@@ -700,12 +700,7 @@ header("location:csr_list1.php?ed=1");
                                 Contact
 
                         </span>
-												<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_service" adr_trans="label_service">
-
- 															 Service
-
- 											 </span>
-                        <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+												<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                 Photographer
 
@@ -774,20 +769,9 @@ header("location:csr_list1.php?ed=1");
 										$editor_ID=$res1['id'];
 										echo "";
 
-										@$get_photographer_id_query=mysqli_query($con,"select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID");
+	@$get_photographer_id_query=mysqli_query($con,"select * from editor_photographer_mapping where editor_id=$editor_ID");
 										
-	echo "select GROUP_CONCAT(photographer_id) as photographer_id,service_type from editor_photographer_mapping where editor_id=$editor_ID";
-										@$get_photographer_id=mysqli_fetch_array(@$get_photographer_id_query);
-			             	@$photographer_id1 = @$get_photographer_id['photographer_id'];
-										//echo "$photographer_id";
-
-        //echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in ($photographer_id1)";
-				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)");
-				//exit;
-			  @$res3=mysqli_fetch_array(@$res2);
-
-
-
+								
 
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
@@ -798,9 +782,27 @@ header("location:csr_list1.php?ed=1");
 				<td class="text-left" style="word-break:break-all;"><?php if($res1['organization_website']==0){echo'NA';} else{echo $res1['organization_website'];} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php if($get_photographer_id['service_type']==1){ echo "Photos"; }else{ echo "Floor plans"; } ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php echo 	@$res3['first_name']; ?></td>
-
+				<td class="text-left" style="word-break:break-all;"><?php
+				$photgrapherMappedToEditor=mysqli_num_rows($get_photographer_id_query);
+				if($photgrapherMappedToEditor>0)
+				{
+				while($get_photographer_id_query1=mysqli_fetch_array($get_photographer_id_query))
+				{
+				$phID=$get_photographer_id_query1['photographer_id'];
+				$serviceType="";
+				 if($get_photographer_id_query1['service_type']==1){ $serviceType="Photos"; } else{ $serviceType="Floor plans"; }
+				
+				$PhDetails1=mysqli_query($con,"select * from user_login where id='$phID'");
+				$PhDetails=mysqli_fetch_array($PhDetails1);
+				echo $PhDetails['first_name']."-".$serviceType."<br>";
+				}
+				}
+				else
+				{
+				echo "N/A";
+				}
+				 ?></td>
+				
 
 				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo $get_photographer_id['service_type']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
