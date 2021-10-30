@@ -781,7 +781,7 @@ header("location:csr_list1.php?ed=1");
 
         //echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in ($photographer_id1)";
 				$res2=mysqli_query($con,"SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)");
-				//echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)";
+	echo "SELECT GROUP_CONCAT(first_name) as first_name FROM user_login where id in($photographer_id1)";
 				//exit;
 			  @$res3=mysqli_fetch_array(@$res2);
 
