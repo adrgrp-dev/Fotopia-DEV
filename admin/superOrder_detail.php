@@ -2049,7 +2049,7 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
-                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id'])
+                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
                     <?php } ?>
@@ -2212,13 +2212,13 @@ alert(alertmsg);
                                               <input type="submit" class="btn btn-default done"  onclick="downloadbtn()" name="ZIP" value="Download" >
                                             </div>
                                             <div class="" style="display:inline-block"><center>
-                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>
+                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                 <input type="submit"  class="btn btn-default rework"  name="rework"  value="Rework" />
                                               <?php } ?>
                                             </center>
                                             </div>
                                             <div class="" style="display:inline-block">
-                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
+                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
                                             <div class="" style="display:inline-block">
                                               <a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
@@ -2364,10 +2364,10 @@ alert(alertmsg);
                                               <input type="submit" class="btn btn-default done" onclick="downloadbtn2()" name="ZIP"  value="Download" >
                                             </div>
                                             <div class=""  style="display:inline-block"><center>
-                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php }?>
+                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php }?>
                                             </center></div>
                                             <div class="" style="display:inline-block">
-                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id'])  { ?>  <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
+                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>  <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
                                             <div class="" style="display:inline-block">
                                               <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
