@@ -24,10 +24,12 @@
 
 		$description_name=explode('-',$fileName);
 		$description_name1=explode('.',$description_name[1]);
-		$description=$description_name[0]." ".$description_name1[0];
+		//$description=$description_name[0]." ".$description_name1[0];
+			$description=$description_name[0];
+			$picture_name=$description_name[0]." ".$description_name1[0];
 
     // $order_id=5;
-		$targetFile=$description."-".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+		$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
 
 		$directory='../finished_images/order_'.$order_id;
     if($name=mkdir($directory,true))
@@ -61,7 +63,7 @@
 
 			$sql 			=			"INSERT INTO `img_upload`( `img`, `order_id`, `raw_images`, `finished_images`, `service_id`,`updated_on`,`uploaded_by_id`,`uploaded_by_user`) VALUES ('$targetFile',$order_id,0,1,$service,now(),$user_id,'$user_type')";
 			$result 		=			mysqli_query($con, $sql);
-			mysqli_query($con,"INSERT INTO `image_naming`(`order_id`, `image_name`,`description`) VALUES ($order_id,'$targetFile','$description')");
+			mysqli_query($con,"INSERT INTO `image_naming`(`order_id`, `image_name`,`description`) VALUES ($order_id,'$targetFile','$picture_name')");
 			if($result) {
 				echo "File uploaded successfully";
 			}

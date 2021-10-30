@@ -9,7 +9,7 @@ $userTYPE=$_SESSION['admin_loggedin_type'];
   $userLoggedinID=$_SESSION['admin_loggedin_id'];
   $Check_Viewer_Is_Valid=mysqli_query($con,"select * from orders where (pc_admin_id='$userLoggedinID' or csr_id='$userLoggedinID') and id='$id_url'");
   $authorized=mysqli_num_rows($Check_Viewer_Is_Valid);
- 
+
   if($authorized==0 && $userTYPE=='PCAdmin')
   {
   header("location:PCAdmin_dashboard.php?na=1");exit;
@@ -18,7 +18,7 @@ $userTYPE=$_SESSION['admin_loggedin_type'];
   {
   header("location:subcsr_dashboard.php?na=1");exit;
   }
-  
+
 if(1)
 {
   $order_id=$_REQUEST['id'];
