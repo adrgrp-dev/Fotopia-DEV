@@ -55,14 +55,14 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
     //Send HTML or Plain Text email
     $mail->isHTML(true);
 
-    $mail->Subject = "Invite from application";
-    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">INVITE FROM APPLICATION</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+    $mail->Subject = "Invitation to join Fotopia";
+    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Invitation to join Fotopia</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Hello {{receiver_email}},<br><br>
 
-   You are invited by {{realtor_name}} through Fotopia <br><br>
+   You have been invited by {{realtor_name}} to join Fotopia.<br><br>
   <a href='{{link}}'
-  target='_blank'>Click here</a> to register into the application.
+  target='_blank'>Click here</a> to register with Fotopia application.
 
   <br><br>
   Thanks,<br>
@@ -265,7 +265,7 @@ vertical-align:top!important;
         font-size: 50px;
 
         margin-right: 5px;
-        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
+        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Invite to Join Fotopia</span></b></a></p>
         </div>
 
         <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
