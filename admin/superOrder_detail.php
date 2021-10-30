@@ -2998,7 +2998,7 @@ alert(alertmsg);
 <td id="inv_th" colspan="1" style="text-align: right;"><span ><span adr_trans="label_tax">tax</span>(<?php echo $get_information['tax']; ?>%)</span><span >:</span></td>
 <?php
 $percentage = @$get_information['tax'];
-@$totalcost = $prodsList1['total'];
+@$totalcost = $prodsList1['total']+@$invoice_check['other_cost'];
 @$new_cost = ($percentage / 100) * $totalcost;
  ?>
 <td id="inv_td" style="text-align: center;"><span data-prefix>$</span><span><?php echo @$new_cost; ?></span></td>
