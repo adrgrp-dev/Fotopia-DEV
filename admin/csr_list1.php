@@ -783,13 +783,14 @@ header("location:csr_list1.php?ed=1");
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['email']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php
+				$serviceType="";
 				$photgrapherMappedToEditor=mysqli_num_rows($get_photographer_id_query);
 				if($photgrapherMappedToEditor>0)
 				{
 				while($get_photographer_id_query1=mysqli_fetch_array($get_photographer_id_query))
 				{
 				$phID=$get_photographer_id_query1['photographer_id'];
-				$serviceType="";
+				
 				 if($get_photographer_id_query1['service_type']==1){ $serviceType="Photos"; } else{ $serviceType="Floor plans"; }
 				
 				$PhDetails1=mysqli_query($con,"select * from user_login where id='$phID'");
@@ -804,7 +805,7 @@ header("location:csr_list1.php?ed=1");
 				 ?></td>
 				
 
-				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo $get_photographer_id_query1['service_type']; ?>" class="link">
+				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
 				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
 				</tr>
