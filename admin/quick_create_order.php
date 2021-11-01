@@ -26,6 +26,7 @@ $_SESSION['property_country'] = $_REQUEST["country"];
 $_SESSION['property_zip']  = $_REQUEST["zip"];
 $_SESSION['property_contact_mobile'] = $_REQUEST["mobile_no"];
 $_SESSION['property_contact_email'] = $_REQUEST["email_id"];
+$_SESSION['realtor_employer_id']=$_REQUEST["realtor_employer_id"];
 
 
 
@@ -429,7 +430,7 @@ else
 $("#realtor_contactNo").css("border","solid 1px grey");
 
 }
-     
+
 
 if(realtor_email=='')
 {
@@ -470,11 +471,11 @@ $("#realtor_employer_id").css("border","solid 1px grey");
  xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	
+
      $("#realtor_saved_msg").html(this.responseText);
 	 $("#realtor_saved_msg").show(300);
 	 $("#save_realtor").hide(600);
-	 
+
     }
   };
   xhttp.open("GET", "save_realtor.php?realtor_name="+realtor_name+"&realtor_contactNo="+realtor_contactNo+"&realtor_email="+realtor_email+"&realtor_address="+realtor_address+"&realtor_employer_id="+realtor_employer_id, true);
@@ -497,7 +498,7 @@ $("#realtor_employer_id").val('');
 else
 {
  $("#save_realtor").hide(600);
- 
+
  xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -614,20 +615,22 @@ if(@$_REQUEST["hs_id"]!='')
 $hs_id_is = @$_REQUEST["hs_id"];
 $appointment_update=mysqli_query($con,"select * from home_seller_info where id='$hs_id_is'");
 $appointment_update_details=mysqli_fetch_array($appointment_update);
+
+
 }
 ?>
    <div class="col-md-6">
     <label for="from_homeseller">
           <input type="radio" id="from_homeseller" name="from_whom" value="homeseller" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="homeseller"){ echo "checked"; } ?>  required  style="margin-left:20px;"/><span adr_trans="label_from_homeseller"> FROM HOMESELLER</span>
         </label>
-     
+
       </div>
       <div class="col-md-6">
        <label for="from_realtor" style="display:inline-block">
-          <input type="radio" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
+          <input type="radio" class="show_realtor_info" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
         </label>
        &nbsp; &nbsp; &nbsp;
-	   <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;" onchange="RealtorSearch(this.value)">
+	   <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;" onchange="RealtorSearch(this.value)" onclick="RealtorSearch(this.value)">
 <option value="">Create New Realtor</option>
 						<?php
 
@@ -635,12 +638,12 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>
-						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
+						<option value="<?php echo $selectrealtor1['id']; ?>" <?php if(@$appointment_update_details['request_name']==@$selectrealtor1['first_name']){ echo "selected"; }?>><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
 						<?php } ?>
 
 </select>
-	   
-	   
+
+
       </div>
 
     <br>
@@ -656,7 +659,7 @@ $(function() {
        $("#realtor_email").attr("required","required");
        $("#realtor_address").attr("required","required");
      $("#from_whom").removeAttr('required');
-	 
+
 	  $("#realtor_id").css("visibility","visible");
       // $("#realtor_id").attr("required","required");
 
@@ -679,6 +682,18 @@ $(function() {
 $hs_id_is = @$_REQUEST["hs_id"];
 $appointment_update=mysqli_query($con,"select * from home_seller_info where id='$hs_id_is'");
 $appointment_update_details=mysqli_fetch_array($appointment_update);
+if(@$_REQUEST['u']==1)
+{
+  $employer_count=0;
+  $Realtor_email=$appointment_update_details['request_email'];
+  $realtor_employer_id_query=mysqli_query($con,"select * from realtor_profile where email='$Realtor_email'");
+  $employer_count=mysqli_num_rows($realtor_employer_id_query);
+  if($employer_count!=0)
+  {
+  $get_realtor_id=mysqli_fetch_assoc($realtor_employer_id_query);
+  }
+
+}
 ?>
 
               <div id="realtor_information" style="display:none" >
@@ -696,7 +711,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         <p>REALTOR EMAIL</p>
                         <input id="realtor_email" name="realtor_email" placeholder="Enter The Realtor email id" type="email" autocomplete="off"
                         value="<?php echo  @$appointment_update_details['request_email'];?>" class="form-control form-value" required>
-                              
+
     </div>
     <div class="col-md-6">
                         <p>REALTOR ADDRESS</p>
@@ -706,7 +721,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 	 <div class="col-md-6">
                         <p>REALTOR EMPLOYER ID</p>
                         <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
-                        value="<?php echo  @$appointment_update_details['realtor_employer_id'];?>" class="form-control form-value" required>
+                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}else{ echo "UNKNOWN";}}?>" class="form-control form-value" required>
     </div>
 	 <div class="col-md-6">
                         <p>&nbsp;</p>
@@ -871,7 +886,25 @@ if($user_type=="Photographer")
             </div>
         </div>
      </div>
+<?php if((@$_REQUEST['u']==1)&&(@$appointment_update_details['lead_from']=="realtor")){?>
 
+<script>
+//alert("sarath");
+
+if ($("#from_realtor").is(":checked")) {
+  //alert("okay");
+  $("#realtor_information").show();
+  $("#realtor_name").attr("required","required");
+  $("#realtor_contactNo").attr("required","required");
+  $("#realtor_email").attr("required","required");
+  $("#realtor_address").attr("required","required");
+$("#from_whom").removeAttr('required');
+
+$("#realtor_id").css("visibility","visible");
+ // $("#realtor_id").attr("required","required");
+}
+</script>
+<?php }?>
 
 
 

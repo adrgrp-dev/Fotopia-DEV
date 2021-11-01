@@ -634,7 +634,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>
-						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
+						<option value="<?php echo $selectrealtor1['id']; ?>" <?php if(@$appointment_update_details['request_name']==@$selectrealtor1['first_name']){ echo "selected"; }?>><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
 						<?php } ?>
 
 </select>
@@ -703,7 +703,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 	 <div class="col-md-6">
                         <p>REALTOR EMPLOYER ID</p>
                         <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
-                        value="<?php echo  @$appointment_update_details['realtor_employer_id'];?>" class="form-control form-value" required>
+                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}else{ echo "UNKNOWN";}}?>" class="form-control form-value" required>
     </div>
 	<div class="col-md-6">
                         <p>&nbsp;</p>
@@ -716,6 +716,18 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 $hs_id_is = @$_REQUEST["hs_id"];
 $appointment_update=mysqli_query($con,"select * from home_seller_info where id='$hs_id_is'");
 $appointment_update_details=mysqli_fetch_array($appointment_update);
+if(@$_REQUEST['u']==1)
+{
+  $employer_count=0;
+  $Realtor_email=$appointment_update_details['request_email'];
+  $realtor_employer_id_query=mysqli_query($con,"select * from realtor_profile where email='$Realtor_email'");
+  $employer_count=mysqli_num_rows($realtor_employer_id_query);
+  if($employer_count!=0)
+  {
+  $get_realtor_id=mysqli_fetch_assoc($realtor_employer_id_query);
+  }
+
+}
 
 ?>
 
@@ -868,6 +880,26 @@ if($user_type=="Photographer")
             </div>
         </div>
      </div>
+
+     <?php if((@$_REQUEST['u']==1)&&(@$appointment_update_details['lead_from']=="realtor")){?>
+
+     <script>
+     //alert("sarath");
+
+     if ($("#from_realtor").is(":checked")) {
+       //alert("okay");
+       $("#realtor_information").show();
+       $("#realtor_name").attr("required","required");
+       $("#realtor_contactNo").attr("required","required");
+       $("#realtor_email").attr("required","required");
+       $("#realtor_address").attr("required","required");
+     $("#from_whom").removeAttr('required');
+
+     $("#realtor_id").css("visibility","visible");
+      // $("#realtor_id").attr("required","required");
+     }
+     </script>
+     <?php }?>
 
 
 
