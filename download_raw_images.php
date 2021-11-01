@@ -78,6 +78,7 @@ $files = new RecursiveIteratorIterator(
     RecursiveIteratorIterator::LEAVES_ONLY
 );
 $totalNumberOdFiles=getFileCount("./temp/$timeRandom");
+
 foreach ($files as $name => $file)
 {
     // Skip directories (they would be added automatically)

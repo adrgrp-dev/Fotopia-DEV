@@ -685,17 +685,9 @@ var photographer_id;
 
   var photographer_id=$('#options [value="' + value + '"]').data('value');
 
-  document.getElementById('photo_id').value=photographer_id;
+  $('#photo_id').val(photographer_id);
   //console.log(d);
-  var xhttp= new XMLHttpRequest();
-  xhttp.onreadystatechange = function()
-  {
-    if(this.readyState == 4 && this.status == 200){
-       $("#products").html(this.responseText);
-    }
-  };
-  xhttp.open("GET","Get_Products.php?photographer_id="+photographer_id,true);
-  xhttp.send();
+ 
 }
 var valIs="";
 function showHideFloors(valIs)

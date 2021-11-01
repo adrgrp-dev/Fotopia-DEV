@@ -806,17 +806,8 @@ var photographer_id;
 
   var photographer_id=$('#options [value="' + value + '"]').data('value');
 
-  document.getElementById('photo_id').value=photographer_id;
-  //console.log(d);
-  var xhttp= new XMLHttpRequest();
-  xhttp.onreadystatechange = function()
-  {
-    if(this.readyState == 4 && this.status == 200){
-       $("#products").html(this.responseText);
-    }
-  };
-  xhttp.open("GET","Get_Products.php?photographer_id="+photographer_id,true);
-  xhttp.send();
+ $('#photo_id').val(photographer_id);
+  
 }
 var valIs="";
 function showHideFloors(valIs)
@@ -1259,7 +1250,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
        <p id="label_photographer" adr_trans="label_photographer">Photographer </p>
       <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);"> -->
-        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" required />
+        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange="Get_Products()"   autocomplete="off" required />
         <datalist id="options">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
        <?php

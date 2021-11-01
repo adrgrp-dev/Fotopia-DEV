@@ -29,7 +29,8 @@
 			$picture_name=$description_name[0]." ".$description_name1[0];
 
     // $order_id=5;
-		$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+		//$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+		$targetFile=strtolower(str_replace("-","_",$fileName));
 
 		$directory='../finished_images/order_'.$order_id;
     if($name=mkdir($directory,true))
