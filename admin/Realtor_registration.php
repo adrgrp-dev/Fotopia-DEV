@@ -279,7 +279,7 @@ $("#fname").css("border","solid 1px red");
 }
 else
 {
-$("#fname").css("border","none");
+$("#fname").css("border","solid 1px grey");
 }
 if(lname=='')
 {
@@ -287,7 +287,7 @@ $("#lname").css("border","solid 1px red");
 }
 else
 {
-$("#lname").css("border","none");
+$("#lname").css("border","solid 1px grey");
 }
 if(email=='')
 {
@@ -295,7 +295,7 @@ $("#email").css("border","solid 1px red");
 }
 else
 {
-$("#email").css("border","none");
+$("#email").css("border","solid 1px grey");
 }
 if(contactno=='')
 {
@@ -303,7 +303,7 @@ $("#contactno").css("border","solid 1px red");
 }
 else
 {
-$("#contactno").css("border","none");
+$("#contactno").css("border","solid 1px grey");
 }
 if(password=='')
 {
@@ -311,7 +311,7 @@ $("#password").css("border","solid 1px red");
 }
 else
 {
-$("#password").css("border","none");
+$("#password").css("border","solid 1px grey");
 }
 if(confirmpassword=='')
 {
@@ -319,7 +319,7 @@ $("#confirmpassword").css("border","solid 1px red");
 }
 else
 {
-$("#confirmpassword").css("border","none");
+$("#confirmpassword").css("border","solid 1px grey");
 }
 
 
@@ -585,7 +585,7 @@ $("#org_name").css("border","solid 1px red");
 }
 else
 {
-$("#org_name").css("border","none");
+$("#org_name").css("border","solid 1px grey");
 }
 
 
@@ -596,7 +596,7 @@ $("#org_branch").css("border","solid 1px red");
 }
 else
 {
-$("#org_branch").css("border","none");
+$("#org_branch").css("border","solid 1px grey");
 }
 
 var org_email =  $("#org_email").val();
@@ -606,7 +606,7 @@ $("#org_email").css("border","solid 1px red");
 }
 else
 {
-$("#org_email").css("border","none");
+$("#org_email").css("border","solid 1px grey");
 }
 
 
@@ -617,7 +617,7 @@ $("#org_no").css("border","solid 1px red");
 }
 else
 {
-$("#org_no").css("border","none");
+$("#org_no").css("border","solid 1px grey");
 }
 
 var addressline1 =  $("#addressline1").val();
@@ -627,30 +627,30 @@ $("#addressline1").css("border","solid 1px red");
 }
 else
 {
-$("#addressline1").css("border","none");
+$("#addressline1").css("border","solid 1px grey");
 }
 
 
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
+// var addressline2 =  $("#addressline2").val();
+// if(addressline2=='')
+// {
+// $("#addressline2").css("border","solid 1px red");
+// }
+// else
+// {
+// $("#addressline2").css("border","solid 1px grey");
+// }
 
 
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
+// var addressline2 =  $("#addressline2").val();
+// if(addressline2=='')
+// {
+// $("#addressline2").css("border","solid 1px red");
+// }
+// else
+// {
+// $("#addressline2").css("border","solid 1px grey");
+// }
 
 
 var city =  $("#city").val();
@@ -660,7 +660,7 @@ $("#city").css("border","solid 1px red");
 }
 else
 {
-$("#city").css("border","none");
+$("#city").css("border","solid 1px grey");
 }
 
 var state =  $("#state").val();
@@ -670,7 +670,7 @@ $("#state").css("border","solid 1px red");
 }
 else
 {
-$("#state").css("border","none");
+$("#state").css("border","solid 1px grey");
 }
 
 var zip =  $("#zip").val();
@@ -680,7 +680,7 @@ $("#zip").css("border","solid 1px red");
 }
 else
 {
-$("#zip").css("border","none");
+$("#zip").css("border","solid 1px grey");
 }
 
 var country =  $("#country").val();
@@ -690,7 +690,7 @@ $("#country").css("border","solid 1px red");
 }
 else
 {
-$("#country").css("border","none");
+$("#country").css("border","solid 1px grey");
 }
 
 }
