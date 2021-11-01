@@ -559,26 +559,26 @@ $("#addressline1").css("border","none");
 }
 
 
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
+// var addressline2 =  $("#addressline2").val();
+// if(addressline2=='')
+// {
+// $("#addressline2").css("border","solid 1px red");
+// }
+// else
+// {
+// $("#addressline2").css("border","none");
+// }
 
 
-var addressline2 =  $("#addressline2").val();
-if(addressline2=='')
-{
-$("#addressline2").css("border","solid 1px red");
-}
-else
-{
-$("#addressline2").css("border","none");
-}
+// var addressline2 =  $("#addressline2").val();
+// if(addressline2=='')
+// {
+// $("#addressline2").css("border","solid 1px red");
+// }
+// else
+// {
+// $("#addressline2").css("border","none");
+// }
 
 
 var city =  $("#city").val();

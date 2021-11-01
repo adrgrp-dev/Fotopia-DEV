@@ -12,7 +12,7 @@ if(isset($_REQUEST['loginbtn']))
 }
 
 
-function email($y,$z)
+function email($y,$z,$type_of_user)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -67,12 +67,19 @@ function email($y,$z)
 Welcome to Fotopia!<br><br>
 
 Your account has been approved by Fotopia Admin Team.<br>
-<a href='{{project_url}}/login.php' target='_blank'>click here</a>
+<a href='{{project_url}}' target='_blank'>click here</a>
 to login in to your Fotopia account.
 <br><br>
 Thanks,<br>
 Fotopia Team.";
-	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
+if($type_of_user=="Realtor")
+{
+	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."login.php" , $mail->Body);
+}
+else{
+	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."admin/index.php" , $mail->Body);
+}
+
 	$mail->Body=str_replace('{{Registrered_User_Name}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 	 // echo $mail->Body;exit;
@@ -104,7 +111,7 @@ else
 	}
 
 	$get_user=mysqli_fetch_assoc($get_user_detail);
-	email($get_user['first_name'],$get_user['email']);
+	email($get_user['first_name'],$get_user['email'],$get_user['type_of_user']);
 	if(@$get_user['type_of_user']!='PCAdmin')
 	{
 		mysqli_query($con,"update user_login set email_verified=1 where id='$id'");
