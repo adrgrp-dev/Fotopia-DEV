@@ -138,7 +138,8 @@ $(this).attr("type","text");
 </script>
 
     <?php
-
+if(isset($_SESSION['admin_loggedin_type']))
+{
 $usertype = $_SESSION['admin_loggedin_type'];
 $currentPage=$_SERVER['PHP_SELF'];
 
@@ -287,7 +288,7 @@ elseif ($usertype == 'CSR'){
 
 }
 
-
+}
 
 
  ?>
