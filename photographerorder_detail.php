@@ -1383,7 +1383,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                            $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                           if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                           if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                            {
                                             ?>
 
@@ -1523,7 +1523,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                              $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                              {
                                               ?>
 
@@ -1650,7 +1650,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                              }
                                              $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                              {
                                               ?>
 
@@ -1791,7 +1791,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                              }
                                              $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                              {
                                               ?>
 
@@ -2177,7 +2177,7 @@ function printPage()
                                                        $i++;
                                                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                                        {
 
                                                         ?>
@@ -2306,7 +2306,7 @@ function printPage()
                                                         $i++;
                                                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                                        {
 
                                                         ?>
@@ -2430,7 +2430,7 @@ function printPage()
                                                        $i++;
                                                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                                        {
 
                                                         ?>
@@ -2555,7 +2555,7 @@ function printPage()
                                                         $i++;
                                                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                                        {
 
                                                         ?>

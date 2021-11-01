@@ -315,7 +315,7 @@ var a;
                          continue;
                        }
                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-                       if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                        {
                         ?>
                         <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
@@ -418,7 +418,7 @@ var a;
 
                          $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                         if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                         if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
                           <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
@@ -511,7 +511,7 @@ var a;
                            continue;
                          }
                          $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-                         if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                         if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
                           <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
@@ -604,7 +604,7 @@ var a;
                            continue;
                          }
                          $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-                         if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                         if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
                           <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">

@@ -1475,7 +1475,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                  $i++;
                                  $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                  {
 
                                   ?>
@@ -1610,7 +1610,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                   $i++;
                                  $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                  {
 
                                   ?>
@@ -1737,7 +1737,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                  $i++;
                                  $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                  {
 
                                   ?>
@@ -1862,7 +1862,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                   $i++;
                                  $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png'))
+                                 if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                                  {
 
                                   ?>
