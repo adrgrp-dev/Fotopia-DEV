@@ -182,6 +182,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 	    <tr><th style=""  ><span adr_trans="label_org_name">Organization name</span></th><th>:</th><td align="center"><?php echo @$res1['organization_name']; ?></td></tr>
 		 <tr><th style=""  ><span adr_trans="label_org_branch">Organization branch</span></th><th>:</th><td align="center"><?php echo @$res1['organization_branch']; ?></td></tr>
+		  <tr><th style="padding-left:20px;"><span>Organization Number</span></th><th>:</th><td align="center"><?php echo @$res1['organization_number']; ?></td></tr>
 
 		    <tr><th style="" adr_trans="label_contact_no">Contact number</th><th>:</th><td align="center"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
 		   <tr><th style="" adr_trans="label_email">Email</th><th>:</th><td align="center"><?php echo @$res1['email']; ?></td></tr>

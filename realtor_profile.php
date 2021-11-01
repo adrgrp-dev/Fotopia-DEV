@@ -152,6 +152,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 	    <tr><th style="padding-left:20px;"><span adr_trans="label_org_name">Organization name</span></th><th>:</th><td align="center"><?php echo @$res1['organization_name']; ?></td></tr>
 		 <tr><th style="padding-left:20px;"><span adr_trans="label_org_branch">Organization branch</span></th><th>:</th><td align="center"><?php echo @$res1['organization_branch']; ?></td></tr>
+		  <tr><th style="padding-left:20px;"><span>Realtor Employer ID</span></th><th>:</th><td align="center"><?php echo @$res1['realtor_employer_id']; ?></td></tr>
 
 		  <tr><th style="padding-left:20px;"><span adr_trans="label_org_contact_no">Organization contact number</span></th><th>:</th><td align="center"><b><?php echo @$res1['organization_contact_number']; ?></b></td></tr>
 		   <tr><th style="padding-left:20px;"><span adr_trans="label_org_email">Organization Email</span></th><th>:</th><td align="center"><?php echo @$res1['organization_email']; ?></td></tr>
