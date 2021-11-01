@@ -2724,7 +2724,7 @@ alert(alertmsg);
          // {
          if(@$invoice_check['approved']==0)
           {
-           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -80px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
+           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -76px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
           }
           else {
               echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';

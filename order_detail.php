@@ -9,7 +9,7 @@ $xyz123=0;
   $userLoggedinID=$_SESSION['loggedin_id'];
   $Check_Viewer_Is_Valid=mysqli_query($con,"select * from orders where (realtor_id='$userLoggedinID' or photographer_id='$userLoggedinID') and id='$id_url'");
   $authorized=mysqli_num_rows($Check_Viewer_Is_Valid);
- 
+
   if($authorized==0 && $userTYPE=='Realtor')
   {
   header("location:csrRealtorDashboard.php?na=1");exit;
@@ -1055,9 +1055,9 @@ var c=$('#count').val();
      if(d==5)
      {
          $("#title").html('Cancel the order');
-         // $("#error").html('Reason for Decline:');
+
          $("#status_id").val(d);
-      $("#send").click();
+      $("#send_cancel").click();
 
      }
 
@@ -1246,7 +1246,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                                 <option value="5">Cancel the order</option>
 
                         </select>
-<a href="#tnc1" class="btn btn-default lightbox link"  name="" id="send"  style="display:none"></a>
+<a href="#tnc1" class="btn btn-default lightbox link"  name="" id="send_cancel"  style="display:none"></a>
                         <?php
                          }
                         ?>
@@ -2282,7 +2282,7 @@ if($get_order1['status_id']==3)
                     <form class="" action="#" method="post">
 
 
-                   <input type="text" name="email" />
+                   <input type="text" name="email" >
                    </form>
                   </div>
 

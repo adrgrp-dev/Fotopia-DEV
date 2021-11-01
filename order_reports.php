@@ -467,7 +467,7 @@ $res="";
 
 
                           $get_name_create=mysqli_fetch_assoc($get_create_name_query2);
-                          $created_name=$get_name_create["first_name"]."".$get_name_create["last_name"];
+                          $created_name=@$get_name_create["first_name"]."".@$get_name_create["last_name"];
                           ?>
 
                           <!-- <td class="text-left" style=""><?php echo $created_name; ?></td> -->
