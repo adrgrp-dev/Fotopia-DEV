@@ -428,7 +428,7 @@ else
 $("#realtor_contactNo").css("border","solid 1px grey");
 
 }
-     
+
 
 if(realtor_email=='')
 {
@@ -469,11 +469,11 @@ $("#realtor_employer_id").css("border","solid 1px grey");
  xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	
+
      $("#realtor_saved_msg").html(this.responseText);
 	 $("#realtor_saved_msg").show(300);
 	 $("#save_realtor").hide(600);
-	 
+
     }
   };
   xhttp.open("GET", "save_realtor.php?realtor_name="+realtor_name+"&realtor_contactNo="+realtor_contactNo+"&realtor_email="+realtor_email+"&realtor_address="+realtor_address+"&realtor_employer_id="+realtor_employer_id, true);
@@ -496,7 +496,7 @@ $("#realtor_employer_id").val('');
 else
 {
  $("#save_realtor").hide(600);
- 
+
  xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -619,7 +619,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
     <label for="from_homeseller">
           <input type="radio" id="from_homeseller" name="from_whom" value="homeseller" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="homeseller"){ echo "checked"; } ?>  required /><span adr_trans="label_from_homeseller"> FROM HOMESELLER</span>
         </label>
-      
+
       </div>
       <div class="col-md-6">
         <label for="from_realtor">
@@ -653,7 +653,7 @@ $(function() {
        $("#realtor_email").attr("required","required");
        $("#realtor_address").attr("required","required");
      $("#from_whom").removeAttr('required');
-	 
+
 	  $("#realtor_id").css("visibility","visible");
      //  $("#realtor_id").attr("required","required");
 
@@ -693,7 +693,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         <p>REALTOR EMAIL</p>
                         <input id="realtor_email" name="realtor_email" placeholder="Enter The Realtor email id" type="email" autocomplete="off"
                         value="<?php echo  @$appointment_update_details['request_email'];?>" class="form-control form-value" required>
-                             
+
     </div>
     <div class="col-md-6">
                         <p>REALTOR ADDRESS</p>
@@ -843,7 +843,7 @@ if($user_type=="Photographer")
      <button class="anima-button circle-button btn-sm btn" type="submit" name="SaveOrder"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
 
 	 <?php
-	 $user_type=$_SESSION['user_type'];
+	 $user_type=$_SESSION['admin_loggedin_type'];
 
 					if($user_type=="CSR")
 					{
