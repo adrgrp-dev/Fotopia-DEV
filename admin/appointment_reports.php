@@ -76,7 +76,7 @@ var days = 1;
 </div>
 <div class="col-md-3" style="padding-left:30px;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
- <input type="text"  list="Suggestions1" placeholder="Search Photographer" class="form-control form-value" id="user_name1" name="user_name1" value="" style="display:inline;" />
+ <input type="text"  list="Suggestions1" placeholder="Search Photographer" class="form-control form-value" id="user_name1" name="user_name1" value="" style="display:inline;" autocomplete="off" />
  <!-- <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button> -->
 
  <datalist id="Suggestions1"  >

@@ -100,7 +100,7 @@ return true;
 </div>
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_photo_company">Photo Company</h5></p>
-<input type="text" name="pcfilter" id="pcfilter" class="form-control" list="pclist" onchange="PCAdminSearch()" />
+<input type="text" name="pcfilter" id="pcfilter" class="form-control" list="pclist" onchange="PCAdminSearch()"  autocomplete="off" />
 <datalist id="pclist">
  <?php
 							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile");

@@ -397,6 +397,7 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
 												//	echo $q1;
 
 $res="";
+
                           $result=mysqli_query($con,$q1);
                           @$data=mysqli_fetch_assoc(@$result);
                           $number_of_pages=5;
