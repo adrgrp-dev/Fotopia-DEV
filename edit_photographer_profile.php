@@ -178,7 +178,7 @@ p{
 
                  <div class="col-md-6">
                 <p style="color:#000;" adr_trans="label_address_line2">Address line 2</p>
-                 <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" required="" value="<?php echo @$res1['address_line2']; ?>">
+                 <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30"  value="<?php echo @$res1['address_line2']; ?>">
                </div>
 
               <div class="col-md-6">
@@ -305,7 +305,7 @@ $("#profile_pic").change(function () {
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{

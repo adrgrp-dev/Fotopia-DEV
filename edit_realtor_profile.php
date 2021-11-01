@@ -180,7 +180,7 @@ margin-left:0px!important;
 <table id="profile" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;width:100%"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 
-				
+
 				<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_add_company_profile">Add / Edit company profile</h5></div>
 
@@ -207,7 +207,7 @@ margin-left:0px!important;
                                 <p style="color:#000;" adr_trans="label_org_branch">Organization branch</p>
                                 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['organization_branch']; ?>">
 								</div>
-								
+
 								<div class="col-md-6">
                                 <p style="color:#000;">Realtor Employer ID</p>
                                 <input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['realtor_employer_id']; ?>">
@@ -287,7 +287,7 @@ margin-left:0px!important;
 
                  <div class="col-md-6">
                 <p style="color:#000;" adr_trans="label_address_line2">Address line 2</p>
-                 <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" required="" value="<?php echo @$res1['address_line2']; ?>">
+                 <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" value="<?php echo @$res1['address_line2']; ?>">
                </div>
 
               <div class="col-md-6">
@@ -350,7 +350,7 @@ margin-left:0px!important;
                                   <input id="profile_pic" name="profile_pic" placeholder="Profile picture" type="file" autocomplete="off" class="form-control form-value" >
 
                               </div>
-   <?php /* 
+   <?php /*
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_password">Password</p>
                                 <input id="password" name="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['password']; ?>">
@@ -429,7 +429,7 @@ $("#logo").change(function () {
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Logo skal bare være i det gitte formatet";
+		alertmsg="Logo skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{
@@ -448,7 +448,7 @@ $("#profile_pic").change(function () {
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{
