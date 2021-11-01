@@ -29,8 +29,8 @@ if(isset($_REQUEST['signupbtn']))
 {
 	$fname=$_REQUEST['fname'];
 	$lname=$_REQUEST['lname'];
-	
-	
+
+
 	$email=$_REQUEST['email'];
 	$password=$_REQUEST['password'];
 
@@ -79,13 +79,13 @@ if(isset($_REQUEST['signupbtn']))
 <?php include "header.php";  ?>
 	<div class="section-empty bgimage9">
             <div class="row">
-	
+
 
 			<div class="col-md-2" >
-			
-			
+
+
 	<?php include "sidebar.php"; ?>
-			
+
 			<script>
 function validate_email(val)
 {
@@ -94,8 +94,8 @@ function validate_email(val)
   {
     if(this.readyState == 4 && this.status == 200){
      if(this.responseText == "true")
-     { 
-	  
+     {
+
         var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
@@ -123,19 +123,19 @@ function validate_email(val)
 </script>
 			</div>
                 <div class="col-md-10" style="padding:30px;">
-				
-				
-						
+
+
+
 
                          <div class="col-md-12"><h5 align="center"> Create Admin</h5></div>
-						 
-						 
-						
-						  
-						
+
+
+
+
+
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="margin-top:40px;background:#000;color:#FFF;opacity:0.8;width:90%;border-radius:30px 30px 30px 30px!important;padding:20px;">
 
-						 
+
   						<div class="col-md-6">
                                   <p>First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="">
@@ -152,7 +152,7 @@ function validate_email(val)
                                   <p>Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off" onblur="validate_email(this.value)" class="form-control form-value" required="">
-                                   
+
  															</div>
 
 
@@ -179,7 +179,7 @@ function validate_email(val)
 
   							 <div class="col-md-6">
   						  <p>Address Line 2</p>
-  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" required="">
+  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" >
   						 </div>
 
   						<div class="col-md-6">
@@ -332,17 +332,17 @@ function validate_email(val)
                          &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="admin_users.php"><i class="fa fa-times"></i>Cancel</a>
   </center>
   					   </div>
-					   
+
 					   </form>
-					   
+
                           </div>
 
 
-                  </div> 
+                  </div>
 
 
               </div>
-         
+
         <script>
 
 
@@ -369,7 +369,7 @@ function validate_email(val)
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{
@@ -379,7 +379,7 @@ function validate_email(val)
       $("#profilepic").val("");
         }
     });
- 
+
 
 
        </script>

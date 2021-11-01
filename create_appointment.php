@@ -162,11 +162,11 @@ $order_id=mysqli_insert_id($con);
                 <div class="col-md-2"  style="margin-left:-15px;">
 				<?php
 				$calDate="";
-				if($_SESSION['date']!="")
+				if(isset($_SESSION['date'])!="")
 				{
 				$calDate=$_SESSION['date'];
 				}
-				if($_SESSION['fromDatetime']!="")
+				if(isset($_SESSION['fromDatetime'])!="")
 				{
 				$calDate=$_SESSION['fromDatetime'];
 				}
@@ -351,7 +351,7 @@ background:#000!important;
 		background-color:#FED8B1!important;
         color:#FF8400!important;
         }
-		
+
 		.fc .fc-toolbar.fc-header-toolbar
 		{
 		padding:3px!important;
@@ -379,7 +379,7 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
 }
   </style>
   				<link href='lib/main.css' rel='stylesheet' />
@@ -388,11 +388,11 @@ background: repeating-linear-gradient(
 
  <?php
  $todayIs="";
- if($_SESSION['date'])
+ if(isset($_SESSION['date']))
  {
  $todayIs=$_SESSION['date'];
  }
- if($_SESSION['fromDatetime'])
+ if(isset($_SESSION['fromDatetime']))
  {
  $todayIs=$_SESSION['fromDatetime'];
  $todayIs1=explode("T",$todayIs);
@@ -566,7 +566,7 @@ var bFound=parseInt($("#BookingFound").val());
 		{
 		$("#appointments_exist_error").html("There is another appoinment scheduled for the selected photographer <br> in between "+fromNew1+" and "+toNew1+", Kindly choose different Date & Time.");
 		}
-	
+
      $("#appointments_exist_error").show();
 	 return false;
     }
@@ -806,7 +806,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
       a=parseInt(this.responseText);
        $("#BookingFound").val(a);
-	   
+
       if(a>0)
     {
      var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
@@ -872,7 +872,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
       a=parseInt(this.responseText);
   $("#BookingFound").val(a);
-  
+
   if(a>0)
     {
      var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
@@ -1182,12 +1182,12 @@ $from123=preg_replace("/ /","T",$from123);
    $to123=date("Y-m-d H:i",strtotime($appointmentsAre1['to_datetime']));
    $to123=preg_replace("/ /","T",$to123);
    }
-   if($_SESSION['date']!="")
+   if(isset($_SESSION['date'])!="")
    {
    $from123=$_SESSION['date']."T08:00:00";
     $to123=$_SESSION['date']."T08:00:00";
    }
-   if($_SESSION['fromDatetime']!="" && $_SESSION['toDatetime']!="")
+   if(isset($_SESSION['fromDatetime'])!="" && isset($_SESSION['toDatetime'])!="")
    {
    $from123=$_SESSION['fromDatetime'];
    $to123=$_SESSION['toDatetime'];
@@ -1200,7 +1200,7 @@ $from123=preg_replace("/ /","T",$from123);
 	  ?>
 
         <br />
-             <div class="col-md-4" <?php if($_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
+             <div class="col-md-4" <?php if(isset($_SESSION['bn'])==1) { echo "style='display:none'";  } ?>>
 
                                 <p id="label_appointment_from" adr_trans="label_appointment_from">From Date & Time  </p>
                                 <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>"  value="<?php echo $from123; ?>" minutestep="10">
@@ -1208,7 +1208,7 @@ $from123=preg_replace("/ /","T",$from123);
 
 							<?php
 
-							if($_SESSION['date']!="" || $_SESSION['fromDatetime']!="")
+							if(isset($_SESSION['date'])!="" || isset($_SESSION['fromDatetime'])!="")
 							{
 							?>
 							<script>
@@ -1247,7 +1247,7 @@ $from123=preg_replace("/ /","T",$from123);
 
 
                             ?>
-            <div class="col-md-4"  <?php if($_SESSION['bn']==1) { echo "style='display:none'";  } ?>>
+            <div class="col-md-4"  <?php if(isset($_SESSION['bn'])==1) { echo "style='display:none'";  } ?>>
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
                               <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>">
                             </div>
@@ -1284,7 +1284,7 @@ $from123=preg_replace("/ /","T",$from123);
 			</div>
 			<div class="col-md-3">
 
-			<div id='calendar'  <?php if($_SESSION['date']=='' && $_SESSION['fromDatetime']=='' && $_SESSION['Photographer_id']=='') { echo "style='display:none'";  } else { echo "style='display:block'"; } ?>></div>
+			<div id='calendar'  <?php if(isset($_SESSION['date'])=='' && isset($_SESSION['fromDatetime'])=='' && isset($_SESSION['Photographer_id'])=='') { echo "style='display:none'";  } else { echo "style='display:block'"; } ?>></div>
 
 			</div>
 
@@ -1297,7 +1297,7 @@ $from123=preg_replace("/ /","T",$from123);
   $(document).ready(function(){
     $('#pht').click();
 	$('#pht').attr("readonly","readonly");
- 
+
   })
 
 

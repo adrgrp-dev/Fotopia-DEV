@@ -191,7 +191,7 @@ p{
                                 <p style="color:#000;" id="label_org_branch" adr_trans="label_org_branch">Organization branch</p>
                                 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_branch']; ?>">
 								</div>
-								
+
 									<div class="col-md-6">
                                 <p style="color:#000;" id="label_org_branch" adr_trans="label_org_number">Organization Number</p>
                                 <input id="organization_number" name="organization_number" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_number']; ?>">
@@ -216,7 +216,7 @@ p{
 
   							 <div class="col-md-6">
   						  <p style="color:#000;" id="label_address_line2" adr_trans="label_address_line2">Address line 2</p>
-  						   <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" required="" value="<?php echo @$res1['address_line2']; ?>">
+  						   <input id="address_line2" name="address_line2" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" value="<?php echo @$res1['address_line2']; ?>">
   						 </div>
 
   						<div class="col-md-6">
@@ -412,7 +412,7 @@ $("#logo").change(function () {
 		var profile_pic_alert='';
 		if(langIs=='no')
 		{
-		profile_pic_alert="Profilbilde skal bare være i det gitte formatet";
+		profile_pic_alert="Profilbilde skal bare vï¿½re i det gitte formatet";
 		}
 		else
 		{
