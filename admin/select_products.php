@@ -193,9 +193,16 @@ $photography_cost1=$photographer_cost[$i];
 	 $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
 	 $realtor_email=$get_realtor_name['email'];
 
-
-
-  mysqli_query($con,"update orders set status_id='2' where id='$order_id'");
+$quickOrderStatus=1;
+if(@$_REQUEST['quickOrder'])
+{
+$quickOrderStatus=1;
+}
+else
+{
+$quickOrderStatus=2;
+}
+  mysqli_query($con,"update orders set status_id='$quickOrderStatus' where id='$order_id'");
 
 
 	email($order_id,$realtor_email,$con);
