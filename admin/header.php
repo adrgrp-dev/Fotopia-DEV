@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "../project-environment.php";
 
 
@@ -18,13 +18,13 @@ if($type=="PCAdmin")
 		$pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
 		$pc_profile1=mysqli_fetch_array($pc_profile);
 		$aboutPC=$pc_profile1['about_us'];
-		
+
 		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
 		$productsFound=mysqli_num_rows($products);
-		
+
 		if($aboutPC=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
-		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }  
-		
+		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }
+
 
 
 
@@ -292,6 +292,8 @@ if($_SESSION['admin_loggedin_type']=='CSR')
 {
 $detailsOdUser=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id='$loggedINID')");
 $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
+$pc_admin_profile=mysqli_query($con,"select * from admin_users where id='$loggedINID'");
+$pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
 }
 
 						?>
@@ -355,7 +357,7 @@ else { ?>
 
 <?php } ?>
 
-<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin') 
+<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin')
 {
 ?>
 
@@ -363,7 +365,7 @@ else { ?>
 <?php } else { ?>
 
 
-				<img src="data:<?php echo @$pc_admin_profile1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$pc_admin_profile1['profile_pic']); ?>" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
+			<?php echo @$pc_admin_profile1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$pc_admin_profile1['profile_pic']); ?>" width="50" height="50" style="border-radius:60px;margin-left:5px;margin-top:10px; display:inline-block" />
 
 <?php } ?>
 
@@ -509,7 +511,7 @@ else { ?>
 <?php } ?>
 
 </div>
-<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin') 
+<?php if($_SESSION['admin_loggedin_type']=='FotopiaAdmin')
 {
 ?>
 
@@ -520,7 +522,7 @@ else { ?>
 			<img src="data:<?php echo @$detailsOdUser1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$detailsOdUser1['logo']); ?>" width="50" height="50" style="border-radius:60px;margin-left:-5px;margin-top:0px; display:inline-block" />
 <?php } ?>
 
-	
+
 
 
 		   <a href="notification.php" >
