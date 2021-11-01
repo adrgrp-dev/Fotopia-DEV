@@ -286,9 +286,17 @@ header("location:subcsrOrder_list1.php?app=1");
 						    $createdByQr="SELECT * FROM user_login where id='$created_by_id'";
 						   }
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
-         if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
+         if($get_name=mysqli_fetch_assoc($get_realtor_name_query))
          {
-          $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		 if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
+		 {
+		  $realtor_Name=@$get_name["organization_name"];
+		 }
+		 else
+		 {
+		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		 }
+         
          }
            ?>
           <td class="text-center" style=""><?php echo @$realtor_Name; ?></td>
@@ -555,7 +563,15 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
          if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
          {
-          $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+          //$realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		   if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
+		 {
+		  $realtor_Name=@$get_name["organization_name"];
+		 }
+		 else
+		 {
+		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		 }
          }
            ?>
           <td class="text-center" style=""><?php echo @$realtor_Name; ?></td>
@@ -819,7 +835,15 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
          if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
          {
-          $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+         // $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		  if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
+		 {
+		  $realtor_Name=@$get_name["organization_name"];
+		 }
+		 else
+		 {
+		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		 }
          }
            ?>
           <td class="text-center" style=""><?php echo @$realtor_Name; ?></td>
@@ -1082,7 +1106,15 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
            if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
            {
-            $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+          //  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		   if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
+		 {
+		  $realtor_Name=@$get_name["organization_name"];
+		 }
+		 else
+		 {
+		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		 }
            }
              ?>
             <td class="text-center" style=""><?php echo @$realtor_Name; ?></td>
