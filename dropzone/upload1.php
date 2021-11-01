@@ -14,7 +14,7 @@
 		$user_type=$_REQUEST['user_type'];
 
 
-		$allowed 				=			 array('png', 'jpg');
+		$allowed=array('png', 'jpg','JPG','PNG','JPEG','jpeg','DNG','dng','CR2','cr2','NEF','nef','ARW','arw');
 
 		$fileName 				=			$_FILES['file']['name'];
 

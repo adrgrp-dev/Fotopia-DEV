@@ -236,11 +236,12 @@ if (isset($_REQUEST['photoCompany'])) {
 	//$_SESSION['filterby']=$filterBy;
 if((!empty($_REQUEST['photoCompany'])  && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending']))))
 {
+
 	$starting=$_REQUEST['starting'];
 		$ending=$_REQUEST['ending'];
 
 
-	if(!empty($_REQUEST['realtor']))$filterBy=" pc_admin_id=".$filterbyid." or pc_admin_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
+	if(!empty($_REQUEST['photoCompany']))$filterBy=" pc_admin_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
 
 
   //$filterBy=" created_by_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
@@ -251,6 +252,8 @@ if((!empty($_REQUEST['photoCompany'])  && (!empty($_REQUEST['starting']) && !emp
 
 elseif(empty($_REQUEST['photoCompany']) && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending'])))
 {
+
+
 	$starting=$_REQUEST['starting'];
 		$ending=$_REQUEST['ending'];
  $filterBy=" DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
@@ -261,6 +264,8 @@ elseif(empty($_REQUEST['photoCompany']) && (!empty($_REQUEST['starting']) && !em
 
 if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($_REQUEST['ending'])))
 {
+
+
 
 	if(!empty($_REQUEST['photoCompany']))$filterBy=" pc_admin_id=".$filterbyid." or pc_admin_id=".$filterbyid;
 
@@ -277,7 +282,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
                              $end = $_SESSION['ending_time'] ;
 
 
-													if($_SESSION['user_type']=="Realtor")
+						if($_SESSION['user_type']=="Realtor")
                            {
 														 // echo "select count(*) as total FROM `orders` where $filterBy and created_by_id=$realtorID";
 														  $q1="select count(*) as total FROM `orders` where $filterBy and realtor_id='$realtorID' ";
@@ -287,6 +292,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
                           }
 
                           elseif (!empty($_SESSION['starting_time'])) {
+						  
                             $start = $_SESSION['starting_time'];
                              $end = $_SESSION['ending_time'] ;
 														 $filterBy=$_SESSION['filterby'] ;
@@ -314,7 +320,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 
 
 $res="";
-// echo $q1;
+ echo $q1;
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $number_of_pages=5;

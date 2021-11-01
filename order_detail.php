@@ -1,7 +1,5 @@
 <?php
 ob_start();
-
-
 include "connection1.php";
 
 //this is for svn test
@@ -333,7 +331,7 @@ foreach ($files as $name => $file)
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 		$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
-		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF")) {
+		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".DNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".dng") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".CR2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".cr2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".NEF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".nef") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".ARW") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".arw")) {
 		$x++;
 		}
 		else
