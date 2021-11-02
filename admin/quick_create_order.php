@@ -905,9 +905,12 @@ $("#from_whom").removeAttr('required');
 $("#realtor_id").css("visibility","visible");
  // $("#realtor_id").attr("required","required");
 }
-else
-{
- $("#realtor_name").removeAttr('required');
+
+</script>
+<?php } else { ?>
+<script>
+
+$("#realtor_name").removeAttr('required');
        $("#realtor_contactNo").removeAttr('required');
        $("#realtor_email").removeAttr('required');
        $("#realtor_address").removeAttr('required');
@@ -916,10 +919,9 @@ $("#realtor_id").css("visibility","hidden");
        $("#realtor_information").hide();
       $("#from_whom").removeAttr('required');
 
-}
+
 </script>
 <?php }?>
-
 
 
 		<?php include "footer.php";  ?>
