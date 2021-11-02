@@ -1299,6 +1299,6 @@ $from123=preg_replace("/ /","T",$from123);
 <script>
    $("#address_same").click();
    
-   showHideFloors($('#dropDownId :selected').text());
+   showHideFloors($('#TypeOfProperty :selected').text());
 </script>
 		<?php include "footer.php";  ?>
