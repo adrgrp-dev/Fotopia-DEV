@@ -28,7 +28,7 @@ function email($order_id,$con)
 	$mail->Port = 587;
 	//$mail->Port = 465;
 	//From email address and name
-	$mail->From = $_SESSION['emailUserID'];
+	$mail->From = $emailUserID;
 	$mail->FromName = "Fotopia";
 
 	$order_id=$order_id;
