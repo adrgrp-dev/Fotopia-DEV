@@ -1136,7 +1136,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
             </div>
             <div class="col-md-4">
               <p id="label_area" adr_trans="label_area">Area (Sq.Mt)</p>
-              <input id="area" name="area" placeholder="Enter The Area" type="number"min="0" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['area']; ?>" <?php if(@$_REQUEST['edit']) { //echo "readonly"; } ?>>
+              <input id="area" name="area" placeholder="Enter The Area" type="number"min="0" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['area']; ?>" >
             </div>
             <div class="col-md-12" class="l">
                         <p id="label_property_address" adr_trans="label_property_address">Property Address</p>
