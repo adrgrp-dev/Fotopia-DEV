@@ -478,7 +478,7 @@ foreach ($files as $name => $file)
 		$ParsedFileNameIS=explode("_",$relativePath);
 
 
-		for($i=1;$i<$totalNumberOdFiles;$i++)
+		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 		$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
