@@ -1121,7 +1121,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
           <div class="col-md-4">
               <p id="label_type_property" adr_trans="label_type_property">Type Of Property</p>
-             <select name="property" class="form-control form-value" required="" onchange="showHideFloors(this.value)" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+             <select name="property" id="TypeOfProperty" class="form-control form-value" required="" onchange="showHideFloors(this.value)" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                          <option value="" id="label_select_property_type" adr_trans="label_select_property_type">Select a property type</option>
 
                               <option value="Apartment" id="label_appartment" <?php if(@$order_fetch['property_type']=="Apartment"){ echo "selected"; } ?> adr_trans="label_appartment">Apartment</option>

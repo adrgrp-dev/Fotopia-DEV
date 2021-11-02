@@ -1520,7 +1520,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" style="z-index: -1;margin-bottom:5px;width:100%">
                                     </a>
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->

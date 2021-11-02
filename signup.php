@@ -65,12 +65,13 @@ $for_whom = $_REQUEST["for_whom"];
 if($for_whom=="realtor"){
 
 $typeofuser = "Realtor";
-
+$inserted_id=0;
    mysqli_query($con,"insert into user_login (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,email_verification_code,email_verified,profile_pic,profile_pic_image_type,registered_on)values('$typeofuser','$org_name','$org_branch','$org_email','$org_no','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$email_verification_code',0,'$imgData','$imageType',now())");
 $inserted_id=mysqli_insert_id($con);
-
+if($inserted_id!=0)
+{
 mysqli_query($con,"insert into realtor_profile (organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,realtor_id)values('$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType','$inserted_id')");
-
+}
 
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
 
@@ -82,14 +83,13 @@ else{
 $typeofuser = "Photo Company";
 
 $user = "PCAdmin";
-
+$inserted_id=0;
 mysqli_query($con,"insert into admin_users (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$user','$org_name','$org_branch','$org_email','$org_no','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())");
 $inserted_id=mysqli_insert_id($con);
-
-// echo "insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')";
-// exit;
+if($inserted_id!=0)
+{
 mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')");
-
+}
 
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
 

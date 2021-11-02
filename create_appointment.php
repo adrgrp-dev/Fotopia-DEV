@@ -57,6 +57,11 @@ else
      //-------------------------------------------------get value request method------------------------------------------//
      $from_date=$_REQUEST["from"];
      $to_date=$_REQUEST["to"];
+	 
+	 
+	 
+	 
+	 
  echo $chk_due=$_REQUEST["due"];
 $chk_from="";
 $chk_to="";
@@ -72,6 +77,19 @@ $chk_to="";
 	 $to_exp=explode("T",$to_date);
 $chk_to=$to_exp[0]." ".$to_exp[1];
 }
+
+if(!empty($from_date))
+	 {
+	 $_SESSION['fromDatetime']=$from_date;
+	 }
+	 if(!empty($to_date))
+	 {
+	 $_SESSION['toDatetime']=$to_date;
+	 }
+	  if(!empty($due_date))
+	 {
+	 $_SESSION['due_date']=$due_date;
+	 }
      //
      //-------------------------------------------------t replace to space -----------------------------------------------//
 
@@ -553,6 +571,7 @@ booking_chk1();
 
 var bFound=parseInt($("#BookingFound").val());
 //alert(bFound);
+$("#appointments_exist_error").hide();
     if(bFound>0)
     {
 	//alert("coming123");
@@ -795,8 +814,9 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
   xhttp.onreadystatechange = function()
   {
     if(this.readyState == 4 && this.status == 200){
-
+$("#appointments_exist_error").hide();
       a=parseInt(this.responseText);
+	  
        $("#BookingFound").val(a);
 
       if(a>0)
@@ -861,7 +881,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
   xhttp.onreadystatechange = function()
   {
     if(this.readyState == 4 && this.status == 200){
-
+	$("#appointments_exist_error").hide();
       a=parseInt(this.responseText);
   $("#BookingFound").val(a);
 
@@ -886,7 +906,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
     //  alert("no appointment");
 	$("#appointments_exist_error").hide();
 
-    return false;
+    return true;
     }
     }
   };
