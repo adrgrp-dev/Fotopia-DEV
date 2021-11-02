@@ -262,7 +262,7 @@ $order_id=mysqli_insert_id($con);
 //email($photographer_Name,$order_id,$chk_from,$email_id);
 
 
-	   header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct&quickOrder=1");
+	   header("location:quick_select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct&quickOrder=1");
 
 
 
