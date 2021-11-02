@@ -2050,7 +2050,7 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
-                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_summary['realtor_id']==0&&$created_by_type!="Realtor")
+                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_summary['realtor_id']==0&&$get_summary['created_by_type']!="Realtor")
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
                     <?php } ?>
