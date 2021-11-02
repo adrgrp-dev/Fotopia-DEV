@@ -3,13 +3,17 @@ ob_start();
 
 include "connection1.php";
 
-
+//print_r($_REQUEST);
 //Login Check
 if(isset($_REQUEST['loginbtn']))
 {
 
 
 	header("location:index.php?failed=1");
+}
+if(isset($_REQUEST['label_search']))
+{
+	unset($_SESSION['filterby']);
 }
 ?>
 
@@ -206,7 +210,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 </div>
 
 <div class="col-md-3" style="margin-top:25px;width:170px;">
-<button type="submit" id="label_search" adr_trans="label_search" class="btn btn-default btn-sm" style="border-radius:20px 20px 20px 20px;">Search</button>
+<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn btn-default btn-sm" style="border-radius:20px 20px 20px 20px;">Search</button>
 <a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
 								</div>

@@ -11,6 +11,10 @@ if(isset($_REQUEST['loginbtn']))
 
 	header("location:index.php?failed=1");
 }
+if(isset($_REQUEST['label_search']))
+{
+	unset($_SESSION['filterby']);
+}
 ?>
 <?php include "header.php";  ?>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -110,7 +114,7 @@ var days = 1;
 
 
 <div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:30px;">
-  <button type="submit" id="label_search" adr_trans="label_search" class="btn btn-default" style="border-radius:20px 20px 20px 20px;">Search</button>
+  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn btn-default" style="border-radius:20px 20px 20px 20px;">Search</button>
 
    <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
@@ -126,7 +130,7 @@ var days = 1;
 
 
 <div style="width:100%;overflow:scroll">
-              <table  id="" cellpadding="10" class="table-striped" style="width:100%;border-radius:30px 30px 30px 30px!important;">
+              <table  id="dataTable" cellpadding="10" class="table-striped" style="width:100%;border-radius:30px 30px 30px 30px!important;">
 
 
 
@@ -217,9 +221,12 @@ $name_id1=mysqli_fetch_array($name_id);
 $photographer_filter_id =  $name_id1['id'];
 }
 
-$_SESSION['filterby']=$filterBy;
+if(isset($_SESSION['filterby']))
+{
+	$filterBy=$_SESSION['filterby'];
+}
 
-if(!empty($_REQUEST['user_name1']) && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending'])))
+elseif(!empty($_REQUEST['user_name1']) && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending'])))
 {
 
 $starting=$_REQUEST['starting'];
@@ -254,6 +261,7 @@ $filterBy="  photographer_id=".$photographer_filter_id;
 $_SESSION['filterby']=$filterBy;
 
 }
+
 
 
 
@@ -311,6 +319,7 @@ $_SESSION['filterby']=$filterBy;
                             }
 
                           }
+												//	echo $q1;
                           $res="";
                             $result=mysqli_query($con,$q1);
                             @$data=mysqli_fetch_assoc(@$result);
@@ -542,6 +551,7 @@ $_SESSION['filterby']=$filterBy;
                 </div>
 
         </div>
+
 
 <script src="tableExport.js"></script>
 <script type="text/javascript" src="jquery.base64.js"></script>

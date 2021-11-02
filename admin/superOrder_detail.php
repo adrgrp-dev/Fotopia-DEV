@@ -2050,7 +2050,7 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
-                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")
+                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_summary['realtor_id']==0&&$created_by_type!="Realtor")
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
                     <?php } ?>
@@ -2059,7 +2059,7 @@ alert(alertmsg);
                             echo '<script>$("#done_hide").hide();</script>';
                          }
                           ?>
-                   <!-- <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
+                  <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p> -->
                       <?php if($get_summary['status_id']==3)
                       {
                          echo '<script>$("#done_hide").hide();</script>';
@@ -2721,8 +2721,8 @@ alert(alertmsg);
          @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
          @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);
 
-         // if($_SESSION['admin_loggedin_id']!=$get_summary['created_by_id'])
-         // {
+         if($get_summary['realtor_id']!=0&&$get_summary['created_by_type']=="Realtor")
+         {
          if(@$invoice_check['approved']==0)
           {
            echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -76px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
@@ -2730,11 +2730,11 @@ alert(alertmsg);
           else {
               echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
           }
-        //}
-        // else {
-        //
-        //     echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
-        //  }
+        }
+        else {
+
+            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
+         }
 
           ?>
           <script>
@@ -3199,7 +3199,7 @@ function updateScroll(){
 
                                                                                    <form method="post" name="link" action="" onsubmit="">
                                                                                    <input name="email" placeholder="Enter the Email" type="email" autocomplete="off" class="form-control form-value" required>
-                                                                                   <input type="hidden" name="invoice" value="<?php echo $invoice_check['invoice_id'];?>" required>
+                                                                                   <input type="hidden" name="invoice" value="<?php echo $invoice_check['order_id'];?>" required>
                                                                                    <hr class="space s">
                                                                                    <center><button class="btn adr-save" name="link1" id="send" ><span adr_trans="label_send">Send</span></button></center>
                                                                                    </form>

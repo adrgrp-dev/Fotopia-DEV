@@ -144,9 +144,9 @@ $id = $_REQUEST['id'];
             </th>
             <th>
               <p style="font-size: 14px;
-    margin-left: 59pc;
-    padding-left: 50px;
-    float: right;"><strong adr_trans="label_date_issue"> DATE OF ISSUE </strong><br></p>
+    margin-left: 47pc;
+    padding-left: 0px;
+  ;"><strong adr_trans="label_date_issue"> DATE OF ISSUE </strong><br></p>
             </th>
           </tr>
           <tr>
@@ -156,8 +156,8 @@ $id = $_REQUEST['id'];
             <td>
               <p style="
        font-size:11px;
-       margin-left: 59pc;
-       padding-left : 50px;
+       margin-left: 47pc;
+       padding-left : 0px;
        "> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
             </td>
           </tr>
