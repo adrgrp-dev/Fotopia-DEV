@@ -68,11 +68,11 @@ var days = 1;
 <div class="row">
 <div class="col-md-2" style="padding-left:30px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table">&nbsp;&nbsp;&nbsp;
+<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:160px;">&nbsp;&nbsp;&nbsp;
 </div>
 <div class="col-md-2" style="padding-left:30px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="">
+<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="width:160px;">
 </div>
 <div class="col-md-3" style="padding-left:30px;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
