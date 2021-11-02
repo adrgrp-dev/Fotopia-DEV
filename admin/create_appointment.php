@@ -1412,6 +1412,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
             </div>
         </div>
+		
 <?php   if(isset($_SESSION['Photographer_id']))
 { ?>
 <script>
@@ -1426,6 +1427,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 <script>
    $("#address_same").click();
+   showHideFloors($('#TypeOfProperty :selected').val());
 </script>
 
 		<?php include "footer.php";  ?>

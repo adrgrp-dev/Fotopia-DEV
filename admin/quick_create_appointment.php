@@ -1440,6 +1440,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 <script>
    $("#address_same").click();
+   showHideFloors($('#TypeOfProperty :selected').val());
 </script>
 
 		<?php include "footer.php";  ?>
