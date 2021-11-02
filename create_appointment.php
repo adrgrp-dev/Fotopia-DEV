@@ -570,7 +570,7 @@ booking_chk1();
 
 
 var bFound=parseInt($("#BookingFound").val());
-//alert(bFound);
+alert(bFound);
 $("#appointments_exist_error").hide();
     if(bFound>0)
     {

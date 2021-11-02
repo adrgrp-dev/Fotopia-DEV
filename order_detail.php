@@ -2127,7 +2127,7 @@ if($get_order1['status_id']==3)
 
        padding-left : 10px;" ><span ><?php
         // echo "select group_concat(product_id) as product_id from order_products WHERE order_id='$id_url'";
-       $prodsList=mysqli_query($con,"select group_concat(product_id) as product_id,group_concat(product_title) as product_title,group_concat(quantity) as quantity,sum(total_price)+sum(other_cost) as total from order_products WHERE order_id='$id_url'");
+       $prodsList=mysqli_query($con,"select group_concat(product_id) as product_id,group_concat(product_title) as product_title,group_concat(quantity) as quantity,sum(total_price) as total,sum(other_cost) as otherCost from order_products WHERE order_id='$id_url'");
       $prodsList1=mysqli_fetch_array($prodsList);
       $product_id_is=$prodsList1['product_id'];
     //
@@ -2182,7 +2182,7 @@ if($get_order1['status_id']==3)
             <td id="inv_th"  style="text-align: right;"><span ><span adr_trans="label_tax">Tax</span>(<?php echo $get_information['tax']; ?>%)</span><span >:</span></td>
             <?php
             $percentage = $get_information['tax'];
-            $totalcost = $prodsList1['total']+$prodsList1['other_cost'];
+            $totalcost = $prodsList1['total']+$prodsList1['otherCost'];
             $new_cost = ($percentage / 100) * $totalcost;
              ?>
             <td id="inv_td" style="text-align: center;"><span data-prefix>$</span><span><?php echo $new_cost; ?></span></td>
