@@ -115,15 +115,31 @@ function getFileCount($path) {
 //ZIP file
 if(isset($_POST['ZIP']))
 {
+
 $OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
 $property_state=$OrderCityState1['property_state'];
 $timeRandom=rand(1000000000,9999999999);
 mkdir("./temp/$timeRandom");
-  if(isset($_POST['directory']))
+
+
+  if(isset($_REQUEST['imageType']))
   {
-   $dir=$_POST['directory'];
+   $dir=$_REQUEST['folderToZip'];
+   $path = $dir;
+
+if ($handle = opendir($path)) {
+    while (false !== ($file = readdir($handle))) {
+        if ('.' === $file) continue;
+        if ('..' === $file) continue;
+
+       copy($dir."/".$file,"./temp/$timeRandom/".$file);
+    }
+    closedir($handle);
+}
+   
+   
   }
 else{
   $image=@$_REQUEST['selected_image'];
@@ -159,6 +175,7 @@ $files = new RecursiveIteratorIterator(
     RecursiveIteratorIterator::LEAVES_ONLY
 );
 $totalNumberOdFiles=getFileCount("./temp/$timeRandom");
+
 foreach ($files as $name => $file)
 {
     // Skip directories (they would be added automatically)
@@ -1363,7 +1380,13 @@ header("location:photographerDashboard.php?private=1"); exit;
                                       ?>
                                       <form name="zipDownload" method="post" action="">
                                         <input type="submit" name="ZIP" class="btn btn-default btn-sm download" value="Download" />
-                                        <input type ="hidden" name="directory" value="<?php echo $imagesDirectory_standard;?>"/>
+                               <input type="hidden" name="imageType" value="rework" />        
+										
+				 <input type="hidden" name="folderToZip" value="<?php echo "./rework_images/order_".$id_url."/standard_photos"; ?>">
+                       <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
+                          <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
+										
+										
                                       </form>
                                       <div class="maso-list gallery">
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
