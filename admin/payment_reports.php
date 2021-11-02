@@ -484,7 +484,24 @@ else
 							
 							<td>
 							
-							asdfdsf
+							<?php
+							$HS_ID=$get_order2['home_seller_id'];
+							$REALTOR_ID=$get_order2['realtor_id'];
+							$billedTo="";
+							if($REALTOR_ID==0)
+							{
+  $tempRealtor=mysqli_query($con,"select * from home_seller_info where id='$HS_ID'");
+  $tempRealtor1=mysqli_fetch_array($tempRealtor);
+  $billedTo=$tempRealtor1['request_name']." (".$tempRealtor1['request_email'].")";
+  }
+  else
+  {
+   $getRealtors=mysqli_query($con,"SELECT * FROM user_login where id='$REALTOR_ID'");
+   $getRealtors1=mysqli_fetch_array($getRealtors);
+   $billedTo=$getRealtors1['organization_name'];
+  }
+			echo $billedTo;				
+							?>
 							
 							</td>
 							
