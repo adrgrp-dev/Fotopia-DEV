@@ -442,7 +442,7 @@ $("#dayVal").val(calid);
                       $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
                       $get_comment=mysqli_fetch_assoc($get_comment_querry);
                       ?>
-                      <p><span style="color:red;"></span><?php echo $get_comment['comments'];?></p>
+                    <!-- //  <p><span style="color:red;"></span><?php echo //$get_comment['comments'];?></p> -->
                   </div>
           <?php
          }
