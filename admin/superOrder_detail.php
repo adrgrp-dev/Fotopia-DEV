@@ -2064,7 +2064,7 @@ alert(alertmsg);
                       {
                          echo '<script>$("#done_hide").hide();</script>';
                       }
-                       ?> 
+                       ?>
                                 <div class="tab-box pills" data-tab-anima="fade-right">
                                     <!-- <ul class="nav nav-pills nav-justified">
                                         <li class="current-active active"><a href="#">Standard Photos</a></li>
@@ -2721,7 +2721,7 @@ alert(alertmsg);
          @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
          @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);
 
-         if($get_summary['realtor_id']!=0&&$get_summary['created_by_type']=="Realtor")
+         if($get_summary['realtor_id']!=0)
          {
          if(@$invoice_check['approved']==0)
           {
