@@ -51,10 +51,22 @@ function email($order_id,$con)
  	$get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
  	$get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
  	$csr_email=$get_csrdetail['email'];
-  $realtor_id=$get_detail['created_by_id'];
+  $realtor_id=$get_detail['realtor_id'];
+  $realtor_email="";
+  if($realtor_id!=0)
+  {
   $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
   $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
   $realtor_email=$get_realtor_name['email'];
+  }
+  else
+  {
+  $HS_ID=$get_detail['home_seller_id'];
+  $tempRealtor=mysqli_query("select * from home_seller_info where id='$HS_ID' and lead_from='realtor'");
+  $tempRealtor1=mysqli_fetch_array($tempRealtor);
+  $realtor_email=$tempRealtor1['request_email'];
+  }
+  
   $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Order Completed'");
   $get_template=mysqli_fetch_array(@$get_template_query);
   $order_completed_template=@$get_template['template_body_text'];

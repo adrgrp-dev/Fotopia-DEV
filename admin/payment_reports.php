@@ -211,14 +211,32 @@ $available=mysqli_num_rows($taxpercent);
                                             Realtor
 
                                             </span>
-                                 <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
+                                 <span class="icon fa "></span></a></th>
+								 
+								 
+								 <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_date_and_time" adr_trans="label_billedTo">
+
+                                              Billed To
+
+                                 </span>
+
+
+                                <span class="icon fa "></span></a></th>
+								 
+								 
+								 
+								 <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
 
                                               Date & Time
 
                                  </span>
 
 
-                                <span class="icon fa "></span></a></th></tr>
+                                <span class="icon fa "></span></a></th>
+								
+								
+								
+								</tr>
                                     </thead>
                                     <tbody>
                             <?php
@@ -463,6 +481,17 @@ else
                             ?>
 
                             <td class="text-left" style=""><?php echo $created_name; ?></td>
+							
+							<td>
+							
+							asdfdsf
+							
+							</td>
+							
+							
+							
+							
+							
                                <?php
 
                               $toexp=explode(" ",$get_order2['session_to_datetime']);
