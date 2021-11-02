@@ -62,7 +62,7 @@ function email($order_id,$con)
   else
   {
   $HS_ID=$get_detail['home_seller_id'];
-  $tempRealtor=mysqli_query("select * from home_seller_info where id='$HS_ID' and lead_from='realtor'");
+  $tempRealtor=mysqli_query($con,"select * from home_seller_info where id='$HS_ID' and lead_from='realtor'");
   $tempRealtor1=mysqli_fetch_array($tempRealtor);
   $realtor_email=$tempRealtor1['request_email'];
   }
