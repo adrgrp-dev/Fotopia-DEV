@@ -303,8 +303,13 @@ if (!empty($_REQUEST['csr10'])) {
 if (!empty($_REQUEST['realtor'])) {
 		$filterbyid=$_REQUEST['realtor'];
 }
-	$_SESSION['filterby']=$filterBy;
-if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empty($_REQUEST['csr10'])) && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending'])))
+//	$_SESSION['filterby']=$filterBy;
+	if(isset($_SESSION['filterby']))
+	{
+		//echo $_SESSION['filterby'];
+			$filterBy=$_SESSION['filterby'];
+	}
+elseif((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empty($_REQUEST['csr10'])) && (!empty($_REQUEST['starting']) && !empty($_REQUEST['ending'])))
 {
 	$starting=$_REQUEST['starting'];
 		$ending=$_REQUEST['ending'];
@@ -338,6 +343,7 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
  //	$filterBy1=" super_csr_id=".$_REQUEST['csr10']." ";
 		$_SESSION['filterby']=$filterBy;
 }
+
                             if ((isset($_REQUEST['starting']) && isset($_REQUEST['ending'])))
 														{
                             $_SESSION['starting_time'] = $_REQUEST['starting'];
@@ -394,7 +400,7 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
                               $q1="select count(*) as total FROM `orders` where $filterBy ";
                             }
                           }
-												//	echo $q1;
+											//		echo $q1;
 
 $res="";
 
@@ -610,7 +616,7 @@ $res="";
 																											width: 500
 																									}]
 																							};
-																							pdfMake.createPdf(docDefinition).download("Order_repots.pdf");
+																							pdfMake.createPdf(docDefinition).download("Order_reports.pdf");
 																					}
 																			});
 																		}
