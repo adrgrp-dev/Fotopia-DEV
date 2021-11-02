@@ -11,6 +11,8 @@ if(isset($_REQUEST['loginbtn']))
 
 	header("location:index.php?failed=1");
 }
+
+
 ?>
 
 <?php include "header.php";  ?>
@@ -134,7 +136,7 @@ $realtorID=$_SESSION['loggedin_id'];
 </div>
 
 <div class="col-md-3" style="margin-top:25px">
-<button type="submit" id="submit" class="btn btn-default btn-sm" style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
+<button type="submit" id="submit" name="label_search" class="btn btn-default btn-sm" style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
 <a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
 								</div>
@@ -208,6 +210,11 @@ $realtorID=$_SESSION['loggedin_id'];
                                   </thead>
                                   <tbody>
                           <?php
+						  
+						  
+						  
+						 
+						  
                                      //	---------------------------------  pagination starts ---------------------------------------
 																		 if(@$_GET["page"]<0)
 																	   {
@@ -320,7 +327,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 
 
 $res="";
-// echo $q1;
+ //echo $q1;
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $number_of_pages=5;
@@ -480,10 +487,10 @@ $res="";
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">
 																		<li class="first disabled " aria-disabled="true"><a href="./order_reports.php?page=1" class="button adr-save">«</a></li>
-																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
+																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]-1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">&lt;</a></li>
 																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]+1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">&gt;</a></li>
+																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($Page_check);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">»</a></li></ul></div>
 																		<div class="col-sm-6 infoBar"style="margin-top:24px">
 																<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?>  of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 																		</div>
@@ -503,7 +510,7 @@ $res="";
 																											width: 500
 																									}]
 																							};
-																							pdfMake.createPdf(docDefinition).download("Order_repots.pdf");
+																							pdfMake.createPdf(docDefinition).download("Order_reports.pdf");
 																					}
 																			});
 																		}
