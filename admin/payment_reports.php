@@ -455,7 +455,7 @@ else
                             $photographer_id=$get_order2['photographer_id'];
                             $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                             $get_name=mysqli_fetch_array($get_photgrapher_name_query);
-                            $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
+                            @$photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
                             ?>
                             <td class="text-left" style=""><?php echo $photographer_Name; ?></td>
                             <?php
