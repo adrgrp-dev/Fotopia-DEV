@@ -261,13 +261,17 @@ $available=mysqli_num_rows($taxpercent);
 							{
 							$_SESSION['realtor_id'] = $_REQUEST['realtor_id'];
 							}
+							else
+							{
+							unset($_SESSION['realtor_id']);
+							}
 
 						   $CSRWhereCondition="";
  if($_SESSION['admin_loggedin_type']=="CSR"){
  $csr_id=$_SESSION['admin_loggedin_id'];
  $CSRWhereCondition=" and csr_id='$csr_id' ";
  }
- else
+ if($_SESSION['admin_loggedin_type']=="PCAdmin")
  {
   $pc_admin_id=$_SESSION['admin_loggedin_id'];
  $CSRWhereCondition=" and pc_admin_id='$pc_admin_id' ";
@@ -279,7 +283,7 @@ if(!empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
  $start = $_SESSION['starting_time'];
   $end = $_SESSION['ending_time'] ;
   $realtor_id = $_SESSION['realtor_id'] ;
-  $q1="select count(*) as total FROM `orders` where status_id=3 AND  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and created_by_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
+  $q1="select count(*) as total FROM `orders` where status_id=3 AND  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and realtor_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
 }
 else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
                             $start = $_SESSION['starting_time'];
@@ -293,7 +297,7 @@ else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
 else if(empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
 {
   $realtor_id = $_SESSION['realtor_id'] ;
-  $q1="select count(*) as total FROM `orders` where status_id=3  and created_by_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
+  $q1="select count(*) as total FROM `orders` where status_id=3  and realtor_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
 }
 else
 {
@@ -328,7 +332,14 @@ else
 							//$start_no_users =1
 							//if($_SESSION["page"]!=0)
 							//{
+							if($_SESSION["page"]==0)
+							{
+							$start_no_users=0;
+							}
+							else
+							{
                             $start_no_users = ($_SESSION["page"]-1) * $number_of_pages;
+							}
 //}
                              $cnt=$start_no_users;
 
@@ -346,7 +357,7 @@ if(!empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
  $start = $_SESSION['starting_time'];
   $end = $_SESSION['ending_time'] ;
   $realtor_id = $_SESSION['realtor_id'] ;
-  $q2="select *  FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and created_by_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
+  $q2="select *  FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and realtor_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
                             $start = $_SESSION['starting_time'];
@@ -360,14 +371,14 @@ else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
 else if(empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
 {
   $realtor_id = $_SESSION['realtor_id'] ;
-  $q2="select *  FROM `orders` where status_id=3 and created_by_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
+  $q2="select *  FROM `orders` where status_id=3 and realtor_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
 }
 else
 {
   $q2="select *  FROM `orders` where status_id=3 $CSRWhereCondition ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 
-echo $q2;
+//echo $q2;
                             $res2=mysqli_query($con,$q2);
 							$grandTotal=0;
                             if($res2)
