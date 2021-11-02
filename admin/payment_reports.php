@@ -367,7 +367,7 @@ else
   $q2="select *  FROM `orders` where status_id=3 $CSRWhereCondition ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 
-
+echo $q2;
                             $res2=mysqli_query($con,$q2);
 							$grandTotal=0;
                             if($res2)
