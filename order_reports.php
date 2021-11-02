@@ -320,7 +320,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 
 
 $res="";
- echo $q1;
+// echo $q1;
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $number_of_pages=5;
