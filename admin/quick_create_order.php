@@ -658,6 +658,7 @@ $(function() {
        $("#realtor_contactNo").attr("required","required");
        $("#realtor_email").attr("required","required");
        $("#realtor_address").attr("required","required");
+       $("#realtor_employer_id").attr("required","required");
      $("#from_whom").removeAttr('required');
 
 	  $("#realtor_id").css("visibility","visible");
@@ -668,6 +669,7 @@ $(function() {
        $("#realtor_contactNo").removeAttr('required');
        $("#realtor_email").removeAttr('required');
        $("#realtor_address").removeAttr('required');
+       $("#realtor_employer_id").removeAttr('required');
 
        $("#realtor_information").hide();
       $("#from_whom").removeAttr('required');
