@@ -2064,7 +2064,7 @@ alert(alertmsg);
                       {
                          echo '<script>$("#done_hide").hide();</script>';
                       }
-                       ?> -->
+                       ?> 
                                 <div class="tab-box pills" data-tab-anima="fade-right">
                                     <!-- <ul class="nav nav-pills nav-justified">
                                         <li class="current-active active"><a href="#">Standard Photos</a></li>
