@@ -81,7 +81,6 @@ function email($realtor_email,$con)
 
 if(isset($_REQUEST['Save']))
 {
-
 $pc_admin_id=$_REQUEST['pc_admin_id'];
 $realtor_id=$_REQUEST['realtor_id'];
 $product_id=$_REQUEST['product_id'];
@@ -89,7 +88,6 @@ $product_cost=$_REQUEST['product_cost'];
 $discount_price=$_REQUEST['discount_price'];
 
 
-mysqli_query($con,"delete from realtor_product_cost where pc_admin_id='$loggedin_id' and realtor_id='$realtor_id'");
 
 $countIS=count($product_id);
 
@@ -98,6 +96,7 @@ for($i=0;$i<$countIS;$i++)
 $product_id1=$product_id[$i];
 $product_cost1=$product_cost[$i];
 $discount_price1=$discount_price[$i];
+mysqli_query($con,"delete from realtor_product_cost where pc_admin_id='$loggedin_id' and realtor_id='$realtor_id' and product_id='$product_id1'");
 
 mysqli_query($con,"insert into realtor_product_cost (realtor_id,pc_admin_id,product_id,product_cost,discount_price)values('$realtor_id','$pc_admin_id','$product_id1','$product_cost1','$discount_price1')");
 
@@ -288,7 +287,7 @@ border-top:none!important;
 
 						<p align="left">
 						<form name="filterfrm" method="post" action="">
-						<input type="text" name="realtor" class="form-control" style="width:200px;" list="realtors" onChange="this.form.submit();" placeholder="Select Realtor">
+						<input type="text" name="realtor" class="form-control" style="width:200px;" list="realtors" onChange="this.form.submit();" placeholder="Select Realtor" >
 
 						<datalist id="realtors">
 
@@ -427,10 +426,10 @@ $realtorDiscountPrice=0;
 						<div class="col-sm-6">
 									<ul class="pagination ">
 										<li class="first disabled" aria-disabled="true"><a href="./RealtorProducts.php?page=1" class="button adr-save"><<</a></li>
-										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
+										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($_SESSION["page"]-1);?>&realtor=<?php echo @$_REQUEST['realtor']; ?>" class="button adr-save">&lt;</a></li>
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($Page_check);?>" class="button adr-save">>></a></li></ul></div>
+										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($_SESSION["page"]+1);?>&realtor=<?php echo @$_REQUEST['realtor']; ?>" class="button adr-save">&gt;</a></li>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./RealtorProducts.php?page=".($Page_check);?>&realtor=<?php echo @$_REQUEST['realtor']; ?>" class="button adr-save">>></a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>

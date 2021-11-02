@@ -15,16 +15,13 @@ $photographer_id=$_REQUEST['photographer_id'];
 $product_id=$_REQUEST['product_id'];
 $photography_cost=$_REQUEST['photography_cost'];
 
-
-mysqli_query($con,"delete from photographer_product_cost where pc_admin_id='$loggedin_id' and photographer_id='$photographer_id'");
-
 $countIS=count($product_id);
 
 for($i=0;$i<$countIS;$i++)
 {
 $product_id1=$product_id[$i];
 $photography_cost1=$photography_cost[$i];
-
+mysqli_query($con,"delete from photographer_product_cost where pc_admin_id='$loggedin_id' and photographer_id='$photographer_id' and product_id='$product_id1'");
 mysqli_query($con,"insert into photographer_product_cost (photographer_id,pc_admin_id,product_id,photography_cost)values('$photographer_id','$pc_admin_id','$product_id1','$photography_cost1')");
 
 }
@@ -375,10 +372,10 @@ $realtorDiscountPrice=0;
 						<div class="col-sm-6">
 									<ul class="pagination ">
 										<li class="first disabled" aria-disabled="true"><a href="./PhotographerProducts.php?page=1" class="button adr-save"><<</a></li>
-										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
+										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]-1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">&lt;</a></li>
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($Page_check);?>" class="button adr-save">>></a></li></ul></div>
+										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]+1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">&gt;</a></li>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($Page_check);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">>></a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>
