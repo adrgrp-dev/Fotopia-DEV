@@ -267,7 +267,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 
 
 
-	if(!empty($_REQUEST['photoCompany']))$filterBy=" pc_admin_id=".$filterbyid." or pc_admin_id=".$filterbyid;
+	if(!empty($_REQUEST['photoCompany']))$filterBy=" pc_admin_id=".$filterbyid;
 
 
  //	$filterBy1=" created_by_id=".$_REQUEST['csr10']." ";
@@ -292,7 +292,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
                           }
 
                           elseif (!empty($_SESSION['starting_time'])) {
-						  
+
                             $start = $_SESSION['starting_time'];
                              $end = $_SESSION['ending_time'] ;
 														 $filterBy=$_SESSION['filterby'] ;
@@ -320,7 +320,7 @@ if(!empty($_REQUEST['photoCompany']) && (empty($_REQUEST['starting']) && empty($
 
 
 $res="";
- //echo $q1;
+ echo $q1;
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $number_of_pages=5;
