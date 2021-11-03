@@ -3127,26 +3127,26 @@ function updateScroll(){
                                         <?php $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url");
                                           while($get_images=mysqli_fetch_assoc($get_rawimages_query))
                                           {
-                                             if($get_images["status"]==3)
+                                          if($get_images["status"]==3)
+                                            {
+                                             echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
+                                             }
+                                             elseif($get_images["service_name"] == 1)
                                              {
-                                              echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span id="label_order_completed" adr_trans="label_order_completed">Order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
-                                              }
-                                              elseif($get_images["service_name"] == 1)
-                                              {
-                                                echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Standard images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"})</script>';
-                                              }
-                                              elseif( $get_images["service_name"] == 2)
-                                              {
-                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
-                                              }
-                                              elseif($get_images["service_name"] == 3)
-                                              {
-                                                echo '<script>$("#drone_div").hide();$("#drone_booked").html("<center><span>Drone Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#drone_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
-                                              }
-                                              elseif($get_images["service_name"] == 4)
-                                              {
-                                                echo '<script>$("#hdr_div").hide();$("#hdr_booked").html("<center><span>HDR Images uploaded and shared to '.$get_images['editor_email'].' on '.$get_images['sent_on'].'<span></center>");$("#hdr_booked").css({"color": "green", "padding": "140px","font-size":"16px"});$("#finished_images_HDR_photos").show();</script>';
-                                              }
+                                               echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Standard images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
+                                             }
+                                             elseif( $get_images["service_name"] == 2)
+                                             {
+                                               echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
+                                             }
+                                             elseif($get_images["service_name"] == 3)
+                                             {
+                                               echo '<script>$("#drone_div").hide();$("#drone_booked").html("<center><span>Drone Images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#drone_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});;$("#finished_images_HDR_photos").show();</script>';
+                                             }
+                                             elseif($get_images["service_name"] == 4)
+                                             {
+                                               echo '<script>$("#hdr_div").hide();$("#hdr_booked").html("<center><span>HDR Images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#hdr_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});</script>';
+                                             }
 
 
                                           }
