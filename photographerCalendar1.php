@@ -30,7 +30,7 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 				<h5> <span class="" id="label_calendar" adr_trans="label_realtor_calendar"> Calendar</span> - Photographer - <?php echo strtoupper($photographer_name_is); ?>
 				</h5></div>
 				<div class="col-md-6" style="float:right">
-				<a href="create_order.php" class="anima-button circle-button btn-sm btn" id="label_create_new_order" adr_trans="label_create_new_order" style="float:right;margin-top:-6px;"><i class="fa fa-calendar"></i> Create New Order</a>
+				<a href="create_order.php" class="anima-button circle-button btn-sm btn" id="label_create_new_order" adr_trans="label_create_new_order" style="float:right;margin-top:-6px;display:none;"><i class="fa fa-calendar"></i> Create New Order</a>
 				</div></div>
 			</div>
 
@@ -320,6 +320,9 @@ $.ajax({
            // alert('Current view: ' + info.event.timeText)
 
 			},
+			eventResize: function(info) {
+			 info.revert();
+			 },
 			 eventDrop: function(info) {
 			 info.revert();
 			 },

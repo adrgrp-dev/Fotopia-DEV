@@ -6,6 +6,8 @@ $secret=$_REQUEST["secret_code"];
 $get_raw_images=mysqli_query($con,"select * from raw_images where security_code='$secret'");
 $raw_images=mysqli_fetch_assoc($get_raw_images);
 
+
+
 function copy_folder($src, $dst) {
 
     // open the source directory
@@ -53,6 +55,17 @@ function getFileCount($path) {
 if(isset($_POST['ZIP']))
 {
 $id_url=$_REQUEST['Order_ID'];
+
+$Order_ID=@$_REQUEST['Order_ID'];
+if(!empty($Order_ID))
+{
+$getOrder=mysqli_query($con,"select status_id from orders where id='$Order_ID'");
+$getOrder1=mysqli_fetch_array($getOrder);
+$statusIs=$getOrder1['status_id'];
+
+}
+
+
 $OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
@@ -94,7 +107,18 @@ $x=1;
 
 		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
-	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+		if($statusIs==4)
+		{
+		$ParsedFileNameIS=explode(".",$relativePath);
+			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
+			
+
+		}
+		else
+		{
+			$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+
+		}
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
 		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".DNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".dng") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".CR2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".cr2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".NEF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".nef") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".ARW") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".arw")) {
 		$x++;

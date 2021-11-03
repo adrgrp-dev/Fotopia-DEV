@@ -226,11 +226,19 @@ businessHours: // specify an array instead
       dayMaxEvents: true,
 	  displayEventTime:true,// allow "more" link when too many events
       events: response,
+	  
 	  			 eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-
+  if(info.event.extendedProps.status!='1')
+		{
+		alertmsg="You can only move the appointment which has status 'Created'";
+		info.revert();
+		}
+ if(info.event.extendedProps.status=='1')
+		{
    if(info.view.type=="timeGridDay")
 	  {
+	 
 	   var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
@@ -265,7 +273,8 @@ businessHours: // specify an array instead
  }
 
  return;
-	  }
+ }
+ }
 
 
  var even=info.event;
@@ -282,6 +291,11 @@ businessHours: // specify an array instead
   info.revert();
 
  }
+ else if(info.event.extendedProps.status!='1')
+		{
+		alertmsg="You can only move the appointment which has status 'Created'";
+		info.revert();
+}
  else
  {
  // alert("future date");
@@ -323,8 +337,14 @@ businessHours: // specify an array instead
 
   }, eventResize: function(info) {
    // alert(info.event.title + " end is now " + info.event.end.toISOString());
-
-
+  // alert(info.event.extendedProps.status);
+ if(info.event.extendedProps.status!='1')
+		{
+		alertmsg="You can only extend the appointment which has status 'Created'";
+		info.revert();
+}
+if(info.event.extendedProps.status=='1')
+		{
 	  var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
@@ -357,7 +377,7 @@ businessHours: // specify an array instead
   xhttp.send();
  }
 
-
+}
 
 
   },
