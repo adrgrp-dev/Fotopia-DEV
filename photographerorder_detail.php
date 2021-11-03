@@ -2425,7 +2425,7 @@ function printPage()
                                                     </div>
                                                     </div>
                                                 </div>
-                                              <div id="finished_images_Drone_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:none">
+                                              <div id="finished_images_Drone_photos" class="hide" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:none">
                                                   <div style="border-bottom: 1px solid black">
 
                                                        <form  onsubmit="return check3();" name="zipDownload" id="zipDownload3" method="post" action="">
@@ -2550,7 +2550,7 @@ function printPage()
                                                     </div>
 
                                                 </div>
-                                                <div id="finished_images_HDR_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:none">
+                                                <div id="finished_images_HDR_photos" class="hide" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:none">
                                                   <div style="border-bottom: 1px solid black">
 
                                                        <form  onsubmit="return check4();" name="zipDownload" id="zipDownload4" method="post" action="">
@@ -2813,7 +2813,7 @@ function updateScroll(){
                                           {
                                              if($get_images["status"]==3)
                                              {
-                                              echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});</script>';
+                                              echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
                                               }
                                               elseif($get_images["service_name"] == 1)
                                               {
@@ -2821,7 +2821,7 @@ function updateScroll(){
                                               }
                                               elseif( $get_images["service_name"] == 2)
                                               {
-                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});;$("#finished_images_Drone_photos").show();</script>';
+                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
                                               }
                                               elseif($get_images["service_name"] == 3)
                                               {
