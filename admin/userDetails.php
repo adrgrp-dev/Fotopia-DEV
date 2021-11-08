@@ -91,7 +91,7 @@ $Instructions="As a Photo Company, Kindly do all the below steps to continue usi
 		
 Note : At your first Login, We will redirect you to Step #1 till step #7. You will not have access to anything until you complete the above steps.
 ";
-$mail->Body=str_replace('{{Instructions}}', "" , $mail->Body);
+$mail->Body=str_replace('{{Instructions}}', $Instructions , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."admin/index.php" , $mail->Body);
 }
 

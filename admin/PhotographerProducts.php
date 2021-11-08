@@ -195,7 +195,7 @@ alert(alertmsg);
 			
 			
 			
-			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #4 of 7 : Set custom price for photographers (earnings)</h5></div> <?php } ?>
+			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #6 of 7 : Set custom price for photographers (earnings)</h5></div> <?php } ?>
 			
 			
 			
