@@ -69,14 +69,29 @@ Welcome to Fotopia!<br><br>
 Your account has been approved by Fotopia Admin Team.<br>
 <a href='{{project_url}}' target='_blank'>click here</a>
 to login in to your Fotopia account.
-<br><br>
+<br>
+{{Instructions}}
+<br>
 Thanks,<br>
 Fotopia Team.";
 if($type_of_user=="Realtor")
 {
+$mail->Body=str_replace('{{Instructions}}', "" , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."login.php" , $mail->Body);
 }
 else{
+$Instructions="As a Photo Company, Kindly do all the below steps to continue using Fotopia.<br>
+		1.	Fill out the Company profile<br>
+		2.	Set up products for Photo company<br>
+		3.	Set custom price for realtors (discount)<br>
+		4.	Set custom price for photographers (earnings)<br>
+		5.	Create a CSR <br>
+		6.	Create a Photographer<br>
+		7.	Create an Editor <br>
+		
+Note : At your first Login, We will redirect you to Step #1 till step #7. You will not have access to anything until you complete the above steps.
+";
+$mail->Body=str_replace('{{Instructions}}', "" , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."admin/index.php" , $mail->Body);
 }
 

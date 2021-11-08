@@ -10,9 +10,11 @@ $fromDatetime=$_REQUEST['fromDatetime'];
 $toDatetime=$_REQUEST['toDatetime'];
 $Photographer_id=$_REQUEST['Photographer_id'];
 $Photographer_name=$_REQUEST['ph_name'];
+$dateTemp=explode("T",$fromDatetime);
+$busyDate=$dateTemp[0];
 
 mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('0', '0', '$Photographer_id', '0', '$fromDatetime', '$toDatetime', '0', '1')");
-header("location:PCAdmin_Calender.php?ph_id=$Photographer_id&ph_name=$Photographer_name");
+header("location:PCAdmin_Calender.php?ph_id=$Photographer_id&ph_name=$Photographer_name&busydate=$busyDate");
 }
 
  if(!empty(@$_REQUEST['ph_name']) && empty(@$_REQUEST['ph_id']) && empty(@$_REQUEST['busy'])  && empty(@$_REQUEST['deleteBusy']))
@@ -27,7 +29,7 @@ $ph_id=$_REQUEST['ph_id'];
 $ph_name=$_REQUEST['ph_name'];
 mysqli_query($con,"delete from `appointments` where id='$busyid'");
 
-header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name");
+header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$busyDate");
 }
 
 
@@ -288,12 +290,15 @@ margin-top:15px;
 {
 		?>
 			<script>
+			var busyDate=1;
+			var busyDateIs="<?php echo @$_REQUEST['busydate']; ?>";
 		var urlNew="../photographer_events.php?photographer_id=<?php echo $_REQUEST['ph_id']; ?>";
 		var urlNew1="photographer_busy.php?csr_id=0&photographer_id=<?php echo @$_REQUEST['ph_id']; ?>&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
 			</script>
 
 			<?php } else {  ?>
 			<script>
+			var busyDate=0;
 				var urlNew="super_event.php?super_csr_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
 var urlNew1="";
 			</script>
@@ -384,7 +389,7 @@ $.ajax({
 
     calendar.render();
 
-
+if(busyDate==1)calendar.gotoDate(busyDateIs);
 
 	}
 	});

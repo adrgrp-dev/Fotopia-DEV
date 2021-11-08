@@ -179,7 +179,9 @@ border-top:none!important;
 
 
 
-					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
+		<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
+					
+					
 
 					<table class="table table-responsive"><tr><td>
 					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
@@ -245,6 +247,10 @@ border-top:none!important;
 			</div>
             <div class="col-md-9" style="margin-left:40px;">
 			<center>
+			
+			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #3 of 7 : Set custom price for realtors (discount)</h5></div> <?php } ?>
+			
+			
 	<?php if(@isset($_REQUEST["d"])) { ?>
                         <div class="success-box" style="display:block;">
                             <div class="text-success" id="label_product_deleted" adr_trans="label_product_deleted">Product deleted successfully</div>
@@ -272,9 +278,8 @@ border-top:none!important;
 </div>
 </center>
 <br><br><br />
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products
+						<h5 class="text-center" id="label_list_products"><span adr_trans="label_list_products">List of Products</span>
 						<?php
-
 
 						if(@$_REQUEST['realtor']) {
 

@@ -1390,12 +1390,12 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
                             ?>
             <div class="col-md-4">
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
-                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?>>
+                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?> >
                             </div>
 
             <div class="col-md-4">
                               <p id="label_due_date_time" adr_trans="label_due_date_time">Due Date & Time</p>
-                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php if($to123!="") { echo $to123;  } else { echo date('Y-m-d'); } ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                             </div>
 
 

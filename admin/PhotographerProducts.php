@@ -192,6 +192,13 @@ alert(alertmsg);
 			</div>
             <div class="col-md-9" style="margin-left:40px;">
 			<center>
+			
+			
+			
+			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #4 of 7 : Set custom price for photographers (earnings)</h5></div> <?php } ?>
+			
+			
+			
 	<?php if(@isset($_REQUEST["d"])) { ?>
                         <div class="success-box" style="display:block;">
                             <div class="text-success" id="label_product_deleted" adr_trans="label_product_deleted">Product deleted successfully</div>
@@ -219,7 +226,7 @@ alert(alertmsg);
 </div>
 </center>
 <br><br><br />
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products
+						<h5 class="text-center" id="label_list_products"><span  adr_trans="label_list_products">List of Products</span>
 						<?php
 
 

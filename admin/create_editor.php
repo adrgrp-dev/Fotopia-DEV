@@ -206,7 +206,9 @@ function validate_email(val)
                 <div class="col-md-8" style="padding:30px;">
 
 
+<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h4 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #7 of 7 : Create an editor</h5></div> <?php } ?>
 
+<br />
 
 
 

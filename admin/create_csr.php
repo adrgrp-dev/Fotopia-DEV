@@ -231,13 +231,12 @@ function validate_email(val)
 }
 </script>
 			</div>
+			
                 <div class="col-md-8" style="padding:30px;">
 
+<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h4 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #5 of 7 : Create a CSR</h5></div> <?php } ?>
 
-
-
-
-
+<br />
 
 <span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;">
