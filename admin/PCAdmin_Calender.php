@@ -27,6 +27,15 @@ if(@$_REQUEST['deleteBusy'])
 $busyid=$_REQUEST['busyid'];
 $ph_id=$_REQUEST['ph_id'];
 $ph_name=$_REQUEST['ph_name'];
+
+$getDate=mysqli_query($con,"select * from appointments where id='$busyid'");
+$getDate1=mysqli_fetch_array($getDate);
+
+$from_datetime1=$getDate1['from_datetime'];
+
+$dateTemp=explode("T",$from_datetime1);
+$busyDate=$dateTemp[0];
+
 mysqli_query($con,"delete from `appointments` where id='$busyid'");
 
 header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$busyDate");
