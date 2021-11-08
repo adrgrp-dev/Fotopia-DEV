@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 
-$secret=$_REQUEST["secret_code"];
+$secret=@$_REQUEST["secret_code"];
 
 $get_raw_images=mysqli_query($con,"select * from raw_images where security_code='$secret'");
 $raw_images=mysqli_fetch_assoc($get_raw_images);
@@ -318,9 +318,9 @@ $("#dayVal").val(calid);
 
                     </div>
                     <?php
-                     $editor_email=$raw_images["editor_email"];
+                     $editor_email=@$raw_images["editor_email"];
                      $editor_name_split=explode("@",$editor_email);
-                     $editor_name=$editor_name_split[0];
+                     $editor_name=@$editor_name_split[0];
                       ?>
                       <p align="center" style="font-size: x-large;color: #ffffff;margin-top: 10px;"> Share Dashboard</p>
 
@@ -345,7 +345,7 @@ $("#dayVal").val(calid);
       <div class="col-md-1">
       </div>
       <?php
-         $id_url=$raw_images["order_id"];
+         $id_url=@$raw_images["order_id"];
       $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
       $get_order1=mysqli_fetch_array($get_order_query1);
 

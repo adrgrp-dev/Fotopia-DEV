@@ -183,7 +183,7 @@ $get_email_content = mysqli_query($con,"select * from email_template where pc_ad
 }
 
 $get_email_content1 = mysqli_fetch_array($get_email_content);
-$get_content = $get_email_content1['template_body_text'];
+$get_content = @$get_email_content1['template_body_text'];
 
 
   @$link=explode('?',@$_REQUEST['link1']);
@@ -849,8 +849,14 @@ alert(alertmsg);
  }
  function shareme(d,option)
  {
+   if(d!="")
+   {
     $("#link").val(d);
     $("#downloadoption").val(option);
+  }
+  else{
+    alert("No Finished images Uploaded");
+  }
     // document.execCommand("copy");
     //
     // /* Alert the copied text */
@@ -2218,12 +2224,17 @@ alert(alertmsg);
                                               <?php } ?>
                                             </center>
                                             </div>
+                                            <?php if(@$get_link['images_url']!='')
+                                            {
+                                              ?>
                                             <div class="" style="display:inline-block">
-                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
+                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
+
                                             <div class="" style="display:inline-block">
-                                              <a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                              <a href="" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                             </div>
+                                          <?php }?>
                                          </div>
 
                                          </form>
@@ -2284,7 +2295,7 @@ alert(alertmsg);
                                             }
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
-                                            ?>
+
                                              <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
@@ -2367,12 +2378,16 @@ alert(alertmsg);
                                             <div class=""  style="display:inline-block"><center>
                                               &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php }?>
                                             </center></div>
+                                            <?php if(@$get_link['images_url']!='')
+                                            {
+                                              ?>
                                             <div class="" style="display:inline-block">
                                             <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>  <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
                                             </div>
                                             <div class="" style="display:inline-block">
                                               <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                             </div>
+                                          <?php } ?>
                                          </div>
                                          </form>
                                        <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;"/>
@@ -2431,7 +2446,7 @@ alert(alertmsg);
                                             }
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
-                                            ?>
+
                                              <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
@@ -3127,7 +3142,7 @@ function updateScroll(){
                                         <?php $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url");
                                           while($get_images=mysqli_fetch_assoc($get_rawimages_query))
                                           {
-                                          if($get_images["status"]==3)
+                                            if($get_images["status"]==3)
                                             {
                                              echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
                                              }
