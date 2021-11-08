@@ -50,33 +50,60 @@ function email($order_id,$con)
  	$get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
  	$get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
  	$PCAdmin_email=$get_pcadmindetail['email'];
- 	$photographer_id=@$get_detail['photographer_id'];
+ 	 $photographer_id=@$get_detail['photographer_id'];
+
  	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
  	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
  	$photographer_email=@$get_name["email"];
- 	$csr_id=$get_name['csr_id'];
- 	$get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
- 	$get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
- 	$csr_email=$get_csrdetail['email'];
-  $realtor_id=$get_detail['created_by_id'];
+	//echo $get_name['email'];
+	if($get_name['csr_id']!=0)
+  {
+ 	$admin_csr_id=$get_name['csr_id'];
+	$get_admin_csr_detail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$admin_csr_id'");
+  }
+	else{
+	 $admin_csr_id=$get_name['pc_admin_user_id'];
+	 //echo "SELECT * FROM photo_company_admin where id='$admin_csr_id'";
+	$get_admin_csr_detail_query=mysqli_query($con,"SELECT * FROM photo_company_admin where id='$admin_csr_id'");
+	}
+ 	$get_admin_csr_detail=mysqli_fetch_assoc($get_admin_csr_detail_query);
+ 	$admin_csr_email=$get_admin_csr_detail['email'];
+  $realtor_id=$get_detail['realtor_id'];
   $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
   $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-  $realtor_email=$get_realtor_name['email'];
+  $realtor_email=@$get_realtor_name['email'];
   $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Finished Images Upload'");
   $get_template=mysqli_fetch_array(@$get_template_query);
   $finished_image_upload_template=@$get_template['template_body_text'];
 
   if($get_detail['created_by_type']=="Realtor")
   {
+
+
   $mail->addAddress($realtor_email);
+	if(isset($PCAdmin_email))
+	{
   $mail->addCC($PCAdmin_email);
-  $mail->addCC($csr_email);
+  }
+	if(isset($admin_csr_email))
+	{
+  $mail->addCC($admin_csr_email);
+  }
+	if(isset($photographer_email))
+	{
   $mail->addCC($photographer_email);
+  }
   }
   else{
     $mail->addAddress($PCAdmin_email);
-    $mail->addCC($csr_email);
+		if(isset($admin_csr_email))
+		{
+    $mail->addCC($admin_csr_email);
+	  }
+		if(isset($photographer_email))
+		{
     $mail->addCC($photographer_email);
+	  }
   }
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
@@ -129,7 +156,7 @@ if(isset($_REQUEST['send']))
   $secret_code=getName(16);
   // $editor_email=@$_REQUEST["floor_email"];
   $type1=@$_REQUEST['type'];
-  
+
   $url=$_SESSION['project_url']."download_raw_images.php?secret_code=".$secret_code;
 
   // $get_admin_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$admin_users_id'");
