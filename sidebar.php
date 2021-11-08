@@ -36,6 +36,7 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
     //From email address and name
     $mail->From = $_SESSION['emailUserID'];
     $mail->FromName = "Fotopia";
+
     //To address and name
     // ;
     // // //Recipient name is optional
