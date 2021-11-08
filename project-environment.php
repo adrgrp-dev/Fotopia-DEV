@@ -13,7 +13,7 @@ $dbhost = "localhost";
 $emailHost='outlook.office365.com';
 $emailUserID='test.deve@adrgrp.com';
 $emailPassword='Adrgrp@2021';
-$emailPort = 587;
+$emailPort = 995;
 
 //$emailHost='smtp.gmail.com';
 //$emailUserID='test.deve@adrgrp.com';
