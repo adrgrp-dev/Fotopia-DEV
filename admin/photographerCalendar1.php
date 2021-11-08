@@ -96,7 +96,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 				  </form></div>
 				 <div class="col-md-4" style="padding:10px;font-size:24px;text-align:center;top:10px;font-weight:bolder"><span style="text-shadow: 2px 2px #AAA;">OR</span></div>
 				 <div class="col-md-4" style="padding:20px;">
-<a href="quick_create_order.php?pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>" class="btn btn-default" style="border-radius:25px;color:#AAA">Skip to Order Detail screen
+<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>" class="btn btn-default" style="border-radius:25px;color:#AAA">Skip to Order Detail screen
 </a>
 </div>
 </div>
@@ -435,7 +435,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 	var phId1='<?php echo $_REQUEST['Photographer_id']; ?>';
 	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
 	
-    window.location.href="create_order.php?fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id;
+    window.location.href="create_order.php?u=0&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id;
     }
 
     }

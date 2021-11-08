@@ -888,7 +888,7 @@ if($user_type=="Photographer")
             </div>
         </div>
      </div>
-<?php if((@$_REQUEST['u']==1)&&(@$appointment_update_details['lead_from']=="realtor")){?>
+<?php if((@$_REQUEST['u']==1) && ($appointment_update_details['lead_from']=="realtor")){?>
 
 <script>
 //alert("sarath");
@@ -923,5 +923,47 @@ $("#realtor_id").css("visibility","hidden");
 </script>
 <?php }?>
 
+<?php
+
+if(@$_REQUEST['u']==0){ ?>
+
+<script> 
+
+$("#from_realtor").click();
+
+</script>
+
+<?php } ?>
+
+<script>
+  
+ // $("#from_realtor").click();
+   
+   
+  if ($("#from_realtor").is(":checked")) {
+       $("#realtor_information").show();
+       $("#realtor_name").attr("required","required");
+       $("#realtor_contactNo").attr("required","required");
+       $("#realtor_email").attr("required","required");
+       $("#realtor_address").attr("required","required");
+       $("#realtor_employer_id").attr("required","required");
+     $("#from_whom").removeAttr('required');
+
+    $("#realtor_id").css("visibility","visible");
+      // $("#realtor_id").attr("required","required");
+
+     } else {
+       $("#realtor_name").removeAttr('required');
+       $("#realtor_contactNo").removeAttr('required');
+       $("#realtor_email").removeAttr('required');
+       $("#realtor_address").removeAttr('required');
+       $("#realtor_employer_id").removeAttr('required');
+$("#realtor_id").css("visibility","hidden");
+       $("#realtor_information").hide();
+      $("#from_whom").removeAttr('required');
+     }
+
+
+</script>
 
 		<?php include "footer.php";  ?>
