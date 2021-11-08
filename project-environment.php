@@ -10,10 +10,10 @@ $dbhost = "localhost";
  $db = "photography_app";
  
 // Email credentials
-$emailHost='outlook.office365.com';
+$emailHost='smtp.office365.com';
 $emailUserID='test.deve@adrgrp.com';
 $emailPassword='Adrgrp@2021';
-$emailPort = 995;
+$emailPort = 587;
 
 //$emailHost='smtp.gmail.com';
 //$emailUserID='test.deve@adrgrp.com';
