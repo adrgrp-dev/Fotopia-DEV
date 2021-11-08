@@ -33,7 +33,7 @@ $raw_images=mysqli_fetch_assoc($get_raw_images);
   	$mail->Username =$emailUserID;
   	$mail->Password =$emailPassword;
   	$mail->SMTPSecure = 'tls';
-  	$mail->Port = 587;
+  	$mail->Port = $_SESSION['emailPort'];
   	//$mail->Port = 465;
   	//From email address and name
   	$mail->From = $emailUserID;

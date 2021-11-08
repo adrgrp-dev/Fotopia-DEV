@@ -23,7 +23,7 @@
    	$mail->Username =$_SESSION['emailUserID'];
    	$mail->Password =$_SESSION['emailPassword'];
    	$mail->SMTPSecure = 'tls';
-   	$mail->Port = 587;
+   	$mail->Port = $_SESSION['emailPort'];
    	//$mail->Port = 465;
    	//From email address and name
    	$mail->From = $_SESSION['emailUserID'];

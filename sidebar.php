@@ -31,7 +31,7 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
     $mail->Username =$_SESSION['emailUserID'];
     $mail->Password =$_SESSION['emailPassword'];
     $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+    $mail->Port = $_SESSION['emailPort'];
     //$mail->Port = 465;
     //From email address and name
     $mail->From = $_SESSION['emailUserID'];

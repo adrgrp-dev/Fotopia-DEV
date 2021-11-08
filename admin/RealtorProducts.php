@@ -29,7 +29,7 @@ function email($realtor_email,$con)
 	$mail->Username =$_SESSION['emailUserID'];
 	$mail->Password =$_SESSION['emailPassword'];
 	$mail->SMTPSecure = 'tls';
-	$mail->Port = 587;
+	$mail->Port = $_SESSION['emailPort'];
 
 	//From email address and name
 	 $mail->From = $_SESSION['emailUserID'];

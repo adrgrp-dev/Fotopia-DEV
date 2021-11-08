@@ -58,7 +58,7 @@ $mail->SMTPAuth = true;
 $mail->Username =$_SESSION['emailUserID'];
 $mail->Password =$_SESSION['emailPassword'];
 $mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+$mail->Port = $_SESSION['emailPort'];
 
 $mail->From = $_SESSION['emailUserID'];
 $mail->FromName = "Fotopia";
