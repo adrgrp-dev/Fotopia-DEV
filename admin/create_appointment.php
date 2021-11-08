@@ -1395,7 +1395,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
             <div class="col-md-4">
                               <p id="label_due_date_time" adr_trans="label_due_date_time">Due Date & Time</p>
-                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php if($to123!="") { echo $to123;  } else { echo date('Y-m-d'); } ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <input id="due" name="due" placeholder="Select DueDate" type="date" autocomplete="off" min="<?php if($to123!="") { echo date('Y-m-d',strtotime($to123));  } else { echo date('Y-m-d'); } ?>" value="<?php  if(@$_REQUEST['od']) { echo date("Y-m-d",strtotime(@$order_fetch['order_due_date'])); } ?>" class="form-control form-value" required <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                             </div>
 
 

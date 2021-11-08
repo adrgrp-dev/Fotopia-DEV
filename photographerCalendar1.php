@@ -3,7 +3,6 @@ ob_start();
 
 include "connection1.php";
 
-
 $Photographer_id=$_REQUEST['Photographer_id'];
 $phDetail1=mysqli_query($con,"select * from user_login where id='$Photographer_id'");
 $phDetail=mysqli_fetch_array($phDetail1);

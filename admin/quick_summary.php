@@ -486,9 +486,9 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 </div>
 <?php
-unset($_SESSION['fromDatetime']);
-unset($_SESSION['toDatetime']);
-unset($_SESSION['date']);
+//unset($_SESSION['fromDatetime']);
+//unset($_SESSION['toDatetime']);
+//unset($_SESSION['date']);
 unset($_SESSION['realtor_employer_id']);
 
 ?>
