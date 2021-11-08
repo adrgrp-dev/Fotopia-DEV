@@ -46,6 +46,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 
 			</div>
 			<script>
+			var busyDate=0;
 			function fillPhId()
 			{
 		  var value= $('#ph_name').val();
@@ -285,12 +286,18 @@ margin-top:15px;
 
 				</style>
 				<script src='../lib/main.js'></script>
-			<?php
+				<?php
+			if(@$_REQUEST['busydate'])
+{
+		?><script>
+				busyDate=1;
+				</script>
+			<?php }
 			if(@$_REQUEST['ph_id'])
 {
 		?>
 			<script>
-			var busyDate=1;
+			 
 			var busyDateIs="<?php echo @$_REQUEST['busydate']; ?>";
 		var urlNew="../photographer_events.php?photographer_id=<?php echo $_REQUEST['ph_id']; ?>";
 		var urlNew1="photographer_busy.php?csr_id=0&photographer_id=<?php echo @$_REQUEST['ph_id']; ?>&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
@@ -298,7 +305,7 @@ margin-top:15px;
 
 			<?php } else {  ?>
 			<script>
-			var busyDate=0;
+			 
 				var urlNew="super_event.php?super_csr_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
 var urlNew1="";
 			</script>
@@ -388,7 +395,6 @@ $.ajax({
     });
 
     calendar.render();
-
 if(busyDate==1)calendar.gotoDate(busyDateIs);
 
 	}
