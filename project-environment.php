@@ -2,7 +2,6 @@
  $_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
 $application_url="http://fotopia.adrgrp.com/photo-dev";
 
-
 //Database Credentials
 $dbhost = "localhost";
  $dbuser = "root";

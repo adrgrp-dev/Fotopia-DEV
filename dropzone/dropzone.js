@@ -174,7 +174,7 @@ var Dropzone = function (_Emitter) {
          * How many file uploads to process in parallel (See the
          * Enqueuing file uploads* documentation section for more info)
          */
-        parallelUploads: 2,
+        parallelUploads: 5,
 
         /**
          * Whether to send multiple files in one request. If
@@ -225,7 +225,7 @@ var Dropzone = function (_Emitter) {
          * the event `maxfilesexceeded` will be called. The dropzone element gets the
          * class `dz-max-files-reached` accordingly so you can provide visual feedback.
          */
-        maxFilesize: 256,
+        maxFilesize: 512,
 
         /**
          * The name of the file param that gets transferred.
@@ -268,7 +268,7 @@ var Dropzone = function (_Emitter) {
          * The `options.transformFile` function uses these options, so if the `transformFile` function
          * is overridden, these options don't do anything.
          */
-        resizeWidth:1000,
+        resizeWidth:null,
 
         /**
          * See `resizeWidth`.
@@ -285,7 +285,7 @@ var Dropzone = function (_Emitter) {
         /**
          * The quality of the resized images. See `resizeWidth`.
          */
-        resizeQuality: 0.8,
+        resizeQuality: null,
 
         /**
          * How the images should be scaled down in case both, `resizeWidth` and `resizeHeight` are provided.
