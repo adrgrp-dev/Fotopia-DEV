@@ -194,7 +194,7 @@ $Photographer_id1=$pht_id;
 						 $loggedin_id=$_SESSION['admin_loggedin_id'];
              $loggedin_type=$_SESSION['admin_loggedin_type'];
              // echo "select * from user_login WHERE id=$pht_id";
-			 
+			 $subCSR_ID=0;
 			 if(!empty($Photographer_id1))
 			 {
 							$user_details_query=mysqli_query($con,"select * from user_login WHERE id='$Photographer_id1'");
