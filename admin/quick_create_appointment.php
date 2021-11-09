@@ -182,9 +182,9 @@ $chk_to=$to_exp[0]." ".$to_exp[1];
     //
 		
 			$due_date=$_REQUEST["due"];
-		print_r($_REQUEST);
-     $due_exp=explode("T",$due_date);
-		 $chk_due=$due_exp[0]." ".$due_exp[1];
+		//print_r($_REQUEST);
+    // $due_exp=explode("T",$due_date);
+		 $chk_due=$_REQUEST["due"];
 
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 //$Photographer_id1=$_REQUEST['Photographer_id'];
