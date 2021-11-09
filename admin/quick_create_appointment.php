@@ -222,13 +222,15 @@ $realtor_id = $get_realtor_id['created_by_id'];
 
 mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 
+if(!empty($Photographer_id1))
+{
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
  $number=mysqli_num_rows($get_appointment); 
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
-
+}
 }
 
  mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
