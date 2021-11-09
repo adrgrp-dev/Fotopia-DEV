@@ -1277,7 +1277,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
 
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="display:none">
 
        <p id="label_photographer" adr_trans="label_photographer">Photographer </p>
       <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);">
