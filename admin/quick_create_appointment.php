@@ -1280,8 +1280,10 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
             <div class="col-md-6">
 
        <p id="label_photographer" adr_trans="label_photographer">Photographer </p>
-      <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);"> -->
-        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" />
+      <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);">
+        <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php //echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" /> -->
+		
+		<input list="options" name="pht" class="form-control form-value" id="pht" type="text" />
         <datalist id="options">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
        <?php
