@@ -194,12 +194,16 @@ $Photographer_id1=$pht_id;
 						 $loggedin_id=$_SESSION['admin_loggedin_id'];
              $loggedin_type=$_SESSION['admin_loggedin_type'];
              // echo "select * from user_login WHERE id=$pht_id";
+			 
+			 if(!empty($Photographer_id1))
+			 {
 							$user_details_query=mysqli_query($con,"select * from user_login WHERE id='$Photographer_id1'");
 							$user_details_query1=mysqli_fetch_assoc($user_details_query);
 							$superCSR_ID=$user_details_query1['pc_admin_id'];
 							$subCSR_ID=$user_details_query1['csr_id'];
 							$photographer_Name=$user_details_query1['first_name']."".$user_details_query1["last_name"];
 							$email_id=$user_details_query1["email"];
+							}
 	$editProduct=0;
 if(@$_REQUEST['od']!="")
 {
@@ -249,7 +253,8 @@ $realtor_idIS=$realtorID['id'];
 
     mysqli_query($con,"INSERT INTO `orders` (`home_seller_id`,`realtor_id`, `property_type`, `number_of_floor_plans`, `area`,`property_address`,`property_city`,`property_state`,`property_country`,`property_zip`,`property_contact_mobile`,`property_contact_email`,`address_same`,`rental_dormitory`,  `photographer_id`, `session_from_datetime`, `session_to_datetime`, `order_due_date`, `booking_notes`, `created_by_id`,`created_by_type`,`pc_admin_id`,`csr_id`,`created_datetime`, `status_id`) VALUES ($home_seller_id,'$realtor_idIS', '$property', '$plan', '$area','$property_address','$property_city','$property_state','$property_country','$property_zip','$property_contact_mobile','$property_contact_email','$address_same','$rental_dormitory', '$Photographer_id1', '$chk_from', '$chk_to', '$chk_due', '$notes', '$created_id','$_SESSION[admin_loggedin_type]','$pc_admin_id1','$subCSR_ID',now(), '$status')");
 $order_id=mysqli_insert_id($con);
-
+if(!empty($Photographer_id1))
+			 {
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
  $number=mysqli_num_rows($get_appointment); 
@@ -257,6 +262,7 @@ if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
 
+}
 }
  mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id', '$created_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
 
