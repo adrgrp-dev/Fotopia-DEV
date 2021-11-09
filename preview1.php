@@ -218,7 +218,10 @@ $comment=$_REQUEST['commentall'];
 {
   background: none !important;
 }
-
+.mfp-container
+{
+background:#000 !important;
+}
 
 </style>
 <script>
@@ -786,7 +789,7 @@ var a;
         	return true;
                 //console.log('Everything has a value.');
             }
-          
+
         	});
 
             var d=$("#comment_all1").val();

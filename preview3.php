@@ -11,6 +11,12 @@ include "header.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js" integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg==" crossorigin="anonymous"></script>
 <script src="dropzone/dropzone.js"></script>
 <script src="dropzone/validate.js"></script>
+<style>
+.mfp-container
+{
+background:#000 !important;
+}
+</style>
 
 <link rel="stylesheet" href="dropzone/dropzone.css">
  <div class="section-empty bgimage9">

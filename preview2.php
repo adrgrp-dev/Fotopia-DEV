@@ -6,34 +6,34 @@ $secret=$_REQUEST["secret_code"];
 $get_raw_images=mysqli_query($con,"select * from raw_images where security_code='$secret'");
 $raw_images=mysqli_fetch_assoc($get_raw_images);
 
-function copy_folder($src, $dst) { 
-  
+function copy_folder($src, $dst) {
+
     // open the source directory
-    $dir = opendir($src); 
-  
+    $dir = opendir($src);
+
     // Make the destination directory if not exist
-    @mkdir($dst); 
-  
+    @mkdir($dst);
+
     // Loop through the files in source directory
-    while( $file = readdir($dir) ) { 
-  
-        if (( $file != '.' ) && ( $file != '..' )) { 
-            if ( is_dir($src . '/' . $file) ) 
-            { 
-  
+    while( $file = readdir($dir) ) {
+
+        if (( $file != '.' ) && ( $file != '..' )) {
+            if ( is_dir($src . '/' . $file) )
+            {
+
                 // Recursively calling custom copy function
-                // for sub directory 
-                copy_folder($src . '/' . $file, $dst . '/' . $file); 
-  
-            } 
-            else { 
-                copy($src . '/' . $file, $dst . '/' . $file); 
-            } 
-        } 
-    } 
-  
+                // for sub directory
+                copy_folder($src . '/' . $file, $dst . '/' . $file);
+
+            }
+            else {
+                copy($src . '/' . $file, $dst . '/' . $file);
+            }
+        }
+    }
+
     closedir($dir);
-} 
+}
 function getFileCount($path) {
         $size = 0;
         $ignore = array('.','..','cgi-bin','.DS_Store');
@@ -44,7 +44,7 @@ function getFileCount($path) {
                 $size += getFileCount(rtrim($path, '/') . '/' . $t);
             } else {
                 $size++;
-            }   
+            }
         }
         return $size;
     }
@@ -61,11 +61,11 @@ $timeRandom=rand(1000000000,9999999999);
 mkdir("./temp/$timeRandom");
 
   $dir = $_POST['folderToZip'];
-  
+
 copy_folder($dir,"./temp/$timeRandom");
 // Get real path for our folder
 $rootPath = realpath("./temp/$timeRandom");
- $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";  
+ $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 
 // Initialize archive object
 $zip = new ZipArchive();
@@ -89,8 +89,8 @@ foreach ($files as $name => $file)
 $x=1;
 		$extn=$file->getExtension();
 		$ParsedFileNameIS=explode("_",$relativePath);
-		
-		
+
+
 		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
@@ -100,15 +100,15 @@ $x=1;
 		}
 		else
 		{
-		
+
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
-        
+
 		break 1;
 		}
     }
 	$zip->addFile("./temp/$timeRandom/".$ParsedFileName, $ParsedFileName);
         // Add current file to archive
-       
+
     }
 }
 
@@ -177,6 +177,10 @@ rmdir("./temp/$timeRandom");
   {
     background-color: white;
     color: black;
+  }
+  .mfp-container
+  {
+  background:#000 !important;
   }
 	</style>
 

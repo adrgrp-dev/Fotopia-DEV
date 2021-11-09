@@ -281,7 +281,7 @@ foreach(glob($dir . '/*') as $file) {
   }
   .mfp-container
 {
-background:none!important;
+background:#000 !important;
 }
 	</style>
 

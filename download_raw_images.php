@@ -111,7 +111,7 @@ $x=1;
 		{
 		$ParsedFileNameIS=explode(".",$relativePath);
 			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
-			
+
 
 		}
 		else
@@ -219,6 +219,10 @@ foreach(glob($dir . '/*') as $file) {
   {
   background:#000!important;
   color:#FFF!important;
+  }
+  .mfp-container
+  {
+  background:#000 !important;
   }
 	</style>
 

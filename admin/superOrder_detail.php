@@ -762,7 +762,7 @@ html{	background-color:#FFF; }
 
 .mfp-container
 {
-background:none!important;
+background:#000 !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -880,6 +880,8 @@ alert(alertmsg);
      //$('.selectall').prop("checked",true);
      var c=$('#counts').val();
       $('#count').val(c);
+      $('#selected_count').text(c);
+      $('#total_count').text(c);
 
    }
    else {
@@ -891,6 +893,7 @@ alert(alertmsg);
          $('.selectimg').prop("checked",false);
         //  $('.selectall').prop("checked",false);
          $('#count').val('0');
+           $('#selected_count').text('0');
    }
    if($("#remove").prop("checked") == true)
    {
@@ -922,6 +925,7 @@ alert(alertmsg);
    c++;
    //  c++;
    $('#count').val(c);
+     $('#selected_count').text(c);
     if($('#counts').val()==c)
     {
         $("#remove").prop("checked",true);
@@ -935,6 +939,7 @@ alert(alertmsg);
      $("#clicked_img"+id).css('opacity','1');
         c--;
      $('#count').val(c);
+       $('#selected_count').text(c);
      $("#remove").prop("checked",false);
    }
 
@@ -962,6 +967,8 @@ alert(alertmsg);
      $('.selectimg2').prop("checked",true);
      var c=$('#counts2').val();
       $('#count2').val(c);
+      $('#selected_floor_count').text(c);
+      $('#total_floor_count').text(c);
 
 
 
@@ -973,6 +980,7 @@ alert(alertmsg);
        $('.icons2').addClass('fa fa-square');
          $('.selectimg2').prop("checked",false);
           $('#count2').val('0');
+            $('#selected_floor_count').text('0');
    }
 
    if($("#remove2").prop("checked") == true)
@@ -1004,6 +1012,7 @@ alert(alertmsg);
    $("#check2"+id).addClass('fa fa-check-square');
    c++;
    $('#count2').val(c);
+     $('#selected_floor_count').text(c);
    if($('#counts2').val()==c)
    {
        $("#remove2").prop("checked",true);
@@ -1016,6 +1025,7 @@ alert(alertmsg);
      $("#clicked_img2"+id).css('opacity','1');
      c--;
      $('#count2').val(c);
+       $('#selected_floor_count').text(c);
      $("#remove2").prop("checked",false);
    }
 
@@ -1412,7 +1422,7 @@ alert(alertmsg);
                             <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#b3ae0c;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
+                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:green;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:green;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
@@ -2052,13 +2062,13 @@ alert(alertmsg);
                       </div>
 
                     <div class="panel" id="tab4">
-                      <input type="hidden" id="count"/>
+                      <input type="hidden" id="count" />
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
                       <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_summary['realtor_id']==0&&$get_summary['created_by_type']!="Realtor")
                       {?>
-                      <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
+                      <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
                     <?php } ?>
                          <?php if($get_summary['status_id']==3)
                          {
@@ -2072,21 +2082,58 @@ alert(alertmsg);
                       }
                        ?>
                                 <div class="tab-box pills" data-tab-anima="fade-right">
-                                    <!-- <ul class="nav nav-pills nav-justified">
-                                        <li class="current-active active"><a href="#">Standard Photos</a></li>
-                                        <li class=""><a href="#">Floor Plans</a></li>
-                                        <li class=""><a href="#">Drone Photos</a></li>
-                                          <li class=""><a href="#">Hdr Photos</a></li>
-                                    </ul> -->
-                                      <div id="finished_images_standard_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
-                                      <div style="border-bottom: 1px solid black">
 
+                                      <div id="finished_images_standard_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
+
+                                      <div style="border-bottom: 1px solid black">
+                                        <?php
+
+                                             $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='1'");
+                                             $get_link=mysqli_fetch_array($raw_images_query);
+
+                                        ?>
                                            <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
-                                         <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                     <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
-                                         <p id="label_standard_photos" adr_trans="label_standard_photos" style=" position: relative;top: 0px;left: 44%;font-weight:600;">Standard Photos</p>
+                                             <div class="row" style="padding:10px" >
+                                               <div class="col-md-2" style="display:inline-block">
+                                                 <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span> </b></input>
+                                               </div>
+                                               <div class="col-md-2" style="display:inline-block">
+                                                 <input type="submit" class="circle-button btn-sm btn done" style=""  onclick="downloadbtn()" name="ZIP" value="Download" >
+                                               </div>
+                                               <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
+                                               <div class="col-md-2" style="display:inline-block">
+                                                   <input type="submit"  class="circle-button btn-sm btn rework"  name="rework" style=""  value="Rework" />
+                                               </div>
+                                               <?php } ?>
+                                               <?php if(@$get_link['images_url']!='')
+                                               {
+                                                 ?>
+                                                 <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?>
+                                               <div class="col-md-2" style="display:inline-block">
+                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
+                                               </div>
+                                               <?php } ?>
+
+                                               <div class="col-md-2" style="display:inline-block">
+                                                 <a href="#tnc1"  class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                               </div>
+
+                                               <div class="col-md-2" style="display:inline-block">
+                                                  <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" style=""><span class="circle-button btn-sm btn" style="padding:5px;font-size:10px;" adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                               </div>
+
+                                             <?php }?>
+                                            </div>
+                                         <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
+                                     <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
+                                     <div class="row">
+                                       <div class="col-md-12">
+                                          <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
+                                       </div>
+
+                                     </div>
                                       </div>
-                                      <div class="maso-list gallery">
+                                      <div class="maso-list gallery" style="height:550px;overflow:scroll">
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                                            <input type="hidden" id="allimages" name="allimages" value="0">
                                         <?php
@@ -2202,40 +2249,13 @@ alert(alertmsg);
                                             closedir($opendirectory);
                                         }
                                         ?>
-                                        <?php
-
-                                             $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='1'");
-                                             $get_link=mysqli_fetch_array($raw_images_query);
-
-                                        ?>
 
                                            <input type="hidden" name="folderToZip" value="<?php echo "../finished_images/order_".$id_url."/standard_photos"; ?>">
                                            <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                                            <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                          <hr class="space s">
 
-                                          <div class="row" style="padding:10px">
-                                            <div class="" style="display:inline-block">
-                                              <input type="submit" class="btn btn-default done"  onclick="downloadbtn()" name="ZIP" value="Download" >
-                                            </div>
-                                            <div class="" style="display:inline-block"><center>
-                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
-                                                <input type="submit"  class="btn btn-default rework"  name="rework"  value="Rework" />
-                                              <?php } ?>
-                                            </center>
-                                            </div>
-                                            <?php if(@$get_link['images_url']!='')
-                                            {
-                                              ?>
-                                            <div class="" style="display:inline-block">
-                                              <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?><a href="#tnc1" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a><?php } ?>
-                                            </div>
 
-                                            <div class="" style="display:inline-block">
-                                              <a href="" style="" class="btn btn-default lightbox link btn-md" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
-                                            </div>
-                                          <?php }?>
-                                         </div>
 
                                          </form>
                                          <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;"/>
@@ -2243,13 +2263,54 @@ alert(alertmsg);
                                         </div>
 
                                     </div>
-                                        <div id="finished_images_floor_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;display:none;">
+                                        <div id="finished_images_floor_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;display:block;">
                                       <div style="border-bottom: 1px solid black">
+                                        <?php
+
+                                             $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='2'");
+                                             $get_link=mysqli_fetch_array($raw_images_query);
+
+                                        ?>
 
                                            <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
-                                       <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                           <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
-                                        <p style=" position: relative;top: 0px;left: 44%;font-weight:600" adr_trans="label_floor_photos">Floor Photos</p>
+                                             <div class="row" style="padding:10px">
+                                               <div class="col-md-2"  style="display:inline-block">
+                                                    <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
+                                               </div>
+                                                <div class="col-md-2" style="display:inline-flex">
+                                                  <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn2()" name="ZIP"  value="Download" >
+                                                </div>
+                                                <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?>
+                                                <div class="col-md-2"  style="display:inline-block">
+                                                <input type="submit" class="circle-button btn-sm btn rework"  name="rework"  value="Rework" / >
+                                                </div>
+                                                <?php }?>
+                                                <?php if(@$get_link['images_url']!='')
+                                                {
+                                                  ?>
+                                                  <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
+                                                <div class="col-md-2" style="display:inline-block">
+                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a>
+                                                </div>
+                                                <?php } ?>
+                                                <div class="col-md-2" style="display:inline-block">
+                                                  <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                                </div>
+                                              <?php } ?>
+                                              <div class="col-md-2"  style="display:inline-block">
+                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                              </div>
+                                             </div>
+
+
+                                             <div class="row">
+                                               <div class="col-md-12">
+                                               <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
+                                               </div>
+
+
+
+                                             </div>
                                       </div>
                                       <div class="maso-list gallery">
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
@@ -2359,36 +2420,13 @@ alert(alertmsg);
                                             closedir($opendirectory);
                                         }
                                         ?>
-                                        <?php
-
-                                             $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='2'");
-                                             $get_link=mysqli_fetch_array($raw_images_query);
-
-                                        ?>
 
                                            <input type="hidden" name="folderToZip" value="<?php echo "../finished_images/order_".$id_url."/floor_plans"; ?>">
 
                                            <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
                                          <hr class="space s">
 
-                                         <div class="row" style="padding:10px">
-                                            <div class="" style="display:inline-flex">
-                                              <input type="submit" class="btn btn-default done" onclick="downloadbtn2()" name="ZIP"  value="Download" >
-                                            </div>
-                                            <div class=""  style="display:inline-block"><center>
-                                              &nbsp;<?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?><input type="submit" class="btn btn-default rework"  name="rework"  value="Rework" / ><?php }?>
-                                            </center></div>
-                                            <?php if(@$get_link['images_url']!='')
-                                            {
-                                              ?>
-                                            <div class="" style="display:inline-block">
-                                            <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>  <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a><?php } ?>
-                                            </div>
-                                            <div class="" style="display:inline-block">
-                                              <a href="#tnc1" style="" class="btn btn-default lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
-                                            </div>
-                                          <?php } ?>
-                                         </div>
+
                                          </form>
                                        <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;"/>
                                         </div>
