@@ -2186,7 +2186,7 @@ alert(alertmsg);
                                                   <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                               </a>
 
-                                              <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+                                              <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                   <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                               </a>
@@ -2194,18 +2194,18 @@ alert(alertmsg);
                                               <?php if(@$get_comment['uploaded_by_id']!='0'){
 
                                             ?>
-                                              <a class="i-center" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                                                  <i class="fa fa-trash-o anima" style="color: white;transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;    top: 150px;left: 70px;font-size: 20px;"></i>
-
-                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;">
-
+                                              <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
+                                                  <i class="fa fa-trash-o anima" style="position:absolute !important;top:55%;left:40%;z-index:2;color:white;font-size:18px"></i>
                                               </a>
+                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+
+
                                                   <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                              <?php } else{
                                                ?>
 
-                                                    <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                    <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                              <?php } ?>
 
@@ -2312,7 +2312,7 @@ alert(alertmsg);
 
                                              </div>
                                       </div>
-                                      <div class="maso-list gallery">
+                                      <div class="maso-list gallery" style="height:550px;overflow:scroll">
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                                            <input type="hidden" id="allimages2" name="allimages" value="0">
                                         <?php
@@ -2373,17 +2373,18 @@ alert(alertmsg);
                                       <?php if(@$get_comment['uploaded_by_id']!='0'){
 
                                     ?>
-                                      <a class="i-center" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
-                                          <i class="fa fa-trash-o anima" style="color: white;transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;    top: 150px;left: 70px;font-size: 20px;"></i>
-                                      <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;">
-
+                                    <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
+                                        <i class="fa fa-trash-o anima" style="position:absolute !important;top:55%;left:40%;z-index:2;color:white;font-size:18px"></i>
                                     </a>
-                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                      <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+
+
+                                      
 
                                    <?php } else{
                                      ?>
 
-                                          <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                          <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                    <?php } ?>
 
