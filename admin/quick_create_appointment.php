@@ -180,17 +180,9 @@ $chk_to=$to_exp[0]." ".$to_exp[1];
 
 
     //
-		if(empty($_REQUEST["due"]))
-		{
-			$added_date=date("Y-m-d H:i:s",strtotime('+24 hours', strtotime($chk_to)));
-			$added_exp=explode(" ",$added_date);
-			$due_date=$added_exp[0]."T".$added_exp[1];
-		//	echo $due_date;
-		}
-		else
-		{
+		
 			$due_date=$_REQUEST["due"];
-		}
+		
      $due_exp=explode("T",$due_date);
 		 $chk_due=$due_exp[0]." ".$due_exp[1];
 
