@@ -2885,26 +2885,18 @@ function updateScroll(){
                                               }
                                               elseif($get_images["service_name"] == 1)
                                               {
-                                                  $counts="<script>$(#counts).val();</script>";
+                                                  
 
-                                                if($counts==0)
-                                                {
+                                              
                                                 echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Photo images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
-                                              }
-                                              else{
-                                                  echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Photo finished images uploaded <span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
-                                              }
+                                              
+                                              
                                               }
                                               elseif( $get_images["service_name"] == 2)
                                               {
-                                                $counts1="<script>$(#counts2).val();</script>";
-                                                if($counts1==0)
-                                                {
+                                               
                                                 echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
-                                                }
-                                                else{
-
-                                                }
+                                               
                                               }
                                               elseif($get_images["service_name"] == 3)
                                               {
