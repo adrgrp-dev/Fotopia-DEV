@@ -1247,7 +1247,7 @@ $from123=preg_replace("/ /","T",$from123);
              <div class="col-md-4" <?php if(isset($_SESSION['bn'])==1) { echo "style='display:none'";  } ?>>
 
                                 <p id="label_appointment_from" adr_trans="label_appointment_from">From Date & Time  </p>
-                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>"  value="<?php echo $from123; ?>" minutestep="10">
+                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>"  value="<?php echo $from123; ?>" minutestep="10" <?php if(isset($_SESSION['bn'])==1) { echo "readonly";  } ?>>
                             </div>
 
 							<?php
@@ -1293,7 +1293,7 @@ $from123=preg_replace("/ /","T",$from123);
                             ?>
             <div class="col-md-4"  <?php if(isset($_SESSION['bn'])==1) { echo "style='display:none'";  } ?>>
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
-                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>">
+                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>" <?php if(isset($_SESSION['bn'])==1) { echo "readonly";  } ?>>
                             </div>
 
             <div class="col-md-4">
