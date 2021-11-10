@@ -62,7 +62,7 @@ else
 
 
 
- echo $chk_due=$_REQUEST["due"];
+$chk_due=$_REQUEST["due"];
 $chk_from="";
 $chk_to="";
 
@@ -86,9 +86,9 @@ if(!empty($from_date))
 	 {
 	 $_SESSION['toDatetime']=$to_date;
 	 }
-	  if(!empty($due_date))
+	  if(!empty($chk_due))
 	 {
-	 $_SESSION['due_date']=$due_date;
+	 $_SESSION['due_date']=$chk_due;
 	 }
      //
      //-------------------------------------------------t replace to space -----------------------------------------------//
