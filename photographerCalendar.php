@@ -10,14 +10,27 @@ if(@$_REQUEST['busy'])
 $fromDatetime=$_REQUEST['fromDatetime'];
 $toDatetime=$_REQUEST['toDatetime'];
 $Photographer_id=$_REQUEST['Photographer_id'];
+
+$dateTemp=explode("T",$fromDatetime);
+$busyDate=$dateTemp[0];
+
 mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('0', '0', '$Photographer_id', '0', '$fromDatetime', '$toDatetime', '0', '1')");
-header("location:photographerCalendar.php");
+header("location:photographerCalendar.php?busydate=$busyDate");
 }
 if(@$_REQUEST['deleteBusy'])
 {
 $busyid=$_REQUEST['busyid'];
+
+$getDate=mysqli_query($con,"select * from appointments where id='$busyid'");
+$getDate1=mysqli_fetch_array($getDate);
+
+$from_datetime1=$getDate1['from_datetime'];
+
+$dateTemp=explode("T",$from_datetime1);
+$busyDate=$dateTemp[0];
+
 mysqli_query($con,"delete from `appointments` where id='$busyid'");
-header("location:photographerCalendar.php");
+header("location:photographerCalendar.php?busydate=$busyDate");
 }
 ?>
 <?php include "header.php";  ?>
@@ -222,7 +235,17 @@ margin-top:15px;
 				</style>
 				<script src='lib/main.js'></script>
 <script>
+var busyDate=0;
+var busyDateIs="<?php echo @$_REQUEST['busydate']; ?>";
+</script>
+<?php if(@$_REQUEST['busydate'])
+{
+		?><script>
+				busyDate=1;
+				</script>
+			<?php } ?>
 
+<script>
 function removeBusy(appid)
 {
 alert(appid);
@@ -361,6 +384,11 @@ $.ajax({
   info.revert();
 
  }
+ else if(info.event.extendedProps.status!='1')
+ {
+ alert("WIP or Completed Appointment cannot be moved.");
+  info.revert();
+ }
  else
  {
  // alert("future date");
@@ -407,7 +435,8 @@ $.ajax({
   }, eventResize: function(info) {
    // alert(info.event.title + " end is now " + info.event.end.toISOString());
 
-
+if(info.event.extendedProps.status!='BUSY')
+	{
 	  var even1=info.event;
 	   var order_id1=even1.extendedProps.orderId;
 	 var startDay=info.event.startStr;
@@ -443,6 +472,11 @@ $.ajax({
 
 
 
+  }
+  else
+  {
+  info.revert();
+  }
   },
 	  eventClick: function(info) {
 	  console.log(info);
@@ -471,7 +505,7 @@ $.ajax({
     });
 
     calendar.render();
-
+if(busyDate==1)calendar.gotoDate(busyDateIs);
 
 
 	}
