@@ -57,11 +57,11 @@ else
      //-------------------------------------------------get value request method------------------------------------------//
      $from_date=$_REQUEST["from"];
      $to_date=$_REQUEST["to"];
-	 
-	 
-	 
-	 
-	 
+
+
+
+
+
  echo $chk_due=$_REQUEST["due"];
 $chk_from="";
 $chk_to="";
@@ -106,22 +106,31 @@ if(!empty($from_date))
 		{
 			$due_date=$_REQUEST["due"];
 		}
-     $due_exp=explode("T",$due_date);
-		 $chk_due=$due_exp[0]." ".$due_exp[1];
+  //   $due_exp=explode("T",$due_date);
+		 $chk_due=$_REQUEST["due"];
 
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 //$Photographer_id1=$_REQUEST['Photographer_id'];
 $Photographer_id1=$pht_id;
-
+$superCSR_ID=0;
+$subCSR_ID=0;
 						 $loggedin_name=$_SESSION['loggedin_name'];
 						 $loggedin_id=$_SESSION['loggedin_id'];
-             // echo "select * from user_login WHERE id=$pht_id";
+              //echo "select * from user_login WHERE id='$Photographer_id1'";
+              if(!empty($Photographer_id1)){
 							$user_details_query=mysqli_query($con,"select * from user_login WHERE id='$Photographer_id1'");
 							$user_details_query1=mysqli_fetch_assoc($user_details_query);
 							$superCSR_ID=$user_details_query1['pc_admin_id'];
 							$subCSR_ID=$user_details_query1['csr_id'];
 							$photographer_Name=$user_details_query1['first_name']."".$user_details_query1["last_name"];
 							$email_id=$user_details_query1["email"];
+            }
+            else{
+              $superCSR_ID=@$_REQUEST['pc_admin_id'];
+              $photographer_Name="";
+              $email_id="";
+
+            }
 	$editProduct=0;
 if(@$_REQUEST['od']!="")
 {
@@ -133,14 +142,16 @@ $order_id=$_REQUEST['od'];
  mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes', `created_by_id`='$created_id',`created_by_type`='$_SESSION[user_type]',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='$status' where id='$_REQUEST[od]'");
 
 mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
-
+if(!empty($Photographer_id1))
+{
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
- $number=mysqli_num_rows($get_appointment); 
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
 
+}
 }
  mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id', '$created_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
 
@@ -158,7 +169,8 @@ else
 
     mysqli_query($con,"INSERT INTO `orders` (`home_seller_id`,`realtor_id`, `property_type`, `number_of_floor_plans`, `area`,`property_address`,`property_city`,`property_state`,`property_country`,`property_zip`,`property_contact_mobile`,`property_contact_email`,`address_same`,`rental_dormitory`,  `photographer_id`, `session_from_datetime`, `session_to_datetime`, `order_due_date`, `booking_notes`, `created_by_id`,`created_by_type`,`pc_admin_id`,`csr_id`,`created_datetime`, `status_id`) VALUES ($home_seller_id,'$created_id', '$property', '$plan', '$area','$property_address','$property_city','$property_state','$property_country','$property_zip','$property_contact_mobile','$property_contact_email','$address_same','$rental_dormitory', '$Photographer_id1', '$chk_from', '$chk_to', '$chk_due', '$notes', '$created_id','$_SESSION[user_type]','$pc_admin_id1','$subCSR_ID',now(), '$status')");
 $order_id=mysqli_insert_id($con);
-
+if(!empty($Photographer_id1))
+{
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
 $number=mysqli_num_rows($get_appointment);
@@ -166,6 +178,7 @@ if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
 
+}
 }
 
  mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id', '$created_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
@@ -721,7 +734,7 @@ var photographer_id;
 
   $('#photo_id').val(photographer_id);
   //console.log(d);
- 
+
 }
 var valIs="";
 function showHideFloors(valIs)
@@ -831,7 +844,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
     if(this.readyState == 4 && this.status == 200){
 $("#appointments_exist_error").hide();
       a=parseInt(this.responseText);
-	  
+
        $("#BookingFound").val(a);
 
       if(a>0)
@@ -1012,7 +1025,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
                             <p class="text-error" align="center" style="font-style:italic;color:red">Sorry!. You have just missed.<br />Someone booked the selected slot of the photographer just few seconds ago.</p>
 
-						<?php }  ?> 
+						<?php }  ?>
           <form action=""  method="post" enctype="multipart/form-data" onsubmit="return setSecondDate1()" id="appointmentForm" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding-left:10px;padding-bottom:5px;opacity:0.9;border-radius:25px 25px 25px 25px">
 		  <input type="hidden" id="BookingFound" value="0" />
            <input type="hidden" name="hs_id" value="<?php echo @$_REQUEST["hs_id"]; ?>"/>
