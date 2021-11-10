@@ -410,7 +410,7 @@ $res="";
 
                           $result=mysqli_query($con,$q1);
                           @$data=mysqli_fetch_assoc(@$result);
-                          $number_of_pages=5;
+                          $number_of_pages=50;
 
                           // total number of user shown in database
                           $total_no=$data['total'];

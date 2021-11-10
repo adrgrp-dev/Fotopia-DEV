@@ -299,7 +299,7 @@ else {
 				}
 				else{
 				$data=mysqli_fetch_assoc(@$result);
-				$number_of_pages=5;
+				$number_of_pages=50;
 
 				// total number of user shown in database
 				$total_no=$data['total'];
@@ -669,7 +669,7 @@ else {
 				}
 				else{
 				$data1=mysqli_fetch_assoc(@$pending1);
-				$number_of_pages=5;
+				$number_of_pages=50;
 
 				// total number of user shown in database
 				$total_no=$data1['total'];
@@ -1053,7 +1053,7 @@ else {
 				}
 				else{
 				$data2=mysqli_fetch_assoc($denied1);
-				$number_of_pages=5;
+				$number_of_pages=50;
 
 				// total number of user shown in database
 				$total_no=$data2['total'];

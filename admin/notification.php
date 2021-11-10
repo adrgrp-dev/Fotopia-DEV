@@ -87,7 +87,7 @@ $count_query="select count(*) as total from user_actions";
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];
-$number_of_pages=5;
+$number_of_pages=50;
 $Page_check=intval($total_no/$number_of_pages);
 $page_check1=$total_no%$number_of_pages;
 if($page_check1 == 0)
@@ -126,7 +126,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];
-$number_of_pages=5;
+$number_of_pages=50;
 $Page_check=intval($total_no/$number_of_pages);
 $page_check1=$total_no%$number_of_pages;
 if($page_check1 == 0)
@@ -156,7 +156,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];
-$number_of_pages=5;
+$number_of_pages=50;
 $Page_check=intval($total_no/$number_of_pages);
 $page_check1=$total_no%$number_of_pages;
 if($page_check1 == 0)
@@ -186,7 +186,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 $count_result=mysqli_query($con,$count_query);
 $data=mysqli_fetch_assoc($count_result);
 $total_no=$data['total'];
-$number_of_pages=5;
+$number_of_pages=50;
 $Page_check=intval($total_no/$number_of_pages);
 $page_check1=$total_no%$number_of_pages;
 if($page_check1 == 0)

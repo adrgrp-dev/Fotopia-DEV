@@ -230,7 +230,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
-                          $number_of_pages=5;
+                          $number_of_pages=50;
                           $Page_check=intval($total_no/$number_of_pages);
                           $page_check1=$total_no%$number_of_pages;
                           if($page_check1 == 0)
@@ -496,7 +496,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
-                          $number_of_pages=5;
+                          $number_of_pages=50;
                           $Page_check=intval($total_no/$number_of_pages);
                           $page_check1=$total_no%$number_of_pages;
                           if($page_check1 == 0)
@@ -760,7 +760,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
-                          $number_of_pages=5;
+                          $number_of_pages=50;
                           $Page_check=intval($total_no/$number_of_pages);
                           $page_check1=$total_no%$number_of_pages;
                           if($page_check1 == 0)
@@ -1018,7 +1018,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
-                          $number_of_pages=5;
+                          $number_of_pages=50;
                           $Page_check=intval($total_no/$number_of_pages);
                           $page_check1=$total_no%$number_of_pages;
                           if($page_check1 == 0)
