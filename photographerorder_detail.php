@@ -79,7 +79,7 @@ Fotopia Team.
 ";
   // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
   $link=explode('?',$_REQUEST['link1']);
-  $link1=$_SESSION['project_url']."sharelink.php?".$link[1];
+  $link1=$_SESSION['project_url']."sharelink.php?".@$link[1];
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
     $mail->Body=str_replace('{{share_email}}',@$_REQUEST['email1'], $mail->Body);
     $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
@@ -2212,7 +2212,7 @@ function printPage()
                                                                <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;" style="display:inline-block">
                                                              </div>
                                                              <div class="col-md-3" style="display:inline-block">
-                                                               <a href="#tnc" class="circle-button btn-sm btn link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
+                                                              <a href="#tnc" class="circle-button btn-sm btn lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                                              </div>
                                                              <div class="col-md-3" style="display:inline-block">
                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn" id="clicktoupload" style="" adr_trans="label_click_to_upload">Click to Upload</a>
