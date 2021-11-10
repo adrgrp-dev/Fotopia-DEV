@@ -107,7 +107,7 @@ if(!empty($from_date))
 			$due_date=$_REQUEST["due"];
 		}
   //   $due_exp=explode("T",$due_date);
-		 $chk_due=$_REQUEST["due"];
+		 $chk_due=$_SESSION['due_date'];
 
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 //$Photographer_id1=$_REQUEST['Photographer_id'];
