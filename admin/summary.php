@@ -410,8 +410,8 @@ $hs_id=$get_summary['home_seller_id'];
 				</tr>
 				<tr>
 				<td id="label_status" adr_trans="label_status">Status</td><td>:</td><td>
-      <?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#b3ae0c;font-weight:bold;'>WIP</span>";}
-          ?>    
+      <?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}
+          ?>
         </td>
 				</tr>
 				</table><br />

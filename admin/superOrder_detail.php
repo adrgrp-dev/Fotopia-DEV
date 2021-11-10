@@ -764,11 +764,19 @@ html{	background-color:#FFF; }
 {
 background:#000 !important;
 }
-
+@media only screen and (min-width: 600px)
+{
+  .img1,.img12{
+    width:100% !important;
+  }
+}
 @media only screen and (max-width: 600px) {
 td
 {
-min-width:100px!important;
+min-width:100px !important;
+}
+.img1,.img12{
+  width:100% !important;
 }
 #billedTo
 {
@@ -803,6 +811,7 @@ padding:5px!important;
 margin-left:5px!important;
 display:inline!important;
 }
+
 
 }
  </style>
@@ -919,7 +928,7 @@ alert(alertmsg);
    {
 
      $("#selected_image"+id).prop("checked",true);
-   $("#clicked_img"+id).css('opacity','0.7');
+   $("#clicked_img"+id).css('opacity','0.2');
    $("#check"+id).removeClass('fa fa-square');
    $("#check"+id).addClass('fa fa-check-square');
    c++;
@@ -1007,7 +1016,7 @@ alert(alertmsg);
    {
 
      $("#selected_image2"+id).prop("checked",true);
-   $("#clicked_img2"+id).css('opacity','0.7');
+   $("#clicked_img2"+id).css('opacity','0.2');
    $("#check2"+id).removeClass('fa fa-square');
    $("#check2"+id).addClass('fa fa-check-square');
    c++;
@@ -1224,7 +1233,7 @@ alert(alertmsg);
     window.location.href="superOrder_detail.php?del="+data+"&id="+data2;
   }
   else{
-    window.location.href="superOrder_detail.php?id="+data2;
+    return false;
   }
  }
  function status_change(d)
@@ -1422,7 +1431,7 @@ alert(alertmsg);
                             <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:green;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:green;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
+                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
@@ -2180,14 +2189,14 @@ alert(alertmsg);
                                              <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                            <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                            <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                               <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" title="<?php echo $picture_name1['description']; ?>" href="<?php echo $imagesDirectory_standard."/".$image; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
                                                   <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                               </a>
 
                                               <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                                  <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                                <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                               </a>
 
@@ -2195,17 +2204,17 @@ alert(alertmsg);
 
                                             ?>
                                               <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
-                                                  <i class="fa fa-trash-o anima" style="position:absolute !important;top:55%;left:40%;z-index:2;color:white;font-size:18px"></i>
+                                                  <i class="fa fa-trash-o anima" style="position:absolute !important;top:50%;left:40%;z-index:2;color:black;font-size:20px;padding:20px;background:white;border-radius:30px;"></i>
                                               </a>
-                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
 
-                                                  <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                                  <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                              <?php } else{
                                                ?>
 
-                                                    <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                    <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                              <?php } ?>
 
@@ -2360,7 +2369,7 @@ alert(alertmsg);
                                              <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                            <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                            <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                               <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" title="<?php echo $picture_name1['description']; ?>" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                   <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2376,15 +2385,15 @@ alert(alertmsg);
                                     <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
                                         <i class="fa fa-trash-o anima" style="position:absolute !important;top:55%;left:40%;z-index:2;color:white;font-size:18px"></i>
                                     </a>
-                                      <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                      <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
 
-          
+
 
                                    <?php } else{
                                      ?>
 
-                                          <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                          <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                    <?php } ?>
 
@@ -2489,7 +2498,7 @@ alert(alertmsg);
                                              <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                            <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                            <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                               <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" title="<?php echo $picture_name1['description']; ?>" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"  >
                                                   <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2503,15 +2512,15 @@ alert(alertmsg);
                                             ?>
                                               <a class="i-center" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                   <i class="fa fa-trash-o anima" style="color: white;transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;    top: 150px;left: 70px;font-size: 20px;"></i>
-                                      <img alt="" class="img13" id="clicked_img3<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;">
+                                      <img alt="" class="img13" id="clicked_img3<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;">
 
                                     </a>
-                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                    <?php } else{
                                      ?>
 
-                                          <img alt="" class="img13" id="clicked_img3<?php echo $get_comment['id'];?>" onclick="" src="<?php echo  $imagesDirectory_Drone."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                          <img alt="" class="img13" id="clicked_img3<?php echo $get_comment['id'];?>" onclick="" src="<?php echo  $imagesDirectory_Drone."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                    <?php } ?>
 
@@ -2635,7 +2644,7 @@ alert(alertmsg);
                                              <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectal4" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                            <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                            <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                               <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" title="<?php echo $picture_name1['description']; ?>" href="<?php echo $imagesDirectory_hdr."/".$image; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"  >
                                                   <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2649,14 +2658,14 @@ alert(alertmsg);
                                             ?>
                                               <a class="i-center" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
                                                   <i class="fa fa-trash-o anima" style="color: white;transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;    top: 150px;left: 70px;font-size: 20px;"></i>
-                                      <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;">
+                                      <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;">
                                     </a>
-                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                    <?php } else{
                                      ?>
 
-                                          <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" onclick="" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="240" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                          <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" onclick="" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
                                    <?php } ?>
 

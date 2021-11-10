@@ -524,7 +524,7 @@ th{
   border-radius:0px 20px 20px 0px;
   padding: 7px 0px;
   z-index: 1;
-  
+
 }
 #imga1
 {
@@ -661,11 +661,20 @@ html{	background-color:#FFF; }
 {
 background:#000 !important;
 }
+@media only screen and (min-width: 600px)
+{
+  .img1,.img12{
+    width:100% !important;
+  }
+}
 @media only screen and (max-width: 600px) {
 
 td
 {
 min-width:100px!important;
+}
+.img1,.img12{
+  width:100% !important;
 }
 #billedTo
 {
@@ -697,9 +706,7 @@ overflow:scroll!important;
 #inv_h1{
   font-size: 32px !important;
 }
-.img1{
-  width:100% !important;
-}
+
 #printArea
 {
 margin-left:0px!important;
@@ -891,7 +898,7 @@ var c=$('#count2').val();
   {
 
     $("#selected_image2"+id).prop("checked",true);
-  $("#clicked_img2"+id).css('opacity','0.7');
+  $("#clicked_img2"+id).css('opacity','0.2');
   $("#check2"+id).removeClass('fa fa-square');
   $("#check2"+id).addClass('fa fa-check-square');
   c++;
@@ -1246,7 +1253,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo @$get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:green;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:green;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
+                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
@@ -1558,7 +1565,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
                                     </a>
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->
@@ -1709,7 +1716,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)"  value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                     <?php } ?>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)"   onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
                           </a>
 
 

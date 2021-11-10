@@ -454,7 +454,14 @@ html{	background-color:#FFF; }
   border-radius: 10px;
 }
 @media only screen and (max-width: 600px) {
-
+  .img1,.img12{
+    width:100% !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .img1,.img12{
+    width:100% !important;
+  }
 td
 {
 min-width:100px!important;
@@ -485,9 +492,7 @@ overflow:scroll!important;
 #inv_h1{
   font-size: 32px !important;
 }
-.img1{
-  width:100% !important;
-}
+
 #mobileprint
 {
   float: right;
