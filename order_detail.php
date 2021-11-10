@@ -517,19 +517,20 @@ th{
 {
   display: inline;
   width: 100% !important;
-  max-width: 50px !important;
-  top: 43px;
+  max-width: 40px !important;
+  top: 42px;
   background:#000;
   color:#FFF;
   border-radius:0px 20px 20px 0px;
-  padding: 11px 0px;
+  padding: 7px 0px;
   z-index: 1;
+  
 }
 #imga1
 {
   float: right;
   width: 100% !important;
-  max-width: 50px !important;
+  max-width: 40px !important;
   top: 50px;
    background:#000;
   color:#FFF;
@@ -541,7 +542,7 @@ th{
   position: relative;
   text-align: left;
   /* font-size: 18px; */
-      padding: 8px 3px 8px 15px;
+      padding: 3px 3px 3px 7px;
   z-index: 1;
 
 }
@@ -549,9 +550,9 @@ th{
 {
   left: 20px;
   width: 75% !important;
-  top: 240px;
-  color: #fff;
-  border: 1px solid rgba(0,0,0,0.3) !important;
+  top: 180px;
+  color: #000;
+  border: 1px solid #000 !important;
   border-radius: 11px;
   display: inline-block;
   overflow: hidden;
@@ -810,7 +811,7 @@ function clickimg(id)
   {
 
     $("#selected_image"+id).prop("checked",true);
-  $("#clicked_img"+id).css('opacity','0.4');
+  $("#clicked_img"+id).css('opacity','0.2');
   $("#check"+id).removeClass('fa fa-square');
   $("#check"+id).addClass('fa fa-check-square');
   c++;
@@ -1543,7 +1544,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                    <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_standard."/".$image; ?>" title="<?php echo @$picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye" style="position:revert !important;top:50px;"></i>
@@ -1557,7 +1558,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="240" style="z-index: -1;margin-bottom:5px;width:100%">
+                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
                                     </a>
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->
@@ -1695,7 +1696,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?> " id="imga" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -1708,7 +1709,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)"  value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                     <?php } ?>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)"   onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
                           </a>
 
 
@@ -1819,7 +1820,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?> " id="imga" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -1829,7 +1830,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                     </a>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img13 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" id="clicked_img3<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img13 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" id="clicked_img3<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
                           </a>
 
 
@@ -1944,7 +1945,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectal4" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-4 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_hdr."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -1954,7 +1955,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                     </a>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)" onmouseover="showicons(<?php echo $get_comment['id'];?>)" onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img14 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="240" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img14 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" title="<?php if($get_comment['disapprove']==1){ echo @$get_comment['comments']; }?>" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
                                  </a>
 
 
