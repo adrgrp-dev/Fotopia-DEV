@@ -63,7 +63,7 @@ function email($order_id,$realtor_email,$con)
 	 $csr_email="";
 	 $pc_admin_user_id=$get_name['pc_admin_user_id'];
 	 
-	 if($csr_id==0 && $pc_admin_user_id['pc_admin_user_id']!=0)
+	 if($csr_id==0 && $pc_admin_user_id!=0)
 	 {
 	 $pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
 	 $pc_admin_user=mysqli_fetch_array($pc_admin_user1);
