@@ -761,8 +761,12 @@ html{	background-color:#FFF; }
 }
 
 .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 @media only screen and (min-width: 600px)
 {

@@ -179,9 +179,13 @@ rmdir("./temp/$timeRandom");
     color: black;
   }
   .mfp-container
-  {
-  background:#000 !important;
-  }
+
+{
+
+background:#000 !important;
+opacity:1!important;
+
+}
 	</style>
 
 <script>

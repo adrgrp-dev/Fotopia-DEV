@@ -507,8 +507,12 @@ margin-left:0px!important;
 height:fit-content!important;
 }
 .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 
 

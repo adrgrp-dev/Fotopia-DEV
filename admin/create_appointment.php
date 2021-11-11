@@ -613,10 +613,6 @@ if (month < 10) {
 var dateIs=year+"-"+month+"-"+day;
 
 
-
-
-
-
     var calendarEl = document.getElementById('calendar');
 var today = new Date().toISOString().slice(0, 10)
 //var today =d;
@@ -664,8 +660,8 @@ calendar.gotoDate(dateIs);
  $("#to").attr("min",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours())+":"+zeroPadded(d.getMinutes()));
 
 
-   $("#due").attr("min",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes()));
-  document.getElementById("due").value = d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes());
+   $("#due").attr("min",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate()));
+ //document.getElementById("due").value = d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate());
   }
  // alert(booking_chk1());
 booking_chk1();
@@ -790,7 +786,7 @@ calendar.gotoDate(dateIs);
  $("#to").attr("value",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes()));
   document.getElementById("to").value = d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes());
 
-   $("#due").attr("min",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes()));
+   $("#due").attr("min",d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate()));
  // document.getElementById("due").value = d.getFullYear()+"-"+zeroPadded(d.getMonth()+1)+"-"+zeroPadded(d.getDate())+"T"+zeroPadded(d.getHours()+1)+":"+zeroPadded(d.getMinutes());
 booking_chk();
 
@@ -844,13 +840,14 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo $_SESSION['property_address']; ?>";
-var property_city="<?php echo $_SESSION['property_city']; ?>";
-var property_state="<?php echo $_SESSION['property_state']; ?>";
-var property_country="<?php echo $_SESSION['property_country']; ?>";
-var property_zip="<?php echo $_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
+			 
+var property_address="<?php if(isset($_SESSION['property_address'])) { echo $_SESSION['property_address']; } else { echo ""; } ?>";
+var property_city="<?php if(isset($_SESSION['property_city'])) { echo $_SESSION['property_city']; } else { echo ""; } ?>";
+var property_state="<?php if(isset($_SESSION['property_state'])) { echo $_SESSION['property_state']; } else { echo ""; } ?>";
+var property_country="<?php if(isset($_SESSION['property_country'])) { echo $_SESSION['property_country']; } else { echo ""; } ?>";
+var property_zip="<?php if(isset($_SESSION['property_zip'])) { echo $_SESSION['property_zip']; } else { echo ""; } ?>";
+var property_contact_mobile="<?php if(isset($_SESSION['property_contact_mobile'])) { echo $_SESSION['property_contact_mobile']; } else { echo ""; } ?>";
+var property_contact_email="<?php if(isset($_SESSION['property_contact_email'])) { echo $_SESSION['property_contact_email']; } else { echo ""; } ?>";
 
 
               if($("#address_same").prop('checked') == true)
@@ -1344,7 +1341,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 								}
 
 								 ?>
-                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('H:m'); ?>" minutestep="10" value="<?php echo $from123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?>>
+                                <input id="from" name="from" placeholder="select FromDate" type="datetime-local"  onchange="setSecondDate();" autocomplete="off" class="form-control form-value" <?php if(!isset($_SESSION['past'])) { ?> min="<?php echo date('Y-m-d')."T".date('H:m'); ?>" <?php } ?> minutestep="10" value="<?php echo $from123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?>>
                             </div>
 
 							<?php
@@ -1390,7 +1387,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
                             ?>
             <div class="col-md-4">
                               <p id="label_appointment_to" adr_trans="label_appointment_to">To Date & Time</p>
-                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" min="<?php echo date('Y-m-d')."T".date('h:m'); ?>" value="<?php echo @$to123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?> >
+                              <input id="to" name="to" placeholder="Select ToDate" type="datetime-local" autocomplete="off" class="form-control form-value" <?php if(!isset($_SESSION['past'])) { ?> min="<?php echo date('Y-m-d')."T".date('H:m'); ?>" <?php } ?> value="<?php echo @$to123; ?>" <?php if(isset($_SESSION['date'])!='' || isset($_SESSION['fromDatetime'])!='' || @$_REQUEST['od']!=''||isset($_SESSION['admin_loggedin_type'])=='PCAdmin'||isset($_SESSION['admin_loggedin_type'])=='CSR') { echo "required";  } else { echo "readonly"; } ?> >
                             </div>
 
             <div class="col-md-4">

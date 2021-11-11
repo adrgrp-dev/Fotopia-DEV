@@ -280,8 +280,12 @@ foreach(glob($dir . '/*') as $file) {
     border-color: #585858;
   }
   .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 	</style>
 

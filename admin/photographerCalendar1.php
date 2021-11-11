@@ -320,12 +320,12 @@ $.ajax({
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
- if(todayDate[0]>dateIS[0])
+ /* if(todayDate[0]>dateIS[0])
  {
  alert("Appointment cannot be created to past date");
   return false;
 
- }
+ } */
 		createEventDateTimeNew(info.startStr,info.endStr);
 		}
 		
@@ -435,7 +435,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 	var phId1='<?php echo $_REQUEST['Photographer_id']; ?>';
 	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
 	
-    window.location.href="create_order.php?u=0&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id;
+    window.location.href="create_order.php?u=0&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id+"&past=1";
     }
 
     }

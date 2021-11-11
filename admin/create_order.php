@@ -157,6 +157,14 @@ exit;
 
 }
 // $realtor_details=mysqli_query($con,"INSERT INTO `home_seller_info` (`request_name`, `request_contact_no`, `request_email`, `request_address`) VALUES ('$realtor_name', '$realtor_contactNo','$realtor_email','realtor_address')");
+if(isset($_REQUEST['past']))
+{
+$_SESSION['past']=$_REQUEST['past'];
+}
+else
+{
+unset($_SESSION['past']);
+}
 if(isset($_REQUEST['date']))
 {
 $_SESSION['date']=$_REQUEST['date'];

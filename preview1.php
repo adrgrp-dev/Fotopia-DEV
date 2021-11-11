@@ -219,8 +219,12 @@ $comment=$_REQUEST['commentall'];
   background: none !important;
 }
 .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 
 </style>

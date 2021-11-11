@@ -13,8 +13,12 @@ include "header.php";
 <script src="dropzone/validate.js"></script>
 <style>
 .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 </style>
 

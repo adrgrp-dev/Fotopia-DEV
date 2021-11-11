@@ -788,7 +788,7 @@ var $changeInputs = $('input.sTotal');
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 $Photographer_id1=$_REQUEST['Photographer_id'];
 $product_result="";
-if(@$Photographer_id1=="" || @$Photographer_id1=="undefined")
+if(@$Photographer_id1=="" || @$Photographer_id1=="undefined" || @$Photographer_id1==0)
 {
 $product_result=mysqli_query($con,"SELECT * FROM `products` WHERE pc_admin_id='$pc_admin_id1'");
 }

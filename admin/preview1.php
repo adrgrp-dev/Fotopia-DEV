@@ -210,8 +210,12 @@ if(isset($_POST['Drone_email']))
   background: none !important;
 }
 .mfp-container
+
 {
+
 background:#000 !important;
+opacity:1!important;
+
 }
 
 </style>
