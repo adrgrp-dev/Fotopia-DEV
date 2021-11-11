@@ -233,14 +233,15 @@ alert(alertmsg);
 						if(@$_REQUEST['photographer']) {
 						$selectrealtor123=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and id='$_REQUEST[photographer]'");
 						$selectrealtor1234=mysqli_fetch_array($selectrealtor123);
-						 echo "of ".$selectrealtor1234['first_name']." ".$selectrealtor1234['last_name']; }
+						$photographernameIs=$selectrealtor1234['first_name']." ".$selectrealtor1234['last_name'];
+						 echo "of ".$photographernameIs; }
 						  ?>
 
 						</h5>
 
 						<p align="left">
 						<form name="filterfrm" method="post" action="">
-						<input type="text" name="photographer" class="form-control" style="width:200px;" list="photographers" onChange="this.form.submit();" placeholder="Select photographer" autocomplete="off">
+						<input type="text" name="photographer" class="form-control" style="width:200px;" list="photographers" onChange="this.form.submit();" placeholder="<?php if(empty($_REQUEST['photographer'])) { echo "Select photographer"; } else { echo $photographernameIs; } ?>" autocomplete="off">
 
 						<datalist id="photographers">
 

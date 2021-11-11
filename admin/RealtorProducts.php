@@ -285,14 +285,14 @@ border-top:none!important;
 
 							$selectrealtor123=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id='$_REQUEST[realtor]'");
 						$selectrealtor1234=mysqli_fetch_array($selectrealtor123);
-
-						echo "of ".$selectrealtor1234['first_name']." ".$selectrealtor1234['last_name']; } ?>
+						$RealtornameIs=$selectrealtor1234['first_name']." ".$selectrealtor1234['last_name'];
+						echo "of ".$RealtornameIs; } ?>
 
 						</h5>
 
 						<p align="left">
 						<form name="filterfrm" method="post" action="">
-						<input type="text" name="realtor" class="form-control" style="width:200px;" list="realtors" onChange="this.form.submit();" placeholder="Select Realtor" >
+						<input type="text" name="realtor" class="form-control" style="width:200px;" list="realtors" onChange="this.form.submit();" placeholder="<?php if(empty($_REQUEST['realtor'])) { echo "Select Realtor"; } else { echo $RealtornameIs; } ?>" >
 
 						<datalist id="realtors">
 
