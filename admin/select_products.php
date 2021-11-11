@@ -59,9 +59,22 @@ function email($order_id,$realtor_email,$con)
 	 $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
 	 $photographer_email=@$get_name["email"];
 	 $csr_id=$get_name['csr_id'];
+	  $csr_email="";
+	 $pc_admin_user_id=$get_name['pc_admin_user_id'];
+	 
+	 if($csr_id==0 && $pc_admin_user_id['pc_admin_user_id']!=0)
+	 {
+	 $pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
+	 $pc_admin_user=mysqli_fetch_array($pc_admin_user1);
+	 $csr_email=$pc_admin_user['email'];
+	 }
+	 if($csr_id!=0)
+	 {
 	 $get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
 	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	 $csr_email=$get_csrdetail['email'];
+	 }
+	
 	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
 	 $get_template=mysqli_fetch_array($get_template_query);
 	 $appointment_updated_template=$get_template['template_body_text'];
