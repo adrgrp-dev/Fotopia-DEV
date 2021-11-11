@@ -2130,12 +2130,12 @@ alert(alertmsg);
                                                <div class="col-md-2" style="display:inline-block">
                                                  <a href="#tnc1"  class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                                </div>
-
+<?php }?>
                                                <div class="col-md-2" style="display:inline-block">
                                                   <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" style=""><span class="circle-button btn-sm btn" style="padding:5px;font-size:10px;" adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                                </div>
 
-                                             <?php }?>
+                                             
                                             </div>
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
