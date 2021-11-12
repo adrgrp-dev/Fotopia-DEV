@@ -42,6 +42,7 @@ function email($order_id,$condition,$con)
 	$pc_admin_id=$get_detail['pc_admin_id'];
 	$from_date=$get_detail['session_from_datetime'];
 	$date=date_create($from_date);
+	$realtor_email=$_SESSION['loggedin_email'];
   $formated_date=date_format($date,"Y/m/d H:i:s");
 	$get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
 	$get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
@@ -52,10 +53,10 @@ function email($order_id,$condition,$con)
 	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
 	$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
 	$csr_id=$get_name['csr_id'];
-	
+
 	 $csr_email="";
 	 $pc_admin_user_id=$get_name['pc_admin_user_id'];
-	 
+
 	 if($csr_id==0 && $pc_admin_user_id!=0)
 	 {
 	 $pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
@@ -68,12 +69,13 @@ function email($order_id,$condition,$con)
 	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	 $csr_email=$get_csrdetail['email'];
 	 }
-	
+
 
   if($condition=="book now")
 	{
 		$mail->addAddress($PCAdmin_email);
 		//$mail->AddCC($email);
+		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}
 		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
 	$mail->Subject = "New Order Created.";
@@ -95,7 +97,7 @@ function email($order_id,$condition,$con)
 elseif($condition=="book online")
 {
 	$mail->addAddress($PCAdmin_email);
-	$mail->AddCC($csr_email);
+	if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}
 	//Address to which recipient will reply
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);

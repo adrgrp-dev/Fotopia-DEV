@@ -39,13 +39,39 @@ function email($order_id,$con)
   $get_lead_detail=mysqli_fetch_array($get_lead_from_column_query);
   $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
   $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
-  $pcadmin_email=$get_profile['email'];
+  $pcadmin_email=$_SESSION['admin_loggedin_email'];
   $pcadmin_contact=$get_profile['contact_number'];
+	$photographer_id=@$get_detail['photographer_id'];
+	$realtor_id=@$get_detail['realtor_id'];
+	$get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
+	$get_name_realtor=mysqli_fetch_assoc($get_realtor_name_query);
+	$realtor_email=@$get_name_realtor["email"];
+	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
+	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
+	$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	$photographer_email=@$get_name["email"];
+	$csr_id=@$get_name['csr_id'];
+	$csr_email="";
+	$pc_admin_user_id=@$get_name['pc_admin_user_id'];
+	if($csr_id==0 && $pc_admin_user_id!=0)
+	{
+	$pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
+	$pc_admin_user=mysqli_fetch_array($pc_admin_user1);
+	$csr_email=$pc_admin_user['email'];
+	}
+	if($csr_id!=0)
+	{
+	$get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
+	$get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
+	$csr_email=$get_csrdetail['email'];
+	}
+
   if($get_lead_detail['lead_from']=="homeseller")
   {
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
+		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($photographer_email)){$mail->AddCC($photographer_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}
 		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
     $mail->Subject = "Order Placed";
@@ -71,6 +97,7 @@ Fotopia Team";
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
+		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}
     $mail->addAddress($get_lead_detail['request_email']);
 		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
@@ -191,8 +218,8 @@ $chk_to=$to_exp[0]." ".$to_exp[1];
 		{
 			$due_date=$_REQUEST["due"];
 		}
-     $due_exp=explode("T",$due_date);
-		 $chk_due=$due_exp[0]." ".$due_exp[1];
+    //
+		 $chk_due=$_REQUEST["due"];
 
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 //$Photographer_id1=$_REQUEST['Photographer_id'];
@@ -228,7 +255,7 @@ mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
- $number=mysqli_num_rows($get_appointment); 
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
@@ -258,7 +285,7 @@ $order_id=mysqli_insert_id($con);
 
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
- $number=mysqli_num_rows($get_appointment); 
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
@@ -818,7 +845,7 @@ var photographer_id;
   var photographer_id=$('#options [value="' + value + '"]').data('value');
 
  $('#photo_id').val(photographer_id);
-  
+
 }
 var valIs="";
 function showHideFloors(valIs)
@@ -840,7 +867,7 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-			 
+
 var property_address="<?php if(isset($_SESSION['property_address'])) { echo $_SESSION['property_address']; } else { echo ""; } ?>";
 var property_city="<?php if(isset($_SESSION['property_city'])) { echo $_SESSION['property_city']; } else { echo ""; } ?>";
 var property_state="<?php if(isset($_SESSION['property_state'])) { echo $_SESSION['property_state']; } else { echo ""; } ?>";
@@ -1428,7 +1455,7 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
             </div>
         </div>
-		
+
 <?php   if(isset($_SESSION['Photographer_id']))
 { ?>
 <script>
