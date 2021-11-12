@@ -916,7 +916,10 @@ header("location:subcsrOrder_list1.php?app=1");
                 <div class="panel" id="tab2">
 
                 <hr class="space s" />
-
+<div class="col-md-12" style="float:right">
+<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+</form>
+</div>
                 <p style="text-align: center;"><?php if(@isset($_REQUEST["s"])) { ?>
 
                            <span align="center" class="alert" id="label_order_created" adr_trans="label_order_created" style="font-style:italic;color:#009900;font-weight:500">Order Created successfully</span>
@@ -1015,7 +1018,15 @@ header("location:subcsrOrder_list1.php?app=1");
                           }
                           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
                           $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id='3'";
-                          $result=mysqli_query($con,$q1);
+                          
+		if(@$_REQUEST['searchAddress'])
+		  {
+		  $searchAddress=$_REQUEST['searchAddress'];
+		  $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%')";
+		  
+		  }
+						  
+						  $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
                           $number_of_pages=50;
@@ -1045,7 +1056,17 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
                           $limit=$start_no_users . ',' . $number_of_pages;
-                          $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id  and  status_id='3'  order by id desc limit $limit");
+						  $get_order_query="";
+                          if(@$_REQUEST['searchAddress'])
+		  {
+		  $searchAddress=$_REQUEST['searchAddress'];
+		  
+		  $get_order_query=mysqli_query($con,"SELECT * from orders where csr_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%') order by id desc limit $limit");
+		  }
+		  else
+		  {
+						  $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id  and  status_id='3'  order by id desc limit $limit");
+						  }
                            if($get_order_query == "0"){
 
                             ?><h5 align="center" id="label_no_order" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5>
@@ -1157,7 +1178,19 @@ header("location:subcsrOrder_list1.php?app=1");
  <hr class="space l" />
 
 	</div></div>
-
+<?php if(@$_REQUEST["c"] || @$_REQUEST["searchAddress"] || @$_REQUEST['vAll']) { ?>
+    <script>$(document).ready(function() {
+  $("#click1").removeClass("active");
+  $("#click4").removeClass("active");
+   $("#click3").removeClass("active");
+   $("#tab1").removeClass("active");
+   $("#tab4").removeClass("active");
+   $("#tab3").removeClass("active");
+   $("#click2").click();
+   $("#tab2").addClass("active");
+  });
+     </script>
+ <?php } ?>
   <?php if(@isset($_REQUEST["na"])) { ?>
     <script>$(document).ready(function() { $("#tab4").removeClass("active");
     $("#click4").click();
