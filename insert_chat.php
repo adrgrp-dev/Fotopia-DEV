@@ -2,6 +2,7 @@
 include "connection1.php";
 $created_by_id=$_REQUEST['created_by_id'];
 $from_user_id=$_REQUEST["logged_id"];
+$loggedin_id=$_REQUEST["logged_id"];
 $chat_message=$_REQUEST['chattext'];
 $order_id=$_REQUEST['order_id'];
 
