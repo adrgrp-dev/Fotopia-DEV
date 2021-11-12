@@ -920,8 +920,8 @@ alert(alertmsg);
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab" adr_trans="label_order_detail">Order Detail</a></li>
                   <!-- <li ><a href="#tab2" data-toggle="tab">Homeseller Info</a></li> -->
-                  <li><a href="#tab3" id="click3 "data-toggle="tab" adr_trans="label_upload_raw_images">Upload Raw images</a></li>
-                  <li ><a  id="click4" href="#tab4" data-toggle="tab" adr_trans="label_finished_images">Finished Images</a></li>
+                  <li id="click3"><a href="#tab3" data-toggle="tab" adr_trans="label_upload_raw_images">Upload Raw images</a></li>
+                  <li id="click4" ><a  id="click4" href="#tab4" data-toggle="tab" adr_trans="label_finished_images">Finished Images</a></li>
                   <?php
                   $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
                   $get_order1=mysqli_fetch_array($get_order_query1);//&&($get_order1['super_csr_id']==0)
@@ -2889,18 +2889,18 @@ function updateScroll(){
                                               }
                                               elseif($get_images["service_name"] == 1)
                                               {
-                                                  
 
-                                              
+
+
                                                 echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Photo images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
-                                              
-                                              
+
+
                                               }
                                               elseif( $get_images["service_name"] == 2)
                                               {
-                                               
+
                                                 echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
-                                               
+
                                               }
                                               elseif($get_images["service_name"] == 3)
                                               {
@@ -2924,6 +2924,17 @@ function updateScroll(){
                                             });
                                               </script>
                                               <?php } ?>
+                                              <?php if(@isset($_REQUEST["upload"])) { ?>
+                                              <script>$(document).ready(function() {
+                                              $("#click3").click();
+                                              $("#click1").removeClass("active");
+
+                                              $("#tab3").addClass("active");
+                                              $("#tab1").removeClass("active");
+
+                                             });
+                                               </script>
+                                               <?php } ?>
 
                                             <?php  $get_rawimages_query1=mysqli_query($con,"SELECT * FROM raw_images where order_id='$id_url' ");
                                               while($get_raw1=mysqli_fetch_array($get_rawimages_query1))
@@ -2946,6 +2957,7 @@ function updateScroll(){
                                               }
                                               }
                                               ?>
+
 
 
 		<?php include "footer.php";  ?>

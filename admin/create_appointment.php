@@ -48,7 +48,7 @@ function email($order_id,$con)
 	$realtor_email=@$get_name_realtor["email"];
 	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-	$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	$photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 	$photographer_email=@$get_name["email"];
 	$csr_id=@$get_name['csr_id'];
 	$csr_email="";
@@ -80,11 +80,11 @@ function email($order_id,$con)
     //$mail->AltBody = "This is the plain text version of the email content";
 
     $mail->Body.="Dear {{Home seller name}},<br><br>
-New Order has been placed successfully,<br>
-Your Order #{{Order_ID}}, Order appointment Session Date & time {{From time hh:mm:ss}} to {{To time hh:mm:ss}}<br>
-Thanks for choosing us, have a good day.<br><br>
-Thanks,<br>
-Fotopia Team";
+  New Order has been placed successfully,<br>
+ Your Order #{{Order_ID}}, Order appointment Session Date & time {{From time hh:mm:ss}} to {{To time hh:mm:ss}}<br>
+ Thanks for choosing us, have a good day.<br><br>
+ Thanks,<br>
+ Fotopia Team";
 
     $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
     $mail->Body=str_replace('{{Home seller name}}', $get_lead_detail['name'] , $mail->Body);
@@ -107,11 +107,11 @@ Fotopia Team";
     //$mail->AltBody = "This is the plain text version of the email content";
 
     $mail->Body.="Hi,<br><br>
-  New Order has been placed successfully,<br>
-  Your Order #{{Order_ID}}, Order appointment Session Date & time {{From time hh:mm:ss}} to {{To time hh:mm:ss}}<br>
-  Thanks for choosing us, have a good day.<br><br>
-  Thanks,<br>
-  Fotopia Team";
+   New Order has been placed successfully,<br>
+   Your Order #{{Order_ID}}, Order appointment Session Date & time {{From time hh:mm:ss}} to {{To time hh:mm:ss}}<br>
+   Thanks for choosing us, have a good day.<br><br>
+   Thanks,<br>
+   Fotopia Team";
 
   $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
   $mail->Body=str_replace('{{From time hh:mm:ss}}',date_format($from_date,"d F Y g:ia") , $mail->Body);

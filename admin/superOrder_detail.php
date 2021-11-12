@@ -1308,8 +1308,8 @@ alert(alertmsg);
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab"><span id="label_order_details" adr_trans="label_order_details">Order Detail</span></a></li>
-                  <li ><a  id="click3" href="#tab3" data-toggle="tab"><span id="label_upload_raw_images" adr_trans="label_upload_raw_images">Upload Raw Images</span></a></li>
-                  <li ><a  id="click4" href="#tab4" data-toggle="tab"><span id="label_finished_images" adr_trans="label_finished_images">Finished Images</span></a></li>
+                  <li  id="click3" ><a  href="#tab3" data-toggle="tab"><span id="label_upload_raw_images" adr_trans="label_upload_raw_images">Upload Raw Images</span></a></li>
+                  <li id="click4"><a   href="#tab4" data-toggle="tab"><span id="label_finished_images" adr_trans="label_finished_images">Finished Images</span></a></li>
                   <?php
                   $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
                   $get_order1=mysqli_fetch_array($get_order_query1);
@@ -2135,7 +2135,7 @@ alert(alertmsg);
                                                   <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" style=""><span class="circle-button btn-sm btn" style="padding:5px;font-size:10px;" adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                                </div>
 
-                                             
+
                                             </div>
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
@@ -3274,6 +3274,18 @@ function updateScroll(){
 
                                                                                    </div>
                                                                               </div>
+
+                                                                              <?php if(@isset($_REQUEST["upload"])) { ?>
+                                                                              <script>$(document).ready(function() {
+                                                                              $("#click3").click();
+                                                                              $("#click1").removeClass("active");
+
+                                                                              $("#tab3").addClass("active");
+                                                                              $("#tab1").removeClass("active");
+
+                                                                             });
+                                                                               </script>
+                                                                               <?php } ?>
 
 
 

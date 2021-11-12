@@ -56,12 +56,12 @@ function email($order_id,$realtor_email,$con)
 	 $photographer_id=@$get_detail['photographer_id'];
 	 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 	 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-	 $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	 $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 	 $photographer_email=@$get_name["email"];
 	 $csr_id=$get_name['csr_id'];
 	  $csr_email="";
 	 $pc_admin_user_id=$get_name['pc_admin_user_id'];
-	 
+
 	 if($csr_id==0 && $pc_admin_user_id!=0)
 	 {
 	 $pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
@@ -74,7 +74,7 @@ function email($order_id,$realtor_email,$con)
 	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	 $csr_email=$get_csrdetail['email'];
 	 }
-	
+
 	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
 	 $get_template=mysqli_fetch_array($get_template_query);
 	 $appointment_updated_template=$get_template['template_body_text'];
@@ -102,9 +102,10 @@ function email($order_id,$realtor_email,$con)
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 	$mail->Body.=$appointment_updated_template;
-  $mail->Body.="<br>Hi! {{Photographer_Name}} will come for Photography session,<br>
-Appointment Session Date & Time - {{from}}.<br>
-Kindly check the order #4 in the orders page for any details, Thank you for continued support.<br>
+  $mail->Body.="<br>Hi! <br>
+	{{Photographer_Name}} will come for Photography session,<br>
+  Appointment Session Date & Time - {{from}}.<br>
+  Kindly check the order #4 in the orders page for any details, Thank you for continued support.<br>
 
   <br><br>
   Thanks,<br>

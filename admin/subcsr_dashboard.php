@@ -296,7 +296,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 														<h5 adr_trans="label_revenue">Revenue</h5>
                       <?php
                             $total1=0;
-  													$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where status_id =3 and csr_id=$loggedin_id");
+  													$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and csr_id=$loggedin_id");
   													while(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
   													{
   														$order_id=$get_name['id'];

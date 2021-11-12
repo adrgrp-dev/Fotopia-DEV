@@ -201,8 +201,8 @@ font-size:11px!important;
 {
     color: #7c6f6f!important;
 	}
-	
-	
+
+
 	@media only screen and (max-width: 600px) {
   .fc-prev-button, .fc-next-button, .fc-button
 {
@@ -317,7 +317,8 @@ height:fit-content!important;
 															<?php
 
 													$total1=0;
-													$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where status_id=3 and pc_admin_id=$superCsr");
+													// echo "SELECT id FROM orders where status_id=3 and pc_admin_id=$superCsr";
+													$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id=3 and pc_admin_id=$superCsr");
 													while(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
 													{
 														$order_id=$get_name['id'];

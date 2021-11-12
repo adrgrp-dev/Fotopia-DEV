@@ -216,13 +216,16 @@ height:fit-content!important;
                             <h5 adr_trans="label_my_earnings">My Earnings</h5>
                             <?php
                             $total1=0;
-                            @$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where status_id =3 and photographer_id=$user_id");
-                            if(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
+                            @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and photographer_id=$user_id");
+                            while(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
                             {
-                              @$Photographer_id=$_SESSION['loggedin_id'];
                               @$id=@$get_name['id'];
-                              //echo "SELECT sum(photography_cost) as total_value FROM `photographer_product_cost` where photographer_id=$Photographer_id";
-                              @$get_product_query=mysqli_query($con,"SELECT sum(photography_cost) as total_value FROM `photographer_product_cost` where photographer_id=$Photographer_id");
+                            
+                              $prodsList=mysqli_query($con,"select group_concat(product_id) as product_id from order_products WHERE order_id='$id'");
+                              $prodsList1=mysqli_fetch_array($prodsList);
+                              $product_id_is=$prodsList1['product_id'];
+
+                              @$get_product_query=mysqli_query($con,"SELECT sum(photography_cost) as total_value FROM `photographer_product_cost` where product_id in ($product_id_is)");
                               @$get_product=mysqli_fetch_assoc(@$get_product_query);
                               @$total1+=@$get_product['total_value'];
 
