@@ -1,6 +1,8 @@
 <?php
 ob_start();
 
+
+
 include "connection1.php";
 
 $photographer_name_is="";
@@ -68,7 +70,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
        <?php
-	   
+
 	   if($_SESSION['admin_loggedin_type']=='PCAdmin')
 	   {
 	    $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$_SESSION[admin_loggedin_id]' order by first_name";
@@ -79,9 +81,9 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 	    $csr_id=$_REQUEST['csr_id'];
 	    $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$pc_admin_id' and csr_id='$csr_id' order by first_name";
 	   }
-	   
-	   
-	  
+
+
+
 
          $Photographers_list=mysqli_query($con,$photographers);
          while($Photographers_list1=mysqli_fetch_assoc($Photographers_list))
@@ -90,9 +92,9 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
                   <?php } ?>
 
                   </datalist>
-				  <input type="hidden" name=" Photographer_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
-				   <input type="hidden" name=" pc_admin_id" id="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
-				  
+				  <input type="hidden" name="Photographer_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
+				   <input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
+
 				  </form></div>
 				 <div class="col-md-4" style="padding:10px;font-size:24px;text-align:center;top:10px;font-weight:bolder"><span style="text-shadow: 2px 2px #AAA;">OR</span></div>
 				 <div class="col-md-4" style="padding:20px;">
@@ -100,7 +102,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 </a>
 </div>
 </div>
-       
+
 				<link href='../lib/main.css' rel='stylesheet' />
 				<style>
 
@@ -145,7 +147,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 		background-color:#FED8B1!important;
         color:#FF8400!important;
         }
-		
+
 .fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {
 background:#FFF!important;
@@ -176,14 +178,14 @@ background: repeating-linear-gradient(
 background:#E8F0FE!important;
 border:solid 1px #01A8F2!important;
 }
-			
+
 h2.fc-toolbar-title
 {
 display:contents;
 color:#FFF!important;
 border:solid 1px #000!important;
 padding:10px;
-}	
+}
 
 
 .fc .fc-toolbar.fc-header-toolbar
@@ -251,7 +253,7 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
 }
 				</style>
 				<script src='../lib/main.js'></script>
@@ -316,7 +318,7 @@ $.ajax({
 	  	   var dateMovedTo=info.start.toISOString();
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -328,7 +330,7 @@ $.ajax({
  } */
 		createEventDateTimeNew(info.startStr,info.endStr);
 		}
-		
+
       },
 	  selectOverlap: function(event) {
     return event.rendering === 'background';
@@ -374,12 +376,12 @@ alert(alertmsg);
   },
   eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-    
+
 	if(info.event.extendedProps.status=='BUSY')
 	{
 	 info.revert();
 	}
-	
+
 	},
    eventClick: function(info) {
 		if(info.event.extendedProps.status!='BUSY')
@@ -420,10 +422,10 @@ function createEventDateTimeNew(fromDatetime,toDatetime)
 //alert(dateFormat(date1, "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
-		
+
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{
@@ -434,7 +436,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
     {
 	var phId1='<?php echo $_REQUEST['Photographer_id']; ?>';
 	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
-	
+
     window.location.href="create_order.php?u=0&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id+"&past=1";
     }
 
@@ -448,7 +450,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 
             </div>
         </div>
-		
+
 <script>
 
  $( document ).on( "click", "td.fc-day", function() {
@@ -478,7 +480,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 		var alertmsg='';
 		if(langIs=='no')
 		{
-		alertmsg="Er du sikker på at du vil  lage et arrangement for";
+		alertmsg="Er du sikker pï¿½ at du vil  lage et arrangement for";
 		}
 		else
 		{

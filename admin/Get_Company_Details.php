@@ -44,17 +44,17 @@ for($i=1;$i<=5;$i++)
 if($i<=$ratingIs)
 {
 $ratingStars.="<i class=\"fa fa-star\" style=\"padding:5px;font-size:10px;color:#337AB7;\"></i>";
- } else { 
+ } else {
 $ratingStars.="<i class=\"fa fa-star-o\" style=\"padding:5px;color:#337AB7;font-size:10px;\"></i>";
- } } 
+ } }
  $ratingStars.="</p>";
- 
- 
-        
+
+
+
 
 $photographersList.="<table border=\"0\" cellpadding=\"10\" style=\"width:100%;padding:10px;margin:10px;background:#000;color:#FFF;border-radius:25px 25px 25px 25px;\"><tr><td rowspan=\"5\" align=\"center\" style=\"padding:10px\"><img   href=\"#aboutMe\" class=\"lightbox link\" data-lightbox-anima=\"show-scale\" style=\"color:blue;text-decoration:underline\" src=\"data:".$phList1['profile_pic_image_type'].";base64,".base64_encode($phList1['profile_pic'])."\" width=\"120\" height=\"100\"  style=\"max-width: 70px;\"/></td></tr><tr><td>".strtoupper($phList1['first_name'])."</td></tr><tr><td>".$locationIs."</td></tr><tr><td>".$SkillsIs."</td></tr><tr><td>".$ratingStars."</td></tr><tr><td colspan=\"2\" align=\"center\"><p align=\"center\" style=\"padding:10px;\">
 
-<a  class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_check_availability'>Check Availability</span></a>&nbsp;&nbsp;&nbsp;
+<a  class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_check_availability'>Check Availability</span></a>&nbsp;&nbsp;&nbsp;
 <a class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-check\"></i><span adr_trans='label_book_now'>Book Now</span></a></p></td></tr></table>";
 
 }
@@ -117,7 +117,7 @@ $product.="</table></div>";
 echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:203px;\">
                               ".$aboutIs."
                             </div>
-                          
+
 							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:203px;overflow:scroll;\">
                               ".$photographersList."
                             </div>
@@ -127,7 +127,7 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:203px
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:203px;\">
                                ".$contact."
                             </div>
-                           
+
 							<hr class=\"space s\">";
 /*<p align=\"center\">
 
