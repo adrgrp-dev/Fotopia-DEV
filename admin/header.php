@@ -21,22 +21,22 @@ if($type=="PCAdmin")
 
 		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
 		$productsFound=mysqli_num_rows($products);
-		
+
 		$DiscountPriceForRealtor=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$id'");
 		$DiscountFound=mysqli_num_rows($DiscountPriceForRealtor);
-		
+
 	$EarningsForPhotographer=mysqli_query($con,"select * from photographer_product_cost where pc_admin_id='$id'");
 	$EarningsFound=mysqli_num_rows($EarningsForPhotographer);
-	
+
 	$getCSR=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$id'");
 	$CSRFound=mysqli_num_rows($getCSR);
-	
+
  $getPhotographer=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and pc_admin_id='$id'");
 	$PhotographerFound=mysqli_num_rows($getPhotographer);
-	
+
 	$getEditor=mysqli_query($con,"select * from editor where pc_admin_id='$id'");
 	$editorFound=mysqli_num_rows($getEditor);
-		
+
 
 		if($aboutPC=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
 		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }

@@ -3,7 +3,7 @@ ob_start();
 
 include "connection1.php";
 $loggedin_id=$_SESSION['loggedin_id'];
-mysqli_query($con,"update user_actions set is_read=1 where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and is_read=0");
+mysqli_query($con,"update user_actions set is_read=1,photographer_read=1 where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and (is_read=0 or photographer_read=0)");
 
 
 ?>
@@ -45,7 +45,7 @@ padding:15px!important;
                 <div class="col-md-10" style="font-family:Arial, Helvetica, sans-serif">
 <?php
 
-$photographer_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Photographer') or photographer_id='$loggedin_id') and is_read=0";
+$photographer_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Photographer') or photographer_id='$loggedin_id') and (is_read=0 or photographer_read=0)";
                   $photographer_count_result=mysqli_query($con,$photographer_count_query);
           $photographer_data=mysqli_fetch_assoc($photographer_count_result);
                   $countIs=$photographer_data['total'];
@@ -147,6 +147,13 @@ $limit=$start_no_users. ',' . $number_of_pages;
      { ?>
          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                       <?php }
+
+                      elseif($get_action['module']=="Chat Message" )
+                                  {
+                       $orderID=$get_action['order_id'];
+                       ?>
+                                      <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="photographerorder_detail.php?id=$orderID" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                                 <?php }
                        else {  ?>
                           <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
 

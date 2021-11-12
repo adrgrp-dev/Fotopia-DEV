@@ -3,7 +3,7 @@ ob_start();
 
 include "connection1.php";
 $loggedin_id=$_SESSION['loggedin_id'];
-mysqli_query($con,"update user_actions set is_read=1 where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=0");
+mysqli_query($con,"update user_actions set is_read=1,realtor_read=1 where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and (is_read=0 or realtor_read=0)");
 
 
 
@@ -47,7 +47,7 @@ padding:15px!important;
                 <div class="col-md-10">
 <?php
 
-$realtor_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Realtor') or realtor_id='$loggedin_id') and is_read=0";
+$realtor_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Realtor') or realtor_id='$loggedin_id') and (is_read=0 or realtor_read=0) ";
                   $realtor_count_result=mysqli_query($con,$realtor_count_query);
                   $realtor_data=mysqli_fetch_assoc($realtor_count_result);
                   $countIs=$realtor_data['total'];
@@ -84,7 +84,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                   }
 
                   $count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='Realtor') or realtor_id='$loggedin_id') and is_read=1";
-                  
+
 				  //   $count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=1";
                   $count_result=mysqli_query($con,$count_query);
                   $data=mysqli_fetch_assoc($count_result);
@@ -118,8 +118,6 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
                      $date = date_create($get_action['action_date']);
                      $date1=date_format($date, '  jS F Y, g:ia');
-
-
 
 
                        ?>

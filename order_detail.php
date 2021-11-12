@@ -2388,11 +2388,13 @@ if($get_order1['status_id']==3)
     var b=$("#order_id").val();
     var c=$("#logged_id").val();
     var d= $("#chattext1").val();
+
      $("#chattext1").val('');
     var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
     //document.getElementById("demo").innerHTML = this.responseText;
+  
    }
 
  };

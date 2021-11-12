@@ -16,8 +16,8 @@ $id=$_SESSION['loggedin_id'];
 		$organization_name=$realtor_profile['organization_name'];
 		if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
 		{ header("location:edit_realtor_profile.php?first=1"); exit; }
-		 
-		
+
+
 
  $page="csrRealtorDashboard.php";
 }
@@ -368,7 +368,7 @@ $link="";
 $loggedin_id=$_SESSION['loggedin_id'];
 if($user_type=='Photographer')
 {
- $photographer_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and is_read=0";
+ $photographer_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and (is_read=0 or photographer_read=0)";
                   $photographer_count_result=mysqli_query($con,$photographer_count_query);
 				  $photographer_data=mysqli_fetch_assoc($photographer_count_result);
                   $countIs=$photographer_data['total'];
@@ -376,7 +376,7 @@ if($user_type=='Photographer')
 }
 else
 {
- $realtor_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and is_read=0";
+ $realtor_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or realtor_id='$loggedin_id') and (is_read=0 or realtor_read=0)";
                   $realtor_count_result=mysqli_query($con,$realtor_count_query);
                   $realtor_data=mysqli_fetch_assoc($realtor_count_result);
                   $countIs=$realtor_data['total'];
