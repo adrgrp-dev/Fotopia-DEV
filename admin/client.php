@@ -205,12 +205,19 @@ var xhttp= new XMLHttpRequest();
 }
 
 </script>
-
+ 
 
 			</div>
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
                    <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn"  style="float:right;margin-top:-6px;"><i class="fa fa-plus"></i>Add Realtor</a>
+
+<?php if(@isset($_REQUEST["a"])) { ?>
+                        <div class="success-box" style="display:block;margin-left:300px;">
+                            <div class="text-success">Realtor has been successfully added and an invite has been sent successfully</div>
+                        </div>
+						<?php }  ?>
+
                   <div class="col-md-12" style="margin-left:20px;">
 
                               <div class="tab-box " data-tab-anima="fade-right" style="">
@@ -266,7 +273,8 @@ $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='R
 }
 else
 {
-$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id not in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+// $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id not in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+	$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor'");
 }
 
 
@@ -284,24 +292,48 @@ $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='R
 						<td><?php echo @$realtor['organization_name'];?></td>
                                                     <td><?php echo @$realtor['address_line1'];?></td>
                                                         <td><?php echo @$realtor['city'];?></td>
-                                                            <td><?php echo @$realtor['state'];?></td>
-                                                                <td><?php echo @$realtor['country'];?></td>
-                                                                <td><a href="client_detail.php?realtor_id=<?php echo $realtor['id'];?>"><i class="fa fa-external-link"></i></a></td>
-                                                                        <td><a onclick="favourite('<?php echo $realtor['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart-o"></i></a></td>
+                                                        <td><?php echo @$realtor['state'];?></td>
+                                                       <td><?php echo @$realtor['country'];?></td>
+                               <td><a href="client_detail.php?realtor_id=<?php echo $realtor['id'];?>"><i class="fa fa-external-link"></i></a></td>
+                          <?php 
+
+                          $realtor_id=$realtor['id'];
+
+                          $find_fav_realtor=mysqli_query($con,"SELECT count(*) as total FROM `company_favourite_realtor` where realtor_id='$realtor_id' and pc_admin_id='$loggedin_id'");
+
+                          $find_fav_realtor1=mysqli_fetch_assoc($find_fav_realtor);
+
+                          if($find_fav_realtor1['total']==0)
+                          {
+                          ?>
+
+                           <td><a title="Add to favorites" onclick="favourite('<?php echo $realtor['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart-o"></i></a></td>
+                           <?php 
+
+                       }
+
+                       else{ 
+                       	?>
+
+                       	<td><a title="Already added to favourites"><i class="fa fa-heart"></i></a></td>
+
+					<?php } ?>
+
                                           </tr>
-                                          <?php
-                                      }
-                                       ?>
+
+                                          <?php  } ?>
 
                                      </table></div>
                                   </div>
                                   <div class="panel" id="tab2">
 											<div class="col-md-9">
-																		<form name="realtorSearch" method="post" action="client.php?favourite=1">
-																		<input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
-																		</form></div><div class="col-md-3">
-																		<p style="float:right"><a href="#tnc" class=" lightbox link">
-																		<i style="
+			<form name="realtorSearch" method="post" action="client.php?favourite=1">
+	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
+			</form>
+		</div>
+		<div class="col-md-3">
+				<p style="float:right"><a href="#tnc" class=" lightbox link">
+			<i style="
 				color: blue;
 				top: -43px;
 				font-size: 50px;
@@ -324,19 +356,25 @@ $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='R
                                                   <th><span adr_trans="label_favourite">Favourite</span></td>
                                        </tr>
                                        <?php
+																 $realtor_query1="";
 
-																			 $realtor_query1="";
+			   if(@$_REQUEST['filter_realtor_favourite'])
+				  {
 
-																			 if(@$_REQUEST['filter_realtor_favourite'])
-																			 {
-																			 $searchKey1=$_REQUEST['filter_realtor_favourite'];
-																			 $conditions1="and (first_name like '%$searchKey1%' or last_name like '%$searchKey1%' or organization_name like '%$searchKey1%' or city like '%$searchKey1%')";
-																			 $realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions1 and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
-																			 }
-																			 else
-																			 {
-																			 $realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
-																			 }
+				 $searchKey1=$_REQUEST['filter_realtor_favourite'];
+
+			$conditions1="and (first_name like '%$searchKey1%' or last_name like '%$searchKey1%' or organization_name like '%$searchKey1%' or city like '%$searchKey1%')";
+
+			$realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions1 and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+
+					}
+
+				else
+				{
+
+		$realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+
+				}
                                        // $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='10')");
                                        while($realtor1=mysqli_fetch_assoc($realtor_query1))
                                        {
@@ -350,7 +388,7 @@ $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='R
                                                             <td><?php echo @$realtor1['state'];?></td>
                                                                 <td><?php echo @$realtor1['country'];?></td>
                                                                     <td><a href="client_detail.php?realtor_id=<?php echo $realtor1['id'];?>"><i class="fa fa-external-link"></i></a></td>
-                                                                        <td><a onclick="unfavourite('<?php echo $realtor1['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart" style="color:green;"></i></a></td>
+                                                                        <td><a title="Remove from favourites" onclick="unfavourite('<?php echo $realtor1['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart" style="color:green;"></i></a></td>
                                           </tr>
                                           <?php
                                       }

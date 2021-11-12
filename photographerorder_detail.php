@@ -971,7 +971,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                   $photographer_id=$get_summary['photographer_id'];
                                   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                                   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-                                  $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+                                  $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
                                   ?>
                                   <?php
 
@@ -1049,7 +1049,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                   $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                   $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                  echo $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
+                                  echo $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
                                   ?>
                       				</td>
                       				</tr>

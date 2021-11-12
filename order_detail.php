@@ -1183,7 +1183,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
               $photographer_id=$get_summary['photographer_id'];
               $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
               $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-              $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+              $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
               ?>
               <?php
 
@@ -1240,7 +1240,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                                 $realtorID=$get_summary['created_by_id']  ;
                                 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                echo $get_realtor_name1=@$get_realtor_name["first_name"]."".@$get_realtor_name["last_name"];
+                                echo $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
                                 ?>
                             </td>
                             </tr>

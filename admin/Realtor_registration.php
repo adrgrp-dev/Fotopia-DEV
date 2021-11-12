@@ -169,7 +169,7 @@ $profile_id=mysqli_insert_id($con);
 email($email,$typeofuser,$fname,$inserted_id,$profile_id);
 
 
-header("location:client.php");
+header("location:client.php?a=1");
 
 }
 
@@ -698,10 +698,20 @@ $("#country").css("border","solid 1px grey");
 
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+<hr class="space s">
+<div class="col-md-2" style="padding-left:-2px;">
+
+	   <?php include "sidebar.php";  ?>
+
+                </div>
+
 <div class="container content">
 
 
             <div class="row">
+            	
+<div class="col-md-8">                
+
 			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()">
 
 			<!-- <div class="col-md-6">&nbsp;
@@ -709,7 +719,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-12" style="padding-left:30px;">
+                <div class="col-md-12" style="padding-left:200px;">
 
 
                       		<br>
@@ -733,7 +743,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                       <div class="col-md-12"><h3 align="center" > Realtor Registration</h3></div>
+                       <div class="col-md-12"><h3 align="center" > Realtor registration</h3></div>
 
 
 
@@ -816,7 +826,7 @@ $("#country").css("border","solid 1px grey");
                             <div class="col-md-12" align="center">
                                 <br><br>
 
-                            <a class="anima-button circle-button btn-sm btn" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+                            <a class="anima-button circle-button btn-sm btn" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="client.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 
 

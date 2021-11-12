@@ -1341,7 +1341,7 @@ alert(alertmsg);
                                 $photographer_id=$get_summary['photographer_id'];
                                 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                                 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-                                $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+                                $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
                                 ?>
 
                                 <?php
@@ -1417,7 +1417,7 @@ alert(alertmsg);
 
                                 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                echo $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
+                                echo $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
                                 ?>
                             </td>
                             </tr>
@@ -3030,7 +3030,7 @@ alert(alertmsg);
   <form method="post">
 
                      <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
-         <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="text" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
+         <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
          <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
 <?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn btn-default" style="position: absolute;right: 93%;" value="Done" /><?php } ?>
 
@@ -3046,12 +3046,12 @@ alert(alertmsg);
 <td id="inv_td" style="">
 
 <form method="post" style="position: relative;left: -150px;">
- <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
+ <input type="text" name="description" placeholder="Enter the description of cost" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
 
                <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
                </td>
                <td id="inv_td" style="text-align: right;">
-   <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="text" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
+   <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
 
 <?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn btn-default" style="" value="Done" /><?php } ?>
 
