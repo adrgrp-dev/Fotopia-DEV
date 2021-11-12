@@ -140,7 +140,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                       {
 					  $orderID=$get_action['order_id'];
 					  ?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id=$orderID" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                      <?php }
                          else {
                              $get_action_done_name=explode("@",$get_action['action_done_by_name']);
