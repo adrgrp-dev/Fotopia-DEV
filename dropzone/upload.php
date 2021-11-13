@@ -20,7 +20,7 @@
 		$fileExtension			=			pathinfo($fileName, PATHINFO_EXTENSION);
     // $order_id=5;
 
-		
+
 		$directory='../raw_images/order_'.$order_id;
     if($name=mkdir($directory,true))
 		{
@@ -48,12 +48,12 @@
 			mkdir($directory.'/HDR_photos');
 				$root_dir=$directory.'/HDR_photos';
 		}
-		
+
 		$targetFile				=			time()."-".time()."-".strtolower(str_replace(" ","-",$fileName));
 	  $target_path =$root_dir."/".$targetFile;
-	  
-	  
-	 
+
+
+
 		if(move_uploaded_file($source_path, $target_path)) {
 			$sql 			=			"INSERT INTO `img_upload`( `img`, `order_id`, `raw_images`, `finished_images`,`service_id`, `updated_on`) VALUES ('$targetFile',$order_id,1,0,$service,now())";
 			$result 		=			mysqli_query($con, $sql);
@@ -62,7 +62,7 @@
 				echo "File uploaded successfully";
 			}
 			}
-			
+
 		}
 		catch(Exception $e) {
   echo 'Message: ' .$e->getMessage();

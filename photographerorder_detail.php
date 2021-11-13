@@ -157,7 +157,7 @@ $get_image=mysqli_fetch_array(@$get_image_query);
 $file1=@$_POST['folderToZip']."/".@$get_image['img'];
 
   $file="./temp/$timeRandom/".@$get_image['img'];
-copy($file1,$file);
+copy($file1,strtoupper($file));
 }
   $dir = "./temp/$timeRandom";
   }
@@ -2895,7 +2895,7 @@ function updateScroll(){
                                               echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
 
                                               }
-                                              elseif($get_images["service_name"] == 1)
+                                              elseif($get_images["service_name"] == 0)
                                               {
 
 

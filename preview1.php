@@ -367,7 +367,10 @@ var a;
                         var key = e.which;
                           if(1)
                           {
+                            // alert(data);
+
                             var a=$("#myBtn"+data).val();
+                            // alert(a);
                             var xhttp = new XMLHttpRequest();
                           xhttp.onreadystatechange = function() {
                            if (this.readyState == 4 && this.status == 200) {

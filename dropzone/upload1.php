@@ -12,8 +12,9 @@
 		$service=$_REQUEST['type'];
 		$user_id=$_REQUEST['user_id'];
 		$user_type=$_REQUEST['user_type'];
-
-
+    $finished_images_exist=0;
+    $finished_images_check=mysqli_query($con,"select * from img_upload where finished_images=1 and order_id='$order_id'");
+		$finished_images_exist=mysqli_num_rows($finished_images_check);
 		$allowed=array('png', 'jpg','JPG','PNG','JPEG','jpeg','DNG','dng','CR2','cr2','NEF','nef','ARW','arw');
 
 		$fileName 				=			$_FILES['file']['name'];
@@ -30,7 +31,16 @@
 
     // $order_id=5;
 		//$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+		$targetFile="";
+		if($finished_images_exist>0)
+		{
+				$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+		}
+		else
+		{
 		$targetFile=strtolower(str_replace("-","_",$fileName));
+	  }
+
 
 		$directory='../finished_images/order_'.$order_id;
     if($name=mkdir($directory,true))
