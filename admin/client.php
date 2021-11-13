@@ -214,7 +214,7 @@ var xhttp= new XMLHttpRequest();
 
 <?php if(@isset($_REQUEST["a"])) { ?>
                         <div class="success-box" style="display:block;margin-left:300px;">
-                            <div class="text-success">Realtor has been successfully added and an invite has been sent successfully</div>
+                            <div class="text-success">Realtor has been successfully added and an invite has been sent successfully </br></br></div>
                         </div>
 						<?php }  ?>
 
@@ -269,7 +269,7 @@ if(@$_REQUEST['filter_realtor'])
 {
 $searchKey=$_REQUEST['filter_realtor'];
 $conditions="and (first_name like '%$searchKey%' or last_name like '%$searchKey%' or organization_name like '%$searchKey%' or city like '%$searchKey%')";
-$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions and id not in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions");
 }
 else
 {
@@ -315,7 +315,7 @@ else
                        else{ 
                        	?>
 
-                       	<td><a title="Already added to favourites"><i class="fa fa-heart"></i></a></td>
+                       	<td><a title="Already added to favourites"><i class="fa fa-heart" style="color:green;"></i></a></td>
 
 					<?php } ?>
 

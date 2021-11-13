@@ -205,6 +205,12 @@ header("location:users.php");
 }
 ?>
 <?php include "header.php";  ?>
+<hr class="space s">
+     <div class="col-md-2">
+	<?php include "sidebar.php"; ?>
+
+
+			</div>
 	<style>
 	.container.content
 	{
@@ -223,7 +229,7 @@ box-shadow:5px 5px 5px 5px #DDD;
 	<script>
 	function validate_email(val,type)
 {
-//alert(type);
+//alert(type); 
 if(val!="")
 {
   var xhttp= new XMLHttpRequest();
@@ -290,8 +296,7 @@ var confirmpassword =  $("#confirmpassword").val();
 
 var pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-var emailpattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-
+var emailpattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 
 if(fname=='')
@@ -699,16 +704,19 @@ $("#country").css("border","solid 1px grey");
 
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
 <div class="container content">
 
-
             <div class="row">
+            	
 			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()">
 
 
 
 
-                <div class="col-md-12" style="padding-left:30px;">
+                <div class="col-md-8" style="padding-left:30px;">
 
 
                       		<br>
@@ -820,7 +828,7 @@ $("#country").css("border","solid 1px grey");
                             <div class="col-md-6" align="left">
                                 <br><br>
 
-                            <a class="anima-button circle-button btn-sm btn" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+                            <a class="anima-button circle-button btn-sm btn" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="users.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 
 

@@ -3046,7 +3046,7 @@ alert(alertmsg);
 <td id="inv_td" style="">
 
 <form method="post" style="position: relative;left: -150px;">
- <input type="text" name="description" placeholder="Enter the description of cost" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
+ <input type="text" name="description" placeholder="Description of cost" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
 
                <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
                </td>

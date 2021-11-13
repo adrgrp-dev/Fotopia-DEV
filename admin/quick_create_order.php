@@ -619,32 +619,35 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
 }
 ?>
+
+      <div class="col-md-6">
+       <label for="from_realtor" style="display:inline-block">
+          <input type="radio" class="show_realtor_info" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
+        </label>
+       &nbsp; &nbsp; &nbsp;
+     <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;" onchange="RealtorSearch(this.value)" onclick="RealtorSearch(this.value)">
+<option value="">Create New Realtor</option>
+            <?php
+
+            $selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user,first_name FROM `user_login` where organization_name!='' and type_of_user='Realtor' and email_verified=1");
+            while($selectrealtor1=mysqli_fetch_array($selectrealtor))
+            {
+            ?>
+            <option value="<?php echo $selectrealtor1['id']; ?>" <?php if(@$appointment_update_details['request_name']==@$selectrealtor1['first_name']){ echo "selected"; }?>><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
+            <?php } ?>
+
+</select>
+
+
+      </div>
+
    <div class="col-md-6">
     <label for="from_homeseller">
           <input type="radio" id="from_homeseller" name="from_whom" value="homeseller" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="homeseller"){ echo "checked"; } ?>  required  style="margin-left:20px;"/><span adr_trans="label_from_homeseller"> FROM HOMESELLER</span>
         </label>
 
       </div>
-      <div class="col-md-6">
-       <label for="from_realtor" style="display:inline-block">
-          <input type="radio" class="show_realtor_info" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
-        </label>
-       &nbsp; &nbsp; &nbsp;
-	   <select name="realtor_id" id="realtor_id" class="form-control" list="realtors_list"  style="display:inline-block;visibility:hidden;width:230px;" onchange="RealtorSearch(this.value)" onclick="RealtorSearch(this.value)">
-<option value="">Create New Realtor</option>
-						<?php
 
-						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user,first_name FROM `user_login` where organization_name!='' and type_of_user='Realtor' and email_verified=1");
-						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
-						{
-						?>
-						<option value="<?php echo $selectrealtor1['id']; ?>" <?php if(@$appointment_update_details['request_name']==@$selectrealtor1['first_name']){ echo "selected"; }?>><?php echo $selectrealtor1['first_name']." (".$selectrealtor1['org'].")"; ?></option>
-						<?php } ?>
-
-</select>
-
-
-      </div>
 
     <br>
 
@@ -699,6 +702,8 @@ if(@$_REQUEST['u']==1)
 ?>
 
               <div id="realtor_information" style="display:none" >
+                <div class="col-md-12">
+                </div>
                <div class="col-md-6">
                         <p>REALTOR NAME</p>
                         <input id="realtor_name" name="realtor_name" placeholder="Enter The Realtor name" type="text" autocomplete="off"
