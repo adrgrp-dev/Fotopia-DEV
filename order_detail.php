@@ -817,6 +817,7 @@ function selectAllImages()
 
 function clickimg(id)
 {
+var checkedImgs=0;
   var c=$('#count').val();
  if($("#selected_image"+id).prop("checked") == false)
   {
@@ -826,9 +827,10 @@ function clickimg(id)
   $("#check"+id).removeClass('fa fa-square');
   $("#check"+id).addClass('fa fa-check-square');
   c++;
+   checkedImgs=$('.clikedImg1 .fa-check-square').length;
   //  c++;
-  $('#count').val(c);
-  $('#selected_count').text(c);
+  $('#count').val(checkedImgs);
+  $('#selected_count').text(checkedImgs);
    if($('#counts').val()==c)
    {
        $("#remove").prop("checked",true);
@@ -841,8 +843,9 @@ function clickimg(id)
     $("#selected_image"+id).prop("checked",false);
     $("#clicked_img"+id).css('opacity','1');
        c--;
-    $('#count').val(c);
-    $('#selected_count').text(c);
+	    checkedImgs=$('.clikedImg1 .fa-check-square').length;
+    $('#count').val(checkedImgs);
+    $('#selected_count').text(checkedImgs);
     $("#remove").prop("checked",false);
   }
 
@@ -897,6 +900,7 @@ function selectAllImages2()
 }
 function clickimg2(id)
 {
+var checkedImgs=0;
 var c=$('#count2').val();
  if($("#selected_image2"+id).prop("checked") == false)
   {
@@ -906,8 +910,9 @@ var c=$('#count2').val();
   $("#check2"+id).removeClass('fa fa-square');
   $("#check2"+id).addClass('fa fa-check-square');
   c++;
-  $('#count2').val(c);
-   $('#selected_floor_count').text(c);
+  checkedImgs=$('.clikedImg2 .fa-check-square').length;
+  $('#count2').val(checkedImgs);
+   $('#selected_floor_count').text(checkedImgs);
   if($('#counts2').val()==c)
   {
       $("#remove2").prop("checked",true);
@@ -919,8 +924,9 @@ var c=$('#count2').val();
     $("#selected_image2"+id).prop("checked",false);
     $("#clicked_img2"+id).css('opacity','1');
     c--;
-    $('#count2').val(c);
-     $('#selected_floor_count').text(c);
+	checkedImgs=$('.clikedImg2 .fa-check-square').length;
+    $('#count2').val(checkedImgs);
+     $('#selected_floor_count').text(checkedImgs);
     $("#remove2").prop("checked",false);
   }
 
@@ -1561,7 +1567,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-eye" style="position:revert !important;top:50px;"></i>
                                     </a>
 
-                                    <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+                                    <a class="icons<?php echo $get_comment['id'];?> clikedImg1" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                     </a>
@@ -1712,7 +1718,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <a class="img-box icons<?php echo $get_comment['id'];?> " id="imga" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                     </a>
-                                    <a class="icons<?php echo $get_comment['id'];?> " id="imga1" onclick="clickimg2(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
+                                    <a class="icons<?php echo $get_comment['id'];?> clikedImg2" id="imga1" onclick="clickimg2(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
 
                                     </a>

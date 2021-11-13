@@ -284,7 +284,7 @@ var a;
                   <?php include "sidebar.php"?>
 
 			          </div>
-                <div class="col-md-10" style="background:#000;color:#FFF;opacity:0.9">
+                <div class="col-md-10" style="background:#FFF;color:#000;opacity:0.9">
                 <hr class="space s">
 
 
