@@ -301,6 +301,7 @@ var a;
                   <h5 style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
 
                    <button  class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top: -50px;" adr_trans="label_send"> Send</button>
+                   <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" >Done</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn(this.val)" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
 
                     <?php
@@ -402,6 +403,7 @@ var a;
 
                     <h5 style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
                        <button  class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send"> Send</button>
+                       <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" >Done</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <?php
                             $photographer_id=$_SESSION['loggedin_id'];
@@ -756,15 +758,19 @@ var a;
                                                           </div>
 
                                                           <?php $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url");
-                                                            while($get_images=mysqli_fetch_assoc($get_rawimages_query))
+                                                            while($get_images=mysqli_fetch_assoc(@$get_rawimages_query))
                                                             {
+
                                                                 if($get_images["service_name"] == 1)
                                                                 {
-                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();$("#edit_button").hide();</script>';
+                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();$("#edit_button").hide();$("#done_button").show();</script>';
+
                                                                 }
                                                                 if( $get_images["service_name"] == 2)
                                                                 {
-                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();$("#edit_button1").hide();</script>';
+
+                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();$("#edit_button1").hide();$("#done_button1").show();</script>';
+
                                                                 }
                                                                 if($get_images["service_name"] == 3)
                                                                 {
@@ -959,6 +965,7 @@ var a;
 $("#editor_email1").hide();
 $("#comment_all1").hide();
 $("#edit_button").hide();
+$("#done_button").hide();
 </script>
 <?php } ?>
 
@@ -972,6 +979,7 @@ if(@$floorPicCount==0)
 $("#editor_email2").hide();
 $("#comment_all2").hide();
 $("#edit_button1").hide();
+$("#done_button1").hide();
 </script>
 <?php } ?>
 <?php if(@$dronePicCount==0)
@@ -994,6 +1002,11 @@ $("#edit_button3").hide();
 </script>
 
 <?php } ?>
+
+<?php if(isset($_REQUEST['update']))
+{
+ header("location:photographerorder_detail.php?id=".$id_url."&upload=1");
+ } ?>
 
 
 

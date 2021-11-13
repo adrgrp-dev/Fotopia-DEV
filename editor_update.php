@@ -50,7 +50,7 @@ function email($order_id,$con)
 	 $get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
 	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	 $csr_email=@$get_csrdetail['email'];
-	$realtor_id=@$get_detail['created_by_id'];
+	$realtor_id=@$get_detail['realtor_id'];
 	$get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
 	$get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
 	 $realtor_email=@$get_realtor_name['email'];
@@ -63,14 +63,14 @@ function email($order_id,$con)
 	if($get_detail['created_by_type']=="Realtor")
 	{
 		 $mail->addAddress($realtor_email);
-		 $mail->addCC($PCAdmin_email);
-		 $mail->addCC($csr_email);
-		 $mail->addCC($photographer_email);
+		 if(!empty($PCAdmin_email)){$mail->addCC($PCAdmin_email);}
+		  if(!empty($csr_email)){$mail->addCC($csr_email);}
+		 if(!empty($photographer_email)){$mail->addCC($photographer_email);}
 	}
 	else{
 		$mail->addAddress($PCAdmin_email);
-		$mail->addCC($csr_email);
-	  $mail->addCC($photographer_email);
+		if(!empty($csr_email)){$mail->addCC($csr_email);}
+	  if(!empty($photographer_email)){$mail->addCC($photographer_email);}
 	}
 
 

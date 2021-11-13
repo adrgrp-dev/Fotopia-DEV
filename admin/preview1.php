@@ -291,6 +291,7 @@ var a;
                   <h5 id="label_standard_photos" adr_trans="label_standard_photos" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px">Standard Photos</h5>
 
                    <button href="" class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
+                    <a href="superOrder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" >Done</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                     <option value="">--Select Your Editor--</option>
                     <?php
@@ -389,6 +390,7 @@ var a;
                     <hr class="space l">
                     <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
                        <button href="" class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-50px"><span id="label_send" adr_trans="label_send">Send</span></button>
+                        <a href="superOrder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" >Done</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <option value="">--Select Your Editor--</option>
                           <?php
@@ -465,11 +467,11 @@ var a;
                              if (this.readyState == 4 && this.status == 200) {
                                if(this.responseText=="true")
                                {
-                                 //alert("description Uploaded");
+                                // alert("description Uploaded");
                                }
                              }
                             };
-                            xhttp.open("GET","../description.php?id="+data+"&id1="+a"&type=floor_plans&user=adminraw", true);
+                            xhttp.open("GET","../description.php?id="+data+"&id1="+a+"&type=floor_plans&user=adminraw", true);
                             xhttp.send();
                             }
                           }
@@ -750,11 +752,15 @@ var a;
                                                             {
                                                                 if($get_images["service_name"] == 1)
                                                                 {
-                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();$("#edit_button").hide();</script>';
+                                                                  echo '<script>$("#editor_email1").hide();$("#comment_all1").hide();$("#edit_button").hide();$("#done_button").show();</script>';
+
+
                                                                 }
                                                                 if( $get_images["service_name"] == 2)
                                                                 {
-                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();$("#edit_button1").hide();</script>';
+                                                                  echo '<script>$("#editor_email2").hide();$("#comment_all2").hide();$("#edit_button1").hide();$("#done_button1").show();</script>';
+
+
                                                                 }
                                                                 if($get_images["service_name"] == 3)
                                                                 {
@@ -951,6 +957,7 @@ var a;
 // $("#edit_button").hide();
 $("#editor_email1").hide();
 $("#comment_all1").hide();
+$("#done_button").hide();
 
 </script>
 
@@ -962,6 +969,7 @@ $("#comment_all1").hide();
 // $("#edit_button1").hide();
 $("#editor_email2").hide();
 $("#comment_all2").hide();
+$("#done_button1").hide();
 </script>
 
 <?php } ?>

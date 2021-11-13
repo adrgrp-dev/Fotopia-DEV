@@ -477,7 +477,7 @@ $("#dayVal").val(calid);
     <?php $get_rawimages_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name=$type");
       if($get_images=mysqli_fetch_assoc($get_rawimages_query))
       {
-          if($get_images["status"] == 6||$get_images["status"] == 3)
+          if($get_images["status"] == 3)
           {
 		  if($_SESSION['Selected_Language_Session']=='en')
 		  {
