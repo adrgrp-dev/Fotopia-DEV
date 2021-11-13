@@ -778,7 +778,7 @@ function selectAllImages()
   {
 
   var a=document.getElementById('allimages').value=1;
-    $(".img1").css('opacity','0.7');
+    $(".img1").css('opacity','0.2');
     $('.icons').removeClass('fa fa-square');
     $('.icons').addClass('fa fa-check-square');
     $('.selectimg').prop("checked",true);
@@ -802,7 +802,7 @@ function selectAllImages()
      $('.selectimg').prop("checked",true);
      $('.icons').removeClass('fa fa-square');
      $('.icons').addClass('fa fa-check-square');
-     $(".img1").css('opacity','0.7');
+     $(".img1").css('opacity','0.2');
   }
   else{
     $('.selectimg').prop("checked",false);
