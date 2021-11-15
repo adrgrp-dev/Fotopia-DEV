@@ -92,15 +92,25 @@ return true;
 <div class="row">
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
-<input type="date" id="start" name="starting" class="form-control" style="display:inline-table">
+<input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; class="form-control" style="display:inline-table">
 </div>
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" class="form-control" style="">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control" style="">
 </div>
 <div class="col-md-2" style="padding-left:10px;width:180px;">
 <p><h5 adr_trans="label_photo_company">Photo Company</h5></p>
-<input type="text" name="pcfilter" id="pcfilter" class="form-control" list="pclist" onchange="PCAdminSearch()"  autocomplete="off" />
+<?php
+if(!empty($_REQUEST['pcfilter'])){
+	//echo $_REQUEST['pcfilter']."<br>";
+ $selected_pcadmin_id=@$_REQUEST['pcfilter'];
+ $select_organization_query=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile where pc_admin_id=$selected_pcadmin_id");
+
+ $select_organization=@mysqli_fetch_assoc(@$select_organization_query);
+
+}
+?>
+<input type="text" name="pcfilter" id="pcfilter" class="form-control" placeholder="<?php echo @$select_organization['org'];?>" list="pclist"  onchange="PCAdminSearch()"  autocomplete="off" />
 <datalist id="pclist">
  <?php
 							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile");

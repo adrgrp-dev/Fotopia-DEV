@@ -505,7 +505,7 @@ $.ajax({
 				<p style="padding-left:3px;">
 								<form name="searchByLocation" method="post" action="" style="margin-left:5px;">
 
-				 <input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="Photographersearch" value="" style="display:inline;font-size:12px;"  placeholder="Search Photographer" />
+				 <input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="Photographersearch" value="<?php echo @$_REQUEST['Photographersearch'];?>" style="display:inline;font-size:12px;"  placeholder="Search Photographer" />
 
 </form>
 

@@ -104,11 +104,11 @@ var days = 1;
 <form>
 <div class="col-md-3" style="padding-left:0px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" class="form-control">
+<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>" class="form-control">
 </div>
 <div class="col-md-3" style="padding-left:5px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" class="form-control">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control">
 </div>
 
 
@@ -210,11 +210,11 @@ $realtorID=$_SESSION['loggedin_id'];
                                   </thead>
                                   <tbody>
                           <?php
-						  
-						  
-						  
-						 
-						  
+
+
+
+
+
                                      //	---------------------------------  pagination starts ---------------------------------------
 																		 if(@$_GET["page"]<0)
 																	   {

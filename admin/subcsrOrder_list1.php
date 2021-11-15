@@ -917,7 +917,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                 <hr class="space s" />
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
                 <p style="text-align: center;"><?php if(@isset($_REQUEST["s"])) { ?>
@@ -1018,14 +1018,14 @@ header("location:subcsrOrder_list1.php?app=1");
                           }
                           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
                           $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id='3'";
-                          
+
 		if(@$_REQUEST['searchAddress'])
 		  {
 		  $searchAddress=$_REQUEST['searchAddress'];
 		  $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%')";
-		  
+
 		  }
-						  
+
 						  $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
@@ -1060,7 +1060,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           if(@$_REQUEST['searchAddress'])
 		  {
 		  $searchAddress=$_REQUEST['searchAddress'];
-		  
+
 		  $get_order_query=mysqli_query($con,"SELECT * from orders where csr_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%') order by id desc limit $limit");
 		  }
 		  else

@@ -947,7 +947,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
 <hr class="space s" />
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
 
@@ -1049,12 +1049,12 @@ header("location:subcsrOrder_list1.php?app=1");
           }
           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
           $q1="SELECT count(*) as total FROM orders where pc_admin_id=$loggedin_id and status_id='3'";
-		  
+
 		  if(@$_REQUEST['searchAddress'])
 		  {
 		  $searchAddress=$_REQUEST['searchAddress'];
 		  $q1="SELECT count(*) as total FROM orders where pc_admin_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%')";
-		  
+
 		  }
           $result=mysqli_query($con,$q1);
           $data=mysqli_fetch_assoc($result);
@@ -1087,18 +1087,18 @@ header("location:subcsrOrder_list1.php?app=1");
 
           $limit=$start_no_users . ',' . $number_of_pages;
 		  $get_order_query="";
-         
-		  
+
+
 		   if(@$_REQUEST['searchAddress'])
 		  {
 		  $searchAddress=$_REQUEST['searchAddress'];
-		  
+
 		  $get_order_query=mysqli_query($con,"SELECT * from orders where pc_admin_id=$loggedin_id and status_id='3' and (property_address like '%$searchAddress%' or property_city like '%$searchAddress%' or property_state like '%$searchAddress%' or property_zip like '%$searchAddress%' or property_contact_mobile like '%$searchAddress%' or property_contact_email like '%$searchAddress%') order by id desc limit $limit");
 		  }
 		  else
 		  {
 		   $get_order_query=mysqli_query($con,"SELECT * FROM orders where pc_admin_id=$loggedin_id  and  status_id='3'  order by id desc limit $limit");
-		  }		  
+		  }
            if($get_order_query == "0"){
 
             ?><h5 align="center" id="label_no_order" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5>

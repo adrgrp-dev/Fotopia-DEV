@@ -564,7 +564,7 @@ $knowMore="";
 				$whereIs=" and location like '%$searchByLocation%'";
 			} */?>
 
-<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="photographersearch" value="" style="display:inline;font-size:12px;"  placeholder="Choose Photographer" />
+<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="photographersearch" value="<?php echo $_REQUEST['photographersearch'];?>" style="display:inline;font-size:12px;"  placeholder="Choose Photographer" />
 
 </form>
 
@@ -663,7 +663,7 @@ if($i<=$ratingIs)
 
 <form name="searchByLocation" method="post" action="" style="margin-left:5px;">
 
-				 <input type="text"  class="form-control form-value" name="companySearch" value="" style="display:inline;font-size:12px;margin-bottom:10px;"  placeholder="Search CSR" />
+				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;margin-bottom:10px;"  placeholder="Search CSR" />
 				 </form>
 
 				<?php

@@ -205,7 +205,7 @@ var xhttp= new XMLHttpRequest();
 }
 
 </script>
- 
+
 
 			</div>
                 <div class="col-md-10">
@@ -232,7 +232,7 @@ var xhttp= new XMLHttpRequest();
                                     <div class="col-md-9">
 
 																		<form name="realtorSearch" method="post" action="client.php" >
-																	  <input type="text" class="form-control form-value" name="filter_realtor" placeholder="Name,City,Organization" onBlur="this.form.submit()" style=""/>
+																	  <input type="text" class="form-control form-value" name="filter_realtor" value="<?php echo @$_REQUEST['filter_realtor'];?>" placeholder="Name,City,Organization" onBlur="this.form.submit()" style=""/>
 																		</form>
 																		</div><div class="col-md-3">
 																		<p style="float:right"><a href="#tnc" class=" lightbox link">
@@ -295,7 +295,7 @@ else
                                                         <td><?php echo @$realtor['state'];?></td>
                                                        <td><?php echo @$realtor['country'];?></td>
                                <td><a href="client_detail.php?realtor_id=<?php echo $realtor['id'];?>"><i class="fa fa-external-link"></i></a></td>
-                          <?php 
+                          <?php
 
                           $realtor_id=$realtor['id'];
 
@@ -308,11 +308,11 @@ else
                           ?>
 
                            <td><a title="Add to favorites" onclick="favourite('<?php echo $realtor['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart-o"></i></a></td>
-                           <?php 
+                           <?php
 
                        }
 
-                       else{ 
+                       else{
                        	?>
 
                        	<td><a title="Already added to favourites"><i class="fa fa-heart" style="color:green;"></i></a></td>
@@ -328,7 +328,7 @@ else
                                   <div class="panel" id="tab2">
 											<div class="col-md-9">
 			<form name="realtorSearch" method="post" action="client.php?favourite=1">
-	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
+	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" value="<?php echo @$_REQUEST['filter_realtor_favourite'];?>" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
 			</form>
 		</div>
 		<div class="col-md-3">

@@ -87,7 +87,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 <table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
 <tr>
 <td align="left" style="width:200px;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
@@ -254,7 +254,7 @@ background: repeating-linear-gradient(
     #eee,
     #999
   )!important;
-	
+
 }
 .fc-button
 {
@@ -279,7 +279,7 @@ font-size:7px!important;
 {
 height:fit-content!important;
 }
-.fc-col-header-cell-cushion 
+.fc-col-header-cell-cushion
 {
 font-size:10px!important;
 }
@@ -306,7 +306,7 @@ margin-top:15px;
 {
 		?>
 			<script>
-			 
+
 			var busyDateIs="<?php echo @$_REQUEST['busydate']; ?>";
 		var urlNew="../photographer_events.php?photographer_id=<?php echo $_REQUEST['ph_id']; ?>";
 		var urlNew1="photographer_busy.php?csr_id=0&photographer_id=<?php echo @$_REQUEST['ph_id']; ?>&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
@@ -314,7 +314,7 @@ margin-top:15px;
 
 			<?php } else {  ?>
 			<script>
-			 
+
 				var urlNew="super_event.php?super_csr_id=<?php echo $_SESSION['admin_loggedin_id']; ?>";
 var urlNew1="";
 			</script>
@@ -375,12 +375,12 @@ $.ajax({
       },
 	   eventDrop: function(info) {
    //alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-    
+
 	if(info.event.extendedProps.status=='BUSY')
 	{
 	 info.revert();
 	}
-	
+
 	},
 	  selectOverlap: function(event) {
     return event.rendering === 'background';
@@ -485,12 +485,12 @@ var fromDate = new Date(fromDatetime);
 //alert(dateFormat(date1, "dddd, mmmm dS, yyyy, h:MM:ss TT"));
     if(confirm("Are you sure want to mark  Mr."+phNameIs+" (Photographer) with BUSY status for "+fromDate.toDateString()+" "+fromDate.toLocaleTimeString()+" TO "+toDate.toLocaleTimeString()+"?"))
     {
-	
+
 	// var even=info.event;
  var dateMovedTo=fromDatetime;
  var dateIS=dateMovedTo.split("T");
  //alert(dateIS[0]);
- 
+
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
@@ -498,10 +498,10 @@ var fromDate = new Date(fromDatetime);
  {
  alert("BUSY status cannot be marked to past date");
   info.revert();
- 
+
  }
  else
- {	
+ {
 	var phId1='<?php echo @$_REQUEST['ph_id']; ?>';
 	var phname1='<?php echo @$_REQUEST['ph_name']; ?>';
    window.location.href="./PCAdmin_Calender.php?busy=1&fromDatetime="+fromDatetime+"&toDatetime="+toDatetime+"&Photographer_id="+phId1+"&ph_name="+phname1.trim();

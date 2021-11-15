@@ -75,7 +75,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 <table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
 <tr>
 <td align="left" style="width:200px;"><form name="" method="post" action="" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer" autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name'];?>" placeholder="Select a photographer" autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
