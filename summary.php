@@ -386,7 +386,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<td adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
 				</tr>
 				<tr>
-				<td adr_trans="label_booking_notes">Status</td><td>:</td><td>  <?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";} ?></td>
+				<td adr_trans="label_status">Status</td><td>:</td><td>  <?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";} ?></td>
 				</tr>
 				</table><br />
 				<p adr_trans="label_order_products" align="left" adr_trans="label_order_products"style="color:#000;font-weight:600;font-size:15px;">Products For the Order</p>
