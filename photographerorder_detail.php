@@ -1069,7 +1069,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </tr>
                             <?php } ?>
                               <tr>
-                              <td id="label_due_date" adr_trans="label_due_date">Due Date</td><td>:</td><td><?php echo $get_summary['order_due_date']; ?></td>
+                              <td id="label_due_date" adr_trans="label_due_date">Due Date</td><td>:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?></td>
                               </tr>
                               <tr>
                               <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
