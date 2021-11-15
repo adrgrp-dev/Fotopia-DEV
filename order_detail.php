@@ -1617,7 +1617,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                                  <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                <hr class="space s">
@@ -1769,7 +1769,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/floor_plans"; ?>">
 
                                  <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
                                <hr class="space s">

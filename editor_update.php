@@ -171,7 +171,8 @@ echo $service;
  $dir="./raw_images/order_$order_id/$service_name";
  echo $dir;
 
-  if (is_dir($dir)) {
+//Code commented as we dont want to remove Raw_images_orderId when finished images are uploaded
+ /* if (is_dir($dir)) {
     $objects = scandir($dir);
     foreach ($objects as $object) {
       if ($object != "." && $object != "..") {
@@ -182,7 +183,7 @@ echo $service;
       }
     }
 
-  }
+  }*/
 	$dir1="./rework_images/order_$order_id/$service_name";
 	if (is_dir($dir1)) {
 		$objects = scandir($dir1);
