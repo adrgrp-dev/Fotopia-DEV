@@ -125,7 +125,8 @@ $x=1;
 		}
 		else
 		{
-echo $relativePath; exit;
+mysqli_query("update image_naming set downloaded_raw_image_name='$ParsedFileName' where order_id='$Order_ID' and image_name='$relativePath'");
+
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
 
 		break 1;

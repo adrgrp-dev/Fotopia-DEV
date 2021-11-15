@@ -390,7 +390,15 @@ if(isset($_REQUEST['rework']))
   $get_image=mysqli_fetch_array($get_image_query);
   //echo $_POST['folderToZip'];
     $data1=explode('/',$_POST['folderToZip']);
-  $file1=$_POST['folderToZip']."/".$get_image['img'];
+	
+	$IMG_name=$get_image['img'];
+	
+	$get_image=mysqli_query($con,"select * from image_naming where order_id='$id_url' and image_name='$IMG_name'");
+  $getImg=mysqli_fetch_array($get_image);
+	$raw_image_Is=$getImg['downloaded_raw_image_name'];
+	
+	
+  $file1=$_POST['folderToZip']."/".$raw_image_Is;
   if($data=@mkdir("rework_images/order_".$id_url))
   {
 
