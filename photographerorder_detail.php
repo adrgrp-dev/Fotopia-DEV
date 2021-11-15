@@ -990,7 +990,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                   ?>
 
-   <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?></span></div></div>
+   <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:20px;" id="printArea">
                       				<div class="col-md-6">
                       				<p align="left" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
