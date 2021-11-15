@@ -98,12 +98,12 @@ if(!empty($from_date))
 		{
 			$added_date=date("Y-m-d H:i:s",strtotime('+24 hours', strtotime($chk_to)));
 			$added_exp=explode(" ",$added_date);
-			$due_date=$added_exp[0];
+			$chk_due=$added_exp[0];
 		//	echo $due_date;
 		}
 		else
 		{
-			$due_date=$_SESSION['due_date'];
+			$chk_due=$_SESSION['due_date'];
 		}
   //   $due_exp=explode("T",$due_date);
 		// $chk_due=$_REQUEST["due"];
