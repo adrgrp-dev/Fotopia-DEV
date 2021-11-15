@@ -235,17 +235,17 @@ margin-left:0px!important;
 
                               <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_linkedin_profile">LinkedIN profile</p>
-                                <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['linkedin_id']; ?>">
+                                <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
                                 <p  style="color:#000;" adr_trans="label_fb_profile">Facebook profile</p>
-                                <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['facebook_id']; ?>">
+                                <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['facebook_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_insta_profile">Instagram profile</p>
-                                <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['instagram_id']; ?>">
+                                <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['instagram_id']; ?>">
 								</div>
 
 
