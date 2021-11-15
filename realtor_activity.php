@@ -124,7 +124,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                        <?php
                        if($get_action['module']=="Order" || $get_action['module']=="Rework" || $get_action['module']=="Appointment" || $get_action['module']=="Profile"||$get_action['module']=="Canceled")
                        {?>
-                           <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                           <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                       <?php }
                       elseif($get_action['module']=="Rating" )
                       {?>
@@ -138,12 +138,12 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                       {
 					  $orderID=$get_action['order_id'];
 					  ?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                      <?php }
                          else {
                              $get_action_done_name=explode("@",$get_action['action_done_by_name']);
                         ?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                   <?php  }
                 } }?>
                </tbody>
