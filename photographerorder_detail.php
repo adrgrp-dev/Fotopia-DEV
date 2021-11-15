@@ -2900,14 +2900,14 @@ function updateScroll(){
 
 
 
-                                                echo '<script>$("#standard_photos_div").hide();$("#standard_photos_booked").html("<center><span>Photo images uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
+                                                echo '<script>$("#finished_images_floor_photos").show();</script>';
 
 
                                               }
                                               elseif( $get_images["service_name"] == 2&&$get_images["status"]==1)
                                               {
 
-                                                echo '<script>$("#floor_div").hide();$("#floor_booked").html("<center><span>Floor plans uploaded and shared to editor on '.$get_images['sent_on'].'<span></center>");$("#floor_booked").css({"color": "green","padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_Drone_photos").show();</script>';
+                                                '<script>$("#finished_images_floor_photos").show();</script>';
 
                                               }
                                               elseif($get_images["service_name"] == 3)

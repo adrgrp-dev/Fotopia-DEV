@@ -898,7 +898,7 @@ $where="location like '%$companySearch%' and ";
 
 				 <?php
                 if ($ph=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc")) {
-$knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_know_more">Know More</span></a>';
+$knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view">View</span></a>';
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
 				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/>
@@ -947,7 +947,7 @@ if($i<=$ratingIs)
         $photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
         while($photo1=mysqli_fetch_array($photo))
         {
-$knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_know_more">Know More</span></a>';
+$knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view">View</span></a>';
         ?>
 
       <table cellspacing="0" border="0"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;width:100%;border-radius:25px 25px 25px 25px;width:100%">

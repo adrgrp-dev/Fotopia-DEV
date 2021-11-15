@@ -599,7 +599,7 @@ $knowMore="";
 
 				   <?php
 
-				   $knowMore="<a href='#aboutMe'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetDetails(".$photo1['id'].")'><span adr_trans='label_know_more'>Know More</span></a>";
+				   $knowMore="<a href='#aboutMe'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetDetails(".$photo1['id'].")'><span adr_trans="label_view">View</span></a>";
                 }
                ?>
 
@@ -680,7 +680,7 @@ $where="and first_name like '$companySearch%'";
 				$photo=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$superCsr' $where order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
-		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization']."\")'><span adr_trans='label_know_more'>Know More</span></a>";
+		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization']."\")'><span adr_trans="label_view">View</span></a>";
 
 				?>
 				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;border-radius:25px 25px 25px 25px;width:90%">
