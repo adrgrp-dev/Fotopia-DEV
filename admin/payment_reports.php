@@ -84,11 +84,11 @@ var days = 1;
 <div class="row">
 <div class="col-md-3" style="padding-left:15px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date" style="padding-left:5px;">From date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" class="form-control" style="display:inline-table;">
+<input type="date" onchange="setSecondDate();" id="start"  name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;">
 </div>
 <div class="col-md-3" style="padding-left:10px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date" style="padding-left:5px;">To date</h5></p>
-<input type="date" id="end" name="ending" class="form-control" style="">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>"class="form-control" style="">
 </div>
 <div class="col-md-3">
 <p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By Realtor</h5></p>

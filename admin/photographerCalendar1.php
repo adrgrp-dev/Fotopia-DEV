@@ -65,7 +65,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 <div class="row" style="border-color:none!important;width:100%;background:#E8F0FE!important;box-shadow:10px 10px 10px 10px #DDD;border-radius:25px;">
 <div class="col-md-4" style="padding:10px;padding-left:30px;">
 <form name="" method="post" action="" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer"  autocomplete="off"  class="form-control btn btn-default" style="width:250px;margin-bottom:10px;margin-top:10px;border-radius:25px;"/>
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer" value="<?php echo @$_REQUEST['ph_name']; ?>"  autocomplete="off"  class="form-control btn btn-default" style="width:250px;margin-bottom:10px;margin-top:10px;border-radius:25px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>

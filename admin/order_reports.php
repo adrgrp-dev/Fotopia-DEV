@@ -120,7 +120,7 @@ var days = 1;
 </div>
 <div class="col-md-2" style="padding-left:5px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['starting']?>" class="form-control">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control">
 </div>
 
 <div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:200px!important"; } else
@@ -128,13 +128,13 @@ var days = 1;
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
 <?php
 if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
-<input type="radio" value="realtor" name="filter"  checked onchange="filter1(this.value)"><span adr_trans="label_realtor">Realtor</span>&nbsp;
-<input type="radio"  value="photographer" id="photographer_radioID" name="filter" onchange="filter1(this.value)"><span adr_trans="label_photographer">Photographer</span>&nbsp;
+<input type="radio" value="realtor" name="filter"  <?php if(@$_REQUEST['filter']!='photographer'){echo'checked';} ?> onchange="filter1(this.value)"><span adr_trans="label_realtor">Realtor</span>&nbsp;
+<input type="radio"  value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?> onchange="filter1(this.value)" onclick="filter1(this.value)"><span adr_trans="label_photographer">Photographer</span>&nbsp;
 <?php if($_SESSION['admin_loggedin_type']=="CSR"){ ?><input type="radio" value="csr" name="filter" onchange="filter1(this.value)"><span adr_trans="label_csr">CSR</span>&nbsp;<?php } ?>
 <?php }
 else{?>
 
-<input type="radio" value="photographer"  name="filter" onchange="filter1(this.value)" onclick="filter1(this.value)"><span id="label_photographer" adr_trans="label_photographer">Photographer</span>&nbsp;
+<input type="radio" value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?>  onchange="filter1(this.value)" onclick="filter1(this.value)"><span id="label_photographer" adr_trans="label_photographer">Photographer</span>&nbsp;
 
 <?php  } ?>
 </div>
@@ -168,7 +168,7 @@ if($_SESSION['admin_loggedin_type']=="PCAdmin"){
               while($photographer1=mysqli_fetch_array($photographer))
               {
               ?>
-              <option value="<?php echo $photographer1['id']; ?>" <?php if($photographer1['id']==@$_REQUEST['$photographer10']){ echo "selected";}?>><?php echo $photographer1['first_name']; ?></option>
+              <option value="<?php echo $photographer1['id']; ?>" <?php if($photographer1['id']==@$_REQUEST['photographer10']){ echo "selected";}?>><?php echo $photographer1['first_name']; ?></option>
               <?php }
 
 }
@@ -179,7 +179,7 @@ elseif($_SESSION['admin_loggedin_type']=="CSR"){
 	while($photographer1=mysqli_fetch_array($photographer))
 	{
 	?>
-	<option value="<?php echo $photographer1['id']; ?>"><?php echo $photographer1['first_name']; ?></option>
+	<option value="<?php echo $photographer1['id']; ?>" <?php if($photographer1['id']==@$_REQUEST['photographer10']){ echo "selected";}?>><?php echo $photographer1['first_name']; ?></option>
 	<?php }
 
 }
@@ -649,4 +649,22 @@ $("#photographer").css("display","none");
 </script>
 <?php }
 ?>
+
+<?php 
+
+if(@$_REQUEST['filter']=='photographer'){
+?>
+
+<script> 
+
+$('#photographer_radioID').click(); 
+
+</script>
+<?php
+
+}
+
+?>
+
+
 		<?php include "footer.php";  ?>
