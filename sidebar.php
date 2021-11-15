@@ -268,10 +268,11 @@ vertical-align:top!important;
         " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Invite to Join Fotopia</span></b></a></p>
         </div>
 
-        <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
+        <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:450px;height:230px;">
    <div class="subtitle g" style="color:#333333">
+    <h5 style="color:#333333;font-style: italic;" align="center">“Fotopia is awesome! We recommend Realtors and Photo Company to join here”</h5>
+    <br>
      <h5 style="color:#333333" align="center" id="label_enter_the_email" adr_trans="label_enter_the_email">Enter the Email</h5>
-        <hr>
         <center><span class="sub" id="error" style="color:green;"></span></center>
         <form   method="post" name="stdform" action="" onsubmit="">
         <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
