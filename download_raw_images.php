@@ -125,7 +125,7 @@ $x=1;
 		}
 		else
 		{
-
+echo $relativePath; exit;
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
 
 		break 1;
