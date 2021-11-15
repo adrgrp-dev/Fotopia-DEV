@@ -98,15 +98,15 @@ if(!empty($from_date))
 		{
 			$added_date=date("Y-m-d H:i:s",strtotime('+24 hours', strtotime($chk_to)));
 			$added_exp=explode(" ",$added_date);
-			$due_date=$added_exp[0]."T".$added_exp[1];
+			$due_date=$added_exp[0];
 		//	echo $due_date;
 		}
 		else
 		{
-			$due_date=$_REQUEST["due"];
+			$due_date=$_SESSION['due_date'];
 		}
   //   $due_exp=explode("T",$due_date);
-		 $chk_due=$_REQUEST["due"];
+		// $chk_due=$_REQUEST["due"];
 
 $pc_admin_id1=$_REQUEST['pc_admin_id'];
 //$Photographer_id1=$_REQUEST['Photographer_id'];
