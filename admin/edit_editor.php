@@ -173,7 +173,7 @@ function validate_email(val)
         $res3=mysqli_fetch_array($res2);
 
           ?>
-                                <p id="label_photographer" adr_trans="label_photographer">Photographer</p>
+                                <span><span id="label_photographer" adr_trans="label_photographer">Photographer</span>&nbsp;<span style="font-style:italic;font-size:11px;">(ctrl+click to choose mutiple photographers)</span></span>
                                <select name="photographer_id[]" class="form-control form-value" multiple required size="5">
 
               <?php
