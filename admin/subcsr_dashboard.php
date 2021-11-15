@@ -539,7 +539,7 @@ $knowMore="";
 
 				   <?php
 
-				   $knowMore="<a href='#aboutMe'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetDetails(".$photo1['id'].")'><span adr_trans="label_view">View</span></a>";
+				   $knowMore="<a href='#aboutMe'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetDetails(".$photo1['id'].")'><span adr_trans='label_view'>View</span></a>";
                 }
                ?>
 
