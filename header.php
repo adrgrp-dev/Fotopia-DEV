@@ -525,7 +525,7 @@ $(function(){
 </script>
 <?php
 
- if($_SESSION['user_type']=="Photographer")
+ if(isset($_SESSION['user_type'])=="Photographer")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-5px;">
@@ -552,7 +552,7 @@ $(function(){
 
 <?php
 
- if($_SESSION['user_type']=="Realtor")
+ if(isset($_SESSION['user_type'])=="Realtor")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-10px;">
