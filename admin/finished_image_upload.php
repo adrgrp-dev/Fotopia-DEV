@@ -161,7 +161,7 @@ if(isset($_REQUEST['send']))
 
   // $get_admin_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$admin_users_id'");
   // $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  // $admin_Name=$get_name["first_name"]."".$get_name["last_name"];
+  // $admin_Name=$get_name["first_name"]." ".$get_name["last_name"];
   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`,`sent_on`, `status`,`service_name`) VALUES ('$url','$secret_code',$order_id,now(),6,$type1)";
   $insert=mysqli_query($con,$query);
   // email($secret_code,$photographer_Name,$editor_email,$id_url);

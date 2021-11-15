@@ -243,7 +243,7 @@ $pht = $_SESSION['loggedin_id'];
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
 
 					$get_name=mysqli_fetch_assoc($get_realtor_name_query);
-					$realtor_name=@$get_name["first_name"]."".@$get_name["last_name"];
+					$realtor_name=@$get_name["first_name"]." ".@$get_name["last_name"];
 					?>
 					<td class="text-left" style=""><?php echo $realtor_name ?></td>
           <td class="text-left" style="word-break:break-all;"><?php
@@ -260,7 +260,7 @@ $pht = $_SESSION['loggedin_id'];
           $photographer_id=$get_order['photographer_id'];
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
           $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-          $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+          $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
           ?>
 
             <td class="text-left" style=""><?php echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); ?></td>
@@ -432,7 +432,7 @@ $pht = $_SESSION['loggedin_id'];
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
 
 					$get_name=mysqli_fetch_assoc($get_realtor_name_query);
-					$realtor_name=$get_name["first_name"]."".$get_name["last_name"];
+					$realtor_name=$get_name["first_name"]." ".$get_name["last_name"];
 					?>
 					<td class="text-left" style=""><?php echo $realtor_name ?></td>
           <td class="text-left" style="word-break:break-all;"><?php
@@ -449,7 +449,7 @@ $pht = $_SESSION['loggedin_id'];
           $photographer_id=$get_order['photographer_id'];
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
           $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-          $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+          $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
           ?>
 
           <td class="text-left" style=""><?php echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); ?></td>

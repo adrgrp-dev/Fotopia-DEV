@@ -154,7 +154,7 @@ if(isset($_REQUEST['send']))
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+  $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
   $count=0;
   $check_link=mysqli_query($con,"select * from raw_images where order_id=$order_id and service_name=$type");
   $count=mysqli_num_rows(@$check_link);

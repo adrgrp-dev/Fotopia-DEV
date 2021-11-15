@@ -770,8 +770,8 @@ header("location:csr_list1.php?ed=1");
 										echo "";
 
 	@$get_photographer_id_query=mysqli_query($con,"select * from editor_photographer_mapping where editor_id=$editor_ID");
-										
-								
+
+
 
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
@@ -790,9 +790,9 @@ header("location:csr_list1.php?ed=1");
 				while($get_photographer_id_query1=mysqli_fetch_array($get_photographer_id_query))
 				{
 				$phID=$get_photographer_id_query1['photographer_id'];
-				
+
 				 if($get_photographer_id_query1['service_type']==1){ $serviceType="Photos"; } else{ $serviceType="Floor plans"; }
-				
+
 				$PhDetails1=mysqli_query($con,"select * from user_login where id='$phID'");
 				$PhDetails=mysqli_fetch_array($PhDetails1);
 				echo $PhDetails['first_name']."-".$serviceType."<br>";
@@ -803,7 +803,7 @@ header("location:csr_list1.php?ed=1");
 				echo "N/A";
 				}
 				 ?></td>
-				
+
 
 				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo @$get_photographer_id_query1['service_type']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;

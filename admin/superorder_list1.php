@@ -294,7 +294,7 @@ header("location:subcsrOrder_list1.php?app=1");
 		 }
 		 else
 		 {
-		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		  $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		 }
 
          }
@@ -318,7 +318,7 @@ header("location:subcsrOrder_list1.php?app=1");
       $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
      if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
      {
-      $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+      $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
      }
 
 ?>
@@ -563,14 +563,14 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
          if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
          {
-          //$realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+          //$realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		   if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
 		 {
 		  $realtor_Name=@$get_name["organization_name"];
 		 }
 		 else
 		 {
-		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		  $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		 }
          }
            ?>
@@ -589,7 +589,7 @@ header("location:subcsrOrder_list1.php?app=1");
       $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
      if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
      {
-      $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+      $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
       $online=0;
      }
   ?>
@@ -835,14 +835,14 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
          if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
          {
-         // $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+         // $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		  if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
 		 {
 		  $realtor_Name=@$get_name["organization_name"];
 		 }
 		 else
 		 {
-		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		  $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		 }
          }
            ?>
@@ -861,7 +861,7 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
          if($get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
          {
-          $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+          $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
           $online=0;
          }
 
@@ -1129,14 +1129,14 @@ header("location:subcsrOrder_list1.php?app=1");
           $get_realtor_name_query=mysqli_query($con,$createdByQr);
            if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
            {
-          //  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+          //  $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		   if($created_by_type=='CSR' || $created_by_type=='PCAdmin')
 		 {
 		  $realtor_Name=@$get_name["organization_name"];
 		 }
 		 else
 		 {
-		  $realtor_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+		  $realtor_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 		 }
            }
              ?>
@@ -1155,7 +1155,7 @@ header("location:subcsrOrder_list1.php?app=1");
             $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
            if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
            {
-            $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+            $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
             $online=0;
            }
 

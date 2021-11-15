@@ -121,7 +121,7 @@ $subCSR_ID=0;
 							$user_details_query1=mysqli_fetch_assoc($user_details_query);
 							$superCSR_ID=$user_details_query1['pc_admin_id'];
 							$subCSR_ID=$user_details_query1['csr_id'];
-							$photographer_Name=$user_details_query1['first_name']."".$user_details_query1["last_name"];
+							$photographer_Name=$user_details_query1['first_name']." ".$user_details_query1["last_name"];
 							$email_id=$user_details_query1["email"];
             }
             else{

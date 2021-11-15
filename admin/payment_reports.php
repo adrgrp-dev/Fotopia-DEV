@@ -100,7 +100,7 @@ var days = 1;
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>
-						<option value="<?php echo $selectrealtor1['id']; ?>"><?php echo $selectrealtor1['org']; ?></option>
+						<option value="<?php echo $selectrealtor1['id']; ?>" <?php if($selectrealtor1['id']==@$_REQUEST['realtor_id']){ echo "selected"; }?>><?php echo $selectrealtor1['org']; ?></option>
 						<?php } ?>
 
 </select>
@@ -212,8 +212,8 @@ $available=mysqli_num_rows($taxpercent);
 
                                             </span>
                                  <span class="icon fa "></span></a></th>
-								 
-								 
+
+
 								 <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_date_and_time" adr_trans="label_billedTo">
 
                                               Billed To
@@ -222,9 +222,9 @@ $available=mysqli_num_rows($taxpercent);
 
 
                                 <span class="icon fa "></span></a></th>
-								 
-								 
-								 
+
+
+
 								 <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
 
                                               Date & Time
@@ -233,9 +233,9 @@ $available=mysqli_num_rows($taxpercent);
 
 
                                 <span class="icon fa "></span></a></th>
-								
-								
-								
+
+
+
 								</tr>
                                     </thead>
                                     <tbody>
@@ -492,9 +492,9 @@ else
                             ?>
 
                             <td class="text-left" style=""><?php echo $created_name; ?></td>
-							
+
 							<td>
-							
+
 							<?php
 							$HS_ID=$get_order2['home_seller_id'];
 							$REALTOR_ID=$get_order2['realtor_id'];
@@ -511,15 +511,15 @@ else
    $getRealtors1=mysqli_fetch_array($getRealtors);
    $billedTo=$getRealtors1['organization_name'];
   }
-			echo $billedTo;				
+			echo $billedTo;
 							?>
-							
+
 							</td>
-							
-							
-							
-							
-							
+
+
+
+
+
                                <?php
 
                               $toexp=explode(" ",$get_order2['session_to_datetime']);

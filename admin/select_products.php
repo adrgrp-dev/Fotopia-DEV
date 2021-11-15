@@ -204,7 +204,7 @@ $photography_cost1=$photographer_cost[$i];
    }
 
 	 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-	 $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
+	 $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
 	 $realtor_email=$get_realtor_name['email'];
 
 $quickOrderStatus=1;

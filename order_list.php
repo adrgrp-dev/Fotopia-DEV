@@ -371,7 +371,7 @@ min-width:100px!important;
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
          if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
          {
-          $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+          $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
           $online=$get_name['online_now'];
          }
 
@@ -620,7 +620,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
          if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
          {
-          $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+          $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
           $online=$get_name['online_now'];
          }
 

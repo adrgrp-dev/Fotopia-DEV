@@ -515,7 +515,7 @@ $res="";
 													 $order_id=$get_order['id'];
                           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                           $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-                          $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+                          $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
                           ?>
                           <td class="text-left" style=""><?php echo $photographer_Name; ?></td>
                           <?php
@@ -587,7 +587,7 @@ $res="";
                           ?>
 
                           <td class="text-left" style=""><?php echo $created_name; ?></td>
-                          <td class="text-left" style=""><?php $status=$get_order['status_id'];if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#b3ae0c;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";} ?></td>
+                          <td class="text-left" style=""><?php $status=$get_order['status_id'];if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";} ?></td>
 
                           </tr>
 												<?php }} ?>

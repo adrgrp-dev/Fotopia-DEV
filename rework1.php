@@ -124,12 +124,12 @@ if(rename($file,$destinationFilePath))  {
      $photographer_id=$get_order['photographer_id'];
      $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
      $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-     $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+     $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
 		 $photographer_email=$get_name['email'];
      $realtor_id=$get_order['created_by_id'];
      $get_photgrapher_name_query1=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
      $get_name1=mysqli_fetch_assoc($get_photgrapher_name_query1);
-     $realtor=$get_name1["first_name"]."".$get_name1["last_name"];
+     $realtor=$get_name1["first_name"]." ".$get_name1["last_name"];
 		 $editor_email_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$order_id and service_name=$service");
 		 $get_editor_email=mysqli_fetch_assoc($editor_email_query);
      $images_url=$get_editor_email['images_url'];

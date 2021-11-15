@@ -128,7 +128,7 @@ $get_order=mysqli_fetch_assoc($get_order_query);
 $photographer_id=$get_order["photographer_id"];
 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+$photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 $email_address=@$get_name['email'];
 $realtor_id=@$get_order["created_by_id"];
 if($get_order['created_by_id']!=$get_order['pc_admin_id']||$get_order['created_by_id']!=$get_order['csr_id'])

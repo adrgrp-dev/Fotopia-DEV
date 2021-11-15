@@ -87,7 +87,7 @@ Fotopia Team.";
    $loggedin_id=$get_order['created_by_id'];
    $get_photgrapher_name_query1=mysqli_query($con,"SELECT * FROM user_login where id='$loggedin_id'");
    $get_name1=mysqli_fetch_assoc($get_photgrapher_name_query1);
-   $realtor=$get_name1["first_name"]."".$get_name1["last_name"];
+   $realtor=$get_name1["first_name"]." ".$get_name1["last_name"];
    $realtor_email=$get_name1['email'];
    $date = date('m/d/Y h:i:s a', time());
    email($loggedin_name,$realtor,$order_id,$date,$realtor_email);

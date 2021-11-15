@@ -143,7 +143,7 @@ if(isset($_POST['email']))
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+  $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
   email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
   header("location:photographerorder_detail.php?id=".$id_url."&upload=1");
 
@@ -159,7 +159,7 @@ $comment=$_REQUEST['commentall'];
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+  $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
 
 
   $filecount = count(glob("./raw_images/order_$id_url/floor_plans/" . "*"));
@@ -181,7 +181,7 @@ $comment=$_REQUEST['commentall'];
   $photographer_id=$SESSION;
   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-  $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+  $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
   $filecount = count(glob("./raw_images/order_$id_url/Drone_photos/" . "*"));
   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,3,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
@@ -204,7 +204,7 @@ $comment=$_REQUEST['commentall'];
    $photographer_id=$SESSION;
    $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
    $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-   $photographer_Name=$get_name["first_name"]."".$get_name["last_name"];
+   $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
     $filecount = count(glob("./raw_images/order_$id_url/Hdr_photos/" . "*"));
    $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,4,'$comment','$filecount')";
    $insert=mysqli_query($con,$query);

@@ -180,7 +180,7 @@ $chk_to=$to_exp[0]." ".$to_exp[1];
 
 
     //
-		
+
 			$due_date=$_REQUEST["due"];
 		//print_r($_REQUEST);
     // $due_exp=explode("T",$due_date);
@@ -201,7 +201,7 @@ $Photographer_id1=$pht_id;
 							$user_details_query1=mysqli_fetch_assoc($user_details_query);
 							$superCSR_ID=$user_details_query1['pc_admin_id'];
 							$subCSR_ID=$user_details_query1['csr_id'];
-							$photographer_Name=$user_details_query1['first_name']."".$user_details_query1["last_name"];
+							$photographer_Name=$user_details_query1['first_name']." ".$user_details_query1["last_name"];
 							$email_id=$user_details_query1["email"];
 							}
 	$editProduct=0;
@@ -226,7 +226,7 @@ if(!empty($Photographer_id1))
 {
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
- $number=mysqli_num_rows($get_appointment); 
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
@@ -259,7 +259,7 @@ if(!empty($Photographer_id1))
 			 {
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
 
- $number=mysqli_num_rows($get_appointment); 
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
@@ -1284,7 +1284,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
        <p id="label_photographer" adr_trans="label_photographer">Photographer </p>
       <!-- <select name="pht_name" class="form-control form-value" required="" onchange="Get_Products(this.value);">
         <input list="options" name="pht" class="form-control form-value" id="pht" type="text"  value="<?php //echo @$photographersNameIs; ?>"  placeholder="Select Photographer" onclick="Get_Products()" onchange=" Get_Products()"   autocomplete="off" /> -->
-		
+
 		<input list="options" name="pht" class="form-control form-value" id="pht" type="text" />
         <datalist id="options">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>

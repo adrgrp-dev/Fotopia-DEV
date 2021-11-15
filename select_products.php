@@ -51,7 +51,7 @@ function email($order_id,$condition,$con)
 	$photographer_id=@$get_detail['photographer_id'];
 	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-	$photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	$photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 	$csr_id=$get_name['csr_id'];
 
 	 $csr_email="";

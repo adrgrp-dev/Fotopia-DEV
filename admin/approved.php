@@ -93,7 +93,7 @@ Fotopia Team.";
    $csr_id =$get_order['csr_id'];
    $get_realtor_name_query1=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
    $get_name1=mysqli_fetch_assoc($get_realtor_name_query1);
-   $realtor=$get_name1["first_name"]."".$get_name1["last_name"];
+   $realtor=$get_name1["first_name"]." ".$get_name1["last_name"];
    $realtor_email=$get_name1['email'];
    $date = date('m/d/Y h:i:s a', time());
    email($order_id,$con);

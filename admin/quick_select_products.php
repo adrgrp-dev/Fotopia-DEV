@@ -56,7 +56,7 @@ function email($order_id,$realtor_email,$con)
 	 $photographer_id=@$get_detail['photographer_id'];
 	 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 	 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
-	 $photographer_Name=@$get_name["first_name"]."".@$get_name["last_name"];
+	 $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 	 $photographer_email=@$get_name["email"];
 	 $csr_id=$get_name['csr_id'];
 	 
@@ -204,7 +204,7 @@ $photography_cost1=$photographer_cost[$i];
    }
 
 	 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-	 $get_realtor_name1=$get_realtor_name["first_name"]."".$get_realtor_name["last_name"];
+	 $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
 	 $realtor_email=$get_realtor_name['email'];
 
 $quickOrderStatus=1;
