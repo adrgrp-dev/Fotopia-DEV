@@ -129,18 +129,37 @@ mkdir("./temp/$timeRandom");
   if(isset($_REQUEST['imageType']))
   {
    $dir=$_REQUEST['folderToZip'];
+   
+  
+   
+   
    $path = $dir;
 
 if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
         if ('.' === $file) continue;
         if ('..' === $file) continue;
-
-       copy($dir."/".$file,"./temp/$timeRandom/".$file);
+		
+		
+	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$file'");
+	
+	
+	$imgExist=mysqli_num_rows($getrawImage);
+	if($imgExist>0)
+	{
+	$getrawImage1=mysqli_fetch_array($getrawImage);
+	
+	$dir=str_replace("rework_images","raw_images",$dir);
+	$file=$getrawImage1['image_name'];
+	 copy($dir."/".$file,"./temp/$timeRandom/".$file);
+	} 
+	 
     }
+
+	$dir="./temp/$timeRandom/";
+	
     closedir($handle);
 }
-
 
   }
 else{
@@ -154,6 +173,8 @@ foreach($image as $id)
 $get_image_query=mysqli_query($con,"select * from img_upload where id=$id");
 $get_image=mysqli_fetch_array(@$get_image_query);
 
+
+
 $file1=@$_POST['folderToZip']."/".@$get_image['img'];
 
   $file="./temp/$timeRandom/".@$get_image['img'];
@@ -164,6 +185,7 @@ copy($file1,strtoupper($file));
 
  $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 // Get real path for our folder
+
 $rootPath = realpath($dir);
 
 // Initialize archive object
@@ -1450,11 +1472,27 @@ header("location:photographerDashboard.php?private=1"); exit;
 
 
                                             <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+											<?php  
+											
+										$raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/";
+	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image'");
+	$imgurl="";
+	$imgExist=mysqli_num_rows($getrawImage);
+	if($imgExist>0)
+	{
+	$getrawImage1=mysqli_fetch_array($getrawImage);
+	$imgurl=$raw_images_standard.$getrawImage1['image_name'];
+	}
+	else
+	{
+	$imgurl=$imagesDirectory_standard."/".$image;
+	}
+											?>
 
-                                                <a class="img-box i-center" href="<?php echo $imagesDirectory_standard."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
+                                                <a class="img-box i-center" href="<?php echo $imgurl; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                     <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                                                    <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="100" height="80"/>
+                                                    <img alt="" id="img" src="<?php echo $imgurl; ?>" width="100" height="80"/>
 
                                                 </a>
                                                 <?php
@@ -1468,7 +1506,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                   <div class="modal-content" style="height:260px;">
                                                      <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <center> <img alt="" id="img" src="<?php echo $imgurl ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
                                                      <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;position:absolute;left:45%">
                                                        <?php
                                                        $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");

@@ -66,7 +66,7 @@ For further details
 Thanks,<br>
 Fotopia Team.";
 $imageurl=explode("=",$images_url);
-   $link=$_SESSION['project_url']."download_raw_images.php?secret_code=".$imageurl[1];
+   $link=$_SESSION['project_url']."download_raw_images.php?rework=1&secret_code=".$imageurl[1];
 
 	$mail->Body=str_replace('{{project_url}}',$link, $mail->Body);
   $mail->Body=str_replace('{{Editor_Name}}', $editor_fname , $mail->Body);
@@ -87,18 +87,32 @@ $imageurl=explode("=",$images_url);
 $file =$_REQUEST['id'];
 $file_exp=explode("/",$file);
 $order_id=$_REQUEST['od'];
+$imgIs=$file_exp[4];
 
+$raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/rework/";
+	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$order_id' and downloaded_raw_image_name='$imgIs'");
+	$imgurl="";
+	$imgExist=mysqli_num_rows($getrawImage);
+	if($imgExist>0)
+	{
+	$getrawImage1=mysqli_fetch_array($getrawImage);
+	$file=$raw_images_standard.$getrawImage1['image_name'];
+	}
+	else
+	{
+	//$file=$imagesDirectory_standard."/".$image;
+	}
 
 // print_r($file_exp);
 if($data1=@mkdir("raw_images/".$file_exp[2]))
 {
 	// console.log("created");
 }
-	if($data1=@mkdir("raw_images/".$file_exp[2]."/".$file_exp[3]))
+	if($data1=@mkdir("raw_images/".$file_exp[2]."/".$file_exp[3]."/rework"))
 	{
 		// console.log("reated");
 	}
-$destinationFilePath ="./raw_images/".$file_exp[2]."/".$file_exp[3]."/".$file_exp[4];
+$destinationFilePath ="./raw_images/".$file_exp[2]."/".$file_exp[3]."/rework/".$file_exp[4];
 if($file_exp[3]=="standard_photos")
 {
  $service=1;

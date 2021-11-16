@@ -34,7 +34,9 @@
 		$targetFile="";
 		if($finished_images_exist>0)
 		{
+		
 				$targetFile=$description."_".time()."-".time()."-".strtolower(str_replace(" "," ",$fileName));
+				
 		}
 		else
 		{
@@ -71,6 +73,9 @@
 		}
 	  $target_path =$root_dir."/".$targetFile;
 		if(move_uploaded_file($source_path, $target_path)) {
+
+
+mysqli_query($con,"update image_naming set downloaded_raw_image_name='$targetFile' where order_id='$order_id' and downloaded_raw_image_name='$fileName'");
 
 			$sql 			=			"INSERT INTO `img_upload`( `img`, `order_id`, `raw_images`, `finished_images`, `service_id`,`updated_on`,`uploaded_by_id`,`uploaded_by_user`) VALUES ('$targetFile',$order_id,0,1,$service,now(),$user_id,'$user_type')";
 			$result 		=			mysqli_query($con, $sql);

@@ -74,6 +74,10 @@ $timeRandom=rand(1000000000,9999999999);
 mkdir("./temp/$timeRandom");
 
   $dir = $_POST['folderToZip'];
+  if(@$_REQUEST['rework'])
+{
+$dir=$dir."/rework";
+}
 
 copy_folder($dir,"./temp/$timeRandom");
 // Get real path for our folder
@@ -125,7 +129,9 @@ $x=1;
 		}
 		else
 		{
-mysqli_query("update image_naming set downloaded_raw_image_name='$ParsedFileName' where order_id='$Order_ID' and image_name='$relativePath'");
+mysqli_query($con,"update image_naming set downloaded_raw_image_name='$ParsedFileName' where order_id='$Order_ID' and image_name='$relativePath'");
+
+
 
 		rename("./temp/$timeRandom/".$relativePath,"./temp/$timeRandom/".$ParsedFileName);
 
@@ -347,7 +353,14 @@ $("#dayVal").val(calid);
          $service="";
        }
 
+if(@$_REQUEST['rework'])
+{
+ $imagesDirectory = "./raw_images/order_".$id_url."/".$service."/rework/";
+}
+else
+{
       $imagesDirectory = "./raw_images/order_".$id_url."/".$service;
+	  }
 
       if (is_dir($imagesDirectory))
       {
@@ -371,8 +384,14 @@ $("#dayVal").val(calid);
 
                       <a class="img-box i-center" href="<?php echo "raw_images/order_".$id_url."/".$service."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                           <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
+<?php if(@$_REQUEST['rework'])
+{
+?>
+    <img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/rework/".$image; ?>" width="100" height="80"/>
+	<?php } else { ?>
+	<img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/".$image; ?>" width="100" height="80"/>
 
-                          <img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/".$image; ?>" width="100" height="80"/>
+	<?php } ?>
                       </a>
                       <?php
                       $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
