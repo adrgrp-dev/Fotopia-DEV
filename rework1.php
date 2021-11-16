@@ -130,7 +130,7 @@ else{
 }
 if(rename($file,$destinationFilePath))  {
 
-unlink("./rework_images/order_".$id_url."/standard_photos/".$imgIs);
+//unlink("./rework_images/order_".$id_url."/standard_photos/".$imgIs);
      mysqli_query($con,"UPDATE `raw_images` SET status=4 WHERE order_id=$order_id and service_name=$service");
 
      mysqli_query($con,"UPDATE `img_upload` SET `raw_images`=1,`finished_images`=0 WHERE img='$file_exp[4]'");
