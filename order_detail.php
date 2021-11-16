@@ -380,6 +380,7 @@ rmdir("./temp/$timeRandom");
 <?php
 if(isset($_REQUEST['rework']))
 {
+
   $image=$_REQUEST['selected_image'];
   $id_url=$_REQUEST['id'];
 
@@ -391,17 +392,6 @@ if(isset($_REQUEST['rework']))
   //echo $_POST['folderToZip'];
     $data1=explode('/',$_POST['folderToZip']);
   $file1=$_POST['folderToZip']."/".$get_image['img'];
-
-
-	$IMG_name=$get_image['img'];
-
-	$get_image=mysqli_query($con,"select * from image_naming where order_id='$id_url' and image_name='$IMG_name'");
-  $getImg=mysqli_fetch_array($get_image);
-	$raw_image_Is=$getImg['downloaded_raw_image_name'];
-
-
-  $file1=$_POST['folderToZip']."/".$raw_image_Is;
-
   if($data=@mkdir("rework_images/order_".$id_url))
   {
 
@@ -439,6 +429,7 @@ $pc_admin_id = $get_pc_admin_csr1['pc_admin_id'] ;
 $csr_id = $get_pc_admin_csr1['csr_id'] ;
 
 $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
+
 
 }
 
@@ -1274,7 +1265,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo @$get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";}?></td>  </tr>
+                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
@@ -1628,7 +1619,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                                  <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                <hr class="space s">
@@ -1780,7 +1771,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/floor_plans"; ?>">
 
                                  <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
                                <hr class="space s">
@@ -1952,6 +1943,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <?php
                                 //  echo "select * from img_upload where order_id=$id_url and img='$image'";
+
                                   $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
                                   $get_comment=mysqli_fetch_assoc($get_comment_querry);
 
@@ -2411,7 +2403,7 @@ if($get_order1['status_id']==3)
  xhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
     //document.getElementById("demo").innerHTML = this.responseText;
-
+  
    }
 
  };

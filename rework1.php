@@ -90,6 +90,8 @@ $order_id=$_REQUEST['od'];
 $imgIs=$file_exp[4];
 
 $raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/rework/";
+
+
 	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$order_id' and downloaded_raw_image_name='$imgIs'");
 	$imgurl="";
 	$imgExist=mysqli_num_rows($getrawImage);
@@ -128,7 +130,7 @@ else{
 }
 if(rename($file,$destinationFilePath))  {
 
-
+unlink("./rework_images/order_".$id_url."/standard_photos/".$imgIs);
      mysqli_query($con,"UPDATE `raw_images` SET status=4 WHERE order_id=$order_id and service_name=$service");
 
      mysqli_query($con,"UPDATE `img_upload` SET `raw_images`=1,`finished_images`=0 WHERE img='$file_exp[4]'");
