@@ -5,6 +5,13 @@ include "connection1.php";
 
 $id_url=$_REQUEST['id'];
 
+if(isset($_REQUEST['update']))
+{
+  mysqli_query($con,"update orders set status_id=8 where id=$id_url");
+  mysqli_query($con,"update raw_images set status=1 where order_id=$id_url");
+  header("location:superOrder_detail.php?id=$id_url");
+}
+
 $userTYPE=$_SESSION['admin_loggedin_type'];
   $userLoggedinID=$_SESSION['admin_loggedin_id'];
   $Check_Viewer_Is_Valid=mysqli_query($con,"select * from orders where (pc_admin_id='$userLoggedinID' or csr_id='$userLoggedinID') and id='$id_url'");
@@ -2092,21 +2099,20 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
-                      <?php if(1)
+                      <?php if($get_summary['status_id']!=3&&$get_summary['status_id']!=1)
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
-                    <?php } ?>
-                         <?php if($get_summary['status_id']==3)
+                    <?php }
+                    elseif($get_summary['status_id']==3) {?>
+                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn " style="float:right" >Reopen</a><br><br>
+                  <?php  } ?>
+                         <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
                          {
                             echo '<script>$("#done_hide").hide();</script>';
                          }
                           ?>
                   <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p> -->
-                      <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
-                      {
-                         echo '<script>$("#done_hide").hide();</script>';
-                      }
-                       ?>
+
                                 <div class="tab-box pills" data-tab-anima="fade-right">
 
                                       <div id="finished_images_standard_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
