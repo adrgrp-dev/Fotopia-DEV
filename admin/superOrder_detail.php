@@ -55,6 +55,10 @@ if($invoice_count==0)
 {
  mysqli_query($con,"INSERT INTO `invoice`(`invoice_id`, `order_id`, `invoice_date`, `total_amount`, `realtor_product_cost_total`, `photography_cost`, `other_cost`, `tax`, `approved`) VALUES ($invoice_no,$order_id,now(),$product_cost,$amount,$photography_cost,0,0,0)");
 }
+else
+{
+  mysqli_query($con,"UPDATE `invoice` SET `total_amount`='$product_cost',`realtor_product_cost_total`='$amount',`photography_cost`='$photography_cost' WHERE order_id=$order_id");
+}
 }
 if(isset($_REQUEST['cost']))
 {
@@ -1314,11 +1318,14 @@ alert(alertmsg);
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab"><span id="label_order_details" adr_trans="label_order_details">Order Detail</span></a></li>
+                  <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
+                  $get_order1=mysqli_fetch_array($get_order_query1);
+                  if($get_order1['status_id']!=3){?>
                   <li  id="click3" ><a  href="#tab3" data-toggle="tab"><span id="label_upload_raw_images" adr_trans="label_upload_raw_images">Upload Raw Images</span></a></li>
+                <?php }?>
                   <li id="click4"><a   href="#tab4" data-toggle="tab"><span id="label_finished_images" adr_trans="label_finished_images">Finished Images</span></a></li>
                   <?php
-                  $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
-                  $get_order1=mysqli_fetch_array($get_order_query1);
+
                   if(($get_order1['status_id']==3)||($get_order1['status_id']==1)||($get_order1['status_id']==2)||($get_order1['status_id']==4))
                   {
                     echo '<li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>';
@@ -1441,7 +1448,7 @@ alert(alertmsg);
                             <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
                             </tr>
                             <tr>
-                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}?></td>  </tr>
+                            <td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
@@ -2085,7 +2092,7 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
-                      <?php if($get_summary['created_by_id']==$_SESSION['admin_loggedin_id']&&$get_summary['realtor_id']==0&&$get_summary['created_by_type']!="Realtor")
+                      <?php if(1)
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
                     <?php } ?>
@@ -2095,7 +2102,7 @@ alert(alertmsg);
                          }
                           ?>
                   <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p> -->
-                      <?php if($get_summary['status_id']==3)
+                      <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
                       {
                          echo '<script>$("#done_hide").hide();</script>';
                       }

@@ -588,13 +588,13 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo $_SESSION['property_address']; ?>";
-var property_city="<?php echo $_SESSION['property_city']; ?>";
-var property_state="<?php echo $_SESSION['property_state']; ?>";
-var property_country="<?php echo $_SESSION['property_country']; ?>";
-var property_zip="<?php echo $_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
+var property_address="<?php  if(isset($_SESSION['property_address'])){ echo $_SESSION['property_address'];} ?>";
+var property_city="<?php if(isset($_SESSION['property_city'])){echo $_SESSION['property_city']; }?>";
+var property_state="<?php if(isset($_SESSION['property_state'])){echo $_SESSION['property_state'];} ?>";
+var property_country="<?php if(isset($_SESSION['property_country'])){echo $_SESSION['property_country']; }?>";
+var property_zip="<?php if(isset($_SESSION['property_zip'])){ echo $_SESSION['property_zip']; }?>";
+var property_contact_mobile="<?php if(isset($_SESSION['property_contact_mobile'])){echo $_SESSION['property_contact_mobile']; }?>";
+var property_contact_email="<?php if(isset($_SESSION['property_contact_email'])){echo $_SESSION['property_contact_email'];} ?>";
 
 
               if($("#address_same").prop('checked') == true)
@@ -878,7 +878,7 @@ $selectProductIDs="checked";
 <tr><td>
 
 
-<input type="checkbox" name="prods[]" id="checkBox<?php echo $product_result1['id']; ?>" value="<?php echo $product_result1['id']."@@".$product_result1['product_name']."@@".$photographyCostIs."@@".$realtorDiscountPrice; ?>" class="prodsSelected" <?php echo @$selectProductIDs; ?> onchange="checkProduct(<?php echo $product_result1['id']; ?>,<?php echo $realtorDiscountPrice;?>);"></td><td><?php echo $product_result1['product_name']; ?>
+<input type="checkbox" name="prods[]" id="checkBox<?php echo $product_result1['id']; ?>" value="<?php echo $product_result1['id']."@@".$product_result1['product_name']."@@".$photographyCostIs."@@".$realtorDiscountPrice; ?>" class="prodsSelected" <?php echo @$selectProductIDs; ?> onchange="checkProduct(<?php echo $product_result1['id']; ?>,<?php echo $realtorDiscountPrice;?>)"></td><td><?php echo $product_result1['product_name']; ?>
 
 <input type="hidden" name="product_id[]" value="<?php echo $product_result1['id']; ?>" />
 <input type="hidden" name="product_name[]" value="<?php echo $product_result1['product_name']; ?>" />

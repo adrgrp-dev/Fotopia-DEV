@@ -677,8 +677,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                                         Order#
 
-                                </span
-                                >
+                                </span>
                                 <th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
 
                                           Realtor
@@ -756,7 +755,7 @@ header("location:subcsrOrder_list1.php?app=1");
                             $_SESSION["page"]=1;
                           }
                           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
-                          $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id in (2,4) ";
+                          $q1="SELECT count(*) as total FROM orders where csr_id=$loggedin_id and status_id in (2,4,8) ";
                           $result=mysqli_query($con,$q1);
                           $data=mysqli_fetch_assoc($result);
                           $total_no=$data['total'];
@@ -782,7 +781,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
                           $limit=$start_no_users . ',' . $number_of_pages;
-                          $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id and status_id in (2,4)  order by id desc limit $limit");
+                          $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id and status_id in (2,4,8)  order by id desc limit $limit");
                           if($get_order_query == "0"){
 
                             ?><h5 id="label_no_order" adr_trans="label_no_order" align="center"> <?php echo "No Orders Yet";?> </h5>
@@ -843,7 +842,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           <td class="text-center" style=""><?php echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); ?></td>
                           <td class="text-center" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
-                                          <td class="text-center" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:green;font-weight:bold;'>Decline</span>";}?></td>
+                                          <td class="text-center" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:green;font-weight:bold;'>Decline</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";}?></td>
                                                       <td class="text-center" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
                           <i class="fa fa-external-link"></i></a></td>
 

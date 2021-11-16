@@ -195,6 +195,7 @@ min-width:100px!important;
 <option value="5" <?php if(@$_REQUEST['filterByStatus']==5||$_SESSION['status']==5) { echo "selected"; } ?>>Cancelled</option>
 <option value="6" <?php if(@$_REQUEST['filterByStatus']==6||$_SESSION['status']==6) { echo "selected"; } ?>>Declined</option>
 <option value="7" <?php if(@$_REQUEST['filterByStatus']==7||$_SESSION['status']==7) { echo "selected"; } ?>>Working with customer</option>
+<option value="8" <?php if(@$_REQUEST['filterByStatus']==8||$_SESSION['status']==8) { echo "selected"; } ?>>Reopen</option>
 </select>
 </form>
       <table class="table-stripped" style="width:100%">
@@ -286,7 +287,7 @@ min-width:100px!important;
           if($_SESSION['status']!=0)
             {
               $statusId=$_SESSION['status'];
-           $q1="SELECT count(*) as total FROM orders where  realtor_id='$loggedin_id' and status_id='$statusId' ";
+              $q1="SELECT count(*) as total FROM orders where  realtor_id='$loggedin_id' and status_id='$statusId' ";
             }
       elseif(@$_REQUEST['filterByStatus']!=0)
 		  {
@@ -394,7 +395,7 @@ min-width:100px!important;
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
           <td style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
-                          <td style=""><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:red;font-weight:bold;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
+                          <td style=""><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:red;font-weight:bold;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
                                       <td style="" class="text-center"><a target="" href="order_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
           <i class="fa fa-external-link"></i></a></td>
 

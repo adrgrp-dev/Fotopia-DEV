@@ -927,12 +927,14 @@ var checkedImgs=0;
                   <div class="tab-box" data-tab-anima="show-scale">
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab" adr_trans="label_order_detail">Order Detail</a></li>
-                  <!-- <li ><a href="#tab2" data-toggle="tab">Homeseller Info</a></li> -->
+                  <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
+                  $get_order1=mysqli_fetch_array($get_order_query1);;
+                  if($get_order1['status_id']!=3){?>  <!-- <li ><a href="#tab2" data-toggle="tab">Homeseller Info</a></li> -->
                   <li id="click3"><a href="#tab3" data-toggle="tab" adr_trans="label_upload_raw_images">Upload Raw images</a></li>
+                  <?php }?>
                   <li id="click4" ><a  id="click4" href="#tab4" data-toggle="tab" adr_trans="label_finished_images">Finished Images</a></li>
                   <?php
-                  $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
-                  $get_order1=mysqli_fetch_array($get_order_query1);//&&($get_order1['super_csr_id']==0)
+                  //&&($get_order1['super_csr_id']==0)
                   $get_createid=$get_order1['created_by_id'];
 				   $get_phid=$get_order1['photographer_id'];
 				   $loggedinUserId=$_SESSION['loggedin_id'];
@@ -1075,7 +1077,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
                               </tr>
                       				<tr>
-                      				<td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}?></td>
+                      				<td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";}?></td>
                       				</tr>
                       				</table><br />
                       				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:15px;">Products For the Order</p>
