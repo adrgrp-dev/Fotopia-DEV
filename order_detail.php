@@ -380,7 +380,6 @@ rmdir("./temp/$timeRandom");
 <?php
 if(isset($_REQUEST['rework']))
 {
-
   $image=$_REQUEST['selected_image'];
   $id_url=$_REQUEST['id'];
 
@@ -391,7 +390,17 @@ if(isset($_REQUEST['rework']))
   $get_image=mysqli_fetch_array($get_image_query);
   //echo $_POST['folderToZip'];
     $data1=explode('/',$_POST['folderToZip']);
-  $file1=$_POST['folderToZip']."/".$get_image['img'];
+	
+	$IMG_name=$get_image['img'];
+	
+	$get_image=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name ='$IMG_name' and downloaded_raw_image_name!=''");
+	
+
+  $getImg=mysqli_fetch_array($get_image);
+	$raw_image_Is=$getImg['image_name'];
+	
+	
+  $file1=$_POST['folderToZip']."/".$raw_image_Is;
   if($data=@mkdir("rework_images/order_".$id_url))
   {
 
@@ -402,7 +411,9 @@ if(isset($_REQUEST['rework']))
   }
   // mkdir("rework_images/order_".$id_url);
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
-    $file="rework_images/order_".$id_url."/".$data1[2]."/".$get_image['img'];
+ 
+    $file="rework_images/order_".$id_url."/".$data1[2]."/".$IMG_name;
+	//echo $file1."<br>".$file;exit;
   rename($file1,$file);
   header("location:order_detail.php?id=$id_url");
   }
@@ -429,7 +440,6 @@ $pc_admin_id = $get_pc_admin_csr1['pc_admin_id'] ;
 $csr_id = $get_pc_admin_csr1['csr_id'] ;
 
 $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
-
 
 }
 

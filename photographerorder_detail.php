@@ -1,6 +1,5 @@
 <?php
 ob_start();
-
 include "connection1.php";
 $id_url=$_REQUEST['id'];
  $userTYPE=$_SESSION['user_type'];
@@ -904,7 +903,7 @@ var checkedImgs=0;
    var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-  doucument.getElementById("s"+c).value=a;
+  $("#s"+c).value=a;
   }
  };
  xhttp.open("GET","comment.php?id="+a+"&data="+c, true);
@@ -1474,20 +1473,21 @@ header("location:photographerDashboard.php?private=1"); exit;
                                             <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
 											<?php  
 											
-										$raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/";
-	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image'");
+			$raw_images_standard = "./rework_images/order_".$id_url."/standard_photos/";
+	$getrawImage=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image' or image_name='$image' and downloaded_raw_image_name!=''");
+	
 	$imgurl="";
 	$imgExist=mysqli_num_rows($getrawImage);
 	if($imgExist>0)
 	{
 	$getrawImage1=mysqli_fetch_array($getrawImage);
-	$imgurl=$raw_images_standard.$getrawImage1['image_name'];
+	$imgurl=$raw_images_standard.$getrawImage1['downloaded_raw_image_name'];
 	}
 	else
 	{
 	$imgurl=$imagesDirectory_standard."/".$image;
 	}
-											?>
+										?>
 
                                                 <a class="img-box i-center" href="<?php echo $imgurl; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                     <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
@@ -1515,7 +1515,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                        ?>
                                                <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                <hr class="space s">
-                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
                                                      </div>
                                                   </div>
 
@@ -1536,9 +1536,10 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                         ?>
                                         <script>
-                                        function Getstandard(data,comment_id)
+                                        function Getstandard(data,comment_id,order_id)
                                         {
-
+//alert(data);
+//alert(comment_id);
                                         if($("#s"+comment_id).val()=="")
                                         {
                                          alert("Please enter the comment");
@@ -1553,11 +1554,13 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           if (this.readyState == 4 && this.status == 200)
                                           {
                                           //  document.getElementById("drone_msg").innerHTML = this.responseText;
-                                          }
+                                        // alert(this.responseText);
+										window.location="photographerorder_detail.php?id="+order_id;
+										  }
                                           };
-                                           xhttp.open("GET","rework1.php?id="+a+"&od="+c, true);
+                                           xhttp.open("GET","rework1.php?url="+a+"&od="+c+"&order_id="+order_id, true);
                                            xhttp.send();
-                                           location.reload();
+                                          //location.reload();
                                          }
                                         }
                                         function disapprovestandard(data,comment_id)

@@ -151,7 +151,7 @@ email($order_id,$con);
 mysqli_query($con,"UPDATE `raw_images` SET status=6 WHERE order_id=$order_id and service_name=$service");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `photographer_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$photographer_id,'Photographer',$photographer_id,now())");
 mysqli_query($con,"INSERT INTO `user_actions`(`module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `Realtor_id`, `action_date`) VALUES ('Finished images','Upload','$email_id',$realtor_id,'Realtor',$realtor_id,now())");
-mysqli_query($con,"DELETE FROM `img_upload` WHERE order_id=$order_id and raw_images=1");
+//mysqli_query($con,"DELETE FROM `img_upload` WHERE order_id=$order_id and raw_images=1");
 mysqli_query($con,"UPDATE `orders` SET status_id=2 where id=$order_id ");
 if($service == 1)
 {

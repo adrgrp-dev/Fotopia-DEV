@@ -83,22 +83,22 @@ $imageurl=explode("=",$images_url);
 	}
 }
 
-
-$file =$_REQUEST['id'];
+$file =$_REQUEST['url'];
 $file_exp=explode("/",$file);
 $order_id=$_REQUEST['od'];
 $imgIs=$file_exp[4];
+$ORDERID=$_REQUEST['order_id'];
+$raw_images_standard = "./raw_images/order_".$ORDERID."/standard_photos/rework/";
 
-$raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/rework/";
 
-
-	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$order_id' and downloaded_raw_image_name='$imgIs'");
+	$getrawImage=mysqli_query($con,"select * from image_naming where order_id='$ORDERID' and image_name='$imgIs' and downloaded_raw_image_name!=''");
+	
 	$imgurl="";
 	$imgExist=mysqli_num_rows($getrawImage);
 	if($imgExist>0)
 	{
 	$getrawImage1=mysqli_fetch_array($getrawImage);
-	$file=$raw_images_standard.$getrawImage1['image_name'];
+	$file=$raw_images_standard.$getrawImage1['downloaded_raw_image_name'];
 	}
 	else
 	{
@@ -114,6 +114,7 @@ if($data1=@mkdir("raw_images/".$file_exp[2]))
 	{
 		// console.log("reated");
 	}
+	$service='';
 $destinationFilePath ="./raw_images/".$file_exp[2]."/".$file_exp[3]."/rework/".$file_exp[4];
 if($file_exp[3]=="standard_photos")
 {
@@ -128,9 +129,15 @@ $service=3;
 else{
 		$service=4;
 }
+
+$file=str_replace("raw_images","rework_images",$file);
+
+
+//copy($file,$destinationFilePath);exit;
+
 if(rename($file,$destinationFilePath))  {
 
-//unlink("./rework_images/order_".$id_url."/standard_photos/".$imgIs);
+unlink($file);
      mysqli_query($con,"UPDATE `raw_images` SET status=4 WHERE order_id=$order_id and service_name=$service");
 
      mysqli_query($con,"UPDATE `img_upload` SET `raw_images`=1,`finished_images`=0 WHERE img='$file_exp[4]'");
