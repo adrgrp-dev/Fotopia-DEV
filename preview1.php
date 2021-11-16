@@ -320,11 +320,17 @@ var a;
                   <div class="maso-list gallery">
                     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                     <?php
-                    $imagesDirectory_standard = "./raw_images/order_".$id_url."/standard_photos";
+
+                    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url");
+                    while($folder=mysqli_fetch_array($get_folder_querry))
+                    {
+
+                      $imagesDirectory_standard = ".".trim($folder['dynamic_folder'],'.');
 
                     if (is_dir($imagesDirectory_standard))
                     {
-                     $opendirectory = opendir($imagesDirectory_standard);
+                      $opendirectory = opendir($imagesDirectory_standard);
+
                      while (($image = readdir($opendirectory)) !== false)
                      {
                        if(($image == '.') || ($image == '..'))
@@ -334,7 +340,9 @@ var a;
                        $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
                        if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                        {
+
                         ?>
+
                         <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
                             <a class="img-box i-center" href="<?php echo $imagesDirectory_standard."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                 <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
@@ -345,7 +353,7 @@ var a;
                             $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                             $get_comment=mysqli_fetch_assoc($get_comment_querry);
 
-							$stdPicCount=mysqli_num_rows($get_comment_querry);
+						              	$stdPicCount=mysqli_num_rows($get_comment_querry);
                             ?>
                             <center>
                               <input type="text" list="pic_type" class="form-control stdImg" size="" id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
@@ -372,6 +380,7 @@ var a;
 
                             var a=$("#myBtn"+data).val();
                             // alert(a);
+                          
                             var xhttp = new XMLHttpRequest();
                           xhttp.onreadystatechange = function() {
                            if (this.readyState == 4 && this.status == 200) {
@@ -395,6 +404,10 @@ var a;
 
                         closedir($opendirectory);
                     }
+                    else {
+                      echo "sasdadads";
+                    }
+                  }
                     ?>
                     </div>
                     <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here"  onkeyup="show_editbtn(this.form)" style="width:90%;color: black;"/><center>

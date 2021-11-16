@@ -10,6 +10,7 @@
 	  {
 		$order_id=@$_REQUEST['id'];
 		$service=@$_REQUEST['type'];
+		$folder="/".@$_REQUEST['folder'];
 
 		$allowed=array('png', 'jpg','JPG','PNG','JPEG','jpeg','DNG','dng','CR2','cr2','NEF','nef','ARW','arw');
 
@@ -48,6 +49,8 @@
 			mkdir($directory.'/HDR_photos');
 				$root_dir=$directory.'/HDR_photos';
 		}
+	  $root_dir=$root_dir.$folder;
+		mkdir($root_dir);
 
 		$targetFile				=			time()."-".time()."-".strtolower(str_replace(" ","-",$fileName));
 	  $target_path =$root_dir."/".$targetFile;
@@ -55,9 +58,9 @@
 
 
 		if(move_uploaded_file($source_path, $target_path)) {
-			$sql 			=			"INSERT INTO `img_upload`( `img`, `order_id`, `raw_images`, `finished_images`,`service_id`, `updated_on`) VALUES ('$targetFile',$order_id,1,0,$service,now())";
+			$sql 			=			"INSERT INTO `img_upload`( `img`,`dynamic_folder`, `order_id`, `raw_images`, `finished_images`,`service_id`, `updated_on`) VALUES ('$targetFile','$root_dir',$order_id,1,0,$service,now())";
 			$result 		=			mysqli_query($con, $sql);
-			mysqli_query($con,"INSERT INTO `image_naming`(`order_id`, `image_name`) VALUES ($order_id,'$targetFile')");
+			mysqli_query($con,"INSERT INTO `image_naming`(`order_id`, `image_name`,`dynamic_folder`) VALUES ($order_id,'$targetFile','$root_dir')");
 			if($result) {
 				echo "File uploaded successfully";
 			}

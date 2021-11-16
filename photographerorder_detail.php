@@ -128,35 +128,35 @@ mkdir("./temp/$timeRandom");
   if(isset($_REQUEST['imageType']))
   {
    $dir=$_REQUEST['folderToZip'];
-   
-  
-   
-   
+
+
+
+
    $path = $dir;
 
 if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
         if ('.' === $file) continue;
         if ('..' === $file) continue;
-		
-		
+
+
 	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$file'");
-	
-	
+
+
 	$imgExist=mysqli_num_rows($getrawImage);
 	if($imgExist>0)
 	{
 	$getrawImage1=mysqli_fetch_array($getrawImage);
-	
+
 	$dir=str_replace("rework_images","raw_images",$dir);
 	$file=$getrawImage1['image_name'];
 	 copy($dir."/".$file,"./temp/$timeRandom/".$file);
-	} 
-	 
+	}
+
     }
 
 	$dir="./temp/$timeRandom/";
-	
+
     closedir($handle);
 }
 
@@ -1289,7 +1289,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </div>
                                  <div id="standard_photos_div">
 
-                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=1" id='uploads' class="dropzone uploadFitHeight">
+                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=1&folder=<?php echo time();?>" id='uploads' class="dropzone uploadFitHeight">
 
                                <span id="drop_files"></span>
                              </form>
@@ -1323,7 +1323,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <div id="floor_booked">
                               </div>
                               <div id="floor_div">
-                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=2" id='uploads1' class="dropzone">
+                              <form action="dropzone/upload.php?id=<?php echo $id_url; ?>&type=2&folder=<?php echo time();?>" id='uploads1' class="dropzone">
 
                                <span id="drop_files1"></span>
                              </form>
@@ -1471,8 +1471,8 @@ header("location:photographerDashboard.php?private=1"); exit;
 
 
                                             <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
-											<?php  
-											
+											<?php
+
 			$raw_images_standard = "./rework_images/order_".$id_url."/standard_photos/";
 	$getrawImage=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image' or image_name='$image' and downloaded_raw_image_name!=''");
 	
