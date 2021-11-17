@@ -179,7 +179,7 @@ $pht = $_SESSION['loggedin_id'];
             $_SESSION["page"]=1;
           }
           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
-          $q1="SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' and status_id not in(1,3,5,6,7,8)";
+          $q1="SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' and status_id not in(1,3,5,6,7)";
           $result=mysqli_query($con,$q1);
           $data=mysqli_fetch_assoc($result);
           $total_no=$data['total'];
@@ -209,7 +209,7 @@ $pht = $_SESSION['loggedin_id'];
 
 
           $limit=$start_no_users . ',' . $number_of_pages;
-          $get_order_query=mysqli_query($con,"SELECT * FROM orders where (photographer_id='$loggedin_id' or created_by_id='$loggedin_id') and status_id not in(1,3,5,6,7,8) order by id desc limit $limit");
+          $get_order_query=mysqli_query($con,"SELECT * FROM orders where (photographer_id='$loggedin_id' or created_by_id='$loggedin_id') and status_id not in(1,3,5,6,7) order by id desc limit $limit");
           if($get_order_query == "0"){
 
             ?><h5 align="center"> <?php echo "No Orders Yet";?> </h5>

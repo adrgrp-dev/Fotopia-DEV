@@ -12,6 +12,12 @@ if(isset($_REQUEST['filterByStatus'])){
   $_SESSION['status']=@$_REQUEST['filterByStatus'];
   //echo $_SESSION['status'];
 }
+else{
+
+$_SESSION['status']=0;
+
+}
+
 if(@$_REQUEST['status'])
 {
   $_SESSION['status']=0;

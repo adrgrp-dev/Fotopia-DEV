@@ -2338,7 +2338,7 @@ alert(alertmsg);
 
                                              <div class="row">
                                                <div class="col-md-12">
-                                               <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
+                                               <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
                                                </div>
 
 
@@ -2407,7 +2407,7 @@ alert(alertmsg);
 
                                     ?>
                                     <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
-                                        <i class="fa fa-trash-o anima" style="position:absolute !important;top:55%;left:40%;z-index:2;color:white;font-size:18px"></i>
+                                        <i class="fa fa-trash-o anima" style="position:absolute !important;top:50%;left:40%;z-index:2;color:black;font-size:20px;padding:20px;background:white;border-radius:30px;"></i>
                                     </a>
                                       <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
