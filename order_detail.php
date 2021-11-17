@@ -1762,10 +1762,10 @@ $('.input'+iconid1).css("visibility","hidden");
                                         </div>
 
                                       </div>
-                                      <a class="img-box " style="" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   style="">
+                                      <!-- <a class="img-box " style="" href="<?php //echo $imagesDirectory_floor."/".$image; ?>"   style="">
                                           <i class="fa fa-home "  style=""></i>
 
-                                      </a>
+                                      </a> -->
 
                                   </div>
 
