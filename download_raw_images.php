@@ -323,7 +323,7 @@ $("#dayVal").val(calid);
                   <center><div class="text-success"><i style="font-size: 12px;    color: #00b300;">Finished Images Upload Successfully</i></div></center>
               </div>
   <?php } ?>
-        <center> <a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:20px;">click here to view already uploaded raw images</a></center>
+    
 <br>
   <?php
 

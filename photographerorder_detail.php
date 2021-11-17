@@ -1276,7 +1276,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                           <label for="service">Select a service:</label>
                           </p>
                           <?php if(!empty($standard['order_id'])){ ?>
-                            <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:20px;">click here to view already uploaded raw images</a></center>
+                            <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:20px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
                          <?php } ?>
                           <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
                             <option  value="1">Photos <span class="badge"><?php if(!empty($standard_value)) {echo "(".$standard_value.")";}?></span></option>
