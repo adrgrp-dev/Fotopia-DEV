@@ -33,12 +33,12 @@
 		if($service == 1)
 		{
 		mkdir($directory.'/standard_photos');
-		$root_dir=$directory.'/standard_photos';
+		$root_dir=$directory.'/standard_photos/';
 	  }
 		else if($service == 2)
 		{
 		mkdir($directory.'/floor_plans');
-		$root_dir=$directory.'/floor_plans';
+		$root_dir=$directory.'/floor_plans/';
    	}
 		else if($service == 3)
 		{
@@ -49,7 +49,10 @@
 			mkdir($directory.'/HDR_photos');
 				$root_dir=$directory.'/HDR_photos';
 		}
+	;
+
 	  $root_dir=$root_dir.$folder;
+
 		mkdir($root_dir);
 
 		$targetFile				=			time()."-".time()."-".strtolower(str_replace(" ","-",$fileName));

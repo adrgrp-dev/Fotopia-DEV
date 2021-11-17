@@ -80,6 +80,8 @@ $dir=$dir."/rework";
 }
 
 copy_folder($dir,"./temp/$timeRandom");
+
+
 // Get real path for our folder
 $rootPath = realpath("./temp/$timeRandom");
  $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
@@ -102,8 +104,9 @@ foreach ($files as $name => $file)
     if (!$file->isDir())
     {
         // Get real and relative path for current file
-        $filePath = $file->getRealPath();
-        $relativePath = substr($filePath, strlen($rootPath) + 1);
+    $filePath = $file->getRealPath();
+    $relativePath = substr($filePath, strlen($rootPath) + 1);
+
 $x=1;
 		$extn=$file->getExtension();
 		$ParsedFileNameIS=explode("_",$relativePath);
@@ -123,12 +126,15 @@ $x=1;
 			$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 
 		}
+    // echo $ParsedFileName;
+    //   exit;
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
 		if (file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".DNG") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".dng") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".CR2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".cr2") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".NEF") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".nef") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".ARW") || file_exists("./temp/$timeRandom/".$ParsedFileNameWithoutExtension.".arw")) {
 		$x++;
 		}
 		else
 		{
+    //  echo "./temp/$timeRandom/".$relativePath;exit;
 mysqli_query($con,"update image_naming set downloaded_raw_image_name='$ParsedFileName' where order_id='$Order_ID' and image_name='$relativePath'");
 
 
@@ -310,15 +316,17 @@ $("#dayVal").val(calid);
 </ul>
 <div class="panel active" >
 
-  <?php if(@isset($_REQUEST["d"])) { ?>
+  <?php
+      $id_url=$raw_images["order_id"];
+  if(@isset($_REQUEST["d"])) { ?>
               <div class="success-box" style="display:block;">
                   <center><div class="text-success"><i style="font-size: 12px;    color: #00b300;">Finished Images Upload Successfully</i></div></center>
               </div>
   <?php } ?>
-
-
+        <center> <a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:20px;">click here to view already uploaded raw images</a></center>
+<br>
   <?php
-     $id_url=$raw_images["order_id"];
+
   $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
   $get_order1=mysqli_fetch_array($get_order_query1);
   if($get_order1['status_id']==4)
@@ -326,6 +334,8 @@ $("#dayVal").val(calid);
       echo '<center><div class="text-success"><i style="font-size: 18px;color: black;">Rework</i></div></center>';
   }
   ?>
+
+
 
   <div class="maso-list gallery">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
@@ -336,10 +346,12 @@ $("#dayVal").val(calid);
          if($raw_images["service_name"]==1)
          {
            $service="standard_photos";
+           $service_id='1';
          }
          elseif($raw_images["service_name"]==2)
          {
             $service="floor_plans";
+            $service_id='2';
          }
          elseif($raw_images["service_name"]==3) {
              $service="Drone_photos";
@@ -361,7 +373,11 @@ else
 {
       $imagesDirectory = "./raw_images/order_".$id_url."/".$service;
 	  }
-
+    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and dynamic_folder!=''");
+//echo "SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id";
+    while($folder=mysqli_fetch_array($get_folder_querry))
+    {
+        $imagesDirectory =".".trim($folder['dynamic_folder'],'.');
       if (is_dir($imagesDirectory))
       {
        $opendirectory = opendir($imagesDirectory);
@@ -379,6 +395,7 @@ else
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
+                  //  echo "SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'";
                     ?>
                     <p><span style="color:red;">*</span><?php echo $get_comment['description']; ?></p>
 
@@ -389,7 +406,7 @@ else
 ?>
     <img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/rework/".$image; ?>" width="100" height="80"/>
 	<?php } else { ?>
-	<img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/".$image; ?>" width="100" height="80"/>
+	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
 
 	<?php } ?>
                       </a>
@@ -408,6 +425,7 @@ else
           closedir($opendirectory);
 
       }
+    }
 
       ?>
 	  <div class="col-md-12">

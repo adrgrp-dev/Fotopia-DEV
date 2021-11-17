@@ -1702,7 +1702,9 @@ alert(alertmsg);
                           <div id="error1" ></div>
                         <hr class="space s">
                         <div class="tab-box pills" data-tab-anima="fade-left">
-
+                           <?php if(!empty($standard['order_id'])){ ?>
+                            <center> <a href="../raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:20px;">click here to view already uploaded raw images</a></center>
+                          <?php } ?>
                           <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
                             <option value="1">Photos <span class="badge"><?php if(!empty($standard_value)) {echo "(".$standard_value.")";}?></span></option>
                             <option value="2">Floor plans <span class="badge"><?php if(!empty($floor_value)) {echo "(".$floor_value.")";}?></span></option>
@@ -1718,7 +1720,7 @@ alert(alertmsg);
                               </div>
                                  <div id="standard_photos_div">
 
-                              <form action="../dropzone/upload.php?id=<?php echo $id_url; ?>&type=1" id='uploads' class="dropzone">
+                              <form action="../dropzone/upload.php?id=<?php echo $id_url; ?>&type=1&folder=<?php echo date('d-m-Y-h-i-A');?>" id='uploads' class="dropzone">
 
                                <span id="drop_files"></span>
                              </form>
@@ -1752,7 +1754,7 @@ alert(alertmsg);
                               <div id="floor_booked">
                               </div>
                               <div id="floor_div">
-                              <form action="../dropzone/upload.php?id=<?php echo $id_url; ?>&type=2" id='uploads1' class="dropzone">
+                              <form action="../dropzone/upload.php?id=<?php echo $id_url; ?>&type=2&folder=<?php echo date('d-m-Y-h-i-A');?>" id='uploads1' class="dropzone">
 
                                <span id="drop_files1"></span>
                              </form>

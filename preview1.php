@@ -1,4 +1,4 @@
-<?php
+    <?php
 ob_start();
 include "connection.php";
 include "header.php";
@@ -65,15 +65,15 @@ function email($v,$x,$y,$z,$con)
 
   //Send HTML or Plain Text email
 
-  $id_url=$_REQUEST['id'];
+    $id_url=$_REQUEST['id'];
 
-$get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
-$get_order_pcadmin1= mysqli_fetch_array($get_order_query);
-$get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
+    $get_order_query=mysqli_query($con,"select * from orders where id='$id_url'");
+    $get_order_pcadmin1= mysqli_fetch_array($get_order_query);
+    $get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
 
-$get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Raw images uploaded'");
-$get_email_content1 = mysqli_fetch_array($get_email_content);
-$get_content = $get_email_content1['template_body_text'];
+    $get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Raw images uploaded'");
+    $get_email_content1 = mysqli_fetch_array($get_email_content);
+    $get_content = $get_email_content1['template_body_text'];
 
   $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
   $get_detail=mysqli_fetch_array($get_orderdetail_query);
@@ -321,7 +321,7 @@ var a;
                     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                     <?php
 
-                    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=1");
+                    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=1 and dynamic_folder!=''");
                     while($folder=mysqli_fetch_array($get_folder_querry))
                     {
 
@@ -435,7 +435,7 @@ var a;
                       <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                       <?php
 
-                      $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=2");
+                      $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=2 and dynamic_folder!=''");
                       while($folder=mysqli_fetch_array($get_folder_querry))
                       {
                       $imagesDirectory_floor = ".".trim($folder['dynamic_folder'],'.');

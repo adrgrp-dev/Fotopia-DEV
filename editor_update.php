@@ -183,7 +183,7 @@ echo $service;
       }
     }
 
-  }*/
+  }
 	$dir1="./rework_images/order_$order_id/$service_name";
 	if (is_dir($dir1)) {
 		$objects = scandir($dir1);
@@ -196,5 +196,5 @@ echo $service;
 			}
 		}
 
-	}
+	}*/
 ?>

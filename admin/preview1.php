@@ -310,8 +310,12 @@ var a;
                    </select>
                   <div class="maso-list gallery">
                     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
-                    <?php
-                    $imagesDirectory_standard = "../raw_images/order_".$id_url."/standard_photos";
+                    <?php  $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=1 and dynamic_folder!=''");
+                      while($folder=mysqli_fetch_array($get_folder_querry))
+                      {
+
+                        $imagesDirectory_standard = "..".trim($folder['dynamic_folder'],'.');
+
 
                     if (is_dir($imagesDirectory_standard))
                     {
@@ -383,6 +387,7 @@ var a;
 
                         closedir($opendirectory);
                     }
+                  }
                     ?>
                     </div>
                     <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here" style="width:90%;color: black;"/><center>
@@ -410,8 +415,12 @@ var a;
                     <hr>
                     <div class="maso-list gallery">
                       <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
-                      <?php
-                      $imagesDirectory_floor = "../raw_images/order_".$id_url."/floor_plans";
+                        <?php
+                          $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=2 and dynamic_folder!=''");
+                          while($folder=mysqli_fetch_array($get_folder_querry))
+                          {
+
+                            $imagesDirectory_floor = "..".trim($folder['dynamic_folder'],'.');
 
                       if (is_dir($imagesDirectory_floor))
                       {
@@ -481,6 +490,7 @@ var a;
                         }
                           closedir($opendirectory);
                         }
+                      }
                       ?>
                       </div>
                         <br><center><input type="text" name="commentall" id="comment_all2" placeholder="Comment here" style="width:90%;color: black;"/><center>

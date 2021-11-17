@@ -390,16 +390,16 @@ if(isset($_REQUEST['rework']))
   $get_image=mysqli_fetch_array($get_image_query);
   //echo $_POST['folderToZip'];
     $data1=explode('/',$_POST['folderToZip']);
-	
+
 	$IMG_name=$get_image['img'];
-	
+
 	$get_image=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name ='$IMG_name' and downloaded_raw_image_name!=''");
-	
+
 
   $getImg=mysqli_fetch_array($get_image);
 	$raw_image_Is=$getImg['image_name'];
-	
-	
+
+
   $file1=$_POST['folderToZip']."/".$raw_image_Is;
   if($data=@mkdir("rework_images/order_".$id_url))
   {
@@ -411,10 +411,10 @@ if(isset($_REQUEST['rework']))
   }
   // mkdir("rework_images/order_".$id_url);
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
- 
+
     $file="rework_images/order_".$id_url."/".$data1[2]."/".$IMG_name;
 	//echo $file1."<br>".$file;exit;
-  rename($file1,$file);
+  copy($file1,$file);
   header("location:order_detail.php?id=$id_url");
   }
 
@@ -2413,7 +2413,7 @@ if($get_order1['status_id']==3)
  xhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
     //document.getElementById("demo").innerHTML = this.responseText;
-  
+
    }
 
  };
