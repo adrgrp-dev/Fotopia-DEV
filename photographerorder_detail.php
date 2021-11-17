@@ -2427,7 +2427,7 @@ function printPage()
 
                                                          <div class="row">
                                                            <div class="col-md-12">
-                                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
+                                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
                                                            </div>
 
 
