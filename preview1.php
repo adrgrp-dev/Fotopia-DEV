@@ -321,7 +321,7 @@ var a;
                     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                     <?php
 
-                    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url");
+                    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=1");
                     while($folder=mysqli_fetch_array($get_folder_querry))
                     {
 
@@ -380,7 +380,7 @@ var a;
 
                             var a=$("#myBtn"+data).val();
                             // alert(a);
-                          
+
                             var xhttp = new XMLHttpRequest();
                           xhttp.onreadystatechange = function() {
                            if (this.readyState == 4 && this.status == 200) {
@@ -404,9 +404,7 @@ var a;
 
                         closedir($opendirectory);
                     }
-                    else {
-                      echo "sasdadads";
-                    }
+
                   }
                     ?>
                     </div>
@@ -436,7 +434,11 @@ var a;
                     <div class="maso-list gallery">
                       <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                       <?php
-                      $imagesDirectory_floor = "./raw_images/order_".$id_url."/floor_plans";
+
+                      $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=2");
+                      while($folder=mysqli_fetch_array($get_folder_querry))
+                      {
+                      $imagesDirectory_floor = ".".trim($folder['dynamic_folder'],'.');
 
                       if (is_dir($imagesDirectory_floor))
                       {
@@ -506,6 +508,7 @@ var a;
                         }
                           closedir($opendirectory);
                         }
+                      }
                       ?>
                       </div>
                         <br><center><input type="text" name="commentall" id="comment_all2" placeholder="Comment here"  onkeyup="show_editbtn2(this.form)" style="width:90%;color: black;"/><center>
