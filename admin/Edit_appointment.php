@@ -1,6 +1,6 @@
 <?php
 ob_start();
-
+ 
 include "connection1.php";
 
 if(isset($_REQUEST['del']))
