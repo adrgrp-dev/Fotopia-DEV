@@ -1280,8 +1280,40 @@ header("location:photographerDashboard.php?private=1"); exit;
                           <label for="service">Select a service:</label>
                           </p>
                           <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
-                            <option  value="1">Photos <span class="badge"><?php if(!empty($standard_value)) {echo "(".$standard_value.")";}?></span></option>
-                            <option value="2">floor plans  <span class="badge"><?php if(!empty($floor_value)){echo " (".$floor_value.")";}?></span></option>
+                            <option  value="1">Photos <span class="badge"><?php
+
+                            $raw_images_standard = "./raw_images/order_".$id_url."/standard_photos/";
+
+                            if(is_dir($raw_images_standard))
+                            {
+
+                             echo "(".getFileCount($raw_images_standard).")";
+
+                             }
+                             else{
+
+                              echo "(0)";
+                             } ?>
+                               
+                             </span></option>
+
+                            
+                            <option value="2">floor plans  <span class="badge">
+                              <?php
+
+                            $raw_images_floor = "./raw_images/order_".$id_url."/floor_plans/";
+
+                            if(is_dir($raw_images_floor))
+                            {
+
+                             echo "(".getFileCount($raw_images_floor).")";
+
+                             }
+                             else{
+
+                              echo "(0)";
+                             } ?>
+                            </span></option>
                             <!-- <option value="3">drone photos <span class="badge"><?php //if(!empty($Drone_value)){echo  " (".$Drone_value.")";}?></span></option>
                             <option value="4">HDR Photos  <span class="badge"><?php //if(!empty($hdr_value)){echo  " (".$hdr_value.")";}?></span></option> -->
                             </select>
