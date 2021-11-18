@@ -221,11 +221,12 @@ foreach(glob($dir . '/*') as $file) {
                   $dynamic_folder=$get_order['dynamic_folder'];
                   $image=$get_order['img'];
                   $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
-
+$getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
+$getImgName1=mysqli_fetch_array($getImgName);
                               ?>
   <div class="col-md-2">
       <center>  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
-    <span style="text-align:center"><?php echo $uploaded_on; ?></span></center>
+    <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
   </div>
                   <?php
                   }
@@ -254,11 +255,13 @@ foreach(glob($dir . '/*') as $file) {
              $dynamic_folder=$get_order['dynamic_folder'];
              $image=$get_order['img'];
              $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
-
+  $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
+$getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
+$getImgName1=mysqli_fetch_array($getImgName);
                          ?>
 <div class="col-md-3">
- <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="200" height="200"><br>
- <span style="text-align:center"><?php echo $uploaded_on; ?></span>
+<center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="200" height="200"><br>
+ <span style="text-align:center;"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
 </div>
              <?php
              }
