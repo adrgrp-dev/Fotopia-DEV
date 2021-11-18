@@ -203,7 +203,7 @@ foreach(glob($dir . '/*') as $file) {
                        <p ><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
                        $RowsFound=0;
-                       $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 order by upload_on desc");
+                       $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 and dynamic_folder!='' order by upload_on desc");
                        $RowsFound=mysqli_num_rows($get_order_query);?>
                        <form name="zipDownload" method="post" action="">
                            <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."standard_photos"; ?>">
@@ -239,7 +239,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   <p ><h4 style="text-align:center;padding:30px;background:#FFF!important">Floor Plans</h4></p>
                   <?php
                   $RowsFound1=0;
-                  $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=2 order by upload_on desc");
+                  $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=2 and dynamic_folder!='' order by upload_on desc");
                   $RowsFound1=mysqli_num_rows($get_order_query);?>
                   <form name="zipDownload" method="post" action="">
                       <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."floor_plans"; ?>">
