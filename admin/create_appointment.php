@@ -247,7 +247,7 @@ $get_realtor_id=mysqli_fetch_assoc($get_realtor_details);
 
 $realtor_id = $get_realtor_id['created_by_id'];
 
-
+echo "update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'";
 
  mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'");
 
@@ -300,7 +300,6 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 }
 //Sending email
 //email($photographer_Name,$order_id,$chk_from,$email_id);
-
 
 	   header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct");
 
@@ -1142,7 +1141,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
            <div class="col-md-12">
 
-             <input id="address_same" value="1" onchange="setpropertyAddress()" name="address_same" type="checkbox" checked="" class="form-value">&nbsp;&nbsp; <span id="label_diff_property" adr_trans="label_diff_property">The property address is different from sellers address</span>
+             <input id="address_same" value="1" onchange="setpropertyAddress()" name="address_same" type="checkbox"  class="form-value">&nbsp;&nbsp; <span id="label_diff_property" adr_trans="label_diff_property">The property address is different from sellers address</span>
 
            </div>
 
@@ -1468,12 +1467,13 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 <?php } ?>
 
+
 <?php   if(!isset($_REQUEST['edit']))
 { ?>
 
 <script>
-   $("#address_same").click();
-   showHideFloors($('#TypeOfProperty :selected').val());
+$("#address_same").click();
+showHideFloors($('#TypeOfProperty :selected').val());
 </script>
 
 <?php } ?>
