@@ -1479,7 +1479,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
 			$raw_images_standard = "./rework_images/order_".$id_url."/standard_photos/";
 	$getrawImage=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image' or image_name='$image' and downloaded_raw_image_name!=''");
-echo "select * from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image' or image_name='$image' and downloaded_raw_image_name!=''";
+
 	$imgurl="";
 	$imgExist=mysqli_num_rows($getrawImage);
 	if($imgExist>0)
