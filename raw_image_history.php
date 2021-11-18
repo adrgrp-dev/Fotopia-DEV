@@ -43,7 +43,8 @@ function copy_folder($src, $dst) {
 
                 // Recursively calling custom copy function
                 // for sub directory
-                copy_folder($src . '/' . $file, $dst . '/' . $file);
+                copy_folder($src . '/' . $file.'/', $dst . '/' . $file.'/');
+
 
             }
             else {
@@ -98,7 +99,7 @@ copy_folder($dir,"./temp/$timeRandom");
 
 // Get real path for our folder
 $rootPath = realpath("./temp/$timeRandom");
- $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
+$zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 
 // Initialize archive object
 $zip = new ZipArchive();
@@ -128,18 +129,12 @@ $x=1;
 
 		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
-		/*if($statusIs==4)
-		{
-		$ParsedFileNameIS=explode(".",$relativePath);
-			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
 
 
-		}
-		else
-		{*/
-			$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
+      $ParsedFileNameIS=explode(".",$relativePath);
+  			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
 
-		//}
+
     // echo $ParsedFileName;
     //   exit;
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
@@ -175,7 +170,7 @@ header('Content-Transfer-Encoding: binary');
 header('Expires: 0');
 header('Cache-Control: must-revalidate');
 header('Pragma: public');
-header('Content-Length: ' . filesize($zip_file));
+header('Content-Length: ' .filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
 delete_files("./temp/$timeRandom");
@@ -220,7 +215,7 @@ foreach(glob($dir . '/*') as $file) {
 
                 <div class="col-md-12" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;">
 
-                    <?php if(isset($_REQUEST['p'])){ ?>
+                    <!-- <?php if(isset($_REQUEST['p'])){ ?> -->
                      <div>
                        <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
@@ -256,7 +251,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   </div>
                 </div>
               <?php } ?>
-              <?php if(isset($_REQUEST['f'])){ ?>
+            <?php if(isset($_REQUEST['f'])){ ?>
                 <div>
                   <p ><h4 style="text-align:center;padding:30px;background:#FFF!important">Floor Plans</h4></p>
                   <?php
