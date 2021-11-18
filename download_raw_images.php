@@ -421,10 +421,10 @@ else
       ?>
 	  <div class="col-md-12">
       <?php
-      if(!is_dir($imagesDirectory)) {
+      if($RowsFound==0 && @$_REQUEST['rework']) {
        echo  "<p align='left' style='' ><b> No Images to display </b></p>";
        }
-       else{?>
+       if($RowsFound>0 && @$_REQUEST['rework']){?>
             <div style="font-size: 18px;color: black; font-style:italic;"><?php if(!empty($raw_images['comments'])){ echo "Comment :";} ?></span><?php echo "".$raw_images['comments'];?></i></div>
        <?php }
       ?>
@@ -435,7 +435,7 @@ else
      	<input type="hidden" name="Order_ID" value="<?php echo $id_url; ?>">
       <input type="hidden" name="service_ID" value="<?php echo $service; ?>">
       <hr class="space s">
-      <?php if($RowsFound>0)
+      <?php if($RowsFound>0 && @$_REQUEST['rework'])
 	  { ?> <input type="submit" class="btn btn-primary" name="ZIP" value="ZIp and download rework Images">
 	  <?php } ?>
   	</form>
