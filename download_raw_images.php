@@ -319,12 +319,14 @@ $("#dayVal").val(calid);
                   <center><div class="text-success"><i style="font-size: 12px;    color: #00b300;">Finished Images Upload Successfully</i></div></center>
               </div>
   <?php } ?>
-    <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
+    <center><a href="raw_image_history.php?id=<?php echo $id_url; ?><?php if($raw_images["service_name"]==1){ echo "&p=1";}else{ echo "&f=1";}?>" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
 <br>
   <?php
 
   $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
   $get_order1=mysqli_fetch_array($get_order_query1);
+  ?>
+  <?php
   if($get_order1['status_id']==4)
   {
       echo '<center><div class="text-success"><i style="font-size: 18px;color: black;">Images to rework</i></div></center>';
@@ -374,8 +376,8 @@ else
       $imagesDirectory = "./raw_images/order_".$id_url."/".$service;
 	  $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and dynamic_folder!=''");
 	  }
-	  
-	
+
+
     while($folder=mysqli_fetch_array($get_folder_querry))
     {
        // $imagesDirectory =".".trim($folder['dynamic_folder'],'.');
@@ -412,7 +414,7 @@ else
 
 
           <?php
-        
+
          // closedir($opendirectory);
 
       }
@@ -429,7 +431,7 @@ else
        <?php }
       ?>
 	  </div>
-	 
+
   <form name="zipDownload" method="post" action="">
       <input type="hidden" name="folderToZip" value="<?php echo "./rework_images/order_".$id_url."/".$service."/rework_approved"; ?>">
      	<input type="hidden" name="Order_ID" value="<?php echo $id_url; ?>">

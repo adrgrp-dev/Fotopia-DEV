@@ -1272,9 +1272,9 @@ header("location:photographerDashboard.php?private=1"); exit;
                           <div id="error1" ></div>
                         <hr class="space s">
                         <div class="tab-box pills" data-tab-anima="fade-left">
-                          
+
                           <?php if(!empty($standard['order_id'])){ ?>
-                            <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
+                            <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
                          <?php } ?>
                          <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
@@ -1294,10 +1294,10 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                               echo "(0)";
                              } ?>
-                               
+
                              </span></option>
 
-                            
+
                             <option value="2">floor plans  <span class="badge">
                               <?php
 

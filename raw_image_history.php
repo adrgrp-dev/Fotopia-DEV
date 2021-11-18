@@ -9,7 +9,7 @@
                 <a class="navbar-brand" href="csrRealtorDashboard.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
 						       <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
                     </div>
-                    
+
 
 
 <h4 style="text-align:center;padding:10px;color:#FFF"><br />Raw Images</h4>
@@ -219,7 +219,8 @@ foreach(glob($dir . '/*') as $file) {
 
 
                 <div class="col-md-12" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;">
-            
+
+                    <?php if(isset($_REQUEST['p'])){ ?>
                      <div>
                        <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
@@ -254,6 +255,8 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   ?>
                   </div>
                 </div>
+              <?php } ?>
+              <?php if(isset($_REQUEST['f'])){ ?>
                 <div>
                   <p ><h4 style="text-align:center;padding:30px;background:#FFF!important">Floor Plans</h4></p>
                   <?php
@@ -280,15 +283,18 @@ $getImgName1=mysqli_fetch_array($getImgName);
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                          ?>
+
 <div class="col-md-2">
-<center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
- <span style="text-align:center;"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
+ <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
+ <span style="text-align:center"><?php echo $uploaded_on; ?></span>
+
 </div>
              <?php
              }
              ?>
              </div>
            </div>
+         <?php } ?>
                 </div>
 
 
