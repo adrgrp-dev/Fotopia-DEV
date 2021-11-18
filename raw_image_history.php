@@ -1,25 +1,3 @@
-<header data-menu-anima="fade-left" class=" hidden-xs hidden-sm">
-        <div class="navbar navbar-default over wide-area" role="navigation">
-            <div class="navbar navbar-main over">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                <a class="navbar-brand" href="csrRealtorDashboard.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
-                    </div>
-
-
-
-<h4 style="text-align:center;padding:10px;color:#FFF"><br />Raw Images</h4>
-
-
-                </div>
-
-            </div>
-        </div>
-		</header>
 <?php
 
 include "connection.php";
@@ -43,8 +21,7 @@ function copy_folder($src, $dst) {
 
                 // Recursively calling custom copy function
                 // for sub directory
-                copy_folder($src . '/' . $file.'/', $dst . '/' . $file.'/');
-
+                copy_folder($src . '/' . $file, $dst . '/' . $file);
 
             }
             else {
@@ -99,7 +76,7 @@ copy_folder($dir,"./temp/$timeRandom");
 
 // Get real path for our folder
 $rootPath = realpath("./temp/$timeRandom");
-$zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
+ $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 
 // Initialize archive object
 $zip = new ZipArchive();
@@ -129,12 +106,18 @@ $x=1;
 
 		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
+		if($statusIs==4)
+		{
+		$ParsedFileNameIS=explode(".",$relativePath);
+			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
 
 
-      $ParsedFileNameIS=explode(".",$relativePath);
-  			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
+		}
+		else
+		{
+			$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 
-
+		}
     // echo $ParsedFileName;
     //   exit;
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
@@ -170,7 +153,7 @@ header('Content-Transfer-Encoding: binary');
 header('Expires: 0');
 header('Cache-Control: must-revalidate');
 header('Pragma: public');
-header('Content-Length: ' .filesize($zip_file));
+header('Content-Length: ' . filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
 delete_files("./temp/$timeRandom");
@@ -209,15 +192,15 @@ foreach(glob($dir . '/*') as $file) {
 	 <link rel="stylesheet" href="scripts/jquery.flipster.min.css">
 
  <div class="section-empty bgimage3">
-        <div class="" style="margin-left:40px;margin-right:40px;">
+        <div class="" style="margin:40px;">
             <div class="row">
 
 
                 <div class="col-md-12" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;">
-
-                    <!-- <?php if(isset($_REQUEST['p'])){ ?> -->
+                  <p ><h3 style="text-align:center;padding:10px;">Raw Images</h3></p>
+                     <?php if(isset($_REQUEST['p'])){?>
                      <div>
-                       <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
+                       <p ><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
                        $RowsFound=0;
                        $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 order by upload_on desc");
@@ -238,12 +221,11 @@ foreach(glob($dir . '/*') as $file) {
                   $dynamic_folder=$get_order['dynamic_folder'];
                   $image=$get_order['img'];
                   $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
-$getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
-$getImgName1=mysqli_fetch_array($getImgName);
+
                               ?>
   <div class="col-md-2">
       <center>  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
-    <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
+    <span style="text-align:center"><?php echo $uploaded_on; ?></span></center>
   </div>
                   <?php
                   }
@@ -251,7 +233,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   </div>
                 </div>
               <?php } ?>
-            <?php if(isset($_REQUEST['f'])){ ?>
+              <?php if(isset($_REQUEST['f'])){?>
                 <div>
                   <p ><h4 style="text-align:center;padding:30px;background:#FFF!important">Floor Plans</h4></p>
                   <?php
@@ -274,15 +256,11 @@ $getImgName1=mysqli_fetch_array($getImgName);
              $dynamic_folder=$get_order['dynamic_folder'];
              $image=$get_order['img'];
              $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
-  $uploaded_on=date("d-m-Y h:i a",strtotime($get_order['upload_on']));
-$getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
-$getImgName1=mysqli_fetch_array($getImgName);
-                         ?>
 
+                         ?>
 <div class="col-md-2">
  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
  <span style="text-align:center"><?php echo $uploaded_on; ?></span>
-
 </div>
              <?php
              }
