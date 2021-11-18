@@ -366,7 +366,7 @@ rmdir("./temp/$timeRandom");
   }
  delete_files('./temp');
   function delete_files($dir) {
-    // echo '<script>alert("yes");</script>';
+  
   foreach(glob($dir . '/*') as $file) {
     if(is_dir($file)) delete_files($file); else unlink($file);
 
@@ -379,6 +379,59 @@ rmdir("./temp/$timeRandom");
 ?>
 <?php
 if(isset($_REQUEST['rework']))
+{
+  $image=$_REQUEST['selected_image'];
+  $id_url=$_REQUEST['id'];
+
+  foreach($image as $id)
+  {
+
+  $get_image_query=mysqli_query($con,"select * from img_upload where id=$id");
+  $get_image=mysqli_fetch_array($get_image_query);
+  //echo $_POST['folderToZip']; exit;
+    $data1=explode('/',$_POST['folderToZip']);
+	
+  $file1=$_POST['folderToZip']."/".$get_image['img'];
+  if($data=@mkdir("rework_images/order_".$id_url))
+  {
+
+  }
+  if($data=@mkdir("rework_images/order_".$id_url."/".$data1[2]))
+  {
+
+  }
+  // mkdir("rework_images/order_".$id_url);
+  // mkdir("rework_images/order_".$id_url."/".$data1[3]);
+    $file="rework_images/order_".$id_url."/".$data1[2]."/".$get_image['img'];
+  rename($file1,$file);
+  header("location:order_detail.php?id=$id_url");
+  }
+
+  $comment=@$_REQUEST['comment'];
+  $service_ID=@$_REQUEST['service_ID'];
+  mysqli_query($con,"UPDATE `raw_images` SET `comments` = '$comment' WHERE order_id='$id_url' and service_name='$service_ID'");
+  mysqli_query($con,"update orders SET status_id=4 where id=$id_url");
+$get_photographer = mysqli_query($con,"select * from orders where id='$id_url'");
+
+$get_photographer1 = mysqli_fetch_array($get_photographer);
+
+$photographer_id = $get_photographer1['photographer_id'];
+
+$loggedin_id=$_SESSION['loggedin_id'];
+$loggedin_name=$_SESSION['loggedin_name'];
+
+$get_pc_admin_csr =  mysqli_query($con,"select * from user_login where id='$photographer_id'");
+
+$get_pc_admin_csr1 = mysqli_fetch_array($get_pc_admin_csr);
+
+$pc_admin_id = $get_pc_admin_csr1['pc_admin_id'] ;
+
+$csr_id = $get_pc_admin_csr1['csr_id'] ;
+
+$insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
+
+}
+/*if(isset($_REQUEST['rework']))
 {
   $image=$_REQUEST['selected_image'];
   $id_url=$_REQUEST['id'];
@@ -441,7 +494,7 @@ $csr_id = $get_pc_admin_csr1['csr_id'] ;
 
 $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Rework','assigned','$loggedin_name',$loggedin_id,'Realtor',$photographer_id,$loggedin_id,$pc_admin_id,$csr_id,now())");
 
-}
+}*/
 
 ?>
 
@@ -1629,7 +1682,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/standard_photos"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                                  <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
                                <hr class="space s">
@@ -1781,7 +1834,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
                                   <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style=""  required /></center>
 
-                                 <input type="hidden" name="folderToZip" value="<?php echo "raw_images/order_".$id_url."/floor_plans"; ?>">
+                                 <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
 
                                  <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
                                <hr class="space s">

@@ -74,10 +74,6 @@ $timeRandom=rand(1000000000,9999999999);
 mkdir("./temp/$timeRandom");
 
   $dir = $_POST['folderToZip'];
-  if(@$_REQUEST['rework'])
-{
-$dir=$dir."/rework";
-}
 
 copy_folder($dir,"./temp/$timeRandom");
 
@@ -310,8 +306,8 @@ $("#dayVal").val(calid);
 
 <div class="tab-box" data-tab-anima="show-scale">
 <ul class="nav nav-tabs ">
-<li class=" active "><a href="#" class="">View Raw Images</a></li>
-<li class=""><a href="#" class="">Upload images</a></li>
+<li class=" active "><a href="#" class="">View Raw/Rework Images</a></li>
+<li class=""><a href="#" class="">Upload Finished images</a></li>
 
 </ul>
 <div class="panel active" >
@@ -323,7 +319,7 @@ $("#dayVal").val(calid);
                   <center><div class="text-success"><i style="font-size: 12px;    color: #00b300;">Finished Images Upload Successfully</i></div></center>
               </div>
   <?php } ?>
-    
+    <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
 <br>
   <?php
 
@@ -331,7 +327,7 @@ $("#dayVal").val(calid);
   $get_order1=mysqli_fetch_array($get_order_query1);
   if($get_order1['status_id']==4)
   {
-      echo '<center><div class="text-success"><i style="font-size: 18px;color: black;">Rework</i></div></center>';
+      echo '<center><div class="text-success"><i style="font-size: 18px;color: black;">Images to rework</i></div></center>';
   }
   ?>
 
@@ -340,6 +336,8 @@ $("#dayVal").val(calid);
   <div class="maso-list gallery">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
       <?php
+	  $RowsFound=0;
+	  $RowsFound=mysqli_num_rows($get_raw_images);
       if(mysqli_num_rows($get_raw_images))
       {
 
@@ -364,29 +362,24 @@ $("#dayVal").val(calid);
          $id_url="";
          $service="";
        }
-
+$get_folder_querry="";
 if(@$_REQUEST['rework'])
 {
- $imagesDirectory = "./raw_images/order_".$id_url."/".$service."/rework/";
+ $imagesDirectory = "./rework_images/order_".$id_url."/".$service."/rework_approved/";
+ $get_folder_querry=mysqli_query($con,"SELECT * FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and raw_images=1 and comments!=''");
+
 }
 else
 {
       $imagesDirectory = "./raw_images/order_".$id_url."/".$service;
+	  $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and dynamic_folder!=''");
 	  }
-    $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and dynamic_folder!=''");
-//echo "SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id";
+	  
+	
     while($folder=mysqli_fetch_array($get_folder_querry))
     {
-        $imagesDirectory =".".trim($folder['dynamic_folder'],'.');
-      if (is_dir($imagesDirectory))
-      {
-       $opendirectory = opendir($imagesDirectory);
-          while (($image = readdir($opendirectory)) !== false)
-       {
-         if(($image == '.') || ($image == '..'))
-         {
-           continue;
-         }
+       // $imagesDirectory =".".trim($folder['dynamic_folder'],'.');
+     $image=@$folder['img'];
          $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
@@ -395,7 +388,6 @@ else
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
-                  //  echo "SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'";
                     ?>
                     <p><span style="color:red;">*</span><?php echo $get_comment['description']; ?></p>
 
@@ -403,8 +395,9 @@ else
                           <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 <?php if(@$_REQUEST['rework'])
 {
+
 ?>
-    <img alt="" src="<?php echo "raw_images/order_".$id_url."/".$service."/rework/".$image; ?>" width="100" height="80"/>
+    <img alt="" src="<?php echo "rework_images/order_".$id_url."/".$service."/rework_approved/".$image; ?>" width="100" height="80"/>
 	<?php } else { ?>
 	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
 
@@ -419,10 +412,8 @@ else
 
 
           <?php
-         }
-        }
-
-          closedir($opendirectory);
+        
+         // closedir($opendirectory);
 
       }
     }
@@ -438,12 +429,15 @@ else
        <?php }
       ?>
 	  </div>
+	 
   <form name="zipDownload" method="post" action="">
-      <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/".$service; ?>">
+      <input type="hidden" name="folderToZip" value="<?php echo "./rework_images/order_".$id_url."/".$service."/rework_approved"; ?>">
      	<input type="hidden" name="Order_ID" value="<?php echo $id_url; ?>">
       <input type="hidden" name="service_ID" value="<?php echo $service; ?>">
       <hr class="space s">
-      <input type="submit" class="btn btn-primary" name="ZIP" value="ZIp and download all Images">
+      <?php if($RowsFound>0)
+	  { ?> <input type="submit" class="btn btn-primary" name="ZIP" value="ZIp and download rework Images">
+	  <?php } ?>
   	</form>
 
    </div>
