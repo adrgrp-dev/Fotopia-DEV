@@ -110,7 +110,7 @@ $x=1;
 
 		for($i=0;$i<$totalNumberOdFiles;$i++)
 		{
-		if($statusIs==4)
+		/*if($statusIs==4)
 		{
 		$ParsedFileNameIS=explode(".",$relativePath);
 			$ParsedFileName=$ParsedFileNameIS[0].".".$file->getExtension();
@@ -118,10 +118,10 @@ $x=1;
 
 		}
 		else
-		{
+		{ */
 			$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 
-		}
+		//}
     // echo $ParsedFileName;
     //   exit;
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
