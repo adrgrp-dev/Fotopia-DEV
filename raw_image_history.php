@@ -1,3 +1,25 @@
+<header data-menu-anima="fade-left" class=" hidden-xs hidden-sm">
+        <div class="navbar navbar-default over wide-area" role="navigation">
+            <div class="navbar navbar-main over">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                <a class="navbar-brand" href="csrRealtorDashboard.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
+						       <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+                    </div>
+                    
+
+
+<h4 style="text-align:center;padding:10px;color:#FFF"><br />Raw Images</h4>
+
+
+                </div>
+
+            </div>
+        </div>
+		</header>
 <?php
 
 include "connection.php";
@@ -192,15 +214,14 @@ foreach(glob($dir . '/*') as $file) {
 	 <link rel="stylesheet" href="scripts/jquery.flipster.min.css">
 
  <div class="section-empty bgimage3">
-        <div class="" style="margin:40px;">
+        <div class="" style="margin-left:40px;margin-right:40px;">
             <div class="row">
 
 
                 <div class="col-md-12" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;">
-                  <p ><h3 style="text-align:center;padding:10px;">Raw Images</h3></p>
-
+            
                      <div>
-                       <p ><h4 style="text-align:center;padding:10px;">Photos</h4></p>
+                       <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
                        $RowsFound=0;
                        $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 order by upload_on desc");
@@ -259,8 +280,8 @@ $getImgName1=mysqli_fetch_array($getImgName);
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                          ?>
-<div class="col-md-3">
-<center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="200" height="200"><br>
+<div class="col-md-2">
+<center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
  <span style="text-align:center;"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
 </div>
              <?php
