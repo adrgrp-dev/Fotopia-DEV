@@ -374,16 +374,18 @@ min-width:100px!important;
       ?></td>
 
           <?php
+        
           $photographer_id=$get_order['photographer_id'];
           $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
-         if(  $get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
+          $photographer_Name="";
+         if($get_name=mysqli_fetch_assoc($get_photgrapher_name_query))
          {
           $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
           $online=$get_name['online_now'];
          }
 
           ?>
-          <td style="word-break:break-all;"><?php echo @$photographer_Name ?>&nbsp;<?php if(@$online==1) { ?>
+          <td style="word-break:break-all;"><?php if($photographer_id!=0){echo $photographer_Name;} else{echo 'Not yet selected';} ?>&nbsp;<?php if(@$online==1) { ?>
       <i class="fa fa-comment" style="color:#006600" data-touserid="<?php echo $photographer_id ?>" data-tousername="<?php echo $photographer_Name ?>"></i>
       <?php } ?></td>
       <?php $pc_admin=$get_order['pc_admin_id'];
