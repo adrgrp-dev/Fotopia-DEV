@@ -17,7 +17,8 @@ $res1=mysqli_fetch_array($res);
 	if (count($_FILES) > 0) {
     if (is_uploaded_file($_FILES['logo']['tmp_name'])) {
         //echo "coming";
-        $filename=$loggedin_id."_".$_FILES['logo']['name'];
+        $filename=$loggedin_id."_".time().$_FILES['logo']['name'];
+		$filename=str_replace(" ","",$filename);
         $imgData = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
       //  $imageProperties = getimageSize($_FILES['logo']['tmp_name']);
 
@@ -265,7 +266,7 @@ p{
 
                               <div class="col-md-6">
                                    <p style="color:#000;" id="label_change_logo" adr_trans="label_change_logo">Change logo</p>
-                                  <input id="logo" name="logo" placeholder="logo" type="file" autocomplete="off" class="form-control form-value" >
+                                  <input id="logo" name="logo" placeholder="logo" type="file" autocomplete="off" class="form-control form-value">
 
                               </div>
 

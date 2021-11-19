@@ -88,7 +88,28 @@ mysqli_query($con,"insert into admin_users (type_of_user,organization_name,organ
 $inserted_id=mysqli_insert_id($con);
 if($inserted_id!=0)
 {
-mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')");
+
+$rootdirectory="";
+if (count($_FILES) > 0) {
+    if (is_uploaded_file($_FILES['profilepic']['tmp_name'])) {
+        //echo "coming";
+        $filename=$inserted_id."_".time().$_FILES['profilepic']['name'];
+		$filename=str_replace(" ","",$filename);
+        $imgData = addslashes(file_get_contents($_FILES['profilepic']['tmp_name']));
+      //  $imageProperties = getimageSize($_FILES['logo']['tmp_name']);
+
+        $imageType = $_FILES['profilepic']['type'];
+        $rootdirectory="pc_admin_logo/".$filename;
+        move_uploaded_file($_FILES['profilepic']['tmp_name'], $rootdirectory);
+       
+
+     
+    }
+}
+
+
+
+mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id,logo_image_url,logo_image_type)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id','$rootdirectory','$imageType')");
 }
 
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
