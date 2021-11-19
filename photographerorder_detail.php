@@ -127,7 +127,7 @@ mkdir("./temp/$timeRandom");
 
   if(isset($_REQUEST['imageType']))
   {
-   $dir=$_REQUEST['folderToZip'];
+    $dir=$_REQUEST['folderToZip'];
 
 
 
@@ -140,7 +140,7 @@ if ($handle = opendir($path)) {
         if ('..' === $file) continue;
 
 
-	$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$file'");
+	/*$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$file'");
 
 
 	$imgExist=mysqli_num_rows($getrawImage);
@@ -148,9 +148,13 @@ if ($handle = opendir($path)) {
 	{
 	$getrawImage1=mysqli_fetch_array($getrawImage);
 
-	$dir=str_replace("rework_images","raw_images",$dir);
-	$file=$getrawImage1['image_name'];
+	//$dir=str_replace("rework_images","raw_images",$dir);
+	
+	$file=$getrawImage1['image_name'];*/
+	if($file!='rework_approved')
+	{
 	 copy($dir."/".$file,"./temp/$timeRandom/".$file);
+	 //}
 	}
 
     }
@@ -1641,7 +1645,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                                         ?>
                                         <form name="zipDownload" method="post" action="">
                                           <input type="submit" name="ZIP" class="btn btn-default btn-sm download" value="Download" />
-                                          <input type ="hidden" name="directory" value="<?php echo $imagesDirectory_floor;?>"/>
+										   <input type="hidden" name="imageType" value="rework" />
+
+                                          <input type ="hidden" name="folderToZip" value="<?php echo $imagesDirectory_floor;?>"/>
+										   <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
+                          <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
                                         </form>
                                         <div class="maso-list gallery">
                                           <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">

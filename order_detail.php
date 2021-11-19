@@ -1527,7 +1527,7 @@ $('.input'+iconid1).css("visibility","hidden");
             <input type="hidden" id="count3"/>
             <input type="hidden" id="count4"/>
          <p align="right">
-           <?php if($get_summary['status_id']==2){?>
+           <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
               <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
             <?php } ?>
             <?php if($get_summary['status_id']==3)
