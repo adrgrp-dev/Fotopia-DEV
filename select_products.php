@@ -107,7 +107,7 @@ elseif($condition=="book online")
 
 
 
-	$mail->Body.="Hello {{Photographer_Name}},<br><br>
+	$mail->Body.="Hello {{PCAdmin Company name}},<br><br>
 
 You Have a Photography Session Schedule For
 {{DateAndTime}} with reference to Order # F{{orderId}}.<br>
@@ -118,7 +118,7 @@ Thank you for continued support.
 <br><br>
 Thanks,<br>
 Fotopia Team.";
-	$mail->Body=str_replace('{{Photographer_Name}}', $photographer_Name , $mail->Body);
+	 $mail->Body=str_replace('{{PCAdmin Company name}}', $get_org , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
 	$mail->Body=str_replace('F{{orderId}}', $order_id , $mail->Body);
 	$mail->Body=str_replace('{{DateAndTime}}',$formated_date, $mail->Body);
