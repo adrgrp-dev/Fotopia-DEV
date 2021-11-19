@@ -853,7 +853,7 @@ $selectProductIDs="checked";
 <input type="hidden" name="price[]" value="<?php echo $realtorDiscountPrice; ?>" />
 
 </td><td><?php echo $product_result1['timeline'];?></td><td align="center"><?php echo $realtorDiscountPrice;?><?php if($ActualCostOfProduct!=$realtorDiscountPrice) { ?><span class="strikethrough" style="margin-left:20px"><?php echo $ActualCostOfProduct; ?></span>&nbsp;&nbsp;<i class="fa fa-exclamation-circle" title="Special discount price for you from Photo Company"></i><?php } ?></td>
-<td><input type="number" name="quantity[]" id="qty<?php echo $product_result1['id']; ?>" value="<?php echo @$qtyIS; ?>" min="0"  style="width:80px;color:#000" class="form-control" onkeyup="updateSubTotal(<?php echo $product_result1['id']; ?>)"/><input type="hidden"  id="price<?php echo $product_result1['id']; ?>" value="<?php echo $realtorDiscountPrice;?>" /></td>
+<td><input type="number" name="quantity[]" id="qty<?php echo $product_result1['id']; ?>" value="<?php echo @$qtyIS; ?>" min="0"  style="width:80px;color:#000" class="form-control" onchange="updateSubTotal(<?php echo $product_result1['id']; ?>)"/><input type="hidden"  id="price<?php echo $product_result1['id']; ?>" value="<?php echo $realtorDiscountPrice;?>" /></td>
 <td><input type="text" readonly  name="subtotal[]" id="subtotal<?php echo $product_result1['id']; ?>" value="<?php echo $subTotalIS; ?>"  style="width:80px;color:#000" class="sTotal form-control" /></td>
 </tr>
 <?php } ?>
