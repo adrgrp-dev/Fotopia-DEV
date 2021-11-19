@@ -3167,7 +3167,7 @@ $percentage = @$get_information['tax'];
   //  echo @$realtor["first_name"];  ?></p>
   <div id="wrapper" style="width:100%">
   <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
-  <table class="table" style="padding:5px;word-break:break-all; border:none;width:100%;font-size:10px!important;" id="ChatBox" >
+  <table class="table" style="padding:5px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
 </div>
