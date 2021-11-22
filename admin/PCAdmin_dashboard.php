@@ -312,7 +312,7 @@ height:fit-content!important;
                           	<hr class="space s">
 												<div class="row">
 												<div class="col-md-12" style="padding-left: 35px;">
-														<h5 id="label_total_revenue" adr_trans="label_revenue">Revenue</h5>
+														<h5 id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</h5>
 
 															<?php
 

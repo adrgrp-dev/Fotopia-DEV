@@ -1141,7 +1141,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
            <div class="col-md-12">
 
-             <input id="address_same" value="1" onchange="setpropertyAddress()" name="address_same" type="checkbox"  class="form-value">&nbsp;&nbsp; <span id="label_diff_property" adr_trans="label_diff_property">The property address is different from sellers address</span>
+             <input id="address_same" value="1" onchange="setpropertyAddress()" <?php if(!isset($_REQUEST['edit'])){ echo "checked "; } ?>name="address_same" type="checkbox"  class="form-value">&nbsp;&nbsp; <span id="label_diff_property" adr_trans="label_diff_property">The property address is different from sellers address</span>
 
            </div>
 

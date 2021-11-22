@@ -213,7 +213,7 @@ height:fit-content!important;
 					 <div class="col-md-3">
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
                         <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
-                            <h5 adr_trans="label_my_earnings">My Earnings</h5>
+                            <h5 adr_trans="label_my_earnings_month">My Earnings this Month</h5>
                             <?php
                             $total1=0;
                             @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and photographer_id=$user_id");
