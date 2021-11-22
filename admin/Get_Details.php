@@ -75,11 +75,8 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\">
                             <div class=\"panel\" id=\"contactDiv\">
                                ".$product."<br>
                             </div>
-							<hr class=\"space s\">
-<p align=\"center\">
+						
 
-<a class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar10.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_book_online'>Book Online</a>&nbsp;&nbsp;&nbsp;
-<a class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar10.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-check\"></i><span adr_trans='label_book_now'>Book Now</span></a></p>
 							";
 
 
