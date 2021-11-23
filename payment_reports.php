@@ -514,7 +514,7 @@ if(!empty($_REQUEST['pcfilter'])){
                              ?>
                             <td class="text-left" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
-                            <td class="text-left" style=""><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color:green;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span style='color:green;font-weight:bold;'>Rework</span>";} ?></td>
+                            <td class="text-left" style=""><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
 
                             </tr>
 													<?php } }?>

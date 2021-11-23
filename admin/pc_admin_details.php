@@ -170,7 +170,7 @@ $id=@$_REQUEST['id'];
 					<tr><th><span adr_trans="label_registration_date">Registration Date</span></th><td>:</td><td><?php echo $res1['registered_on']; ?></td></tr>
 
 
-                <tr><th><span adr_trans="label_status">Status</span></th><td>:</td><td><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color:green;font-weight:bold;'>Approved</span>"; } ?></td></tr>
+                <tr><th><span adr_trans="label_status">Status</span></th><td>:</td><td><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td></tr>
 
 				</tbody>
 				  </table>

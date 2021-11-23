@@ -246,7 +246,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; } ?></td>
+				<td class="text-left" style=""><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
 				<td class="text-left" style=""><a target="" href="csr_details.php?val=1&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_users.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit CSR details"></i></a></td>
@@ -390,7 +390,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved2==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; } ?></td>
+				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved2==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
 				<td class="text-left" style=""><a target="" href="csr_details.php?val=1&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
@@ -530,7 +530,7 @@ $q = "SELECT *FROM admin_users where type_of_user in ('SuperCSR','StandaloneCSR'
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><?php $approved=$res1['email_verified']; if($approved==0) { echo "<span style='color:red;font-weight:bold;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;'>Approved</span>"; } ?></td>
+				<td class="text-left" style=""><?php $approved=$res1['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
 				<td class="text-left" style=""><a target="" href="userDetails.php?val=1&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>

@@ -253,7 +253,7 @@ if(isset($_REQUEST['id']))
 					<tr><th style="padding-left:20px;"><span adr_trans="label_registration_date">Registration Date</span></th><td>:</td><td><?php echo $res1['registered_on']; ?></td></tr>
 
 
-                <tr><th style="padding-left:20px;"><span adr_trans="label_status">Status</span></th><td>:</td><td><?php if($res1['type_of_user']!='PCAdmin'){$approved=$res1['email_verified']; }else{$approved=$res1['is_approved'];}if($approved==0) { echo "<span style='color:red;font-weight:bold;' adr_trans='label_pending'>Pending</span>"; } elseif($approved==2) { echo "<span style='color:red;font-weight:bold;' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color:green;font-weight:bold;' adr_trans='label_approved'>Approved</span>"; } ?></td></tr>
+                <tr><th style="padding-left:20px;"><span adr_trans="label_status">Status</span></th><td>:</td><td><?php if($res1['type_of_user']!='PCAdmin'){$approved=$res1['email_verified']; }else{$approved=$res1['is_approved'];}if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_pending'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_approved'>Approved</span>"; } ?></td></tr>
 
 				</tbody>
 				  </table>

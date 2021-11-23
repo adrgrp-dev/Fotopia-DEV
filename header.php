@@ -238,7 +238,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                 <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
@@ -335,7 +335,7 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
                             <li class="dropdown current-active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi">Hi</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi" style="text-transform:none!important;">Hi,</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                   <li><a href="change_email_password.php"  adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
 				  <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
@@ -462,7 +462,7 @@ $(function(){
                             <i class="fa fa-bars"></i>
                         </button> <?php } ?>
                 <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
 
 
@@ -478,7 +478,7 @@ if(isset($_SESSION['loggedin_email']))
 
                         <ul class="nav navbar-nav" style="width:170px;float:left;margin-left:-30px;margin-top:0px;">
                             <li class="dropdown current-active" style="float:left">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="text-transform:none!important;">Hi, <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu"  style="width:200px;position:absolute; background:#FFF;color:#000;">
                   <li><a href="change_email_password.php" adr_trans="label_my_account">My Account</a></li>
 				    <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>

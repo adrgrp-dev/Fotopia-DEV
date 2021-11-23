@@ -146,11 +146,15 @@ background:#F1F3F4!important;
 }
 @font-face {
   font-family: Manrope-Regular;
-  src: url('./Manrope-Font/Manrope-Regular.ttf');
+  src: url('./Manrope-Font/Manrope-Bold.ttf');
 }
 .listPageTRGap
 {
 line-height:7px!important;
+}
+.tab-box .panel.active
+{
+background:#FFF;
 }
 .listPageTR
 {
@@ -158,6 +162,7 @@ border-top:solid 1px #AAA;
 border-bottom:solid 0.5px #AAA;
 border-left:solid 1px #AAA;
 border-right:solid 1px #AAA;
+background:#FFF;
 }
 .listPageTR>td
 {
@@ -182,6 +187,12 @@ border-radius:5px;
 opacity:0.8;
 
 }
+td > span
+{
+border-radius:5px!important;
+font-size:10px;
+}
+
 .nav-tabs > li
 {
 margin:10px;
@@ -198,6 +209,7 @@ font-size:11px;
 font-weight:bold;
 color:#000!important;
 }
+
 .nav-tabs > li > a
 {
 background:#FFF!important;
