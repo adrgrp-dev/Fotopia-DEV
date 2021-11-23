@@ -122,7 +122,7 @@ height:fit-content!important;
 
 </style>
 <?php include "header.php";  ?>
- <div class="section-empty bgimage9">
+ <div class="section-empty ">
         <div class="" style="margin-left:0px;height:inherit;width:100%;">
             <div class="row">
 			<hr class="space s">
@@ -215,20 +215,12 @@ height:fit-content!important;
                                    </div>
 
 					 <div class="col-md-3">
-<<<<<<< .mine
+
                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 					
-					<h5><i class="fa fa-sliders fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_my_earnings">My Earnings</span></h5>
+					<h5><i class="fa fa-sliders fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_my_earnings_month">My Earnings this Month</span></h5>
                             
-||||||| .r345
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
-                            <h5 adr_trans="label_my_earnings">My Earnings</h5>
-=======
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
-                            <h5 adr_trans="label_my_earnings_month">My Earnings this Month</h5>
->>>>>>> .r348
+
                             <?php
                             $total1=0;
                             @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and photographer_id=$user_id");
