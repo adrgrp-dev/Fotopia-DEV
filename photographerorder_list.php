@@ -54,11 +54,7 @@ color:#000000!important;
 font-weight:600!important;
 }
 
-		th,td
-		{
-		padding:5px!important;
-		text-align:left!important;
-		}
+		
 
 		@media only screen and (max-width: 600px) {
 
@@ -84,18 +80,10 @@ font-weight:600!important;
                 </div>
 <style>
 
-		.nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
 
 
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}
+
+
 </style>
 <div class="col-md-10" >
 <div class="tab-box" data-tab-anima="show-scale">
@@ -123,15 +111,15 @@ $pht = $_SESSION['loggedin_id'];
             } ?> -->
 
         <div >
-<div id="" style="width:100%;overflow:scroll;">
+<div id="" style="width:100%;">
       <table class="" aria-busy="false" width="100%">
           <thead>
               <tr><th  class="text-left" style="" id="label_s.no"  ><span adr_trans="label_order_no">
                           Order#
 
                  </span></th>
-								 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_created_by">Created By</span> / <br /><span adr_trans="label_realtor_name">
-                          Realtor Name
+								 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_created_by">Created By</span> /<span adr_trans="label_realtor">
+                          Realtor
 
                   </span></th>
 								 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_homeseller">
@@ -223,7 +211,7 @@ $pht = $_SESSION['loggedin_id'];
           {
           $cnt++;
           ?>
-          <tr >
+          <tr class="listPageTR">
           <td class="text-left" style=""><?php echo $get_order['id']; ?></td>
 					<?php
 
@@ -272,6 +260,7 @@ $pht = $_SESSION['loggedin_id'];
 
 
           </tr>
+		  <tr><td class="listPageTRGap">&nbsp;</td></tr>
           <?php }} ?>
               </table>
 

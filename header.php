@@ -370,6 +370,8 @@ $loggedin_id=$_SESSION['loggedin_id'];
 if($user_type=='Photographer')
 {
  $photographer_count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or photographer_id='$loggedin_id') and (is_read=0 or photographer_read=0)";
+ 
+ 
                   $photographer_count_result=mysqli_query($con,$photographer_count_query);
 				  $photographer_data=mysqli_fetch_assoc($photographer_count_result);
                   $countIs=$photographer_data['total'];

@@ -100,13 +100,18 @@ TABS
 }
 
 .tab-box.inverse .nav-tabs li.active {
-    background-color: #FFF;
+  
     border-top: 1px solid #FFF;
 }
 
 .tab-box .nav-tabs li.active {
-    background-color: #FFF;
+    background-color: #AAD1D6;
     z-index: 1;
+	width:fit-content;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
 .tab-box .nav-tabs.nav-center li.active {
