@@ -128,23 +128,23 @@ var days = 1;
 
 
 
-
-<div style="width:100%;overflow:scroll">
-              <table  id="dataTable" cellpadding="10" class="table-striped" style="width:100%;border-radius:30px 30px 30px 30px!important;">
+<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+<div style="width:100%;">
+              <table  id="dataTable" align="center" cellpadding="10" class="table-striped" style="width:98%;">
 
 
 
                                     <thead>
 					<tr class="text-center"><th align="center" colspan="8"><center><b><br /><span adr_trans="label_appointment_report">Appointment Reports</span><br /></b></center></th></tr>
 
-                                        <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                                        <tr><th data-column-id="id" class="text-center" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                               S.No
 
-                                            </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_home_address" adr_trans="label_home_address">
+                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" id="label_home_address" adr_trans="label_home_address">
                                               Home Address
                                             </span>
-                                <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_city" adr_trans="label_city">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                              City
 
@@ -152,14 +152,14 @@ var days = 1;
                                             </span>
 
 
-                                <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_state" adr_trans="label_state">
+                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                            State
 
 
                                             </span>
 
-                                <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
 
                                             Photographer
@@ -167,25 +167,25 @@ var days = 1;
 
                                             </span>
 
-                                <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
 
                                           Session Date & Time
 
 
                                             </span>
 
-                                <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_products" adr_trans="label_products">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_products" adr_trans="label_products">
 
                                            Products
 
                                             </span>
 
 
-                                          <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                          <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                               Realtor
 
-                                            </span>	</a></th></tr>
+                                            </span>	</th></tr>
                                     </thead>
                                     <tbody>
                             <?php
@@ -423,16 +423,16 @@ $_SESSION['filterby']=$filterBy;
                             $cnt++;
                                //	---------------------------------  pagination starts ---------------------------------------
                             ?>
-                            <tr data-row-id="0">
-                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                            <tr data-row-id="0" class="listPageTR">
+                            <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <?php
                               $hs_id=$get_order["home_seller_id"];
                               $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                               $get_home=mysqli_fetch_assoc($get_home_query);
                              ?>
-                            <td class="text-left" style=""><?php echo $get_home["address"];?></td>
-                              <td class="text-left" style=""><?php echo $get_home["city"];?></td>
-                                <td class="text-left" style=""><?php echo $get_home["state"];?></td>
+                            <td class="text-center" style=""><?php echo $get_home["address"];?></td>
+                              <td class="text-center" style=""><?php echo $get_home["city"];?></td>
+                                <td class="text-center" style=""><?php echo $get_home["state"];?></td>
                             <?php
                             $photographer_id=$get_order['photographer_id'];
 														  $order_id=$get_order['id'];
@@ -440,12 +440,12 @@ $_SESSION['filterby']=$filterBy;
                             $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
                             $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
                             ?>
-                            <td class="text-left" style=""><?php echo @$photographer_Name; ?></td>
+                            <td class="text-center" style=""><?php echo @$photographer_Name; ?></td>
                             <?php
 
                               $toexp=explode(" ",$get_order['session_to_datetime']);
                              ?>
-                            <td class="text-left" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
+                            <td class="text-center" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
                             <?php
 														$prodName="";
@@ -459,7 +459,7 @@ $_SESSION['filterby']=$filterBy;
 								  				$prodName.=$prodsList1['product_name'].'&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;'.$prodQty['quantity'].'<br>';
 																									}
                             ?>
-                            <td class="text-left" style="width: 200px;word-wrap: break-word;"><?php  echo @substr($prodName,0,-1); ?></td>
+                            <td class="text-center" style="width: 200px;word-wrap: break-word;"><?php  echo @substr($prodName,0,-1); ?></td>
 
                             <?php
                            $prodQuan="";
@@ -501,12 +501,14 @@ $_SESSION['filterby']=$filterBy;
                             $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                             ?>
 
-                            <td class="text-left" style=""><?php echo $created_name; ?></td>
+                            <td class="text-center" style=""><?php echo $created_name; ?></td>
 
                             </tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
 													</tbody>
                                 </table></div>
+                              </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

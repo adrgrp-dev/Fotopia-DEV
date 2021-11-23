@@ -83,7 +83,7 @@ header("location:subcsrOrder_list1.php?app=1");
      }
      </script>
 	 <style>
-	.nav-tabs > li.active > a, .current-active {
+	/*.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
     opacity: 0.8;
@@ -94,7 +94,45 @@ header("location:subcsrOrder_list1.php?app=1");
 {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
+}*/
+ul.pagination li
+{
+ font-size: 10px;
 }
+ul.pagination > li > a
+{
+ background: #AAD1D6 !important;
+ color: #378087 !important;
+ border-color: #AAD1D6 !important;
+ padding: 4px 5px;
+}
+ul.pagination > li.active > a
+{
+  background: #378087 !important;
+  color: #FFF!important;
+  border-color: #378087 !important;
+}
+
+
+/*ul.pagination > li.prev > a
+{
+ background: white !important;
+ color: green !important;
+ border-color: white !important;
+}*/
+
+/*ul.pagination > li.next > a
+{
+  background: white !important;
+ color: green !important;
+ border-color: white !important;
+}
+ul.pagination > li.last > a
+{
+  background: white !important;
+ color: green !important;
+ border-color: white !important;
+}*/
 	 </style>
 
                 </div>
@@ -396,13 +434,13 @@ header("location:subcsrOrder_list1.php?app=1");
                           <div id="undefined-footer" class="bootgrid-footer container-fluid">
                             <div class="row"><div class="col-sm-6">
                               <ul class="pagination">
-                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?page=1" class="button adr-save">«</a></li>
+                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?page=1" class="button btn-primary">«</a></li>
                                 <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button btn-primary">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                               <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                               <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to">  to </span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?>&nbsp;<span adr_trans="label_entries"> entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -674,7 +712,7 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?>&nbsp;<span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -932,9 +970,9 @@ header("location:subcsrOrder_list1.php?app=1");
                                 <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?o=1&page=".($Page_check);?>" class="button btn-primary">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to">  to </span> <?php if($cnt<0){ echo " 0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?>&nbsp;<span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -1200,14 +1238,14 @@ header("location:subcsrOrder_list1.php?app=1");
                           <div id="undefined-footer" class="bootgrid-footer container-fluid">
                             <div class="row"><div class="col-sm-6">
                               <ul class="pagination">
-                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?page=1&c=1" class="button adr-save">«</a></li>
+                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?page=1&c=1" class="button btn-primary">«</a></li>
                                 <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?c=1&page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?c=1&page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?c=1&page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?c=1&page=".($Page_check);?>" class="button btn-primary">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
                                 <div class="infos">
-						<p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p>
+						<p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?>&nbsp;<span adr_trans="label_entries">  entries</span></p>
 				<?php /* <p align="right">Showing <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> to <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> entries</p> */ ?>
 								</div>
                                 </div>

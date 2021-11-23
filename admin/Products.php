@@ -59,10 +59,10 @@ header("location:products.php?u=1");
 ?>
 <?php include "header.php";  ?>
 <style>
-p{
+/*p{
 		font-weight:bold;
 		padding-bottom:0px;
-	}
+	}*/
 .active
 {
 background:none!important;
@@ -75,10 +75,7 @@ p
 {
 color:#000!important;
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
-{
-border-top:none!important;
-}
+
 </style>
 <script>
         function confirmDelete() {
@@ -231,8 +228,8 @@ border-top:none!important;
 </center>
 <br><br><br />
 						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products</h5>
-						  <div style="width:100%;overflow:scroll">
-					<table class="table-striped" style="width:100%">
+						  <div style="width:100%;">
+					<table align="center" class="table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -298,19 +295,21 @@ border-top:none!important;
                   {
 	                  $cnt++;
 				          ?>
-                    <tr>
-                        <th scope="row"><?php echo $cnt;?></th>
+                    <tr class="listPageTR">
+                        <td><?php echo $cnt;?></td>
                         <td><?php echo $get_product['product_name']; ?></td>
                         <td><?php echo $get_product['product_cost']; ?></td>
                         <!-- <td><?php //echo $get_product['photographer_bata']; ?></td> -->
 					             	<td><?php echo $get_product['tax']; ?></td>
                         <td><?php echo $get_product['total_cost']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
-						<td style="word-wrap:break-word;width:300px"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
+						<td style="word-wrap:break-word;width:250px"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
 				                <td><a  href="products.php?prodid=<?php echo $get_product['id']; ?>&edit=1"><i class="fa fa-pencil" title="Edit"></i></a> &nbsp;
 				                 <a href="products.php?prodid=<?php echo $get_product['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash-o" title="Delete"></i></a>
 						            </td>
                     </tr>
+                    <tr><td class="listPageTRGap">&nbsp;</td></tr>
+
 
 
 				   <?php } } else { ?>

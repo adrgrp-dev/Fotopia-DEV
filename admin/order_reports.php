@@ -220,19 +220,19 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 
 
 
-			<div style="width:100%;overflow:scroll;border:solid 1px #000">
+			<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
 
-                            <table id="dataTable" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
+                            <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
 						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="label_order_report">Order Reports</span><br /></b></center></th></tr>
-                                      <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                                      <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                             S.No
 
-                                          </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_property" adr_trans="label_property">
+                                          </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_property" adr_trans="label_property">
                                             Property
                                           </span>
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                            Photographer
 
@@ -240,14 +240,14 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
                                           </span>
 
 
-                              <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
+                              <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
 
                                          Session Date & Time
 
 
                                           </span>
 
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_products" adr_trans="label_products">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_products" adr_trans="label_products">
 
 
                                           Products
@@ -255,25 +255,25 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 
                                           </span>
 
-                                          <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_total_value" adr_trans="label_total_value">
+                                          <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_total_value" adr_trans="label_total_value">
 
                                         Total Value
 
 
                                           </span>
 
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                           Realtor
 
                                           </span>
 
 
-                              <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                              <span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                                   Status
 
-                                          </span>	</a></th></tr>
+                                          </span>	</th></tr>
                                   </thead>
                                   <tbody>
                           <?php
@@ -502,7 +502,7 @@ $res="";
                           $cnt++;
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
-                          <tr data-row-id="0">
+                          <tr data-row-id="0" class="listPageTR">
                           <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                           <?php
                             $hs_id=$get_order["home_seller_id"];
@@ -590,6 +590,7 @@ $res="";
                           <td class="text-left" style=""><?php $status=$get_order['status_id'];if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color:blue;font-weight:bold;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color:#FF8400;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color:green;font-weight:bold;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color:red;font-weight:bold;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color:Red;font-weight:bold;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color:Red;font-weight:bold;'>Cancelled</span>";}elseif($status==8){echo "<span style='color:red;font-weight:bold;' id='' adr_trans=''>Reopen</span>";} ?></td>
 
                           </tr>
+                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php }} ?>
 												</tbody>
                               </table></div>

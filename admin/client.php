@@ -141,7 +141,7 @@ if(isset($_REQUEST['email']))
                 <div class="col-md-2" style="padding-left:10px;">
 	<?php include "sidebar.php"; ?>
   <style>
-  table {
+ /* table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -156,15 +156,15 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
-}
+}*/
 
-.nav-tabs > li.active > a, .current-active {
+/*.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
     opacity: 0.8;
 
 
-}
+}*/
 
 .mfp-container{
 
@@ -172,11 +172,11 @@ background: none !important;
 
 } 
 
-.current-active
+/*.current-active
 {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
-}
+}*/
 @media only screen and (max-width: 600px) {
 td
 {
@@ -230,12 +230,12 @@ var xhttp= new XMLHttpRequest();
                               <div class="tab-box " data-tab-anima="fade-right" style="">
 
 
-                                  <ul class="nav nav-tabs  nav-justified" style="border-bottom:1px solid #000;">
+                                  <ul class="nav nav-tabs" style="border-bottom:1px solid #000;">
                                       <li id="click1" class="active current-active"><a href="#" id="label_all_realtor" adr_trans="label_all_realtor">All Realtor</a></li>
                                       <li id="click2"><a href="#" id="label_favourite_realtor" adr_trans="label_favourite_realtor">My Favourite Realtor</a></li>
 
                                   </ul>
-                                  <div class="panel active" style="" id="tab1">
+                                  <div class="panel active" style="background-color: white;" id="tab1">
                                     <div class="col-md-9">
 
 																		<form name="realtorSearch" method="post" action="client.php" >
@@ -253,8 +253,8 @@ var xhttp= new XMLHttpRequest();
 				</div>
                                     <hr class="space s">
 
-									 <div style="width:100%;overflow:scroll;height:500px;">
-                                    <table style="width:100%" class="table-stripped">
+									 <div style="width:100%;">
+                                    <table style="width:100%" align="center" class="table-stripped" style="background:#FFF;color:#000;">
                                        <tr>
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
@@ -293,11 +293,11 @@ else
                                        while($realtor=mysqli_fetch_assoc($realtor_query))
                                        {
                                           ?>
-                                          <tr>
+                                          <tr class="listPageTR">
                                             <td><?php echo @$realtor['first_name'];?></td>
                                                 <td><?php echo @$realtor['last_name'];?></td>
 						<td><?php echo @$realtor['organization_name'];?></td>
-                                                    <td><?php echo @$realtor['address_line1'];?></td>
+                                                    <td style="width:200px;"><?php echo @$realtor['address_line1'];?></td>
                                                         <td><?php echo @$realtor['city'];?></td>
                                                         <td><?php echo @$realtor['state'];?></td>
                                                        <td><?php echo @$realtor['country'];?></td>
@@ -327,12 +327,13 @@ else
 					<?php } ?>
 
                                           </tr>
+                                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
                                           <?php  } ?>
 
                                      </table></div>
                                   </div>
-                                  <div class="panel" id="tab2">
+                                  <div class="panel" id="tab2" style="background-color: white;">
 											<div class="col-md-9">
 			<form name="realtorSearch" method="post" action="client.php?favourite=1">
 	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" value="<?php echo @$_REQUEST['filter_realtor_favourite'];?>" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
@@ -349,13 +350,13 @@ else
 				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
 				</div>
                                     <hr class="space s">
-									 <div style="width:100%;overflow:scroll;height:500px;">
-                                    <table style="width:100%" class="table-striped">
-                                       <tr>
+									 <div style="width:100%;">
+                                    <table style="width:100%" align="center" class="table-striped" >
+                                       <tr style="background-color: white">
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
 										<th><span adr_trans="label_organization">Organization</span></th>
-                                         <th><span adr_trans="label_address">Address</span></th>
+                                         <th><span adr_trans="label_address" >Address</span></th>
                                             <th><span adr_trans="label_city">City</span></th>
                                                <th><span adr_trans="label_state">state</span></th>
                                                <th><span adr_trans="label_country">Country</span></th>
@@ -386,17 +387,18 @@ else
                                        while($realtor1=mysqli_fetch_assoc($realtor_query1))
                                        {
                                           ?>
-                                          <tr>
+                                          <tr class="listPageTR">
                                             <td><?php echo @$realtor1['first_name'];?></td>
                                                 <td><?php echo @$realtor1['last_name'];?></td>
 																									  <td><?php echo @$realtor1['organization'];?></td>
-                                                    <td><?php echo @$realtor1['address_line1'];?></td>
+                                                    <td style="width:200px;"><?php echo @$realtor1['address_line1'];?></td>
                                                         <td><?php echo @$realtor1['city'];?></td>
                                                             <td><?php echo @$realtor1['state'];?></td>
                                                                 <td><?php echo @$realtor1['country'];?></td>
                                                                     <td><a href="client_detail.php?realtor_id=<?php echo $realtor1['id'];?>"><i class="fa fa-external-link"></i></a></td>
                                                                         <td><a title="Remove from favourites" onclick="unfavourite('<?php echo $realtor1['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart" style="color:green;"></i></a></td>
                                           </tr>
+                                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
                                           <?php
                                       }
                                        ?>

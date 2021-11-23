@@ -168,7 +168,7 @@ font-weight:bold;
 font-size:10px;
 color:#000!important;
 }
-th
+th,th > span
 {
 font-family: Manrope-Regular;
 font-size:11px;
@@ -6479,3 +6479,21 @@ MOBILE
         padding-bottom: 25px;
     }
 }
+ul.pagination li
+{
+ font-size: 10px;
+}
+ul.pagination > li > a
+{
+ background: #AAD1D6 !important;
+ color: #378087 !important;
+ border-color: #AAD1D6 !important;
+ padding: 4px 5px;
+}
+ul.pagination > li.active > a
+{
+  background: #378087 !important;
+  color: #FFF!important;
+  border-color: #378087 !important;
+}
+

@@ -11,7 +11,7 @@ include "connection1.php";
                 <div class="col-md-2">
 	<?php include "sidebar.php"; ?>
   <style>
-  table {
+/*  table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -22,11 +22,11 @@ td, th {
   text-align: left;
   padding: 8px;
   color: black;
-}
+}*/
 
 
 
-.nav-tabs > li.active > a, .current-active {
+/*.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
     opacity: 0.8;
@@ -37,7 +37,7 @@ td, th {
 {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
-}
+}*/
   </style>
    <?php
       $realtor_id=@$_REQUEST['realtor_id'];
@@ -107,8 +107,9 @@ td, th {
                      <hr class="space s">
 					 <div>
                       <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                     <table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.9;width:100%;border-radius:25px;">
-                          <tr>
+                      <div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+                     <table align="center" style="color: #000;opacity:0.9;width:98%;">
+                          <tr >
                            <th style="color:black;"><span> S.no</span></th>
                              <th style="color:black;"><span adr_trans="label_product">Product</span></th>
                                <th style="color:black;"><span adr_trans="label_photo_company">Photo Company</span></th>
@@ -122,7 +123,7 @@ td, th {
                              while($get_product=mysqli_fetch_assoc($get_product_query))
                              {
                              ?>
-                             <tr>
+                             <tr class="listPageTR">
 
                               <td style="color:black;"><?php echo @$cnt++; ?> </td>
                               <?php
@@ -144,8 +145,10 @@ td, th {
                                       <td style="color:black;"><?php echo @$get_product['discount_price']; ?></td>
                                         <td style="color:black;"><?php echo @$get_product1['timeline']; ?></td>
                                 </tr>
+                                <tr><td class="listPageTRGap">&nbsp;</td></tr>
                               <?php } ?>
                      </table>
+                   </div>
 </div>
                      <div>
 

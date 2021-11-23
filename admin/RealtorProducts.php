@@ -111,10 +111,7 @@ header("location:RealtorProducts.php?u=1&realtor=".$realtor_id);
 ?>
 <?php include "header.php";  ?>
 <style>
-p{
-		font-weight:bold;
-		padding-bottom:0px;
-	}
+
 .active
 {
 background:none!important;
@@ -127,10 +124,7 @@ p
 {
 color:#000!important;
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
-{
-border-top:none!important;
-}
+
 </style>
 <script>
         function confirmDelete() {
@@ -307,8 +301,8 @@ border-top:none!important;
 
 						</form>
 						</p>
-						  <div style="width:100%;overflow:scroll">
-					<table class="table-striped" style="width:100%;">
+						  <div style="width:100%; ">
+					<table class="table-striped" align="center" style="width:100%;">
                 <?php
 				$total_no=0;
 				if(@$_REQUEST['realtor'])
@@ -394,8 +388,8 @@ $realtorDiscountPrice=0;
 					  }
 
 				          ?>
-                    <tr>
-                        <th scope="row"><?php echo $cnt;?></th>
+                    <tr class="listPageTR">
+                        <td><?php echo $cnt;?></td>
                         <td><?php echo $get_product['product_name']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['total_cost']; ?></td>
@@ -409,6 +403,7 @@ $realtorDiscountPrice=0;
 
 
                     </tr>
+                    <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
 				   <?php } } else { ?>
 				   <tr><td colspan="7" id="label_no_product" adr_trans="label_no_product">No products found.</td></tr>
