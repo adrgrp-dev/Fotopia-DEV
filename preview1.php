@@ -145,7 +145,7 @@ if(isset($_POST['email']))
   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
   $photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
   email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
-  header("location:photographerorder_detail.php?id=".$id_url."&upload=1");
+  header("location:photographerorder_detail.php?id=".$id_url."&upload=1&fixed=2");
 
  }
 if(isset($_POST['floor_email']))
@@ -167,7 +167,7 @@ $comment=$_REQUEST['commentall'];
   $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,2,'$comment','$filecount')";
   $insert=mysqli_query($con,$query);
   email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
-  header("location:photographerorder_detail.php?id=".$id_url."&upload=1");
+  header("location:photographerorder_detail.php?id=".$id_url."&upload=1&fixed=2");
 
   }
 if(isset($_POST['Drone_email']))
@@ -190,7 +190,7 @@ $comment=$_REQUEST['commentall'];
 
 
 
-  header("location:photographerorder_detail.php?id=".$id_url);
+  header("location:photographerorder_detail.php?fixed=2&id=".$id_url);
 
  }
  if(isset($_POST['hdr_email']))
@@ -209,7 +209,7 @@ $comment=$_REQUEST['commentall'];
    $query="INSERT INTO `raw_images`(`images_url`, `security_code`, `order_id`, `editor_email`, `sent_by`, `sent_on`, `status`,`service_name`,`comments`,`total_files`) VALUES ('$url','$secret_code',$id_url,'$editor_email',$SESSION,now(),1,4,'$comment','$filecount')";
    $insert=mysqli_query($con,$query);
    email($secret_code,$photographer_Name,$editor_email,$id_url,$con);
-   header("location:photographerorder_detail.php?id=".$id_url);
+   header("location:photographerorder_detail.php?fixed=2&id=".$id_url);
 
    }
 ?>
@@ -301,7 +301,7 @@ var a;
                   <h5 style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
 
                    <button  class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top: -50px;" adr_trans="label_send"> Send</button>
-                   <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                   <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn(this.val)" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
 
                     <?php
@@ -414,7 +414,7 @@ var a;
 
                     <h5 style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
                        <button  class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send"> Send</button>
-                       <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send" >Send</a>
+                       <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send" >Send</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <?php
                             $photographer_id=$_SESSION['loggedin_id'];
@@ -1021,7 +1021,7 @@ $("#edit_button3").hide();
 
 <?php if(isset($_REQUEST['update']))
 {
- header("location:photographerorder_detail.php?id=".$id_url."&upload=1");
+ header("location:photographerorder_detail.php?id=".$id_url."&upload=1&fixed=2");
  } ?>
 
 

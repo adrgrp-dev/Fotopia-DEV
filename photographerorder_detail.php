@@ -92,6 +92,9 @@ Fotopia Team.
 		echo $e->getMessage();
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	}
+
+  header("location:photographerorder_detail.php?id=".$id_url."&fixed=1");
+
 }
 
 
@@ -117,7 +120,7 @@ function getFileCount($path) {
 if(isset($_POST['ZIP']))
 {
 
-$OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
+$OrderCityState=mysqli_query($con,"select * from orders where id='$id'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
 $property_state=$OrderCityState1['property_state'];
@@ -1555,7 +1558,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                        ?>
                                                <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                <hr class="space s">
-                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
                                                      </div>
                                                   </div>
 
@@ -1595,7 +1598,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           {
                                           //  document.getElementById("drone_msg").innerHTML = this.responseText;
                                         // alert(this.responseText);
-										window.location="photographerorder_detail.php?id="+order_id;
+										window.location="photographerorder_detail.php?fixed=3&id="+order_id;
 										  }
                                           };
                                            xhttp.open("GET","rework1.php?url="+a+"&od="+c+"&order_id="+order_id, true);
@@ -1603,7 +1606,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           //location.reload();
                                          }
                                         }
-                                        function disapprovestandard(data,comment_id)
+                                        function disapprovestandard(data,comment_id,order_id)
                                         {
                                           if($("#s"+comment_id).val()=="")
                                           {
@@ -1619,11 +1622,16 @@ header("location:photographerDashboard.php?private=1"); exit;
                                           if (this.readyState == 4 && this.status == 200)
                                           {
                                           //  document.getElementById("drone_msg").innerHTML = this.responseText;
+
+                                          window.location="photographerorder_detail.php?fixed=3&id="+order_id;
+
                                           }
                                           };
                                            xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
                                            xhttp.send();
-                                           location.reload();
+                                           // location.reload();
+
+
                                         }
                                         }
                                         </script>
@@ -3052,6 +3060,71 @@ function updateScroll(){
                                               }
                                               }
                                               ?>
+
+<?php if(@$_REQUEST['fixed']==1)
+{ ?>
+<script>
+
+$("#click4").addClass("active");
+$("#click1").removeClass("active");
+$("#click3").removeClass("active");
+$("#click5").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+$("#tab4").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab3").removeClass("active");
+$("#tab5").removeClass("active");
+$("#tab6").removeClass("active");
+
+
+</script>
+<?php } ?>
+
+
+<?php if(@$_REQUEST['fixed']==2)
+{ ?>
+<script>
+
+$("#click3").addClass("active");
+$("#click1").removeClass("active");
+$("#click4").removeClass("active");
+$("#click5").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+$("#tab3").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab4").removeClass("active");
+$("#tab5").removeClass("active");
+$("#tab6").removeClass("active");
+
+
+</script>
+<?php } ?>
+
+
+<?php if(@$_REQUEST['fixed']==3)
+{ ?>
+<script>
+
+$("#tab5").addClass("active");
+$("#click1").removeClass("active");
+$("#click4").removeClass("active");
+$("#click5").removeClass("active");
+$("#click3").removeClass("active");
+
+
+$("#tab6").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab4").removeClass("active");
+$("#tab5").removeClass("active");
+$("#tab3").removeClass("active");
+
+
+</script>
+<?php } ?>
 
 
 

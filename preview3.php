@@ -154,7 +154,7 @@ $(".stdImg").each(function(){
     }
   });
 
-window.location='photographerorder_detail.php?id=<?php echo $id_url; ?>';
+window.location='photographerorder_detail.php?id=<?php echo $id_url; ?>&fixed=1';
 });
 
 $('.stdImg').on('keypress', function (event) {

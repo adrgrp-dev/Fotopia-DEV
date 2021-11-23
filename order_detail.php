@@ -80,7 +80,7 @@ $xyz123=0;
   ";
     // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
     $link=explode('?',$_REQUEST['link1']);
-    $link1=$_SESSION['project_url']."sharelink.php?".$link[1];
+    $link1=$_SESSION['project_url']."sharelink.php?".@$link[1];
   	$mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
     // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   	// $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
@@ -99,6 +99,9 @@ $xyz123=0;
 
 // echo $mail->Body;
 // exit;
+
+    header("location:order_detail.php?id=".$id_url."&f=1");
+
 
   }
 
@@ -190,6 +193,9 @@ Fotopia Team.
 
 // echo $mail->Body;
 // exit;
+
+
+    header("location:order_detail.php?id=".$id_url);
 
 }
 
@@ -404,7 +410,7 @@ if(isset($_REQUEST['rework']))
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
     $file="rework_images/order_".$id_url."/".$data1[2]."/".$get_image['img'];
   rename($file1,$file);
-  header("location:order_detail.php?id=$id_url");
+  header("location:order_detail.php?id=".$id_url."&f=1");
   }
 
   $comment=@$_REQUEST['comment'];
@@ -2544,4 +2550,32 @@ $("#selectall").click(function(){
 });
   </script>
   <?php } ?>
+
+
+
+
+
+
+  <?php if(@$_REQUEST['f']==1)
+{ ?>
+<script>
+
+$("#click3").addClass("active");
+$("#click1").removeClass("active");
+$("#click4").removeClass("active");
+$("#click5").removeClass("active");
+
+
+$("#tab3").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab4").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+
+</script>
+<?php } ?>
+
+
+
 		<?php include "footer.php";  ?>

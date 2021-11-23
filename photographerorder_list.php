@@ -95,8 +95,8 @@ $pht = $_SESSION['loggedin_id'];
        <!--  <a href="create_order.php?photographer_id=<?php //echo $pht;  ?>" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a> -->
         <!-- </p> -->
 <ul class="nav nav-tabs">
-<li  class="active"><a href="#tab1" id="click1" adr_trans="label_ongoing_orders">On Going Orders</a></li>
-<li ><a href="#tab2" id="click2" adr_trans="label_completed_orders">Completed Orders</a></li>
+<li  class="active" id="click11"><a href="#tab1" id="click1" adr_trans="label_ongoing_orders">On Going Orders</a></li>
+<li id="click22" ><a href="#tab2" id="click2" adr_trans="label_completed_orders">Completed Orders</a></li>
 </ul>
 
 <div class="panel active" id="tab1">
@@ -462,11 +462,11 @@ $pht = $_SESSION['loggedin_id'];
                           <div id="undefined-footer" class="bootgrid-footer container-fluid">
                             <div class="row"><div class="col-sm-6">
                               <ul class="pagination">
-                                <li class="first disabled" aria-disabled="true"><a href="./photographerorder_list.php?page=1" class="button">«</a></li>
-                                <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
+                                <li class="first disabled" aria-disabled="true"><a href="./photographerorder_list.php?o=1&page=1" class="button">«</a></li>
+                                <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?o=1&page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
-                                <li class="next disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
-                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
+                                <li class="next disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?o=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
+                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./photographerorder_list.php?o=1&page=".($Page_check);?>" class="button">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
                                 <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                                 </div>
@@ -496,6 +496,25 @@ $pht = $_SESSION['loggedin_id'];
 	</div>
 
   	</div>
+
+
+
+<?php if(@$_REQUEST['o']==1)
+{ ?>
+<script>
+
+$("#click22").addClass("active");
+$("#click11").removeClass("active");
+
+
+
+$("#tab2").addClass("active");
+$("#tab1").removeClass("active");
+
+
+</script>
+<?php } ?>
+
 
 
 		<?php include "footer.php";  ?>
