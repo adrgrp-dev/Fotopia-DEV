@@ -383,7 +383,7 @@ $("#dayVal").val(calid);
 
                 <div class="col-md-10">
 
-<div class="tab-box"  data-tab-anima="show-scale">
+<div class="tab-box"  data-tab-anima="show-scale" style="width:85%;padding-left: 200px;">
 <ul class="nav nav-tabs nav-justified" style="">
 <li class=" active "><a href="#" class="">Shared Images</a>
 
@@ -393,10 +393,6 @@ $("#dayVal").val(calid);
 
 </ul>
 <div class="panel active" style="border-radius: 0px 0px 10px 10px;">
-
-
-
-
 
   <div class="maso-list gallery">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
