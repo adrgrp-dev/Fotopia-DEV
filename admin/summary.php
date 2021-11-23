@@ -327,7 +327,7 @@ $hs_id=$get_summary['home_seller_id'];
           <?php if(@$_REQUEST['edit']==1){?>
 				 <h3 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Updated Successfully!</h3>
        <?php }else{?>
-          <h3 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Created Successfully!</h3>
+          <h3 id="label_order_created" adr_trans="label_order_created" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Created Successfully!</h3>
         <?php } ?>
        </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#000;color:#fff;border:none;border-radius:5px;float:left;margin-left:23px;"><i class="fa fa-print"></i></button></p> </div><br />
         <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#fff">Order Value<br /><span style="padding-left:20px;">$<?php echo @$total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>

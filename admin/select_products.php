@@ -81,6 +81,8 @@ function email($order_id,$realtor_email,$con)
 	 $get_hs_detail_query=mysqli_query($con,"select * from home_seller_info where id=$home_seller_id");
 	 $get_hs_detail=mysqli_fetch_array($get_hs_detail_query);
 
+if($_REQUEST['edit']==1){
+
 
   $mail->addAddress($realtor_email);
 	if(!empty($csr_email))
@@ -131,6 +133,8 @@ function email($order_id,$realtor_email,$con)
 	  //   echo "Mailer Error: " . $mail->ErrorInfo;
 	}
 }
+}
+
 
  if(isset($_REQUEST['save']))
    {

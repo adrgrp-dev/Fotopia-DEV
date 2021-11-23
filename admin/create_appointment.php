@@ -301,7 +301,19 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 //Sending email
 //email($photographer_Name,$order_id,$chk_from,$email_id);
 
-	   header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct");
+
+if($_REQUEST['edit']==1){
+
+	header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct&edit=1");
+
+}
+
+else{
+
+header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Photographer_id=$Photographer_id1&hs_id=$home_seller_id&u=$editProduct");
+
+}
+	   
 
 
 
