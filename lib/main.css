@@ -219,24 +219,24 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     color: #FFF;
 	margin:5px!important;
 	border-radius:3px!important;
-    background-color: #378087;
+    background-color: #aad1d6;
 	font-weight:bold;
-    background-color: var(--fc-button-bg-color, #378087);
+    background-color: var(--fc-button-bg-color, #aad1d6);
     border-color: none;
-    border-color: var(--fc-button-border-color, #378087);
+    border-color: var(--fc-button-border-color, #aad1d6);
   }
   .fc .fc-button-primary:hover {
     color: #000;
-    background-color: #378087;
-    background-color: var(--fc-button-hover-bg-color, #378087);
+    background-color: #aad1d6;
+    background-color: var(--fc-button-hover-bg-color, #aad1d6);
     border-color: none;
     border-color: var(--fc-button-hover-border-color, none);
   }
 .fc .fc-button-primary:disabled { /* not DRY */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #378087;
-    background-color: var(--fc-button-bg-color, #378087);
+    background-color: #aad1d6;
+    background-color: var(--fc-button-bg-color, #aad1d6);
     border-color: none;
     border-color: var(--fc-button-border-color, #2C3E50); /* overrides :hover */
   }
@@ -249,7 +249,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 	
     color: var(--fc-button-text-color, #fff);
     background-color: #1a252f;
-    background-color: var(--fc-button-active-bg-color, #378087);
+    background-color: var(--fc-button-active-bg-color, #aad1d6);
     border-color: none;
     border-color: var(--fc-button-active-border-color, #151e27);
   }

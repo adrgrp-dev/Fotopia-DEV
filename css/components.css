@@ -105,7 +105,7 @@ TABS
 }
 
 .tab-box .nav-tabs li.active {
-    background-color: #AAD1D6;
+    background-color: #aad1d6;
     z-index: 1;
 	width:fit-content;
 	padding-left:15px;

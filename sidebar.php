@@ -311,7 +311,7 @@ vertical-align:top!important;
 <br />
 
 <table align="center">
-<tr><td style="padding:5px;background:#378087;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerDashboard.php" style="color:#FFF"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td style="padding:5px;background:#aad1d6;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerDashboard.php" style="color:#FFF"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
 <tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
