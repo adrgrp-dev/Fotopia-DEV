@@ -206,7 +206,8 @@ word-break:break-all;
 
 .fc-today-button,.fc-button
 {
-border-radius:25px!important;
+border-radius:0px!important;
+color:#FFF;
 }
 .form-control
 {
@@ -237,7 +238,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                 <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
@@ -334,7 +335,7 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
                             <li class="dropdown current-active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span adr_trans="label_hi">Hi</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi">Hi</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                   <li><a href="change_email_password.php"  adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
 				  <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
@@ -350,9 +351,9 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 <?php } else { ?>
 <div class="btn-group navbar-left navbar-social" style="padding-right:10px;">
                                 <div class="btn-group social-group">
-				<a href="login.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#FFFFFF">Login
+				<a href="login.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Login
 	&nbsp;&nbsp; | &nbsp;&nbsp; </a>
-	<a target="" href="signup.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#FFFFFF">Signup</a>
+	<a target="" href="signup.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Signup</a>
 	</div>
 <?php } ?></div>
 
@@ -383,13 +384,13 @@ else
 				   $link="./realtor_activity.php";
 }
 ?>
-<a href="<?php echo $link; ?>" onMouseOver="this.style.backgroundColor='#01A8F2'" onMouseOut="this.style.backgroundColor='#1D1E1F'" title="You have <?php echo $countIs; ?> unread notifications.Click here to view">
+<a href="<?php echo $link; ?>" title="You have <?php echo $countIs; ?> unread notifications.Click here to view">
 <?php /* ?><i class="fa fa-bell" style="width:fit-content"><?php if($countIs>0) { ?><?php echo $countIs; ?><?php } ?></i> <?php */ ?>
 
 <div id="ex4">
 <span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
 
-<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content" data-count="4b"></i>
+<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
 </span>
 </div>
 <style>
@@ -427,7 +428,7 @@ font-weight:bold;
 $(function(){
   $('.selectpicker').selectpicker();
    $('.dropdown-toggle').removeClass("btn btn-default");
-  $('.selectpicker.dropdown-toggle').attr("style","margin-top-20:0px;border-radius:8px;background:#000;border:none;margin-right:20px;");
+  $('.selectpicker.dropdown-toggle').attr("style","margin-top-20:0px;border-radius:8px;background:#FFF;color:#000;border:none;margin-right:20px;");
 
 
 });
@@ -459,7 +460,7 @@ $(function(){
                             <i class="fa fa-bars"></i>
                         </button> <?php } ?>
                 <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
 
 
 
@@ -476,7 +477,7 @@ if(isset($_SESSION['loggedin_email']))
                         <ul class="nav navbar-nav" style="width:170px;float:left;margin-left:-30px;margin-top:0px;">
                             <li class="dropdown current-active" style="float:left">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
-                                <ul class="dropdown-menu"  style="width:200px;position:absolute; background:#000;color:#FFF;">
+                                <ul class="dropdown-menu"  style="width:200px;position:absolute; background:#FFF;color:#000;">
                   <li><a href="change_email_password.php" adr_trans="label_my_account">My Account</a></li>
 				    <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
 				  <li><a href="cms.php?id=3"><i class="fa fa-question" style="padding-right:10px;"></i>FAQ</a></li>
@@ -495,9 +496,9 @@ if(isset($_SESSION['loggedin_email']))
 
 <?php } else { ?>
 <div style="display:inline-block;margin-top:20px;">
-				<a href="login.php" style="font-weight:bold;vertical-align:middle;margin-top:30px;color:#FFFFFF">Login
+				<a href="login.php" style="font-weight:bold;vertical-align:middle;margin-top:30px;color:#000">Login
 	&nbsp;&nbsp; | &nbsp;&nbsp; </a>
-	<a target="" href="signup.php" style="font-weight:bold;vertical-align:middle;margin-top:30px;color:#FFFFFF">Signup</a>
+	<a target="" href="signup.php" style="font-weight:bold;vertical-align:middle;margin-top:30px;color:#000">Signup</a>
 </div>
 <?php } ?>
 
@@ -506,7 +507,7 @@ if(isset($_SESSION['loggedin_email']))
 
 
 
-		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:20px;">
+		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:20px;color:#000;background:#FFF">
 			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
     <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
@@ -518,7 +519,7 @@ $(function(){
 
    $('.bootstrap-select').attr("style","margin-top:-10px;");
    $('.dropdown-toggle').removeClass("btn btn-default");
-   $('.selectpicker.dropdown-toggle').attr("style","margin-top:30px;border-radius:8px;background:#000;border:none;;margin-left:35px;");
+   $('.selectpicker.dropdown-toggle').attr("style","margin-top:30px;border-radius:8px;background:#FFF;color:#000;border:none;;margin-left:35px;");
 
 
 });
@@ -531,7 +532,7 @@ $(function(){
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-5px;">
                             <li class="dropdown current-active" style="float:left;display:inline-block">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="width:40px;float:right"><i class="fa fa-bars"></i></span></a>
-                           <ul class="dropdown-menu" style="top:50px;position:absolute;background-color:#000000;color:white;display:">
+                           <ul class="dropdown-menu" style="top:50px;position:absolute;background-color:#FFF;color:#000;display:">
 
 
 
@@ -584,7 +585,7 @@ width:50px;display:inline-block;margin-left:0px;
 }
 .selectpicker
 {
-margin-top:40px;border-radius:8px;background:#000;border:none;margin-left:0px;;
+margin-top:40px;border-radius:8px;background:#FFF;color:#000;border:none;margin-left:0px;
 }
 .dropdown-toggle
 {
@@ -699,13 +700,13 @@ else
 				   $link="./realtor_activity.php";
 }
 ?>
-<a href="<?php echo $link; ?>" onMouseOver="this.style.backgroundColor='#01A8F2'" onMouseOut="this.style.backgroundColor='#1D1E1F'" title="You have <?php echo $countIs; ?> unread notifications.Click here to view">
+<a href="<?php echo $link; ?>"  title="You have <?php echo $countIs; ?> unread notifications.Click here to view">
 <?php /* ?><i class="fa fa-bell" style="width:fit-content"><?php if($countIs>0) { ?><?php echo $countIs; ?><?php } ?></i> <?php */ ?>
 
 <div id="ex4">
 <span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
 
-<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content" data-count="4b"></i>
+<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
 </span>
 </div>
 <style>

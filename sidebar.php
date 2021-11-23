@@ -307,52 +307,38 @@ vertical-align:top!important;
 
 
 
-<div class="hidden-xs hidden-sm" style="box-shadow:20px 20px 20px 20px #DDD;height:590px;border-radius:0px 30px 30px 0px;background:#E8F0FE!important">
+<div class="hidden-xs hidden-sm" style="">
 <br />
 
+<table align="center">
+<tr><td style="padding:5px;background:#378087;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerDashboard.php" style="color:#FFF"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerorder_list.php"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographeractivity.php"><i class="fa fa-xs fa-bell"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
+
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:13px;"><a href="Products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;">Products</span></a></td></tr>
+
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:13px;"><a href="photographer_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;">My Profile</span></a></td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
 
 
 
-<button name="Home" id="home1" class="btn btn-default" style="margin-bottom:10px;padding-left:20px;transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 3ms;border-radius:0px 20px 20px 0px;" onclick="showHide(1)"><i class="fa fa-sm fa-home text-l"></i>
-</button>
-<a href="photographerDashboard.php" name="Home" id="home11" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(1)"><span id="label_home" adr_trans="label_home">Home</span> &nbsp;<i class="fa fa-sm fa-home"></i></a>
-
-
-<button name="Cal" id="home2" class="btn btn-default" style="display:block;padding-left:20px;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onclick="showHide(2)"><i class="fa fa-sm fa-calendar" style="font-size:23px;"></i>
-</button>
-<a href="photographerCalendar.php" name="Home" id="home21" class="btn btn-default fade-left text-m" style="transition-duration:padding:10px; 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(2)"><span id="label_calendar" adr_trans="label_calendar">Calendar</span> &nbsp;<i class="fa fa-sm fa-calendar"></i></a>
-
-<button name="Cal" id="home8" class="btn btn-default" style="display:block;padding-left:20px;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onclick="showHide(8)"><i class="fa fa-sm fa-stack-exchange text-l" style="padding-right: 6px;"></i>
-</button>
-<a href="photographerorder_list.php" name="Home81" id="home81" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;padding-right:31px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(8)"><span id="label_order" adr_trans="label_order">Orders</span> &nbsp;&nbsp;<i class="fa fa-sm fa-stack-exchange" ></i></a>
-
-<button name="Home" id="home3" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:20px;border-radius:0px 20px 20px 0px;" onclick="showHide(3)"><i class="fa fa-sm fa-bell" style="font-size:23px;"></i>
-</button>
-<a href="photographeractivity.php" name="Home" id="home31" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(3)"><span id="label_notification" adr_trans="label_notification">Notification</span> &nbsp;<i class="fa fa-sm fa-bell"></i></a>
-
-
-<!-- <button name="Home" id="home9" class="btn btn-default" style="display:block;margin-bottom:10px;padding-left:20px;border-radius:0px 20px 20px 0px;" onclick="showHide(9)"><i class="fa fa-sm fa-users" style="font-size:21px;"></i>
-</button>
-<a href="editor_list.php" name="Home" id="home91" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(9)"><span id="label_editors" adr_trans="label_editors">Editors</span> &nbsp;<i class="fa fa-sm fa-users"></i></a> -->
-
-
-<button name="Home" id="home7" class="btn btn-default" style="display:block;padding:7px;padding-left:22px;border-radius:0px 20px 20px 0px;margin-bottom:10px;" onclick="showHide(7)"><i class="fa fa-sm fa-list"  style="font-size:20px;"></i>
-</button>
-<a href="products.php" name="" id="home71" class="btn btn-default fade-left  text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;padding:10px;border-radius:0px 20px 20px 0px;margin-bottom:10px;" onmouseleave="showHide1(7)"><span id="label_products" adr_trans="label_products">Products</span> &nbsp;&nbsp;<i class="fa fa-sm fa-list"></i></a>
-
-
-<button name="Home" id="home6" class="btn btn-default" style="margin-bottom:10px;padding-left:20px;transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 3ms;border-radius:0px 20px 20px 0px;" onclick="showHide(6)"><i class="fa fa-sm fa-user" style="font-size:25px;"></i>
-</button>
-<a href="photographer_profile.php" name="Home" id="home61" class="btn btn-default fade-left text-m" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;margin-bottom:10px;border-radius:0px 20px 20px 0px;" onmouseleave="showHide1(6)"><span id="label_my_profile" adr_trans="label_my_profile">My Profile</span> &nbsp;<i class="fa fa-sm fa-user"></i></a>
-
-
-
-<br /><br />
-<div style="margin-left:7px;background:#E8F0FE!important">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="color:#3B5998!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="color:#3B8ACA!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="color:#125688!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube" style="color:#cc181e!important;font-size:18px;padding:5px;"></i></a>
+<div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
+ <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 

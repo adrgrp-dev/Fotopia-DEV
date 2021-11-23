@@ -66,7 +66,7 @@ border:solid 1px #01A8F2!important;
 h2.fc-toolbar-title
 {
 display:contents;
-color:#FFF	!important;
+color:#000	!important;
 border:solid 1px #000!important;
 padding:10px;
 }
@@ -75,17 +75,17 @@ padding:10px;
 .fc .fc-toolbar.fc-header-toolbar
 {
 background:#FFF;
-border-radius:25px 25px 0px 0px;
+border-radius:5px;
 }
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 .fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:10px!important;
 
 }
@@ -127,6 +127,7 @@ height:fit-content!important;
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2" style="padding-left:10px;">
+				<hr class="space s">
 	<?php include "sidebar.php"; ?>
 
 
@@ -149,10 +150,10 @@ height:fit-content!important;
 
 					<div class="col-md-12">
             <div class="row" style="margin-left:5px;">
-
+<hr class="space s">
               <div class="col-md-3">
-                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                         <i class="fa fa-check icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#0000FF !important;"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+                        
                <?php
                 $user_id=$_SESSION["loggedin_id"];
                 $get_completed_query=mysqli_query($con,"SELECT count(photographer_id) as COUNT FROM `orders` WHERE photographer_id='$user_id' and status_id=3");
@@ -161,39 +162,42 @@ height:fit-content!important;
 
                 ?>
 
-                             <h5 adr_trans="label_completed_orders">Completed orders</h5>
+                             <h5><i class="fa fa-check-circle fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_completed_orders">Completed orders</span></h5>
                              <p class="counter" data-speed="1000" data-to="<?php echo $get_complete['COUNT'];?>" style="color:000;font-size:25px;font-weight:600;padding-top:5px;">
        <?php echo $get_complete['COUNT'];?>
                              </p>
-                             <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="photographerorder_list.php?c=1" style="background:#0000FF!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+							 <br />
+                           <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#378087!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
                          </div>
 
 
 
                          </div>
                        <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-calendar icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#FF0000!important;"></i>
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 							<?php
                // $user_id=$_SESSION["loggedin_id"];
                $get_order_query=mysqli_query($con,"SELECT count(photographer_id) as COUNT FROM `orders` WHERE photographer_id='$user_id' and status_id in(2,4)");
                $get_order=mysqli_fetch_array($get_order_query);
 
                ?>
-                            <h5 adr_trans="label_ongoing">Ongoing Orders</h5>
+			    <h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_ongoing">Ongoing orders</span></h5>
+                            
                             <p class="counter" data-speed="1000" data-to=" <?php echo $get_order['COUNT'];?>" style="color:000;font-size:25px;font-weight:600;padding-top:5px;">
 			   <?php echo $get_order['COUNT'];?>
                             </p>
-                            <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="photographerorder_list.php?o=1" style="background:#FF0000!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+							<br />
+							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#378087!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+							
+                           
                         </div></div>
 
 
                         <div class="col-md-3">
-                               <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                                   <i class="fa fa-database icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#ffff00!important;"></i>
+                                <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
-
-                                       <h5 adr_trans="label_my_products">My Products</h5>
+<h5><i class="fa fa-camera fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_my_products">My Products</span></h5>
+                                      
 									   <?php
 					 $get_prod_query1=mysqli_query($con,"SELECT count(*) as prodCount FROM `photographer_product_cost` WHERE photographer_id='$user_id'");
                $get_prod_query=mysqli_fetch_array($get_prod_query1);
@@ -202,8 +206,8 @@ height:fit-content!important;
                                         <p class="counter" data-speed="1000" data-to=" <?php echo $get_prod_query['prodCount'];?>" style="color:000;font-size:25px;font-weight:600;padding-top:5px;">
 
                                        </p>
-
-                                       <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="products.php" style="background:#ffff00!important;color:#7c6f6f!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right" style="color:#7c6f6f!important;"></i>View </a>
+<br />
+                                       <a class="btn-sm" adr_trans="label_view" href="products.php" style="background:#378087!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
                                    </div>
 
 
@@ -211,9 +215,20 @@ height:fit-content!important;
                                    </div>
 
 					 <div class="col-md-3">
+<<<<<<< .mine
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+					
+					<h5><i class="fa fa-sliders fa-lg" style="color:#378087"></i><br /><br /><span adr_trans="label_my_earnings">My Earnings</span></h5>
+                            
+||||||| .r345
+                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
+                        <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
+                            <h5 adr_trans="label_my_earnings">My Earnings</h5>
+=======
                     <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
                         <i class="fa fa-money icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#118C4F!important;"></i>
                             <h5 adr_trans="label_my_earnings_month">My Earnings this Month</h5>
+>>>>>>> .r348
                             <?php
                             $total1=0;
                             @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and photographer_id=$user_id");
@@ -232,7 +247,9 @@ height:fit-content!important;
                             }
                             ?>
                              <p style="color:000;font-size:25px;font-weight:600;"> $ &nbsp;<label class="counter" data-speed="1000" data-to="<?php echo $total1;?>" style="color:000;font-size:25px;font-weight:600"><?php echo $total1;?></label><br /></p>
-                          <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="photographerorder_list.php?c=1" style="background:#118C4F!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+							 <br />
+							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#378087!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                         
                         </div>
 
 
@@ -396,21 +413,22 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
 
 }
    </script>
-     <!--  calender end --><br />
+     <!--  calender end -->
     <div class="col-md-6" style="">
         <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="opacity:0.8;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;"></div>
+ <div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
     <br>
 
- <center> <a href="./photographerCalendar.php" class="anima-button circle-button btn-sm btn" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i>View My Calender</a>  </center>
+ <center> <a href="./photographerCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#378087;color:#FFF;border-radius:8px;border:none;">View My Calender</a>  </center>
   </div>
   <div class="col-md-6">
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#FFF!important;border-radius:10px;height:305px;">
 
    <?php
 
       $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where photographer_id=$_SESSION[loggedin_id]) order by rand() limit 4");
+	  
       while($get_latest_delivered=mysqli_fetch_array($get_latest_delivered_query))
       {
 	    $orderIDIs=$get_latest_delivered['order_id'];
@@ -429,8 +447,8 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
 
   </div></div>
 <p align="center">
-
- <a class="anima-button circle-button btn-sm" href="photographerorder_list.php?c=1" style="margin-top:20px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders</a>
+<br /><br />
+ <a class="btn-sm btn" href="photographerorder_list.php?c=1" style="margin-top:20px!important;background:#378087;color:#FFF;border-radius:8px;border:none;" adr_trans="label_view_order">View My Orders</a>
 </p>
 
             </div>

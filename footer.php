@@ -3,20 +3,20 @@
 </style>
  <footer class="wide-area foo">
         <div class="content">
-            <div class="container">
+            <div class="container" style="color:#000!important;font-weight:bold;">
                 <div class="row">
                     <div class="col-md-6 footer-left">
                         <p adr_trans="label_copyright">Copyright © 2021 Photography App. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 footer-right">
-                        <span>+1 800 123 21 05</span>
+                        <span style="color:#000!important;font-weight:bold;">+1 800 123 21 05</span>
                         <span class="space"></span>
                         <div class="btn-group navbar-social">
-                            <div class="btn-group social-group">
-                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                            <div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
+ <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
                         </div>
                     </div>

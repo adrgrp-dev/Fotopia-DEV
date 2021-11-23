@@ -138,6 +138,16 @@ opacity:0.9;
     background-position: center center;
    
 } */
+
+body
+{
+font-family:Manrope-Regular!important;
+background:#F1F3F4!important;
+}
+@font-face {
+  font-family: Manrope-Regular;
+  src: url('./Manrope-Font/Manrope-Regular.ttf');
+}
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.active
 {
 background-color:#FFF;
@@ -347,6 +357,7 @@ img {
 .container.content, .section-empty > .content, .section-bg-image > .content, .section-bg-video > .content, .section-bg-animation > .content, .section-slider > .content {
     padding-top: 80px;
     padding-bottom: 80px;
+	
 }
 
 div.content {
@@ -425,7 +436,7 @@ MENU
 */
 header {
     line-height: 1.42857143;
-    z-index: 995;
+   color:#000!important;
 }
 header .icon-box-cell label {
     color:#FFF;
@@ -561,7 +572,7 @@ header .social-group a i.fa {
 header > .navbar {
     margin-bottom: 0;
     border: none;
-    border-bottom: 1px solid #E4E4E4;
+   
 }
 
 .nav.inner > li {
@@ -2189,7 +2200,8 @@ footer li i {
 }
 
 .footer-minimal, .footer-minimal p.footer-title, .footer-minimal .btn-group.social-group i {
-    color: #1D1E1F !important;
+    background-color: #FFF!important;
+	color:#000!important;
 }
 
     .footer-minimal .tag-row span {
@@ -4475,10 +4487,12 @@ SECTIONS
 ==============================
 */
 .section-empty {
-    background-color: #FFF;
+   font-family:Manrope-Regular!important;
+background:#F1F3F4!important;
     position: relative;
     z-index: 3;
     overflow: hidden;
+	
 }
 
 .overlay-content .section-empty, .overlay-content.header-video, .overlay-content .section-slide, .overlay-content .header-title:after {
@@ -4979,6 +4993,7 @@ button.navbar-toggle {
   */
     .navbar-header {
         background-color: #FFF;
+		color:#000!important;
     }
    .navbar-mini .navbar-left,.navbar-mini .minisocial-group {
        display:none;
@@ -5934,7 +5949,8 @@ header li > a > i.caret {
 }
 
 .nav.inner, .full-width-menu, .navbar-main, .side-menu-fixed, .navbar-inner .navbar-toggle, .navbar-inner .navbar-toggle:hover {
-    background-color: #1d1e1f;
+    background-color: #FFF!important;
+	color:#000!important;
 }
 
     .side-menu-fixed .side-menu .active, .side-menu-fixed .side-menu ul, .side-menu-fixed .panel, footer.footer-center, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
@@ -6007,8 +6023,8 @@ header .social-group a i.fa, header .custom-area, .navbar-default .navbar-nav li
 }
 
 header .navbar {
-    background-color: #1d1e1f;
-    border-color: #1d1e1f;
+   background-color: #FFF!important;
+	color:#000!important;
     border-radius: 0;
 }
 
@@ -6043,7 +6059,8 @@ header .btn-default:hover, header .circle-button:hover {
 }
 
 header .minisocial-group i, .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #1D1E1F;
+    background-color: #FFF!important;
+	color:#000!important;
 }
 
 header .navbar-social {
@@ -6146,7 +6163,8 @@ header .navbar-social {
     bottom: 0;
     z-index: 0;
     content: '';
-    background-color: #1D1E1F;
+    background-color: #FFF!important;
+	color:#000!important;
 }
 .my-class-home .section .bottom-area a {
         background: #FFF;
@@ -6186,7 +6204,8 @@ header .navbar-social {
 }
 
 .my-class-home .section .flexslider, footer {
-    background-color: #1D1E1F;
+   background-color: #FFF!important;
+	color:#000!important;
 }
 
 .my-class-home  h1 {
@@ -6369,7 +6388,8 @@ MOBILE
         padding:0px 15px;
     }
     .navbar-header {
-        background-color: #1D1E1F;
+        background-color: #FFF!important;
+	color:#000!important;
     }
 
     .my-class-home .flex-control-paging {

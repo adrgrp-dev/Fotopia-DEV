@@ -144,6 +144,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     margin: 0;
     font-family: inherit;
     font-size: inherit;
+	border:none!important;
     line-height: inherit;
   }
 .fc .fc-button:focus {
@@ -215,25 +216,28 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   
   
   .fc .fc-button-primary {
-    color: #545454;
-    background-color: #fafafa;
-    background-color: var(--fc-button-bg-color, #fafafa);
-    border-color: #2C3E50;
-    border-color: var(--fc-button-border-color, #fafafa);
+    color: #FFF;
+	margin:5px!important;
+	border-radius:3px!important;
+    background-color: #378087;
+	font-weight:bold;
+    background-color: var(--fc-button-bg-color, #378087);
+    border-color: none;
+    border-color: var(--fc-button-border-color, #378087);
   }
   .fc .fc-button-primary:hover {
-    color: #545454;
-    background-color: #DDD;
-    background-color: var(--fc-button-hover-bg-color, #DDD);
-    border-color: #1a252f;
-    border-color: var(--fc-button-hover-border-color, #1a252f);
+    color: #000;
+    background-color: #378087;
+    background-color: var(--fc-button-hover-bg-color, #378087);
+    border-color: none;
+    border-color: var(--fc-button-hover-border-color, none);
   }
 .fc .fc-button-primary:disabled { /* not DRY */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #2C3E50;
-    background-color: var(--fc-button-bg-color, #2C3E50);
-    border-color: #2C3E50;
+    background-color: #378087;
+    background-color: var(--fc-button-bg-color, #378087);
+    border-color: none;
     border-color: var(--fc-button-border-color, #2C3E50); /* overrides :hover */
   }
 .fc .fc-button-primary:focus {
@@ -242,10 +246,11 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-button-primary:not(:disabled):active,
   .fc .fc-button-primary:not(:disabled).fc-button-active {
     color: #fff;
+	
     color: var(--fc-button-text-color, #fff);
     background-color: #1a252f;
-    background-color: var(--fc-button-active-bg-color, #1a252f);
-    border-color: #151e27;
+    background-color: var(--fc-button-active-bg-color, #378087);
+    border-color: none;
     border-color: var(--fc-button-active-border-color, #151e27);
   }
 .fc .fc-button-primary:not(:disabled):active:focus,
@@ -305,8 +310,8 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   /*  margin-bottom: 1.5em; */
   height:35px;
 	/*background:#fafafa; */
-	background:red!important;
-	color:#FFF!important;
+	background:FFF!important;
+	color:#000!important;
 	padding:10px;
   }
 .fc .fc-toolbar.fc-footer-toolbar {
@@ -316,7 +321,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
    /* font-size: 1.75em; */
    font-size:12px;
     margin: 0;
-	color:#FFFFFF;
+	color:#000;
   }
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
     margin-left: .75em; /* space between */
