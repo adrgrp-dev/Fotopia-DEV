@@ -320,7 +320,7 @@ vertical-align:top!important;
 <tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerorder_list.php"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographeractivity.php"><i class="fa fa-xs fa-bell"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
+<tr><td style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographeractivity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>

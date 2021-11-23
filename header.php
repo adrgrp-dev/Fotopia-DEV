@@ -392,7 +392,7 @@ else
 <div id="ex4">
 <span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
 
-<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
+<i class="p3 fa fa-bell-o fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
 </span>
 </div>
 <style>
@@ -541,7 +541,7 @@ $(function(){
 <li><a href="photographerDashboard.php"><i class="fa fa-home" style="padding-right:10px;"></i><span adr_trans="label_home">Home</span></a></li>
 <li><a href="photographerCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;"></i><span adr_trans="label_calendar">Calendar</span></a></li>
 <li><a href="photographerorder_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;"></i><span adr_trans="label_order">Orders</span></a></li>
-<li><a href="photographeractivity.php"><i class="fa fa-bell" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
+<li><a href="photographeractivity.php"><i class="fa fa-bell-o" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
 <!-- <li><a href="editor_list.php"><i class="fa fa-users" style="padding-right:10px;" adr_trans="label_editors"></i>Editors</a></li> -->
 <li><a href="products.php"><i class="fa fa-list" style="padding-right:10px;"></i><span adr_trans="label_products">Products</span></a></li>
 <li><a href="photographer_profile.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_my_profile">My profile</span></a></li>
@@ -567,7 +567,7 @@ $(function(){
 <li><a href="csrRealtorCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;"></i><span adr_trans="label_calendar">Calendar</span></a></li>
 <li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;">></i><span adr_trans="label_order">Orders</span></a></li>
 <li><a href=""><i class="fa fa-file" style="padding-right:10px;" ></i><span adr_trans="label_order_reports">Order reports</span></a></li>
-<li><a href="realtor_activity.php"><i class="fa fa-bell" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
+<li><a href="realtor_activity.php"><i class="fa fa-bell-o" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
 <li><a href="realtor_profile.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_my_profile">My profile</span></a></li>
 
 
@@ -708,7 +708,7 @@ else
 <div id="ex4">
 <span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
 
-<i class="p3 fa fa-bell fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
+<i class="p3 fa fa-bell-o fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
 </span>
 </div>
 <style>

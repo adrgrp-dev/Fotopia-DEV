@@ -187,7 +187,7 @@ border-radius:5px;
 opacity:0.8;
 
 }
-td > span
+td > span,a >span
 {
 border-radius:5px!important;
 font-size:10px;
