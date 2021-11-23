@@ -19,19 +19,8 @@ if(isset($_REQUEST['loginbtn']))
 		margin-left: 269px;
 		margin-top: 20px;
 	 }
-	 .nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
-
-
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}
- table {
+	 
+/* table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -46,7 +35,7 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
-}
+}*/
 @media only screen and (max-width: 600px) {
 td
 {
@@ -65,18 +54,7 @@ min-width:120px!important;
 
 			</div>
 <style>
-	.nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
-
-
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}
+	
 	 </style>
                 <div class="col-md-10" style="padding-left:30px;">
                 	<div class="tab-box" data-tab-anima="show-scale">
@@ -131,22 +109,22 @@ min-width:120px!important;
 <li id="click4"><a href="#" id="label_editor" adr_trans="label_editor">Editor</a></li>
 </ul>
 
-<div class="panel active " id="tab1" style="width:100%;overflow:scroll;">
+<div class="panel active " id="tab1" style="width:100%;">
 
 <p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn btn-default" >Create Admin</a></p>
 
-<table class="table-striped" aria-busy="false">
+<table class="table-striped" align="center" aria-busy="false" style="width:100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_name" adr_trans="label_name">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_organization" adr_trans="label_organization">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
@@ -159,40 +137,40 @@ min-width:120px!important;
 
                         </span> -->
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_city" adr_trans="label_city">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_state" adr_trans="label_state">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_contact" adr_trans="label_contact">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text"  id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text"  id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -250,7 +228,7 @@ min-width:120px!important;
 									{
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
-				<tr data-row-id="0">
+				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
@@ -266,6 +244,7 @@ min-width:120px!important;
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_pc_admin_user.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Admin details"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
 
@@ -281,74 +260,74 @@ min-width:120px!important;
 								</div>
 
 </div>
-<div class="panel" id="tab2" style="width:100%;overflow:scroll;">
+<div class="panel" id="tab2" style="width:100%;">
 <!--Panel 2 starts-->
 <p align="right"><a href="create_csr.php" class="btn btn-default"><span adr_trans="label_create_csr">Create CSR</span></a></p>
 
-<table class="table-striped" aria-busy="false">
+<table align="center" class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_name" adr_trans="label_name">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_organization" adr_trans="label_organization">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
-                        <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_admin" adr_trans="label_admin">
+                        <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_admin" adr_trans="label_admin">
 
                                 Admin
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_type" adr_trans="label_type">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_type" adr_trans="label_type">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_city" adr_trans="label_city">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_state" adr_trans="label_state">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_contact" adr_trans="label_contact">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -413,7 +392,7 @@ min-width:120px!important;
 				$admin1 = mysqli_fetch_array($admin);
 
 				?>
-				<tr data-row-id="0">
+				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
@@ -430,6 +409,7 @@ min-width:120px!important;
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_csr.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit CSR details"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
 
@@ -447,69 +427,69 @@ min-width:120px!important;
 </div>
 
 
-<div class="panel" id="tab3" style="width:100%;overflow:scroll;">
+<div class="panel" id="tab3" style="width:100%;">
 <!--Panel 3 starts-->
   <center ><i style="font-size: 14px;color:darkgrey">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
 <p align="right"><a href="create_photographer.php" class="btn btn-default"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
 
-<table class="table-striped" aria-busy="false">
+<table class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_name" adr_trans="label_name">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_organization" adr_trans="label_organization">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_admin_csr" adr_trans="label_admin_csr">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_admin_csr" adr_trans="label_admin_csr">
 
                                  Admin / CSR
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_city" adr_trans="label_city">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_state" adr_trans="label_state">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_contact" adr_trans="label_contact">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -567,7 +547,7 @@ min-width:120px!important;
 									{
 				$cnt++;
 				?>
-				<tr data-row-id="0">
+				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
@@ -602,6 +582,7 @@ min-width:120px!important;
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_photographer.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit photographer details"></i></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
@@ -618,7 +599,7 @@ min-width:120px!important;
 </div>
 
 
-<div class="panel" id="tab4" style="width:100%;overflow:scroll;">
+<div class="panel" id="tab4" style="width:100%;">
 
 <script>
 
@@ -664,54 +645,54 @@ header("location:csr_list1.php?ed=1");
 
 <p align="right"><a href="create_editor.php" class="btn btn-default"><span adr_trans="label_create_editor">Create Editor</span></a></p>
 
-<table class="table-striped">
+<table class="table-striped" style="width:100%">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_name" adr_trans="label_name">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_organization" adr_trans="label_organization">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
-                        <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="">
+                        <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="">
 
                                 Organization Website
 
                         </span>
 
 
-						 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_email_address" adr_trans="label_email_address">
+						 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_email_address" adr_trans="label_email_address">
 
                                 Email address
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_contact" adr_trans="label_contact">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
-												<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+												<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                 Photographer
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -775,7 +756,7 @@ header("location:csr_list1.php?ed=1");
 
 				$cnt++;   //	---------------------------------  pagination starts ---------------------------------------
 				?>
-				<tr data-row-id="0">
+				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
@@ -809,6 +790,7 @@ header("location:csr_list1.php?ed=1");
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
 				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
 

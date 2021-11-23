@@ -119,13 +119,14 @@ p{
                   {
 	                  $cnt++;
 				          ?>
-                    <tr>
-                        <th scope="row"><?php echo $cnt;?></th>
+                    <tr class="listPageTR">
+                        <td scope="row"><?php echo $cnt;?></td>
                         <td><?php echo $get_product['product_name']; ?></td>
                         <td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['product_cost']; ?></td>
-				        <td><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
+				        <td style="width:450px"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
                     </tr>
+                    <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
 
 				   <?php } } else { ?>

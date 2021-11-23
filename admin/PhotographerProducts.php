@@ -31,10 +31,6 @@ header("location:PhotographerProducts.php?u=1&photographer=".$photographer_id);
 ?>
 <?php include "header.php";  ?>
 <style>
-p{
-		font-weight:bold;
-		padding-bottom:0px;
-	}
 .active
 {
 background:none!important;
@@ -47,10 +43,7 @@ p
 {
 color:#000!important;
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
-{
-border-top:none!important;
-}
+
 </style>
 <script>
         function confirmDelete() {
@@ -126,9 +119,9 @@ alert(alertmsg);
 
 
 
-					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
+					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;">
 
-					<table class="table table-responsive"><tr><td>
+					<table align="center" class="table table-responsive"><tr><td>
 					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
 
 						<form name="profile" method="post" action="">
@@ -257,7 +250,7 @@ alert(alertmsg);
 
 						</form>
 						</p><form name="submitFrm" method="post" action="">
-						  <div style="width:100%;overflow:scroll">
+						  <div style="width:100%;">
 					<table class="table-striped" style="width:100%;">
                 <?php
 				$total_no=0;
@@ -344,8 +337,8 @@ $realtorDiscountPrice=0;
 					  }
 
 				          ?>
-                    <tr>
-                        <th scope="row"><input type="checkbox" name="product_id[]" value="<?php echo $get_product['id']; ?>" <?php if($rowsExist>0) { ?>checked<?php } ?>></th>
+                    <tr class="listPageTR">
+                        <td scope="row"><input type="checkbox" name="product_id[]" value="<?php echo $get_product['id']; ?>" <?php if($rowsExist>0) { ?>checked<?php } ?>></td>
                         <td><?php echo $get_product['product_name']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
 
@@ -358,7 +351,7 @@ $realtorDiscountPrice=0;
 
 
                     </tr>
-
+                    <tr><td class="listPageTRGap">&nbsp;</td></tr>
 				   <?php } } else { ?>
 				   <tr><td colspan="7" id="label_no_product" adr_trans="label_no_product">No products found.</td></tr>
 				   <?php }  } else  { ?>

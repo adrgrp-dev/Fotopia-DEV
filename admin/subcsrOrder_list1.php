@@ -79,18 +79,8 @@ header("location:subcsrOrder_list1.php?app=1");
                   </script>
 				  <style>
 
-	.nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
 
-
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}		  </style>
+</style>
 
 	   <?php include "sidebar.php";  ?>
 
@@ -142,64 +132,64 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
 
-                  <div  style="width:100%;overflow:scroll">
+                  <div  style="width:100%;">
                       <table class="table-striped" aria-busy="false" style="width:100% !important">
                           <thead>
-                              <tr><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_no" adr_trans="label_order_no">
+                              <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
                                           Order#
 
                                   </span>
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
 
                                           Realtor
 
                                   </span>
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller" >
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller" >
 
                                           Homeseller
 
                                   </span>
 
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                           Photographer
 
                                   </span>
 
-                          <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_product" adr_trans="label_product">
+                          <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                                           Product
 
                                   </span> -->
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                                           Address
 
                                   </span>
 
 
-                                  <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date" adr_trans="label_from_date">
+                                  <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_from_date" adr_trans="label_from_date">
 
                                           Schedule date
 
                                   </span> -->
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_due_date" adr_trans="label_due_date">
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                                           Due date
 
                                   </span>
-                                  <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                  <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text">
 
                                            Created By
 
                                   </span> -->
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                            Status
 
                                   </span>
-                                  <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                                            Edit Details
 
@@ -265,7 +255,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           {
                           $cnt++;
                           ?>
-                          <tr>
+                          <tr class="listPageTR">
                           <td class="text-center" style=""><?php echo @$get_order['id']; ?></td>
                           <?php
 						  $created_by_id=$get_order['created_by_id'];
@@ -327,6 +317,7 @@ header("location:subcsrOrder_list1.php?app=1");
                                                       <td class="text-center" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link"> <i class="fa fa-external-link"></i></a></td>
 
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
                           <?php
                               if($get_order['status_id']==6||$get_order['status_id']==7||$get_order['status_id']==5)
                               {
@@ -404,68 +395,68 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
 
-                 <div  style="width:100%;overflow:scroll">
+                 <div  style="width:100%;">
 
 
                       <table class="table-striped" aria-busy="false" style="width:100% !important">
                         <thead>
-                            <tr><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_no" adr_trans="label_order_no">
+                            <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
                                         Order#
 
                                 </span
 
                                 >
-                                <th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                <th  class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                           Realtor
 
                                     </span
-                                    ><span class="icon fa "></span></th></a><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                                    ><span class="icon fa "></span></th></a><th  class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                                         Homeseller
 
                                 </span>
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                         Photographer
 
                                 </span>
 
-                        <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_product" adr_trans="label_product">
+                        <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                                         Product
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                                         Address
 
                                 </span>
 
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                                         From date & time
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_due_date" adr_trans="label_due_date">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                                         Due date
 
                                 </span>
-                                <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text">
 
                                          Created By
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                          Status
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                                          Edit Details
 
@@ -531,7 +522,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           {
                           $cnt++;
                           ?>
-                          <tr>
+                          <tr class="listPageTR">
                           <td class="text-center" style=""><?php echo $get_order['id'];; ?></td>
                           <?php  $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
@@ -585,6 +576,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           <i class="fa fa-external-link"></i></a></td>
 
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
                           <?php
                               if($get_order['status_id']==6||$get_order['status_id']==7||$get_order['status_id']==5)
                               {
@@ -667,68 +659,68 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
 
-                  <div  style="width:100%;overflow:scroll">
+                  <div  style="width:100%;">
 
 
 
                       <table class="table-striped" aria-busy="false" style="width:100% !important">
                         <thead>
-                            <tr><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_no" adr_trans="label_order_no">
+                            <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
                                         Order#
 
                                 </span>
-                                <th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
+                                <th  class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
 
                                           Realtor
 
                                     </span
                                     >
-                                <span class="icon fa "></span></th></a><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                                <span class="icon fa "></span></th></a><th  class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                                         Homeseller
 
                                 </span>
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                         Photographer
 
                                 </span>
 
-                        <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_product" adr_trans="label_product">
+                        <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                                         Product
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                                         Address
 
                                 </span>
 
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                                         From date & time
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text">
 
                                         Due date
 
                                 </span>
-                                <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text">
 
                                          Created By
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                          Status
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                                          Edit Details
 
@@ -794,7 +786,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           {
                           $cnt++;
                           ?>
-                          <tr>
+                          <tr class="listPageTR">
                           <td class="text-center" style=""><?php echo $get_order['id'];; ?></td>
                           <?php   $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
@@ -847,6 +839,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           <i class="fa fa-external-link"></i></a></td>
 
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
                 		  <?php
                 		  $updates=mysqli_query($con,"select * from appointment_updates where order_id=".$get_order['id']);
 
@@ -925,73 +918,73 @@ header("location:subcsrOrder_list1.php?app=1");
 
                             <?php } ?>
 
-                  <div  style="width:100%;overflow:scroll">
+                  <div  style="width:100%;">
 
 
                       <table class="table-striped" aria-busy="false" style="width:100% !important">
                         <thead>
-                            <tr><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_no" adr_trans="label_order_no">
+                            <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
                                         Order#
 
                                 </span
                                 >
-                                <th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                <th  class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                           Realtor
 
                                     </span
                                     >
-                                    <span class="icon fa "></span></th></a><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                                    <span class="icon fa "></span></th></a><th  class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                                         Homeseller
 
                                 </span>
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                         Photographer
 
                                 </span>
 
-                        <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_product" adr_trans="label_product">
+                        <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                                         Product
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                                         Address
 
                                 </span>
 
 
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                                         From date & time
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_due_date" adr_trans="label_due_date">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                                         Due date
 
                                 </span>
-                                <!-- <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                <!-- <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text">
 
                                          Created By
 
                                 </span> -->
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                          Status
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_summary" adr_trans="label_order_summary">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_order_summary" adr_trans="label_order_summary">
 
                                          Order Summary
 
                                 </span>
-                                <span class="icon fa "></span></a></th><th  class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_cost" adr_trans="label_order_cost">
+                                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_order_cost" adr_trans="label_order_cost">
 
                                          Order Cost
 
@@ -1078,7 +1071,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           {
                           $cnt++;
                           ?>
-                          <tr >
+                          <tr class="listPageTR">
                             <td class="text-center" style=""><?php echo $get_order['id'];; ?></td>
                             <?php $created_by_id=$get_order['created_by_id'];
 						   $pcAdminId=$get_order['pc_admin_id'];
@@ -1151,6 +1144,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                            ?>
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
                           <?php } } ?>
 
 
