@@ -32,7 +32,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
                   <hr class="space s">
-                  <div class="col-md-12">
+                  <div class="col-md-12" >
 
                           <ul class="nav nav-pills" style="margin-left:20px;">
                               <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;" adr_trans="label_order_reports">Order Report</a></li>
@@ -143,31 +143,31 @@ $realtorID=$_SESSION['loggedin_id'];
 </div>
 </form>
 
-                            <table id="dataTable" class="table table-striped" style="background:#FFF;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
+                            <table id="dataTable" align="center" class="table-striped" style="width:100%;">
                                   <thead>
 						<tr><th colspan="8" align="center"><center><b adr_trans="label_order_reports"><br />Order Reports<br /></b></center></th></tr>
-                                      <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_s.no">
+                                      <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
 
                                             S.No
 
-                                          </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_property">
+                                          </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" adr_trans="label_property">
                                             Property
                                           </span>
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_photo_company">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_photo_company">
 
                                            Photo Company
 
                                           </span>
 
 
-                              <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_session_date_time">
+                              <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_session_date_time">
 
                                          Session Date & Time
 
 
                                           </span>
 
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_products">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_products">
 
 
                                           Products
@@ -175,9 +175,9 @@ $realtorID=$_SESSION['loggedin_id'];
 
                                           </span>
 
-                                           <span class="icon fa "></span></a></th>
+                                           <span class="icon fa "></span></th>
 
-										 <!--  <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+										 <!--  <th data-column-id="logo" class="text-center" style=""><span class="text">
 
 
                                           Quantity
@@ -185,24 +185,24 @@ $realtorID=$_SESSION['loggedin_id'];
 
                                           </span>
 
-                              <span class="icon fa "></span></a></th> -->
+                              <span class="icon fa "></span></th> -->
 
 
-										   <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_total_value">
+										   <th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_total_value">
 
                                         Total Value
 
 
                                           </span>
 
-                              <!-- <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                              <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                           Realtor
 
                                           </span> -->
 
 
-                              <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_status">
+                              <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style="margin-right: 5px;"><span class="text" adr_trans="label_status">
 
                                                   Status
 
@@ -405,14 +405,14 @@ $res="";
                           $cnt++;
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
-                          <tr data-row-id="0">
-                          <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                          <tr class="listPageTR">
+                          <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                           <?php
                             $hs_id=$get_order["home_seller_id"];
                             $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                             $get_home=mysqli_fetch_assoc($get_home_query);
                            ?>
-                          <td class="text-left" style=""><?php echo $get_order["property_type"]; ?> <br><?php echo @$get_home["city"].",".@$get_home['state'];?></td>
+                          <td class="text-center" style=""><?php echo $get_order["property_type"]; ?> <br><?php echo @$get_home["city"].",".@$get_home['state'];?></td>
                           <?php
                           $pc_id=$get_order['pc_admin_id'];
 													 $order_id=$get_order['id'];
@@ -420,13 +420,13 @@ $res="";
                           $get_name=mysqli_fetch_assoc($get_pc_name_query);
                           $pc_Name=@$get_name["organization_name"];
                           ?>
-                          <td class="text-left" style=""><?php echo $pc_Name; ?></td>
+                          <td class="text-center" style=""><?php echo $pc_Name; ?></td>
                           <?php
 
                             $toexp=explode(" ",$get_order['session_to_datetime']);
 														//echo $toexp[1];
                            ?>
-                          <td class="text-left" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
+                          <td class="text-center" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
 
 													<?php
@@ -443,7 +443,7 @@ $res="";
 												}
 								  				?>
 
-                          <td class="text-left" style="word-wrap:break-word;width:300px"><?php  echo @substr($prodName,0,-1); ?></td>
+                          <td class="text-center" style="word-wrap:break-word;width:250px"><?php  echo @substr($prodName,0,-1); ?></td>
 
                            <?php
   $prodQuan="";
@@ -456,14 +456,14 @@ $res="";
                           $prodQuan.=$product_title['quantity'].',';
                         }
                           ?>
-                       <?php /*   <td class="text-left" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
+                       <?php /*   <td class="text-center" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
 
 													<?php
 													 $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
 															$total_cost1=mysqli_fetch_array($total_cost);
 
 													?>
-                          <td class="text-left" style=""><?php echo "$".@$total_cost1['totalPrice']; ?></td>
+                          <td class="text-center" style=""><?php echo "$".@$total_cost1['totalPrice']; ?></td>
                           <?php
                           $created_by_id=$get_order['created_by_id'];
                           $get_create_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$created_by_id'");
@@ -477,10 +477,11 @@ $res="";
                           $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                           ?>
 
-                          <!-- <td class="text-left" style=""><?php echo $created_name; ?></td> -->
-                          <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";} ?></td>
+                          <!-- <td class="text-center" style=""><?php echo $created_name; ?></td> -->
+                          <td class="text-center" style="width:70px"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
 
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php }} ?>
                               </table>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">

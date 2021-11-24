@@ -9,10 +9,10 @@ $loggedin_id=$_SESSION['loggedin_id'];
 ?>
 <?php include "header.php";  ?>
 <style>
-p{
+/*p{
 		font-weight:bold;
 		padding-bottom:0px;
-	}
+	}*/
 @media only screen and (max-width: 800px) {
 
 
@@ -34,12 +34,12 @@ p{
 	#flip-scroll th:last-child,
 	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
 }
-
+/*
 th,td
 		{
 		padding:5px!important;
 		text-align:left!important;
-		}
+		}*/
 </style>
 
  <div class="section-empty bgimage3">
@@ -52,7 +52,7 @@ th,td
 
 
 			</div>
-                <div class="col-md-10" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;padding:10px;">
+                <div class="col-md-10" style="color: #000;background: white;opacity:0.8;">
 
 
 
@@ -63,14 +63,14 @@ th,td
 
 						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products" style="color:#000">List of Products</h5>
 						<div id="flip-scroll">
-					<table class="" width="100%">
+					<table align="center" class="" width="98%">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th ><span adr_trans="label_product_name">Product name</span></th>
                         <th ><span adr_trans="label_timeline">Timeline</span></th>
                         <th ><span adr_trans="label_earnings">Earnings</span><span>($)</span></th>
-                       	<th ><span adr_trans="label_description">Description</span></th>
+                       	<th style="width:450px"><span adr_trans="label_description">Description</span></th>
                     </tr>
 
                 </thead>
@@ -146,13 +146,14 @@ th,td
                   {
 	                  $cnt++;
 				          ?>
-                    <tr>
-                        <th scope="row"><?php echo $cnt;?></th>
+                    <tr class="listPageTR">
+                        <td scope="row"><?php echo $cnt;?></td>
                         <td><?php echo $get_product['product_name']; ?></td>
                         <td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['photography_cost']; ?></td>
 
                    <td><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td></tr>
+                   <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
 				   <?php } } else { ?>
 				   <tr><td colspan="7">No products found.</td></tr>

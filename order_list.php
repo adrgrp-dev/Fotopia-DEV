@@ -114,23 +114,7 @@ header("location:order_list.php?app=1");
 	#flip-scroll th:last-child,
 	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
 }
-		th,td
-		{
-		padding:5px!important;
-		text-align:left!important;
-		}
-		.nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
-
-
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}
+		
 @media only screen and (max-width: 600px) {
 
 td
@@ -191,7 +175,7 @@ min-width:100px!important;
 
 
 
-  <div style="width:100%; overflow:scroll">
+  <div style="width:100%; ">
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
@@ -206,62 +190,62 @@ min-width:100px!important;
 </form>
       <table class="table-stripped" style="width:100%">
           <thead>
-          <tr><th class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_order_no">
+          <tr><th class="text-center"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
                           Order#
 
                   </span>
 
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                           Homeseller
 
                   </span>
 
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                           Photographer
 
                   </span>
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photo_company" adr_trans="label_photo_company">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
 
                           Photo Company
 
                   </span>
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                           Address
 
                   </span>
 <!--
-          <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_product" adr_trans="label_product">
+          <span class="icon fa "></span></th><th style=""><span class="text" id="label_product" adr_trans="label_product">
 
                           Product
 
                   </span> -->
 
 
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                           From date & time
 
                   </span>
-                  <span class="icon fa "></span></a></th><th class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_due_date">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" adr_trans="label_due_date">
 
                           Due date
 
                   </span>
-                  <!-- <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                  <!-- <span class="icon fa "></span></th><th style=""><span class="text">
 
                            Created By
 
                   </span> -->
-                  <span class="icon fa "></span></a></th><th class="text-left" style="width: 100px;"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                  <span class="icon fa "></span></th><th class="text-center" style="width: 100px;"><span class="text" id="label_status" adr_trans="label_status">
 
                            Status
 
                   </span>
-                  <span class="icon fa "></span></a></th><th class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                            Edit Details
 
@@ -361,7 +345,7 @@ min-width:100px!important;
           {
           $cnt++;
           ?>
-          <tr>
+          <tr class="listPageTR">
           <td style=""><?php echo @$get_order['id']; ?></td>
 
           <td style="word-break:break-all;"><?php
@@ -408,6 +392,7 @@ min-width:100px!important;
           <i class="fa fa-external-link"></i></a></td>
 
           </tr>
+          <tr><td class="listPageTRGap">&nbsp;</td></tr>
           <?php
           if($get_order['status_id']==6||$get_order['status_id']==7||$get_order['status_id']==5)
           {
@@ -487,34 +472,34 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 <hr class="space s" >
 
 
-  <div style="width:100%; overflow:scroll">
+  <div style="width:100%; ">
 
 
       <table class="table-striped" aria-busy="false" style="width:100%">
           <thead>
-              <tr><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_order_no">
+              <tr><th style=""><span class="text" id="label_s.no" adr_trans="label_order_no">
 
                           Order#
 
                   </span
                   >
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                           Homeseller
 
                   </span>
 
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="label_photographer">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                           Photographer
 
                   </span>
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photo_company" adr_trans="label_photo_company">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
 
                           Photo Company
 
                   </span>
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_address" adr_trans="label_address">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_address" adr_trans="label_address">
 
                           Address
 
@@ -522,28 +507,28 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
 
 
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                           From date & time
 
                   </span>
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_due_date">
+                  <span class="icon fa "></span></th><th style=""><span class="text" adr_trans="label_due_date">
 
                           Due date
 
                   </span>
 
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_status" adr_trans="label_status">
 
                            Status
 
                   </span>
-                  <span class="icon fa "></span></a></th><th class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_details" adr_trans="label_details">
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                            Details
 
                   </span>
-                  <span class="icon fa "></span></a></th><th style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_order_summary" adr_trans="label_order_summary">
+                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_order_summary" adr_trans="label_order_summary">
 
                            Order Summary
 
@@ -613,7 +598,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
           {
           $cnt++;
           ?>
-          <tr >
+          <tr class="listPageTR">
           <td style=""><?php echo @$get_order['id']; ?></td>
           <td style="word-break:break-all;"><?php
 
@@ -650,7 +635,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
           <td style=""><?php echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); ?></td>
           <td style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
-        <td class="text-left"  style=""><a onclick="mouseover(<?php echo $get_order['id']; ?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working With Customer</span>";}?></a></td>
+        <td class="text-center"  style=""><a onclick="mouseover(<?php echo $get_order['id']; ?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Working With Customer</span>";}?></a></td>
         <td class="text-center" style=""><a target="" href="order_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
           <i class="fa fa-external-link"></i></a></td>
           <?php
@@ -675,6 +660,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
            ?>
           </tr>
+          <tr><td class="listPageTRGap">&nbsp;</td></tr> 
           <?php
               if($get_order['status_id']==6||$get_order['status_id']==7)
               {

@@ -6508,4 +6508,9 @@ ul.pagination > li.active > a
   color: #FFF!important;
   border-color: #378087 !important;
 }
+div.infos > p > span
+{
+  padding-right: 2px;
+
+}
 

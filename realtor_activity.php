@@ -17,11 +17,7 @@ mysqli_query($con,"update user_actions set is_read=1,realtor_read=1 where (actio
 background-color:#FFFFFF;
 }
 
-table td[class*="col-"], table th[class*="col-"]
-{
-background:#EEE;
 
-}
 
 .gmailEvent0
 {
@@ -29,10 +25,8 @@ background:#D9534F!important;
 color:white!important;
 padding-left:5px;
 }
-th,td
-{
-padding:15px!important;
-}
+
+
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
@@ -56,12 +50,12 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
               	<h4 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
 
-                <table class="" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.9;width:100%;border-radius:25px;" aria-busy="false">
+                <table class="" style="color: #000;opacity:0.9;width:100%;text-align:center" aria-busy="false">
                   <thead>
                     <tr>
-                      <th ><span  adr_trans="label_s.no">S.no</span></th>
-                     <th ><span adr_trans="label_activity">Activity</span></th>
-           <th ><span adr_trans="label_date_and_time">Date & Time</span></th>
+                      <th class="text-center"><span  adr_trans="label_s.no">S.no</span></th>
+                     <th class="text-center"><span adr_trans="label_activity">Activity</span></th>
+           <th class="text-center"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>
@@ -124,26 +118,31 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                        <?php
                        if($get_action['module']=="Order" || $get_action['module']=="Rework" || $get_action['module']=="Appointment" || $get_action['module']=="Profile"||$get_action['module']=="Canceled")
                        {?>
-                           <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                           <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                       <?php }
                       elseif($get_action['module']=="Rating" )
                       {?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					  elseif($get_action['module']=="Finished images" )
                       {?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					 elseif($get_action['module']=="Chat Message" )
                       {
 					  $orderID=$get_action['order_id'];
 					  ?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
                          else {
                              $get_action_done_name=explode("@",$get_action['action_done_by_name']);
                         ?>
-                          <tr><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                   <?php  }
                 } }?>
                </tbody>

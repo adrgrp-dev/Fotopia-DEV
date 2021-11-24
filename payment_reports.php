@@ -131,44 +131,43 @@ if(!empty($_REQUEST['pcfilter'])){
 </div>
 
 </form>
-                              <table id="dataTable" class="table table-striped" style="opacity:0.9;width:100%;border-radius:30px 30px 30px 30px!important;">
-
+                              <table id="dataTable" class="table table-striped" style="width:100%;
                                     <thead>
-			<tr class="text-center"><th align="center" colspan="9"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
-                                        <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_s.no">
+			<tr class="text-center"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
+                                        <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
 
                                               S.No
 
-                                            </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_order_cost_no">
+                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" adr_trans="label_order_cost_no">
 
                                               Order Cost No
 
                                             </span>
-                                            <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="">
+                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="">
 
                                              Ref #
 
                                             </span>
-                                           <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_products">
+                                           <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_products">
 
                                           Products & Value
 
                                            </span>
-																					 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_otherCost">
+																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_otherCost">
 
                                           Other Cost
 
                                            </span>
-																					 <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" >
+																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" >
 
 																					Tax
 
 																					 </span>
 
-                                            <span class="icon fa "></span></a></th>
+                                            <span class="icon fa "></span></th>
 
 
-										<!--	<th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+										<!--	<th data-column-id="logo" class="text-center" style=""><span class="text">
 
 
                                           Quantity
@@ -176,31 +175,31 @@ if(!empty($_REQUEST['pcfilter'])){
 
                                           </span>
 
-                                           <span class="icon fa "></span></a></th>-->
+                                           <span class="icon fa "></span></th>-->
 
 
-										   <th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_total_value">
+										   <th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_total_value">
 
                                           Total Value
 
                                             </span>
-                                           <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_photo_company">
+                                           <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_photo_company">
 
                                           Photo Company
 
                                            </span>
-                                            <!-- <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                                            <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                             Realtor
 
                                             </span> -->
-                                            <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_date_and_time">
+                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_date_and_time">
 
                                               Date & Time
 
                                             </span>
 
-                                <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" adr_trans="label_status">
+                                <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text" adr_trans="label_status">
 
                                              Status
                                 </span>
@@ -387,7 +386,7 @@ if(!empty($_REQUEST['pcfilter'])){
                             $cnt++;
                                //	---------------------------------  pagination starts ---------------------------------------
                             ?>
-                            <tr data-row-id="0">
+                            <tr data-row-id="0" class="listPageTR">
 															<?php
 															$order_id=$get_order2['id'];
 															$hs_id=$get_order2['home_seller_id'];
@@ -398,9 +397,9 @@ if(!empty($_REQUEST['pcfilter'])){
 															 $get_invoice=mysqli_fetch_array($get_invoiced_name_query);
 
 																					?>
-                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-                            <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
-                            <td class="text-left" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
+                            <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                            <td class="text-center" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
+                            <td class="text-center" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
 														<?php
 														$taxpercentage=0;
 														 $pc_admin_id=$get_order2['pc_admin_id'];
@@ -457,7 +456,7 @@ if(!empty($_REQUEST['pcfilter'])){
 								 }
 
 														?>
-														<td class="text-left" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
+														<td class="text-center" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
 																<td class="text-center" style=""><?php echo "$".$otherCost1['other_cost']; ?></td>
 																	<td class="text-leenterft" style=""><?php echo "$".$taxation; ?></td>
 
@@ -478,7 +477,7 @@ if(!empty($_REQUEST['pcfilter'])){
 
 
 
-                         <?php /* <td class="text-left" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
+                         <?php /* <td class="text-center" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
                             <td class="text-center" style=""><?php echo "$".$totalOrderValue; ?></td>
 														<?php
 	                          $pc_id=$get_order2['pc_admin_id'];
@@ -487,7 +486,7 @@ if(!empty($_REQUEST['pcfilter'])){
 	                          $get_name=mysqli_fetch_assoc($get_pc_name_query);
 	                          $pc_Name=@$get_name["organization_name"];
 	                          ?>
-                            <td class="text-left" style=""><?php echo  $pc_Name; ?></td>
+                            <td class="text-center" style=""><?php echo  $pc_Name; ?></td>
                             <!-- <?php
                            $created_by_id=$get_order2['created_by_id'];
                           $get_create_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$created_by_id'");
@@ -507,16 +506,17 @@ if(!empty($_REQUEST['pcfilter'])){
                             $created_name=$get_name_create["first_name"]." ".$get_name_create["last_name"];
                             ?>
 
-                            <td class="text-left" style=""><?php echo $created_name; ?></td> -->
+                            <td class="text-center" style=""><?php echo $created_name; ?></td> -->
                                <?php
 
                               $toexp=explode(" ",$get_order2['session_to_datetime']);
                              ?>
-                            <td class="text-left" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
+                            <td class="text-center" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
-                            <td class="text-left" style=""><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
+                            <td class="text-center" style=""><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
 
                             </tr>
+                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
                                 </table>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
