@@ -1021,7 +1021,7 @@ header("location:photographerDashboard.php?private=1"); exit;
    <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
-<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:505px">
+<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:600px">
                       				<p align="right" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1031,16 +1031,18 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <tr>
     			                    <td id="label_property_type" align="right" adr_trans="label_property_type" style="font-size:10px;">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
                               </tr>
-                              <tr>
-                              <td id="label_property_address" align="right" adr_trans="label_property_address" style="font-size:10px;">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?></td>
-                              </tr>
+                             
                               <tr>
                               <td id="label_floors" align="right" adr_trans="label_floors" style="font-size:10px;">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
                               </tr>
                               <tr>
-                              <td id="label_area" align="right" adr_trans="label_area"style="font-size:10px;">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?></td>
+                              <td id="label_area" align="right" adr_trans="label_area"style="font-size:10px;">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?><hr class="space xs" /></td>
                               </tr>
                       				<tr>
+									
+									 <tr>
+                              <td id="label_property_address" align="right" adr_trans="label_property_address" style="font-size:10px;">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?><hr class="space xs" /></td>
+                              </tr>
                       				<!-- <td>Total Cost</td><td>:</td><td>
                       				<?php
                       				 $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
@@ -1055,7 +1057,7 @@ header("location:photographerDashboard.php?private=1"); exit;
         </tr>
                       				<tr>
                       				<td align="right" adr_trans="label_session_date_time" style="font-size:10px;">Session Date & Time</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['session_from_datetime']!='0000-00-00 00:00:00') { echo date("d-m-Y H:i a",strtotime($get_summary['session_from_datetime'])); ?>
-				 - <?php echo date("d-m-Y H:i a",strtotime($get_summary['session_to_datetime'])); } else { echo "Session not booked yet.";  } ?></td>
+				 - <br /><?php echo date("d-m-Y H:i a",strtotime($get_summary['session_to_datetime'])); } else { echo "Session not booked yet.";  } ?><hr class="space xs" /></td>
                       				</tr>
                               <?php
                                 $hs_id=$get_summary['home_seller_id'];
@@ -1098,7 +1100,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </tr>
                             <?php } ?>
                               <tr>
-                              <td align="right" id="label_due_date" adr_trans="label_due_date" style="font-size:10px;">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?></td>
+                              <td align="right" id="label_due_date" adr_trans="label_due_date" style="font-size:10px;">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?><hr class="space xs" /></td>
                               </tr>
                               <tr>
                               <td align="right" id="label_booking_notes" adr_trans="label_booking_notes" style="font-size:10px;">Booking Notes</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['booking_notes']; ?></td>
@@ -1110,6 +1112,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:12px;">Products For the Order</p>
 
                       				<table style="color:#000;font-weight:600;font-size:10px;">
+									 <tr>
                       				<?php
 
                       				 $prodsList=mysqli_query($con,"SELECT * from products where id in(select product_id from order_products WHERE order_id='$order_id')");
@@ -1119,17 +1122,17 @@ header("location:photographerDashboard.php?private=1"); exit;
                                    {
 
                                   ?>
-                              <tr>
-                              <td><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
-                              </tr>
+                             
+                              <td class="col-md-6"><?php echo $product_title['product_title']; ?>&nbsp;&nbsp;X&nbsp;&nbsp;<?php echo $product_title['quantity']; ?></td>
+                              
                               <?php } ?>
-
+</tr>
                       				</table>
 									</div>
                       				</div>
 									
                       				<div class="col-md-6">
-								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:505px">	
+								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:600px">	
                       				<p align="right" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -2899,7 +2902,7 @@ function printPage()
   @$realtor=mysqli_fetch_array(@$realtor1);
    // echo @$created_Name;  ?></p>
   <div id="wrapper" style="width:100%">
-  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%;height:400px;">
+  <div class="scrollbar" id="style-default" style="border:none;background:#FFF;overflow:scroll;width:105%;height:495px;">
   <table class="table" style="padding:0px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
