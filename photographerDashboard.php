@@ -162,12 +162,12 @@ height:fit-content!important;
 
                 ?>
 
-                             <h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6"></i><br /><br /><span adr_trans="label_completed_orders">Completed orders</span></h5>
+                             <h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span adr_trans="label_completed_orders">Completed orders</span></h5>
                              <p class="counter" data-speed="1000" data-to="<?php echo $get_complete['COUNT'];?>" style="color:000;font-size:25px;font-weight:600;padding-top:5px;">
        <?php echo $get_complete['COUNT'];?>
                              </p>
 							 <br />
-                           <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                           <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
                          </div>
 
 
@@ -187,7 +187,7 @@ height:fit-content!important;
 			   <?php echo $get_order['COUNT'];?>
                             </p>
 							<br />
-							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 							
                            
                         </div></div>
@@ -207,7 +207,7 @@ height:fit-content!important;
 
                                        </p>
 <br />
-                                       <a class="btn-sm" adr_trans="label_view" href="products.php" style="background:#aad1d6!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                                       <a class="btn-sm" adr_trans="label_view" href="products.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
                                    </div>
 
 
@@ -240,7 +240,7 @@ height:fit-content!important;
                             ?>
                              <p style="color:000;font-size:25px;font-weight:600;"> $ &nbsp;<label class="counter" data-speed="1000" data-to="<?php echo $total1;?>" style="color:000;font-size:25px;font-weight:600"><?php echo $total1;?></label><br /></p>
 							 <br />
-							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#FFF!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+							  <a class="btn-sm" adr_trans="label_view" href="photographerorder_list.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
                          
                         </div>
 
@@ -411,7 +411,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
  <div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
     <br>
 
- <center> <a href="./photographerCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#FFF;border-radius:8px;border:none;">View My Calender</a>  </center>
+ <center> <a href="./photographerCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Calender</a>  </center>
   </div>
   <div class="col-md-6">
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
@@ -440,7 +440,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
   </div></div>
 <p align="center">
 <br /><br />
- <a class="btn-sm btn" href="photographerorder_list.php?c=1" style="margin-top:20px!important;background:#aad1d6;color:#FFF;border-radius:8px;border:none;" adr_trans="label_view_order">View My Orders</a>
+ <a class="btn-sm btn" href="photographerorder_list.php?c=1" style="margin-top:20px!important;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order">View My Orders</a>
 </p>
 
             </div>

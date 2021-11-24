@@ -117,7 +117,7 @@ if ($usertype == 'Realtor'){
 
  if(strpos($currentPage, "csrRealtorDashboard") !== false || strpos($currentPage, "change_email_password") !== false)
  {
- echo "<script> showHide(1); </script>";
+ echo "<script> $('#home').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "order_list") !== false || strpos($currentPage, "create_order") !== false || strpos($currentPage, "order_detail") !== false || strpos($currentPage, "Edit_appointment") !== false || strpos($currentPage, "Edit_order") !== false || strpos($currentPage, "create_appointment") !== false || strpos($currentPage, "summary") !== false || strpos($currentPage, "rating") !== false || strpos($currentPage, "select_products") !== false)
@@ -154,12 +154,12 @@ if ($usertype == 'Realtor'){
 
     if(strpos($currentPage, "photographerDashboard") !== false || strpos($currentPage, "change_email_password") !== false)
  {
- echo "<script> showHide(1); </script>";
+ echo "<script> $('#homeMenu').css('background','#aad1d6');  </script>";
  }
 
  if(strpos($currentPage, "photographerCalendar") !== false)
  {
- echo "<script> showHide(2); </script>";
+ echo "<script> $('#calendarMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "editor_list") !== false)
@@ -171,29 +171,29 @@ if ($usertype == 'Realtor'){
 
  if(strpos($currentPage, "photographerorder_list") !== false || strpos($currentPage, "create_order") !== false  || strpos($currentPage, "create_appointment") !== false || strpos($currentPage, "Edit_appointment1") !== false || strpos($currentPage, "photographerorder_detail") !== false || strpos($currentPage, "preview1") !== false || strpos($currentPage, "summary") !== false || strpos($currentPage, "finished_image_upload") !== false || strpos($currentPage, "preview3") !== false)
  {
- echo "<script> showHide(8); </script>";
+ echo "<script> $('#ordersMenu').css('background','#aad1d6');  </script>";
  }
 
  if(strpos($currentPage, "photographeractivity") !== false)
  {
- echo "<script> showHide(3); </script>";
+ echo "<script> $('#notificationMenu').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "photographerorder_list") !== false)
  {
- echo "<script> showHide(8); </script>";
+ echo "<script> $('#ordersMenu').css('background','#aad1d6');  </script>";
  }
 
  if(strpos($currentPage, "photographer_profile") !== false || strpos($currentPage, "photographer_profile") !== false)
  {
- echo "<script> showHide(6); </script>";
+ echo "<script> $('#profileMenu').css('background','#aad1d6');  </script>";
  }
 
 
 
- if(strpos($currentPage, "products") !== false)
+ if(strpos($currentPage, "Products") !== false)
  {
- echo "<script> showHide(7); </script>";
+ echo "<script> $('#productsMenu').css('background','#aad1d6');  </script>";
  }
 
  }
