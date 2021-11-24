@@ -455,7 +455,7 @@ html{	background-color:#FFF; }
 	border-radius:25px 0px 0px 25px;
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-	margin-top:90px;
+	margin-top:80px;
 }
 
 @keyframes drop{
@@ -1021,7 +1021,7 @@ header("location:photographerDashboard.php?private=1"); exit;
    <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
-<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:470px">
+<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:505px">
                       				<p align="right" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1032,7 +1032,7 @@ header("location:photographerDashboard.php?private=1"); exit;
     			                    <td id="label_property_type" align="right" adr_trans="label_property_type" style="font-size:10px;">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
                               </tr>
                               <tr>
-                              <td id="label_property_address" align="right" adr_trans="label_property_address" style="font-size:10px;">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address']?></td>
+                              <td id="label_property_address" align="right" adr_trans="label_property_address" style="font-size:10px;">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?></td>
                               </tr>
                               <tr>
                               <td id="label_floors" align="right" adr_trans="label_floors" style="font-size:10px;">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
@@ -1129,7 +1129,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</div>
 									
                       				<div class="col-md-6">
-								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:470px">	
+								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:505px">	
                       				<p align="right" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1137,7 +1137,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                         <td align="right" id="label_homeseller_name" adr_trans="label_homeseller_name" style="font-size:10px;">Home Seller Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['name']; ?></td>
                         </tr>
                         <tr>
-                        <td align="right" id="label_homeseller_address" adr_trans="label_homeseller_address" style="font-size:10px;">Home Seller Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['address'].",".$homeSeller1['city'];?></td>
+                        <td align="right" id="label_homeseller_address" adr_trans="label_homeseller_address" style="font-size:10px;">Home Seller Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['address'].",<br>".$homeSeller1['city'].", ".$homeSeller1['state'];?></td>
                         </tr>
 
                         <tr>
@@ -2899,7 +2899,7 @@ function printPage()
   @$realtor=mysqli_fetch_array(@$realtor1);
    // echo @$created_Name;  ?></p>
   <div id="wrapper" style="width:100%">
-  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%;height:370px;">
+  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%;height:400px;">
   <table class="table" style="padding:0px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
