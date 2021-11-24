@@ -1112,7 +1112,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:12px;">Products For the Order</p>
 
                       				<table style="color:#000;font-weight:600;font-size:10px;">
-									 <tr>
+									 
                       				<?php
 
                       				 $prodsList=mysqli_query($con,"SELECT * from products where id in(select product_id from order_products WHERE order_id='$order_id')");
@@ -1122,11 +1122,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                                    {
 
                                   ?>
-                             
-                              <td style="width:50%;"><?php echo $product_title['product_title']; ?>&nbsp;&nbsp;X&nbsp;&nbsp;<?php echo $product_title['quantity']; ?></td>
-                              
+                             <tr>
+                              <td><?php echo $product_title['product_title']; ?><td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
+                              </tr>
                               <?php } ?>
-</tr>
+
                       				</table>
 									</div>
                       				</div>
