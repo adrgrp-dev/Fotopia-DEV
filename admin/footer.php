@@ -149,35 +149,35 @@ if ($usertype == 'FotopiaAdmin'){
 
  if(strpos($currentPage, "dashboard") !== false)
  {
- echo "<script> showHide(1); </script>";
+ echo "<script>  $('#homeMenu').css('background','#aad1d6'); </script>";
  }
 
 if(strpos($currentPage, "/users") !== false || strpos($currentPage, "userDetails") !== false)
  {
- echo "<script> showHide(2); </script>";
+ echo "<script>  $('#userMenu').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "notification") !== false)
  {
- echo "<script> showHide(3); </script>";
+ echo "<script>  $('#notificationMenu').css('background','#aad1d6'); </script>";
  }
 
 
 if(strpos($currentPage, "admin_users") !== false || strpos($currentPage, "create_admin") !== false || strpos($currentPage, "adminDetails") !== false)
  {
- echo "<script> showHide(6); </script>";
+ echo "<script>  $('#adminuserMenu').css('background','#aad1d6'); </script>";
  }
 
 // || strpos($currentPage, "appointment_reports") !== false
 
  if(strpos($currentPage, "csr_list") !== false || strpos($currentPage, "csr_details") !== false || strpos($currentPage, "edit_csr") !== false || strpos($currentPage, "create_csr") !== false)
  {
- echo "<script> showHide(8); </script>";
+ echo "<script>  $('#homeMenu').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "order_reports") !== false || strpos($currentPage, "appointment_reports") !== false || strpos($currentPage, "payment_reports") !== false)
  {
- echo "<script> showHide(7); </script>";
+ echo "<script>  $('#reportsMenu').css('background','#aad1d6'); </script>";
  }
 
 }
@@ -190,48 +190,48 @@ elseif ($usertype == 'PCAdmin'){
 
  if(strpos($currentPage, "PCAdmin_dashboard") !== false)
  {
- echo "<script> showHide(1); </script>";
+ echo "<script> $('#homeMenu').css('background','#aad1d6'); </script>";
  }
 
 if(strpos($currentPage, "PCAdmin_Calender") !== false)
  {
- echo "<script> showHide(4); </script>";
+ echo "<script>$('#calendarMenu').css('background','#aad1d6');</script>";
  }
 
  if(strpos($currentPage, "superorder_list1") !== false || strpos($currentPage, "create_order") !== false  || strpos($currentPage, "create_appointment") !== false || strpos($currentPage, "Edit_appointment") !== false || strpos($currentPage, "Edit_order") !== false || strpos($currentPage, "superOrder_detail") !== false || strpos($currentPage, "select_products") !== false || strpos($currentPage, "summary") !== false || strpos($currentPage, "preview1") !== false || strpos($currentPage, "finished_image_upload") !== false || strpos($currentPage, "preview3") !== false)
  {
- echo "<script> showHide(5); </script>";
+ echo "<script> $('#ordersMenu').css('background','#aad1d6'); </script>";
  }
 
 
 if(strpos($currentPage, "products") !== false || strpos($currentPage, "RealtorProducts") !== false || strpos($currentPage, "PhotographerProducts") !== false )
  {
- echo "<script> showHide(6); </script>";
+ echo "<script> $('#productMenu').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "pc_admin_activity") !== false )
  {
- echo "<script> showHide(12); </script>";
+ echo "<script> $('#notificationMenu').css('background','#aad1d6');</script>";
  }
 
   if(strpos($currentPage, "client") !== false || strpos($currentPage, "client_detail") !== false )
  {
- echo "<script> showHide(10); </script>";
+ echo "<script> $('#clientMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "csr_list1") !== false  || strpos($currentPage, "create_pc_admin_user") !== false  || strpos($currentPage, "pc_admin_details") !== false  || strpos($currentPage, "edit_pc_admin_user") !== false  || strpos($currentPage, "create_csr") !== false  || strpos($currentPage, "csr_details") !== false  || strpos($currentPage, "edit_csr") !== false  || strpos($currentPage, "create_photographer") !== false  || strpos($currentPage, "userDetails") !== false  || strpos($currentPage, "edit_photographer") !== false  || strpos($currentPage, "create_editor") !== false  || strpos($currentPage, "edit_editor") !== false)
  {
- echo "<script> showHide(2); </script>";
+ echo "<script> $('#userMenu').css('background','#aad1d6'); </script>";
  }
 
  if(strpos($currentPage, "company_profile") !== false || strpos($currentPage, "edit_company_profile") !== false )
  {
- echo "<script> showHide(9); </script>";
+ echo "<script>  $('#profileMenu').css('background','#aad1d6');  </script>";
  }
 
 if(strpos($currentPage, "order_reports") !== false || strpos($currentPage, "appointment_reports") !== false || strpos($currentPage, "payment_reports") !== false)
  {
- echo "<script> showHide(7); </script>";
+ echo "<script>  $('#reportsMenu').css('background','#aad1d6');  </script>";
  }
 
 
@@ -246,44 +246,44 @@ elseif ($usertype == 'CSR'){
 
  if(strpos($currentPage, "subcsr_dashboard") !== false )
  {
- echo "<script> showHide(1); </script>";
+ echo "<script> $('#homeMenu').css('background','#aad1d6');  </script>";
  }
 
   if(strpos($currentPage, "subcsr_list1") !== false || strpos($currentPage, "userDetails") !== false || strpos($currentPage, "edit_photographer") !== false || strpos($currentPage, "create_photographer") !== false)
  {
- echo "<script> showHide(2); </script>";
+ echo "<script></script>";
  }
 
   if(strpos($currentPage, "CSR_Calendar") !== false )
  {
- echo "<script> showHide(4); </script>";
+ echo "<script> $('#calendarMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "order_reports") !== false || strpos($currentPage, "appointment_reports") !== false || strpos($currentPage, "payment_reports") !== false )
  {
- echo "<script> showHide(8); </script>";
+ echo "<script> $('#reportsMenu').css('background','#aad1d6'); </script>";
  }
 
    if(strpos($currentPage, "csr_activity") !== false )
  {
- echo "<script> showHide(12); </script>";
+ echo "<script> $('#notificationMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "csr_products") !== false )
  {
- echo "<script> showHide(9); </script>";
+ echo "<script> $('#productMenu').css('background','#aad1d6'); </script>";
  }
 
 
    if(strpos($currentPage, "csr_profile") !== false || strpos($currentPage, "edit_csr_profile") !== false )
  {
- echo "<script> showHide(10); </script>";
+ echo "<script> $('#profileMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "subcsrOrder_list1") !== false || strpos($currentPage, "superOrder_detail") !== false 
     || strpos($currentPage, "create_order") !== false  || strpos($currentPage, "create_appointment") !== false || strpos($currentPage, "Edit_appointment") !== false || strpos($currentPage, "Edit_order") !== false || strpos($currentPage, "preview1") !== false || strpos($currentPage, "finished_image_upload") !== false || strpos($currentPage, "preview3") !== false || strpos($currentPage, "select_products") !== false || strpos($currentPage, "summary") !== false)
  {
- echo "<script> showHide(5); </script>";
+ echo "<script> $('#ordersMenu').css('background','#aad1d6'); </script>";
  }
 
 }

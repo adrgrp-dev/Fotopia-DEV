@@ -222,7 +222,7 @@ vertical-align:top!important;
 
 
 <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csrRealtorDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csrRealtorDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
 <tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csrRealtorCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>

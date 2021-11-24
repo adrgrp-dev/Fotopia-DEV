@@ -15,11 +15,6 @@ mysqli_query($con,"update user_actions set is_read=1,pc_admin_read=1 where (acti
 background-color:#FFFFFF;
 }
 
-table td[class*="col-"], table th[class*="col-"]
-{
-background:#EEE;
-
-}
 
 .gmailEvent0
 {
@@ -51,7 +46,7 @@ $pc_admin_count_query="select count(*) as total from user_actions where ((action
  ?>
 
               	<h4 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
-<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+<div style="background-color:white">
  <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;" aria-busy="false">
                    <thead>
                     <tr>

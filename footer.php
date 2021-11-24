@@ -117,32 +117,32 @@ if ($usertype == 'Realtor'){
 
  if(strpos($currentPage, "csrRealtorDashboard") !== false || strpos($currentPage, "change_email_password") !== false)
  {
- echo "<script> $('#home').css('background','#aad1d6'); </script>";
+ echo "<script> $('#homeMenu').css('background','#aad1d6');  </script>";
  }
 
  if(strpos($currentPage, "order_list") !== false || strpos($currentPage, "create_order") !== false || strpos($currentPage, "order_detail") !== false || strpos($currentPage, "Edit_appointment") !== false || strpos($currentPage, "Edit_order") !== false || strpos($currentPage, "create_appointment") !== false || strpos($currentPage, "summary") !== false || strpos($currentPage, "rating") !== false || strpos($currentPage, "select_products") !== false)
  {
- echo "<script> showHide(2); </script>";
+ echo "<script> $('#ordersMenu').css('background','#aad1d6');  </script>";
  }
 
   if(strpos($currentPage, "csrRealtorCalendar") !== false || strpos($currentPage, "photographerCalendar1") !== false)
  {
- echo "<script> showHide(3); </script>";
+ echo "<script> $('#calendarMenu').css('background','#aad1d6'); </script>";
  }
 
   if(strpos($currentPage, "realtor_activity") !== false)
  {
- echo "<script> showHide(4); </script>";
+ echo "<script> $('#notificationMenu').css('background','#aad1d6');  </script>";
  }
 
   if(strpos($currentPage, "order_reports") !== false || strpos($currentPage, "payment_reports") !== false)
  {
- echo "<script> showHide(5); </script>";
+ echo "<script> $('#reportsMenu').css('background','#aad1d6');  </script>";
  }
 
   if(strpos($currentPage, "realtor_profile") !== false || strpos($currentPage, "edit_realtor_profile") !== false)
  {
- echo "<script> showHide(6); </script>";
+ echo "<script> $('#profileMenu').css('background','#aad1d6');  </script>";
  }
 
 

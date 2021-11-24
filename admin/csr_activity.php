@@ -10,16 +10,7 @@ mysqli_query($con,"update user_actions set is_read=1,csr_read=1 where (action_do
 
 <style>
 
-#calendar
-{
-background-color:#FFFFFF;
-}
-.gmailEvent0
-{
-background:#D9534F!important;
-color:white!important;
-padding-left:5px;
-}
+
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage2">
@@ -43,7 +34,7 @@ $csr_count_query="select count(*) as total from user_actions where ((action_done
  ?>
 
               	<h4 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
-<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+
 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
                   <thead>
                     <tr>
@@ -151,7 +142,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 <?php } }?>
                </tbody>
                   </table>
-                </div>
+              
 
                   <div class="col-sm-6">
                         <ul class="pagination " style="font-weight:bold!important;">
@@ -178,6 +169,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 
 
             </div>
+          </div>
 
 
 
