@@ -418,11 +418,6 @@ border:none!important;
 padding-top:5px!important;
 border-radius:20px;
 }
-td{
-padding-right:15px;
-}
-
-
 
 .mfp-container.mfp-s-ready.mfp-image-holder.active
 {
@@ -451,7 +446,8 @@ html{	background-color:#FFF; }
 .ribbon {
     width: 100px;
     height: 50px;
-    background-color: #000;
+    background-color: #AAD1D6;
+	color:#000!important;
     position: absolute;
     right: 15px;
 	z-index:999;
@@ -1025,23 +1021,23 @@ header("location:photographerDashboard.php?private=1"); exit;
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
 <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;">
-                      				<p align="left" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
+                      				<p align="right" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:12px;">
                       				<tr>
-                      			 <td id="label_order_no" adr_trans="label_order_no" style="width:150px;">Order #</td><td>:</td><td><?php echo $get_summary['id']; ?></td>
+                      			 <td id="label_order_no" adr_trans="label_order_no" style="width:150px;font-size:10px;" align="right">Order #</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['id']; ?></td>
                       				</tr>
                               <tr>
-    			                    <td id="label_property_type" adr_trans="label_property_type">Property Type</td><td>:</td><td><?php echo $get_summary['property_type']?></td>
+    			                    <td id="label_property_type" align="right" adr_trans="label_property_type" style="font-size:10px;">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
                               </tr>
                               <tr>
-                              <td id="label_property_address" adr_trans="label_property_address">Property Address</td><td>:</td><td><?php echo $get_summary['property_address']?></td>
+                              <td id="label_property_address" align="right" adr_trans="label_property_address" style="font-size:10px;">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address']?></td>
                               </tr>
                               <tr>
-                              <td id="label_floors" adr_trans="label_floors">No. Of Floors</td><td>:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
+                              <td id="label_floors" align="right" adr_trans="label_floors" style="font-size:10px;">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
                               </tr>
                               <tr>
-                              <td id="label_area" adr_trans="label_area">Area</td><td>:</td><td><?php echo $get_summary['area']?></td>
+                              <td id="label_area" align="right" adr_trans="label_area"style="font-size:10px;">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?></td>
                               </tr>
                       				<tr>
                       				<!-- <td>Total Cost</td><td>:</td><td>
@@ -1054,10 +1050,10 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</tr>
 
                               <tr>
-        <td adr_trans="">Photographer Name</td><td>:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
+        <td adr_trans="" align="right" style="font-size:10px;">Photographer Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
         </tr>
                       				<tr>
-                      				<td adr_trans="label_session_date_time">Session Date & Time</td><td>:</td><td><?php if($get_summary['session_from_datetime']!='0000-00-00 00:00:00') { echo date("d-m-Y H:i a",strtotime($get_summary['session_from_datetime'])); ?>
+                      				<td align="right" adr_trans="label_session_date_time" style="font-size:10px;">Session Date & Time</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['session_from_datetime']!='0000-00-00 00:00:00') { echo date("d-m-Y H:i a",strtotime($get_summary['session_from_datetime'])); ?>
 				 - <?php echo date("d-m-Y H:i a",strtotime($get_summary['session_to_datetime'])); } else { echo "Session not booked yet.";  } ?></td>
                       				</tr>
                               <?php
@@ -1069,22 +1065,22 @@ header("location:photographerDashboard.php?private=1"); exit;
                               {
                               ?>
                               <tr>
-                              <td id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td>:</td><td>
+                              <td align="right" id="label_realtor_name" adr_trans="label_realtor_name" style="font-size:10px;">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                                 <?php
                                   echo $get_realtor_name1=$get_hs_details['request_name'];
                                   ?>
                               </td>
                               </tr>
                               <tr>
-                              <td id="label_realtor_contact" adr_trans="label_realtor_contact">Realtors Contact</td><td>:</td><td><?php echo$get_hs_details['request_contact_no']; ?></td>
+                              <td align="right" id="label_realtor_contact" adr_trans="label_realtor_contact" style="font-size:10px;">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo$get_hs_details['request_contact_no']; ?></td>
                               </tr>
                               <tr>
-                              <td id="label_realtor_email" adr_trans="label_realtor_email">Realtors Email</td><td>:</td><td><?php echo $get_hs_details['request_email']; ?></td>
+                              <td id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_hs_details['request_email']; ?></td>
                               </tr>
                             <?php }
                             elseif($get_hs_details['lead_from']==""){ ?>
                               <tr>
-                              <td id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td>:</td><td>
+                              <td align="right" id="label_realtor_name" adr_trans="label_realtor_name" style="font-size:10px;">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                                 <?php
 
                                   $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
@@ -1094,25 +1090,25 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</td>
                       				</tr>
                               <tr>
-                              <td id="label_realtor_contact" adr_trans="label_realtor_contact">Realtors Contact</td><td>:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
+                              <td align="right" id="label_realtor_contact" adr_trans="label_realtor_contact" style="font-size:10px;">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
                               </tr>
                               <tr>
-                              <td id="label_realtor_email" adr_trans="label_realtor_email">Realtors Email</td><td>:</td><td><?php echo $get_realtor_name["email"]; ?></td>
+                              <td align="right" id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["email"]; ?></td>
                               </tr>
                             <?php } ?>
                               <tr>
-                              <td id="label_due_date" adr_trans="label_due_date">Due Date</td><td>:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?></td>
+                              <td align="right" id="label_due_date" adr_trans="label_due_date" style="font-size:10px;">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?></td>
                               </tr>
                               <tr>
-                              <td id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td>:</td><td><?php echo $get_summary['booking_notes']; ?></td>
+                              <td align="right" id="label_booking_notes" adr_trans="label_booking_notes" style="font-size:10px;">Booking Notes</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['booking_notes']; ?></td>
                               </tr>
                       				<tr>
-                      				<td id="label_status" adr_trans="label_status">Status</td><td>:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";}?></td>
+                      				<td align="right" id="label_status" adr_trans="label_status" style="font-size:10px;">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";}?></td>
                       				</tr>
                       				</table><br />
-                      				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:15px;">Products For the Order</p>
+                      				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:12px;">Products For the Order</p>
 
-                      				<table style="color:#000;font-weight:600;font-size:12px;">
+                      				<table style="color:#000;font-weight:600;font-size:10px;">
                       				<?php
 
                       				 $prodsList=mysqli_query($con,"SELECT * from products where id in(select product_id from order_products WHERE order_id='$order_id')");
@@ -1123,7 +1119,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                   ?>
                               <tr>
-                              <td><?php echo $product_title['product_title']; ?></td><td>X</td><td><?php echo $product_title['quantity']; ?></td>
+                              <td><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
                               </tr>
                               <?php } ?>
 
@@ -1137,18 +1133,18 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                       <table class="" style="color:#000;font-weight:600;font-size:12px;">
                         <tr>
-                        <td id="label_homeseller_name" adr_trans="label_homeseller_name">Home Seller Name</td><td>:</td><td><?php echo $homeSeller1['name']; ?></td>
+                        <td align="right" id="label_homeseller_name" adr_trans="label_homeseller_name" style="font-size:10px;">Home Seller Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['name']; ?></td>
                         </tr>
                         <tr>
-                        <td id="label_homeseller_address" adr_trans="label_homeseller_address">Home Seller Address</td><td>:</td><td><?php echo $homeSeller1['address'].",".$homeSeller1['city'];?></td>
-                        </tr>
-
-                        <tr>
-                        <td id="label_homeseller_contact" adr_trans="label_homeseller_contact">Home Seller Contact</td><td>:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+                        <td align="right" id="label_homeseller_address" adr_trans="label_homeseller_address" style="font-size:10px;">Home Seller Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['address'].",".$homeSeller1['city'];?></td>
                         </tr>
 
                         <tr>
-                        <td id="label_homeseller_email" adr_trans="label_homeseller_email">Home Seller Email</td><td>:</td><td><?php echo $homeSeller1['email'];?></td>
+                        <td align="right" id="label_homeseller_contact" adr_trans="label_homeseller_contact" style="font-size:10px;">Home Seller Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+                        </tr>
+
+                        <tr>
+                        <td align="right" id="label_homeseller_email" adr_trans="label_homeseller_email" style="font-size:10px;">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];?></td>
                         </tr>
 
                       				</table>
@@ -2895,14 +2891,14 @@ function printPage()
           </div>
            </div>
 
-  <div class="col-md-2" id="chat" style="border:none;background:#000;opacity:0.7;padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif;border-radius:15px;margin-top:20px;">
-  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order  Chat box <b> <?php
+  <div class="col-md-2" id="chat" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:15px;margin-top:20px;">
+  <p style="color:#000;font-weight:600;padding-bottom:10px;" align="center">Order  Chat box <b> <?php
   $created_id=@$get_summary['created_id'];
   @$realtor1=mysqli_query($con,"select * from user_login where id='@$created_id'");
   @$realtor=mysqli_fetch_array(@$realtor1);
    // echo @$created_Name;  ?></p>
   <div id="wrapper" style="width:100%">
-  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
+  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%">
   <table class="table" style="padding:5px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
@@ -2911,7 +2907,7 @@ function printPage()
   <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
    <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
    <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder="Type your msg, hit enter" required />
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder=" Type your msg, hit enter" required />
 
 
   </div>

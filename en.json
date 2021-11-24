@@ -248,7 +248,7 @@
 	"label_order_reject": "Order changes has been rejected successfully",
 	"label_order_approved": "Order changes has been approved successfully",
 	"label_rating_provided": "Rating provided successfully",
-	"label_order_no": "ORDER #",
+	"label_order_no": "Order #",
 	"label_edit_details": "Edit Details",
 	"label_order_cost": "Order Cost",
 	"label_no_order": "No Orders Yet",
