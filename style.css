@@ -6083,7 +6083,7 @@ footer .btn-group.social-group i, footer {
 }
 
 header .social-group a i.fa, header .custom-area, .navbar-default .navbar-nav li a, header .navbar-mini i {
-    color: #D3D3D3;
+    color: #000;
 }
 
 .mega-menu h5, .mega-menu i {
@@ -6114,6 +6114,7 @@ header .navbar-form .input-group > .form-control, header .input-group input, hea
     background-color: #2D2E2F;
     color: #D3D3D3;
     border-color: #424242;
+	
 }
 
 .search-box {
@@ -6140,14 +6141,15 @@ header .navbar-social {
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .dropdown-menu, .inner .navbar-nav li:hover {
-    color: #D3D3D3;
-    background-color: #272727;
-    border: none;
+    color: #000!important;
+    background-color: #FFF!important;
+    border: solid 1px #aad1d6;
+	
 }
 
     .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-        color: #E2E2E2;
-        background-color: #2D2D2D;
+        color: #000;
+        background-color: #aad1d6;
     }
 
     .dropdown-menu .divider {

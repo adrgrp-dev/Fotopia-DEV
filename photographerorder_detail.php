@@ -413,7 +413,6 @@ border:none!important;
 .img-box:before{
   background: none !important;
 }
-
 .btn-default
 {
 padding-top:5px!important;
@@ -454,7 +453,8 @@ html{	background-color:#FFF; }
     height: 50px;
     background-color: #000;
     position: absolute;
-    right: 0px;
+    right: 15px;
+	z-index:999;
     top: -350px;
 	border-radius:25px 0px 0px 25px;
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -532,6 +532,18 @@ opacity:1!important;
 
 }
 
+.tab-box > .panel, .tab-box > .panel-box > .panel 
+{
+border:none!important;
+padding:0px;
+}
+.nav-tabs {
+border-bottom:none!important;
+}
+.tab-box .panel > .row > *
+{
+padding:0px!important;
+}
 
  </style>
  <script>
@@ -983,7 +995,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                   }
                   ?>
                   </ul>
-                  <div class="panel active" id="tab1">
+                  <div class="panel active" id="tab1" style="background:#F1F3F4">
 
 
                       <?php
@@ -1010,8 +1022,9 @@ header("location:photographerDashboard.php?private=1"); exit;
                                   ?>
 
    <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
-                      <div class="row" style="margin:20px;" id="printArea">
-                      				<div class="col-md-6">
+                      <div class="row" style="margin:0px;" id="printArea">
+                      				<div class="col-md-6" style="">
+<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;">
                       				<p align="left" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1115,8 +1128,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <?php } ?>
 
                       				</table>
+									</div>
                       				</div>
+									
                       				<div class="col-md-6">
+								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;">	
                       				<p align="left" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1137,7 +1153,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                       				</table>
                       				<br >
-                      				<div class="col-md-12" id="googleMap" style="width:100%;height:250px;"></div>
+                      				<div id="googleMap" style="width:100%;height:308px;"></div>
 
                               <script>
                               function myMap() {
@@ -1206,10 +1222,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </script>
 
                               <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWF2v01q7IpMiUSICKhd9zndRFb_kxf8&callback=myMap"></script>
-                  </div>
+                
+				  </div>
                 </div>
 
-
+  </div>
 
         </div>
 
