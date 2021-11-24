@@ -292,9 +292,31 @@ elseif($res1['is_approved']==1) { ?>
 								<?php
 
 								if(@$_REQUEST['val'] == 0) {
+
+									if($approved==0) {
+										
+										?>
+
+<a class="anima-button circle-button btn-sm btn" href="users.php?page1=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+
+										<?php
+									}
+
+									elseif($approved == 2){
 								?>
+
+		<a class="anima-button circle-button btn-sm btn" href="users.php?page2=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+
+							<?php } 
+
+							else{
+								?>
+
 									<a class="anima-button circle-button btn-sm btn" href="users.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
-								<?php }
+								<?php 
+							}
+						}
+
 								elseif (@$_REQUEST['val'] == 1) {
 									?>
 									<a class="anima-button circle-button btn-sm btn" href="csr_list.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
@@ -303,7 +325,7 @@ elseif($res1['is_approved']==1) { ?>
 
 								elseif (@$_REQUEST['val'] == 2 ) {
 									?>
-									<a class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn" href="csr_list1.php?fp=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 								<?php }
 

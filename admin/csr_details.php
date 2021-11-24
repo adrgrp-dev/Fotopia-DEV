@@ -184,7 +184,7 @@ $id=@$_REQUEST['id'];
 								if(@$_REQUEST['val'] == 0) {
 								?>
 
-									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-sign-in"></i>Back to users list</a>
+									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn" href="csr_list1.php?fc=1"><i class="fa fa-sign-in"></i>Back to users list</a>
 								<?php }
 				if(@$_REQUEST['val'] == 1) {
 					?>

@@ -154,6 +154,9 @@ if(isset($_REQUEST['link1']))
       $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
       // $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
     $mail->Body.="<br><br></td></tr></table></html>";
+
+    header("location:superOrder_detail.php?id=".$id_url."&fo=1");
+
   }
   else{
   $mail->Subject = "Image Link shared with you through Fotopia";
@@ -212,6 +215,8 @@ $get_content = @$get_email_content1['template_body_text'];
   // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
+
+  header("location:superOrder_detail.php?id=".$id_url."&ff=1");
 }
  // echo $mail->Body;
  //  exit;
@@ -222,6 +227,7 @@ $get_content = @$get_email_content1['template_body_text'];
     echo $e->getMessage();
       echo "Mailer Error: " . $mail->ErrorInfo;
   }
+
 }
 
 elseif(@$_REQUEST['status_id']==6)
@@ -347,7 +353,7 @@ Thank you for continued support.
 
     unlink($delete_dir);
     mysqli_query($con,"delete from img_upload where id=$id");
-    header("location:superOrder_detail.php?id=$id_url");
+    header("location:superOrder_detail.php?ff=1&id=$id_url");
  }
 if(isset($_REQUEST['reason']))
 {
@@ -1251,7 +1257,7 @@ alert(alertmsg);
 
   if(confirm("Confirm to delete this image "+data1))
   {
-    window.location.href="superOrder_detail.php?del="+data+"&id="+data2;
+    window.location.href="superOrder_detail.php?ff=1&del="+data+"&id="+data2;
   }
   else{
     return false;
@@ -2868,10 +2874,10 @@ alert(alertmsg);
             };
              xhttp.open("GET","./approved.php?id="+data, true);
              xhttp.send();
-             window.location.href = "superOrder_detail.php?id="+data;
+             window.location.href = "superOrder_detail.php?fo=1&id="+data;
            }
            else{
-                window.location.href = "superOrder_detail.php?id="+data;
+                window.location.href = "superOrder_detail.php?fo=1&id="+data;
            }
           }
           </script>
@@ -3339,7 +3345,67 @@ function updateScroll(){
                                                                                <?php } ?>
 
 
+<?php if(@$_REQUEST['fo']==1)
+{ ?>
+<script>
 
+$("#click5").addClass("active");
+$("#click1").removeClass("active");
+$("#click4").removeClass("active");
+$("#click3").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+$("#tab5").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab4").removeClass("active");
+$("#tab3").removeClass("active");
+$("#tab6").removeClass("active");
+
+</script>
+<?php } ?>
+
+
+<?php if(@$_REQUEST['ff']==1)
+{ ?>
+<script>
+
+$("#click4").addClass("active");
+$("#click1").removeClass("active");
+$("#click5").removeClass("active");
+$("#click3").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+$("#tab4").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab5").removeClass("active");
+$("#tab3").removeClass("active");
+$("#tab6").removeClass("active");
+
+</script>
+<?php } ?>
+
+
+<?php if(@$_REQUEST['fr']==1)
+{ ?>
+<script>
+
+$("#click3").addClass("active");
+$("#click1").removeClass("active");
+$("#click5").removeClass("active");
+$("#click4").removeClass("active");
+$("#tab5").removeClass("active");
+
+
+$("#tab3").addClass("active");
+$("#tab1").removeClass("active");
+$("#tab5").removeClass("active");
+$("#tab4").removeClass("active");
+$("#tab6").removeClass("active");
+
+</script>
+<?php } ?>
 
 
 		<?php include "footer.php";  ?>

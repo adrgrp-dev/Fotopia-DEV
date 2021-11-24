@@ -150,7 +150,7 @@ $(".stdImg").each(function(){
 
     }
   });
- window.location='superOrder_detail.php?id=<?php echo $id_url; ?>';
+ window.location='superOrder_detail.php?ff=1&id=<?php echo $id_url; ?>';
 });
 
 

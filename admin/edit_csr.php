@@ -230,7 +230,7 @@ function validate_email(val)
                  <p id="label_select_admin" adr_trans="label_select_admin">Select admin</p>
                 <select name="select_admin" class="form-control form-value">
 
-                  <option selected value="<?php echo $csr['assigned_admin_id']; ?>" ><?php echo $res3['first_name']; ?> </option>
+                  <option selected value="<?php echo @$csr['assigned_admin_id']; ?>" ><?php echo @$res3['first_name']; ?> </option>
                   <?php
               $CSRList=NULL;
               $pc_admin_id=$_SESSION['admin_loggedin_id'];
@@ -268,7 +268,7 @@ function validate_email(val)
                           </div>
 
   						 <button id="label_update" adr_trans="label_update" class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>
-                         &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>
+                         &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn" href="csr_list1.php?fc=1"><i class="fa fa-times"></i>Cancel</a>
   </center>
   					   </div>
 

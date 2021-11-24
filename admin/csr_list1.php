@@ -817,7 +817,7 @@ header("location:csr_list1.php?ed=1");
 
             </div>
         </div>
-				<?php if(@$_REQUEST['c'])
+				<?php if(@$_REQUEST['c']==1 || @$_REQUEST['cu']==1 || @$_REQUEST['fc']==1)
 				{
 					?>
 					<script>
@@ -833,7 +833,7 @@ header("location:csr_list1.php?ed=1");
 					<?php
 				}?>
 
-				<?php if(@$_REQUEST['p'])
+				<?php if(@$_REQUEST['p'] || @$_REQUEST['pu']==1 || @$_REQUEST['fp']==1)
 				{
 					?>
 					<script>
@@ -848,7 +848,7 @@ header("location:csr_list1.php?ed=1");
 					</script>
 					<?php
 				}?>
-				<?php if(@$_REQUEST['a'])
+				<?php if(@$_REQUEST['a'] || @$_REQUEST['au']==1 || @$_REQUEST['fa']==1)
 				{
 					?>
 					<script>
@@ -864,7 +864,7 @@ header("location:csr_list1.php?ed=1");
 					<?php
 				}?>
 
-				<?php if(@$_REQUEST['e'])
+				<?php if(@$_REQUEST['e'] || @$_REQUEST['eu']==1 || @$_REQUEST['fe']==1 || @$_REQUEST['ed']==1)
 				{
 					?>
 					<script>

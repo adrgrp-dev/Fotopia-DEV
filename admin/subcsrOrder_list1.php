@@ -1189,7 +1189,7 @@ header("location:subcsrOrder_list1.php?app=1");
     $("#click4").click();
     $("#tab4").addClass("active");
      $("#tab3").removeClass("active");
-     $("#click4").removeClass("active");
+     
   });
      </script>
  <?php } ?>

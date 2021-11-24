@@ -130,7 +130,7 @@ if(isset($_REQUEST['email']))
 	$fname=$get_organization['first_name'];
 
 	email($template,$pc_admin_id,$email,$organization,$fname,$con);
- header('location:client.php');
+ header('location:client.php?f=1');
 }
 ?>
 <?php include "header.php";  ?>
@@ -205,7 +205,7 @@ function unfavourite(realtor_id,pc_admin_id)
   if(confirm('Are you sure want to remove this realtor from your favourite list?'))
 var xhttp= new XMLHttpRequest();
   xhttp.onload = function() {
-      window.location.href = "client.php";
+      window.location.href = "client.php?f=1";
     }
   xhttp.open("GET", "client_unfavourite.php?realtor_id="+realtor_id+"&pc_admin_id="+pc_admin_id, true);
   xhttp.send();
@@ -447,6 +447,24 @@ else
 
 				</div>
 							 </div>
+
+
+
+<?php if(@$_REQUEST['f']==1)
+{ ?>
+<script>
+
+$("#click2").addClass("active");
+$("#click1").removeClass("active");
+
+
+
+$("#tab2").addClass("active");
+$("#tab1").removeClass("active");
+
+
+</script>
+<?php } ?>
 
 
 

@@ -235,7 +235,7 @@ function validate_email(val)
                           </div>
 
   						 <button id="label_update" adr_trans="label_update" class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>
-                         &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel"  class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>
+                         &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel"  class="anima-button circle-button btn-sm btn" href="csr_list1.php?fe=1"><i class="fa fa-times"></i>Cancel</a>
   </center>
   					   </div>
 

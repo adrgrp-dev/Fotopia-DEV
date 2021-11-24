@@ -145,7 +145,7 @@ ul.pagination > li.last > a
   <hr class="space l" />
 <ul class="nav nav-tabs">
   <li class="active current-active" id="click2"><a href="#tab3"><span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></a></li>
-  <li><a href="#tab4" id="click2"><span id="label_neworder_appointment" adr_trans="label_neworder_appointment">New orders With Appointment</span></a></li>
+  <li id="click22"><a href="#tab4" id="click2"><span id="label_neworder_appointment" adr_trans="label_neworder_appointment">New orders With Appointment</span></a></li>
 <li><a href="#tab1" id="click1"><span id="label_ongoing_orders" adr_trans="label_ongoing_orders">On Going Orders</span></a></li>
 <li id="click3"><a href="#tab2" id="click2"><span id="label_completed_orders" adr_trans="label_completed_orders">Completed Orders</span></a></li>
 </ul>
@@ -708,11 +708,11 @@ ul.pagination > li.last > a
                           <div id="undefined-footer" class="bootgrid-footer container-fluid">
                             <div class="row"><div class="col-sm-6">
                               <ul class="pagination">
-                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?page=1" class="button adr-save">«</a></li>
-                                <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
+                                <li class="first disabled" aria-disabled="true"><a href="./superorder_list1.php?n=1&page=1" class="button adr-save">«</a></li>
+                                <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?n=1&page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-                                <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+                                <li class="next disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?n=1&page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
+                                <li class="last disabled" aria-disabled="true"><a href="<?php echo "./superorder_list1.php?n=1&page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
                                 <div class="col-sm-6 infoBar"style="margin-top:24px">
                                 <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?>&nbsp;<span adr_trans="label_entries">  entries</span></p></div>
                                 </div>
@@ -1274,6 +1274,8 @@ ul.pagination > li.last > a
   });
      </script>
  <?php } ?>
+
+
  <?php if(@isset($_REQUEST["o"])) { ?>
    <script>$(document).ready(function() {
       $("#tab2").removeClass("active");
@@ -1281,6 +1283,17 @@ ul.pagination > li.last > a
         $("#tab4").removeClass("active");
    $("#click1").click();
    $("#tab1").addClass("active");
+ });
+    </script>
+<?php } ?>
+
+<?php if(@isset($_REQUEST["n"])) { ?>
+   <script>$(document).ready(function() {
+      $("#tab2").removeClass("active");
+      $("#tab3").removeClass("active");
+        $("#tab1").removeClass("active");
+   $("#click22").click();
+   $("#tab4").addClass("active");
  });
     </script>
 <?php } ?>

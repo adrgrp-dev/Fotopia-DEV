@@ -291,7 +291,7 @@ var a;
                   <h5 id="label_standard_photos" adr_trans="label_standard_photos" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px">Standard Photos</h5>
 
                    <button href="" class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
-                    <a href="superOrder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                    <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                     <option value="">--Select Your Editor--</option>
                     <?php
@@ -395,7 +395,7 @@ var a;
                     <hr class="space l">
                     <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
                        <button href="" class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-50px"><span id="label_send" adr_trans="label_send">Send</span></button>
-                        <a href="superOrder_detail.php?id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                        <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <option value="">--Select Your Editor--</option>
                           <?php
