@@ -601,6 +601,52 @@ if(isset($_REQUEST['rework']))
 
 }
 
+
+
+if(isset($_REQUEST['delete_all']))
+{
+  $image=$_REQUEST['selected_image'];
+  $id_url=$_REQUEST['id'];
+
+  // print_r($image);
+  // exit;
+  foreach($image as $id)
+  {
+
+  $get_image_query=mysqli_query($con,"select * from img_upload where id=$id");
+  $get_image=mysqli_fetch_array($get_image_query);
+
+  $service=$get_image['service_id'];
+
+  if($service == 1)
+   {
+   $root_dir='/standard_photos';
+   }
+   else if($service == 2)
+   {
+   $root_dir='/floor_plans';
+     }
+   else if($service == 3)
+   {
+     $root_dir='/Drone_photos';
+   }
+   else {
+       $root_dir='/HDR_photos';
+   }
+    $delete_dir="../finished_images/order_".$get_image['order_id'].$root_dir."/".$get_image['img'];
+
+
+unlink($delete_dir);
+    mysqli_query($con,"delete from img_upload where id=$id");
+   
+  }
+
+ header("location:superOrder_detail.php?ff=1&id=$id_url");
+
+}
+
+
+
 ?>
 
 <?php include "header.php";  ?>
@@ -1556,7 +1602,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="click one image to download , delete or rework";
 		}
 alert(alertmsg);
                        return false;
@@ -1579,7 +1625,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="click one image to download , delete or rework";
 		}
 alert(alertmsg);
                       return false;
@@ -1601,7 +1647,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="click one image to download  , delete or rework";
 		}
 alert(alertmsg);
                      return false;
@@ -1623,7 +1669,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="click one image to download  , delete or rework";
 		}
 alert(alertmsg);
                      return false;
@@ -2149,7 +2195,7 @@ alert(alertmsg);
                             echo '<script>$("#done_hide").hide();</script>';
                          }
                           ?>
-                  <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p> -->
+                  <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php //echo $id_url; ?>)"  value="Mark as Complete"></p> -->
 
                                 <div class="tab-box pills" data-tab-anima="fade-right">
 
@@ -2187,15 +2233,22 @@ alert(alertmsg);
                                                <div class="col-md-2" style="display:inline-block">
                                                  <a href="#tnc1"  class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                                </div>
+
+                                               <div class="col-md-2" style="display:inline-block">
+                                                
+                                                  <input type="submit"  class="circle-button btn-sm btn"  name="delete_all" style=""  value="Delete" />
+
+                                               </div>
+
 <?php }?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                  <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" style=""><span class="circle-button btn-sm btn" style="padding:5px;font-size:10px;" adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn" style="padding:5px;font-size:10px;"><span   adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                                </div>
 
 
                                             </div>
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                     <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
+                                     <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
                                      <div class="row">
                                        <div class="col-md-12">
                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
@@ -2264,13 +2317,15 @@ alert(alertmsg);
                                               <?php if(@$get_comment['uploaded_by_id']!='0'){
 
                                             ?>
-                                              <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
+
+                                              <!-- <a class="icons<?php //echo $get_comment['id'];?>" onclick="delete_img(<?php //echo $get_comment['id'];?>,'<?php //echo $image; ?>',<?php //echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php //echo $get_comment['id'];?>)" >
                                                   <i class="fa fa-trash-o anima" style="position:absolute !important;top:50%;left:40%;z-index:2;color:black;font-size:20px;padding:20px;background:white;border-radius:30px;"></i>
-                                              </a>
+                                              </a> -->
+
                                                   <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: 0;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
 
-                                                  <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                                  <!-- <img alt="" class="img1" id="clicked_img<?php //echo $get_comment['id'];?>" src="<?php //echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                              <?php } else{
                                                ?>
@@ -2366,6 +2421,13 @@ alert(alertmsg);
                                                 <div class="col-md-2" style="display:inline-block">
                                                   <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                                 </div>
+
+                                                <div class="col-md-2" style="display:inline-block">
+                                                
+                                                  <input type="submit"  class="circle-button btn-sm btn"  name="delete_all" style=""  value="Delete" />
+
+                                               </div>
+
                                               <?php } ?>
                                               <div class="col-md-2"  style="display:inline-block">
                                                  <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
@@ -2443,9 +2505,9 @@ alert(alertmsg);
                                       <?php if(@$get_comment['uploaded_by_id']!='0'){
 
                                     ?>
-                                    <a class="icons<?php echo $get_comment['id'];?>" onclick="delete_img(<?php echo $get_comment['id'];?>,'<?php echo $image; ?>',<?php echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php echo $get_comment['id'];?>)" >
+                                    <!-- <a class="icons<?php //echo $get_comment['id'];?>" onclick="delete_img(<?php //echo $get_comment['id'];?>,'<?php //echo $image; ?>',<?php// echo $id_url;?>)"  style="visibility: hidden;"  onmouseover="showicons(<?php //echo $get_comment['id'];?>)" >
                                         <i class="fa fa-trash-o anima" style="position:absolute !important;top:50%;left:40%;z-index:2;color:black;font-size:20px;padding:20px;background:white;border-radius:30px;"></i>
-                                    </a>
+                                    </a> -->
                                       <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
 
 
@@ -2721,7 +2783,7 @@ alert(alertmsg);
                                                   <i class="fa fa-trash-o anima" style="color: white;transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;    top: 150px;left: 70px;font-size: 20px;"></i>
                                       <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;">
                                     </a>
-                                        <!-- <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
+                                        <!-- <img alt="" class="img1" id="clicked_img<?php// echo $get_comment['id'];?>" src="<?php //echo $imagesDirectory_standard."/".$image; ?>" height="180" width="300" style="z-index: -1;margin-bottom:5px;"> -->
 
                                    <?php } else{
                                      ?>
