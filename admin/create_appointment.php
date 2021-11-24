@@ -737,8 +737,8 @@ var bFound=parseInt($("#BookingFound").val());
 		$("#appointments_exist_error").html("There is another appoinment scheduled for the selected photographer <br> in between "+fromNew1+" and "+toNew1+", Kindly choose different Date & Time.");
 		}
 
-     $("#appointments_exist_error").show();
-	 return false;
+   //  $("#appointments_exist_error").show();
+	// return false;
     }
     if(bFound==0)
     {
