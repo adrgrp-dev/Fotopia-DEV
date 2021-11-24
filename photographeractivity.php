@@ -55,7 +55,7 @@ $photographer_count_query="select count(*) as total from user_actions where ((ac
 
 
 	      	<h4 class="text-center" adr_trans="label_notifications">Notifications(<?php echo $countIs; ?>)</h4>
-          <div style="padding-top: 10px;width:100%;border:solid 1px #000;background-color:white">
+          <div style="background-color:white">
                 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
           <thead>
                     <tr>
