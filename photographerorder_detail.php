@@ -451,10 +451,11 @@ html{	background-color:#FFF; }
     position: absolute;
     right: 15px;
 	z-index:999;
-    top: -350px;
+    top: -450px;
 	border-radius:25px 0px 0px 25px;
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+	margin-top:90px;
 }
 
 @keyframes drop{
@@ -1020,7 +1021,7 @@ header("location:photographerDashboard.php?private=1"); exit;
    <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
-<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;">
+<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:470px">
                       				<p align="right" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:12px;">
@@ -1128,8 +1129,8 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</div>
 									
                       				<div class="col-md-6">
-								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;">	
-                      				<p align="left" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
+								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:470px">	
+                      				<p align="right" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:12px;">
                         <tr>
@@ -1149,7 +1150,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                       				</table>
                       				<br >
-                      				<div id="googleMap" style="width:100%;height:308px;"></div>
+                      				<div id="googleMap" style="width:100%;height:240px;"></div>
 
                               <script>
                               function myMap() {
@@ -2891,15 +2892,15 @@ function printPage()
           </div>
            </div>
 
-  <div class="col-md-2" id="chat" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:15px;margin-top:20px;">
+  <div class="col-md-2" id="chat" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:50px;">
   <p style="color:#000;font-weight:600;padding-bottom:10px;" align="center">Order  Chat box <b> <?php
   $created_id=@$get_summary['created_id'];
   @$realtor1=mysqli_query($con,"select * from user_login where id='@$created_id'");
   @$realtor=mysqli_fetch_array(@$realtor1);
    // echo @$created_Name;  ?></p>
   <div id="wrapper" style="width:100%">
-  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%">
-  <table class="table" style="padding:5px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
+  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%;height:370px;">
+  <table class="table" style="padding:0px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
 </div>
@@ -2907,7 +2908,7 @@ function printPage()
   <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
    <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
    <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder=" Type your msg, hit enter" required />
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Manrope-Regular;font-size:11px;font-weight:600;border-radius:5px;" placeholder=" Type your msg, hit enter" required />
 
 
   </div>
