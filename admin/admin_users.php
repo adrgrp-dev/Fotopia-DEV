@@ -39,36 +39,36 @@ if(isset($_REQUEST['loginbtn']))
 
 
 <hr class="space s">
-					<table class="table" style="background: #E8F0FE;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
+					<table class="table" style="color:#000;opacity:0.8;width:100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text">
 
                                 Name
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Contact
 
@@ -76,11 +76,11 @@ if(isset($_REQUEST['loginbtn']))
 
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 
@@ -131,17 +131,18 @@ if(isset($_REQUEST['loginbtn']))
 				$cnt++;
 				//-----------------------------------pagination end---------------------------------------------
 				?>
-				<tr data-row-id="0">
-				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-left" style=""><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
-				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
+				<tr data-row-id="0" class="listPageTR">
+				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-center" style=""><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['city']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['state']; ?></td>
+				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
-				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><a target="" href="adminDetails.php?id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-center" style=""><?php echo $res1['contact_number']; ?></td>
+				<td class="text-center" style=""><a target="" href="adminDetails.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php } ?>
             </table>
 

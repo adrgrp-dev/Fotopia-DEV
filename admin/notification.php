@@ -39,7 +39,7 @@ include "connection1.php";
 
 
          <hr class="space s" />
-      <table class="table table-striped" style="background: #E8F0FE;color:#000;opacity:0.8;width:90%;border-radius:30px 30px 30px 30px!important;">
+      <table class="table table-striped" style="color:#000;opacity:0.8;width:90%;">
           <thead>
               <tr><th  class="text-center" style="">
                           S.No
@@ -240,13 +240,14 @@ if($get_action['module']== $new)
 {
 
   ?>
-         <tr>
+         <tr class="listPageTR">
           <td class="text-center"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
           <td class="text-center"><?php echo $get_action['module'] ?> </td>
           <td class="text-center"><?php echo $get_action['action'] ?> </td>
           <td class="text-center"><?php echo $get_action['action_done_by_name'] ?></td>
           <td class="text-center"><?php echo $date1 ?></td>
         </tr>
+        <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
   <?php   }
 }

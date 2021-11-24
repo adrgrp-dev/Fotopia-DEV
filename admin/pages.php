@@ -39,19 +39,19 @@ if(isset($_REQUEST['loginbtn']))
 
 
 
-			<div style="width:100%;padding:10px;">
+			<div style="width:100%;background:#FFF;">
 
-                            <table id="dataTable" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;">
+                            <table id="dataTable" class="table-striped" align="center" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
 						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="cms_pages">CMS Pages</span><br /><br /></b></center></th></tr>
-                                      <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_s.no" adr_trans="label_s.no">
+                                      <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                             S.No
 
-                                          </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_property" adr_trans="page_title">
+                                          </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_property" adr_trans="page_title">
                                             Page Title
                                           </span>
-                              <span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_photographer" adr_trans="page_content">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="page_content">
 
                                            Page Content
 
@@ -59,14 +59,14 @@ if(isset($_REQUEST['loginbtn']))
                                           </span>
 
 
-                              <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_session_date_time" adr_trans="last_updated_date_time">
+                              <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_session_date_time" adr_trans="last_updated_date_time">
 
                                          Last updated on
 
 
                                           </span>
 
-                              <span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text" id="label_status" adr_trans="label_status">
+                              <span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                                   Status
 
@@ -131,7 +131,7 @@ $res="";
                           $cnt++;
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
-                          <tr data-row-id="0">
+                          <tr data-row-id="0" class="listPageTR">
 						   <td><?php echo $cnt; ?></td>
                           <td><?php echo $getCMSPages['page_title']; ?></td>
 						   <td><a href="editPages.php?id=<?php echo $getCMSPages['id']; ?>" class="btn btn-primary btn-sm">View / Edit</a></td>
@@ -140,6 +140,7 @@ $res="";
 
 
                           </tr>
+                          <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php } ?>
 												</tbody>
                               </table></div>

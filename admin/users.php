@@ -28,10 +28,7 @@ if(@$_REQUEST['user_type'])
 		margin-left: 269px;
 		margin-top: 20px;
 	 }
-	 .tab-box .nav-tabs li.active a {
-	 background-color:#000!important;
-	 color:#fff!important;
-	 }
+	 
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
@@ -153,64 +150,64 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-condensed table-hover table-striped bootgrid-table" aria-busy="false">
+					<table class="table table-stripped" aria-busy="false">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left" style="width:100px;"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -395,21 +392,22 @@ if($_SESSION['usertype1']!='PCAdmin')
 				$cnt++;
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
-				<tr data-row-id="0">
-				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-left" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['organization_name']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
-				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
+				<tr data-row-id="0" class="listPageTR">
+				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-center" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['organization_name']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['type_of_user']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['city']; ?></td>
+				<td class="text-center" style=""><?php echo $res1['state']; ?></td>
+				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if($_SESSION['usertype1']!='PCAdmin'){$approved=$res1['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$res1['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype1']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
+				<td class="text-center" style=""><?php echo $res1['contact_number']; ?></td>
+				<td class="text-center" style=""><?php if($_SESSION['usertype1']!='PCAdmin'){$approved=$res1['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$res1['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype1']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>
             </table>
 
@@ -525,64 +523,64 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-condensed table-hover table-striped bootgrid-table" aria-busy="false">
+					<table class="table table-stripped" aria-busy="false">
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left"  style="width:100px;"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center"  style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -764,21 +762,22 @@ if($_SESSION['usertype2']!='PCAdmin')
 				$cnt++;
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
-				<tr data-row-id="0">
-				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-left" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['organization_name']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['type_of_user']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['city']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['state']; ?></td>
-				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $pending_data2["id"]; ?>">
+				<tr data-row-id="0" class="listPageTR">
+				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-center" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
+				<td class="text-center" style=""><?php echo $pending_data2['organization_name']; ?></td>
+				<td class="text-center" style=""><?php echo $pending_data2['type_of_user']; ?></td>
+				<td class="text-center" style=""><?php echo $pending_data2['city']; ?></td>
+				<td class="text-center" style=""><?php echo $pending_data2['state']; ?></td>
+				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $pending_data2["id"]; ?>">
 				<img src="data:<?php echo $pending_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($pending_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-left" style=""><?php echo $pending_data2['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if($_SESSION['usertype2']!='PCAdmin'){$approved=$pending_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$pending_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype2']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
+				<td class="text-center" style=""><?php echo $pending_data2['contact_number']; ?></td>
+				<td class="text-center" style=""><?php if($_SESSION['usertype2']!='PCAdmin'){$approved=$pending_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$pending_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype2']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>  
 				<?php } }?>
 
             </table>
@@ -897,64 +896,64 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-condensed table-hover table-striped bootgrid-table" aria-busy="false">
+					<table class="table table-stripped" aria-busy="false" >
                 <thead>
-                    <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></a></th><th data-column-id="name" class="text-left"  style="width:100px;"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center"  style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center"><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="logo" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></a></th><th data-column-id="link-icon" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text">
 
                                 Details
 
-                        </span><span class="icon fa "></span></a></th></tr>
+                        </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -1157,21 +1156,22 @@ if($_SESSION['usertype3']!='PCAdmin')
 				$cnt++;
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
-				<tr data-row-id="0">
-				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-left" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['organization_name']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['type_of_user']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['city']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['state']; ?></td>
-				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $denied_data2["id"]; ?>">
+				<tr data-row-id="0" class="listPageTR">
+				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-center" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
+				<td class="text-center" style=""><?php echo $denied_data2['organization_name']; ?></td>
+				<td class="text-center" style=""><?php echo $denied_data2['type_of_user']; ?></td>
+				<td class="text-center" style=""><?php echo $denied_data2['city']; ?></td>
+				<td class="text-center" style=""><?php echo $denied_data2['state']; ?></td>
+				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $denied_data2["id"]; ?>">
 				<img src="data:<?php echo $denied_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($denied_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-left" style=""><?php echo $denied_data2['contact_number']; ?></td>
-				<td class="text-left" style=""><?php if(@$_SESSION['usertype3']!='PCAdmin'){$approved=$denied_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$denied_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype3']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
+				<td class="text-center" style=""><?php echo $denied_data2['contact_number']; ?></td>
+				<td class="text-center" style=""><?php if(@$_SESSION['usertype3']!='PCAdmin'){$approved=$denied_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$denied_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype3']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
+				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>
             </table>
 
