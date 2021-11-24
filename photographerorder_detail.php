@@ -1078,7 +1078,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <td align="right" id="label_realtor_contact" adr_trans="label_realtor_contact" style="font-size:10px;">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo$get_hs_details['request_contact_no']; ?></td>
                               </tr>
                               <tr>
-                              <td id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_hs_details['request_email']; ?></td>
+                              <td align="right" id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_hs_details['request_email']; ?></td>
                               </tr>
                             <?php }
                             elseif($get_hs_details['lead_from']==""){ ?>
@@ -1123,7 +1123,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                   ?>
                              
-                              <td class="col-md-6"><?php echo $product_title['product_title']; ?>&nbsp;&nbsp;X&nbsp;&nbsp;<?php echo $product_title['quantity']; ?></td>
+                              <td style="width:50%;"><?php echo $product_title['product_title']; ?>&nbsp;&nbsp;X&nbsp;&nbsp;<?php echo $product_title['quantity']; ?></td>
                               
                               <?php } ?>
 </tr>
