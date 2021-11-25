@@ -171,8 +171,9 @@ border-radius:0px!important;
   color:#000!important;
     position: absolute;
 
-    right: -7px;
+    right: 15px;
     top: -300px;
+    z-index:999 ;
 	border-radius:5px 0px 0px 5px;
 
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -327,7 +328,7 @@ $hs_id=$get_summary['home_seller_id'];
             ?>
 
 
-        		<div class="col-md-12" style="border-left:1px solid #DDD;color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding:10px;opacity:0.7;border-radius:25px 25px 25px 25px;font-size:14px;width:100%">
+        		<div class="col-md-12" style="background:#F1F3F4;width:100%">
 				<div class="col-md-12">
 				<center>
           <?php if(@$_REQUEST['edit']==1){?>
@@ -335,7 +336,7 @@ $hs_id=$get_summary['home_seller_id'];
        <?php }else{?>
           <h3 id="label_order_created" adr_trans="label_order_created" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Created Successfully!</h3>
         <?php } ?>
-       </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#000;color:#fff;border:none;border-radius:5px;float:left;margin-left:23px;"><i class="fa fa-print"></i></button></p> </div><br />
+       </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;color:#000;border:none;border-radius:5px;float:left;margin-left:0px;"><i class="fa fa-print"></i></button></p> </div><br />
         <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#fff">Order Value<br /><span style="padding-left:20px;">$<?php echo @$total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 				<div class="row" style="margin:0px;" id="printArea">
@@ -343,7 +344,7 @@ $hs_id=$get_summary['home_seller_id'];
           <br>
 				<div class="col-md-6">
         <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
-				<p id="label_order_details" adr_trans="label_order_details" align="left" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
+				<p id="label_order_details" adr_trans="label_order_details" align="right" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
 				<table class="" style="color:#000;font-weight:600;font-size:13px;">
 				<tr>
@@ -444,7 +445,7 @@ $hs_id=$get_summary['home_seller_id'];
 				</div>
 				<div class="col-md-6">
            <div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px"> 
-				<p align="left" style="color:#000;font-weight:600;font-size:15px;" id="label_homeseller_info" adr_trans="label_homeseller_info">Home Seller Info</p>
+				<p align="right" style="color:#000;font-weight:600;font-size:15px;" id="label_homeseller_info" adr_trans="label_homeseller_info">Home Seller Info</p>
 
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -496,7 +497,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             </div>
 
                  <hr class="space m" />
-             <p id="label_back_to_order" adr_trans="label_back_to_order" align="center"><a class="anima-button circle-button btn-sm btn mt-3 " href="superOrder_detail.php?id=<?php echo $_REQUEST['od']?>"><i class="fa fa-times"></i>Back to Order</a></p>
+             <p id="label_back_to_order" adr_trans="label_back_to_order" align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="superOrder_detail.php?id=<?php echo $_REQUEST['od']?>"><i class="fa fa-times" style="color:black;"></i>Back to Order</a></p>
 
 
 
