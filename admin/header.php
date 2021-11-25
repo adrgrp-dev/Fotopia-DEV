@@ -268,12 +268,12 @@ var langval="";
 <div class="col-md-5">
                      <div class="col-md-3 hidden-xs hidden-sm" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/logo-1.png" alt="logo" style="margin-top:-4px;">
-          <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
                   </div>
 
 				   <div class="col-md-3 hidden-md hidden-lg hidden-xl" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/logo-1.png" alt="logo" style="margin-top:-4px;width:40px;height:30px;">
-          <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
                   </div>
 
 </div>
@@ -328,14 +328,14 @@ $pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
 
                                <ul class="nav navbar-nav" style="display:inline-block;float:right;">
                                    <li class="dropdown current-active">
-   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,6)."..."; ?> <span class="caret"></span></a>
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo $loggedin_name; ?> <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-        <li><a href="change_email_password.php"><i class="fa fa-key" style="padding-right:10px;"></i><span adr_trans="label_my_account">My Account</span></a></li>
+        <li><a href="change_email_password.php" adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
   <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
 				  <li><a href="cms.php?id=3"><i class="fa fa-question" style="padding-right:10px;"></i>FAQ</a></li>
 				  <li><a href="cms.php?id=4"><i class="fa fa-envelope-o" style="padding-right:10px;"></i>Help & Support</a></li>
 				  <li><a href="cms.php?id=2"><i class="fa fa-check-square-o" style="padding-right:10px;"></i>Terms & Conditions</a></li>
-          <li><a href="logout.php"><i class="fa fa-sign-out" style="padding-right:10px;"></i><span adr_trans="label_logout">Logout</span></a></li>
+          <li><a href="logout.php" adr_trans="label_logout"><i class="fa fa-sign-out" style="padding-right:10px;"></i>Logout</a></li>
                                        </ul>
                                   </li>
 
@@ -403,7 +403,7 @@ else { ?>
 $(function(){
   $('.selectpicker').selectpicker();
    $('.dropdown-toggle').removeClass("btn btn-default");
-  $('.selectpicker.dropdown-toggle').attr("style","border-radius:8px;background:#000;border:none;margin-left:10px;margin-top:20px;");
+  $('.selectpicker.dropdown-toggle').attr("style","border-radius:8px;background:#FFF;border:none;margin-left:10px;margin-top:20px;");
 
 
 });
@@ -456,7 +456,7 @@ $(function(){
 
 				   <div class="col-md-3 hidden-md hidden-lg hidden-xl" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/logo-1.png" alt="logo" style="margin-top:-4px;width:40px;height:30px;">
-          <span style="display:inline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
                   </div>
 
 </div>
@@ -559,7 +559,7 @@ $(function(){
   $('.selectpicker').selectpicker();
    $('.bootstrap-select').attr("style","margin-right:-30px;float:right");
    $('.dropdown-toggle').removeClass("btn btn-default");
-  $('.selectpicker.dropdown-toggle').attr("style","margin-top:20px;border-radius:8px;background:#000;border:none;margin-left:5px;float:right");
+  $('.selectpicker.dropdown-toggle').attr("style","margin-top:20px;border-radius:8px;background:#FFF;border:none;margin-left:5px;float:right");
 
 
 });

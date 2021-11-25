@@ -20,7 +20,7 @@ $user_exist=mysqli_num_rows($res);
 	if($user_exist!=0)
 	{
 		$getres=mysqli_fetch_array($res);
-		$user_name=$getres['first_name'];
+		$user_name=$getres['first_name']." ".$getres['last_name'];
 		$id=$getres['id'];
 $is_approved=$getres['is_approved'];
 		$type=$getres['type_of_user'];
