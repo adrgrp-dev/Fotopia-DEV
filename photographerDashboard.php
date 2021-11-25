@@ -127,13 +127,14 @@ height:fit-content!important;
             <div class="row">
 			<hr class="space s">
                 <div class="col-md-2" style="padding-left:10px;">
-				<hr class="space s">
+				
 	<?php include "sidebar.php"; ?>
 
 
 			</div>
                 <div class="col-md-10" style="padiding-left:20px;">
-              	<h5 class="text-center" id="label_photographer_dashboard" adr_trans="label_photographer_dashboard">Photographer Dashboard</h5>
+              	<!-- <h5 class="text-center" id="label_photographer_dashboard" adr_trans="label_photographer_dashboard">Photographer Dashboard</h5> -->
+
 <?php if(@isset($_REQUEST["na"])) { ?>
 
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>

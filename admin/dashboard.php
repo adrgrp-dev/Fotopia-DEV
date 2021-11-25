@@ -23,11 +23,14 @@ if(isset($_REQUEST['loginbtn']))
                 <div class="col-md-10">
 
 					<div class="row hidden-xs hidden-sm">
-
+<hr class="space s" />
                 <div class="col-md-6">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#5CB85C;border-radius:35px 35px 35px 35px;opacity:0.8">
-                        <a href="order_reports.php"><i  class="fa fa-database icon circle anima" aid="0.33201800164139406" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;"></i></a>
-                        <h3>Orders</h3>
+
+                        <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+
+                       
+
+                        <h3><i class="fa fa-stack-exchange fa-lg" style="color:#aad1d6;"></i><br /><br /> <span adr_trans="">Orders</span></h3>
 					    <hr class="space s">
                         <div class="row">
 													<div class="col-md-6">
@@ -37,7 +40,7 @@ if(isset($_REQUEST['loginbtn']))
 															if($get_order=mysqli_fetch_assoc($get_order_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;">
+                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
@@ -49,26 +52,35 @@ if(isset($_REQUEST['loginbtn']))
 															if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 													</div>
 												</div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#337AB7;border-radius:35px 35px 35px 35px;opacity:0.8">
-                       <a href="users.php"> <i class="fa fa-users icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;"></i></a>
-                        <h3>Users</h3>
+
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+
+                        
+
+                        <h3><i class="fa fa-users circle-right fa-lg " style="color:#aad1d6;"></i><br /><br /><span adr_trans="">Users</span></h3>
+
 													<hr class="space s">
 												<div class="row">
 													<div class="col-md-6">
 														<h5>Photographers</h5>
-															<?php
-															$get_photographer_query=mysqli_query($con,"select count(*) as photographer_no from user_login where type_of_user='Photographer'");
-															if($get_photographer=mysqli_fetch_assoc($get_photographer_query))
-															{  ?>
-														<p class="counter" data-speed="1000" data-to="<?php echo $get_photographer["photographer_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;">
+		<?php
+$get_photographer_query=mysqli_query($con,"select count(*) as photographer_no from user_login where type_of_user='Photographer'");
+		
+			$get_photographer=mysqli_fetch_assoc($get_photographer_query);
 
-													<?php  }?>
+ $cnt_get_photographer=$get_photographer['photographer_no'];
+
+															  ?>
+						<p class="counter" data-speed="1000" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
+
+							<?php echo $cnt_get_photographer; ?>
+													
 													 </p>
 													</div>
 													<div class="col-md-6">
@@ -80,7 +92,7 @@ if(isset($_REQUEST['loginbtn']))
 														if($get_csr=mysqli_fetch_assoc($get_csr_query) and $get_csr1=mysqli_fetch_assoc($get_csr_query1))
 														{
 														$total_realtor_csr = $get_csr["csr_no"] + $get_csr1["csr_no1"]  ?>
-														<p class="counter" data-speed="1000" data-to=" <?php echo $total_realtor_csr;?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; }?></p>
+														<p class="counter" data-speed="1000" data-to=" <?php echo $total_realtor_csr;?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; }?></p>
 													</div>
 												</div>
                     </div>

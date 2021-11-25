@@ -60,19 +60,19 @@ $realtorDiscountPrice=$product_result1['total_cost'];
 $product.="<tr><td>".$product_result1['product_name']."</td><td>".$product_result1['timeline']."</td><td>".$realtorDiscountPrice."</td></tr>";
 }
 $product.="</table>";
-echo $result="<div class=\"panel active\" id=\"aboutmeDiv\">
+echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:203px;\">
                               ".$about."
                             </div>
-                            <div class=\"panel\" id=\"myskillsDiv\">
+                            <div class=\"panel\" id=\"myskillsDiv\" style=\"height:203px;\">
                                ".$skills."
                             </div>
-							<div class=\"panel\" id=\"portfolioDiv\">
+							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:203px;\">
                               ".$portfolio."
                             </div>
-                            <div class=\"panel\" id=\"contactDiv\">
+                            <div class=\"panel\" id=\"contactDiv\" style=\"height:203px;\">
                                ".$contact."
                             </div>
-                            <div class=\"panel\" id=\"contactDiv\">
+                            <div class=\"panel\" id=\"contactDiv\" style=\"height:203px;\">
                                ".$product."<br>
                             </div>
 						

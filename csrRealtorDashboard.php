@@ -308,7 +308,7 @@ margin-left:0px!important;
                               $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and realtor_id='$loggedin_id'");
                               $get_complete=mysqli_fetch_assoc($get_complete_query);
                               ?>
-                            <h5 adr_trans="label_completed_orders">Completed Orders</h5>
+                            <h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span adr_trans="label_completed_orders">Completed Orders</span></h5>
                             <p class="counter" data-speed="1000" data-to="<?php echo $get_complete['total1'];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000">
 
       <?php echo $get_complete['total1'];?>
@@ -319,35 +319,41 @@ margin-left:0px!important;
                         </div></div>
 
                         <div class="col-md-4">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                         <i class="fa fa-calendar icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#FF0000!important;"></i>
+         <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
                           <?php
                             $get_ongoing_query=mysqli_query($con,"SELECT count(id) as total FROM orders where status_id<>3 and realtor_id='$loggedin_id'");
                             $get_ongoing=mysqli_fetch_assoc($get_ongoing_query);
                             ?>
 
 
-                                        <h5 adr_trans="label_ongoing_orders">OnGoing Orders</h5>
+                                        <h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6"></i><br /><br /><span adr_trans="label_ongoing_orders">OnGoing Orders</span></h5>
                                         <p class="counter" data-speed="1000" data-to="<?php echo $get_ongoing['total'];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000">
 
                       <?php echo $get_ongoing['total'];?>
                                         </p>
-                                        <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="order_list.php?o=1" style="background:#FF0000!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+
+                                        <br />
+                                        <a class="btn-sm" adr_trans="label_view" href="order_list.php?o=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
+                                        
                                     </div></div>
 
                        <div class="col-md-4">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-clock-o icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#ffff00!important;font-size:45px;"></i>
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
                                         <?php
 
               $get_order_query=mysqli_query($con,"SELECT count(*) as dueToday FROM orders where realtor_id='$loggedin_id' and order_due_date=current_date() ");
                                           $get_order=mysqli_fetch_assoc($get_order_query);
                                           ?>
-                                        <h5 adr_trans="label_due_today">Due Today</h5>
+
+                                        <h5><i class="fa fa-clock-o circle-right fa-lg" style="color:#aad1d6"></i><br /><br /><span adr_trans="label_due_today">Due Today</span></h5>
                                         <p style="color:white;font-size:25px;font-weight:600">  &nbsp;<label class="counter" data-speed="1000" data-to="<?php echo $get_order['dueToday'];?>" style="color:white;font-size:25px;font-weight:600;color:#000;"><?php echo $get_order['dueToday'];?></label></p>
 
-                                         <a class="anima-button circle-button btn-sm" id="label_view12" adr_trans="label_view" href="csrRealtorCalendar.php" style="background:#ffff00!important;color:#7c6f6f!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right" style="color:#7c6f6f!important;"></i>View </a>
+                                         <br />
+                                        <a class="btn-sm" adr_trans="label_view" href="csrRealtorCalendar.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
+                                         
                                     </div>
 </div>
 
@@ -494,14 +500,14 @@ margin-left:0px!important;
             <div class="col-md-6" style="">
 			<br />
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
-              	<div id='calendar' style="opacity:0.8;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;"></div>
+              	<div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
                 <hr class="space s">
-                <center>  <a href="./csrRealtorCalendar.php" class="anima-button circle-button btn-sm btn" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i> View My Calender</a>    </center>
+                <center>  <a href="./csrRealtorCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Calender</a>    </center>
             </div>
 						<div class="col-md-6">
 						 <br />
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-	 <div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+	 <div class=" advs-box boxed-inverse forMobile"  style="background:#FFF!important;border-radius:10px;opacity:0.8;height: 305px;">
 
 					   <?php
 
@@ -529,7 +535,7 @@ margin-left:0px!important;
 
 					  </div></div>
 					  <p align="center">
- <a class="anima-button circle-button btn-sm" href="order_list.php" style="margin-top:20px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
+ <a class="btn btn-sm" href="order_list.php" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order">View My Orders </a>
 </p>
 
             </div>
@@ -895,7 +901,7 @@ $where="location like '%$companySearch%' and ";
 				{
 
 				?><center>
-				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;width:100%;border-radius:25px 25px 25px 25px;width:100%">
+				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;width:100%;border-radius:10px;width:100%">
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:15px;border:none">
 
 				 <?php
@@ -904,7 +910,7 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
 				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/>
-				 <i class="fa fa-heart close" style="position:absolute;top:80px;right:1px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Remove from wishlist" onClick="removeFromWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
+				 <i class="fa fa-heart close" style="position:absolute;top:80px;right:1px;;background:white;color:#aad1d6;font-weight:700;padding:2px;" title="Remove from wishlist" onClick="removeFromWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
 				   <?php
                 }
                ?>
@@ -929,9 +935,9 @@ for($i=1;$i<=5;$i++)
 if($i<=$ratingIs)
 {
 ?>
-<i class="fa fa-star" style="padding:1px;font-size:10px;color:#337AB7;"></i>
+<i class="fa fa-star" style="padding:1px;font-size:10px;color:#aad1d6;"></i>
 <?php } else { ?>
-<i class="fa fa-star-o" style="padding:1px;color:#337AB7;font-size:10px;"></i>
+<i class="fa fa-star-o" style="padding:1px;color:#aad1d6;font-size:10px;"></i>
 <?php } } ?>
           <br />
 <span style="font-size:12px;"><?php echo $knowMore; ?></span>
@@ -952,12 +958,12 @@ if($i<=$ratingIs)
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view1">View</span></a>';
         ?>
 
-      <table cellspacing="0" border="0"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;width:100%;border-radius:25px 25px 25px 25px;width:100%">
+      <table cellspacing="0" border="0"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;width:100%;border-radius:10px;width:100%">
 				<tr style="float:left;"><td style="padding:15px;border:none">
 <center>
 
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#006600;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#aad1d6;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
 <p align="center" style="padding-top:3px;width:75px!important;word-break:break-all;font-size: 13px;"><?php echo strtoupper(substr($photo1['organization_name'],0,8)); ?>
  </p>
 
@@ -977,9 +983,9 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
  if($i<=$ratingIs)
  {
  ?>
- <i class="fa fa-star" style="padding:1px;font-size:10px;color:#337AB7;"></i>
+ <i class="fa fa-star" style="padding:1px;font-size:10px;color:#aad1d6;"></i>
  <?php } else { ?>
- <i class="fa fa-star-o" style="padding:1px;color:#337AB7;font-size:10px;"></i>
+ <i class="fa fa-star-o" style="padding:1px;color:#aad1d6;font-size:10px;"></i>
  <?php } } ?><br />
               <span style="font-size:12px;"><?php echo $knowMore; ?></span>
 
@@ -1088,7 +1094,7 @@ window.reload();
 </script>
 
 
-				<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:450px;">
+				<div id="aboutMe" class="box-lightbox" style="padding:25px;height:450px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_photographer_details" adr_trans="label_photographer_details" >PHOTOGRAPHER DETAILS</h5>
                             <hr class="space s">
@@ -1121,7 +1127,7 @@ window.reload();
 
 
 
-			<div id="photoCompany" class="box-lightbox white" style="padding:25px;height:450px;border-radius:10px;">
+			<div id="photoCompany" class="box-lightbox" style="background: #F1F3F4;padding:25px;height:450px;border-radius:10px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center">
 							<span id="companyName" style="text-transform:uppercase"></span></h5>

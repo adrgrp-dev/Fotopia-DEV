@@ -152,7 +152,7 @@ font-size: 10px!important;
 h2.fc-toolbar-title
 {
 display:contents;
-color:#FFF!important;
+color:#000!important;
 border:solid 1px #000!important;
 padding:10px;
 }
@@ -168,10 +168,10 @@ border-radius:25px 25px 0px 0px;
 {
 border-radius:25px!important;
 }
-.fc-prev-button, .fc-next-button, .fc-button
+.fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:2px!important;
 font-size: 10px!important;
 }
@@ -204,10 +204,10 @@ font-size:11px!important;
 
 
 	@media only screen and (max-width: 600px) {
-  .fc-prev-button, .fc-next-button, .fc-button
+  .fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:2px!important;
 font-size: 7px!important;
 }
@@ -229,15 +229,14 @@ height:fit-content!important;
 
 						<?php }  ?>
 					<div class="row" style="margin-left:10px;">
-
+<hr class="space s" />
                 <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-check icon circle anima" aid="0.33201800164139406" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000;color:#0000FF!important;"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
 													<hr class="space s">
                         <div class="row">
 													<div class="col-md-12" style="padding-left: 35px;">
-														<h5 id="label_completed" adr_trans="label_completed">Completed</h5>
+														<h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_completed" adr_trans="label_completed">Completed</span></h5>
 															<?php
 															$get_order_query=mysqli_query($con,"select count(*) as completed_no from orders where status_id=3 and pc_admin_id=$superCsr");
 															if($get_order=mysqli_fetch_assoc($get_order_query))
@@ -247,7 +246,11 @@ height:fit-content!important;
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
-		  <a class="anima-button circle-button btn-sm" id="label_view" adr_trans="label_view" href="superorder_list1.php?c=1" style="background:#0000FF!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+
+		 <br />
+							 <a class="btn-sm" adr_trans="label_view" href="superorder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
+		  
 													</div>
 
 												</div>
@@ -256,33 +259,35 @@ height:fit-content!important;
 								<div class="row" style="margin-left:10px;">
 
 											<div class="col-md-3">
-													<div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-															<i class="fa fa-calendar icon circle anima" aid="0.33201800164139406" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000;color:#FF0000!important;"></i>
+													 <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
 																<hr class="space s">
 															<div class="row">
 
 															<div class="col-md-12" style="padding-left: 35px;">
-																	<h5 id="label_ongoing" adr_trans="label_ongoing">Ongoing</h5>
+																	<h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_ongoing" adr_trans="label_ongoing">Ongoing</span></h5>
 																		<?php
 																		$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4) and pc_admin_id=$superCsr");
 																		if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 																		{
 																		?>
 																	<p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
- <a class="anima-button circle-button btn-sm" id="label_view" adr_trans="label_view" href="superorder_list1.php?o=1" style="background:#FF0000!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+
+																	<br />
+							 <a class="btn-sm" adr_trans="label_view" href="superorder_list1.php?o=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
+
 																</div>
 															</div>
 													</div>
 											</div>
                 <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-users icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#ffff00!important;"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
 													<hr class="space s">
 												<div class="row">
 													<div class="col-md-12" style="padding-left: 35px;">
-                              <h5 id="label_users" adr_trans="label_users">Users</h5>
+                              <h5><i class="fa fa-users circle-right fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_users" adr_trans="label_users">Users</span></h5>
 															<?php
 															$get_user_query=mysqli_query($con,"select count(*) as user_no from user_login where type_of_user='Photographer' and pc_admin_id=$superCsr");
 
@@ -298,21 +303,23 @@ height:fit-content!important;
 
 		<?php echo $get_user["user_no"]+$get_user1["user_no1"]+$get_user2["user_no2"]; ?>
 		 </p>
-		     <a class="anima-button circle-button btn-sm" id="label_view" adr_trans="label_view" href="csr_list1.php?p=1"  style="background:#ffff00!important;color:#7c6f6f!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right" style="
-    color:#7c6f6f!important;" ></i>View </a>
+
+		 <br />
+							 <a class="btn-sm" adr_trans="label_view" href="csr_list1.php?p=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
+		     
 													</div>
 
 												</div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                  <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-usd icon circle anima" aid="0.7325797694245981" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000;color:#118C4F!important;"></i>
+                   <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
                           	<hr class="space s">
 												<div class="row">
 												<div class="col-md-12" style="padding-left: 35px;">
-														<h5 id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</h5>
+														<h5><i class="fa fa-usd circle-right fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</span></h5>
 
 															<?php
 
@@ -331,7 +338,9 @@ height:fit-content!important;
                           }
 												?>
 											   <p style="color:white;font-size:25px;font-weight:600"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:#000;font-size:25px;font-weight:600"><?php echo "$".$total1; ?></label></p>
-		     <a class="anima-button circle-button btn-sm" id="label_view" adr_trans="label_view" href="payment_reports.php" style="background:#118C4F!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+											   	<br />
+							 <a class="btn-sm" adr_trans="label_view" href="payment_reports.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
 													</div>
 
 												</div>
@@ -475,9 +484,9 @@ $.ajax({
 <br />
 
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="opacity:0.8;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;"></div>
+ <div id='calendar' style="background:#FFF!important;opacity:0.8;border-radius:10px;"></div>
   <hr class="space s">
-                <center>  <a href="PCAdmin_calender.php" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> <span adr_trans="label_view_calendar">View Calender</span></a>    </center>
+                <center>  <a href="PCAdmin_calender.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
     </div>
 
 <!-- calendar ends -->
@@ -486,7 +495,7 @@ $.ajax({
 <div class="col-md-6">
  <br />
               <center>    <h5 id="label_latest_delivered" adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 350px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#FFF!important;border-radius:10px;opacity:0.8;height: 350px;">
  <?php
 
 		$get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where pc_admin_id=$_SESSION[admin_loggedin_id]) order by rand() limit 4");
@@ -510,7 +519,7 @@ $.ajax({
 
 
 <p align="center">
- <a class="anima-button circle-button btn-sm" href="superorder_list1.php?c=1" style="margin-top:20px;"><i class="fa fa-long-arrow-right"></i><span adr_trans="label_view_order">View My Orders</span> </a>
+ <a class="btn btn-sm" href="superorder_list1.php?c=1" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_order">View My Orders</span> </a>
  </p>
 
 
@@ -586,7 +595,7 @@ $knowMore="";
 				{
 
 				?>
-				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;border-radius:25px 25px 25px 25px;width:90%">
+				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;border-radius:10px;width:80%">
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:15px;border:none">
 
 				 <?php
@@ -623,9 +632,9 @@ for($i=1;$i<=5;$i++)
 if($i<=$ratingIs)
 {
 ?>
-<i class="fa fa-star" style="padding:1px;font-size:10px;color:#337AB7;"></i>
+<i class="fa fa-star" style="padding:1px;font-size:10px;color:#aad1d6;"></i>
 <?php } else { ?>
-<i class="fa fa-star-o" style="padding:1px;color:#337AB7;font-size:10px;"></i>
+<i class="fa fa-star-o" style="padding:1px;color:#aad1d6;font-size:10px;"></i>
 <?php } } ?>
 
         </p>
@@ -683,7 +692,7 @@ $where="and first_name like '$companySearch%'";
 		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization']."\")'><span adr_trans='label_view1'>View</span></a>";
 
 				?>
-				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;border-radius:25px 25px 25px 25px;width:90%">
+				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;border-radius:10px;width:80%">
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:15px;border:none">
 
 				 <?php
@@ -719,9 +728,9 @@ for($i=1;$i<=5;$i++)
 if($i<=$ratingIs)
 {
 ?>
-<i class="fa fa-star" style="padding:1px;font-size:10px;color:#337AB7;"></i>
+<i class="fa fa-star" style="padding:1px;font-size:10px;color:#aad1d6;"></i>
 <?php } else { ?>
-<i class="fa fa-star-o" style="padding:1px;color:#337AB7;font-size:10px;"></i>
+<i class="fa fa-star-o" style="padding:1px;color:#aad1d6;font-size:10px;"></i>
 <?php } } ?>
                </p>
 <?php echo $knowMore; ?>
@@ -841,7 +850,7 @@ window.location.href = "./csr_dashboard.php?rwl=1&cw=1";
 </script>
 
 
-			<div id="aboutMe" class="box-lightbox white col-md-6" style="padding:25px;height:336px;">
+			<div id="aboutMe" class="box-lightbox" style="background: #F1F3F4;padding:25px;height:350px;border-radius:10px;">
                         <div class="subtitle g" style="color:#333333">
 
                             <h5 style="color:#333333" align="center" id="label_photographer_details" adr_trans="label_photographer_details" >PHOTOGRAPHER DETAILS</h5>
@@ -849,7 +858,7 @@ window.location.href = "./csr_dashboard.php?rwl=1&cw=1";
 
 							<div class="tab-box right" data-tab-anima="fade-left">
 							<div class="hidden-md hidden-lg hidden-xl">
-							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height: 145.333px;">
+							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height: 200px;">
           <li class="active mobileLinks" id="about" style="border-bottom:solid 1px #DDD;" ><a href="#" id="label_about_me" adr_trans="label_about_me" >About me</a></li>
 			        <li id="skills" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#" id="label_skills" adr_trans="label_skills" > Skills</a></li>
               <li id="portfolio" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#" id="label_portfolio" adr_trans="label_portfolio" > Portfolio</a></li>
@@ -886,7 +895,7 @@ window.location.href = "./csr_dashboard.php?rwl=1&cw=1";
 
 
 
-			<div id="photoCompany" class="box-lightbox white col-md-6" style="padding:25px;height:336px;">
+			<div id="photoCompany" class="box-lightbox  col-md-6" style="background: #F1F3F4;padding:25px;height:450px;border-radius:10px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_photocompany_details" adr_trans="label_photocompany_details">
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -894,14 +903,14 @@ window.location.href = "./csr_dashboard.php?rwl=1&cw=1";
 
 							<div class="tab-box right" data-tab-anima="fade-left">
 							<div class="hidden-md hidden-lg hidden-xl">
-							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height: 145.333px;">
+							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height: 200px;">
          <li class="active mobileLinks" id="about" style="border-bottom:solid 1px #DDD;"><a href="#" id="label_about_me" adr_trans="label_about_me" >About us</a></li>
 			        <li id="skills" style="border-bottom:solid 1px #DDD;width:150px!important;" class="mobileLinks"><a href="#" id="label_photographers" adr_trans="label_photographers" >Photographers</a></li>
              <li id="products" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#" id="label_products" adr_trans="label_products" >Products</a></li>
                <li id="contact" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#" id="label_contact" adr_trans="label_contact" > Contact</a></li>
                       </ul>
 							</div>
-                        <div class="panel-box  col-md-8 col-sm-8" id="resultDiv1" style="height:200px;overflow-y:scroll;">
+                        <div class="panel-box  col-md-8 col-sm-8" id="resultDiv1" style="height:330px;overflow-y:scroll;">
 
                         </div>
                         <ul class="nav nav-tabs col-md-4 hidden-sm hidden-xs" style="height: 145.333px;">

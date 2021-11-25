@@ -105,7 +105,7 @@ border:solid 1px #01A8F2!important;
 h2.fc-toolbar-title
 {
 display:contents;
-color:#FFF!important;
+color:#000!important;
 border:solid 1px #000!important;
 padding:10px;
 }
@@ -121,10 +121,10 @@ border-radius:25px 25px 0px 0px;
 {
 border-radius:25px!important;
 }
-.fc-prev-button, .fc-next-button, .fc-button
+.fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:2px!important;
 font-size: 10px!important;
 }
@@ -218,13 +218,13 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 					<div>
 
                 <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-database icon circle anima" aid="0.33201800164139406" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;background:#000;color:#0000FF!important;"></i>
+
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
 													<hr class="space s">
                         <div class="row">
 													<div class="col-md-12 " style="padding-left: 35px;">
-														<h5 adr_trans="label_completed">Completed</h5>
+														<h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span adr_trans="label_completed">Completed</span></h5>
 															<?php
 															$get_order_query=mysqli_query($con,"select count(*) as completed_no from orders where status_id=3 and csr_id=$subcsr");
 															if($get_order=mysqli_fetch_assoc($get_order_query))
@@ -234,7 +234,9 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
-      <a id="label_view" adr_trans="label_view" class="anima-button circle-button btn-sm" href="subcsrOrder_list1.php?c=1" style="background:#0000FF!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+    
+      <br />
+               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 													</div>
 													<div class="col-md-6">
 
@@ -243,20 +245,22 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-users icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;background:#000;color:#FF0000!important;"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
                         <!-- <h3 style="margin-bottom: 20px;">Ongoing orders</h3> -->
 													<hr class="space s">
 												<div class="row">
 													<div class="col-md-12 pd-2" style="padding-left: 35px;">
-                            <h5 id="label_ongoing" adr_trans="label_ongoing">Ongoing</h5>
+                            <h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_ongoing" adr_trans="label_ongoing">Ongoing</span></h5>
                               <?php
                               $get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4) and csr_id=$subcsr");
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>
                             <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
-                        <a id="label_view" adr_trans="label_view" class="anima-button circle-button btn-sm" href="subcsrOrder_list1.php?o=1" style="background:#FF0000!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+
+                        
+                        <br />
+               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?o=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 
 													</div>
@@ -265,20 +269,22 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-users icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;background:#000;color:#ffff00!important;"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
                         <!-- <h3 style="margin-bottom: 20px;">Ongoing orders</h3> -->
                           <hr class="space s">
                         <div class="row">
                           <div class="col-md-12 pd-2" style="padding-left: 35px;">
-                            <h5 id="label_new_orders" adr_trans="label_new_orders">New Orders</h5>
+                            <!-- fa fa-xs fa-stack-exchange -->
+                            <h5><i class="fa fa-stack-exchange fa-lg" style="color:#aad1d6;"></i><br /><br /> <span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></h5>
                               <?php
                               $get_ongoing_query=mysqli_query($con,"SELECT count(*) as ongoing_no FROM orders where csr_id=$loggedin_id and photographer_id='0' and status_id in(1,6,7) ");
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>
                             <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
-                        <a id="label_view" adr_trans="label_view" class="anima-button circle-button btn-sm" href="subcsrOrder_list1.php" style="background:#ffff00!important;color:#7c6f6f!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right" style="color:#7c6f6f!important;"></i>View </a>
+
+                        <br />
+               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 
                           </div>
@@ -287,13 +293,12 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                     </div>
                 </div>
                 <div class="col-md-3">
-                  <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.8;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-usd icon circle anima" aid="0.7325797694245981" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;background:#000;color:#118C4F!important;"></i>
+                   <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
                           	<hr class="space s">
 												<div class="row">
 													<div class="col-md-12 pd-2" style="padding-left: 35px;">
-														<h5 adr_trans="label_revenue">Revenue this Month</h5>
+														<h5><i class="fa fa-usd fa-lg" style="color:#aad1d6;"></i><br /><br /> <span adr_trans="label_revenue">Revenue this Month</span></h5>
                       <?php
                             $total1=0;
   													$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and csr_id=$loggedin_id");
@@ -310,7 +315,10 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                             }
   												?>
 											   <p style="color:white;font-size:25px;font-weight:600"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:white;font-size:25px;font-weight:600;color:#000"><?php echo "$".$total1; ?></label></p>
-                             <a id="label_view" adr_trans="label_view" class="anima-button circle-button btn-sm" href="payment_reports.php" style="background:#118C4F!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+
+                        <br />
+               <a class="btn-sm" adr_trans="label_view" href="payment_reports.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
 													</div>
 
 												</div>
@@ -446,9 +454,9 @@ $.ajax({
 </script>
 <br />
 <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="opacity:0.8;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;"></div>
+ <div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
 <hr class="space s">
-                <center>  <a href="CSR_Calendar.php" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> <span adr_trans="label_view_calendar">View Calender</span></a>    </center>
+                <center>  <a href="CSR_Calendar.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
     </div>
 
 
@@ -459,7 +467,7 @@ $.ajax({
      <div class="col-md-6">
  <br />
               <center>    <h5 id="label_latest_delivered" adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
-<div class=" advs-box boxed-inverse forMobile"  style="background:#E8F0FE!important;border-radius:25px;box-shadow:10px 10px 10px 10px #DDD;opacity:0.8;height: 305px;">
+<div class=" advs-box boxed-inverse forMobile"  style="background:#FFF!important;border-radius:10px;opacity:0.8;height: 305px;">
        <?php
 
           $get_latest_delivered_query=mysqli_query($con,"SELECT * FROM `img_upload` where finished_images=1 and order_id in(select id from orders where csr_id=$_SESSION[admin_loggedin_id]) order by rand() limit 4");
@@ -484,7 +492,7 @@ $.ajax({
 
 
 <p align="center">
- <a id="label_view_order" adr_trans="label_view_order" class="anima-button circle-button btn-sm" href="subcsrOrder_list1.php?c=1" style="margin-top:20px;"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
+ <a id="label_view_order" adr_trans="label_view_order" class="btn btn-sm" href="subcsrOrder_list1.php?c=1" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Orders </a>
  </p>
 </div>
 
@@ -526,7 +534,7 @@ $knowMore="";
 				{
 
 				?>
-				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="box-shadow:5px 5px 5px #AAA;background:#DDD;color:#000;font-weight:600;opacity:0.8;border-radius:25px 25px 25px 25px;width:100%">
+				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;border-radius:10px;width:90%">
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:25px;border:none">
 
 				 <?php
@@ -563,9 +571,9 @@ for($i=1;$i<=5;$i++)
 if($i<=$ratingIs)
 {
 ?>
-<i class="fa fa-star" style="padding:1px;font-size:10px;color:#337AB7;"></i>
+<i class="fa fa-star" style="padding:1px;font-size:10px;color:#aad1d6;"></i>
 <?php } else { ?>
-<i class="fa fa-star-o" style="padding:1px;color:#337AB7;font-size:10px;"></i>
+<i class="fa fa-star-o" style="padding:1px;color:#aad1d6;font-size:10px;"></i>
 <?php } } ?>
 
         </p><br />
@@ -595,8 +603,7 @@ if($i<=$ratingIs)
 </div>
 
 
-
-		<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:336px; overflow:scroll;">
+		<div id="aboutMe" class="box-lightbox" style="background: #F1F3F4;padding:25px;height:350px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_photographer_details" adr_trans="label_photographer_details" >PHOTOGRAPHER DETAILS</h5>
                             <hr class="space s">
@@ -605,7 +612,7 @@ if($i<=$ratingIs)
                         <div class="panel-box col-md-8" id="resultDiv">
 
                         </div>
-                        <ul class="nav nav-tabs col-md-4" style="height: 145.333px;">
+                        <ul class="nav nav-tabs col-md-4" style="height: 200px;">
               <li class="active" id="about" style="border-bottom:solid 1px #DDD;" ><a href="#"><i class="fa fa-user" style="color:#333333"></i><span adr_trans="label_about_me"> About Me</span></a></li>
 			        <li id="skills" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-certificate" style="color:#333333"></i><span adr_trans="label_skills"> Skills</span></a></li>
               <li id="portfolio" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-list" style="color:#333333"></i><span adr_trans="label_portfolio"> Portfolio</span></a></li>

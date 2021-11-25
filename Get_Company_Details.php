@@ -38,23 +38,31 @@ for($i=1;$i<=5;$i++)
 {
 if($i<=$ratingIs)
 {
-$ratingStars.="<i class=\"fa fa-star\" style=\"padding:5px;font-size:10px;color:#337AB7;\"></i>";
+$ratingStars.="<i class=\"fa fa-star\" style=\"padding:5px;font-size:10px;color:#aad1d6;\"></i>";
  } else {
-$ratingStars.="<i class=\"fa fa-star-o\" style=\"padding:5px;color:#337AB7;font-size:10px;\"></i>";
+$ratingStars.="<i class=\"fa fa-star-o\" style=\"padding:5px;color:#aad1d6;font-size:10px;\"></i>";
  } }
  $ratingStars.="</p>";
 
 
 
 
-$photographersList.="<table border=\"0\" cellpadding=\"10\" style=\"width:100%;padding:10px;margin:10px;background:#000;color:#FFF;border-radius:25px 25px 25px 25px;\"><tr><td rowspan=\"5\" align=\"center\" style=\"padding:10px\"><img   href=\"#aboutMe\" class=\"lightbox link\" data-lightbox-anima=\"show-scale\" style=\"color:blue;text-decoration:underline\" src=\"data:".$phList1['profile_pic_image_type'].";base64,".base64_encode($phList1['profile_pic'])."\" width=\"120\" height=\"100\"  style=\"max-width: 70px;\"/></td></tr><tr><td>".strtoupper($phList1['first_name'])."</td></tr><tr><td>".$locationIs."</td></tr><tr><td>".$SkillsIs."</td></tr><tr><td>".$ratingStars."</td></tr><tr><td colspan=\"2\" align=\"center\"><p align=\"center\" style=\"padding:10px;\">
+$photographersList.="<table border=\"0\" cellpadding=\"10\" style=\"width:100%;padding:10px;margin:10px;background:#FFF;color:#000;border-radius:10px;\"><tr><td rowspan=\"5\" align=\"center\" style=\"padding:10px\"><img   href=\"#aboutMe\" class=\"lightbox link\" data-lightbox-anima=\"show-scale\" style=\"color:blue;text-decoration:underline\" src=\"data:".$phList1['profile_pic_image_type'].";base64,".base64_encode($phList1['profile_pic'])."\" width=\"120\" height=\"100\"  style=\"max-width: 70px;\"/></td></tr><tr><td>".strtoupper($phList1['first_name'])."</td></tr><tr><td>".$locationIs."</td></tr><tr><td>".$SkillsIs."</td></tr><tr><td>".$ratingStars."</td></tr><tr><td colspan=\"2\" align=\"center\"><p align=\"center\" style=\"padding:10px;\">
 
-<a class=\"anima-button circle-button btn-sm btn\" adr_trans=\"label_book_online\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i>Book Online</a>&nbsp;&nbsp;&nbsp;
-<a class=\"anima-button circle-button btn-sm btn\" adr_trans=\"label_book_now\" href=\"./create_order.php?bn=1&pc_admin_id=$super_csr_id&Photographer_id=$Photographer_id\"><i class=\"fa fa-check\"></i>Book Now</a></p></td></tr></table>";
+
+
+<a class=\"btn-sm\" adr_trans=\"label_book_online\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\" style=\"background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;\">Book Online</a>&nbsp;&nbsp;&nbsp;
+
+
+
+<a class=\"btn-sm\" adr_trans=\"label_book_now\" href=\"./create_order.php?bn=1&pc_admin_id=$super_csr_id&Photographer_id=$Photographer_id\" style=\"background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;\">Book Now</a>
+
+</p></td></tr></table>";
 
 }
 
 //echo "select email,contact_number from admin_users where id='$super_csr_id'";
+
 if($res=mysqli_query($con,"select email,contact_number from admin_users where id='$super_csr_id' "))
 {
 $res1=mysqli_fetch_array($res);
@@ -120,7 +128,7 @@ $product.="</table></div>";
 echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:280px;\">
                               ".$aboutIs."
                             </div>
-
+ 
 							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:280px;overflow:scroll;\">
                               ".$photographersList."
                             </div>

@@ -242,24 +242,24 @@ vertical-align:top!important;
 <tr><td>&nbsp;</td></tr>
 </table>
 
-<br />
-<div style="margin-left:7px;background:#E8F0FE!important">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="color:#3B5998!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="color:#3B8ACA!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="color:#125688!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube" style="color:#cc181e!important;font-size:18px;padding:5px;"></i></a>
+<div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
+ <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
+<br /><br />
 
 
  <div>
-                                    <p style="margin-left: 40px;margin-top: 40px;"><a href="#tnc2" class=" lightbox link">
+                                    <p style="margin-left: 80px;margin-top: 10px;"><a href="#tnc2" class=" lightbox link">
                                     <i style="
-        color: blue;
+        color: aad1d6;
         top: -43px;
-        font-size: 50px;
+        font-size: 40px;
 
         margin-right: 5px;
-        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Invite to Join Fotopia</span></b></a></p>
+        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 35px;font-size: 12px;"><span adr_trans="label_invite_to_fotopia">Invite to Join Fotopia</span></b></a></p>
         </div>
 
         <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:450px;height:230px;">

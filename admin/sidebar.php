@@ -96,12 +96,11 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 <tr><td>&nbsp;</td></tr>
 </table>
 
-<br />
-<div style="margin-left:7px;background:#E8F0FE!important">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="color:#3B5998!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="color:#3B8ACA!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="color:#125688!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube" style="color:#cc181e!important;font-size:18px;padding:5px;"></i></a>
+<div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
+ <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 
@@ -150,12 +149,11 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 <tr><td>&nbsp;</td></tr>
 </table>
 
-<br />
-<div style="margin-left:7px;background:#E8F0FE!important">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="color:#3B5998!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="color:#3B8ACA!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="color:#125688!important;font-size:18px;padding:5px;"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube" style="color:#cc181e!important;font-size:18px;padding:5px;"></i></a>
+<div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
+ <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 
@@ -174,7 +172,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
       <div class="hidden-xs hidden-sm">
 <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
 <tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="users.php?user_type=1"><i class="fa fa-xs fa-user-secret"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
@@ -187,7 +185,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 <tr><td id="statisticMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="#"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_statistics" style="padding-left:15px;font-size:13px;">Statistics</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="adminuserMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="admin_users.php?user_type=1"><i class="fa fa-xs fa-users"></i><span adr_trans="label_admin_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
+<tr><td id="adminuserMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="admin_users.php?user_type=1"><i class="fa fa-xs fa-users"></i><span adr_trans="label_admin_users" style="padding-left:15px;font-size:13px;">Admin users</span></a></td></tr>
 
 
 
