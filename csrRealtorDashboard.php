@@ -93,7 +93,7 @@ border:solid 1px #01A8F2!important;
 h2.fc-toolbar-title
 {
 display:contents;
-color:#FFF!important;
+color:#000!important;
 border:solid 1px #000!important;
 padding:10px;
 }
@@ -127,14 +127,14 @@ border-radius:25px!important;
 
 .fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:10px!important;
 
 }
 .fc .fc-toolbar-title
 {
-font-size:9px!important;
+font-size:10px!important;
 }
 #label_view12 i
 {
@@ -297,12 +297,12 @@ margin-left:0px!important;
 
             <div class="row" style="padding-left:30px;">
 
-
+<hr class="space s" />
 <div class="col-md-12">
 
                        <div class="col-md-4">
-                    <div class=" advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover" style="background:#E8F0FE!important;border-radius:35px 35px 35px 35px;opacity:0.7;color:#000000;border:solid 3px #000000;box-shadow:10px 10px 10px #3a3b3c">
-                        <i class="fa fa-check icon circle anima" aid="0.8497340629201113" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms;border:solid 2px #000000;background:#000!important;color:#0000FF !important"></i>
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+                        
 
                             <?php
                               $get_complete_query=mysqli_query($con,"SELECT count(id) as total1 FROM orders where status_id=3 and realtor_id='$loggedin_id'");
@@ -313,7 +313,9 @@ margin-left:0px!important;
 
       <?php echo $get_complete['total1'];?>
                             </p>
-                            <a class="anima-button circle-button btn-sm" adr_trans="label_view" href="order_list.php?c=1" style="background:#0000FF!important;color:#FFF!important;font-weight:700;box-shadow:2px 2px 2px 2px #3a3b3c;"><i class="fa fa-long-arrow-right"></i>View </a>
+							<br />
+							 <a class="btn-sm" adr_trans="label_view" href="order_list.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+							
                         </div></div>
 
                         <div class="col-md-4">
@@ -514,8 +516,8 @@ margin-left:0px!important;
 
 					        <div class="col-md-6 ">
 					          <a href="order_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&f=1">
-					        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="130" style="padding-bottom:10px;"/>
-					     <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+					        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="120" style="padding-bottom:15px;"/>
+					     <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#FFF!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font-weight:bold;font-size:12px;"><?php echo $get_address['property_address']; ?></span>
 						    </a>
 
 
@@ -1086,16 +1088,16 @@ window.reload();
 </script>
 
 
-				<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:336px;">
+				<div id="aboutMe" class="box-lightbox white" style="padding:25px;height:450px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_photographer_details" adr_trans="label_photographer_details" >PHOTOGRAPHER DETAILS</h5>
                             <hr class="space s">
 
 							<div class="tab-box right" data-tab-anima="fade-left">
-                        <div class="panel-box col-md-8" id="resultDiv">
+                        <div class="panel-box col-md-8" id="resultDiv" style="height:400px;">
 
                         </div>
-                        <ul class="nav nav-tabs col-md-4" style="height: 145.333px;">
+                        <ul class="nav nav-tabs col-md-4" style="height:200px;">
               <li class="active" id="about" style="border-bottom:solid 1px #DDD;" ><a href="#" id="label_about_me" adr_trans="label_about_me">About Me</a></li>
 			        <li id="skills" style="border-bottom:solid 1px #DDD;"><a href="#" id="label_skills" adr_trans="label_skills">Skills</a></li>
               <li id="portfolio" style="border-bottom:solid 1px #DDD;"><a href="#" id="label_portfolio" adr_trans="label_portfolio">Portfolio</a></li>
@@ -1119,7 +1121,7 @@ window.reload();
 
 
 
-			<div id="photoCompany" class="box-lightbox white" style="padding:25px;height:336px;">
+			<div id="photoCompany" class="box-lightbox white" style="padding:25px;height:450px;border-radius:10px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center">
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -1127,7 +1129,7 @@ window.reload();
 
 							<div class="tab-box right" data-tab-anima="fade-left">
                       		<div class="hidden-md hidden-lg hidden-xl">
-							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height: 145.333px;">
+							<ul class="nav nav-tabs col-md-4 col-sm-4" style="height:200px;">
            <li class="active mobileLinks" id="about" style="border-bottom:solid 1px #DDD;" ><a href="#"><span adr_trans="label_about_us">About us </span></a></li>
 			        <li id="skills" style="border-bottom:solid 1px #DDD;width:110px!important;" class="mobileLinks"><a href="#"><span adr_trans="label_photographers">Photographers</span></a></li>
              <li id="products" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#"><span adr_trans="label_products">Products</span></a></li>
@@ -1135,7 +1137,7 @@ window.reload();
           <li id="portfolio" style="border-bottom:solid 1px #DDD;" class="mobileLinks"><a href="#"><span adr_trans="label_portfolio">Portfolio</span></a></li>
                       </ul>
 							</div>
-                        <div class="panel-box col-md-8 col-sm-8" id="resultDiv1" style="height:200px;overflow-y:scroll;">
+                        <div class="panel-box col-md-8 col-sm-8" id="resultDiv1" style="height:330px;overflow-y:scroll;">
 
                         </div>
                         <ul class="nav nav-tabs col-md-4 col-sm-4 hidden-sm hidden-xs" style="height: 145.333px;">

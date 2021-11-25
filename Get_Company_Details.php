@@ -117,14 +117,14 @@ $realtorDiscountPrice=$realtorCost['discount_price'];
 $product.="<tr style=\"font-size:15px!important;\"><td style=\"padding:5px;font-size:15px!important\">".$product_result1['product_name']."</td><td style=\"padding:5px;font-size:15px!important\">".$product_result1['timeline']."</td><td style=\"padding:5px;font-size:15px!important\" align=\"center\">".$totalProdCost."</td><td style=\"padding:5px;font-size:15px!important\" align=\"center\">".$realtorDiscountPrice."</td></tr>";
 }
 $product.="</table></div>";
-echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:150px;\">
+echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:280px;\">
                               ".$aboutIs."
                             </div>
 
-							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:150px;overflow:scroll;\">
+							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:280px;overflow:scroll;\">
                               ".$photographersList."
                             </div>
-							 <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;\">
+							 <div class=\"panel\" id=\"contactDiv\" style=\"height:290px;\">
                                ".$product."<br>
                             </div>
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:fit-content;margin-bottom:-20px;\">
@@ -133,7 +133,7 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:150px
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;\">
                                ".$portFolio."
                             </div>
-							<hr class=\"space s\"><center style=\"position:fixed;padding-top:50px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>
+							<hr class=\"space s\"><center style=\"position:fixed;padding-top:30px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>
 							";
 /*<p align=\"center\">
 

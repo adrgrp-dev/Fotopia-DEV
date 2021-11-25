@@ -431,7 +431,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
         <div class="col-md-6">
           <a href="photographerorder_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&f=1">
         <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="140" style="padding-bottom:15px;"/>
-		 <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+		 <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#FFF!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font-size:12px;font-weight:bold"><?php echo $get_address['property_address']; ?></span>
         </a>
         </div>
   <?php		}
