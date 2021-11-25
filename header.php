@@ -335,7 +335,7 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
                             <li class="dropdown current-active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi" style="text-transform:none!important;">Hi,</span> <?php echo substr($loggedin_name,0,3)."..."; ?> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi" style="text-transform:none!important;font-weight:bold;font-size:12px;">Hi,</span> <?php echo $loggedin_name; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                   <li><a href="change_email_password.php"  adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
 				  <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>

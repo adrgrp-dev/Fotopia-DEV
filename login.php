@@ -29,7 +29,7 @@ if(isset($_REQUEST['loginbtn']))
 	if($user_exist!=0)
 	{
 		$getres=mysqli_fetch_array($res);
-		$user_name=$getres['first_name'];
+		$user_name=$getres['first_name']." ".$getres['last_name'];
 		$user_type=$getres['type_of_user'];
 		$uid=$getres['id'];
 		 $email_verified=$getres['email_verified'];

@@ -1425,15 +1425,15 @@ alert(alertmsg);
 
                                 ?>
 
- <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
+ <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 
 
                     <div class="row" style="" id="printArea">
                             <div class="col-md-6">
-                            <p align="left" id="label_order_details" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
+                            <p align="left" id="label_order_details" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
-                            <table class="" style="color:#000;font-weight:600;font-size:12px;">
+                            <table class="" style="color:#000;font-weight:600;font-size:13px;">
                             <tr>
                             <td id="label_order_no" adr_trans="label_order_no" style="width:150px;">Order #</td><td>:</td><td><?php echo $get_summary['id']; ?></td>
                             </tr>
@@ -1525,7 +1525,7 @@ alert(alertmsg);
                          }
                         ?>
                             <br />
-                            <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:15px;">Products For the Order</p>
+                            <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:15px;">Products For the Order</p>
 
                             <table style="color:#000;font-weight:600;font-size:12px;min-height:50px">
                             <?php
@@ -1553,9 +1553,9 @@ alert(alertmsg);
                             </table>
                             </div>
                             <div class="col-md-6">
-                            <p align="left" id="label_homeseller_info" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
+                            <p align="left" id="label_homeseller_info" adr_trans="label_homeseller_info" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
-                    <table class="" style="color:#000;font-weight:600;font-size:12px;">
+                    <table class="" style="color:#000;font-weight:600;font-size:13px;">
                             <tr>
                             <td id="label_homeseller_name" adr_trans="label_homeseller_name">Home Seller Name</td><td>:</td><td><?php echo $homeSeller1['name']; ?></td>
                             </tr>
@@ -3234,7 +3234,7 @@ $percentage = @$get_information['tax'];
   $realtor=mysqli_fetch_array($realtor1);
   //  echo @$realtor["first_name"];  ?></p>
   <div id="wrapper" style="width:100%">
-  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:100%">
+  <div class="scrollbar" id="style-default" style="border:none;background:#E8F0FE;overflow:scroll;width:105%">
   <table class="table" style="padding:5px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
 
   </table>
@@ -3243,7 +3243,7 @@ $percentage = @$get_information['tax'];
   <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
    <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
    <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["admin_loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;" placeholder="Type your msg, hit enter" required class="form-control" />
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;width:95%;" placeholder=" Type your msg, hit enter" required class="form-control" />
 
 
   </div>

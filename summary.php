@@ -330,7 +330,7 @@ $hs_id=$get_summary['home_seller_id'];
 
 
 				?>
-<div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:white"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
+<div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:white"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 	<div class="row" style="margin:20px;" id="printArea">
 					<br>
@@ -338,7 +338,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<div class="col-md-6">
 				<p align="left" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
-				<table class="" style="color:#000;font-weight:600;font-size:12px;">
+				<table class="" style="color:#000;font-weight:600;font-size:13px;">
 					<tr>
 					<td adr_trans="label_order_no">Order #</td><td>:</td><td><?php echo $get_summary['id']; ?></td>
 					</tr>
@@ -410,7 +410,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<div class="col-md-6">
 				<p adr_trans="label_homeseller_info" align="left" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
-<table class="" style="color:#000;font-weight:600;font-size:12px;">
+<table class="" style="color:#000;font-weight:600;font-size:13px;">
 				<tr>
 				<td adr_trans="label_homeseller_name">Home Seller Name</td><td>:</td><td><?php echo $homeSeller1['name']; ?></td>
 				</tr>

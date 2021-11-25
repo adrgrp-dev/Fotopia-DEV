@@ -91,7 +91,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
                   </datalist>
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
 				  </form></td>
-				  <td align="left" style="color:#000080;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
+				  <td align="left" style="color:#000;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
 
 </table>
 

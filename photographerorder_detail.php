@@ -948,11 +948,11 @@ var checkedImgs=0;
 
 
                 <div class="col-md-8" >
-
+<br />
 
                   <div class="tab-box" data-tab-anima="show-scale">
                   <ul class="nav nav-tabs">
-                  <li id="click1" class="active"><a href="#tab1" data-toggle="tab" adr_trans="label_order_detail">Order Detail</a></li>
+                  <li id="click1" class="active"><a href="#tab1" data-toggle="tab" adr_trans="label_order_detail" >Order Detail</a></li>
                   <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
                   $get_order1=mysqli_fetch_array($get_order_query1);;
                   if($get_order1['status_id']!=3){?>  <!-- <li ><a href="#tab2" data-toggle="tab">Homeseller Info</a></li> -->
@@ -1018,13 +1018,13 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                   ?>
 
-   <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:yellow;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
+   <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
 <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:600px">
-                      				<p align="right" adr_trans="label_order_details" style="color:#000080;font-weight:600;font-size:15px;">Order Details</p>
+                      				<p align="right" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
-                      				<table class="" style="color:#000;font-weight:600;font-size:12px;">
+                      				<table class="" style="color:#000;font-weight:600;font-size:13px;">
                       				<tr>
                       			 <td id="label_order_no" adr_trans="label_order_no" style="width:150px;font-size:10px;" align="right">Order #</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['id']; ?></td>
                       				</tr>
@@ -1109,7 +1109,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				<td align="right" id="label_status" adr_trans="label_status" style="font-size:10px;">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";}?></td>
                       				</tr>
                       				</table><br />
-                      				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000080;font-weight:600;font-size:12px;">Products For the Order</p>
+                      				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
 
                       				<table style="color:#000;font-weight:600;font-size:10px;">
 									 
@@ -1133,9 +1133,9 @@ header("location:photographerDashboard.php?private=1"); exit;
 									
                       				<div class="col-md-6">
 								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:600px">	
-                      				<p align="right" adr_trans="label_homeseller_info" style="color:#000080;font-weight:600;font-size:15px;">Home Seller Info</p>
+                      				<p align="right" adr_trans="label_homeseller_info" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
-                      <table class="" style="color:#000;font-weight:600;font-size:12px;">
+                      <table class="" style="color:#000;font-weight:600;font-size:13px;">
                         <tr>
                         <td align="right" id="label_homeseller_name" adr_trans="label_homeseller_name" style="font-size:10px;">Home Seller Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['name']; ?></td>
                         </tr>
@@ -2895,12 +2895,12 @@ function printPage()
           </div>
            </div>
 
-  <div class="col-md-2" id="chat" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:50px;">
+  <div class="col-md-2" id="chat" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:63px;">
   <p style="color:#000;font-weight:600;padding-bottom:10px;" align="center">Order  Chat box <b> <?php
   $created_id=@$get_summary['created_id'];
   @$realtor1=mysqli_query($con,"select * from user_login where id='@$created_id'");
   @$realtor=mysqli_fetch_array(@$realtor1);
-   // echo @$created_Name;  ?></p>
+   // echo @$created_Name;  ?></b></p>
   <div id="wrapper" style="width:100%">
   <div class="scrollbar" id="style-default" style="border:none;background:#FFF;overflow:scroll;width:105%;height:495px;">
   <table class="table" style="padding:0px;border:none;width:100%;font-size:10px!important;" id="ChatBox" >
@@ -2911,7 +2911,7 @@ function printPage()
   <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
    <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
    <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Manrope-Regular;font-size:11px;font-weight:600;border-radius:5px;" placeholder=" Type your msg, hit enter" required />
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Manrope-Regular;font-size:11px;font-weight:600;border-radius:5px;width:95%" placeholder=" Type your msg, hit enter" required />
 
 
   </div>
