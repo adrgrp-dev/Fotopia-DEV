@@ -170,7 +170,7 @@ border-radius:0px!important;
     position: absolute;
     right: -7px;
     top: -300px;
-	border-radius:25px 0px 0px 25px;
+	border-radius:5px 0px 0px 5px;
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
