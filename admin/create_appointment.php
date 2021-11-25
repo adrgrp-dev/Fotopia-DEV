@@ -440,11 +440,11 @@ header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Phot
 }
 
 #secondStep:hover {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 #secondStep:after {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 @media all and (max-width: 1000px) {
@@ -497,8 +497,9 @@ border:solid 1px #01A8F2!important;
 .btn-default
 {
 border-radius:0px;
-color:#FFF!important;
-background:#000!important;
+color:#000!important;
+background:#aad1d6!important;
+border:none;
 }
 .status1
         {
@@ -1077,7 +1078,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 			</span>
 		</a>
 
-		<a href="#" id="secondStep" class="btn btn-default"><i class="fa fa-calendar" style="font-size:30px;padding-top:10px;"></i>
+		<a href="#" id="secondStep" class="btn btn-default"><i class="fa fa-calendar" style="font-size:30px;color:#000;padding-top:10px;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
 				<span class="breadcrumb__desc" id="label_pick_appointment" adr_trans="label_pick_appointment">Pick appointment</span>

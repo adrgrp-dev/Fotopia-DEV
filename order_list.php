@@ -88,7 +88,7 @@ header("location:order_list.php?app=1");
 
 	 @media only screen and (max-width: 1280px) {
 
-	td,th
+	#ListingTable td,th
 	{
 	text-align:center;
 	}
@@ -188,7 +188,7 @@ min-width:100px!important;
 <option value="8" <?php if(@$_REQUEST['filterByStatus']==8||$_SESSION['status']==8) { echo "selected"; } ?>>Reopen</option>
 </select>
 </form>
-      <table class="table-stripped" style="width:100%">
+      <table class="table-stripped" style="width:100%" id="ListingTable">
           <thead>
           <tr><th class="text-center"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
@@ -475,7 +475,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
   <div style="width:100%; ">
 
 
-      <table class="table-striped" aria-busy="false" style="width:100%">
+      <table class="table-striped" aria-busy="false" style="width:100%" id="ListingTable">
           <thead>
               <tr><th style=""><span class="text" id="label_s.no" adr_trans="label_order_no">
 

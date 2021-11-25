@@ -368,11 +368,11 @@ $quickOrderStatus=2;
 
 
 #thirdStep:after {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 #thirdStep:hover {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 #secondStep:after {
@@ -457,8 +457,9 @@ background-color:#DDD;
 .btn-default
 {
 border-radius:0px;
-color:#FFF!important;
-background:#000!important;
+color:#000!important;
+background:#aad1d6!important;
+border:none;
 }
 
 .strikethrough {
@@ -741,7 +742,7 @@ var $changeInputs = $('input.sTotal');
 
 			</span>
 		</a>
-		<a href="#" id="thirdStep" class="btn btn-default"><i class="fa fa-database" style="font-size:30px;padding-top:10px;"></i>
+		<a href="#" id="thirdStep" class="btn btn-default"><i class="fa fa-database" style="font-size:30px;color:#000;padding-top:10px;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_products" adr_trans="label_products">Products</span>
 				<span class="breadcrumb__desc" id="label_select_products" adr_trans="label_select_products">Select Products</span>

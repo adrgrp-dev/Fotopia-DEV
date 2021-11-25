@@ -290,7 +290,7 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
   height: 57px;
   top: 0;
   right: -28.14815px;
-  background-color: #000;
+  background-color: #aad1d6;
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
@@ -318,10 +318,10 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 }
 
 #secondStep:hover {
-background-color:#000;
+background-color:#aad1d6;
 }
 #secondStep:after {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 
@@ -375,8 +375,8 @@ border:solid 1px #01A8F2!important;
 .btn-default
 {
 border-radius:0px;
-color:#FFF!important;
-background:#000!important;
+color:#000!important;
+background:#aad1d6!important;
 }
 
 
@@ -957,7 +957,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 			</span>
 		</a>
 
-		<a href="#" id="secondStep" class="btn btn-default"><i class="fa fa-calendar" style="font-size:30px;padding-top:10px;"></i>
+		<a href="#" id="secondStep" class="btn btn-default"><i class="fa fa-calendar" style="font-size:30px;color:#000;padding-top:10px;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" adr_trans="label_appointment">Appointment</span>
 				<span class="breadcrumb__desc" adr_trans="label_pick_appointment">Pick appointment</span>

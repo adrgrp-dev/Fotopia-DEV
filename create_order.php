@@ -347,16 +347,16 @@ function myfunc()
 }
 
 #firstStep:hover {
-background-color:#337AB7;
+background-color:#aad1d6;
 }
 
 #firstStep:after {
-background-color:#000;
+background-color:#aad1d6;
 }
 
 @media all and (max-width: 1000px) {
   .breadcrumb1 {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 @media all and (max-width: 710px) {
@@ -384,8 +384,8 @@ background-color:#000;
 .btn-default
 {
 
-color:#FFF!important;
-background:#000!important;
+color:#000!important;
+background:#aad1d6!important;
 }
 #firstStep
 {
@@ -432,7 +432,7 @@ function show()
 
 
 	<div class="breadcrumb1 hidden-xs hidden-sm">
-		<a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;"></i>
+		<a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
 				<span class="breadcrumb__desc" id="label_fill_order" adr_trans="label_fill_order">Fill the order</span>

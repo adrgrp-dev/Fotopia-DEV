@@ -192,7 +192,14 @@ td > span,a >span
 border-radius:5px!important;
 font-size:10px;
 }
-
+.breadcrumb__title
+{
+font-size:14px!important;
+}
+.breadcrumb__desc
+{
+font-size:12px!important;
+}
 .nav-tabs > li
 {
 margin-bottom:10px;
