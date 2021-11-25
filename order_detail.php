@@ -1278,7 +1278,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
 
   				<div class="col-md-6">
 			
-         <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:600px">
+         <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
   			           <p align="right" id="label_order_details" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
   				<table class="" style="color:#000;font-weight:600;font-size:13px;">
 
@@ -1299,7 +1299,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                           <td align="right" style="font-size: 10px;" id="label_area" adr_trans="label_area">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?><hr class="space xs"></td>
                           </tr>
                           <tr>
-                            <td align="right" style="font-size: 10px;" id="label_property_address" adr_trans="label_property_address">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?><hr class="space xs" /></td>
+                            <td align="right" style="font-size: 10px;" id="label_property_address" adr_trans="label_property_address">Property Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?><hr class="space xs" ></td>
                             </tr> 
 
                             <tr>
@@ -1337,7 +1337,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_status" adr_trans="label_status">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td ><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
-                                <tr><td >Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
+                                <tr><td align="right" style="font-size: 10px;">Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
                             </table> 
                             <hr class="space s">
@@ -1369,7 +1369,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 
   				?>
   				<tr>
-  				<td><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
+  				<td align="right" style="font-size: 10px;" ><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
   				</tr>
   				<?php } ?>
 
@@ -1378,7 +1378,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 
   				</div>
   				<div class="col-md-6">
-            <div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:600px">  
+            <div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px">  
 
   			                     <p align="right" id="label_homeseller_info" adr_trans="label_homeseller_info" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
