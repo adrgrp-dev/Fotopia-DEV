@@ -122,7 +122,7 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:290px
                               ".$aboutIs."
                             </div>
 
-							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:290px;overflow:scroll;\">
+							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:290px;overflow:scroll;background:#F1F3F4\">
                               ".$photographersList."
                             </div>
 							 <div class=\"panel\" id=\"contactDiv\" style=\"height:290px;\">

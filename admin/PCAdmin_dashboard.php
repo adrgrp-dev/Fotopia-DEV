@@ -325,7 +325,7 @@ border:none;
                           	<hr class="space s">
 												<div class="row">
 												<div class="col-md-12" style="padding-left: 35px;">
-														<h5><i class="fa fa-usd circle-right fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</span></h5>
+														<h5><i class="fa fa-sliders fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</span></h5>
 
 															<?php
 
