@@ -323,7 +323,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<div class="col-md-12">
 				<center>
 				 <h3 style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i><span adr_trans="label_order_created">Order Created Successfully</span></h3>
-			 </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#FFF;color:#000;border:none;border-radius:5px;float:left;margin-left:0px"><i class="fa fa-print"></i></button></p> </div><br />
+			 </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;;color:#000;border:none;border-radius:5px;float:left;margin-left:0px"><i class="fa fa-print"></i></button></p> </div><br />
 				<?php
 
 				 $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
@@ -467,10 +467,10 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             </div>
                <?php if($_SESSION["user_type"]!='Photographer') {  ?>
                  <hr class="space m" />
-             <p align="center"><a class="anima-button circle-button btn-sm btn mt-3 " href="order_list.php"><i class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
+             <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="order_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
                 <?php } else { ?>
                   <hr class="space m" />
-              <p align="center"><a class="anima-button circle-button btn-sm btn mt-3 " href="Photographerorder_list.php"><i class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
+              <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="Photographerorder_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
                  <?php } ?>
 
 

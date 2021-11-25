@@ -810,7 +810,8 @@ html{	background-color:#FFF; }
   color:#000!important;
     position: absolute;
 
-    right: 0px;
+    right: 30px;
+    z-index: 999;
     top: -350px;
 	border-radius:5px 0px 0px 5px;
 
