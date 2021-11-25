@@ -170,6 +170,20 @@ font-size:10px!important;
 
 	}
 	}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .active
+	{
+	opacity:1!important;
+	
+	}
+	.tab-box .nav-tabs li.active
+	{
+	padding:0px!important;
+	line-height:inherit!important;
+	}
+	.nav-tabs > li > a 
+	{
+	line-height:inherit!important;
+	}
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage9">
@@ -1147,11 +1161,11 @@ window.reload();
 
                         </div>
                         <ul class="nav nav-tabs col-md-4 col-sm-4 hidden-sm hidden-xs" style="height: 145.333px;">
-              <li class="active" id="about" style="border-bottom:solid 1px #DDD;" ><a href="#"><i class="fa fa-user" style="color:#333333"></i> <span adr_trans="label_about_us">About us</span></a></li>
-			        <li id="skills" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-camera" style="color:#333333"></i> <span adr_trans="label_photographers">Photographers</span></a></li>
-             <li id="products" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-database" style="color:#333333"></i> <span adr_trans="label_products">Products</span></a></li>
-               <li id="contact" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-tablet" style="color:#333333"></i><span adr_trans="label_contact">Contact</span></a></li>
-               <li id="portfolio" style="border-bottom:solid 1px #DDD;"><a href="#"><i class="fa fa-certificate" style="color:#333333"></i> <span adr_trans="label_portfolio">Portfolio</span></a></li>
+              <li class="active" id="about" style="border-bottom:solid 1px #DDD;width:96%" ><a href="#"><i class="fa fa-user" style="color:#333333"></i> <span adr_trans="label_about_us">About us</span></a></li>
+			        <li id="skills" style="border-bottom:solid 1px #DDD;width:96%"><a href="#"><i class="fa fa-camera" style="color:#333333"></i> <span adr_trans="label_photographers">Photographers</span></a></li>
+             <li id="products" style="border-bottom:solid 1px #DDD;width:96%"><a href="#"><i class="fa fa-database" style="color:#333333"></i> <span adr_trans="label_products">Products</span></a></li>
+               <li id="contact" style="border-bottom:solid 1px #DDD;width:96%"><a href="#"><i class="fa fa-tablet" style="color:#333333"></i><span adr_trans="label_contact">Contact</span></a></li>
+               <li id="portfolio" style="border-bottom:solid 1px #DDD;width:96%"><a href="#"><i class="fa fa-certificate" style="color:#333333"></i> <span adr_trans="label_portfolio">Portfolio</span></a></li>
 
                         </ul>
                     </div>
