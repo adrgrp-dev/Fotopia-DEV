@@ -51,11 +51,11 @@ $photographersList.="<table border=\"0\" cellpadding=\"10\" style=\"width:100%;p
 
 
 
-<a class=\"btn-sm\" adr_trans=\"label_book_online\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\" style=\"background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;\">Book Online</a>&nbsp;&nbsp;&nbsp;
+<a class=\"btn-sm adr-save\" adr_trans=\"label_book_online\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\" style=\"\">Book Online</a>&nbsp;&nbsp;&nbsp;
 
 
 
-<a class=\"btn-sm\" adr_trans=\"label_book_now\" href=\"./create_order.php?bn=1&pc_admin_id=$super_csr_id&Photographer_id=$Photographer_id\" style=\"background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;\">Book Now</a>
+<a class=\"btn-sm adr-save\" adr_trans=\"label_book_now\" href=\"./create_order.php?bn=1&pc_admin_id=$super_csr_id&Photographer_id=$Photographer_id\" style=\"\">Book Now</a>
 
 </p></td></tr></table>";
 
@@ -141,7 +141,7 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:280px
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;background:#FFF!important;\">
                                ".$portFolio."
                             </div>
-							<hr class=\"space s\"><center style=\"position:fixed;padding-top:30px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn btn-primary btn-sm circle-button\">Book Now</a><center>
+							<hr class=\"space s\"><center style=\"position:fixed;padding-top:30px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn  btn-sm circle-button adr-save\">Book Now</a><center>
 							";
 /*<p align=\"center\">
 

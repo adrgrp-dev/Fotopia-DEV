@@ -516,7 +516,9 @@ margin-left:0px!important;
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
               	<div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
                 <hr class="space s">
-                <center>  <a href="./csrRealtorCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Calender</a>    </center>
+
+                <center>  <a href="./csrRealtorCalendar.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i> View My Calender</a>    </center>
+
             </div>
 						<div class="col-md-6">
 						 <br />
@@ -549,7 +551,9 @@ margin-left:0px!important;
 
 					  </div></div>
 					  <p align="center">
- <a class="btn btn-sm" href="order_list.php" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order">View My Orders </a>
+
+ <a class="anima-button circle-button btn-sm adr-save" href="order_list.php" style="margin-top:20px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
+
 </p>
 
             </div>

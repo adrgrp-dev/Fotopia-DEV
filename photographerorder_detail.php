@@ -2322,13 +2322,13 @@ function printPage()
                                                                   <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
                                                              </div>
                                                              <div class="col-md-3" style="display:inline-block">
-                                                               <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;" style="display:inline-block">
+                                                               <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;" style="display:inline-block">
                                                              </div>
                                                              <div class="col-md-3" style="display:inline-block">
-                                                              <a href="#tnc" class="circle-button btn-sm btn lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
+                                                              <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                                              </div>
                                                              <div class="col-md-3" style="display:inline-block">
-                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn" id="clicktoupload" style="" adr_trans="label_click_to_upload">Click to Upload</a>
+                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="" adr_trans="label_click_to_upload">Click to Upload</a>
                                                              </div>
                                                            </div>
 
@@ -2473,13 +2473,13 @@ function printPage()
                                                                      <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
                                                            </div>
                                                            <div class="col-md-3" style="display:inline-block">
-                                                             <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
+                                                             <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
                                                            </div>
                                                            <div class="col-md-3" style="display:inline-block">
-                                                             <a href="#tnc" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
+                                                             <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                                            </div>
                                                            <div class="col-md-3" style="display:inline-block">
-                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn" id="clicktoupload2" style="" adr_trans="label_click_to_upload">Click to Upload</a>
+                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2" style="" adr_trans="label_click_to_upload">Click to Upload</a>
                                                            </div>
                                                          </div>
 

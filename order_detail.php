@@ -787,6 +787,13 @@ border-bottom:none!important;
 {
 padding:0px!important;
 }
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus
+{
+  background-color: #AAD1D6;
+  color: #000;
+  border-color: #AAD1D6;
+}
+
 </style>
 <script>
 function  singleComment(data,id)
@@ -1532,7 +1539,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
 </div>
 
-<div class="panel" id="tab3" style="border-radius:50px;">
+<div class="panel" id="tab3" style="border-radius:5px;">
             <input type="hidden" id="count"/>
             <input type="hidden" id="count2"/>
             <input type="hidden" id="count3"/>
@@ -1549,7 +1556,7 @@ $('.input'+iconid1).css("visibility","hidden");
 			 <br />
                       <div class="tab-box pills" data-tab-anima="fade-right">
                           <ul class="nav nav-pills nav-justified">
-                              <li class="current-active active"><a href="#" adr_trans="label_standard_photos">Standard Photos</a></li>
+                              <li class="current-active active "><a href="#" class="" adr_trans="label_standard_photos">Standard Photos</a></li>
                               <li class=""><a href="#" adr_trans="label_floor_plans1">Floor Plans</a></li>
                               <!-- <li class=""><a href="#" adr_trans="label_drone_photos">Drone Photos</a></li>
                                 <li class=""><a href="#" adr_trans="label_hdr_photos">Hdr Photos</a></li> -->
@@ -1569,13 +1576,13 @@ $('.input'+iconid1).css("visibility","hidden");
                                     <input type="checkbox" id="remove" onclick="selectAllImages()">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
                                   </div>
                                   <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
+                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
                                   </div>
                                 <div class="col-md-3" style="display:inline-block">
-                                  <a href="#tnc" class="circle-button btn-sm btn lightbox link" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
+                                  <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                 </div>
                                 <div class="col-md-3" style="display:inline-block">
-                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn" style="" adr_trans="label_rework">Rework</button>
+                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
                                 </div>
                               </div>
                               <div class="row">
@@ -1724,13 +1731,13 @@ $('.input'+iconid1).css("visibility","hidden");
                                        <input type="checkbox" id="remove2" onclick="selectAllImages2()"><b adr_trans="label_select_all">Select All</b></input>
                                      </div>
                                      <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
+                                    <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
                                      </div>
                                    <div class="col-md-3" style="display:inline-block">
-                                     <a href="#tnc" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
+                                     <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
                                    </div>
                                    <div class="col-md-3" style="display:inline-block">
-                                     <button name="rework" onclick="reworks();" class="circle-button btn-sm btn" style="" adr_trans="label_rework">Rework</button>
+                                     <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
                                    </div>
                                  </div>
                                  <div class="row">
@@ -2125,18 +2132,20 @@ if($get_order1['status_id']==3)
 ?> -->
 
 </div>
-<div class="panel" id="tab4">
+<div class="panel" id="tab4" style="height:610px">
+  <hr class="space s" />
 <form action="" method="GET" align="center">
+
 <input class="search-field" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
 <input id="submit" type="submit" value="Search">
 </form>
 
 <hr class="space" />
 
-<center><h1>Exciting add ons coming soon!</h1></center>
+<center><h3>Exciting add ons coming soon!</h3></center>
 
 </div> <link rel="stylesheet" href="./css/style_invoice.css">
-<div class="panel" id="tab5">
+<div class="panel" id="tab5" style="border-radius: 5px;">
   <div id="printtable"></div>
     <div id="print">
 
@@ -2145,7 +2154,7 @@ if($get_order1['status_id']==3)
         @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
         @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);?>
 
-        <h1 id="inv_h1" style="font-size:50px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1><p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-top: -100px;color:white !important;" id="noprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+        <h1 id="inv_h1" style="font-size:25px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1><p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-top: -30px;margin-right: 10px;color:white !important;" id="noprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <hr class="space s">
          <table style="margin-left : 0px;width:100%">
@@ -2156,19 +2165,19 @@ if($get_order1['status_id']==3)
               </th>
 			  <th style="width:40%;text-align:center;" align="center">  <p style="font-size:14px;text-align:center" ><strong>ORDER COST NO.</strong><br></p></th>
               <th  style="width:30%" align="right">
-                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:0px;float:right;
+                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:10px;float:right;
         "><strong> DATE OF ISSUE </strong><br></p>
               </th>
             </tr>
             <tr>
               <td style="width:30%" align="left">
-                <p style="font-size:14px;text-align:left;"> <?php echo $id_url; ?></p>
+                <p style="font-size:14px;text-align:left;margin-left: 5px"> <?php echo $id_url; ?></p>
               </td>
 			   <td style="width:40%" align="center">
                 <p style="font-size:14px;text-align:center;"> <?php echo "FOT".@$invoice_check['invoice_id']; ?></p>
               </td>
               <td style="width:30%" align="right">
-                <p style="font-size:14px;float:right;"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
+                <p style="font-size:14px;float:right;margin-right: 10px"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
               </td>
             </tr>
           </table>
@@ -2184,10 +2193,10 @@ if($get_order1['status_id']==3)
 			 <table style="width:100%!important;">
               <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
               <tr>
-                <th align="left"><p style="font-size:11px"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
-                <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
-                <tr><td><p style="font-size:11px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
-           <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
+                <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
+                <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
+                <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
+           <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
 		   </table>
               <?php
               }
@@ -2196,10 +2205,10 @@ if($get_order1['status_id']==3)
 				 <table style="width:100%!important;">
                 <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
                 <tr>
-                  <th align="left"><p style="font-size:11px"><strong><?php  echo $get_id['name']; ?> </strong><br></p></th></tr>
-                 <tr> <td><p style="font-size:11px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
+                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_id['name']; ?> </strong><br></p></th></tr>
+                 <tr> <td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
 				  </table>
               <?php
               }
@@ -2211,11 +2220,11 @@ if($get_order1['status_id']==3)
 				<table style="width:100%!important;">
                 <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
-                  <th align="left"><p style="font-size:11px"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['address_line1']; echo " , ";
+                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
                   </table>
                 <?php
               }
@@ -2241,11 +2250,11 @@ if($get_order1['status_id']==3)
               $get_information=mysqli_fetch_assoc($get_photo_info);
 
               ?>
-  <tr><th align="left"><p style="font-size:14px;text-align:right;"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
-  <tr><th align="left"><p style="font-size:11px;text-align:right;"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")";?> </strong><br></p></th></tr>
-  <tr><td><p style="font-size:11px;margin-right: -15px"> <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
-  <tr><td><p style="font-size:11px;margin-right: -15px "> <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
-  <tr><td><p style="font-size:11px;margin-right: -15px "> <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
+  <tr><th align="left"><p style="font-size:14px;text-align:right;margin-right: 10px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
+  <tr><th align="left"><p style="font-size:11px;text-align:right;margin-right: 10px"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")";?> </strong><br></p></th></tr>
+  <tr><td><p style="font-size:11px;margin-right: 10px"> <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
+  <tr><td><p style="font-size:11px;margin-right: 10px "> <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
+  <tr><td><p style="font-size:11px;margin-right: 10px "> <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
 
 
         </table>
@@ -2259,7 +2268,7 @@ if($get_order1['status_id']==3)
 
 
 
-        <table id="inv_table1" class="inventory"  style="width:100%">
+        <table id="inv_table1" class="inventory"  style="width:100%;color:#000 !important;font-weight: bold">
           <thead>
             <tr>
               <th id="inv_th" style="width:10% ;margin-left : 10px;
@@ -2355,7 +2364,7 @@ if($get_order1['status_id']==3)
       </article>
       <br/><br/>
   <table style="margin-left : 10px;
-       padding-left : 10px;">
+       padding-left : 10px;color:#000">
     <tr>
       <th><p adr_trans="label_terms_condition">Terms and condtions </p></th>
     </tr>
@@ -2400,7 +2409,7 @@ if($get_order1['status_id']==3)
 
           </div>
                  </div>
-<div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:50px;">
+<div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:40px;">
   <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
 
   $realtor1=mysqli_query($con,"select * from user_login where id='$photographer_id'");

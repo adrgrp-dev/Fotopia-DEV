@@ -212,8 +212,8 @@ $_SESSION['EXPIRES'] = time() + 3600;
 						<br>
 						 <div class="row">
                             <div class="col-md-12"><hr class="space s">
-						 <button class="anima-button circle-button btn-sm btn" type="submit" name="loginbtn"  ><i class="fa fa-sign-in"></i><span adr_trans="label_login">Login</span></button>
-                       &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+						 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="loginbtn"  ><i class="fa fa-sign-in"></i><span adr_trans="label_login">Login</span></button>
+                       &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 <br>&nbsp;&nbsp;<span id="label_no_acc" adr_trans="label_no_acc">No account? Register</span> <a href="signup.php" class="text-primary" style="text-decoration:underline;color:blue;" id="label_here" adr_trans="label_here">here </span></a>
 					   </div>
                         </div>

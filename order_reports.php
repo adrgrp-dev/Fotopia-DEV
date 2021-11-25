@@ -487,11 +487,11 @@ $res="";
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">
-																		<li class="first disabled " aria-disabled="true"><a href="./order_reports.php?page=1" class="button adr-save">«</a></li>
-																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]-1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">&lt;</a></li>
-																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]+1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">&gt;</a></li>
-																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($Page_check);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button adr-save">»</a></li></ul></div>
+																		<li class="first disabled " aria-disabled="true"><a href="./order_reports.php?page=1" class="button ">«</a></li>
+																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]-1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button ">&lt;</a></li>
+																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button "><?php echo $_SESSION["page"]; ?></a></li>
+																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]+1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button ">&gt;</a></li>
+																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($Page_check);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button ">»</a></li></ul></div>
 																		<div class="col-sm-6 infoBar"style="margin-top:24px">
 																<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?>  of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 																		</div>

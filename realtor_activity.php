@@ -162,7 +162,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
 
 
-                  <p align="right">   <a href="./csrRealtorDashboard.php" class="anima-button circle-button btn-sm btn" adr_trans="label_back_home">Back To Home</a></p>
+                  <p align="right">   <a href="./csrRealtorDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home">Back To Home</a></p>
 
         </div>
 

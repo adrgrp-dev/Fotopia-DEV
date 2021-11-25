@@ -256,10 +256,10 @@ vertical-align:top!important;
                                     <i style="
         color: aad1d6;
         top: -43px;
-        font-size: 40px;
+        font-size: 30px;
 
         margin-right: 5px;
-        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 35px;font-size: 12px;"><span adr_trans="label_invite_to_fotopia">Invite to Join Fotopia</span></b></a></p>
+        " class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 14px;font-size: 10px;"><span adr_trans="label_send_invite">Send invite</span></b></a></p>
         </div>
 
         <div id="tnc2" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:450px;height:230px;">

@@ -159,37 +159,41 @@ var langval="";
 </script>
 
     <style>
-	.adr-save
+	.adr-save,.adr-save:hover
 	{
-	background:#0275d8!important;
-	border-color:#0275d8!important;
+	background:#AAD1D6!important;
+	border-color:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
 	}
 	.adr-cancel
 	{
 	/*background:#5cb85c!important;
 	border-color:#5cb85c!important;*/
-	background:#f0ad4e!important;
-	border-color:#f0ad4e!important;
+	background:#F2ADA8!important;
+	border-color:#F2ADA8!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+     
 	}
-  .adr-success
+    .adr-success
 	{
 	/*background:#5cb85c!important;
 	border-color:#5cb85c!important;*/
-	background:#6cc070!important;
-	border-color:#6cc070!important;
+	background:#AAD1D6!important;
+	border-color:#AAD1D6!important;
+     color: #000 !important;
+     border-radius: 5px !important;
 	}
-.caret
-{
+    .btn-default
+    {
 
-}
-
- .btn-default
-{
-
-border:none;
-padding-top:20px;
-background:#1D1E1F!important;
-}
+    border: none !important;
+    padding-top:20px;
+    background:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    }
 .navbar {
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
@@ -213,6 +217,11 @@ color:#FFF;
 {
 background:#E8F0FE!important;
 }
+a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
+{
+  color: #000 !important;
+
+} 
 	</style>
 
 <script>
