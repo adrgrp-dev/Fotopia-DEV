@@ -55,8 +55,7 @@ include "connection1.php";
         {
         background:none!important;
         }
-        .status1
-        {
+        .status1{
         color:#0066FF!important;
         }
 

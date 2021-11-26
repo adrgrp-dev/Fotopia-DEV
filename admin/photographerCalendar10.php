@@ -62,8 +62,7 @@ border:solid 1px #01A8F2!important;
 background:#EEEEEE!important;
 border:solid 1px #01A8F2!important;
 }
-        .status1
-        {
+        .status1{
         color:#0066FF!important;
         }
 

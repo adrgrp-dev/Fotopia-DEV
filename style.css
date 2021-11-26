@@ -267,7 +267,10 @@ color:#000!important;
     background-color: #1D1D1D;
     background-size: 10px;
 }
-
+.fc-toolbar-title
+{
+color:#000!important;
+}
 .bs-callout.bs-callout-danger {
     border-left-color: #ce4844;
     padding: 5px 15px;

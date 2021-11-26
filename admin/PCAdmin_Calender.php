@@ -142,21 +142,39 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
         {
         background:none!important;
         }
-        .status1
-        {
-		background-color:#b5e2ff!important;
-        color:#000080!important;
-        }
+        .status1{
 
-        .status3,.status6
-        {
-        color:#006600!important;
-		background-color:#D0F0C0!important;
+
+
+		background-color:#86C4F0!important;
+
+
+
+        color:#000!important;
+
+
+
         }
-        .status2,.status4,.status5
-        {
-		background-color:#FED8B1!important;
-        color:#FF8400!important;
+.status4,.status5,.status6{
+		background-color:#F58883!important;
+		color:#000!important;
+		 }
+
+
+        .status3
+ {
+
+        color:#000!important;
+
+		background-color:#76EA97!important;
+
+        }
+        .status2,.status7 {
+
+		background-color:#FF8400!important;
+
+        color:#000!important;
+
         }
 
 .fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
@@ -193,7 +211,7 @@ border:solid 1px #01A8F2!important;
 h2.fc-toolbar-title
 {
 display:contents;
-color:#FFF!important;
+color:#000!important;
 border:solid 1px #000!important;
 padding:10px;
 }
@@ -213,8 +231,8 @@ border-radius:25px!important;
 
 .fc-prev-button, .fc-next-button
 {
-background:#000!important;
-color:#FFF!important;
+background:#FFF!important;
+color:#000!important;
 margin:10px!important;
 
 }
@@ -224,8 +242,7 @@ background-color:#FED8B1!important;
 color:#242526!important;
 font-weight:bold;
 }
-.fc-event-main-frame .status1
-{
+.fc-event-main-frame .status1{
 background-color:#67B7D1!important;
 color:#242526!important;
 font-weight:bold;

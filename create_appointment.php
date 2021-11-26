@@ -380,21 +380,39 @@ background:#aad1d6!important;
 }
 
 
-  .status1
-        {
-		background-color:#b5e2ff!important;
-        color:#000080!important;
-        }
+  .status1{
 
-        .status3,.status6
-        {
-        color:#006600!important;
-		background-color:#D0F0C0!important;
+
+
+		background-color:#86C4F0!important;
+
+
+
+        color:#000!important;
+
+
+
         }
-        .status2,.status4,.status5
-        {
-		background-color:#FED8B1!important;
-        color:#FF8400!important;
+.status4,.status5,.status6{
+		background-color:#F58883!important;
+		color:#000!important;
+		 }
+
+
+        .status3
+ {
+
+        color:#000!important;
+
+		background-color:#76EA97!important;
+
+        }
+        .status2,.status7 {
+
+		background-color:#FF8400!important;
+
+        color:#000!important;
+
         }
 
 		.fc .fc-toolbar.fc-header-toolbar

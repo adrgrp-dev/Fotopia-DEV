@@ -371,8 +371,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
         {
         background:none!important;
         }
-        .status1
-        {
+        .status1{
         color:#0066FF!important;
         }
 
