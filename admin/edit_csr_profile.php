@@ -124,7 +124,7 @@ p{
 
                 <div class="col-md-10">
 
-
+<hr class="space s">
 <table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;"><tr><td style="padding:20px;">
 						<div class="col-md-12"><h5 align="center"  id="label_edit_csr_profile" adr_trans="label_edit_csr_profile" style="color:#000!important">Add / Edit csr profile</h5></div>
 

@@ -176,7 +176,7 @@ margin-left:0px!important;
 
                 <div class="col-md-10">
 
-
+<hr class="space s">
 <table id="profile" style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;width:100%"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 
