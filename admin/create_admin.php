@@ -133,7 +133,7 @@ function validate_email(val)
 
 
 
-						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="margin-top:40px;background:#000;color:#FFF;opacity:0.8;width:90%;border-radius:30px 30px 30px 30px!important;padding:20px;">
+						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="margin-top:40px;background:#fff;color:#000;opacity:0.8;width:90%;padding:20px;">
 
 
   						<div class="col-md-6">
@@ -328,8 +328,8 @@ function validate_email(val)
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                           </div>
 
-  						 <button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Create</button>
-                         &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="admin_users.php"><i class="fa fa-times"></i>Cancel</a>
+  						 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Create</button>
+                         &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="admin_users.php"><i class="fa fa-times"></i>Cancel</a>
   </center>
   					   </div>
 

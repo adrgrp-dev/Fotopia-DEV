@@ -134,7 +134,7 @@ $res="";
                           <tr data-row-id="0" class="listPageTR">
 						   <td><?php echo $cnt; ?></td>
                           <td><?php echo $getCMSPages['page_title']; ?></td>
-						   <td><a href="editPages.php?id=<?php echo $getCMSPages['id']; ?>" class="btn btn-primary btn-sm">View / Edit</a></td>
+						   <td><a href="editPages.php?id=<?php echo $getCMSPages['id']; ?>" class="btn btn-primary btn-sm adr-save">View / Edit</a></td>
 						    <td><?php  echo $getCMSPages['last_updated_on']; ?></td>
 							 <td><?php if($getCMSPages['status']==1) { echo "Active"; } else { echo "Inactive"; } ?></td>
 
@@ -147,11 +147,11 @@ $res="";
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">
-																		<li class="first disabled " aria-disabled="true"><a href="./pages.php?page=1" class="button adr-save">«</a></li>
-																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
-																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+																		<li class="first disabled " aria-disabled="true"><a href="./pages.php?page=1" class="button">«</a></li>
+																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
+																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
+																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
+																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
 																		<div class="col-sm-6 infoBar"style="margin-top:24px">
 																		<div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p></div>
 																		</div>

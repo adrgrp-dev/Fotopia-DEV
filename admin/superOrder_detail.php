@@ -669,6 +669,8 @@ unlink($delete_dir);
    }
 
 
+
+
 	/*.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
@@ -898,6 +900,7 @@ border-bottom:none!important;
 {
 padding:0px!important;
 }
+
  </style>
  <script>
  function showicons(iconid)
@@ -2223,7 +2226,7 @@ alert(alertmsg);
                       <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
                     <?php }
                     elseif($get_summary['status_id']==3) {?>
-                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn " style="float:right" >Reopen</a><br><br>
+                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;margin-top: 5px;margin-right: 5px;" >Reopen</a><br><br>
                   <?php  } ?>
                          <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
                          {
@@ -2246,14 +2249,14 @@ alert(alertmsg);
                                            <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
                                              <div class="row" style="padding:10px" >
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span> </b></input>
+                                                 <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px;font-family: Manrope-Regular; class="circle-button btn-sm btn done adr-save">&nbsp;<b><span adr_trans="label_select_all">Select All</span> </b></input>
                                                </div>
                                                <div class="col-md-2" style="display:inline-block">
                                                  <input type="submit" class="circle-button btn-sm btn done adr-save" style=""  onclick="downloadbtn()" name="ZIP" value="Download" >
                                                </div>
                                                <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                   <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style=""  value="Rework" />
+                                                   <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style="font-family: Manrope-Regular;"  value="Rework" />
                                                </div>
                                                <?php } ?>
                                                <?php if(@$get_link['images_url']!='')
@@ -2261,17 +2264,17 @@ alert(alertmsg);
                                                  ?>
                                                  <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
+                                                 <a href="#tnc1" style="font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
                                                </div>
                                                <?php } ?>
 
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1"  class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                                 <a href="#tnc1"  style="font-size: 12px;font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                                </div>
 
                                                <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn adr-cancel"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" />
 
                                                </div>
 
@@ -2459,7 +2462,7 @@ alert(alertmsg);
 
                                                 <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn adr-cancel"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" />
 
                                                </div>
 

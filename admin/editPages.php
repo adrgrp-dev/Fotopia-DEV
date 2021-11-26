@@ -73,7 +73,7 @@ header("location:pages.php");
 			<tr><td>Page Content<br />
 			<textarea name="pageContent" class="form-control" id="editor"><?php echo $page['page_content']; ?></textarea>
 			</td></tr>
-			<tr><td><input type="submit" name="savepage" class="btn btn-primary" value="Save" />&nbsp;&nbsp;<a href="pages.php" class="btn btn-warning">Cancel</a></td></tr>
+			<tr><td><input type="submit" name="savepage" class="btn adr-save" value="Save" />&nbsp;&nbsp;<a href="pages.php" class="btn adr-cancel">Cancel</a></td></tr>
 			</table>
 			
 			</form>

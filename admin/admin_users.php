@@ -34,7 +34,7 @@ if(isset($_REQUEST['loginbtn']))
 					<?php } ?>
 
 		<div class="col-md-12">
-		<a href="create_admin.php" class="circle-button btn " style="float:right;"><i class="fa fa-plus" style="">&nbsp;Create</i></a>
+		<a href="create_admin.php" class="circle-button btn adr-save" style="float:right;"><i class="fa fa-plus" style="">&nbsp;Create</i></a>
 </div>
 
 
