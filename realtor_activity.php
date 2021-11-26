@@ -33,7 +33,7 @@ padding-left:5px;
         <div class="container" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="\margin-left:-15px;">
+                <div class="col-md-2" >
 	<?php include "sidebar.php"; ?>
 
 
@@ -50,7 +50,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
               	<h4 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
 
-                <table class="" style="color: #000;opacity:0.9;width:100%;text-align:center" aria-busy="false">
+                <table class="" style="color: #000;opacity:0.9;width:100%;text-align:center">
                   <thead>
                     <tr>
                       <th class="text-center"><span  adr_trans="label_s.no">S.no</span></th>

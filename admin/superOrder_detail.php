@@ -1390,7 +1390,7 @@ alert(alertmsg);
                 </div>
 
                 <div class="col-md-8">
-
+<hr class="space s">
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab"><span id="label_order_details" adr_trans="label_order_details">Order Detail</span></a></li>
@@ -3262,7 +3262,8 @@ $percentage = @$get_information['tax'];
                     </div>
   </div>
 
-<div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:50px;">
+<div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:60px;">
+
   <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
 
   $realtor1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
