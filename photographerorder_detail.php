@@ -384,8 +384,8 @@ border:none!important;
   width: 100% !important;
   max-width: 50px !important;
   top: 43px;
-  background:#000;
-  color:#FFF;
+  background:#AAD1D6;
+  color:#000;
   border-radius:0px 20px 20px 0px;
   padding: 11px 0px;
   z-index: 1;
@@ -396,8 +396,8 @@ border:none!important;
   width: 100% !important;
   max-width: 50px !important;
   top: 50px;
-   background:#000;
-  color:#FFF;
+   background:#AAD1D6;
+  color:#000;
   border-radius:20px 0px 0px 20px;
   display: inline-block;
   overflow: hidden;
@@ -409,6 +409,9 @@ border:none!important;
       padding: 8px 3px 8px 15px;
   z-index: 1;
 
+}
+i.fa{
+  color: black;
 }
 .img-box:before{
   background: none !important;
@@ -541,6 +544,7 @@ border-bottom:none!important;
 {
 padding:0px!important;
 }
+
 
  </style>
  <script>
@@ -2403,7 +2407,7 @@ function printPage()
                                                           </a>
 
                                                           <a class="icons<?php echo $get_comment['id'];?> clikedImg1" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                                              <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                                              <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
                                                   <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
@@ -2548,7 +2552,7 @@ function printPage()
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                                           </a>
                                                           <a class="icons<?php echo $get_comment['id'];?> clikedImg2" id="imga1" onclick="clickimg2(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                                              <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                                              <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
                                                   <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
@@ -2667,7 +2671,7 @@ function printPage()
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                                           </a>
                                                           <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg3(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                                              <i class="fa fa-square icons3"  id="check3<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                                              <i class="fa fa-square icons3"  id="check3<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
                                                   <img alt="" class="img13" id="clicked_img3<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
@@ -2792,7 +2796,7 @@ function printPage()
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                                           </a>
                                                           <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg4(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                                              <i class="fa fa-square icons4"  id="check4<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                                              <i class="fa fa-square icons4"  id="check4<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
                                                   <img alt="" class="img14" id="clicked_img4<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">

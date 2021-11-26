@@ -133,7 +133,7 @@ opacity:1!important;
    </div>
 
  </div>
-   <p align="right"><a href="#" id="send" class="btn btn primary"  adr_trans="label_send">send</a></p>
+   <p align="right"><a href="#" id="send" class="btn btn primary adr-save"  adr_trans="label_send">send</a></p>
 </div>
 
 

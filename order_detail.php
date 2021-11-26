@@ -588,7 +588,7 @@ visibility: hidden;
   width: 100% !important;
   max-width: 40px !important;
   top: 42px;
-  background:#000;
+  background:#AAD1D6;
   color:#FFF;
   border-radius:0px 20px 20px 0px;
   padding: 7px 0px;
@@ -601,7 +601,7 @@ visibility: hidden;
   width: 100% !important;
   max-width: 40px !important;
   top: 50px;
-   background:#000;
+   background:#AAD1D6;
   color:#FFF;
   border-radius:20px 0px 0px 20px;
   display: inline-block;
@@ -632,6 +632,9 @@ visibility: hidden;
   position: absolute;
   z-index: 1;
 
+}
+i.fa{
+  color: black;
 }
 .img-box:before{
   background: none !important;
@@ -1651,7 +1654,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                     </a>
 
                                     <a class="icons<?php echo $get_comment['id'];?> clikedImg1" id="imga1" onclick="clickimg(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                        <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                        <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                     </a>
                                     <?php if($get_comment['disapprove']!=1){?>
@@ -1802,7 +1805,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                     </a>
                                     <a class="icons<?php echo $get_comment['id'];?> clikedImg2" id="imga1" onclick="clickimg2(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                        <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                        <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                     </a>
                                     <?php if($get_comment['disapprove']!=1){?>
@@ -1926,7 +1929,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                     </a>
                                     <a class="icons<?php echo $get_comment['id'];?> " id="imga1" onclick="clickimg3(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                        <i class="fa fa-square icons3"  id="check3<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                        <i class="fa fa-square icons3"  id="check3<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                     </a>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
@@ -2052,7 +2055,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
                                     </a>
                                     <a class="icons<?php echo $get_comment['id'];?>" id="imga1" onclick="clickimg4(<?php echo $get_comment['id'];?>)" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
-                                        <i class="fa fa-square icons4"  id="check4<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;color:white !important;"></i>
+                                        <i class="fa fa-square icons4"  id="check4<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                     </a>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)" onmouseover="showicons(<?php echo $get_comment['id'];?>)" onmouseout="hideicons(<?php echo $get_comment['id'];?>)">

@@ -239,8 +239,8 @@ p{
 
 										<br>
 															  <p align="center" >
-																<button class="anima-button circle-button btn-sm btn" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile"><i class="fa fa-sign-in" adr_trans="label_update_profile"></i>Update Profile</button>
-																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="photographer_profile.php" id="label_cancel" adr_trans="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a></p>
+																<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile"><i class="fa fa-sign-in" adr_trans="label_update_profile"></i>Update Profile</button>
+																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="photographer_profile.php" id="label_cancel" adr_trans="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a></p>
 
 							</div>
 							</form>

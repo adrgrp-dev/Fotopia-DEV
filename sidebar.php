@@ -254,7 +254,7 @@ vertical-align:top!important;
  <div>
                                     <p style="margin-left: 80px;margin-top: 10px;"><a href="#tnc2" class=" lightbox link">
                                     <i style="
-        color: aad1d6;
+        color: #aad1d6;
         top: -43px;
         font-size: 30px;
 

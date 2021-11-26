@@ -202,7 +202,7 @@ if(isset($_REQUEST['send']))
        });
 
      </script>
-        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn btn-primary" style="background: black;float:left" adr_trans="label_preview">preview</a><p align="right"><a href="#" id="edit_button" class="btn btn-primary" style="background: black;position: relative; " adr_trans="label_upload">Upload</a></p>
+        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn btn-primary adr-save" style="background: black;float:left" adr_trans="label_preview">preview</a><p align="right"><a href="#" id="edit_button" class="btn btn-primary adr-save" style="background: black;position: relative; " adr_trans="label_upload">Upload</a></p>
 
       <input type="hidden"  id="order_id"  value="<?php echo $order_id?>"/>
        <input type="hidden"  id="service_name"  value="<?php echo $type1?>"/>

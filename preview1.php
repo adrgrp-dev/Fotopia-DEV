@@ -300,8 +300,8 @@ var a;
 
                   <h5 style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
 
-                   <button  class="btn btn-primary"  id="edit_button" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top: -50px;" adr_trans="label_send"> Send</button>
-                   <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                   <button  class="btn btn-primary adr-save"  id="edit_button" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top: -50px;" adr_trans="label_send"> Send</button>
+                   <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary adr-save"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn(this.val)" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
 
                     <?php
@@ -413,8 +413,8 @@ var a;
                     <hr class="space l">
 
                     <h5 style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
-                       <button  class="btn btn-primary"  id="edit_button1" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send"> Send</button>
-                       <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send" >Send</a>
+                       <button  class="btn btn-primary adr-save"  id="edit_button1" data-lightbox-anima="show-scale" style="display:block;float:right;margin-top:-50px" adr_trans="label_send"> Send</button>
+                       <a href="photographerorder_detail.php?id=<?php echo $id_url?>&upload=1&fixed=2"  class="btn btn-primary adr-save"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send" >Send</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="display:none;float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <?php
                             $photographer_id=$_SESSION['loggedin_id'];

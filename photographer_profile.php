@@ -292,7 +292,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 				</tbody>
 				  </table>
 				  <br />
-				  <a class="anima-button circle-button btn-success btn-sm btn" style="margin-left: 40%;" href="edit_photographer_profile.php" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 40%;" href="edit_photographer_profile.php" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 </div>
 
