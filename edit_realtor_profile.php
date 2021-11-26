@@ -182,7 +182,7 @@ margin-left:0px!important;
 
 
 				<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>
-						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_add_company_profile">Add / Edit company profile</h5></div>
+						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_edit_realtor">Add / Edit Realtor profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
 
