@@ -185,11 +185,12 @@ function validate_email(val)
 
 
 
-
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;margin-left:30px;">
 
 						 <div class="col-md-12"><h5 align="center" id="label_edit_photographer" adr_trans="label_edit_photographer"> Edit Photographer</h5></div>
+<br/>
 
+<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $csr['first_name']; ?>">
@@ -300,7 +301,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 
 
                               <div class="col-md-6">
-                                  <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p><span id="label_email" adr_trans="label_email">Email</span>
             </p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $csr['email']; ?>">
 
