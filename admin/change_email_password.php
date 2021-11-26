@@ -273,7 +273,7 @@ $("#moreInfoText").toggle(1000);
 
 <hr class="space s">
 
-<table class="" style="color: #000;background: #FFF;border-radius:10px;width:70%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
+<table class="" style="color: #000;background: #FFF;border-radius:10px;width:100%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
 <tr><td colspan="3" align="center"><h4 id="label_settings" adr_trans="label_settings">Settings</h4>
 
 <?php if(@isset($_REQUEST["u"])) { ?>

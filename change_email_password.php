@@ -260,7 +260,7 @@ $("#moreInfoText").toggle(1000);
  <div class="section-empty bgimage5">
         <div class="container" style="margin-left:0px;height:inherit">
             <div class="row">
-			<hr class="space s">
+			<hr class="space s" />
                 <div class="col-md-2">
 	<?php include "sidebar.php"; ?>
 
@@ -268,7 +268,7 @@ $("#moreInfoText").toggle(1000);
 			</div>
                 <div class="col-md-10">
 
-
+<hr class="space s" />
 
 <table class="table-stripped" style="color: #000;background: #FFF;border-radius:10px;width:100%;font-weight:200; font-size:15px;" align="center">
 <tr><td colspan="3" align="center"><h4 adr_trans="label_settings">Settings</h4>
