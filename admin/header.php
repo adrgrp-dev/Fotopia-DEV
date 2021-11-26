@@ -96,26 +96,49 @@ $page="subcsr_dashboard.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
     <!-- Extra optional content header -->
   <style>
-  .adr-save
-	{
-	background:#000!important;
-	color:#FFF!important;
-	border-color:#000!important;
-	}
-	.adr-cancel
-	{
-	/*background:#5cb85c!important;
-	border-color:#5cb85c!important;*/
-	background:#000!important;
-	border-color:#000!important;
-	color:#FFF!important;
-	}
-  .adr-success
-	{
-background:#000!important;
-	border-color:#000!important;
-	color:#FFF!important;
-	}
+
+    .adr-save,.adr-save:hover
+    {
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    }
+    .adr-cancel
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#F2ADA8!important;
+    border-color:#F2ADA8!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+     
+    }
+    .adr-success
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+     color: #000 !important;
+     border-radius: 5px !important;
+    }
+    .btn-default
+    {
+
+    border: none !important;
+    padding-top:20px;
+    background:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    }
+
+    a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
+{
+  color: #000 !important;
+
+} 
+
 	.row
 	{
 	width:100%;

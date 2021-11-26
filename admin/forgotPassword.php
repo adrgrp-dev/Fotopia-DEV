@@ -174,7 +174,7 @@ if($exist!=0)
                             adr_trans="label_please_follow">Please follow the email instrcution to continue reset your password.</span></a>
                         </h5>
                         <hr class="space m">
-                        <a class="anima-button btn-ms btn circle-button" id="label_go_back_home"
+                        <a class="anima-button btn-ms btn circle-button adr-cancel" id="label_go_back_home"
                         adr_trans="label_go_back_home" href="index.php"><i class="fa fa-long-arrow-left"></i>Go back to Home</a>
                     </div>
                 </div>
@@ -216,8 +216,8 @@ if($exist!=0)
 					<input name="email"  type="email" placeholder="" autocomplete="off" class="form-control form-value" required="" size="40"  />
 
 							<br /><br />
-							 <button class="anima-button circle-button btn-sm btn" type="submit" name="confirmbtn" id="label_confirm" adr_trans="label_confirm"><i class="fa fa-sign-in"></i>Confirm</button>
-                       &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" id="label_cancel"
+							 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="confirmbtn" id="label_confirm" adr_trans="label_confirm"><i class="fa fa-sign-in"></i>Confirm</button>
+                       &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel"
                        adr_trans="label_cancel" href="index.php"><i class="fa fa-sign-in"></i>Cancel</a>
 </center>
 

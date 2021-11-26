@@ -162,11 +162,11 @@ header("location:PCAdmin_dashboard.php");
                    <input id="password" name="password" placeholder="password" type="password" autocomplete="off" class="form-control form-value" required="">
                             </div>
                         </div>
-						<a href="forgotPassword.php">&nbsp;&nbsp;<span adr_trans="label_forgot_password">Forgot password</span>?</a>
+						<a href="forgotPassword.php">&nbsp;&nbsp;<span adr_trans="label_forgot_password">Forgot password?</span></a>
 						<br>
 						 <div class="row">
                             <div class="col-md-12"><hr class="space s">
-						 <button class="anima-button circle-button btn-sm btn" type="submit" name="loginbtn"><i class="fa fa-sign-in"></i><span adr_trans="label_login">Login</span></button>
+						 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="loginbtn"><i class="fa fa-sign-in"></i><span adr_trans="label_login">Login</span></button>
                        </div>
 					   <hr class="space l" />
                         </div>

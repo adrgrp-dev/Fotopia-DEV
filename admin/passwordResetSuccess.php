@@ -12,7 +12,7 @@
                            Your password has been changed successfully!.
                         </h5>
                         <hr class="space m">
-                        <a id="label_login" adr_trans="label_login" class="anima-button btn-ms btn circle-button" href="index.php"><i class="fa fa-sign-in"></i>Login</a>
+                        <a id="label_login" adr_trans="label_login" class="anima-button btn-ms btn circle-button adr-save" href="index.php"><i class="fa fa-sign-in"></i>Login</a>
                     </div>
                 </div>
             </div>
