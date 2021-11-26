@@ -383,12 +383,12 @@ if($_SESSION['admin_loggedin_type'] == 'PCAdmin')
 ?>
 
       <a href="pc_admin_activity.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 <?php }
 elseif ($_SESSION['admin_loggedin_type'] == 'CSR') { ?>
   <a href="csr_activity.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 <?php }
 
@@ -396,7 +396,7 @@ else { ?>
 
 
       <a href="notification.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 
 <?php } ?>
@@ -537,19 +537,19 @@ if($_SESSION['admin_loggedin_type'] == 'PCAdmin')
 ?>
 
       <a href="pc_admin_activity.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 
 <?php }
 elseif ($_SESSION['admin_loggedin_type'] == 'CSR') { ?>
   <a href="csr_activity.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 <?php }
 else { ?>
 
    <a href="notification.php" >
-<i class="fa fa-bell fa-1x" style="color:#FFF;margin-left:5px;"  aria-hidden="true"></i>
+<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
 </a>
 
 <?php } ?>
