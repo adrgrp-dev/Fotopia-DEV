@@ -127,7 +127,7 @@ p{
                 <div class="col-md-10">
 
 
-<table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;"><tr><td style="padding:20px;">
+<table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 
 <?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Its mandatory to complete the profile information to understand you better</h5></div> <?php } ?>

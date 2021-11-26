@@ -133,7 +133,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
                         </div>
 						<?php }  ?>
 
-					<table class=""  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;margin-left:10px;" cellpadding="10" cellspacing="10">
+					<table class=""  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;margin-left:10px;" cellpadding="10" cellspacing="10">
 
 					<tbody>
 

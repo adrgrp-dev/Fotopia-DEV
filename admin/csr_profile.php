@@ -157,7 +157,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 
 
 
-					<table id="table1" class="table-responsive" cellpadding="10" cellspacing="10" width="96%"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:30px 30px 30px 30px!important;margin-left:20px;">
+					<table id="table1" class="table-responsive" cellpadding="10" cellspacing="10" width="96%"  style="color: #000;background: #FFF;border-radius:10px!important;margin-left:20px;">
 
 					<tbody>
 
@@ -247,7 +247,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
                             <div class="text-success" id="label_profile_update_msg" adr_trans="label_profile_update_msg">Profile information updated successfully</div>
                         </div>
 						<?php }  ?>
-					<table class="table-responsive" cellpadding="10" cellspacing="10" width="96%"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:30px 30px 30px 30px!important;margin-left:20px;">
+					<table class="table-responsive" cellpadding="10" cellspacing="10" width="96%"  style="color: #000;background: #FFF;border-radius:10px!important;margin-left:20px;">
 
 					<tbody>
 
@@ -274,7 +274,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 				 <tr><th style="padding-left:20px;"><span id="label_zip_code" adr_trans="label_zip_code">Zip Code</span></th><th>:</th><td align="center"><?php echo @$res1['postal_code']; ?></td></tr>
 				  <tr><th style="padding-left:20px;"><span id="label_country" adr_trans="label_country">Country</span></th><th>:</th><td align="center"><?php echo @$res1['country']; ?></td></tr>
 
-				  <tr><th style="padding-left:20px;"><span id="label_profile_picture" adr_trans="label_profile_picture">Profile picture</span></th><th>:</th><td align="center"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
+				  <tr><th style="padding-left:20px;"><span id="label_profile_picture" adr_trans="label_profile_picture">Profile picture</span></th><th>:</th><td align="center"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="50" height="45" /></td></tr>
 
 
 
@@ -284,7 +284,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 				</tbody>
 				  </table>
 				<br />
-				  <a class="anima-button circle-button btn-success btn-sm btn" style="margin-left: 40%;" href="edit_csr_profile.php" id="label_add_profile" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 40%;" href="edit_csr_profile.php" id="label_add_profile" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 </div>
 

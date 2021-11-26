@@ -185,17 +185,19 @@ padding-left:5px;
 }
 .active
 {
-background:none!important;
+/*background:none!important;*/
+
+opacity: 1!important;
 
 }
 h5
 {
-color:#000!important;
+/*color:#000!important;*/
 }
 td,th
 {
-padding:10px;
-font-weight:500;
+padding:10px!important;
+font-weight:500!important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -269,10 +271,10 @@ $("#moreInfoText").toggle(1000);
 			</div>
                 <div class="col-md-10">
 
+<hr class="space s">
 
-
-<table class="" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:20px 20px 20px 20px;width:70%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
-<tr><td colspan="3" align="center" id="label_settings" adr_trans="label_settings"><h5 >Settings</h5>
+<table class="" style="color: #000;background: #FFF;border-radius:10px;width:70%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
+<tr><td colspan="3" align="center"><h4 id="label_settings" adr_trans="label_settings">Settings</h4>
 
 <?php if(@isset($_REQUEST["u"])) { ?>
                         <div class="success-box" style="display:block;">
@@ -300,14 +302,14 @@ $("#moreInfoText").toggle(1000);
 <tr><td style="padding-left:20px;"><h5 id="label_first_name" adr_trans="label_first_name">First Name</h5></td><td><?php echo $user1['first_name']; ?><br /></td></tr>
 <tr><td style="padding-left:20px;"><h5 id="label_last_name" adr_trans="label_last_name">Last  Name</h5></td><td>  <?php echo $user1['last_name']; ?><br /></td></tr>
 <tr><td style="padding-left:20px;"><h5 id="label_organization" adr_trans="label_organization">Organization</h5></td><td> <?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){ echo $user1['organization_name']; }else{ echo $organization_name; } ?><td align="left">
-<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){?><a href="#changePersonal" id="uname" class="lightbox link" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a></td></td></tr><?php } ?>
+<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){?><a href="#changePersonal" id="uname" class="lightbox link btn btn-primary adr-save" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a></td></td></tr><?php } ?>
 
 <tr><td style="padding-left:20px;"><h5 id="label_role" adr_trans="label_role">Role </h5></td><td> <?php echo $user1['type_of_user']; ?><br /></td><td align="left">
-<a href="#" id="moreInfo" onClick="showMore()" style="color:#000;"><span id="label_more" adr_trans="label_more">More</span></a></td></tr>
+<a href="#" id="moreInfo" onClick="showMore()" style="color:blue;"><span id="label_more" adr_trans="label_more">More</span></a></td></tr>
 
 <tr><td colspan="3"><span id="moreInfoText" style="display:none" adr_trans="label_change_role">To change your role, kindly click on sign up in the home screen and register as a new user.</span></td></tr>
 </td></tr>
-<tr><td style="padding-left:20px;" id="label_user_name"><h5 adr_trans="label_user_name">User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a><br /></td></tr>
+<tr><td style="padding-left:20px;" id="label_user_name"><h5 adr_trans="label_user_name">User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link btn btn-primary adr-save" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update">Update</span></a><br /></td></tr>
 <tr><td style="padding-left:20px;padding-bottom:20px;" ><h5 id="label_password" adr_trans="label_password">Password</h5></td><td>
 
  <?php
@@ -317,14 +319,14 @@ $("#moreInfoText").toggle(1000);
     echo substr( $user1['password'],0, $len) . str_repeat('*', $len)
   ?>
 
- <br /></td><td><a href="#changePassword" class="lightbox link" data-lightbox-anima="show-scale" id="upass" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update" >Update</span></a><br /></td></tr>
+ <br /></td><td><a href="#changePassword" class="lightbox link btn btn-primary adr-save" data-lightbox-anima="show-scale" id="upass" style="font-size:13px;text-decoration:none;color:#000;"><span adr_trans="label_update" >Update</span></a><br /></td></tr>
 
 </table>
 
 
 
 
-<div id="changePersonal" class="box-lightbox white" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding:25px;height:300px; width:500px;border-radius:20px 20px 20px 20px">
+<div id="changePersonal" class="box-lightbox white" style="color: #000;background: #FFF;padding:25px;height:300px; width:500px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_change_personal" adr_trans="label_change_personal">Change personal details</h5>
 
@@ -342,7 +344,7 @@ $("#moreInfoText").toggle(1000);
 
 				<tr><td colspan="3" align="center">
 				<input type="hidden" name="id" value="<?php echo $user1['id']; ?>" />
-				<input type="submit" name="changeprofile" value="Update Profile" class="btn btn-primary" style="border-radius:20px 20px 20px 20px;background:#0275D8" /></td></tr>
+				<input type="submit" name="changeprofile" value="Update Profile" class="btn btn-primary adr-save" style="border-radius:20px 20px 20px 20px;background:#0275D8" /></td></tr>
 				</form>
 
 				</table>
@@ -351,7 +353,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-<div id="changePassword" class="box-lightbox white" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding:25px;height:300px; width:500px;border-radius:20px 20px 20px 20px">
+<div id="changePassword" class="box-lightbox white" style="color: #000;background: #FFF;padding:25px;height:300px; width:500px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_change_password" adr_trans="label_change_password" >Change Password
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -369,7 +371,7 @@ $("#moreInfoText").toggle(1000);
 				<tr><td id="label_new_password" adr_trans="label_new_password">New Password</td><td>:</td><td><input type="password" name="newpass" id="newpass" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/></td></tr>
 				<tr><td id="label_new_password_confirm" adr_trans="label_new_password_confirm">Confirm New Password</td><td>:</td><td><input type="password" name="confirmpass" id="confirmpass" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/></td></tr>
 				<tr><td colspan="3" align="center">
-				<input type="submit" name="changepass" value="Update Password" class="btn btn-primary" style="border-radius:20px 20px 20px 20px;background:#0275D8" /></td></tr>
+				<input type="submit" name="changepass" value="Update Password" class="btn btn-primary adr-save" style="border-radius:20px 20px 20px 20px;background:#0275D8" /></td></tr>
 				</form>
 
 				</table>
@@ -380,7 +382,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-				<div id="changeemail" class="box-lightbox white" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;height:300px; width:500px;border-radius:20px 20px 20px 20px">
+				<div id="changeemail" class="box-lightbox white" style="color: #000;background: #FFF;height:300px; width:500px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_change_email" adr_trans="label_change_email">Change Email
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -404,13 +406,13 @@ $("#moreInfoText").toggle(1000);
 				</td></tr>
 				<form name="verifyemail" method="post" action="">
 				<tr><td id="label_new_email" adr_trans="label_new_email">New Email</td><td>:</td><td><input type="email" name="newemail" id="newemail" class="form-control" required onblur="validate_email(this.value)" /></td></tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="sendcode" value="Send Verification Code" class="btn btn-warning" style="border-radius:20px 20px 20px 20px; background:#F0AD4E" /></td></tr>
+				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="sendcode" value="Send Verification Code" class="btn btn-warning adr-cancel" style="border-radius:20px 20px 20px 20px; background:#F0AD4E" /></td></tr>
 				</form>
 				<form name="changeemail" method="post" action="">
 				<tr><td id="label_security_code" adr_trans="label_security_code">Security Code</td><td>:</td><td><input type="text" name="security_code" maxlength="6" class="form-control" required /></td></tr>
 
 
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="updateemail" value="Update Email" class="btn btn-primary" style="border-radius:20px 20px 20px 20px; background:#0275D8" />
+				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="updateemail" value="Update Email" class="btn btn-primary adr-save" style="border-radius:20px 20px 20px 20px; background:#0275D8" />
 
 				<br />
 				</td></tr>

@@ -26,7 +26,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 			<div class="col-md-2" style="padding-left:10px;">
-
+<br/>
 	<?php
 	if($_SESSION["admin_loggedin_type"] == "FotopiaAdmin"){
 		include "sidebar.php";
@@ -55,7 +55,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
                         </div>
 						<?php }  ?>
 
-					<table class="" aria-busy="false" align="center" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;margin-left:10px;">
+					<table class="" aria-busy="false" align="center" style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;margin-left:10px;">
 
 					<tbody>
 
@@ -69,10 +69,10 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 
 	 <?php  }
 	 else{
-
+ 
 	   ?>
 
-	    <tr><th style="padding-left:20px;"><span adr_trans="label_org_name">Organization name</span></th><th>:</th><td><?php echo @$res1['organization_name']; ?></td></tr>
+	    <tr><th style="padding-left:20px;width: 200px;"><span adr_trans="label_org_name">Organization name</span></th><th>:</th><td><?php echo @$res1['organization_name']; ?></td></tr>
 		 <tr><th style="padding-left:20px;"><span adr_trans="label_org_branch">Organization branch</span></th><th>:</th><td><?php echo @$res1['organization_branch']; ?></td></tr>
 		 <tr><th style="padding-left:20px;"><span adr_trans="label_org_number">Organization Number</span></th><th>:</th><td><?php echo @$res1['organization_number']; ?></td></tr>
 		  <tr><th style="padding-left:20px;"><span adr_trans="label_contact_no">Contact number</span></th><th>:</th><td><b><?php echo @$res1['contact_number']; ?></b></td></tr>
@@ -101,7 +101,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 				</tbody>
 				  </table>
 				  <br />
-				  <a id="label_add_profile" adr_trans="label_add_profile"  class="anima-button circle-button btn-success btn-sm btn" style="margin-left: 65%;" href="edit_company_profile.php"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a id="label_add_profile" adr_trans="label_add_profile"  class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 65%;" href="edit_company_profile.php"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 
 
@@ -179,13 +179,13 @@ function get_email_content()
 
        }
      </script>
+<br/>
+<br/>
+<div class="col-md-5">
 
 
-<div class="col-md-5"  style="padding-top:60px;">
 
-
-
-<table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;width:90%;" align="center"><tr><td style="padding:20px;">
+<table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;width:90%;" align="center"><tr><td style="padding:20px;">
 	 <h5 class="text-center" style="margin-left:-10px;color:#000!important;"  ><span adr_trans="label_email_settings">Email Settings</span><a onclick="mouseover()"><i class='fa fa-question-circle' aria-hidden='true'></i></a></h5>
 
 
@@ -240,7 +240,7 @@ color: black;" ><i><?php echo 'The Dynamic fields below can be used to customize
 							<div class="col-md-8">
 
 	 						<p align="right" ><br />
-							<button class="anima-button circle-button btn-sm btn" type="submit" name="updatebtn" id="label_update_template" adr_trans="label_update_template"><i class="fa fa-sign-in"></i>Update template</button>
+							<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="updatebtn" id="label_update_template" adr_trans="label_update_template"><i class="fa fa-sign-in"></i>Update template</button>
 							</p>
 
 							</div>

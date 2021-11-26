@@ -163,7 +163,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 
 
-					<table id="table1"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;margin-left:10px;padding:10px;" cellpadding="10" cellspacing="10">
+					<table id="table1"  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;margin-left:10px;padding:10px;" cellpadding="10" cellspacing="10">
 
 					<tbody>
 
@@ -254,7 +254,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
                             <div class="text-success">Profile information updated successfully</div>
                         </div>
 						<?php }  ?>
-<table id="table"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:95%;border-radius:30px 30px 30px 30px!important;margin-left:10px;padding:10px;" cellpadding="10" cellspacing="10">					<tbody>
+<table id="table"  style="color: #000;background: #FFF;opacity:0.8;width:95%;border-radius:10px!important;margin-left:10px;padding:10px;" cellpadding="10" cellspacing="10">					<tbody>
 
 	  <?php
 
@@ -270,7 +270,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 	   ?>
 
 
-					<tr><th class="tablehead"  ><span adr_trans="label_first_name">First name</span></th><th>:</th><td align="center"><?php echo @$res1['first_name']; ?></td></tr>
+					<tr><th class="tablehead" style="width:200px" ><span adr_trans="label_first_name">First name</span></th><th>:</th><td align="center"><?php echo @$res1['first_name']; ?></td></tr>
 					<tr><th class="tablehead" ><span adr_trans="label_last_name">Last name</span></th><th>:</th><td align="center"><?php echo @$res1['last_name']; ?></td></tr>
 			   <tr><th class="tablehead" ><span adr_trans="label_contact_no">Contact number</span></th><th>:</th><td align="center"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
 			     <tr><th class="tablehead" ><span adr_trans="label_contact_about">About Me</span></th><th>:</th><td align="center"><?php echo @$res1['about_me']; ?></td></tr>

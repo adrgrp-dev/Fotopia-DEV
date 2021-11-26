@@ -168,7 +168,7 @@ p{
                 <div class="col-md-10">
 
 
-<table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;margin-left:30px;"><tr><td style="padding:20px;">
+<table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;margin-left:30px;"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
 <?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Step #1 of 7 : Fill out the Company profile</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" id="label_add_company_profile" adr_trans="label_add_company_profile" style="color:#000!important">Add / Edit company profile</h5></div>
@@ -347,8 +347,8 @@ while($city=mysqli_fetch_array($city1))
 
 										<br>
 															  <p align="center" >
-																<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile" style="background:#FFF!important;color:#000!important"><i class="fa fa-sign-in" style="color:#000"></i>Update Profile</button>
-																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="company_profile.php" id="label_cancel" adr_trans="label_cancel" style="background:#FFF!important;color:#000!important"><i class="fa fa-times" style="color:#000"></i>Cancel</a></p>
+																<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile"><i class="fa fa-sign-in" style="color:#000"></i>Update Profile</button>
+																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="company_profile.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times" style="color:#000"></i>Cancel</a></p>
 
 							</div>
 							</form>

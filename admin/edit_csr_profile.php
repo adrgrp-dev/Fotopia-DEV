@@ -125,7 +125,7 @@ p{
                 <div class="col-md-10">
 
 
-<table style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;border-radius:25px 25px 25px 25px;opacity:0.7;"><tr><td style="padding:20px;">
+<table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;"><tr><td style="padding:20px;">
 						<div class="col-md-12"><h5 align="center"  id="label_edit_csr_profile" adr_trans="label_edit_csr_profile" style="color:#000!important">Add / Edit csr profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
@@ -225,8 +225,8 @@ p{
 
 										<br>
 															  <p align="center" >
-																<button class="anima-button circle-button btn-sm btn" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile" style="background:#000!important;color:#FFF!important;"><i class="fa fa-sign-in" style="color:#FFF"></i>Update Profile</button>
-																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="csr_profile.php" id="label_cancel" adr_trans="label_cancel" style="background:#000!important;color:#FFF!important;"><i class="fa fa-times" style="color:#FFF"></i>Cancel</a></p>
+																<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="profilebtn" id="label_update_profile" adr_trans="label_update_profile"><i class="fa fa-sign-in" style="color:#FFF"></i>Update Profile</button>
+																					&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="csr_profile.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times" style="color:#FFF"></i>Cancel</a></p>
 
 							</div>
 							</form>
