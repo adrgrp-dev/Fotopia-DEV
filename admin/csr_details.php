@@ -174,21 +174,21 @@ $id=@$_REQUEST['id'];
 
 				</tbody>
 				  </table>
-         <p align="center">
+         <p align="center" style="margin-top:10px;">
 				<?php if($res1['is_approved']!=1) { ?>
-				<a id='label_approve' adr_trans='label_approve' class="anima-button circle-button btn-success btn-sm btn" href="csr_details.php?approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i>Approve</a> <?php }  else { ?>
-								<a id='label_block' adr_trans='label_block' class="anima-button circle-button btn-success btn-sm btn" href="csr_details.php?block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i>Block</a><?php } ?>
+				<a id='label_approve' adr_trans='label_approve' class="anima-button circle-button adr-save btn-sm btn" href="csr_details.php?approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i>Approve</a> <?php }  else { ?>
+								<a id='label_block' adr_trans='label_block' class="anima-button circle-button adr-cancel btn-sm btn" href="csr_details.php?block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i>Block</a><?php } ?>
 
 								<?php
 
 								if(@$_REQUEST['val'] == 0) {
 								?>
 
-									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn" href="csr_list1.php?fc=1"><i class="fa fa-sign-in"></i>Back to users list</a>
+									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php?fc=1"><i class="fa fa-sign-in"></i>Back to users list</a>
 								<?php }
 				if(@$_REQUEST['val'] == 1) {
 					?>
-					<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn" href="csr_list.php"><i class="fa fa-sign-in"></i>Back to users list</a>
+					<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list.php"><i class="fa fa-sign-in"></i>Back to users list</a>
 
 					<?php } ?>
 

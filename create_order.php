@@ -709,7 +709,7 @@ if($user_type=="Photographer")
 
 
 
-     <button class="anima-button circle-button btn-sm btn" type="submit" name="SaveOrder" adr_trans="label_next"><i class="fa fa-chevron-circle-right"></i>Next</button>
+     <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="SaveOrder" adr_trans="label_next"><i class="fa fa-chevron-circle-right"></i>Next</button>
 
 	 <?php
 	 $user_type=$_SESSION['user_type'];
@@ -718,10 +718,10 @@ if($user_type=="Photographer")
 					{
 
 	 ?>
-               &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="photographerCalendar.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+               &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="photographerCalendar.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } else { ?>
-			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" id="label_cancel" adr_trans="label_cancel" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
+			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } ?>
 </center>

@@ -1334,8 +1334,8 @@ $from123=preg_replace("/ /","T",$from123);
 
 
 
-                     <a class="anima-button circle-button btn-sm btn" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&u=1&od=<?php echo @$_REQUEST['od']; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a>
-					 <button class="anima-button circle-button btn-sm btn" type="submit" name="save_appointment" style="float:right;margin-right:20px;" ><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
+                     <a class="anima-button circle-button btn-sm btn adr-cancel" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&u=1&od=<?php echo @$_REQUEST['od']; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a>
+					 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="save_appointment" style="float:right;margin-right:20px;" ><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
 
              </div>
 

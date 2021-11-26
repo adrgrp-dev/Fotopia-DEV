@@ -217,7 +217,7 @@ var xhttp= new XMLHttpRequest();
 			</div>
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
-                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn"  style="float:right;margin-top:-6px;"><i class="fa fa-plus"></i>Add Realtor</a>
+                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save"  style="float:right;margin-top:-6px;"><i class="fa fa-plus"></i>Add Realtor</a>
 
 <?php if(@isset($_REQUEST["a"])) { ?>
                         <div class="success-box" style="display:block;margin-left:300px;">
@@ -244,7 +244,7 @@ var xhttp= new XMLHttpRequest();
 																		</div><div class="col-md-3">
 																		<p style="float:right"><a href="#tnc" class=" lightbox link">
 																		<i style="
-				color: blue;
+				color: #aad1d6;
 				top: -43px;
 				font-size: 50px;
 
@@ -342,7 +342,7 @@ else
 		<div class="col-md-3">
 				<p style="float:right"><a href="#tnc" class=" lightbox link">
 			<i style="
-				color: blue;
+				color: #aad1d6;
 				top: -43px;
 				font-size: 50px;
 

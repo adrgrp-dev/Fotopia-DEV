@@ -215,13 +215,13 @@ color:#000!important;
 						<?php }  ?>
 						<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #2 of 7 : Set up products for Photo company</h5></div> <?php } ?>
 						</center>
-						<a class="lightbox btn btn-primary btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
+						<a class="lightbox btn adr-save btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
 						
 						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; border:solid 1px #000;">
 
 <center>
 <div class="col-md9">
-<div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;background:#000;color:#FFF!important;font-weight:600;padding:10px;"><a id="label_product_price" adr_trans="label_product_price" href="products.php" style="color:#FFF!important">Products & It's Price</a></div>
+<div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;background:#aad1d6;color:#000!important;font-weight:600;padding:10px;"><a id="label_product_price" adr_trans="label_product_price" href="products.php" style="color:#000!important">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px;font-weight:600; padding:10px;"><a id="label_realtor_custom" adr_trans="label_realtor_custom" href="RealtorProducts.php" style="color:#000">Custom Price for Realtor</a></div>
 <div class="col-md-4" style="border-radius:0px 25px 25px 0px;border:solid 1px;font-weight:600;padding:10px;"><a id="label_photographer_custom" adr_trans="label_photographer_custom" href="PhotographerProducts.php">Custom Price for Photographers</a></a></div>
 </div>
@@ -323,11 +323,11 @@ color:#000!important;
 			?>
 						<div class="col-sm-6">
 									<ul class="pagination ">
-										<li class="first disabled" aria-disabled="true"><a href="./Products.php?page=1" class="button adr-save"><<</a></li>
-										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
-										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($Page_check);?>" class="button adr-save">>></a></li></ul></div>
+										<li class="first disabled" aria-disabled="true"><a href="./Products.php?page=1" class="button"><<</a></li>
+										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
+										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
+										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($Page_check);?>" class="button">>></a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>

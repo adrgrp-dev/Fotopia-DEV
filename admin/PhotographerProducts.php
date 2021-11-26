@@ -215,7 +215,7 @@ alert(alertmsg);
 <div class="col-md9">
 <div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;font-weight:600;padding:10px;"><a href="products.php" id="label_product_price" adr_trans="label_product_price">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px;font-weight:600;padding:10px;"><a href="RealtorProducts.php" id="label_realtor_custom" adr_trans="label_realtor_custom">Custom Price for Realtor</a></div>
-<div class="col-md-4" style="border-radius:0px 25px 25px 0px;padding:10px;border:solid 1px;font-weight:600;background:#ddd;color:#000;background:#000;color:#FFF!important;"><a href="PhotographerProducts.php" style="color:#FFF!important" id="label_photographer_custom" adr_trans="label_photographer_custom">Custom Price for Photographers</a></div>
+<div class="col-md-4" style="border-radius:0px 25px 25px 0px;padding:10px;border:solid 1px;font-weight:600;color:#000;background:#aad1d6;color:#000!important;"><a href="PhotographerProducts.php" style="color:#000!important" id="label_photographer_custom" adr_trans="label_photographer_custom">Custom Price for Photographers</a></div>
 </div>
 </center>
 <br><br><br />
@@ -361,7 +361,7 @@ $realtorDiscountPrice=0;
 				   <?php } ?>
 				 <?php
 					if(@$_REQUEST['photographer']) { ?>
-				 <tr><td colspan="3">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn btn-default btn-sm" onClick="return chkBox()"></td></tr>
+				 <tr><td colspan="3">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn adr-save btn-sm" onClick="return chkBox()"></td></tr>
 				 <?php } ?>
                 </tbody>
 
@@ -372,11 +372,11 @@ $realtorDiscountPrice=0;
 			?>
 						<div class="col-sm-6">
 									<ul class="pagination ">
-										<li class="first disabled" aria-disabled="true"><a href="./PhotographerProducts.php?page=1" class="button adr-save"><<</a></li>
-										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]-1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">&lt;</a></li>
-										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]+1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">&gt;</a></li>
-										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($Page_check);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button adr-save">>></a></li></ul></div>
+										<li class="first disabled" aria-disabled="true"><a href="./PhotographerProducts.php?page=1" class="button"><<</a></li>
+										<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]-1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button">&lt;</a></li>
+										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
+										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($_SESSION["page"]+1);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button">&gt;</a></li>
+										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./PhotographerProducts.php?page=".($Page_check);?>&photographer=<?php echo @$_REQUEST['photographer']; ?>" class="button">>></a></li></ul></div>
 										<div class="col-sm-6 infoBar"style="margin-top:24px">
 										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
 										</div><?php } ?>

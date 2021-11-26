@@ -114,7 +114,7 @@ var days = 1;
 
 
 <div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:30px;">
-  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn btn-default" style="border-radius:20px 20px 20px 20px;">Search</button>
+  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save" style="border-radius:20px 20px 20px 20px;">Search</button>
 
    <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
@@ -512,11 +512,11 @@ $_SESSION['filterby']=$filterBy;
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">
-																		<li class="first disabled" aria-disabled="true"><a href="./appointment_reports.php?page=1" class="button adr-save">«</a></li>
-																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($_SESSION["page"]-1);?>" class="button adr-save">&lt;</a></li>
-																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button adr-save"><?php echo $_SESSION["page"]; ?></a></li>
-																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($_SESSION["page"]+1);?>" class="button adr-save">&gt;</a></li>
-																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($Page_check);?>" class="button adr-save">»</a></li></ul></div>
+																		<li class="first disabled" aria-disabled="true"><a href="./appointment_reports.php?page=1" class="button">«</a></li>
+																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
+																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
+																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
+																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./appointment_reports.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
 																		<div class="col-sm-6 infoBar"style="margin-top:24px">
 																		<div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">entries</span></p></div>
 																		</div>

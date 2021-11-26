@@ -388,7 +388,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 if($_SESSION['admin_loggedin_type'] == "PCAdmin")
 {
 ?>
-<button id="label_update" adr_trans="label_update"  class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>&nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn" href="csr_list1.php?fp=1"><i class="fa fa-times"></i>Cancel</a>
+<button id="label_update" adr_trans="label_update"  class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>&nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php?fp=1"><i class="fa fa-times"></i>Cancel</a>
 
 <?php
 }
@@ -396,7 +396,7 @@ else if($_SESSION['admin_loggedin_type'] == "CSR")
 {
   ?>
 
-   <button id="label_update" adr_trans="label_update"  class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>&nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel"  class="anima-button circle-button btn-sm btn" href="subcsr_list1.php"><i class="fa fa-times"></i>Cancel</a>
+   <button id="label_update" adr_trans="label_update"  class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>&nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel"  class="anima-button circle-button btn-sm btn adr-cancel" href="subcsr_list1.php"><i class="fa fa-times"></i>Cancel</a>
 
 
     <?php } ?>

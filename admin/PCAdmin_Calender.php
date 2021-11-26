@@ -79,7 +79,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 				<center><h5> <span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?>
 
 				</h5>  <p align="right" style="position: absolute;right: 15px;" >
-               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order"class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order"> Create New Order</span></a>
+               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order"class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order"> Create New Order</span></a>
                 </p></center></div>
 				</div>
 			</div>
@@ -435,7 +435,7 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 
     </div>
 	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">
-	<div style="background:#000;color:#FFF!important;padding:5px;width:100%;"><h5 align="center" style="color:#FFF;" id="label_today_appointment" adr_trans="label_today_appointment"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
+	<div class="adr-save" style="border: none;padding:5px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 
 	<?php
 	$appointments="";

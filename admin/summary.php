@@ -259,7 +259,7 @@ border-radius:0px!important;
 
 			</span>
 		</a>
-		<a href="#"  class="btn btn-default" id="fourthStep"><i class="fa fa-file-text-o" style="font-size:30px;color:#000;padding-top:10px;"></i>
+		<a href="#"  class="btn adr-save" id="fourthStep"><i class="fa fa-file-text-o" style="font-size:30px;color:#000;padding-top:10px;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_summary" adr_trans="label_summary">Summary</span>
 				<span class="breadcrumb__desc" id="label_order_status" adr_trans="label_order_status">Order Status</span>

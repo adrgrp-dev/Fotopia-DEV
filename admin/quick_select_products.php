@@ -894,9 +894,9 @@ $selectProductIDs="checked";
 </table></div>
 <table class="table-stripped" width="100%" style="margin-top:20px;">
 <tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span> &nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p></td></tr>
-<tr><td align="left"><a href="quick_create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td>
+<tr><td align="left"><a href="quick_create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td>
 
-<td align="right"><button type="submit" id="saveBtn" name="save" class="anima-button circle-button btn-sm btn" onClick="return chkBox()" style="float:right;"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_submit">Submit</span></button></td></tr>
+<td align="right"><button type="submit" id="saveBtn" name="save" class="anima-button circle-button btn-sm btn adr-save" onClick="return chkBox()" style="float:right;"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_submit">Submit</span></button></td></tr>
 </table></div>
 
 

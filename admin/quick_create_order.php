@@ -536,7 +536,7 @@ $("#realtor_employer_id").val(abc[0].realtor_employer_id);
 
 
 	<div class="breadcrumb1 hidden-xs hidden-sm">
-		<a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000;"></i>
+		<a href="#" class="btn adr-save" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
 				<span class="breadcrumb__desc" id="label_fill_order" adr_trans="label_fill_order">Fill the order</span>
@@ -732,7 +732,7 @@ if(@$_REQUEST['u']==1)
     </div>
 	 <div class="col-md-6">
                         <p>&nbsp;</p>
-                 <input type="button" name="save_realtor" id="save_realtor" class="btn btn-default btn-sm" value="Save New Realtor" style="border-radius:25px;" onclick="saveRealtor()" />
+                 <input type="button" name="save_realtor" id="save_realtor" class="btn adr-save btn-sm" value="Save New Realtor" style="border-radius:25px;" onclick="saveRealtor()" />
 				&nbsp;&nbsp; <span id="realtor_saved_msg" style="color:#006600;font-size:13px; display:none"></span>
     </div>
 </div>
@@ -865,7 +865,7 @@ if($user_type=="Photographer")
 
 
 
-     <button class="anima-button circle-button btn-sm btn" type="submit" name="SaveOrder"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
+     <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="SaveOrder"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_next">Next</span></button>
 
 	 <?php
 	 $user_type=$_SESSION['admin_loggedin_type'];
@@ -874,10 +874,10 @@ if($user_type=="Photographer")
 					{
 
 	 ?>
-               &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="subcsrOrder_list1.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+               &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="subcsrOrder_list1.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } else { ?>
-			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" id="label_cancel" adr_trans="label_cancel" href="superorder_list1.php"><i class="fa fa-times"></i>Cancel</a>
+			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" href="superorder_list1.php"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } ?>
 </center>

@@ -1096,7 +1096,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 			</span>
 		</a>
 
-		<a href="#" id="secondStep" class="btn btn-default"><i class="fa fa-calendar" style="font-size:30px;color:#000;padding-top:10px;"></i>
+		<a href="#" id="secondStep" class="btn adr-save"><i class="fa fa-calendar" style="font-size:30px;color:#000;padding-top:10px;"></i>
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
 				<span class="breadcrumb__desc" id="label_pick_appointment" adr_trans="label_pick_appointment">Pick appointment</span>
@@ -1127,7 +1127,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 			</span>
 		</a>
 
-		<a href="#" id="secondStep" class="btn btn-default">
+		<a href="#" id="secondStep" class="btn adr-save">
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
 
@@ -1468,8 +1468,8 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
 
 
-                     <a  id="label_back" adr_trans="label_back" class="anima-button circle-button btn-sm btn" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&u=1&od=<?php echo @$_REQUEST['od']; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i>Back</a>
-					 <button class="anima-button circle-button btn-sm btn" type="submit" name="save_appointment" style="float:right;margin-right:20px;" ><i class="fa fa-chevron-circle-right"></i><span id="label_next" adr_trans="label_next">Next</span></button>
+                     <a  id="label_back" adr_trans="label_back" class="anima-button circle-button btn-sm btn adr-cancel" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&u=1&od=<?php echo @$_REQUEST['od']; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i>Back</a>
+					 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="save_appointment" style="float:right;margin-right:20px;" ><i class="fa fa-chevron-circle-right"></i><span id="label_next" adr_trans="label_next">Next</span></button>
 
              </div>
 

@@ -257,35 +257,35 @@ if(isset($_REQUEST['id']))
 
 				</tbody>
 				  </table>
-         <p align="center">
+         <p align="center" style="margin-top:10px;">
 				<?php if($res1['type_of_user']!='PCAdmin'){ if($res1['email_verified']==2) { ?>
 				<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a> <?php }
 
 
 				elseif($res1['email_verified']==1) { ?>
 
-								<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a><?php }
+								<a class="anima-button circle-button adr-cancel btn-sm btn" href="userDetails.php?val=2&block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a><?php }
 
 								else{ ?>
-<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>
+<a class="anima-button circle-button adr-save btn-sm btn" href="userDetails.php?val=2&approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>
 
-<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a>
+<a class="anima-button circle-button adr-cancel btn-sm btn" href="userDetails.php?val=2&block=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a>
 <?php } }
 else{
 ?>
 <?php
 if($res1['is_approved']==2) { ?>
-<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&approve=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a> <?php }
+<a class="anima-button circle-button adr-save btn-sm btn" href="userDetails.php?val=2&approve=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a> <?php }
 
 
 elseif($res1['is_approved']==1) { ?>
 
-				<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&block=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a><?php }
+				<a class="anima-button circle-button adr-cancel btn-sm btn" href="userDetails.php?val=2&block=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a><?php }
 
 				else{ ?>
-<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&approve=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>
+<a class="anima-button circle-button adr-save btn-sm btn" href="userDetails.php?val=2&approve=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>
 
-<a class="anima-button circle-button btn-success btn-sm btn" href="userDetails.php?val=2&block=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a>
+<a class="anima-button circle-button adr-cancel btn-sm btn" href="userDetails.php?val=2&block=1&id1=<?php echo $res1['id']; ?>"><i class="fa fa-ban"></i><span adr_trans="label_block">Block</span></a>
 <?php
 }
 }?>
@@ -297,7 +297,7 @@ elseif($res1['is_approved']==1) { ?>
 										
 										?>
 
-<a class="anima-button circle-button btn-sm btn" href="users.php?page1=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php?page1=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 										<?php
 									}
@@ -305,33 +305,33 @@ elseif($res1['is_approved']==1) { ?>
 									elseif($approved == 2){
 								?>
 
-		<a class="anima-button circle-button btn-sm btn" href="users.php?page2=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+		<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php?page2=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 							<?php } 
 
 							else{
 								?>
 
-									<a class="anima-button circle-button btn-sm btn" href="users.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 								<?php 
 							}
 						}
 
 								elseif (@$_REQUEST['val'] == 1) {
 									?>
-									<a class="anima-button circle-button btn-sm btn" href="csr_list.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 								<?php }
 
 								elseif (@$_REQUEST['val'] == 2 ) {
 									?>
-									<a class="anima-button circle-button btn-sm btn" href="csr_list1.php?fp=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php?fp=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 								<?php }
 
 								elseif (@$_REQUEST['val'] == 3 ) {
 									?>
-									<a class="anima-button circle-button btn-sm btn" href="subcsr_list1.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn adr-cancel" href="subcsr_list1.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
 								<?php }  ?>
 

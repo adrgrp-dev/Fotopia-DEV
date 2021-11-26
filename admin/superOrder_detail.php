@@ -1795,7 +1795,7 @@ alert(alertmsg);
                           <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
                           </p>
-                          <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
+                          <select class="btn adr-save" id='purpose' style="float:right" onchange="tab_show(this.value)">
                             <option value="1">Photos <span class="badge"><?php
 
                             $raw_images_standard = "../raw_images/order_".$id_url."/standard_photos/";
@@ -1841,7 +1841,7 @@ alert(alertmsg);
                                <span id="drop_files"></span>
                              </form>
                              <hr class="space s">
-                             <a   id="edit_button" class="btn btn-default" style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+                             <a   id="edit_button" class="btn adr-save" style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -1875,7 +1875,7 @@ alert(alertmsg);
                                <span id="drop_files1"></span>
                              </form>
                              <hr class="space s">
-                             <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn btn-default" id="edit_button1"  style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview1" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+                             <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn adr-save" id="edit_button1"  style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview1" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -1910,7 +1910,7 @@ alert(alertmsg);
                              <span id="drop_files2"></span>
                              </form>
                              <hr class="space s">
-                             <a   id="edit_button2" class="btn btn-default" style="float:right;"><span id="label_upload" adr_trans="label_upload"> upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview2" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span>  </a>
+                             <a   id="edit_button2" class="btn adr-save" style="float:right;"><span id="label_upload" adr_trans="label_upload"> upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview2" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span>  </a>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -1949,7 +1949,7 @@ alert(alertmsg);
                            <span id="drop_files3"></span>
                          </form>
                          <hr class="space s">
-                         <a   id="edit_button3" class="btn btn-default" style="float:right;"> <span id="label_upload" adr_trans="label_upload"> Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview3" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span>  </a>
+                         <a   id="edit_button3" class="btn adr-save" style="float:right;"> <span id="label_upload" adr_trans="label_upload"> Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview3" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span>  </a>
                          <hr class="space s">
                          <script>
                           $(document).ready(function() {
@@ -2249,11 +2249,11 @@ alert(alertmsg);
                                                  <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span> </b></input>
                                                </div>
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <input type="submit" class="circle-button btn-sm btn done" style=""  onclick="downloadbtn()" name="ZIP" value="Download" >
+                                                 <input type="submit" class="circle-button btn-sm btn done adr-save" style=""  onclick="downloadbtn()" name="ZIP" value="Download" >
                                                </div>
                                                <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                   <input type="submit"  class="circle-button btn-sm btn rework"  name="rework" style=""  value="Rework" />
+                                                   <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style=""  value="Rework" />
                                                </div>
                                                <?php } ?>
                                                <?php if(@$get_link['images_url']!='')
@@ -2261,23 +2261,23 @@ alert(alertmsg);
                                                  ?>
                                                  <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
+                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
                                                </div>
                                                <?php } ?>
 
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1"  class="circle-button btn-sm btn lightbox link " onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                                 <a href="#tnc1"  class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
                                                </div>
 
                                                <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-cancel"  name="delete_all" style=""  value="Delete" />
 
                                                </div>
 
 <?php }?>
                                                <div class="col-md-2" style="display:inline-block">
-                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn" style="padding:5px;font-size:10px;"><span   adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span   adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                                </div>
 
 
@@ -2438,11 +2438,11 @@ alert(alertmsg);
                                                     <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                                </div>
                                                 <div class="col-md-2" style="display:inline-flex">
-                                                  <input type="submit" class="circle-button btn-sm btn done" onclick="downloadbtn2()" name="ZIP"  value="Download" >
+                                                  <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download" >
                                                 </div>
                                                 <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?>
                                                 <div class="col-md-2"  style="display:inline-block">
-                                                <input type="submit" class="circle-button btn-sm btn rework"  name="rework"  value="Rework" / >
+                                                <input type="submit" class=" circle-button btn-sm adr-save btn rework"  name="rework"  value="Rework" / >
                                                 </div>
                                                 <?php }?>
                                                 <?php if(@$get_link['images_url']!='')
@@ -2450,22 +2450,22 @@ alert(alertmsg);
                                                   ?>
                                                   <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                 <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a>
+                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a>
                                                 </div>
                                                 <?php } ?>
                                                 <div class="col-md-2" style="display:inline-block">
-                                                  <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                                  <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
                                                 </div>
 
                                                 <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-cancel"  name="delete_all" style=""  value="Delete" />
 
                                                </div>
 
                                               <?php } ?>
                                               <div class="col-md-2"  style="display:inline-block">
-                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                               </div>
                                              </div>
 
@@ -3186,7 +3186,7 @@ alert(alertmsg);
                      <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
          <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
          <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
-<?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn btn-default" style="position: absolute;right: 93%;" value="Done" /><?php } ?>
+<?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="position: absolute;right: 93%;" value="Done" /><?php } ?>
 
  </form>
 </td>
@@ -3207,7 +3207,7 @@ alert(alertmsg);
                <td id="inv_td" style="text-align: right;">
    <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
 
-<?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn btn-default" style="" value="Done" /><?php } ?>
+<?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="" value="Done" /><?php } ?>
 
 </form>
 

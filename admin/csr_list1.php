@@ -111,7 +111,7 @@ min-width:120px!important;
 
 <div class="panel active " id="tab1" style="width:100%;">
 
-<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn btn-default" >Create Admin</a></p>
+<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;" >Create Admin</a></p>
 
 <table class="table-striped" align="center" aria-busy="false" style="width:100%;">
                 <thead>
@@ -262,7 +262,7 @@ min-width:120px!important;
 </div>
 <div class="panel" id="tab2" style="width:100%;">
 <!--Panel 2 starts-->
-<p align="right"><a href="create_csr.php" class="btn btn-default"><span adr_trans="label_create_csr">Create CSR</span></a></p>
+<p align="right"><a href="create_csr.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_csr">Create CSR</span></a></p>
 
 <table align="center" class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
@@ -430,7 +430,7 @@ min-width:120px!important;
 <div class="panel" id="tab3" style="width:100%;">
 <!--Panel 3 starts-->
   <center ><i style="font-size: 14px;color:darkgrey">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
-<p align="right"><a href="create_photographer.php" class="btn btn-default"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
+<p align="right"><a href="create_photographer.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
 
 <table class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
@@ -643,7 +643,7 @@ header("location:csr_list1.php?ed=1");
 
 ?>
 
-<p align="right"><a href="create_editor.php" class="btn btn-default"><span adr_trans="label_create_editor">Create Editor</span></a></p>
+<p align="right"><a href="create_editor.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_editor">Create Editor</span></a></p>
 
 <table class="table-striped" style="width:100%">
                 <thead>
