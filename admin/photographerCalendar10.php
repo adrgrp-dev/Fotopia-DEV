@@ -62,18 +62,9 @@ border:solid 1px #01A8F2!important;
 background:#EEEEEE!important;
 border:solid 1px #01A8F2!important;
 }
-        .status1{
-        color:#0066FF!important;
-        }
+       
 
-        .status3,.status6
-        {
-        color:#006600!important;
-        }
-        .status2,.status4,.status5
-        {
-        color:#FF9900!important;
-        }
+        
 		
 		.fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {

@@ -97,7 +97,7 @@ header("location:subcsrOrder_list1.php?app=1");
                         $pc_admin_id=$get_pcadmin['pc_admin_id'];
                       ?>
                        <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a>
-                        </p><br /><br />
+                        </p>
                 <ul class="nav nav-tabs">
                   <li class="active current-active" id="click3"><a href="#tab3" ><span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></a></li>
                   <li id="click4"><a href="#tab4"><span id="label_neworder_appointment" adr_trans="label_neworder_appointment">New orders With Appointment</span></a></li>

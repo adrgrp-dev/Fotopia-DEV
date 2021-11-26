@@ -68,7 +68,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
                       echo '<div class="hidden-xs hidden-sm" style="">
 
-<br />
+
 
                    <table align="center">
 <tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="subcsr_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>

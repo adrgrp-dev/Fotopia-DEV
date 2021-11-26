@@ -194,13 +194,13 @@ var langval="";
     color: #000 !important;
     border-radius: 5px !important;
     }
-.navbar {
+/*.navbar {
     -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
 
-    /* the rest of your styling */
-}
+      
+}*/
 .td,.th
 {
 width:fit-content;

@@ -223,6 +223,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 
 			</div>
                 <div class="col-md-8" style="padding-left:30px;">
+				<hr class="space s" />
 <?php if(@isset($_REQUEST["na"])) { ?>
 
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
@@ -371,18 +372,9 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
         {
         background:none!important;
         }
-        .status1{
-        color:#0066FF!important;
-        }
+        
 
-        .status3,.status6
-        {
-        color:#006600!important;
-        }
-        .status2,.status4,.status5
-        {
-        color:#FF9900!important;
-        }
+       
 
 		.fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {
@@ -518,7 +510,7 @@ $.ajax({
 
 		  <div class="col-md-2" style="height:inherit;overflow:scroll;height:650px;overflow-x: hidden;">
 
-
+<hr class="space s" />
 				<div id="photographers" style="display:block">
 
 				<h5 class="text-left" style="margin-left:20px;display:none" id="label_photographers" adr_trans="label_photographers">Photographers</h5>

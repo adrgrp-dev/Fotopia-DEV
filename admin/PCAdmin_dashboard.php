@@ -362,7 +362,8 @@ border:none;
                           }
 												?>
 											   <p style="color:white;font-size:25px;font-weight:600"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:#000;font-size:25px;font-weight:600"><?php echo "$".$total1; ?></label></p>
-											   	<br />
+											   <hr class="space xs" />
+											   
 							 <a class="btn-sm" adr_trans="label_view" href="payment_reports.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 													</div>
@@ -411,18 +412,9 @@ border:none;
         {
         background:none!important;
         }
-        .status1{
-        color:#0066FF!important;
-        }
+        
 
-        .status3,.status6
-        {
-        color:#006600!important;
-        }
-        .status2,.status4,.status5
-        {
-        color:#FF9900!important;
-        }
+        
 
 		.fc-day-mon,.fc-day-tue,.fc-day-wed,.fc-day-thu,.fc-day-fri
 {

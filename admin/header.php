@@ -300,13 +300,13 @@ var langval="";
                   </div>
 
 </div>
-         <div class="col-md-4">
-       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;"><span adr_trans="label_photo_app_admin" style="color:white">Photography App - Adminstration</span></p>
+         <div class="col-md-2">
+       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;"><span adr_trans="" style="color:#000">Adminstration</span></p>
 
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-4" style="float:right">
 
 <!-- start -->
 <div class="col-md-3">

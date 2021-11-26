@@ -142,7 +142,7 @@ ul.pagination > li.last > a
   <p align="right" style="position: absolute;right: 15px;" >
        <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a>
         </p>
-  <hr class="space l" />
+ 
 <ul class="nav nav-tabs">
   <li class="active current-active" id="click2"><a href="#tab3"><span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></a></li>
   <li id="click22"><a href="#tab4" id="click2"><span id="label_neworder_appointment" adr_trans="label_neworder_appointment">New orders With Appointment</span></a></li>

@@ -6113,6 +6113,7 @@ header .navbar {
    background-color: #FFF!important;
 	color:#000!important;
     border-radius: 0;
+	padding-bottom:2px;
 }
 
 header .navbar-big {
@@ -6196,7 +6197,7 @@ header .navbar-social {
 @media (min-width: 769px) {
     .navbar-nav > li > a {
         padding-top: 21px;
-        padding-bottom: 21px;
+      /*  padding-bottom: 21px; */
     }
 
     .icon-menu .navbar-nav > li > a {

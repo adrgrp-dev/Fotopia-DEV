@@ -216,7 +216,7 @@ color:#000!important;
 						<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #2 of 7 : Set up products for Photo company</h5></div> <?php } ?>
 						</center>
 						<a class="lightbox btn btn-primary btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
-						<hr class="space s" />
+						
 						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; border:solid 1px #000;">
 
 <center>
