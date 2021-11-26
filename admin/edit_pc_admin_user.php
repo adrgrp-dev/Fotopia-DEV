@@ -91,6 +91,13 @@ $id=$_REQUEST['id'];
 			<script>
 function validate_email(val)
 {
+  var curent_email="<?php echo $pcAdmin['email']; ?>";
+  if(curent_email==val){
+
+    return true;
+  }
+  else{
+
   var xhttp= new XMLHttpRequest();
   xhttp.onreadystatechange = function()
   {
@@ -98,29 +105,22 @@ function validate_email(val)
      if(this.responseText == "true")
      {
 
-        var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-	$("#Email_exist_error").html("E-posten er allerede i bruk, vennligst velg en annen e-post og fortsett");
-		}
-		else
-		{
-		$("#Email_exist_error").html("Email already in use, please choose different email and continue");
-		}
-	   $("#Email_exist_error").show();
-	   $("#email").val("");
-	    $("#email").focus();
+       $("#Email_exist_error").html("Email already exist, please choose different email and continue");
+     $("#Email_exist_error").show();
+     $("#email").val("");
+      $("#email").focus();
+      return false;
      }
      else
      {
       $("#Email_exist_error").html();
-	  $("#Email_exist_error").hide();
+    $("#Email_exist_error").hide();
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email.php?id="+val+"&type=PCAdminUser",true);
   xhttp.send();
+}
 }
 </script>
 			</div>
@@ -155,7 +155,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $pcAdmin['email']; ?>">
 

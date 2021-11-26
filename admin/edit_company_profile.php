@@ -164,6 +164,45 @@ p{
 	<?php include "sidebar.php"; ?>
 
 
+
+<script>
+function validate_email(val)
+{
+  var curent_email="<?php echo $res1['email']; ?>";
+  if(curent_email==val){
+
+    return true;
+  }
+  else{
+
+  var xhttp= new XMLHttpRequest();
+  xhttp.onreadystatechange = function()
+  {
+    if(this.readyState == 4 && this.status == 200){
+     if(this.responseText == "true")
+     {
+
+       $("#Email_exist_error").html("Email already exist, please choose different email and continue");
+     $("#Email_exist_error").show();
+     $("#email").val("");
+      $("#email").focus();
+      return false;
+     }
+     else
+     {
+      $("#Email_exist_error").html();
+    $("#Email_exist_error").hide();
+     }
+    }
+  };
+  xhttp.open("GET","validate_email.php?id="+val+"&type=PCAdmin",true);
+  xhttp.send();
+}
+}
+</script>
+
+
+
 			</div>
                 <div class="col-md-10">
 <hr class="space s">
@@ -179,6 +218,9 @@ p{
                                 <p style="color:#000;" id="label_logo" adr_trans="label_logo">Logo</p>
                                <img src="<?php  echo @"../".$res1['logo_image_url'] ?>" width="60" height="60" />
                                <input type="hidden" name="old_logo" value="<?php  echo @"../".$res1['logo_image_url'] ?>" />
+
+                               <br/>
+                               <span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span>
 								</div>
 
 								<br>
@@ -204,8 +246,8 @@ p{
 								</div>
 
 								<div class="col-md-6">
-                                <p style="color:#000;" id="label_email" adr_trans="label_email">Email</p>
-                                <input id="email" name="email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['email']; ?>">
+                                <p style="color:#000;" id="label_email" adr_trans="label_email">Email</p> 
+                                <input id="email" name="email" type="email" autocomplete="off" onblur="validate_email(this.value)"  class="form-control form-value" required="" value="<?php echo @$res1['email']; ?>">
 								</div>
 
 

@@ -210,7 +210,7 @@ function validate_email(val)
 		}
 		else
 		{
-		$("#Email_exist_error").html("Email already in use, please choose different email and continue");
+		$("#Email_exist_error").html("Email already exist, please choose different email and continue");
 		}
 	   $("#Email_exist_error").show();
 	   $("#email").val("");
@@ -229,7 +229,7 @@ function validate_email(val)
 </script>
 			</div>
                 <div class="col-md-8" style="padding-top:30px;">
-
+<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;">
 <div class="col-md-12"><h5 align="center" id="label_create_admin_user" adr_trans="label_create_admin_user"> Create Admin user</h5></div>
 
@@ -248,7 +248,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p id="label_email"><span  adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p id="label_email"><span  adr_trans="label_email">Email</span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="validate_email(this.value)" class="form-control form-value" required="">
 

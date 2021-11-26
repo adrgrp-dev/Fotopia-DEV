@@ -237,10 +237,11 @@ function validate_email(val)
      if(this.responseText == "true")
      {
 
-       $("#Email_exist_error").html("Email already in use as a CSR, please choose different email and continue");
+       $("#Email_exist_error").html("Email already exist, please choose different email and continue");
 	   $("#Email_exist_error").show();
 	   $("#email").val("");
 	    $("#email").focus();
+      return false;
      }
      else
      {
@@ -355,7 +356,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
                             </div>
 
                               <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="validate_email(this.value)" class="form-control form-value" required="">
 

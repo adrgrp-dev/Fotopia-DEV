@@ -213,7 +213,7 @@ function validate_email(val)
 		}
 		else
 		{
-		$("#Email_exist_error").html("Email already in use, please choose different email and continue");
+		$("#Email_exist_error").html("Email already exist, please choose different email and continue");
 		}
 	   $("#Email_exist_error").show();
 	   $("#email").val("");
