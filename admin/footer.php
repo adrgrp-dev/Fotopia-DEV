@@ -228,7 +228,7 @@ if(strpos($currentPage, "select_products") !== false)
  echo "<script> $('#userMenu').css('background','#aad1d6'); </script>";
  }
 
- if(strpos($currentPage, "company_profile") !== false || strpos($currentPage, "edit_company_profile") !== false )
+ if(strpos($currentPage, "company_profile") !== false || strpos($currentPage, "edit_company_profile") !== false  || strpos($currentPage, "change_email_password") !== false)
  {
  echo "<script>  $('#profileMenu').css('background','#aad1d6');  </script>";
  }
@@ -284,7 +284,7 @@ elseif ($usertype == 'CSR'){
  }
 
 
-   if(strpos($currentPage, "csr_profile") !== false || strpos($currentPage, "edit_csr_profile") !== false )
+   if(strpos($currentPage, "csr_profile") !== false || strpos($currentPage, "edit_csr_profile") !== false  || strpos($currentPage, "change_email_password") !== false)
  {
  echo "<script> $('#profileMenu').css('background','#aad1d6'); </script>";
  }

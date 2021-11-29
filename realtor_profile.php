@@ -93,12 +93,7 @@ Fotopia Team.";
 
 
 <?php include "header.php";  ?>
-	<style>
-th.tablehead,td.tablehead
-{
-padding:5px;
-}
-	</style>
+		
 <div class="section-empty bgimage7">
             <div class="row">
 <hr class="space s">
@@ -150,36 +145,37 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 	   ?>
 <tr><td colspan="3"><hr class="space xs" /></td></tr>
-	    <tr><td align="right"  style="font-size: 10px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
+	    <tr><td align="right"  style="font-size: 10px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
-		 <tr><td align="right"  style="font-size: 10px;"><br /><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;"><br />:</td><td align="left"><br /><?php echo @$res1['organization_branch']; ?></td></tr>
-		  <tr><td align="right"  style="font-size: 10px;"><span>Realtor Employer ID</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['realtor_employer_id']; ?>
+		 <tr><td colspan="3"><hr class="space xs" /></td></tr>
+		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
+		  <tr><td align="right"  style="font-size: 10px;"><span>Realtor Employer ID</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['realtor_employer_id']; ?>
 		  
 		  </td></tr>
-<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_portfolio_website">Portfolio/Website</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['portfolio']; ?></td></tr><tr><td colspan="3"><hr class="space xs" /></td></tr>
-		  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_contact_no">Organization contact number</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><b><?php echo @$res1['organization_contact_number']; ?></b></td></tr>
-		   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_email">Organization Email</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_email']; ?></td></tr>
+<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_portfolio_website">Portfolio/Website</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['portfolio']; ?></td></tr><tr><td colspan="3"><hr class="space xs" /></td></tr>
+		  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_contact_no">Organization contact number</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><b><?php echo @$res1['organization_contact_number']; ?></b></td></tr>
+		   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_email">Organization Email</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['organization_email']; ?></td></tr>
 			<tr><td colspan="3"><hr class="space xs" /></td></tr>
-			   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_linkedin_id">LinkedIN ID </span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['linkedin_id']; ?></td></tr>
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_fb_id">Facebook ID</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['facebook_id']; ?></td></tr>
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_insta_id">Instagram ID</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['instagram_id']; ?></td></tr>
+			   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_linkedin_id">LinkedIN ID </span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['linkedin_id']; ?></td></tr>
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_fb_id">Facebook ID</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['facebook_id']; ?></td></tr>
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_insta_id">Instagram ID</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['instagram_id']; ?></td></tr>
 					<tr><td colspan="3"><hr class="space xs" /></td></tr>
 					
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_first_name">First name</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['first_name']; ?></td></tr>
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_last_name">Last name</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['last_name']; ?></td></tr>  
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_contact_no">Contact number</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
-					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_profile_picture">Profile picture</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_first_name">First name</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['first_name']; ?></td></tr>
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_last_name">Last name</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['last_name']; ?></td></tr>  
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_contact_no">Contact number</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
+					<tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_profile_picture">Profile picture</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
 			  
 			   
 			   <tr><td colspan="3"><hr class="space xs" /></td></tr>
-		  <!--  <tr><td align="right"  style="font-size: 10px;">Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['email']; ?></td></tr> -->
-			  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_address">Address</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['address_line1'].", ".@$res1['address_line2']; ?></td></tr>
-			   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_city">City</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['city']; ?></td></tr>
-			    <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_state">State</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['state']; ?></td></tr>
-				 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_zip_code">Zip Code</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['postal_code']; ?></td></tr>
-				  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_country">Country</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['country']; ?></td></tr>
-				<?php /*  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_user_id">User ID</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['user_id']; ?></td></tr>
-				  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_password">Password</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo substr( @$res1['password'],0,2)."XXXXX"; ?></td></tr> */ ?>
+		  <!--  <tr><td align="right"  style="font-size: 10px;">Email</td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['email']; ?></td></tr> -->
+			  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_address">Address</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['address_line1'].", ".@$res1['address_line2']; ?></td></tr>
+			   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_city">City</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['city']; ?></td></tr>
+			    <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_state">State</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['state']; ?></td></tr>
+				 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_zip_code">Zip Code</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['postal_code']; ?></td></tr>
+				  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_country">Country</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['country']; ?></td></tr>
+				<?php /*  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_user_id">User ID</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['user_id']; ?></td></tr>
+				  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_password">Password</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo substr( @$res1['password'],0,2)."XXXXX"; ?></td></tr> */ ?>
 				 
 
 
