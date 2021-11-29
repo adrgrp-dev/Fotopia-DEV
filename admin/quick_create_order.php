@@ -752,7 +752,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
    
     <div class="col-md-6">
                         <p id="label_ref_no" adr_trans="label_ref_no">REFERENCE NO</p>
-                        <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="number" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                        <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
 						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
