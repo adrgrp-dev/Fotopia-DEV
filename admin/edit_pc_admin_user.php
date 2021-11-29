@@ -134,7 +134,7 @@ function validate_email(val)
 
 
 
-						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;margin-left:30px;">
+						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;padding:20px;margin-left:30px;">
  <div class="col-md-12"><h5 align="center" id="label_edit_admin_user" adr_trans="label_edit_admin_user"> Edit Admin user</h5></div>
 
 

@@ -239,7 +239,7 @@ function validate_email(val)
 <br />
 
 <span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
-						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px;">
+						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;padding:20px;">
 <div class="col-md-12"><h5 align="center" id="label_create_csr" adr_trans="label_create_csr"> Create CSR</h5></div>
 
 

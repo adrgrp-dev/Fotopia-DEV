@@ -121,6 +121,7 @@ padding-left:20px!important;
 
 
 			<div class="col-md-2">
+				<hr class="space xs">
 				<script>
 				   $(".hidden-xs").css("margin-right":"46px");
 				</script>
@@ -134,7 +135,7 @@ padding-left:20px!important;
 
 			</div>
                 <div class="col-md-10"  style="padding-top:30px;">
-                    <h5 class="text-center" style="margin-left:-150px;" id="label_csr_details" adr_trans="label_csr_details">CSR Details</h5>
+                   
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
                         <div class="success-box" style="display:block;">
@@ -149,28 +150,36 @@ $id=@$_REQUEST['id'];
 				$res1=mysqli_fetch_array($res);
 
 				?>
-					<table class="table-stripped" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.7;width:100%;border-radius:30px 30px 30px 30px!important;padding:20px; margin-left:20px;">
+					<table class="table-stripped" style="color: #000;background: #FFF;opacity:0.7;width:50%;border-radius:10px!important;padding:20px; margin-left:20px;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
-	   <tr><th><span adr_trans="label_profile_photo">Profile Photo</span></th><td>:</td><td><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
-	    <tr><th><span adr_trans="label_first_name">First Name</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['first_name']; ?></td></tr>
-		 <tr><th><span adr_trans="label_last_name">Last Name</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['last_name']; ?></td></tr>
-		  <tr><th><span adr_trans="label_organization">Organization</span></th><td>:</td><td style="word-break:break-all;"><b><?php echo $res1['organization_name']; ?></b></td></tr>
-		   <tr><th><span adr_trans="label_type_user">Type Of User</span></th><td>:</td><td><?php echo $res1['type_of_user']; ?></td></tr>
-		    <tr><th><span adr_trans="label_email">Email</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['email']; ?></td></tr>
-			 <tr><th><span adr_trans="label_contact_no">contact Number</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td></tr>
-			  <tr><th><span adr_trans="label_address">Address</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['address_line1']." ".$res1['address_line2']; ?></td></tr>
-			   <tr><th><span adr_trans="label_city">City</span></th><td>:</td><td><?php echo $res1['city']; ?></td></tr>
-			    <tr><th><span adr_trans="label_state">State</span></th><td>:</td><td><?php echo $res1['state']; ?></td></tr>
-				 <tr><th><span adr_trans="label_zip_code">Postal Code</span></th><td>:</td><td style="word-break:break-all;"><?php echo $res1['postal_code']; ?></td></tr>
-				  <tr><th><span adr_trans="label_country">Country</span></th><td>:</td><td><?php echo $res1['country']; ?></td></tr>
-
-				    <tr><th><span adr_trans="label_last_login">Last Login</span></th><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
-					<tr><th><span adr_trans="label_last_login_ip">Last Login IP Address</span></th><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
-					<tr><th><span adr_trans="label_registration_date" >Registration Date</span></th><td>:</td><td><?php echo $res1['registered_on']; ?></td></tr>
 
 
-                <tr><th><span adr_trans="label_status">Status</span></th><td>:</td><td><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_pending' adr_trans='label_pending'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_blocked' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_approved' adr_trans='label_approved'>Approved</span>"; } ?></td></tr>
+      <tr><td colspan="3" style="padding-top:10px;"> <h5 class="text-center"  id="label_csr_details" adr_trans="label_csr_details">CSR Details</h5></td></tr>   
+
+	  <tr><td align="right"  style="font-size: 10px;width:200px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+		 </td></tr>
+
+
+	    
+		 
+		  <tr><td align="right"><span adr_trans="label_organization">Organization</span></td><td>:</td><td style="word-break:break-all;"><b><?php echo $res1['organization_name']; ?></b></td></tr>
+		   <tr><td align="right"><span adr_trans="label_type_user">Type Of User</span></td><td>:</td><td><?php echo $res1['type_of_user']; ?></td></tr>
+		    <tr><td align="right"><span adr_trans="label_email">Email</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['email']; ?></td></tr>
+			 <tr><td align="right"><span adr_trans="label_contact_no">contact Number</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td></tr>
+			  <tr><td align="right"><span adr_trans="label_address">Address</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['address_line1'].", ".$res1['address_line2']; ?></td></tr>
+			   <tr><td align="right"><span adr_trans="label_city">City</span></td><td>:</td><td><?php echo $res1['city']; ?></td></tr>
+			    <tr><td align="right"><span adr_trans="label_state">State</span></td><td>:</td><td><?php echo $res1['state']; ?></td></tr>
+				 <tr><td align="right"><span adr_trans="label_zip_code">Zip Code</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['postal_code']; ?></td></tr>
+				  <tr><td align="right"><span adr_trans="label_country">Country</span></td><td>:</td><td><?php echo $res1['country']; ?></td></tr>
+
+				    <tr><td align="right"><span adr_trans="label_last_login">Last Login</span></td><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
+					<tr><td align="right"><span adr_trans="label_last_login_ip">Last Login IP Address</span></td><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
+					<tr><td align="right"><span adr_trans="label_registration_date">Registration Date</span></td><td>:</td><td><?php echo $res1['registered_on']; ?></td></tr>
+
+
+                <tr><td align="right"><span adr_trans="label_status">Status</span></td><td>:</td><td><?php $approved=$res1['is_approved']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 80px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 80px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td></tr>
+
 
 				</tbody>
 				  </table>
@@ -184,11 +193,11 @@ $id=@$_REQUEST['id'];
 								if(@$_REQUEST['val'] == 0) {
 								?>
 
-									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php?fc=1"><i class="fa fa-sign-in"></i>Back to users list</a>
+									<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-save" href="csr_list1.php?fc=1"><i class="fa fa-sign-in"></i>Back to users list</a>
 								<?php }
 				if(@$_REQUEST['val'] == 1) {
 					?>
-					<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list.php"><i class="fa fa-sign-in"></i>Back to users list</a>
+					<a id='label_back_users_list' adr_trans='label_back_users_list' class="anima-button circle-button btn-sm btn adr-save" href="csr_list.php"><i class="fa fa-sign-in"></i>Back to users list</a>
 
 					<?php } ?>
 
