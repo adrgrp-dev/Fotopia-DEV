@@ -162,10 +162,12 @@ elseif(isset($_REQUEST['block']))
 
 	</style>
 <div class="section-empty bgimage7">
+	<hr class="space xs">
             <div class="row">
 
-
+               
 			<div class="col-md-2">
+				<hr class="space xs">
 				<script>
 				   $(".hidden-xs").css("margin-right":"46px");
 				</script>
@@ -182,7 +184,7 @@ elseif(isset($_REQUEST['block']))
 
 			</div>
                 <div class="col-md-10"  style="padding-top:30px;">
-                    <h5 class="text-center" style="" adr_trans="label_user_details">User details</h5>
+                    
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
                         <div class="success-box" style="display:block;padding-left: 20%">
@@ -206,22 +208,28 @@ if(isset($_REQUEST['id']))
 				$res1=mysqli_fetch_array($res);
 
 				?>
-					<table class="table-stripped" aria-busy="false" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;opacity:0.8;width:100%;border-radius:30px 30px 30px 30px!important; margin-left:20px;">
+					<table class="table-stripped" aria-busy="false" style="color: #000;background: #fff;opacity:0.8;width:100%;border-radius:5px!important; margin-left:20px;padding: 10px;">
+
 					<tbody>
-      <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
-	   <tr><th style="padding-left:20px;"><span adr_trans="label_profile_photo">Profile Photo</span></th><td>:</td><td><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
-	    <tr><th style="padding-left:20px;"><span adr_trans="label_first_name">First Name</span></th><td>:</td><td><?php echo $res1['first_name']; ?></td></tr>
-		 <tr><th style="padding-left:20px;"><span adr_trans="label_last_name">Last Name</span></th><td>:</td><td><?php echo $res1['last_name']; ?></td></tr>
-		  <tr><th style="padding-left:20px;"><span adr_trans="label_organization">Organization</span></th><td>:</td><td><b><?php echo $res1['organization_name']; ?></b></td></tr>
-		   <tr><th style="padding-left:20px;"><span adr_trans="label_type_user">Type Of User</span></th><td>:</td><td><?php echo $res1['type_of_user']; ?></td></tr>
-		    <tr><th style="padding-left:20px;"><span adr_trans="label_email">Email</span></th><td>:</td><td><?php echo $res1['email']; ?></td></tr>
-			 <tr><th style="padding-left:20px;"><span adr_trans="label_contact_no">contact Number</span></th><td>:</td><td><?php echo $res1['contact_number']; ?></td></tr>
-			  <tr><th style="padding-left:20px;"><span adr_trans="label_address">Address</span></th><td>:</td><td><?php echo $res1['address_line1']." ".$res1['address_line2']; ?></td></tr>
-			   <tr><th style="padding-left:20px;"><span adr_trans="label_city">City</span></th><td>:</td><td><?php echo $res1['city']; ?></td></tr>
-			    <tr><th style="padding-left:20px;"><span adr_trans="label_state">State</span></th><td>:</td><td><?php echo $res1['state']; ?></td></tr>
-				 <tr><th style="padding-left:20px;"><span adr_trans="label_zip_code">Postal Code</span></th><td>:</td><td><?php echo $res1['postal_code']; ?></td></tr>
-				  <tr><th style="padding-left:20px;"><span adr_trans="label_country">Country</span></th><td>:</td><td><?php echo $res1['country']; ?></td></tr>
-				   <!-- <tr><th style="padding-left:20px;"><span adr_trans="label_email_verified">Email Verified</span></th><td>:</td><td><?php
+
+      <?php /*?> <tr><td>ID</td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
+      <tr><td colspan="3" style="padding-top: 10px;"><h5 class="text-center" style="" adr_trans="label_user_details">User details</h5></td></tr>
+	   <tr><td  style="float:right;"><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" style="border-radius: 35px;" /></td><td style="padding:0px 0px;vertical-align:top;"> </td><td><?php echo $res1['first_name']. $res1['last_name']; ?><hr class="space xs"></td></tr>
+	    <tr><td colspan="3"><hr class="space xs" /></td></tr>
+	    
+		  <tr><td style="float:right"><span adr_trans="label_organization">Organization</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><b><?php echo $res1['organization_name']; ?></b></td></tr>
+		   <tr><td style="float:right"><span adr_trans="label_type_user">Type Of User</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['type_of_user']; ?></td></tr>
+		    <tr><td colspan="3"><hr class="space xs" /></td></tr>
+		    <tr><td style="float:right"><span adr_trans="label_email">Email</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['email']; ?></td></tr>
+			 <tr><td style="float:right"><span adr_trans="label_contact_no">contact Number</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['contact_number']; ?></td></tr>
+			  <tr><td colspan="3"><hr class="space xs" /></td></tr>
+			  <tr><td style="float:right"><span adr_trans="label_address">Address</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['address_line1']." ".$res1['address_line2']; ?></td></tr>
+			   <tr><td style="float:right"><span adr_trans="label_city">City</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['city']; ?></td></tr>
+			    <tr><td style="float:right"><span adr_trans="label_state">State</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['state']; ?></td></tr>
+				 <tr><td style="float:right"><span adr_trans="label_zip_code">Postal Code</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['postal_code']; ?></td></tr>
+				  <tr><td style="float:right"><span adr_trans="label_country">Country</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['country']; ?></td></tr>
+				   <tr><td colspan="3"><hr class="space xs" /></td></tr>
+				   <!-- <tr><td style="float:right"><span adr_trans="label_email_verified">Email Verified</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php
 				   if($res1['type_of_user']!='PCAdmin')
 					 {
 						 if($res1['email_verified']==1){
@@ -248,12 +256,13 @@ if(isset($_REQUEST['id']))
 
 				 }
 				    ?></td></tr> -->
-				    <tr><th style="padding-left:20px;"><span adr_trans="label_last_login">Last Login</span></th><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
-					<tr><th style="padding-left:20px;"><span adr_trans="label_last_login_ip">Last Login IP Address</span></th><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
-					<tr><th style="padding-left:20px;"><span adr_trans="label_registration_date">Registration Date</span></th><td>:</td><td><?php echo $res1['registered_on']; ?></td></tr>
+				    <tr><td style="float:right"><span adr_trans="label_last_login">Last Login</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['last_login']; ?></td></tr>
+					<tr><td style="float:right"><span adr_trans="label_last_login_ip">Last Login IP Address</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
+					<tr><td style="float:right"><span adr_trans="label_registration_date">Registration Date</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php echo $res1['registered_on']; ?></td></tr>
 
 
-                <tr><th style="padding-left:20px;"><span adr_trans="label_status">Status</span></th><td>:</td><td><?php if($res1['type_of_user']!='PCAdmin'){$approved=$res1['email_verified']; }else{$approved=$res1['is_approved'];}if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_pending'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_approved'>Approved</span>"; } ?></td></tr>
+                <tr><td style="float:right"><span adr_trans="label_status">Status</span></td><td style="padding:0px 0px;vertical-align:top;">:</td><td><?php if($res1['type_of_user']!='PCAdmin'){$approved=$res1['email_verified']; }else{$approved=$res1['is_approved'];}if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 80px;padding-bottom: 5px;text-align: center;' adr_trans='label_pending'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 80px;padding-bottom: 5px;text-align: center;' adr_trans='label_approved'>Approved</span>"; } ?></td></tr>
+                 <tr><td colspan="3"><hr class="space xs" /></td></tr>
 
 				</tbody>
 				  </table>
