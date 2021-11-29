@@ -193,7 +193,13 @@ if ($usertype == 'Realtor'){
 
  if(strpos($currentPage, "Products") !== false)
  {
+
  echo "<script> $('#productsMenu').css('background','#aad1d6');  </script>";
+ }
+  if(strpos($currentPage, "select_Products") !== false)
+ {
+    
+ echo "<script> $('#productsMenu').css('background','white');  </script>";
  }
 
  }

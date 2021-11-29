@@ -208,6 +208,10 @@ if(strpos($currentPage, "products") !== false || strpos($currentPage, "RealtorPr
  {
  echo "<script> $('#productMenu').css('background','#aad1d6'); </script>";
  }
+if(strpos($currentPage, "select_products") !== false)
+ {
+ echo "<script> $('#productMenu').css('background','white'); </script>";
+ }
 
  if(strpos($currentPage, "pc_admin_activity") !== false )
  {
@@ -233,6 +237,7 @@ if(strpos($currentPage, "order_reports") !== false || strpos($currentPage, "appo
  {
  echo "<script>  $('#reportsMenu').css('background','#aad1d6');  </script>";
  }
+ 
 
 
 }
@@ -273,6 +278,10 @@ elseif ($usertype == 'CSR'){
  {
  echo "<script> $('#productMenu').css('background','#aad1d6'); </script>";
  }
+ if(strpos($currentPage, "select_products") !== false)
+ {
+ echo "<script> $('#productMenu').css('background','white'); </script>";
+ }
 
 
    if(strpos($currentPage, "csr_profile") !== false || strpos($currentPage, "edit_csr_profile") !== false )
@@ -285,6 +294,7 @@ elseif ($usertype == 'CSR'){
  {
  echo "<script> $('#ordersMenu').css('background','#aad1d6'); </script>";
  }
+
 
 }
 
