@@ -234,19 +234,17 @@ $photography_cost1=$photographer_cost[$i];
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  margin-top: 30px!important;
+  margin-top: 43px!important;
   text-align: center;
   top: 50%;
   width: 100%;
   height: 57px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
   z-index: 1;
   background-color: #ddd;
   font-size: 14px;
 
-  box-shadow:10px 10px 10px #ccc;
 }
 
 .breadcrumb1 a {
@@ -286,7 +284,6 @@ $photography_cost1=$photographer_cost[$i];
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 
 }
@@ -302,7 +299,6 @@ $photography_cost1=$photographer_cost[$i];
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
@@ -319,7 +315,6 @@ $photography_cost1=$photographer_cost[$i];
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
@@ -391,7 +386,7 @@ background-color:#DDD;
 
  @media only screen and (max-width: 1280px) {
 
-	td,th
+	#select_products_table td,#select_products_table th
 	{
 	text-align:center;
 	}
@@ -417,7 +412,7 @@ background-color:#DDD;
 	#flip-scroll th:last-child,
 	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
 }
-		th,td
+		#select_products_table th,#select_products_table td
 		{
 		padding:5px!important;
 		text-align:left!important;
@@ -761,13 +756,13 @@ var $changeInputs = $('input.sTotal');
 
            <div class="col-md-12">
 
-          <form action=""  method="post" enctype="multipart/form-data" onsubmit="booking_chk();return check_appointment()" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding:10px;opacity:0.9;border-radius:25px 25px 25px 25px">
+          <form action=""  method="post" enctype="multipart/form-data" onsubmit="booking_chk();return check_appointment()" style="color: #000;background: #fff;padding-left:8px;padding-bottom: 20px;border-radius: 5px;">
            <input type="hidden" name="hs_id" value="<?php echo @$_REQUEST["hs_id"]; ?>"/>
 		   <input type="hidden" name="pc_admin_id" value="<?php echo $_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo $_REQUEST['Photographer_id']; ?>" />
 						<input type="hidden" name="od" value="<?php echo $_REQUEST['od']; ?>" />
 						<input type="hidden" name="u" value="<?php echo $_REQUEST['u']; ?>" />
-<div id="flip-scroll"><table class="table-stripped" width="100%"><thead>
+<div id="flip-scroll"><table class="table-stripped" id="select_products_table" width="100%"><thead>
 <tr style="font-weight:600;"><td>Select</td><td>Product Name</td><td>Timeline</td><td>Product Cost</td><td>Quantity</td><td>Sub Total</td></tr></thead>
 
 <?php
@@ -848,7 +843,9 @@ $selectProductIDs="checked";
 <?php } ?>
 </table></div>
 <table class="table-stripped" width="100%" style="margin-top:20px;">
-<tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span>&nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p></td></tr>
+<tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span>&nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p><hr class="space xs"></td>
+</tr>
+
 <tr><td align="left"><a href="create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td>
 
 <td align="right"><button type="submit" id="saveBtn" name="save" class="anima-button circle-button btn-sm btn adr-save" onClick="return chkBox()" style="float:right;"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_submit">Submit</span></button></td></tr>

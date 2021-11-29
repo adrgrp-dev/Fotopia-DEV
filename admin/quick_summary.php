@@ -23,19 +23,17 @@ include "connection1.php";
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  margin-top: 30px!important;
+  margin-top: 43px!important;
   text-align: center;
   top: 50%;
   width: 100%;
   height: 57px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
   z-index: 1;
   background-color: #ddd;
   font-size: 14px;
 
-  box-shadow:10px 10px 10px #ccc;
 }
 
 .breadcrumb1 a {
@@ -115,7 +113,7 @@ include "connection1.php";
 }
 
 #thirdStep:hover {
-background-color:#aad1d6;
+background-color: none;
 }
 
 #thirdStep:after {
@@ -171,7 +169,7 @@ border-radius:0px!important;
     background-color: #AAD1D6;
   color:#000!important;
     position: absolute;
-    right: 15px;
+    right: -30px;
   z-index:999;
     top: -450px;
   border-radius:5px 0px 0px 5px;
@@ -328,20 +326,20 @@ $hs_id=$get_summary['home_seller_id'];
 
         		<div class="col-md-12" style="background:#F1F3F4;width:100%">
 				<div class="col-md-12">
+          <button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;color:#000;border:none;border-radius:5px;float:left;margin-left:0px;"><i class="fa fa-print"></i></button>
 				<center>
           <?php if(@$_REQUEST['edit']==1){?>
-				 <h3 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Updated Successfully!</h3>
+				 <h4 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:20px;"></i>Order Updated Successfully!</h4>
        <?php }else{?>
-          <h3 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i>Order Created Successfully!</h3>
+          <h4 id="label_order_update_msg" adr_trans="label_order_update_msg" style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:20px;"></i>Order Created Successfully!</h4>
         <?php } ?>
-       </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;color:#000;border:none;border-radius:5px;float:left;margin-left:0px;"><i class="fa fa-print"></i></button></p> </div><br />
+       </center> </div><br />
         <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#fff">Order Value<br /><span style="padding-left:20px;">$<?php echo @$total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 				<div class="row" style="margin:0px;" id="printArea">
-          <br>
-          <br>
+          <hr class="space xs">
 				<div class="col-md-6">
-        <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+        <div style="width:101%;background:#FFF;padding:10px;border-radius:5px;height:800px">
 				<p id="label_order_details" adr_trans="label_order_details" align="right" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
 				<table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -445,7 +443,7 @@ $hs_id=$get_summary['home_seller_id'];
       </div>
 				</div>
 				<div class="col-md-6">
-          <div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+          <div style="width:105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 20px;">
 				<p align="right" style="color:#000;font-weight:600;font-size:15px;" id="label_homeseller_info" adr_trans="label_homeseller_info">Home Seller Info</p>
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">

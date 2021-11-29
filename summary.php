@@ -23,19 +23,17 @@ include "connection1.php";
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  margin-top: 30px!important;
+  margin-top: 52px!important;
   text-align: center;
   top: 50%;
   width: 100%;
   height: 57px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
   z-index: 1;
   background-color: #ddd;
   font-size: 14px;
 
-  box-shadow:10px 10px 10px #ccc;
 }
 
 .breadcrumb1 a {
@@ -75,7 +73,6 @@ include "connection1.php";
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 
 }
@@ -91,7 +88,6 @@ include "connection1.php";
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 .breadcrumb1 a:last-child:after {
@@ -115,7 +111,7 @@ include "connection1.php";
 }
 
 #thirdStep:hover {
-background-color:#337AB7;
+background-color:none;
 }
 
 #thirdStep:after {
@@ -169,15 +165,15 @@ html{	background-color:#FFF; }
     width: 100px;
     height: 50px;
     background-color: #AAD1D6;
-	color:#000!important;
+	  color:#000!important;
     position: absolute;
-    right: 15px;
-	z-index:999;
+    right: -33px;
+	  z-index:999;
     top: -450px;
-	border-radius:5px 0px 0px 5px;
+	  border-radius:5px 0px 0px 5px;
     -webkit-animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-	margin-top:80px;
+	  margin-top:80px;
 }
 
 
@@ -321,9 +317,10 @@ $hs_id=$get_summary['home_seller_id'];
 
         		<div class="col-md-12" style="background:#F1F3F4;width:100%">
 				<div class="col-md-12">
+					<button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;;color:#000;border:none;border-radius:5px;float:left;margin-left:0px"><i class="fa fa-print"></i></button> 
 				<center>
-				 <h3 style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i><span adr_trans="label_order_created">Order Created Successfully</span></h3>
-			 </center><p align="right"><button type="button" value="click" onclick="printDiv()" style="background:#AAD1D6;;color:#000;border:none;border-radius:5px;float:left;margin-left:0px"><i class="fa fa-print"></i></button></p> </div><br />
+				 <h4 style="color:green"><i class="fa fa-check-circle" style="color:green;margin-right:15px;font-size:30px;"></i><span adr_trans="label_order_created">Order Created Successfully</span></h4>
+			 </center></div><br />
 				<?php
 
 				 $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
@@ -337,10 +334,9 @@ $hs_id=$get_summary['home_seller_id'];
 
 
 	<div class="row" style="margin:0px;" id="printArea">
-					<br>
-					<br>
+					<hr class="space xs">
 				<div class="col-md-6">
-				<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+				<div style="width: 101%;background:#FFF;padding:10px;border-radius:5px;height:800px;">
 				<p align="right" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
 				<table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -418,7 +414,7 @@ $hs_id=$get_summary['home_seller_id'];
 			</div>
 				</div>
 				<div class="col-md-6">
-					<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+					<div style="width: 105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 25px;">
 				<p adr_trans="label_homeseller_info" align="right" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">

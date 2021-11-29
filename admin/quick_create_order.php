@@ -226,19 +226,17 @@ function myfunc()
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  margin-top: 30px!important;
+  margin-top: 53px!important;
   text-align: center;
   top: 50%;
   width: 100%;
   height: 57px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
   z-index: 1;
   background-color: #ddd;
   font-size: 14px;
 
-  box-shadow:10px 10px 10px #ccc;
 }
 
 .breadcrumb1 a {
@@ -278,7 +276,6 @@ function myfunc()
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 
 }
@@ -294,7 +291,6 @@ function myfunc()
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
@@ -310,7 +306,6 @@ function myfunc()
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 .breadcrumb1 a:last-child:after {
@@ -568,7 +563,7 @@ $("#realtor_employer_id").val(abc[0].realtor_employer_id);
 
 
 <div class="breadcrumb1 hidden-md hidden-lg hidden-xl" style="height:50px;">
-		<a href="#" class="btn btn-default" id="firstStep">
+		<a href="#" class="btn adr-save" id="firstStep">
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
 
@@ -600,7 +595,7 @@ $("#realtor_employer_id").val(abc[0].realtor_employer_id);
 
 
 
-    <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="" style="color: #000;box-shadow: 5px 5px 5px 5px #aaa;background: #E8F0FE;padding:10px;opacity:0.9;border-radius:25px 25px 25px 25px">
+    <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="" style="color: #000;background: #fff;padding:10px;border-radius:5px;">
 
 
       <?php

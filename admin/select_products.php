@@ -254,7 +254,7 @@ $quickOrderStatus=2;
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  margin-top: 30px!important;
+  margin-top: 43px!important;
   text-align: center;
   top: 50%;
   width: 100%;
@@ -411,7 +411,7 @@ background-color:#DDD;
 
  @media only screen and (max-width: 1280px) {
 
-	td,th
+	#select_products_table td,#select_products_table th
 	{
 	text-align:center;
 	}
@@ -437,7 +437,7 @@ background-color:#DDD;
 	#flip-scroll th:last-child,
 	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
 }
-		th,td
+		#select_products_table th,#select_products_table td
 		{
 		padding:5px!important;
 		text-align:left!important;
@@ -781,13 +781,13 @@ var $changeInputs = $('input.sTotal');
 
            <div class="col-md-12">
 
-          <form action=""  method="post" enctype="multipart/form-data" onsubmit="booking_chk();return check_appointment()" style="background: #E8F0FE;color:#000;padding:10px;opacity:0.9;border-radius:25px 25px 25px 25px">
+          <form action=""  method="post" enctype="multipart/form-data" onsubmit="booking_chk();return check_appointment()" style="background: #fff;color:#000;padding:10px;border-radius:5px;">
            <input type="hidden" name="hs_id" value="<?php echo @$_REQUEST["hs_id"]; ?>"/>
 		   <input type="hidden" name="pc_admin_id" value="<?php echo $_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo $_REQUEST['Photographer_id']; ?>" />
 						<input type="hidden" name="od" value="<?php echo $_REQUEST['od']; ?>" />
 						<input type="hidden" name="u" value="<?php echo $_REQUEST['u']; ?>" />
-<div id="flip-scroll"><table class="table-stripped" width="100%"><thead>
+<div id="flip-scroll"><table class="table-stripped" id="select_products_table" width="100%"><thead>
 <tr style="font-weight:600;"><td id="label_select" adr_trans="label_select">Select</td><td id="label_product_name" adr_trans="label_product_name">Product Name</td><td id="label_timeline" adr_trans="label_timeline">Timeline</td><td id="label_product_cost" adr_trans="label_product_cost">Product Cost</td>
 <td id="label_quantity" adr_trans="label_quantity">Quantity</td><td id="label_sub_total" adr_trans="label_sub_total">Sub Total</td>
 </tr></thead>
@@ -886,7 +886,7 @@ $selectProductIDs="checked";
 <?php } ?>
 </table></div>
 <table class="table-stripped" width="100%" style="margin-top:20px;">
-<tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span> &nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p></td></tr>
+<tr><td colspan="2" align="right"><p align="right" style="margin-right:70px;font-size:20px;"><span adr_trans="label_total_value">Total Value</span> &nbsp;:&nbsp; $ <span id="totalValue"><?php echo sprintf("%.2f",$totalpriceIS); //echo $totalpriceIS; ?></span></p><hr class="space xs"></td></tr>
 <tr><td align="left"><a href="create_appointment.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od']; ?>" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back">Back</span></a></td>
 
 <td align="right"><button type="submit" id="saveBtn" name="save" class="anima-button circle-button btn-sm btn adr-save" onClick="return chkBox()" style="float:right;"><i class="fa fa-chevron-circle-right"></i><span adr_trans="label_submit">Submit</span></button></td></tr>
