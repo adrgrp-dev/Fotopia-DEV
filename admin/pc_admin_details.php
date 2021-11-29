@@ -160,17 +160,23 @@ $id=@$_REQUEST['id'];
 		 </td></tr>
 
 
-	    
+	     
 		 
 		  <tr><td align="right"><span adr_trans="label_organization">Organization</span></td><td>:</td><td style="word-break:break-all;"><b><?php echo $res1['organization_name']; ?></b></td></tr>
 		   <tr><td align="right"><span adr_trans="label_type_user">Type Of User</span></td><td>:</td><td><?php echo $res1['type_of_user']; ?></td></tr>
+		   <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
 		    <tr><td align="right"><span adr_trans="label_email">Email</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['email']; ?></td></tr>
 			 <tr><td align="right"><span adr_trans="label_contact_no">contact Number</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td></tr>
+			 <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
 			  <tr><td align="right"><span adr_trans="label_address">Address</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['address_line1'].", ".$res1['address_line2']; ?></td></tr>
 			   <tr><td align="right"><span adr_trans="label_city">City</span></td><td>:</td><td><?php echo $res1['city']; ?></td></tr>
 			    <tr><td align="right"><span adr_trans="label_state">State</span></td><td>:</td><td><?php echo $res1['state']; ?></td></tr>
 				 <tr><td align="right"><span adr_trans="label_zip_code">Zip Code</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['postal_code']; ?></td></tr>
 				  <tr><td align="right"><span adr_trans="label_country">Country</span></td><td>:</td><td><?php echo $res1['country']; ?></td></tr>
+				  <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
 
 				    <tr><td align="right"><span adr_trans="label_last_login">Last Login</span></td><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
 					<tr><td align="right"><span adr_trans="label_last_login_ip">Last Login IP Address</span></td><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
