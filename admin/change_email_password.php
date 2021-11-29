@@ -234,8 +234,15 @@ return true;
 }
 
 
+function showMore()
+{
+$("#moreInfoText").toggle(1000);
+}
 
-function validate_email(val)
+</script>
+
+<script>
+function validate_email1(val)
 {
 
   var xhttp= new XMLHttpRequest();
@@ -244,27 +251,23 @@ function validate_email(val)
     if(this.readyState == 4 && this.status == 200){
      if(this.responseText == "true")
      {
-      $("#Email_exist_error").html("Email already in use, Choose different email and continue");
-	    $("#Email_exist_error").show();
-	    $("#newemail").val("");
-	    $("#newemail").focus();
+
+       $("#Email_exist_error").html("Email already exist, please choose different email and continue");
+       $("#Email_exist_error").show();
+       $("#email").val("");
+        $("#email").focus();
+      return false;
      }
      else
      {
       $("#Email_exist_error").html();
-	    $("#Email_exist_error").hide();
+      $("#Email_exist_error").hide();
      }
-  }
+    }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email.php?id="+val+"&type=Admin",true);
   xhttp.send();
 }
-
-function showMore()
-{
-$("#moreInfoText").toggle(1000);
-}
-
 </script>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
@@ -389,7 +392,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-				<div id="changeemail" class="box-lightbox white" style="color: #000;background: #FFF;height:300px; width:500px;border-radius:10px">
+				<div id="changeemail" class="box-lightbox white" style="color: #000;background: #FFF;height:330px; width:500px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="label_change_email" adr_trans="label_change_email">Change Email
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -412,7 +415,7 @@ $("#moreInfoText").toggle(1000);
 
 				</td></tr>
 				<form name="verifyemail" method="post" action="">
-				<tr><td id="label_new_email" adr_trans="label_new_email">New Email</td><td>:</td><td><input type="email" name="newemail" id="newemail" class="form-control" required onblur="validate_email(this.value)" /></td></tr>
+				<tr><td id="label_new_email" adr_trans="label_new_email">New Email</td><td>:</td><td><input type="email" name="newemail" id="newemail" class="form-control" required onblur="validate_email1(this.value)" /></td></tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="sendcode" value="Send Verification Code" class="btn btn-warning adr-cancel" style="border-radius:20px 20px 20px 20px; background:#F0AD4E" /></td></tr>
 				</form>
 				<form name="changeemail" method="post" action="">
