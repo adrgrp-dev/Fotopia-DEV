@@ -422,18 +422,7 @@ background-color:#DDD;
 		padding:5px!important;
 		text-align:left!important;
 		}
-		.nav-tabs > li.active > a, .current-active {
-    background:#000!important;color:#FFF!important;
-    border-radius: 20px 20px 0px 0px;
-    opacity: 0.8;
-
-
-}
-.current-active
-{
- background:#000!important;
- color:#FFF!important;border-bottom-color:#000!important;
-}
+		
 .btn-default
 {
 border-radius:0px;
