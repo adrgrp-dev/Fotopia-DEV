@@ -261,12 +261,10 @@ $quickOrderStatus=2;
   height: 57px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
   z-index: 1;
   background-color: #ddd;
   font-size: 14px;
 
-  box-shadow:10px 10px 10px #ccc;
 }
 
 .breadcrumb1 a {
@@ -306,7 +304,6 @@ $quickOrderStatus=2;
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 
 }
@@ -322,7 +319,6 @@ $quickOrderStatus=2;
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
@@ -339,7 +335,6 @@ $quickOrderStatus=2;
   border-top-right-radius: 5px;
   -webkit-transform: scale(0.707) rotate(45deg);
           transform: scale(0.707) rotate(45deg);
-  box-shadow: 1px -1px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
