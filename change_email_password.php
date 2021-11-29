@@ -383,7 +383,7 @@ $("#moreInfoText").toggle(1000);
 
 
 
-				<div id="changeemail" class="box-lightbox" style="color: #000;background: #FFF;height:300px;width:500px;border-radius:10px">
+				<div id="changeemail" class="box-lightbox" style="color: #000;background: #FFF;height:330px;width:500px;border-radius:10px">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center" id="" adr_trans="label_change_email" >Change Email
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -414,7 +414,7 @@ $("#moreInfoText").toggle(1000);
 
 
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td><input type="submit" name="updateemail" value="Update Email" class="btn btn-primary adr-save" style="border-radius:20px 20px 20px 20px; background:#0275D8" />
-
+ 
 				<br />
 				</td></tr>
 				</form>

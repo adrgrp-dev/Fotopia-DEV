@@ -377,7 +377,7 @@ while($city=mysqli_fetch_array($city1))
 </div>
 
 								<div class="col-md-6">
-                                <p><span id="label_tax" adr_trans="label_tax" style="color:#000;">Tax</span><span id="label_percentage_tax" adr_trans="label_percentage_tax">(Enter the percentage of tax)</span></p>
+                                <p><span id="label_set_tax" adr_trans="labelabel_set_taxl_tax" style="color:#000;">Set tax</span><span id="label_percentage_tax" adr_trans="label_percentage_tax">(Enter the percentage of tax)</span></p>
                                 <input id="tax" name="tax" type="number" step="any" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['tax']; ?>">
 								</div>
 
