@@ -1461,8 +1461,11 @@ alert(alertmsg);
 
                             <table class="" style="color:#000;font-weight:600;font-size:13px;">
                             <tr>
-                            <td align="right" id="label_order_no" adr_trans="label_order_no" style="width:150px;font-size: 10px;vertical-align: baseline;">Order #</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo $get_summary['id']; ?><hr class="space xs"></td>
+                            <td align="right" id="label_order_no" adr_trans="label_order_no" style="width:150px;font-size: 10px;vertical-align: baseline;">Order #</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo $get_summary['id']; ?></td>
                             
+                            </tr>
+                             <tr>
+                              <td align="right" style="font-size:10px;vertical-align:baseline;" >Reference Number</td><td style="padding-left:5px;padding-right:15px;vertical-align:baseline;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
                             </tr>
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_property_type" adr_trans="label_property_type">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>

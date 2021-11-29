@@ -754,7 +754,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         <p id="label_homeseller_name" adr_trans="label_homeseller_name">HOME SELLER NAME</p>
                         <input id="sell_name" name="sell_name" placeholder="Enter The home seller name" value="<?php echo  @$appointment_update_details['name'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
     </div>
-    <?php if(@$_REQUEST['u']==2&&@$appointment_update_details['created_by_id']!=$_SESSION['admin_loggedin_id']) { ?>
+   
     <div class="col-md-6">
                         <p id="label_ref_no" adr_trans="label_ref_no">REFERENCE NO</p>
                         <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="number" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
@@ -763,7 +763,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
 
     </div>
-    <?php } ?>
+    
     <div class="col-md-12">
                         <p id="label_address" adr_trans="label_address">ADDRESS</p>
                         <input id="address" name="address" placeholder="Enter The Address" type="text" autocomplete="off"  value="<?php echo  @$appointment_update_details['address'];?>" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
