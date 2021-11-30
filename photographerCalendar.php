@@ -149,7 +149,8 @@ background: repeating-linear-gradient(
 
 .fc-day-today
 {
-background: #FFF!importantcolor:#000!important;
+background: #FFF!important;
+color:#000!important;
 border:solid 1px #01A8F2!important;
 }
 

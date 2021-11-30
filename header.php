@@ -215,7 +215,8 @@ color:#FFF;
 }
 .form-control
 {
-background: #FFF!importantcolor:#000!important;
+background: #FFF!important;
+color:#000!important;
 }
 a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
 {
