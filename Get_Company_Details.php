@@ -132,16 +132,16 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:280px
 							<div class=\"panel\" id=\"portfolioDiv\" style=\"height:280px;overflow:scroll;\">
                               ".$photographersList."
                             </div>
-							 <div class=\"panel\" id=\"contactDiv\" style=\"height:290px;background:#FFF!important;\">
+							 <div class=\"panel\" id=\"contactDiv\" style=\"height:280px;background:#FFF!important;\">
                                ".$product."<br>
                             </div>
-                            <div class=\"panel\" id=\"contactDiv\" style=\"height:fit-content;margin-bottom:-20px;background:#FFF!important;\">
+                            <div class=\"panel\" id=\"contactDiv\"  style=\"height:280px;overflow:scroll;\">
                                ".$contact."
                             </div>
-                            <div class=\"panel\" id=\"contactDiv\" style=\"height:150px;background:#FFF!important;\">
+                            <div class=\"panel\" id=\"contactDiv\"  style=\"height:280px;overflow:scroll;\">
                                ".$portFolio."
                             </div>
-							<hr class=\"space s\"><center style=\"position:fixed;padding-top:30px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn  btn-sm circle-button adr-save\">Book Now</a><center>
+							<hr class=\"space s\"><center style=\"position:fixed;padding-top:40px;padding-left:200\"><a href=\"create_order.php?bn=1&pc_admin_id=".$super_csr_id."\" adr_trans=\"label_book_now\" class=\"btn  btn-sm circle-button adr-save\">Book Now</a><center>
 							";
 /*<p align=\"center\">
 
