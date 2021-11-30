@@ -472,6 +472,10 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 <div class="panel" id="tab2">
 
 <hr class="space s" >
+<div class="col-md-12" style="float:right">
+<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?o=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;" placeholder="Search Address / Order # / PC / Homeseller " />
+</form>
+</div>
 
 
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden  ">
@@ -557,6 +561,12 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
           //SELECT count(*) as total FROM orders where photographer_id='$loggedin_id' or created_by_id='$loggedin_id'
           $q1="SELECT count(*) as total FROM orders where realtor_id='$loggedin_id' and status_id='3'";
+          if(@$_REQUEST['searchAddress'])
+      {
+      $searchAddress=$_REQUEST['searchAddress'];
+      $q1="SELECT count(*) as total FROM orders where realtor_id='$loggedin_id' and status_id='3' and (property_address like '%$searchAddress%' or id like '%$searchAddress%' or pc_admin_id in (select pc_admin_id from photo_company_profile where organization_name like '%$searchAddress%') or home_seller_id in (select id from home_seller_info where name like '%$searchAddress%'))";
+
+      }
           $result=mysqli_query($con,$q1);
           $data=mysqli_fetch_assoc($result);
           $total_no=$data['total'];
@@ -587,7 +597,17 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
 
           $limit=$start_no_users . ',' . $number_of_pages;
-          $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='3' order by id desc limit $limit");
+          $get_order_query="";
+          
+          if(@$_REQUEST['searchAddress'])
+      {
+      $searchAddress=$_REQUEST['searchAddress'];
+
+      $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='3' and (property_address like '%$searchAddress%' or id like '%$searchAddress%' or pc_admin_id in (select pc_admin_id from photo_company_profile where organization_name like '%$searchAddress%') or home_seller_id in (select id from home_seller_info where name like '%$searchAddress%')) order by id desc limit $limit");
+      }else{
+        $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='3' order by id desc limit $limit");
+      }
+        
            if($get_order_query == "0"){
 
             ?><h5 align="center"> <?php echo "No Orders Yet";?> </h5>
