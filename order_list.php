@@ -188,7 +188,7 @@ min-width:100px!important;
 <option value="8" <?php if(@$_REQUEST['filterByStatus']==8||$_SESSION['status']==8) { echo "selected"; } ?>>Reopen</option>
 </select>
 </form>
-      <table class="table-stripped" style="width:100%" id="ListingTable">
+      <table class="table-stripped" style="width:100%;overflow:scroll" id="ListingTable">
           <thead>
           <tr><th class="text-center"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
