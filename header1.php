@@ -388,7 +388,7 @@ $(function(){
 
 
 
-<ul class="nav navbar-nav" style="width:100px;">
+<ul class="nav navbar-nav" style="width:100px;color:#000!important">
 <li class="dropdown current-active">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="float:right;right:0"><i class="fa fa-bars"></i></span></a>
                            <ul class="dropdown-menu" style="top:30px;position:absolute;background-color:#000000;color:white;right:20px;">
