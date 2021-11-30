@@ -6,7 +6,7 @@
                         <p>Copyright © 2021 Photography App. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 footer-right">
-                        <span>+1 800 1 21 05</span>
+                         <span style="color:#000!important;font-weight:bold;">+1 800 123 21 05</span>
                         <span class="space"></span>
                         <div class="btn-group navbar-social">
                             <div style="margin-left:7px;background:#FFF!important;text-align:center;">
