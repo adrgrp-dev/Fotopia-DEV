@@ -131,8 +131,8 @@ color:#000!important;
 		?>
 
 					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
-
-					<table class="table table-responsive"><tr><td>
+                   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table class="table table-striped" style="width:100%;"><tr><td>
 					
 					
 					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
@@ -180,7 +180,7 @@ color:#000!important;
 								</p>
                             </div>
 							</form>
-							</td></tr></table>
+							</td></tr></table></div>
 
 
 						   </div>
@@ -217,7 +217,7 @@ color:#000!important;
 						</center>
 						<a class="lightbox btn adr-save btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
 						
-						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; border:solid 1px #000;">
+						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;border:1px solid black">
 
 <center>
 <div class="col-md9">

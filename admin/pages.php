@@ -39,7 +39,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 
-			<div style="width:100%;background:#FFF;">
+			<div style="width:100%;background:#FFF;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;">
 
                             <table id="dataTable" class="table-striped" align="center" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>

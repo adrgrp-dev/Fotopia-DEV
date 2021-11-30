@@ -39,7 +39,8 @@ include "connection1.php";
 
 
          <hr class="space s" />
-      <table class="table table-striped" style="color:#000;opacity:0.8;width:90%;">
+         <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+      <table class="table-striped" style="color:#000;opacity:0.8;width:90%;">
           <thead>
               <tr><th  class="text-center" style="">
                           S.No
@@ -254,7 +255,7 @@ if($get_action['module']== $new)
 }
 ?>
 </tbody>
-                  </table>
+                  </table></div>
 
                   <div class="col-sm-6">
                         <ul class="pagination ">

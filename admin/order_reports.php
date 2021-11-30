@@ -221,7 +221,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 
 
 			<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
-
+                          <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                             <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
 						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="label_order_report">Order Reports</span><br /></b></center></th></tr>
@@ -593,7 +593,7 @@ $res="";
                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php }} ?>
 												</tbody>
-                              </table></div>
+                              </table></div></div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

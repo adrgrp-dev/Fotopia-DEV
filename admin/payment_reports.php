@@ -120,7 +120,7 @@ var days = 1;
 
 
 <div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
-  <div style="width:100%;">
+  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                               <table id="dataTable" align="center" class="table-striped" style="opacity:0.9;width:96%;">
 
                                     <thead>

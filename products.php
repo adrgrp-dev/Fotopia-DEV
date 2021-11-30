@@ -62,8 +62,8 @@ th,td
 						<!-- <div class="col-md-8" style="background:#CCEDFC;opacity:0.8;padding:10px;"> -->
 
 						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products" style="color:#000">List of Products</h5>
-						<div id="flip-scroll">
-					<table align="center" class="" width="98%">
+						<div id="" style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table align="center" class="table-striped" width="98%">
                 <thead>
                     <tr>
                         <th>#</th>

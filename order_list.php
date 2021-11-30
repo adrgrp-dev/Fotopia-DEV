@@ -175,7 +175,9 @@ min-width:100px!important;
 
 
 
-  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+
+  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden ">
+
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
@@ -472,7 +474,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 <hr class="space s" >
 
 
-  <div style="width:100%; ">
+  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden  ">
 
 
       <table class="table-striped" aria-busy="false" style="width:100%" id="ListingTable">

@@ -131,7 +131,8 @@ if(!empty($_REQUEST['pcfilter'])){
 </div>
 
 </form>
-                              <table id="dataTable" class="table table-striped" style="width:100%;
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+                              <table id="dataTable" class=" table-striped" style="width:100%;
                                     <thead>
 			<tr class="text-center"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
                                         <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
@@ -519,6 +520,7 @@ if(!empty($_REQUEST['pcfilter'])){
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
                                 </table>
+                              </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

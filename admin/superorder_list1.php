@@ -179,7 +179,7 @@ ul.pagination > li.last > a
 
 
 
-  <div  style="width:100%;">
+  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
 
@@ -456,7 +456,7 @@ ul.pagination > li.last > a
 
 
 
-  <div  style="width:100%;">
+  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
 
@@ -729,7 +729,7 @@ ul.pagination > li.last > a
 
 
 
-  <div  style="width:100%;">
+  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
 
@@ -997,7 +997,7 @@ ul.pagination > li.last > a
 
             <?php } ?>
 
-  <div  style="width:100%;">
+  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
       <table class="" aria-busy="false" style="width:100% !important">

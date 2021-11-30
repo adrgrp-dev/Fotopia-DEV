@@ -143,6 +143,8 @@ $realtorID=$_SESSION['loggedin_id'];
 </div>
 </form>
 
+  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden  ">
+
                             <table id="dataTable" align="center" class="table-striped" style="width:100%;">
                                   <thead>
 						<tr><th colspan="8" align="center"><center><b adr_trans="label_order_reports"><br />Order Reports<br /></b></center></th></tr>
@@ -484,6 +486,7 @@ $res="";
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php }} ?>
                               </table>
+                            </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

@@ -39,7 +39,8 @@ if(isset($_REQUEST['loginbtn']))
 
 
 <hr class="space s">
-					<table class="table" style="color:#000;opacity:0.8;width:100%;">
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table class="table-stripped" style="color:#000;opacity:0.8;width:100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
@@ -144,7 +145,7 @@ if(isset($_REQUEST['loginbtn']))
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php } ?>
-            </table>
+            </table></div>
 
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">

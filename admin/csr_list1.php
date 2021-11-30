@@ -112,7 +112,7 @@ min-width:120px!important;
 <div class="panel active " id="tab1" style="width:100%;">
 
 <p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;" >Create Admin</a></p>
-
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table class="table-striped" align="center" aria-busy="false" style="width:100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
@@ -247,6 +247,7 @@ min-width:120px!important;
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
+        </div>
 
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
@@ -263,7 +264,7 @@ min-width:120px!important;
 <div class="panel" id="tab2" style="width:100%;">
 <!--Panel 2 starts-->
 <p align="right"><a href="create_csr.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_csr">Create CSR</span></a></p>
-
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table align="center" class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><span class="text">
@@ -412,6 +413,7 @@ min-width:120px!important;
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
+        </div>
 
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
@@ -431,7 +433,7 @@ min-width:120px!important;
 <!--Panel 3 starts-->
   <center ><i style="font-size: 14px;color:darkgrey">Note:&nbsp;Each photographer need to be assigned to an editor based on the services.  </i></center>
 <p align="right"><a href="create_photographer.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_photographer">Create Photographer</span></a></p>
-
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table class="table-striped" aria-busy="false" style="width:100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
@@ -585,6 +587,7 @@ min-width:120px!important;
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
+        </div>
 <div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">
 					<div class="col-sm-6"><ul class="pagination"><li class="first disabled" aria-disabled="true"><a href="./csr_list1.php?p=1&page=1" class="button"><<</a></li><li class="prev disabled" aria-disabled="true">
@@ -644,7 +647,7 @@ header("location:csr_list1.php?ed=1");
 ?>
 
 <p align="right"><a href="create_editor.php" style="margin-bottom: 10px;" class="btn adr-save"><span adr_trans="label_create_editor">Create Editor</span></a></p>
-
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table class="table-striped" style="width:100%">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
@@ -793,6 +796,7 @@ header("location:csr_list1.php?ed=1");
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
             </table>
+        </div>
 
 			<div id="undefined-footer" class="bootgrid-footer container-fluid">
 				<div class="row">

@@ -149,7 +149,8 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-stripped" aria-busy="false">
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table class="table-stripped" aria-busy="false" style="width:100%">
                 <thead>
                     <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
@@ -409,6 +410,7 @@ if($_SESSION['usertype1']!='PCAdmin')
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>
             </table>
+        </div>
 
 
 
@@ -522,7 +524,8 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-stripped" aria-busy="false">
+<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table class="table-stripped" aria-busy="false" style="width: 100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
@@ -780,6 +783,7 @@ if($_SESSION['usertype2']!='PCAdmin')
 				<?php } }?>
 
             </table>
+        </div>
 
 
 
@@ -799,7 +803,7 @@ if($_SESSION['usertype2']!='PCAdmin')
 
 
 <div class="panel" id="tab3">
-<div>
+<div style="width:100%">
 
 		<span style="position: absolute;right: 25px">
 				<form name="searchUser3" method="post" action="" onsubmit="return validate3()" style="margin-left:5px;">
@@ -895,7 +899,8 @@ var initialArray = [];
 
 
 <hr class="space s">
-					<table class="table table-stripped" aria-busy="false" >
+<div style="width: 100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+					<table class="table-stripped" aria-busy="false" style="width: 100px;" >
                 <thead>
                     <tr><th data-column-id="id" class="text-center" style=""><span class="text">
 
@@ -1173,6 +1178,7 @@ if($_SESSION['usertype3']!='PCAdmin')
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>
             </table>
+        </div>
 
 
 
