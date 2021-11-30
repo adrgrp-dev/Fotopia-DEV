@@ -574,7 +574,7 @@ $(function(){
 
 <li><a href="csrRealtorDashboard.php"><i class="fa fa-home" style="padding-right:10px;"></i><span adr_trans="label_home">Home</span></a></li>
 <li><a href="csrRealtorCalendar.php"><i class="fa fa-calendar" style="padding-right:10px;"></i><span adr_trans="label_calendar">Calendar</span></a></li>
-<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;">></i><span adr_trans="label_order">Orders</span></a></li>
+<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;"></i><span adr_trans="label_order">Orders</span></a></li>
 <li><a href=""><i class="fa fa-file" style="padding-right:10px;" ></i><span adr_trans="label_order_reports">Order reports</span></a></li>
 <li><a href="realtor_activity.php"><i class="fa fa-bell-o" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
 <li><a href="realtor_profile.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_my_profile">My profile</span></a></li>
