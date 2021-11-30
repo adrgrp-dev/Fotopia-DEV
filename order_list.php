@@ -175,7 +175,7 @@ min-width:100px!important;
 
 
 
-  <div style="width:100%; ">
+  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <form name="filterStatus" method="post" action="">
 <select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
@@ -188,7 +188,7 @@ min-width:100px!important;
 <option value="8" <?php if(@$_REQUEST['filterByStatus']==8||$_SESSION['status']==8) { echo "selected"; } ?>>Reopen</option>
 </select>
 </form>
-      <table class="table-stripped" style="width:100%;overflow:scroll" id="ListingTable">
+      <table class="table-stripped table-responsive" style="width:100%;" id="ListingTable">
           <thead>
           <tr><th class="text-center"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
