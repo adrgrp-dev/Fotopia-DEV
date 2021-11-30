@@ -174,6 +174,17 @@ foreach(glob($dir . '/*') as $file) {
 }
 
  ?>
+ <style>
+     
+
+.adr-save
+{
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+    color: #000!important;
+}
+ </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -190,6 +201,27 @@ foreach(glob($dir . '/*') as $file) {
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href='scripts/magnific-popup.css'>
 	 <link rel="stylesheet" href="scripts/jquery.flipster.min.css">
+
+ <header data-menu-anima="fade-left">
+        <div class="navbar navbar-default over wide-area" role="navigation">
+            <div class="navbar navbar-main over">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
+                        <span style="display:ineline;font-size:14px;color:#000"><span style="color:#AAD1D6;font-size:18px;">f</span>otopia</span></a>
+
+                    </div>
+                    
+                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;">Welcome to Fotopia</p>
+
+                    </div>
+                </div>
+            </div>
+
+    </header>
 
  <div class="section-empty bgimage3">
         <div class="" style="margin:40px;">
@@ -208,7 +240,7 @@ foreach(glob($dir . '/*') as $file) {
                        <form name="zipDownload" method="post" action="">
                            <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."standard_photos"; ?>">
                            <?php if($RowsFound>0)
-                         { ?> <input type="submit" class="btn btn-primary" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download Photos">
+                         { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download Photos">
                          <?php } ?>
                          </form>
                          <br> <br>
@@ -244,7 +276,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   <form name="zipDownload" method="post" action="">
                       <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."floor_plans"; ?>">
                       <?php if($RowsFound1>0)
-                	  { ?> <input type="submit" class="btn btn-primary" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download  Floor Plans">
+                	  { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download  Floor Plans">
                 	  <?php } ?>
                   	</form>
                      <br> <br>
@@ -277,3 +309,9 @@ $getImgName1=mysqli_fetch_array($getImgName);
                  </div>
                </div>
              </div>
+
+<?php 
+
+include "footer.php";
+
+ ?>

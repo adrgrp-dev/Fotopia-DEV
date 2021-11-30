@@ -330,8 +330,8 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                             }
   												?>
 											   <p style="color:white;font-size:25px;font-weight:600"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:white;font-size:25px;font-weight:600;color:#000"><?php echo "$".$total1; ?></label></p>
-
-                        <br />
+ 
+                        <hr class="space xs" />
                <a class="btn-sm" adr_trans="label_view" href="payment_reports.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 													</div>

@@ -202,8 +202,9 @@ foreach(glob($dir . '/*') as $file) {
     <style>
 	.adr-save
 	{
-	background:#0275d8!important;
-	border-color:#0275d8!important;
+	 background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+    color: #000!important;
 	}
 	.adr-cancel
 	{
@@ -219,16 +220,8 @@ foreach(glob($dir . '/*') as $file) {
 	background:#6cc070!important;
 	border-color:#6cc070!important;
 	}
-  .tab-black
-  {
-    background-color: white;
-    color: black;
-  }
-  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
-  {
-  background:#000!important;
-  color:#FFF!important;
-  }
+ 
+ 
   .mfp-container
 
 {
@@ -268,7 +261,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						<span style="display:ineline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						<span style="display:ineline;font-size:14px;color:#000"><span style="color:#AAD1D6;font-size:18px;">f</span>otopia</span></a>
 
                     </div>
                     <?php
@@ -276,7 +269,7 @@ $("#dayVal").val(calid);
                      $editor_name_split=explode("@",$editor_email);
                      $editor_name=$editor_name_split[0];
                       ?>
-                      <p align="center" style="font-size: x-large;color: #ffffff;margin-top: 10px;">welcome <?php echo $editor_name; ?></p>
+                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;">welcome <?php echo $editor_name; ?></p>
 
                     </div>
                 </div>
@@ -438,7 +431,7 @@ else
       <input type="hidden" name="service_ID" value="<?php echo $service; ?>">
       <hr class="space s">
       <?php if($RowsFound>0 && @$_REQUEST['rework'])
-	  { ?> <input type="submit" class="btn btn-primary" name="ZIP" value="ZIp and download rework Images">
+	  { ?> <input type="submit" class="btn adr-save" name="ZIP" value="ZIp and download rework Images">
 	  <?php } ?>
   	</form>
 
@@ -470,7 +463,7 @@ else
           });
 
         </script>
-           <p align="right"><a href="#" id="submit" class="btn btn-primary" style="position: relative; ">submit</a></p>
+           <p align="right"><a href="#" id="submit" class="btn adr-save" style="position: relative; ">submit</a></p>
 
          <input type="hidden"  id="order_id"  value="<?php echo $order_id?>">
           <input type="hidden"  id="service_name"  value="<?php echo $type?>">
@@ -540,39 +533,11 @@ else
 
 
 
- <footer class="wide-area foo">
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 footer-left">
-                        <p>Copyright © 2021 Photography App. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-md-6 footer-right">
-                        <span>+1 800 123 21 05</span>
-                        <span class="space"></span>
-                        <div class="btn-group navbar-social">
-                            <div class="btn-group social-group">
-                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <link property="" rel="stylesheet" href="scripts/font-awesome/css/font-awesome.min.css">
-        <script async="" src="scripts/bootstrap/js/bootstrap.min.js"></script>
-		 <script src="scripts/flexslider/jquery.flexslider-min.js"></script>
-        <script src="scripts/imagesloaded.min.js"></script>
-        <script src="scripts/jquery.progress-counter.js"></script>
-		  <script src="scripts/jquery.magnific-popup.min.js"></script>
-		 <script src="scripts/jquery.flipster.min.js"></script>
-        <script src="scripts/jquery.tab-accordion.js"></script>
-        <script src="scripts/smooth.scroll.min.js"></script>
-		<script src="scripts/parallax.min.js"></script>
-    </footer>
+ <?php 
+
+include "footer.php";
+
+ ?>
 
 
 <div class="betternet-wrapper"></div></body></html>
