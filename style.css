@@ -6497,7 +6497,7 @@ MOBILE
         }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a, .navbar-toggle > i {
-        color: #D3D3D3;
+        color: #000!important;
     }
 
     .gallery-album .album-main {
@@ -6530,4 +6530,12 @@ div.infos > p > span
 {
   padding-right: 2px;
 
+}
+
+input
+{
+box-shadow:none!important;
+background:#FFF;
+color:#000;
+border-radius:5px!important;
 }

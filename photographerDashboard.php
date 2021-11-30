@@ -59,7 +59,7 @@ margin-left:0px!important;
 
 .fc-day-today
 {
-background:#E8F0FE!important;
+background: #FFF!importantcolor:#000!important;
 border:solid 1px #01A8F2!important;
 }
 

@@ -388,10 +388,10 @@ $(function(){
 
 
 
-<ul class="nav navbar-nav" style="width:100px;color:#000!important">
+<ul class="nav navbar-nav" style="width:100px;color:#000!important;z-index:999">
 <li class="dropdown current-active">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="float:right;right:0"><i class="fa fa-bars"></i></span></a>
-                           <ul class="dropdown-menu" style="top:30px;position:absolute;background-color:#000000;color:white;right:20px;">
+                           <ul class="dropdown-menu" style="top:30px;position:absolute;background-color:#FFF;color:#000!important;right:20px;z-index:999">
 
 
 <?php
@@ -399,9 +399,9 @@ $(function(){
  if($_SESSION['loggedin_type']=="Realtor")
     {
 ?>
-<li><a href="csrRealtorDashboard.php" style="color:#000!important;"><i class="fa fa-home" style="padding-right:10px;" adr_trans="label_home"></i>Home</a></li>
+<li style="color:#000!important;"><a href="csrRealtorDashboard.php" style="color:#000!important;"><i class="fa fa-home" style="padding-right:10px;" adr_trans="label_home"></i>Home</a></li>
 <li><a href="csrRealtorCalendar.php" style="color:#000!important;"><i class="fa fa-calendar" style="padding-right:10px;" adr_trans="label_calendar"></i>Calendar</a></li>
-<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;" adr_trans="label_order">></i>Orders</a></li>
+<li><a href="order_list.php"><i class="fa fa-stack-exchange" style="padding-right:10px;" adr_trans="label_order"></i>Orders</a></li>
 <li><a href=""><i class="fa fa-file" style="padding-right:10px;"  adr_trans="label_order_reports"></i>Order reports</a></li>
 <li><a href="realtor_activity.php"><i class="fa fa-bell" style="padding-right:10px;" adr_trans="label_notification"></i>Notification</a></li>
 <li><a href="realtor_profile.php"><i class="fa fa-user" style="padding-right:10px;" adr_trans="label_my_profile"></i>My profile</a></li>

@@ -98,7 +98,7 @@ margin-left:0px!important;
 
 .fc-day-today
 {
-background:#E8F0FE!important;
+background: #FFF!importantcolor:#000!important;
 border:solid 1px #01A8F2!important;
 }
 
@@ -485,7 +485,7 @@ $.ajax({
             <div class="col-md-6">
               <a href="superOrder_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>">
           	<img src="../finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="125" style="padding-bottom:10px;"/>
-			 <span style="position:absolute; text-align:center;z-index:2;color:#000;background:#E8F0FE!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+			 <span style="position:absolute; text-align:center;z-index:2;color:#000;background: #FFF!importantcolor:#000!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
             </a>
             </div>
       <?php		}

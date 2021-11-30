@@ -215,7 +215,7 @@ color:#FFF;
 }
 .form-control
 {
-background:#E8F0FE!important;
+background: #FFF!importantcolor:#000!important;
 }
 a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
 {
@@ -428,10 +428,10 @@ font-weight:bold;
 
                                 </div>
                             </div>
-
+<?php echo $_SESSION['Selected_Language_Session']; ?>	
 			<select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session'])=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session'])=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected='selected'"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected='selected'"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
