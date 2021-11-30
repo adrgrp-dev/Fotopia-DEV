@@ -930,7 +930,7 @@ $knowMore="";
 if(isset($_REQUEST['companySearch']))
 {
 $companySearch=$_REQUEST['companySearch'];
-$where="location like '%$companySearch%' and ";
+$where="(location like '%$companySearch%' or organization_name like '%$companySearch%' or organization_branch like '%$companySearch%') and ";
 }
 				$photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
