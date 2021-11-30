@@ -260,7 +260,7 @@ if(val!="")
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val+"&type="+type,true);
+  xhttp.open("GET","validate_email_signup.php?id="+val+"&type="+type,true);
   xhttp.send();
   }
 }
