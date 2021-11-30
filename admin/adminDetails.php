@@ -108,7 +108,7 @@ if(isset($_REQUEST['approve']))
 
 			</div>
                 <div class="col-md-10"  style="padding-top:30px;">
-                    <h5 class="text-center">Admins Details</h5>
+                   
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
                         <div class="success-box" style="display:block;">
@@ -120,25 +120,38 @@ $id=@$_REQUEST['id'];
 				$res=mysqli_query($con,"select * from admin_users where id='$id'");
 				$res1=mysqli_fetch_array($res);
 				?>
-					<table class="table table-striped" style="background:#000;color:#FFF;opacity:0.8;width:80%;border-radius:30px 30px 30px 30px!important;">
+					<table style="background:#FFF;color:#000;opacity:0.8;width:70%;border-radius:10px!important;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
-	   <tr><th>Profile Photo</th><td>:</td><td><img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td></tr>
-	    <tr><th>First Name</th><td>:</td><td><?php echo $res1['first_name']; ?></td></tr>
-		 <tr><th>Last Name</th><td>:</td><td><?php echo $res1['last_name']; ?></td></tr>
-		    <tr><th>Email</th><td>:</td><td><?php echo $res1['email']; ?></td></tr>
-			 <tr><th>contact Number</th><td>:</td><td><?php echo $res1['contact_number']; ?></td></tr>
-			  <tr><th>Address</th><td>:</td><td><?php echo $res1['address_line1']." ".$res1['address_line2']; ?></td></tr>
-			   <tr><th>City</th><td>:</td><td><?php echo $res1['city']; ?></td></tr>
-			    <tr><th>State</th><td>:</td><td><?php echo $res1['state']; ?></td></tr>
-				 <tr><th>Postal Code</th><td>:</td><td><?php echo $res1['postal_code']; ?></td></tr>
-				  <tr><th>Country</th><td>:</td><td><?php echo $res1['country']; ?></td></tr>
-				    <tr><th>Last Login</th><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
-					<tr><th>Last Login <br>IP Address</th><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
 
-<tr><td colspan="3" align="center"><a class="anima-button circle-button btn-sm btn" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a></td></tr>
+      <tr><td colspan="3" style="padding-top: 5px;"> <h5 class="text-center">Admins Details</h5></td></tr>
+	 
+	   <tr><td align="right"  style="font-size: 10px;width:270px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:5px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+		 </td></tr>
+
+		   <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
+		    <tr><td align="right"><span adr_trans="label_email">Email</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['email']; ?></td></tr>
+			 <tr><td align="right"><span adr_trans="label_contact_no">contact Number</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td></tr>
+			 <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
+			  <tr><td align="right"><span adr_trans="label_address">Address</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['address_line1'].", ".$res1['address_line2']; ?></td></tr>
+			   <tr><td align="right"><span adr_trans="label_city">City</span></td><td>:</td><td><?php echo $res1['city']; ?></td></tr>
+			    <tr><td align="right"><span adr_trans="label_state">State</span></td><td>:</td><td><?php echo $res1['state']; ?></td></tr>
+				 <tr><td align="right"><span adr_trans="label_zip_code">Zip Code</span></td><td>:</td><td style="word-break:break-all;"><?php echo $res1['postal_code']; ?></td></tr>
+				  <tr><td align="right"><span adr_trans="label_country">Country</span></td><td>:</td><td><?php echo $res1['country']; ?></td></tr>
+				  <tr><td colspan="3"><hr class="space xs" /></td></tr>
+
+
+				    <tr><td align="right"><span adr_trans="label_last_login">Last Login</span></td><td>:</td><td><?php echo $res1['last_login']; ?></td></tr>
+					<tr><td align="right"><span adr_trans="label_last_login_ip">Last Login IP Address</span></td><td>:</td><td><?php echo $res1['last_login_ip']; ?></td></tr>
+					
+<!-- <tr><td colspan="3" align="center"><a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a></td></tr> -->
 				</tbody>
             </table>
+            <p align="center" style="margin-top:10px;">
+            	<a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a>
+            </p>
                 </div>
             </div>
 
