@@ -38,9 +38,8 @@ if(isset($_REQUEST['loginbtn']))
 
 
 			</div>
-                <div class="col-md-6"  style="padding-top:30px;">
-                    <h5 class="text-center" style="margin-left:-10px;" id="label_company_details" adr_trans="label_company_details">Company details</h5>
-
+                <div class="col-md-6"  style="padding-top:5px;">
+                   
 <?php
 
 $loggedin_id=$_SESSION["admin_loggedin_id"];
@@ -54,7 +53,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
                             <div class="text-success" id="label_profile_update_msg" adr_trans="label_profile_update_msg">Profile information updated successfully</div>
                         </div>
 						<?php }  ?>
-
+<hr class="space m" />
 					<table class="" aria-busy="false" align="center" style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;margin-left:10px;height: 600px;">
 
 
@@ -70,7 +69,9 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 	 else{
  
 	   ?>
-  <tr><td style="width:250px;font-size: 10px;vertical-align: baseline;padding-top: 60px;padding-bottom: 30px" align="right"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /></td><td style="padding-left:15px;padding-right:15px;padding-top: 60px;padding-bottom: 30px"></td><td style="font-size: 20px;padding-top: 60px;padding-bottom: 30px"><?php echo @$res1['organization_name']; ?></td></tr>
+
+	   <tr><td colspan="3" style="padding-top:10px;"> <h5 class="text-center" style="margin-left:-10px;" id="label_company_details" adr_trans="label_company_details">Company details</h5></td></tr>
+  <tr><td style="width:250px;font-size: 10px;vertical-align: baseline;padding-top: 30px;padding-bottom: 30px" align="right"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /></td><td style="padding-left:15px;padding-right:15px;padding-top: 60px;padding-bottom: 30px"></td><td style="font-size: 20px;padding-top: 30px;padding-bottom: 30px"><?php echo @$res1['organization_name']; ?></td></tr>
 	    
 		 <tr><td align="right" style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:15px;padding-right:15px;">:</td><td><?php echo @$res1['organization_branch']; ?></td></tr>
 

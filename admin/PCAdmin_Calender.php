@@ -103,7 +103,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
                   </datalist>
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
 				  </form></td>
-				  <td align="left" style="color:#000;padding-left:20px;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." <br>(Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </td>
+				  <td align="left" style="color:#000;padding-left:20px;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </td>
 				  <td>
 
 
