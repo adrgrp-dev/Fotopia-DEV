@@ -721,7 +721,7 @@ if($user_type=="Photographer")
                &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="photographerCalendar.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } else { ?>
-			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
+			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" onclick="return confirm('Are you sure want to cancel the order?');" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } ?>
 </center>
