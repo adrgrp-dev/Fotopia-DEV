@@ -265,7 +265,7 @@ color:#000!important;
 						<div class="col-md-12" style="width: 100%;background:#FFF;color:#000;opacity:0.8;padding:10px;border:solid 1px #000;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 <center>
-<div class="col-md-9">
+<div class="col-md-12">
 <div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;font-weight:600;padding:10px;"><a href="products.php" id="label_product_price" adr_trans="label_product_price">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px black;background:#ddd;color:#000;font-weight:600;padding:10px;background:#aad1d6;color:#FFF!important;"><a id="label_realtor_custom" adr_trans="label_realtor_custom" href="RealtorProducts.php" style="color:#000!important;">Custom Price for Realtor</a></div>
 <div class="col-md-4" style="border-radius:0px 25px 25px 0px;border:solid 1px;font-weight:600;padding:10px;"><a href="PhotographerProducts.php" id="label_photographer_custom" adr_trans="label_photographer_custom">Custom Price for Photographers</a></div>
