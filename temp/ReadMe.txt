@@ -1,0 +1,1 @@
+This folder will contain temporary images where it will be used to download
