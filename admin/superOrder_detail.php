@@ -2961,7 +2961,7 @@ if (@$_REQUEST['shar']) {
 
                         <div class="panel" id="tab5">
 
-                          <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+                          <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;margin-top: 2px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <link rel="stylesheet" href="../css/style_invoice.css">
         <!-- <script src="script.js"></script> -->
@@ -2980,7 +2980,7 @@ if (@$_REQUEST['shar']) {
          {
          if(@$invoice_check['approved']==0)
           {
-           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -76px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
+           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -81px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
           }
           else {
               echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
@@ -2988,7 +2988,7 @@ if (@$_REQUEST['shar']) {
         }
         else {
 
-            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -80px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
+            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right:10px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
          }
 
           ?>
@@ -3012,33 +3012,32 @@ if (@$_REQUEST['shar']) {
            }
           }
           </script>
-          <table style="margin-left : 30px;width:100%" id="orderInfo">
+          <table style="margin-left : 0px;width:100%">
 
             <tr>
               <th style="width:30%">
-                <p style="font-size:14px" id="label_order_no" adr_trans="label_order_no"><strong>ORDER NO.</strong><br></p>
+                <p style="font-size:14px;text-align:left" id="label_order_no" adr_trans="label_order_no"><strong>ORDER #</strong><br></p>
               </th>
-			  <th style="width:40%;text-align:center" align="center">ORDER COST NO.</th>
+        <th style="width:40%;text-align:center;" align="center">  <p style="font-size:14px;text-align:center" ><strong>ORDER COST NO.</strong><br></p></th>
               <th  style="width:30%" align="right">
-                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:30px;float:right;
+                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:10px;float:right;
         "><strong> DATE OF ISSUE </strong><br></p>
               </th>
             </tr>
             <tr>
               <td style="width:30%" align="left">
-                <p style="font-size:11px;text-align:left;"> <?php echo $id_url; ?></p>
+                <p style="font-size:14px;text-align:left;margin-left: 5px"> <?php echo $id_url; ?></p>
               </td>
-			   <td style="width:40%" align="center">
-                <p style="font-size:11px;text-align:center;"> <?php echo "FOT".@$invoice_check['invoice_id']; ?></p>
+         <td style="width:40%" align="center">
+                <p style="font-size:14px;text-align:center;"> <?php echo "FOT".@$invoice_check['invoice_id']; ?></p>
               </td>
               <td style="width:30%" align="right">
-                <p style="font-size:14px;float:right; margin-right:30px;"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
+                <p style="font-size:14px;float:right;margin-right: 10px"> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
               </td>
             </tr>
           </table>
           <br/><br/>
-          <table style="margin-left : 30px;
-         padding-left : 30px;" id="billedTo">
+          <table style="width:100%!important;margin-left : 0px;" id="billedTo">
 
             <?php
                 $home_sell_id=$get_summary['home_seller_id'];
@@ -3046,13 +3045,16 @@ if (@$_REQUEST['shar']) {
                 $get_id=mysqli_fetch_array($id_fetch);
 
                 if ($get_id['lead_from'] == "realtor") {
+                  $created_Name1=$get_summary["realtor_id"];
+                  $get_created_name_query1=mysqli_query($con,"SELECT * FROM user_login where id=".$created_Name1);
+                  $get_name_create1=mysqli_fetch_assoc($get_created_name_query1);
                 ?>
                 <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong><br></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
-             <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
+                  <th><p style="font-size:11px"><strong><?php  echo @$get_name_create1["organization_name"]; ?> </strong><br></p> </th> </tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
+             <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
 
 
 
@@ -3066,9 +3068,9 @@ if (@$_REQUEST['shar']) {
                   <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong><br></p></th></tr>
                   <tr>
                     <th><p style="font-size:11px"><strong><?php  echo $get_id['name']; ?> </strong><br></p></th></tr>
-                   <tr> <td><p style="font-size:11px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
-                    <tr><td><p style="font-size:11px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
-                    <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
+                   <tr> <td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
+                    <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
+                    <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
 
 
 
@@ -3076,17 +3078,17 @@ if (@$_REQUEST['shar']) {
                 <?php
                 }
                 else {
-                   $created_Name=$get_summary["created_by_id"];
+                  $created_Name=$get_summary["created_by_id"];
                   $get_created_name_query=mysqli_query($con,"SELECT * FROM user_login where id=".$created_Name);
                   $get_name_create=mysqli_fetch_assoc($get_created_name_query);
                   ?>
                   <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong></p></th></tr>
                   <tr>
-                    <th><p style="font-size:11px"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
-                    <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['address_line1']; echo " , ";
+                    <th><p style="font-size:11px"><strong><?php  echo @$get_name_create["organization_name"]?> </strong><br></p></th></tr>
+                    <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                     echo $get_name_create['address_line2']; ?><br></p></td></tr>
-                    <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
-                    <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
+                    <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
+                    <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
                     <br>
                   <?php
                 }
@@ -3096,7 +3098,7 @@ if (@$_REQUEST['shar']) {
 
         <br/><br/>
             <table style="float: right;
-        margin-top: -164px;" id="billedFrom">
+        margin-top: -164px;text-align: right;margin-right: 10px;" id="billedFrom">
             <div >
             <?php
 
@@ -3111,8 +3113,8 @@ if (@$_REQUEST['shar']) {
                 $get_information=mysqli_fetch_assoc($get_photo_info);
 
                 ?>
-    <tr><th><p style="font-size:14px" adr_trans="label_billed_from"><strong> Billed From </strong><br></p></th></tr>
-    <tr><th><p style="font-size:11px"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")"; ?> </strong><br></p></th></tr>
+    <tr><th><p style="font-size:14px;text-align:right" adr_trans="label_billed_from"><strong> Billed From </strong><br></p></th></tr>
+    <tr><th><p style="font-size:11px;text-align:right"><strong><?php  echo $get_information['organization_name']."<br>(".$get_information['organization_number'].")"; ?> </strong><br></p></th></tr>
     <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
     <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
     <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
@@ -3130,11 +3132,20 @@ if (@$_REQUEST['shar']) {
         </header>
         <article>
 
+         <div class="row" style="margin-left: 5px;">
+         <div class="col-md-6" >
+        <p style="color: black;font-style: Manrope-Regular!important;font-size: 11px;"><strong style="font-size: 14px;">PROPERTY ADDRESS</strong><br><?php echo $homeSeller1['address']; ?></p>
+      </div>
+      <div class="col-md-6">
+        <p align="right" style="color: black;font-style: Manrope-Regular!important;font-size: 11px;margin-right: 10px;"><strong style="font-size: 14px;">REFERENCE #</strong><br><?php echo $homeSeller1['reference_number']; ?></p>
+      </div>
+    </div>
+
 
           <br>
           <br>
 
-          <table id="inv_table1" class="inventory" style="width:100%">
+          <table id="inv_table1" class="inventory" border="1" style="width:100%">
             <thead>
               <tr>
                 <th id="inv_th" style="width:10% ;margin-left : 10px;

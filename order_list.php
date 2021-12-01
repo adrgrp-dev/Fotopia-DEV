@@ -204,14 +204,15 @@ min-width:100px!important;
 
                   </span>
 
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
-
-                          Photographer
-
-                  </span>
+                  
                   <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
 
                           Photo Company
+
+                  </span>
+                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+
+                          Photographer
 
                   </span>
                   <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
@@ -358,6 +359,14 @@ min-width:100px!important;
         echo $Home_seller_detail['name'];
 
       ?></td>
+      <?php $pc_admin=$get_order['pc_admin_id'];
+      $get_realtor_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin'");
+     if($get_name=mysqli_fetch_assoc($get_realtor_name_query))
+     {
+      $pc_Name=@$get_name["organization_name"];
+     }
+       ?>
+      <td style=""><?php echo @$pc_Name; ?></td>
 
           <?php
         
@@ -374,14 +383,7 @@ min-width:100px!important;
           <td style="word-break:break-all;"><?php if($photographer_id!=0){echo $photographer_Name;} else{echo 'Not yet selected';} ?>&nbsp;<?php if(@$online==1) { ?>
       <i class="fa fa-comment" style="color:#006600" data-touserid="<?php echo $photographer_id ?>" data-tousername="<?php echo $photographer_Name ?>"></i>
       <?php } ?></td>
-      <?php $pc_admin=$get_order['pc_admin_id'];
-      $get_realtor_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin'");
-     if($get_name=mysqli_fetch_assoc($get_realtor_name_query))
-     {
-      $pc_Name=@$get_name["organization_name"];
-     }
-       ?>
-      <td style=""><?php echo @$pc_Name; ?></td>
+      
         <td style=""><?php echo $get_order['property_address'];?></td>
 
 
@@ -495,16 +497,17 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
                   </span>
 
+                                    <span class="icon fa "></span></th><th style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
+
+                          Photo Company
+
+                  </span>
                   <span class="icon fa "></span></th><th style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                           Photographer
 
                   </span>
-                  <span class="icon fa "></span></th><th style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
 
-                          Photo Company
-
-                  </span>
                   <span class="icon fa "></span></th><th style=""><span class="text" id="label_address" adr_trans="label_address">
 
                           Address
@@ -630,6 +633,14 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
         echo $Home_seller_detail['name'];
 
       ?></td>
+       <?php $pc_admin=$get_order['pc_admin_id'];
+      $get_realtor_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin'");
+     if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
+     {
+      $pc_Name=@$get_name["organization_name"];
+     }
+       ?>
+      <td style=""><?php echo @$pc_Name; ?></td>
 
           <?php
           $photographer_id=$get_order['photographer_id'];
@@ -644,14 +655,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
           <td style="word-break:break-all;"><?php echo @$photographer_Name ?>&nbsp;<?php if(@$online==1) { ?>
       <i class="fa fa-comment" style="color:#006600" data-touserid="<?php echo $photographer_id ?>" data-tousername="<?php echo $photographer_Name ?>"></i>
       <?php } ?></td>
-      <?php $pc_admin=$get_order['pc_admin_id'];
-      $get_realtor_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin'");
-     if(  $get_name=mysqli_fetch_assoc($get_realtor_name_query))
-     {
-      $pc_Name=@$get_name["organization_name"];
-     }
-       ?>
-      <td style=""><?php echo @$pc_Name; ?></td>
+     
         <td style=""><?php echo @$get_order['property_address']; ?></td>
 
           <td style=""><?php echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); ?></td>

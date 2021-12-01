@@ -2238,11 +2238,14 @@ if($get_order1['status_id']==3)
               $get_id=mysqli_fetch_array($id_fetch);
 
               if ($get_id['lead_from'] == "realtor") {
+                 $created_Name1=$get_summary["realtor_id"];
+                  $get_created_name_query1=mysqli_query($con,"SELECT * FROM user_login where id=".$created_Name1);
+                  $get_name_create1=mysqli_fetch_assoc($get_created_name_query1);
               ?>
 			 <table style="width:100%!important;">
               <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
               <tr>
-                <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
+                <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create1["organization_name"]; ?> </strong><br></p> </th> </tr>
                 <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
                 <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
            <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
@@ -2269,7 +2272,7 @@ if($get_order1['status_id']==3)
 				<table style="width:100%!important;">
                 <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
-                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
+                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create["organization_name"];?> </strong><br></p></th></tr>
                   <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
                   <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
@@ -2312,12 +2315,22 @@ if($get_order1['status_id']==3)
 <br /><br />
 
       </header>
+      
+
       <article>
+        <div class="row" style="margin-left: 5px;">
+         <div class="col-md-6" >
+        <p style="color: black;font-style: Manrope-Regular!important;font-size: 11px;"><strong style="font-size: 14px;">PROPERTY ADDRESS</strong><br><?php echo $homeSeller1['address']; ?></p>
+      </div>
+      <div class="col-md-6">
+        <p align="right" style="color: black;font-style: Manrope-Regular!important;font-size: 11px;margin-right: 10px;"><strong style="font-size: 14px;">REFERENCE #</strong><br><?php echo $homeSeller1['reference_number']; ?></p>
+      </div>
+    </div>
 
 
 
 
-        <table id="inv_table1" class="inventory"  style="width:100%;color:#000 !important;font-weight: bold">
+        <table id="inv_table1" class="inventory" border="1" style="width:100%;color:#000 !important;font-weight: bold">
           <thead>
             <tr>
               <th id="inv_th" style="width:10% ;margin-left : 10px;
