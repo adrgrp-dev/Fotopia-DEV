@@ -533,7 +533,7 @@ margin-left:0px!important;
             <div class="col-md-6" style="">
 			<br />
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
-              	<div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
+              	<div id='calendar' style="opacity:0.8;border-radius:5px;"></div>
                 <hr class="space s">
 
                 <center>  <a href="./csrRealtorCalendar.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i> View My Calender</a>    </center>

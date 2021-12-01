@@ -410,7 +410,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
      <!--  calender end -->
     <div class="col-md-6" style="">
         <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
+ <div id='calendar' style="border-radius:5px"></div>
     <br>
 
  <center> <a href="./photographerCalendar.php" class="btn-sm btn" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Calender</a>  </center>

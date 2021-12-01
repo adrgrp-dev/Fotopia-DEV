@@ -108,9 +108,13 @@ color:#000!important;box-shadow:10px 10px 10px 10px #DDD;border-radius:25px;">
 				<style>
 
 							#calendar
+
 				{
+
 				background-color:#FFFFFF;
-				border-radius:25px!important;
+
+				border-radius:10px!important;
+
 				}
 
 				table td[class*="col-"], table th[class*="col-"]
@@ -462,7 +466,7 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
     }
 </script>
 <?php if(@$_REQUEST['Photographer_id']!='') { ?>
-	<div id='calendar'  style="box-shadow:10px 10px 10px 10px #DDD;border:solid 1px #1C83DC;opacity:0.8"></div>
+	<div id='calendar'  style="border-radius:5px"></div>
 <?php } ?>
                 </div>
 

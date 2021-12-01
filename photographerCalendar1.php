@@ -38,9 +38,13 @@ $photographer_name_is=$phDetail['first_name']." ".$phDetail['last_name'];
 				<style>
 
 				#calendar
+
 				{
+
 				background-color:#FFFFFF;
-				border-radius:25px!important;
+
+				border-radius:10px!important;
+
 				}
 
 				table td[class*="col-"], table th[class*="col-"]
@@ -381,7 +385,7 @@ alert(alertmsg);
 
 </script>
 
-	<div id='calendar'  style="box-shadow:10px 10px 10px 10px #DDD;opacity:0.8"></div>
+	<div id='calendar'  style="border-radius:5px"></div>
 
                 </div>
 

@@ -459,7 +459,7 @@ $.ajax({
 </script>
 <br />
 <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="opacity:0.8;border-radius:10px;"></div>
+ <div id='calendar' style="border-radius:5px"></div>
 <hr class="space s">
                 <center>  <a href="CSR_Calendar.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
     </div>

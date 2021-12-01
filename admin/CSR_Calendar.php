@@ -103,9 +103,13 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 
 
 				#calendar
+
 				{
+
 				background-color:#FFFFFF;
-				border-radius:25px!important;
+
+				border-radius:10px!important;
+
 				}
 
 				table td[class*="col-"], table th[class*="col-"]
@@ -417,7 +421,7 @@ businessHours: // specify an array instead
 
 </script>
 
-	<div id='calendar' style="box-shadow:10px 10px 10px 10px #DDD;opacity:0.8"></div>
+	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
 	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">

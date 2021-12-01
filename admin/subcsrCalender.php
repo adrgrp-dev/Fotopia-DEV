@@ -125,7 +125,7 @@ $.ajax({
 
 </script>
 
-	<div id='calendar' style="box-shadow:10px 10px 10px 10px #DDD;border:solid 1px #1C83DC;opacity:0.8"></div>
+	<div id='calendar' style="border-radius:5px"></div>
 
 
 

@@ -63,9 +63,13 @@ $pht = $_SESSION['loggedin_id'];
 
 
 				#calendar
+
 				{
+
 				background-color:#FFFFFF;
-				border-radius:25px!important;
+
+				border-radius:10px!important;
+
 				}
 
 				table td[class*="col-"], table th[class*="col-"]
@@ -401,7 +405,7 @@ $(".fc-scrollgrid-sync-inner").mouseover(function(){
 });*/
 </script>
 
-	<div id='calendar' style="box-shadow:10px 10px 10px 10px #DDD;opacity:0.8"></div>
+	<div id='calendar' style="border-radius:5px"></div>
 
                 </div>
 

@@ -118,9 +118,13 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 
 
 				#calendar
+
 				{
+
 				background-color:#FFFFFF;
-				border-radius:25px!important;
+
+				border-radius:10px!important;
+
 				}
 
 				table td[class*="col-"], table th[class*="col-"]
@@ -432,7 +436,7 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 
 </script>
 
-	<div id='calendar' style="box-shadow:10px 10px 10px 10px #DDD;"></div>
+	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
 	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">

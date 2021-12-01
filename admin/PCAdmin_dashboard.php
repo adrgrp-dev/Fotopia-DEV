@@ -500,7 +500,7 @@ $.ajax({
 <br />
 
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
- <div id='calendar' style="background:#FFF!important;opacity:0.8;border-radius:10px;"></div>
+ <div id='calendar' style="background:#FFF!important;border-radius:5px;"></div>
   <hr class="space s">
                 <center>  <a href="PCAdmin_calender.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
     </div>
