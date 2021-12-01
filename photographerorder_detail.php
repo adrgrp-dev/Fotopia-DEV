@@ -1178,7 +1178,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                }
                                else{
-                                 alert("Select atleast one image to Download");
+                                 alert("Select atleast one picture to Download");
                                  return false;
                                }
                              }
@@ -1191,7 +1191,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                               }
                               else{
-                                alert("Select atleast one image to Download ");
+                                alert("Select atleast one picture to Download ");
                                 return false;
                               }
                             }
@@ -1203,7 +1203,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                 $(".comment").Attr("required");
                              }
                              else{
-                               alert("Select atleast one image to Download ");
+                               alert("Select atleast one picture to Download ");
                                return false;
                              }
                             }
@@ -1215,7 +1215,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                 $(".comment").Attr("required");
                              }
                              else{
-                               alert("Select atleast one image to Download ");
+                               alert("Select atleast one picture to Download ");
                                return false;
                              }
                             }
@@ -1568,12 +1568,12 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                        ?>
                                                <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                <hr class="space s">
-                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "hidden";}?>"><input type="button" class="btn adr-save btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
                                                      </div>
                                                   </div>
 
                                                 </div>
-                                                 <center class=""><input type="button" class="btn btn-primary btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
 
                                             </div>
 
@@ -1720,12 +1720,12 @@ header("location:photographerDashboard.php?private=1"); exit;
                                                          ?>
                                                  <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                  <hr class="space s">
-                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="hiddens"><input type="button" class="btn btn-success" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "hidden";}?>"><input type="button" class="btn adr-save" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
                                                        </div>
                                                     </div>
 
                                                   </div>
-                                                   <center class=""><input type="button" class="btn btn-primary btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
                                               </div>
                                               <?php
                                              }

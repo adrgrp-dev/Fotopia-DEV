@@ -951,7 +951,7 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
 				   <?php
                 }
                ?>
-<p align="center" style="padding-top:3px;width:75px!important;word-break:break-all;font-size: 13px;"><?php echo strtoupper(substr($photo1['organization_name'],0,8)); ?>
+<p align="center" style="padding-top:3px;width:120px!important;word-break:break-word;font-size: 13px;"><?php echo strtoupper($photo1['organization_name']); ?>
  </p>
 
 
@@ -1001,7 +1001,7 @@ $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="s
 
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
 				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="<?php if( $photo1['logo_image_url']!='') { echo $photo1['logo_image_url']; } else { echo "photo-not-available.png"; } ?>" width="120" height="100"  style="max-width: 70px;"/><i class="fa fa-heart-o close" style="position:absolute;top:80px;right:0px;;background:white;color:#aad1d6;font-weight:700;padding:2px;" title="Add to wishlist"  onClick="addToWishList1(<?php  echo $loggedin_id; ?>,<?php echo $photo1['pc_admin_id'];?>)"></i>
-<p align="center" style="padding-top:3px;width:75px!important;word-break:break-all;font-size: 13px;"><?php echo strtoupper(substr($photo1['organization_name'],0,8)); ?>
+<p align="center" style="padding-top:3px;width:120px!important;word-break:break-word;font-size: 13px;"><?php echo strtoupper($photo1['organization_name']); ?>
  </p>
 
 
