@@ -380,16 +380,71 @@ $loggedin_id=$_SESSION['admin_loggedin_id'];
 
 if($_SESSION['admin_loggedin_type'] == 'PCAdmin')
 {
+ $count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or pc_admin_id='$loggedin_id') and (pc_admin_read=0)";
+                  $count_result=mysqli_query($con,$count_query);
+          $data=mysqli_fetch_assoc($count_result);
+                  $countIs=$data['total'];
+
 ?>
 
       <a href="pc_admin_activity.php" >
-<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
+
+<span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
+
+<i class="p3 fa fa-bell-o fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
+</span>
+
+<style>
+.p1[data-count]:after{
+position:absolute;
+right:35%;
+top:15%;
+content: attr(data-count);
+font-size:35%;
+padding:4%;
+border-radius:50%;
+line-height:100%;
+color: white;
+background:rgba(255,0,0,.85);
+text-align:center;
+min-width: 20%;
+font-weight:bold;
+}
+</style>
 </a>
 <?php }
-elseif ($_SESSION['admin_loggedin_type'] == 'CSR') { ?>
+elseif ($_SESSION['admin_loggedin_type'] == 'CSR') {
+
+$count_query="select count(*) as total from user_actions where (action_done_by_id='$loggedin_id' or csr_id='$loggedin_id') and (csr_read=0)";
+                  $count_result=mysqli_query($con,$count_query);
+          $data=mysqli_fetch_assoc($count_result);
+                  $countIs=$data['total'];
+
+
+ ?>
   <a href="csr_activity.php" >
-<i class="fa fa-bell-o fa-1x" style="color:#000;margin-left:5px;"  aria-hidden="true"></i>
-</a>
+<span class="p1 fa-stack fa-2x has-badge" data-count="<?php echo $countIs; ?>">
+
+<i class="p3 fa fa-bell-o fa-stack-1x xfa-inverse" style="width:fit-content;color:#000!important" data-count="4b"></i>
+</span>
+
+<style>
+.p1[data-count]:after{
+position:absolute;
+right:35%;
+top:15%;
+content: attr(data-count);
+font-size:35%;
+padding:4%;
+border-radius:50%;
+line-height:100%;
+color: white;
+background:rgba(255,0,0,.85);
+text-align:center;
+min-width: 20%;
+font-weight:bold;
+}
+</style></a>
 <?php }
 
 else { ?>
