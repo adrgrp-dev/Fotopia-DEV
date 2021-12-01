@@ -331,7 +331,7 @@ $("#dayVal").val(calid);
                      $editor_name_split=explode("@",$editor_email);
                      $editor_name=@$editor_name_split[0];
                       ?>
-                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;"> Share Dashboard</p>
+                      <p align="center" style="font-size: large;color: #000;margin-top: 10px;"> Shared Pictures</p>
 
                     </div>
                 </div>
@@ -345,11 +345,11 @@ $("#dayVal").val(calid);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js" integrity="sha512-UNbeFrHORGTzMn3HTt00fvdojBYHLPxJbLChmtoyDwB6P9hX5mah3kMKm0HHNx/EvSPJt14b+SlD8xhuZ4w9Lg==" crossorigin="anonymous"></script>
 
  <div class="section-empty">
-   <hr class="space l">
+   
         <div class="container-fluid" style="margin-left:0px;height:inherit;">
             <div class="row">
               <div class="col-md-12"><center style="color:black;font-size:20px"></center></div>
-			<hr class="space l">
+			<hr class="space xs">
 
       <div class="col-md-1">
       </div>
@@ -386,9 +386,10 @@ $("#dayVal").val(calid);
 
 
 
-                <div class="col-md-10">
+                <div class="col-md-12">
 
-<div class="tab-box"  data-tab-anima="show-scale" style="width:85%;padding-left: 200px;">
+<div class="tab-box"  data-tab-anima="show-scale" style="width:100%;padding-left: 20px;">
+
 <ul class="nav nav-tabs nav-justified" style="">
 <li class=" active "><a href="#" class="">Shared Images</a>
 
@@ -397,10 +398,15 @@ $("#dayVal").val(calid);
 <?php } ?>
 
 </ul>
+<hr class="space xs">
 <div class="panel active" style="border: 1px solid black;border-radius: 5px;">
-    <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -48px;right: -15px;"> share</button>
+    <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -55px;right: -15px;"> share
+</button>
+
+	
   <div class="maso-list gallery">
-    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+  
+    <div class="maso-box row no-margins" data-options="anima:fade-in">
 
       <?php
       $imagesDirectory = "./finished_images/order_".$id_url."/".$service;
@@ -418,7 +424,7 @@ $("#dayVal").val(calid);
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
           ?>
-                  <div data-sort="1" class=" col-md-4 cat1" style="visibility: visible; height:fit-content; padding:2px 2px;">
+                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:2px 2px;">
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);

@@ -6539,3 +6539,8 @@ background:#FFF;
 color:#000;
 border-radius:5px!important;
 }
+.dropdown-toggle:focus
+{
+border:none!important;
+
+}
