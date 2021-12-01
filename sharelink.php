@@ -254,8 +254,9 @@ foreach(glob($dir . '/*') as $file) {
     <style>
 	.adr-save
 	{
-	background:#0275d8!important;
-	border-color:#0275d8!important;
+	background:#aad1d6!important;
+	border-color:#aad1d6!important;
+    color: #000 !important;
 	}
 	.adr-cancel
 	{
@@ -318,7 +319,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
-						<span style="display:ineline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						<span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
                     </div>
                     <?php
@@ -326,7 +327,7 @@ $("#dayVal").val(calid);
                      $editor_name_split=explode("@",$editor_email);
                      $editor_name=@$editor_name_split[0];
                       ?>
-                      <p align="center" style="font-size: x-large;color: #ffffff;margin-top: 10px;"> Share Dashboard</p>
+                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;"> Share Dashboard</p>
 
                     </div>
                 </div>
@@ -388,12 +389,12 @@ $("#dayVal").val(calid);
 <li class=" active "><a href="#" class="">Shared Images</a>
 
     <?php if(@$_REQUEST['d']!=1){?>
-  <button href="#tnc" class="btn btn-default lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="position: absolute;top: 10px;right: 12px;"> share</button></li>
+  </li>
 <?php } ?>
 
 </ul>
-<div class="panel active" style="border-radius: 0px 0px 10px 10px;">
-
+<div class="panel active" style="border: 1px solid black;border-radius: 5px;">
+    <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -48px;right: -15px;"> share</button>
   <div class="maso-list gallery">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
 
@@ -468,7 +469,7 @@ $("#dayVal").val(calid);
    <input type="hidden" name="Order_ID" value="<?php echo $id_url; ?>">
 
      <?php if(@$_REQUEST['d']==1){?>
-     <input type="submit" class="btn btn-default btn-sm done" name="ZIP" value="Download" style="margin-top:10px;" >
+     <input type="submit" class="btn adr-save btn-sm done" name="ZIP" value="Download" style="margin-top:10px;" >
    <?php } ?>
  </form>
 
@@ -491,7 +492,7 @@ $("#dayVal").val(calid);
         <input type="hidden" name="link1" id="link" value="<?php echo "secret_code=".$secret?>">
         <!-- <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  /> -->
         <hr class="space s">
-        <center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
+        <center><button class="btn adr-save" style="color:#000" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
         </form>
         <hr class="space l">
 
