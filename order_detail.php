@@ -1439,7 +1439,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="Select atleast one image to Download or Rework";
 		}
 alert(alertmsg);
      return false;
@@ -1462,7 +1462,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="Select atleast one image to Download or Rework";
 		}
 alert(alertmsg);
     return false;
@@ -1484,7 +1484,7 @@ function check3(){
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="Select atleast one image to Download or Rework";
 		}
 alert(alertmsg);
    return false;
@@ -1506,7 +1506,7 @@ function check4(){
 		}
 		else
 		{
-		alertmsg="click one image to download or rework";
+		alertmsg="Select atleast one image to Download or Rework";
 		}
 alert(alertmsg);
    return false;

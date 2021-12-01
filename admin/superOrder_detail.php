@@ -1644,7 +1644,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download , delete or rework";
+		alertmsg="Select at least one picture to Download or Delete or Rework";
 		}
 alert(alertmsg);
                        return false;
@@ -1667,7 +1667,7 @@ alert(alertmsg);
 		}
 		else
 		{
-		alertmsg="click one image to download , delete or rework";
+		alertmsg="Select at least one picture to Download or Delete or Rework";
 		}
 alert(alertmsg);
                       return false;
@@ -2226,7 +2226,7 @@ alert(alertmsg);
                       <input type="hidden" id="count4"/>
                       <?php if($get_summary['status_id']!=3&&$get_summary['status_id']!=1)
                       {?>
-                      <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
+                      <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn adr-save" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
                     <?php }
                     elseif($get_summary['status_id']==3) {?>
                         <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;margin-top: 5px;margin-right: 5px;" >Reopen</a><br><br>

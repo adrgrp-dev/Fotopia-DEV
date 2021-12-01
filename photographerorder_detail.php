@@ -1178,7 +1178,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                }
                                else{
-                                 alert("click one image to download");
+                                 alert("Select atleast one image to Download");
                                  return false;
                                }
                              }
@@ -1191,7 +1191,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                               }
                               else{
-                                alert("click one image to download ");
+                                alert("Select atleast one image to Download ");
                                 return false;
                               }
                             }
@@ -1203,7 +1203,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                 $(".comment").Attr("required");
                              }
                              else{
-                               alert("click one image to download ");
+                               alert("Select atleast one image to Download ");
                                return false;
                              }
                             }
@@ -1215,7 +1215,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                                 $(".comment").Attr("required");
                              }
                              else{
-                               alert("click one image to download ");
+                               alert("Select atleast one image to Download ");
                                return false;
                              }
                             }
