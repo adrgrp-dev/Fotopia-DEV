@@ -288,6 +288,10 @@ background:#000 !important;
 opacity:1!important;
 
 }
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus
+{
+border:none!important;
+}
 	</style>
 
 <script>
