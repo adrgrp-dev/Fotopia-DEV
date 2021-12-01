@@ -216,7 +216,7 @@ $get_content = @$get_email_content1['template_body_text'];
   // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
 
-  header("location:superOrder_detail.php?id=".$id_url."&ff=1");
+  header("location:superOrder_detail.php?id=".$id_url."&ff=1&shar=".$_REQUEST['email']);
 }
  // echo $mail->Body;
  //  exit;
@@ -2224,6 +2224,31 @@ alert(alertmsg);
                       <input type="hidden" id="count2"/>
                       <input type="hidden" id="count3"/>
                       <input type="hidden" id="count4"/>
+
+<div class="row" style="padding-top:10px;">
+ 
+ <div class="col-md-2">&nbsp;</div> 
+
+ <div class="col-md-7">
+
+<?php 
+
+if (@$_REQUEST['shar']) {
+?>
+
+<p align="center" style="color:green;font-style: italic;margin-bottom:-10px ;">
+
+<?php echo "Pictures shared successfully to ".$_REQUEST['shar']; ?>
+
+</p>
+ 
+<?php } ?>
+
+</div> 
+
+ <div class="col-md-3" style="float:right">
+
+
                       <?php if($get_summary['status_id']!=3&&$get_summary['status_id']!=1)
                       {?>
                       <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn adr-save" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
@@ -2236,6 +2261,9 @@ alert(alertmsg);
                             echo '<script>$("#done_hide").hide();</script>';
                          }
                           ?>
+
+                        </div>
+                      </div>
                   <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php //echo $id_url; ?>)"  value="Mark as Complete"></p> -->
 
                                 <div class="tab-box pills" data-tab-anima="fade-right">

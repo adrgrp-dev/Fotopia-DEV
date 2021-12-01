@@ -88,6 +88,10 @@ $raw_images=mysqli_fetch_assoc($get_raw_images);
   		echo $e->getMessage();
   	    echo "Mailer Error: " . $mail->ErrorInfo;
   	}
+
+header("location:sharelink.php?secret_code=".$secret."&shar=".$_REQUEST['email']);
+
+
   }
 
 
@@ -384,7 +388,18 @@ $("#dayVal").val(calid);
        }
        ?>
 
+<?php 
 
+if (@$_REQUEST['shar']) {
+?>
+
+<p align="center" style="color:green;font-style: italic;margin-bottom:-10px ;">
+
+<?php echo "Pictures shared successfully to ".$_REQUEST['shar']; ?>
+
+</p>
+ 
+<?php } ?>
 
                 <div class="col-md-12">
 
@@ -399,6 +414,8 @@ $("#dayVal").val(calid);
 
 </ul>
 <hr class="space xs">
+
+
 <div class="panel active" style="border: 1px solid black;border-radius: 5px;">
     <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -55px;right: -15px;"> share
 </button>

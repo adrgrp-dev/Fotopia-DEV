@@ -100,7 +100,7 @@ $xyz123=0;
 // echo $mail->Body;
 // exit;
 
-    header("location:order_detail.php?id=".$id_url."&f=1");
+    header("location:order_detail.php?id=".$id_url."&f=1&shar=".$_REQUEST['email1']);
 
 
   }
@@ -410,7 +410,7 @@ if(isset($_REQUEST['rework']))
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
     $file="rework_images/order_".$id_url."/".$data1[2]."/".$get_image['img'];
   rename($file1,$file);
-  header("location:order_detail.php?id=".$id_url."&f=1");
+  header("location:order_detail.php?id=".$id_url."&f=1&rew=1");
   }
 
   $comment=@$_REQUEST['comment'];
@@ -1547,15 +1547,60 @@ $('.input'+iconid1).css("visibility","hidden");
             <input type="hidden" id="count2"/>
             <input type="hidden" id="count3"/>
             <input type="hidden" id="count4"/>
-         <p align="right">
-           <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
-              <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p>
+
+
+
+
+<div class="row" style="padding-top:10px;">
+ 
+ <div class="col-md-2">&nbsp;</div> 
+
+ <div class="col-md-7">
+
+<?php 
+
+if (@$_REQUEST['rew']) {
+?>
+  <p align="center" style="color:green;font-style: italic;">Selected pictures sent for rework successfully</p>
+ 
+<?php } ?>
+
+<?php 
+
+if (@$_REQUEST['shar']) {
+?>
+
+<p align="center" style="color:green;font-style: italic;margin-bottom:-10px ;">
+
+<?php echo "Pictures shared successfully to ".$_REQUEST['shar']; ?>
+
+</p>
+ 
+<?php } ?>
+
+</div> 
+
+ <div class="col-md-3" style="float:right">
+
+
+  <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
+              <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete">
             <?php } ?>
-            <?php if($get_summary['status_id']==3)
+
+ <?php if($get_summary['status_id']==3)
             {
                echo '<script>$("#done_hide").hide();</script>';
             }
              ?>
+
+
+          </div> 
+
+
+</div>
+        
+           
+           
 			 <br />
                       <div class="tab-box pills" data-tab-anima="fade-right">
                           <ul class="nav nav-pills nav-justified">
@@ -1578,15 +1623,16 @@ $('.input'+iconid1).css("visibility","hidden");
                                   <div class="col-md-3" style="display:inline-block">
                                     <input type="checkbox" id="remove" onclick="selectAllImages()">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
                                   </div>
+                                  
                                   <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
-                                  </div>
+                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
+                                </div>
                                 <div class="col-md-3" style="display:inline-block">
                                   <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                 </div>
                                 <div class="col-md-3" style="display:inline-block">
-                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
-                                </div>
+                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
+                                  </div>
                               </div>
                               <div class="row">
                                 <div class="col-md-12">
@@ -1701,7 +1747,7 @@ $('.input'+iconid1).css("visibility","hidden");
                               ?>
 
 
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
@@ -1734,14 +1780,14 @@ $('.input'+iconid1).css("visibility","hidden");
                                        <input type="checkbox" id="remove2" onclick="selectAllImages2()"><b adr_trans="label_select_all">Select All</b></input>
                                      </div>
                                      <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
-                                     </div>
-                                   <div class="col-md-3" style="display:inline-block">
-                                     <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
-                                   </div>
-                                   <div class="col-md-3" style="display:inline-block">
                                      <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
                                    </div>
+                                   <div class="col-md-3" style="display:inline-block">
+                                     <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
+                                   </div>                                   
+                                   <div class="col-md-3" style="display:inline-block">
+                                    <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
+                                     </div>
                                  </div>
                                  <div class="row">
                                    <div class="col-md-12">
@@ -1853,7 +1899,7 @@ $('.input'+iconid1).css("visibility","hidden");
                               }
                               ?>
 
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
 
@@ -1979,7 +2025,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment23"  value="" placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment23"  value="" placeholder="Enter the comment " style="display: none;"  /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/Drone_photos"; ?>">
 
@@ -2105,7 +2151,7 @@ $('.input'+iconid1).css("visibility","hidden");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment24"  value="" placeholder="Enter the comment " style=""  required /></center>
+                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment24"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/hdr_photos"; ?>">
 

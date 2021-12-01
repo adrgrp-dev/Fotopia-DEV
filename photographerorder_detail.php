@@ -93,7 +93,7 @@ Fotopia Team.
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	}
 
-  header("location:photographerorder_detail.php?id=".$id_url."&fixed=1");
+  header("location:photographerorder_detail.php?id=".$id_url."&fixed=1&&shar=".$_REQUEST['email1']);
 
 }
 
@@ -2320,6 +2320,18 @@ function printPage()
                                                          $get_link=mysqli_fetch_array($raw_images_query);
 
                                                     ?>
+                                                    <?php 
+
+if (@$_REQUEST['shar']) {
+?>
+
+<p align="center" style="color:green;font-style: italic;margin-bottom:-10px ;">
+
+<?php echo "Pictures shared successfully to ".$_REQUEST['shar'] ?>
+
+</p>
+ <br />
+<?php } ?>
                                                        <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
                                                            <div class="row" style="margin-left:20px;margin-bottom: 16px;">
                                                              <div class="col-md-3" style="display:inline-block">
