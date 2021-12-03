@@ -1417,8 +1417,8 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
   				<br />
   				<div class="col-md-12">
 				
-	<iframe width="400" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
+	<iframe width="500" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=Danholmen+25-3128+Notteroy+Norway&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
 <!--
 <iframe width="500" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?q=Danholmen+25-3128+Notteroy+Norway&key=AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI"></iframe>-->
