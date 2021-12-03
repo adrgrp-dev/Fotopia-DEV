@@ -1407,7 +1407,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_homeseller_email" adr_trans="label_homeseller_email">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];
 							
-	$propAddress=$get_summary['property_address']." ".$get_summary['property_city']." ".$get_summary['property_state']." Norway ".$get_summary['property_zip'];	
+	$propAddress=$get_summary['property_address']." ".$get_summary['property_zip']." ".$get_summary['property_city']." Norway ";	
 	$propAddress=str_replace(",","",$propAddress);
 	$propAddress=str_replace(" ","+",$propAddress);					
 							?></td>
