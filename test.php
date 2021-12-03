@@ -1,5 +1,15 @@
 <?php 
 
+$fi = new FilesystemIterator("./raw_images/order_80", FilesystemIterator::SKIP_DOTS);
+
+$fileCount = 0;
+foreach ($fi as $f) {
+    if ($f->isFile()) {
+        $fileCount++;
+    }
+}
+echo("There were %d Files".$fileCount);
+exit;
 $array = str_split("512990856326512987150086512990852250", 12);
 
 

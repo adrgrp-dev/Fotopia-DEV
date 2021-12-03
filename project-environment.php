@@ -13,11 +13,12 @@ $emailHost='smtp.office365.com';
 $emailUserID='test.deve@adrgrp.com';
 $emailPassword='Adrgrp@2021';
 $emailPort = 587;
+$googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
 
 //$emailHost='smtp.gmail.com';
 //$emailUserID='test.deve@adrgrp.com';
 //$emailPassword='adrgrp@123';
-
+$_SESSION['googleMapApiKey']=$googleMapApiKey;
 $_SESSION['emailHost']=$emailHost;
 $_SESSION['emailUserID']=$emailUserID;
 $_SESSION['emailPassword']=$emailPassword;

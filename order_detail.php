@@ -1405,12 +1405,24 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
                             </tr>
 
                             <tr>
-                            <td align="right" style="font-size: 10px;" id="label_homeseller_email" adr_trans="label_homeseller_email">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];?></td>
+                            <td align="right" style="font-size: 10px;" id="label_homeseller_email" adr_trans="label_homeseller_email">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];
+							
+	$propAddress=$get_summary['property_address']." ".$get_summary['property_city']." ".$get_summary['property_state']." Norway ".$get_summary['property_zip'];	
+	$propAddress=str_replace(",","",$propAddress);
+	$propAddress=str_replace(" ","+",$propAddress);					
+							?></td>
                             </tr>
 
   				</table>
   				<br />
-  				<div class="col-md-12" id="googleMap" style="width:100%;height:240px;"></div>
+  				<div class="col-md-12">
+				
+	<iframe width="400" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
+<!--
+<iframe width="500" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=Danholmen+25-3128+Notteroy+Norway&key=AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI"></iframe>-->
+				</div> 
 
   <script>
   function myMap() {
