@@ -1452,7 +1452,8 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
 
                 <div class="col-md-12">
                                 <p id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</p>
-                     <input id="notes" name="notes" placeholder="enter the notes" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['booking_notes']; ?>" <?php //if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                     <textarea rows="5" cols="50" id="notes" name="notes" class="form-control form-value" required><?php echo @$order_fetch['booking_notes']; ?></textarea>
+
 					 <input type="hidden" name="appointments_exist" id="appointments_exist" value="0" />
                 </div>
 
