@@ -923,14 +923,14 @@ $("#country").css("border","solid 1px grey");
                             </div>
 
 
-							<div class="col-md-6">
+							<div class="col-md-6" style="display:none">
                                <br>
-                                <input id="terms" name="terms" type="checkbox" class=" form-value" required="" />&nbsp;&nbsp;<span id="label_accept" adr_trans="label_accept">Accept our</span>
+                                <input id="terms" name="terms" type="checkbox" class=" form-value" checked="checked"/>&nbsp;&nbsp;<span id="label_accept" adr_trans="label_accept">Accept our</span>
                                 <a href="#tnc" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" id="label_terms" adr_trans="label_terms">Terms & Conditions</a><br />
                             </div>
 
 
-							<div class="col-md-12">
+							<div class="col-md-6">
                                 <p id="label_confirm_captcha" adr_trans="label_confirm_captcha">Confirm Captcha</p>
                                <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_" data-callback="verifyCaptcha"></span>
         <span id="error"></span>

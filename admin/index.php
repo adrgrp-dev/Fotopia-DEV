@@ -153,7 +153,7 @@ header("location:PCAdmin_dashboard.php");
                         <div class="row">
                             <div class="col-md-6">
                                 <p id="label_email" adr_trans="label_email">Email</p>
-                                <input id="email" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required="">
+                                <input id="email" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim()">
                             </div>
 							</div>
 							 <div class="row">
