@@ -1263,7 +1263,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 			 {
 			 $photographers=mysqli_query($con,"select * from user_login where id='$_REQUEST[Photographer_id]'");
 			 $photographers1=mysqli_fetch_array($photographers);
-			 $photographersNameIs=$photographers1['first_name'];
+			 $photographersNameIs=$photographers1['first_name']." ".$photographers1['last_name'];
 			 }
 
 
@@ -1280,7 +1280,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
 
 
-	   <input list="photocompanies" name="pht" class="form-control form-value" id="phtcompany"  value="<?php echo strtoupper(@$photoCompanyNameIs); ?>"  type="text"   placeholder="Select Photo company" autocomplete="off" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?> />
+	   <input list="photocompanies" name="pht" class="form-control form-value" id="phtcompany"  value="<?php echo strtoupper(@$photoCompanyNameIs); ?>"  type="text"   placeholder="Select Photo company" autocomplete="off" readonly />
         <datalist id="photocompanies">
  	 <option value="" id="label_select_photo_company" adr_trans="label_select_photo_company">Select a Photo Company</option>
 
@@ -1342,7 +1342,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
          $Photographers_list=mysqli_query($con,$photographers);
          while($Photographers_list1=mysqli_fetch_assoc($Photographers_list))
         {?>
-                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo $Photographers_list1["first_name"];?>" <?php if($Photographers_list1["id"]==@$_REQUEST['Photographer_id'] || $Photographers_list1["id"]==@$order_fetch['Photographer_id']) { echo "selected"; } ?>></option>
+                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo $Photographers_list1["first_name"]." ".$Photographers_list1["last_name"];?>" <?php if($Photographers_list1["id"]==@$_REQUEST['Photographer_id'] || $Photographers_list1["id"]==@$order_fetch['Photographer_id']) { echo "selected"; } ?>></option>
                   <?php } ?>
                     <!-- </select> -->
                   </datalist>
@@ -1463,9 +1463,15 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
                               <div id="appointments_exist_error" class="text-danger" style="display:none"></div>
 </center>
 
+                     <?php 
+                     $edit="";
+                     if(isset($_REQUEST['edit']))
+                     {
+                     	$edit="&u=1";
+                     }
+                     ?>
 
-
-                     <a  id="label_back" adr_trans="label_back" class="anima-button circle-button btn-sm btn adr-cancel" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&u=1&od=<?php echo @$_REQUEST['od']; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i>Back</a>
+                     <a  id="label_back" adr_trans="label_back" class="anima-button circle-button btn-sm btn adr-cancel" href="create_order.php?hs_id=<?php echo @$_REQUEST['hs_id']; ?>&pc_admin_id=<?php echo @$_REQUEST['pc_admin_id']; ?>&Photographer_id=<?php echo @$_REQUEST['Photographer_id']; ?>&od=<?php echo @$_REQUEST['od'].$edit; ?>" style="float:left;margin-left:20px;"><i class="fa fa-chevron-circle-left"></i>Back</a>
 					 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="save_appointment" style="float:right;margin-right:20px;" ><i class="fa fa-chevron-circle-right"></i><span id="label_next" adr_trans="label_next">Next</span></button>
 
              </div>
