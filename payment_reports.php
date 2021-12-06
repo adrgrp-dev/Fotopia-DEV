@@ -36,8 +36,8 @@ if(isset($_REQUEST['loginbtn']))
                   <div class="col-md-12">
 
                          <ul class="nav nav-pills" style="margin-left:20px;">
-                              <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm " adr_trans="label_order_reports">Order Report</a></li>
-                              <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;" adr_trans="label_payment_report">Payment Report</a></li>
+                              <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_order_reports">Order Report</a></li>
+                              <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm adr-save"   adr_trans="label_payment_report">Payment Report</a></li>
                                 </ul>
 <br />
 <script>
@@ -131,8 +131,11 @@ if(!empty($_REQUEST['pcfilter'])){
 </div>
 
 </form>
+<div style="margin-top: 5px;width:96%;border:solid 1px #000;background-color:white">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                              <table id="dataTable" class=" table-striped" style="width:100%;
+                              <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.9;width:96%;">
+
+
                                     <thead>
 			<tr class="text-center"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
                                         <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
@@ -514,13 +517,14 @@ if(!empty($_REQUEST['pcfilter'])){
                              ?>
                             <td class="text-center" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
-                            <td class="text-center" style=""><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
+                            <td class="text-center" style="padding-right: 10px;"><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
 
                             </tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
                                 </table>
                               </div>
+                            </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

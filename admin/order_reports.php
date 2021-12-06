@@ -43,9 +43,9 @@ if(isset($_REQUEST['label_search']))
                   <div class="col-md-12">
 
                           <ul class="nav nav-pills" style="margin-left:20px;">
-                              <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
-                              <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" class="btn btn-default btn-sm ">Appointment Report</a></li>
-                              <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" class="btn btn-default btn-sm ">Payment Report</a></li>
+                              <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm adr-save ">Order Report</a></li>
+                              <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" style="background:#FFF!important;color:#000!important;" class="btn btn-default btn-sm ">Appointment Report</a></li>
+                              <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" style="background:#FFF!important;color:#000!important;" class="btn btn-default btn-sm ">Payment Report</a></li>
                                 </ul>
 
 
@@ -610,23 +610,23 @@ $res="";
 
 
 
-															<script type="text/javascript">
-																		 function Orders(){
-																			html2canvas($('#dataTable')[0], {
-																					onrendered: function (canvas) {
-																							var data = canvas.toDataURL();
-																							var docDefinition = {
-																									content: [{
-																											image: data,
-																											width: 500
-																									}]
-																							};
-																							pdfMake.createPdf(docDefinition).download("Order_reports.pdf");
-																					}
-																			});
-																		}
+														<script type="text/javascript">
+                                     function Orders(){
+                                      html2canvas($('#dataTable')[0], {
+                                          onrendered: function (canvas) {
+                                              var data = canvas.toDataURL();
+                                              var docDefinition = {
+                                                  content: [{
+                                                      image: data,
+                                                      width: 500
+                                                  }]
+                                              };
+                                              pdfMake.createPdf(docDefinition).download("Order_reports.pdf");
+                                          }
+                                      });
+                                    }
 
-															</script>
+                              </script>
                           </div>
 
 

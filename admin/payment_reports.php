@@ -52,9 +52,9 @@ if(isset($_REQUEST['loginbtn']))
                   <div class="col-md-12" style="width:100%;">
 
                          <ul class="nav nav-pills" style="margin-left:20px;">
-                              <li class="active"><a id="label_order_report" adr_trans="label_order_report" href="order_reports.php" class="btn btn-default btn-sm ">Order Report</a></li>
-                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="appointment_reports.php" class="btn btn-default btn-sm ">Appointment Report</a></li>
-                              <li class="active"><a id="label_payment_report" adr_trans="label_payment_report" href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Payment Report</a></li>
+                              <li class="active"><a id="label_order_report" adr_trans="label_order_report" href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
+                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="appointment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
+                              <li class="active"><a id="label_payment_report" adr_trans="label_payment_report" href="payment_reports.php" class="btn btn-default btn-sm adr-save ">Payment Report</a></li>
                                 </ul>
 <br />
 <script>

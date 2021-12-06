@@ -35,9 +35,9 @@ if(isset($_REQUEST['loginbtn']))
                   <div class="col-md-12" >
 
                           <ul class="nav nav-pills" style="margin-left:20px;">
-                              <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;" adr_trans="label_order_reports">Order Report</a></li>
+                              <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm adr-save"  adr_trans="label_order_reports">Order Report</a></li>
 
-                              <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm " adr_trans="label_payment_report">Payment Report</a></li>
+                              <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_payment_report">Payment Report</a></li>
 														</ul>
 
 <script>
@@ -142,10 +142,10 @@ $realtorID=$_SESSION['loggedin_id'];
 								</div>
 </div>
 </form>
-
+<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden  ">
 
-                            <table id="dataTable" align="center" class="table-striped" style="width:100%;">
+                            <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
 						<tr><th colspan="8" align="center"><center><b adr_trans="label_order_reports"><br />Order Reports<br /></b></center></th></tr>
                                       <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
@@ -480,13 +480,14 @@ $res="";
                           ?>
 
                           <!-- <td class="text-center" style=""><?php echo $created_name; ?></td> -->
-                          <td class="text-center" style="width:70px"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
+                          <td class="text-center" style="width:70px;padding-right: 10px;"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
 												<?php }} ?>
                               </table>
                             </div>
+                          </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
 																	<ul class="pagination">

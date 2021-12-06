@@ -39,9 +39,9 @@ if(isset($_REQUEST['label_search']))
                   <hr class="space s">
                   <div class="col-md-12">
                            <ul class="nav nav-pills" style="margin-left:20px;">
-                              <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm ">Order Report</a></li>
-                              <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
-                              <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" class="btn btn-default btn-sm ">Payment Report</a></li>
+                              <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
+                              <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" class="btn btn-default btn-sm adr-save " >Appointment Report</a></li>
+                              <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Payment Report</a></li>
                                 </ul>
 
 <br />
