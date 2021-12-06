@@ -223,6 +223,11 @@ a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-
   color: #000 !important;
 
 } 
+#MenuList .active
+{
+z-index:999;
+opacity:1!important;
+}
 	</style>
 
 <script>
@@ -343,7 +348,7 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 							?>
 
 
-                        <ul class="nav navbar-nav over mega-menu-fullwidth">
+                        <ul class="nav navbar-nav over mega-menu-fullwidth" id="MenuList">
                             <li class="dropdown current-active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:#000!important;"><span adr_trans="label_hi" style="text-transform:none!important;font-weight:bold;font-size:12px;">Hi,</span> <?php echo $loggedin_name; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">

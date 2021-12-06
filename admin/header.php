@@ -147,6 +147,12 @@ $page="subcsr_dashboard.php";
 {
 border-radius:25px!important;
 }
+#MenuList .active
+{
+z-index:999;
+opacity:1!important;
+}
+
 </style>
 	<script>
 function validate_email(val)
@@ -349,7 +355,7 @@ $pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
                      ?>
 
 
-                               <ul class="nav navbar-nav" style="display:inline-block;float:right;">
+                               <ul class="nav navbar-nav" style="display:inline-block;float:right;" id="MenuList">
                                    <li class="dropdown current-active">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo $loggedin_name; ?> <span class="caret"></span></a>
                            <ul class="dropdown-menu">
