@@ -3446,7 +3446,7 @@ function updateScroll(){
                                                                     <hr>
                                                                     <center><span class="sub" id="error" style="color:green;"></span></center>
                                                                     <form   method="post" name="stdform" action="" onsubmit="">
-                                                                    <input id="email1" name="email" placeholder="Email" type="email"   autocomplete="off" class="form-control form-value" required="">
+                                                                    <input id="email1" name="email" onblur="this.value=this.value.trim()" placeholder="Email" type="email"   autocomplete="off" class="form-control form-value" required="">
                                                                     <input type="hidden" name="link1" id="link"/>
                                                                     <input type="hidden" name="downloadoption" id="downloadoption" />
                                                                     <input type="hidden" name="sharename" value="<?php echo $_SESSION['admin_loggedin_name'];?>"  />
@@ -3469,7 +3469,7 @@ function updateScroll(){
 
 
                                                                                    <form method="post" name="link" action="" onsubmit="">
-                                                                                   <input name="email" placeholder="Enter the Email" type="email" autocomplete="off" class="form-control form-value" required>
+                                                                                   <input name="email" placeholder="Enter the Email" type="email" onblur="this.value=this.value.trim()" autocomplete="off" class="form-control form-value" required>
                                                                                    <input type="hidden" name="invoice" value="<?php echo $invoice_check['order_id'];?>" required>
                                                                                    <hr class="space s">
                                                                                    <center><button class="btn adr-save" name="link1" id="send" ><span adr_trans="label_send">Send</span></button></center>

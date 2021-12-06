@@ -210,7 +210,7 @@ if($exist!=0)
                             <span  id="label_enter_email" adr_trans="label_enter_email">Enter your email :</span><br /><br />
 
 
-					<input name="email"  type="email" placeholder="" autocomplete="off" class="form-control form-value" required="" size="40"  />
+					<input name="email" onblur="this.value=this.value.trim()"  type="email" placeholder="" autocomplete="off" class="form-control form-value" required="" size="40"  />
 
 							<br /><br />
 							 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="confirmbtn" id="label_confirm" adr_trans="label_confirm"><i class="fa fa-sign-in"></i>Confirm</button>

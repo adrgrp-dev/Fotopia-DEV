@@ -269,7 +269,7 @@ vertical-align:top!important;
      <h5 style="color:#333333" align="center" id="label_enter_the_email" adr_trans="label_enter_the_email">Enter the Email</h5>
         <center><span class="sub" id="error" style="color:green;"></span></center>
         <form   method="post" name="stdform" action="" onsubmit="">
-        <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+        <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim()" class="form-control form-value" required>
         <input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo $pc_admin_id?>"/><br>
         <center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
         </form>

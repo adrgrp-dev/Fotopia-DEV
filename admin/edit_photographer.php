@@ -303,7 +303,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
                               <div class="col-md-6">
                                   <p><span id="label_email" adr_trans="label_email">Email</span>
             </p>
-	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $csr['email']; ?>">
+	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $csr['email']; ?>">
 
  															</div>
 

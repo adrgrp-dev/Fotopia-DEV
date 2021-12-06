@@ -1124,7 +1124,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
           <div class="col-md-6">
                               <p>Property Email id</p>
-                              <input id="property_contact_email" name="property_contact_email" placeholder="Enter The email id" type="email" autocomplete="off" class="form-control form-value"  value="<?php echo @$order_fetch['property_contact_email']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <input id="property_contact_email" name="property_contact_email" placeholder="Enter The email id" type="email" onblur="this.value=this.value.trim()" autocomplete="off" class="form-control form-value"  value="<?php echo @$order_fetch['property_contact_email']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
 
                           </div>
 

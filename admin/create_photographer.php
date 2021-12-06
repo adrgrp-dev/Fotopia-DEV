@@ -358,7 +358,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
                               <div class="col-md-6">
                                   <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
-	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="validate_email(this.value)" class="form-control form-value" required="">
+	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="">
 
  															</div>
 

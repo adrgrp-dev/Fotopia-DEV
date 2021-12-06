@@ -372,7 +372,7 @@ $id = $_REQUEST['id'];
         <hr>
         <center><span class="sub" id="error" style="color:green;"></span></center>
         <form   method="post" name="stdform" action="" onsubmit="">
-        <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+        <input id="email1" name="email" placeholder="Email" onblur="this.value=this.value.trim()" type="email" autocomplete="off" class="form-control form-value" required>
         <input type="hidden" name="link1" id="link" value="<?php echo "secret_code=".$secret?>">
         <!-- <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  /> -->
         <hr class="space s">

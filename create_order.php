@@ -573,7 +573,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
     <div class="col-md-6">
                         <p>REALTOR EMAIL</p>
                         <input id="realtor_email" name="realtor_email" placeholder="Enter The Realtor email id" type="email" autocomplete="off"
-                        value="<?php echo  @$appointment_update_details['request_email'];?>" class="form-control form-value" required>
+                        value="<?php echo  @$appointment_update_details['request_email'];?>" class="form-control form-value" onblur="this.value=this.value.trim()" required>
                               <br>
     </div>
     <div class="col-md-6">
@@ -660,7 +660,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
           <div class="col-md-6">
                               <p id="label_email_id" adr_trans="label_email_id">EMAIL ID</p>
-                              <input id="email_id" name="email_id" placeholder="Enter The email id" type="email" autocomplete="off" value="<?php echo  @$appointment_update_details['email'];?>" class="form-control form-value" required="">
+                              <input id="email_id" name="email_id" placeholder="Enter The email id" type="email" autocomplete="off" value="<?php echo  @$appointment_update_details['email'];?>" class="form-control form-value" onblur="this.value=this.value.trim()" required="">
                               <br>
                           </div>
 <?php
@@ -700,7 +700,7 @@ if($user_type=="Photographer")
 
         <div class="col-md-6">
                         <p id="label_email_id" adr_trans="label_email_id">EMAIL ID</p>
-                          <input id="email_id1" name="email_id1" placeholder="Enter The email id" type="email" autocomplete="off" value="<?php echo  @$appointment_update_details['contact_person_email'];?>" class="form-control form-value">
+                          <input id="email_id1" name="email_id1" placeholder="Enter The email id" type="email" autocomplete="off" value="<?php echo  @$appointment_update_details['contact_person_email'];?>" onblur="this.value=this.value.trim()" class="form-control form-value">
         </div></div>
 
 

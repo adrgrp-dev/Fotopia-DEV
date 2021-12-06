@@ -2901,7 +2901,7 @@ if (@$_REQUEST['shar']) {
                    <hr>
                    <center><span class="sub" id="error" style="color:green;"></span></center>
                    <form   method="post" name="stdform" action="" onsubmit="">
-                   <input id="email1" name="email1" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" required>
+                   <input id="email1" name="email1" placeholder="Email" type="email" autocomplete="off"   class="form-control form-value" onblur="this.value=this.value.trim()" required>
                    <input type="hidden" name="link1" id="link"/>
                    <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  />
                    <hr class="space s">

@@ -197,7 +197,7 @@ $_SESSION['EXPIRES'] = time() + 3600;
                         <div class="row">
                             <div class="col-md-6">
                               <p id="label_email" adr_trans="label_email">Email</p>
-                                <input id="email" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required="" style="box-shadow:5px 7px #DDDDDD">
+                                <input id="email" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required="" style="box-shadow:5px 7px #DDDDDD">
                             </div>
 							</div>
 							 <div class="row">

@@ -143,7 +143,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 								<div class="col-md-6">
                                <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center"  class="alert-warning"></span>
 						</p>
-	<input id="email" name="email" placeholder="Email" value="<?php echo @$res11['email']; ?>" type="email" autocomplete="off" class="form-control form-value" required="">
+	<input id="email" name="email" onblur="this.value=this.value.trim()" placeholder="Email" value="<?php echo @$res11['email']; ?>" type="email" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
 							<div class="col-md-6">

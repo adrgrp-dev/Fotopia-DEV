@@ -220,7 +220,7 @@ margin-left:0px!important;
 
 								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_org_email">Organization Email</p>
-                                <input id="organization_email" name="organization_email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['organization_email']; ?>">
+                                <input id="organization_email" name="organization_email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required="" value="<?php echo @$res1['organization_email']; ?>">
 								</div>
 
 
@@ -276,7 +276,7 @@ margin-left:0px!important;
 
                 <!-- <div class="col-md-6">
                                 <p style="color:#000;">Email</p>
-                                <input id="email" name="email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['email']; ?>">
+                                <input id="email" name="email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php //echo @$res1['email']; ?>">
                 </div> -->
 
 

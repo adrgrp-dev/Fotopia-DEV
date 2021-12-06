@@ -247,7 +247,7 @@ function validate_email(val)
 
 								<div class="col-md-6">
                                 <p style="color:#000;" id="label_email" adr_trans="label_email">Email</p> 
-                                <input id="email" name="email" type="email" autocomplete="off" onblur="validate_email(this.value)"  class="form-control form-value" required="" value="<?php echo @$res1['email']; ?>">
+                                <input id="email" name="email" type="email" autocomplete="off" onblur="this.value=this.value.trim();validate_email(this.value)"  class="form-control form-value" required="" value="<?php echo @$res1['email']; ?>">
 								</div>
 
 

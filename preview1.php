@@ -708,7 +708,7 @@ var a;
                   <center>  <span class="sub" id="error" style="color:green;"></span> </center>
 
                   <form   method="post" name="stdform" id="standard_form" action="" onsubmit="return confirmEmail(1)">
-                  <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+                  <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim()" class="form-control form-value" required>
                   <hr class="space s">
                    <input type="hidden" name="commentall" id="cmt1"/>
                   <center><button class="btn adr-save" id="send" >Send</button></center>
@@ -729,7 +729,7 @@ var a;
                                  <center>  <span class="sub" id="error" style="color:green;"></span> </center>
 
                                  <form   method="post" name="floorform" id="floor_form" action="" onsubmit="return confirmEmail(2)">
-                                 <input id="email2" name="floor_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+                                 <input id="email2" name="floor_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required>
                                  <hr class="space s">
                                   <input type="hidden" name="commentall" id="cmt2"/>
                                  <center><button class="btn adr-save" id="send1" >Send</button></center>
@@ -747,7 +747,7 @@ var a;
                                                 <hr>
                                                 <center>  <span class="sub" id="error" style="color:green;"></span> </center>
                                                 <form  method="post" name="droneform" id="drone_form" action="" onsubmit="return confirmEmail(3)">
-                                                <input id="email3" name="Drone_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+                                                <input id="email3" name="Drone_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required>
                                                 <hr class="space s">
                                                  <input type="hidden" name="commentall" id="cmt3"/>
                                                 <center><button class="btn adr-save" id="send2" >Send</button></center>
@@ -763,7 +763,7 @@ var a;
                                                          <hr>
                                                          <center>  <span class="sub" id="error" style="color:green;"></span> </center>
                                                          <form  method="post" name="" id="hdr_form" action="" onsubmit="return confirmEmail(4)">
-                                                         <input id="email4" name="hdr_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" required>
+                                                         <input id="email4" name="hdr_email" placeholder="Email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required>
                                                          <input type="hidden" name="commentall" id="cmt4"/>
                                                          <hr class="space s">
                                                          <center><button class="btn adr-save" id="send3" >Send</button></center>

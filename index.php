@@ -144,7 +144,7 @@ include "header.php";
                             </div>
                             <div class="col-md-6">
                                 <p>Email</p>
-                                <input id="email" name="email" placeholder="" type="email" class="form-control form-value" required>
+                                <input id="email" name="email" placeholder="" onblur="this.value=this.value.trim()" type="email" class="form-control form-value" required>
                             </div>
                         </div>
                         <div class="row">

@@ -157,7 +157,7 @@ function validate_email(val)
                               <div class="col-md-6">
                                   <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span>
 						</p>
-	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $pcAdmin['email']; ?>">
+	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $pcAdmin['email']; ?>">
 
  															</div>
 
