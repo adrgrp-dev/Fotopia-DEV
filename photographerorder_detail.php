@@ -1152,12 +1152,23 @@ header("location:photographerDashboard.php?private=1"); exit;
                         </tr>
 
                         <tr>
-                        <td align="right" id="label_homeseller_email" adr_trans="label_homeseller_email" style="font-size:10px;">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];?></td>
+                        <td align="right" id="label_homeseller_email" adr_trans="label_homeseller_email" style="font-size:10px;">Home Seller Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['email'];
+
+$propAddress=$get_summary['property_address']." ".$get_summary['property_zip']." ".$get_summary['property_city']." Norway ";  
+  $propAddress=str_replace(",","",$propAddress);
+  $propAddress=str_replace(" ","+",$propAddress); 
+
+                      ?></td>
                         </tr>
 
                       				</table>
                       				<br >
-                      				<div id="googleMap" style="width:100%;height:240px;"></div>
+<div class="col-md-12">
+  <iframe width="400" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
+</div> 
+
+                      				<!-- <div id="googleMap" style="width:100%;height:240px;"></div> -->
 
                               <script>
                               function myMap() {
@@ -1221,7 +1232,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                             }
 
 
-
+ 
 
                               </script>
 
