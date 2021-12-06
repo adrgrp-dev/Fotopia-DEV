@@ -933,7 +933,7 @@ $("#realtor_id").css("visibility","hidden");
 
 <?php
 
-if(@$_REQUEST['u']==0 && isset($_REQUEST['hs_id'])==0realtor_employer_id)
+if(@$_REQUEST['u']==0 && isset($_REQUEST['hs_id'])==0)
   { ?>
 
 <script> 
