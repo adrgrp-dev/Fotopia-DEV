@@ -478,19 +478,7 @@ $hs_id=$get_summary['home_seller_id'];
 src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
 </div> 
 
-				<!-- <div class="col-md-12" id="googleMap" style="width:100%;height:250px;"></div> -->
 
-<script>
-function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(59.9139,10.7522),
-  zoom:7,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWF2v01q7IpMiUSICKhd9zndRFb_kxf8&callback=myMap"></script>
 </div>
 
 
