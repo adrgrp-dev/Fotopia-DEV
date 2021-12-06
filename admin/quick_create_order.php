@@ -101,6 +101,14 @@ else
 {
   $realtor_address = $_REQUEST["realtor_address"];
 }
+if(empty($_REQUEST["realtor_employer_id"]))
+{
+  $realtor_employer_id="";
+}
+else
+{
+  $realtor_employer_id = $_REQUEST["realtor_employer_id"];
+}
 $lead_from = @$_REQUEST["from_whom"];
 
 
@@ -126,7 +134,7 @@ else
 if($hs_id_is==0)
 {
 
-$res=mysqli_query($con,"INSERT INTO `home_seller_info` (`name`, `address`, `mobile_number`, `email`, `city`, `state`,`country`, `zip`,`reference_number`, `contact_person_name`, `contact_person_mobile`, `contact_person_email`,`lead_from`,`request_name`, `request_contact_no`, `request_email`, `request_address`) VALUES ('$sell_name', '$address', '$mobile_no', ' $email_id ', '$city', '$state','Norway', '$zip', '$ref_no', '$name', '$mobile_no1', '$email_id1','$lead_from','$realtor_name', '$realtor_contactNo','$realtor_email','$realtor_address')");
+$res=mysqli_query($con,"INSERT INTO `home_seller_info` (`name`, `address`, `mobile_number`, `email`, `city`, `state`,`country`, `zip`,`reference_number`, `contact_person_name`, `contact_person_mobile`, `contact_person_email`,`lead_from`,`request_name`, `request_contact_no`, `request_email`, `request_address`, `request_employer_id`) VALUES ('$sell_name', '$address', '$mobile_no', ' $email_id ', '$city', '$state','Norway', '$zip', '$ref_no', '$name', '$mobile_no1', '$email_id1','$lead_from','$realtor_name', '$realtor_contactNo','$realtor_email','$realtor_address','$realtor_employer_id')");
 $inserted_id=mysqli_insert_id($con);
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
@@ -137,7 +145,7 @@ $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`
 
 else{
 
-$res=mysqli_query($con,"UPDATE `home_seller_info` SET `name`='$sell_name',`address`='$address',`mobile_number`='$mobile_no',`email`= ' $email_id ',`city`='$city',`state`='$state',`country`='Norway',`zip`='$zip',`reference_number`='$ref_no',`contact_person_name`='$name',`contact_person_mobile`='$mobile_no1',`contact_person_email`='$email_id1',`notes`=' ',`lead_from`='$lead_from',`request_name`='$realtor_name',`request_contact_no`='$realtor_contactNo',`request_email`='$realtor_email',`request_address`='$realtor_address' where id='$hs_id_is'");
+$res=mysqli_query($con,"UPDATE `home_seller_info` SET `name`='$sell_name',`address`='$address',`mobile_number`='$mobile_no',`email`= ' $email_id ',`city`='$city',`state`='$state',`country`='Norway',`zip`='$zip',`reference_number`='$ref_no',`contact_person_name`='$name',`contact_person_mobile`='$mobile_no1',`contact_person_email`='$email_id1',`notes`=' ',`lead_from`='$lead_from',`request_name`='$realtor_name',`request_contact_no`='$realtor_contactNo',`request_email`='$realtor_email',`request_address`='$realtor_address',`request_employer_id`='$realtor_employer_id' where id='$hs_id_is'");
 
 $loggedin_name=$_SESSION['loggedin_name'];
 $loggedin_id=$_SESSION['loggedin_id'];
@@ -723,7 +731,7 @@ if(@$_REQUEST['u']==1)
 	 <div class="col-md-6">
                         <p>REALTOR EMPLOYER ID</p>
                         <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
-                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}else{ echo "UNKNOWN";}}?>" class="form-control form-value" required>
+                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo $appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}?>" class="form-control form-value" required>
     </div>
 	 <div class="col-md-6">
                         <p>&nbsp;</p>
