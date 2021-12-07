@@ -731,7 +731,7 @@ if(@$_REQUEST['u']==1)
 	 <div class="col-md-6">
                         <p>REALTOR EMPLOYER ID</p>
                         <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
-                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo $appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}else{ echo $appointment_update_details['request_employer_id'];}?>" class="form-control form-value" required>
+                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo @$appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}else{ echo @$appointment_update_details['request_employer_id'];}?>" class="form-control form-value" required>
     </div>
 	 <div class="col-md-6">
                         <p>&nbsp;</p>
