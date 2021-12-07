@@ -336,7 +336,7 @@ $hs_id=$get_summary['home_seller_id'];
 	<div class="row" style="margin:0px;" id="printArea">
 					<hr class="space xs">
 				<div class="col-md-6">
-				<div style="width: 101%;background:#FFF;padding:10px;border-radius:5px;height:800px;">
+				<div style="width: 101%;background:#FFF;padding:10px;border-radius:5px;min-height: 800px;max-height: fit-content;">
 				<p align="right" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
 				<table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -387,13 +387,18 @@ $hs_id=$get_summary['home_seller_id'];
 				<tr>
 				<td  align="right" style="font-size:10px;" adr_trans="label_due_date">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?><hr class="space xs"></td>
 				</tr>
-				<tr>
-				<td  align="right" style="font-size:10px;" adr_trans="label_booking_notes">Booking Notes</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
-				</tr>
+				
 				<tr>
 				<td align="right" style="font-size:10px;" adr_trans="label_status">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td>  <?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='width:60px;color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='width:60px;color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";} ?></td>
 				</tr>
-				</table><br />
+				</table>
+				 <hr class="space m">
+        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
+        <table style="color:#000;font-weight:600;font-size:12px;">
+          <tr>
+        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        </tr>
+        </table><br/>
 				<p adr_trans="label_order_products" align="left" adr_trans="label_order_products"style="color:#000;font-weight:600;font-size:15px;">Products For the Order</p>
 
 				<table style="color:#000;font-weight:600;font-size:12px;">
