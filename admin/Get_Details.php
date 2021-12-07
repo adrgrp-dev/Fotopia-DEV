@@ -43,11 +43,11 @@ $product=" ";
 $langIs=$_SESSION['Selected_Language_Session'];
 if($langIs=='en')
 {
-$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;font-size:12px;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Product Name</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Timeline</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost'>Product Cost</span></td></tr></thead>";
+$product.="<table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;font-size:12px;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Product Name</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Timeline</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost'>Product Cost</span></td></tr></thead>";
 }
 else
 {
-$product.="<div id=\"flip-scroll\"><table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Produktnavn</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Tidslinje</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost' >Produktkostnad</span></td></tr></thead>";
+$product.="<table class=\"table-stripped\" cellpadding=\"10\" cellspacing=\"10\" width=\"100%\"><thead><tr style=\"font-weight:600;\"><td  style=\"padding:5px\"><span adr_trans='label_product_name'>Produktnavn</span></td><td style=\"padding:5px\"><span adr_trans='label_timeline'> Tidslinje</span></td><td style=\"padding:5px\"><span adr_trans='label_product_cost' >Produktkostnad</span></td></tr></thead>";
 }
 
 while($product_result1=mysqli_fetch_array($product_result))
@@ -77,9 +77,7 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:203px
                             </div>
 		
               <hr class=\"space s\">
-<p align=\"center\">
-<a  class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=$pc_admin_id&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_book_online'>Book Online</span></a></p>&nbsp;&nbsp;&nbsp;
-
-              ";
+<center style=\"position:fixed;padding-top:20px;padding-left:200px;\">
+<a  class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=$pc_admin_id&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_book_online'>Book Online</span></a><center>";
 
  ?>
