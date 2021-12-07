@@ -16,8 +16,9 @@ $loggedin_id=$_SESSION['admin_loggedin_id'];
  <div class="section-empty bgimage4">
         <div class="container-fluid" style="margin-left:0px;height:inherit">
             <div class="row">
-			<hr class="space s">
+			<hr class="space xs">
                 <div class="col-md-2">
+				<hr class="space s">
 	<?php include "sidebar.php"; ?>
 		<script>
 		var id=null;
@@ -253,8 +254,9 @@ border:none;
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
 
 						<?php }  ?>
+						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:12px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
 					<div class="row" style="margin-left:10px;">
-<hr class="space s" />
+
                 <div class="col-md-3">
                      <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
@@ -551,7 +553,7 @@ color:#000!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?
 
 
 <div class="col-md-2">
-
+<hr class="space s" />
 
 <table class="table-responsive"><tr><td style="font-size:12px;font-weight:600;padding-left:10px;">
 	<input type="radio" name="toglePH"  value="photographers" checked="checked" onchange="togglePH(this.value)" /><span id="label_photographers" adr_trans="label_photographers"  style="color:#000!important;">&nbsp;Photographers<br /></span></td>
