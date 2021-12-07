@@ -91,6 +91,8 @@ $profilepic=$_REQUEST['profile'];
 $linkedin_id=$_REQUEST['linkedin_id'];
 $facebook_id=$_REQUEST['facebook_id'];
 $instagram_id=$_REQUEST['instagram_id'];
+$twitter_id=$_REQUEST['twitter_id'];
+$youtube_id=$_REQUEST['youtube_id'];
 $tax=$_REQUEST['tax'];
 
 
@@ -100,7 +102,7 @@ if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0){
 	// echo "sarath";
 	// exit;
 
-mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',logo='$imgData1',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'
+mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',logo='$imgData1',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'
  where pc_admin_id='$loggedin_id'");
 
 mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country'
@@ -112,7 +114,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 
 elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
 
-    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country' where id='$loggedin_id'");
 
@@ -123,7 +125,7 @@ elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
 
 elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
-    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -134,7 +136,7 @@ elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
 else {
 
-	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -320,19 +322,27 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                <p style="color:#000;">LinkedIN profile</p>
+                                <p style="color:#000;">LinkedIN profile<span class="fa fa-linkedin" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;margin-left: 5px;"></span></p>
                                 <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
-                                <p  style="color:#000;">Facebook profile</p>
+                                <p  style="color:#000;">Facebook profile<span class="fa fa-facebook" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;margin-left: 5px;"></span></p>
                                 <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['facebook_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
-                                <p style="color:#000;">Instagram profile</p>
+                                <p style="color:#000;">Instagram profile<span class="fa fa-instagram" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;margin-left: 5px;"></span></p>
                                 <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['instagram_id']; ?>">
 								</div>
+                                <div class="col-md-6">
+                                <p style="color:#000;">Youtube profile<span class="fa fa-youtube" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;margin-left: 5px;"></span></p>
+                                <input id="youtube_id" name="youtube_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['youtube_id']; ?>">
+                                </div>
+                                <div class="col-md-6">
+                                <p style="color:#000;">Twitter profile<span class="fa fa-twitter" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;margin-left: 5px;"></span></p>
+                                <input id="twitter_id" name="twitter_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['twitter_id']; ?>">
+                                </div>
 
 
 

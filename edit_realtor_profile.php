@@ -79,6 +79,8 @@ $country=$_REQUEST['country'];
 $linkedin_id=$_REQUEST['linkedin_id'];
 $facebook_id=$_REQUEST['facebook_id'];
 $instagram_id=$_REQUEST['instagram_id'];
+$youtube_id=$_REQUEST['youtube_id'];
+$twitter_id=$_REQUEST['twitter_id'];
 $contact_number=$_REQUEST['contact_number'];
 // $email=$_REQUEST['email'];
 
@@ -92,7 +94,7 @@ $password=$_REQUEST['password'];
 
 if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0) {
 
-mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
 
 mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
@@ -103,7 +105,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 elseif($_FILES['profile_pic']['size'] == 0){
 
 
-  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
 
   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
@@ -115,7 +117,7 @@ elseif($_FILES['profile_pic']['size'] == 0){
 elseif($_FILES['logo']['size'] == 0){
 
 
-  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -126,7 +128,7 @@ mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_
 
 else {
 
-mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
 mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
@@ -234,19 +236,27 @@ margin-left:0px!important;
 
 
                               <div class="col-md-6">
-                                <p style="color:#000;" adr_trans="label_linkedin_profile">LinkedIN profile</p>
+                                <p style="color:#000;"><span adr_trans="label_linkedin_profile">LinkedIN profile</span>&nbsp;<span class="fa fa-linkedin" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
                                 <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
-                                <p  style="color:#000;" adr_trans="label_fb_profile">Facebook profile</p>
+                                <p  style="color:#000;" ><span adr_trans="label_fb_profile">Facebook profile</span>&nbsp;<span class="fa fa-facebook" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
                                 <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['facebook_id']; ?>">
 								</div>
 
 								<div class="col-md-6">
-                                <p style="color:#000;" adr_trans="label_insta_profile">Instagram profile</p>
+                                <p style="color:#000;"><span adr_trans="label_insta_profile">Instagram profile</span>&nbsp;<span class="fa fa-instagram" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
                                 <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['instagram_id']; ?>">
 								</div>
+                <div class="col-md-6">
+                                <p style="color:#000;" ><span adr_trans="label_youtube_profile">Youtube profile</span>&nbsp;<span class="fa fa-youtube" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="youtube_id" name="youtube_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['youtube_id']; ?>">
+                </div>
+                <div class="col-md-6">
+                                <p style="color:#000;"><span adr_trans="label_twitter_profile">Twitter profile</span>&nbsp;<span class="fa fa-twitter" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="twitter_id" name="twitter_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['twitter_id']; ?>">
+                </div>
 
 
 				              <div class="col-md-6">

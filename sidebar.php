@@ -208,6 +208,31 @@ vertical-align:top!important;
 					$user_type=$_SESSION['user_type'];
 
 
+
+   $loggedin_id=$_SESSION['loggedin_id'];
+
+
+
+   if($user_type=='Realtor')
+   {
+   $social_information_query=mysqli_query($con,"select * from realtor_profile where realtor_id=$loggedin_id"); 
+   }
+   if($user_type="Photographer")
+   {
+    
+
+    $social_information_query=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=(select pc_admin_id from user_login where id=$loggedin_id)"); 
+   }
+   $social_information=mysqli_fetch_assoc($social_information_query);
+   if(!empty($social_information['facebook_id']))$facebook_id=@$social_information['facebook_id'];else $facebook_id="#";
+   if(!empty($social_information['instagram_id']))$instagram_id=@$social_information['instagram_id']; else $instagram_id="#";
+   if(!empty($social_information['twitter_id']))$twitter_id=@$social_information['twitter_id'];else $twitter_id="#";
+   if(!empty($social_information['youtube_id']))$youtube_id=@$social_information['youtube_id'];else $youtube_id="#";
+   if(!empty($social_information['linkedin_id']))$linkedin_id=@$social_information['linkedin_id'];else $linkedin_id="#";
+
+
+
+
 					if($user_type=="Realtor" || $user_type=="CSR")
 					{
 					//echo "select * from realtor_profile where relator_id='$loggedINID'";
@@ -243,10 +268,11 @@ vertical-align:top!important;
 </table>
 
 <div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+ <a target="_blank" href="<?php echo $facebook_id;?>"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+ <a target="_blank" href="<?php echo $instagram_id;?>"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $twitter_id;?>"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $youtube_id;?>"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $linkedin_id;?>"><i class="fa fa-linkedin" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 
@@ -329,10 +355,11 @@ vertical-align:top!important;
 
 
 <div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
- <a target="_blank" href="#"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="#"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $facebook_id;?>"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+ <a target="_blank" href="<?php echo $instagram_id;?>"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $twitter_id;?>"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $youtube_id;?>"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $linkedin_id;?>"><i class="fa fa-linkedin" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 
