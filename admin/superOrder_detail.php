@@ -1465,7 +1465,7 @@ alert(alertmsg);
                             
                             </tr>
                              <tr>
-                              <td align="right" style="font-size:10px;vertical-align:baseline;" >Reference Number</td><td style="padding-left:5px;padding-right:15px;vertical-align:baseline;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
+                              <td align="right" style="font-size:10px;vertical-align:baseline;" >Assignment Number</td><td style="padding-left:5px;padding-right:15px;vertical-align:baseline;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
                             </tr>
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_property_type" adr_trans="label_property_type">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
@@ -1605,7 +1605,7 @@ alert(alertmsg);
                             </tr>
 
                             <tr>
-                            <td align="right" style="font-size: 10px;" id="label_homeseller_contact" adr_trans="label_homeseller_contact">Home Seller Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+                            <td align="right" style="font-size: 10px;" id="label_homeseller_phone" adr_trans="label_homeseller_phone">Home Seller Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
                             </tr>
 
                             <tr>

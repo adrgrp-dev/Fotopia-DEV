@@ -169,7 +169,7 @@ $order_pc_admin_email = $get_pc_admin_details1['email'];
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Dear {{PCAdmin Company name}},<br><br>
 
-Order with reference no #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br>
+Order with Assignment no #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br>
 
 Thanks,<br>
 Fotopia Team.
@@ -1297,7 +1297,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                   				</tr>
 
                           <tr>
-                          <td align="right" style="font-size: 10px;">Reference Number</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
+                          <td align="right" style="font-size: 10px;">Assignment Number</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
                           </tr>
                           <tr>
                           <td align="right" style="font-size: 10px;" id="label_property_type" adr_trans="label_property_type">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
@@ -1401,7 +1401,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
                             </tr>
 
                             <tr>
-                            <td align="right" style="font-size: 10px;" id="label_homeseller_contact" adr_trans="label_homeseller_contact">Home Seller Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+                            <td align="right" style="font-size: 10px;" id="label_homeseller_phone" adr_trans="label_homeseller_phone">Home Seller Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
                             </tr>
 
                             <tr>

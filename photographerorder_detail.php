@@ -1148,7 +1148,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                         </tr>
 
                         <tr>
-                        <td align="right" id="label_homeseller_contact" adr_trans="label_homeseller_contact" style="font-size:10px;">Home Seller Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+                        <td align="right" id="label_homeseller_phone" adr_trans="label_homeseller_phone" style="font-size:10px;">Home Seller Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
                         </tr>
 
                         <tr>

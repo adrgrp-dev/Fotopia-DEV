@@ -348,7 +348,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<td align="right" style="font-size: 10px;vertical-align: baseline;width:180px;"  id="label_order_no" adr_trans="label_order_no">Order #</td><td style="vertical-align: baseline;">:</td><td><?php echo $get_summary['id']; ?></td>
 				</tr>
         <tr>
-          <td align="right" style="font-size:10px;vertical-align:baseline;" >Reference Number</td><td style="padding-left:5px;padding-right:15px;vertical-align:baseline;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
+          <td align="right" style="font-size:10px;vertical-align:baseline;" >Assignment Number</td><td style="padding-left:5px;padding-right:15px;vertical-align:baseline;">:</td><td><?php echo $homeSeller1['reference_number']; ?><hr class="space xs"></td>
         </tr>
 				<tr>
 				<td align="right" style="font-size: 10px;"  id="label_property_type" adr_trans="label_property_type">Property Type</td><td>:</td><td><?php echo $get_summary['property_type']?></td>
@@ -458,7 +458,7 @@ $hs_id=$get_summary['home_seller_id'];
 				</tr>
 
 				<tr>
-				<td align="right" style="font-size: 10px;"  id="label_homeseller_contact" adr_trans="label_homeseller_contact">Home Seller Contact</td><td>:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
+				<td align="right" style="font-size: 10px;"  id="label_homeseller_phone" adr_trans="label_homeseller_phone">Home Seller Phone</td><td>:</td><td><?php echo $homeSeller1['mobile_number'];?></td>
 				</tr>
 
 				<tr>

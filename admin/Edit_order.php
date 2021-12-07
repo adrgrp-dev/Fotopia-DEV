@@ -184,8 +184,8 @@ xhttp.send();
                         <input id="sell_name" name="sell_name" placeholder="Update The home seller name" value="<?php echo  $get_homeseller['name'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
     </div>
     <div class="col-md-6">
-                        <p id="label_ref_no" adr_trans="label_ref_no">REFERENCE NO</p>
-                        <input id=" ref_no" name="ref_no" placeholder="Update The Reference Number" value="<?php echo  $get_homeseller['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
+                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment no</p>
+                        <input id=" ref_no" name="ref_no" placeholder="Update The Assignment Number" value="<?php echo  $get_homeseller['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
     </div>
     <div class="col-md-12">
                         <p id="label_address" adr_trans="label_address">ADDRESS</p>

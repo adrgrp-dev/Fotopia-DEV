@@ -148,7 +148,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 
 							<div class="col-md-6">
                                 <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
-                                  <input id="contactno" name="contactno" placeholder="Contact number" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12" autocomplete="off" value="<?php echo @$res11['contact_number']; ?>" class="form-control form-value" required="">
+                                  <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" value="<?php echo @$res11['contact_number']; ?>" class="form-control form-value" required="">
                             </div>
 
 

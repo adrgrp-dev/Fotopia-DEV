@@ -154,7 +154,7 @@ function validate_email(val)
 
   							 <div class="col-md-6">
                                   <p>Contact Number</p>
-                                  <input id="contactno" name="contactno" placeholder="Contact number" type="number" autocomplete="off" class="form-control form-value" required="" value="<?php echo $csr['contact_number']; ?>">
+                                  <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" required="" value="<?php echo $csr['contact_number']; ?>">
                               </div>
 
 

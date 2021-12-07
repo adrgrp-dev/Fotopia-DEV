@@ -376,12 +376,12 @@ var property_contact_email="<?php echo @$get_order['property_contact_email']; ?>
       </div>
 
           <div class="col-md-6">
-                              <p id="label_property_mobile" adr_trans="label_property_mobile">Property Mobile No.</p>
+                              <p id="label_property_phone" adr_trans="label_property_phone">Property Phone No.</p>
                               <input id="property_contact_mobile" readonly name="property_contact_mobile" placeholder="Enter The mobile Number" value="<?php echo  $get_order['property_contact_mobile'];?>" type="number" autocomplete="off" class="form-control form-value">
                           </div>
 
           <div class="col-md-6">
-                              <p id="label_property_email" adr_trans="label_property_email">Property Email id</p>
+                              <p id="label_property_email" adr_trans="label_property_email">Property Email</p>
                               <input id="property_contact_email" readonly name="property_contact_email" placeholder="Enter The email id" value="<?php echo  $get_order['property_contact_email'];?>" type="email" autocomplete="off" class="form-control form-value" >
                               <br>
                           </div>

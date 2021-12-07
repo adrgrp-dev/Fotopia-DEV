@@ -713,8 +713,8 @@ if(@$_REQUEST['u']==1)
                         value="<?php echo  @$appointment_update_details['request_name'];?>" class="form-control form-value" required >
     </div>
     <div class="col-md-6">
-                        <p>REALTOR CONTACT NO</p>
-                        <input id="realtor_contactNo" name="realtor_contactNo" placeholder="Enter The Realtor contact Number" type="number" autocomplete="off"
+                        <p>REALTOR PHONE NO</p>
+                        <input id="realtor_contactNo" name="realtor_contactNo" placeholder="Enter The Realtor Phone Number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off"
                         value="<?php echo  @$appointment_update_details['request_contact_no'];?>" class="form-control form-value" required>
     </div>
     <div class="col-md-6">
@@ -759,8 +759,8 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
     </div>
    
     <div class="col-md-6">
-                        <p id="label_ref_no" adr_trans="label_ref_no">REFERENCE NO</p>
-                        <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment no</p>
+                        <input id=" ref_no" name="ref_no" placeholder="Enter The Assignment Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
 						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
@@ -814,7 +814,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
           <div class="col-md-6">
                               <p id="label_mobile_no" adr_trans="label_mobile_no">MOBILE NO</p>
-                              <input id="mobile_no" name="mobile_no" placeholder="Enter The mobile Number" type="number" autocomplete="off"  value="<?php echo  @$appointment_update_details['mobile_number'];?>" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                              <input id="mobile_no" name="mobile_no" placeholder="Enter The mobile Number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off"  value="<?php echo  @$appointment_update_details['mobile_number'];?>" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
                           </div>
 
           <div class="col-md-6">
@@ -854,7 +854,7 @@ if($user_type=="Photographer")
           </div>
         <div class="col-md-6">
                         <p id="label_mobile_no" adr_trans="label_mobile_no">MOBILE NO</p>
-                        <input id="mobile_no1" name="mobile_no1" placeholder="Enter The mobile number" type="number" autocomplete="off" value="<?php echo  @$appointment_update_details['contact_person_mobile'];?>" class="form-control form-value" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                        <input id="mobile_no1" name="mobile_no1" placeholder="Enter The mobile number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" value="<?php echo  @$appointment_update_details['contact_person_mobile'];?>" class="form-control form-value" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
         </div>
 
         <div class="col-md-6">

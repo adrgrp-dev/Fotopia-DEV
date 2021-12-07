@@ -1118,12 +1118,12 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
       </div>
 
           <div class="col-md-6">
-                              <p>Property Mobile No.</p>
-                              <input id="property_contact_mobile" name="property_contact_mobile" placeholder="Enter The mobile Number" type="number" autocomplete="off" class="form-control form-value" value="<?php echo @$order_fetch['property_contact_mobile']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <p>Property Phone No.</p>
+                              <input id="property_contact_mobile" name="property_contact_mobile" placeholder="Enter The mobile Number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" value="<?php echo @$order_fetch['property_contact_mobile']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                           </div>
 
           <div class="col-md-6">
-                              <p>Property Email id</p>
+                              <p>Property Email</p>
                               <input id="property_contact_email" name="property_contact_email" placeholder="Enter The email id" type="email" onblur="this.value=this.value.trim()" autocomplete="off" class="form-control form-value"  value="<?php echo @$order_fetch['property_contact_email']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
 
                           </div>

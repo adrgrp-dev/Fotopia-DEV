@@ -217,7 +217,7 @@ margin-left:0px!important;
 
 								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_org_contact_no">Organization Contact number</p>
-                                <input id="organization_contact_number" name="organization_contact_number" type="text" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['organization_contact_number']; ?>">
+                                <input id="organization_contact_number" name="organization_contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['organization_contact_number']; ?>">
 								</div>
 
 								<div class="col-md-6">
@@ -281,7 +281,7 @@ margin-left:0px!important;
 
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_contact_no">Contact number</p>
-                                <input id="contact_number" name="contact_number" type="text" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
+                                <input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
                 </div>
 
                 <!-- <div class="col-md-6">

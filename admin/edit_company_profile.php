@@ -239,12 +239,12 @@ function validate_email(val)
 
 									<div class="col-md-6">
                                 <p style="color:#000;" id="label_org_branch" adr_trans="label_org_number">Organization Number</p>
-                                <input id="organization_number" name="organization_number" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_number']; ?>">
+                                <input id="organization_number" name="organization_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_number']; ?>">
 								</div>
 
 								<div class="col-md-6">
                                 <p style="color:#000;" id="label_contact_no" adr_trans="label_contact_no">Contact number</p>
-                                <input id="contact_number" name="contact_number" type="text" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
+                                <input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
 								</div>
 
 								<div class="col-md-6">

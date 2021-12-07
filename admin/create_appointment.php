@@ -1239,12 +1239,12 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
       </div>
 
           <div class="col-md-6">
-                              <p id="label_property_mobile" adr_trans="label_property_mobile">Property Mobile No.</p>
-                              <input id="property_contact_mobile" name="property_contact_mobile" placeholder="Enter The mobile Number" type="number" autocomplete="off" class="form-control form-value" value="<?php echo @$order_fetch['property_contact_mobile']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                              <p id="label_property_phone" adr_trans="label_property_phone">Property Phone No.</p>
+                              <input id="property_contact_mobile" name="property_contact_mobile" placeholder="Enter The mobile Number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" value="<?php echo @$order_fetch['property_contact_mobile']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                           </div>
 
           <div class="col-md-6">
-                              <p id="label_property_email" adr_trans="label_property_email">Property Email id</p>
+                              <p id="label_property_email" adr_trans="label_property_email">Property Email</p>
                               <input id="property_contact_email" name="property_contact_email" placeholder="Enter The email id" type="email" onblur="this.value=this.value.trim()"  autocomplete="off" class="form-control form-value"  value="<?php echo @$order_fetch['property_contact_email']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                               <br>
                           </div>

@@ -840,7 +840,7 @@ $("#country").css("border","solid 1px grey");
 
 							 <div class="col-md-6">
                                 <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
-           <input id="contactno" name="contactno" placeholder="Contact number" type="number" min="1" autocomplete="off" class="form-control form-value" required="">
+           <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" min="1" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
 
@@ -903,7 +903,7 @@ $("#country").css("border","solid 1px grey");
 
                              <div class="col-md-6">
                                 <p adr_trans="label_org_contact_no">Organization contact number</p>
-           <input id="org_no" name="org_no" placeholder="Organization contact number" type="number" min="1" autocomplete="off" class="form-control form-value" required="">
+           <input id="org_no" name="org_no" placeholder="Organization contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" min="1" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
 						 <div class="col-md-6">

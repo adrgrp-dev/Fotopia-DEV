@@ -158,7 +158,7 @@ function validate_email(val)
 
   							 <div class="col-md-6">
                                   <p>Contact Number</p>
-                                  <input id="contactno" name="contactno" placeholder="Contact number" type="number" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" required="">
                               </div>
                               <div class="col-md-6">
                                   <p>Password</p>
