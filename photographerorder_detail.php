@@ -1079,7 +1079,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </td>
                               </tr>
                               <tr>
-                              <td align="right" id="label_realtor_contact" adr_trans="label_realtor_contact" style="font-size:10px;">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo$get_hs_details['request_contact_no']; ?></td>
+                              <td align="right" id="label_realtor_phone" adr_trans="label_realtor_phone" style="font-size:10px;">Realtors Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo$get_hs_details['request_contact_no']; ?></td>
                               </tr>
                               <tr>
                               <td align="right" id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_hs_details['request_email']; ?></td>
@@ -1097,7 +1097,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</td>
                       				</tr>
                               <tr>
-                              <td align="right" id="label_realtor_contact" adr_trans="label_realtor_contact" style="font-size:10px;">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
+                              <td align="right" id="label_realtor_phone" adr_trans="label_realtor_phone" style="font-size:10px;">Realtors Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
                               </tr>
                               <tr>
                               <td align="right" id="label_realtor_email" adr_trans="label_realtor_email" style="font-size:10px;">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["email"]; ?></td>

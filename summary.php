@@ -379,7 +379,7 @@ $hs_id=$get_summary['home_seller_id'];
 				</td>
 				</tr>
 				<tr>
-				<td  align="right" style="font-size:10px;" adr_trans="label_realtor_contact">Realtors Contact</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
+				<td  align="right" style="font-size:10px;" adr_trans="label_realtor_phone">Realtors Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["contact_number"]; ?></td>
 				</tr>
 				<tr>
 				<td  align="right" style="font-size:10px;" adr_trans="label_realtor_email">Realtors Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_realtor_name["email"]; ?></td>
