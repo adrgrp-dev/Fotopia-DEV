@@ -75,9 +75,11 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:203px
                             <div class=\"panel\" id=\"contactDiv\" style=\"height:203px;\">
                                ".$product."<br>
                             </div>
-						
+		
+              <hr class=\"space s\">
+<p align=\"center\">
+<a  class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=$pc_admin_id&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_book_online'>Book Online</span></a></p>&nbsp;&nbsp;&nbsp;
 
-							";
-
+              ";
 
  ?>

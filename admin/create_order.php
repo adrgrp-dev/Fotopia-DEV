@@ -719,7 +719,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 	 <div class="col-md-6">
                         <p>REALTOR EMPLOYER ID</p>
                         <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Realtor employer ID" type="text" autocomplete="off"
-                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo $appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}else{ echo $appointment_update_details['request_employer_id'];}?>" class="form-control form-value" required>
+                        value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo $appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}else{ echo @$appointment_update_details['request_employer_id'];}?>" class="form-control form-value" required>
     </div>
 	<div class="col-md-6">
                         <p>&nbsp;</p>
@@ -760,7 +760,7 @@ if(@$_REQUEST['u']==1)
     
     <div class="col-md-6">
                         <p id="label_ref_no" adr_trans="label_ref_no">REFERENCE NO</p>
-                        <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="number" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                        <input id=" ref_no" name="ref_no" placeholder="Enter The Reference Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
 						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />
 						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />

@@ -56,10 +56,13 @@ $photographersList.="<table border=\"0\" cellpadding=\"10\" style=\"width:100%;p
 
 
 
-</p></td></tr></table>";
+</p></td></tr></table>
+<p align=\"center\">
+<a  class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=$super_csr_id&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_book_online'>Book Online</span></a></p>&nbsp;&nbsp;&nbsp;
 
-/* <a  class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar1.php?ph_name=&pc_admin_id=&Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i><span adr_trans='label_check_availability'>Check Availability</span></a>&nbsp;&nbsp;&nbsp;
-<a class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-check\"></i><span adr_trans='label_book_now'>Book Now</span></a> */
+";
+
+/*<a class=\"anima-button circle-button btn-sm btn adr-save\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-check\"></i><span adr_trans='label_book_now'>Book Now</span></a>*/
 
 }
 
@@ -132,7 +135,9 @@ echo $result="<div class=\"panel active\" id=\"aboutmeDiv\" style=\"height:290px
                                ".$contact."
                             </div>
 
-							<hr class=\"space s\">";
+							<hr class=\"space s\">
+
+              ";
 /*<p align=\"center\">
 
 <a class=\"anima-button circle-button btn-sm btn adr-cancel\" href=\"./photographerCalendar1.php?Photographer_id=$Photographer_id\"><i class=\"fa fa-calendar-o\"></i>Check Availability</a>&nbsp;&nbsp;&nbsp;
