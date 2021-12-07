@@ -217,7 +217,7 @@ vertical-align:top!important;
    {
    $social_information_query=mysqli_query($con,"select * from realtor_profile where realtor_id=$loggedin_id"); 
    }
-   if($user_type="Photographer")
+   if($user_type=="Photographer")
    {
     
 
@@ -231,10 +231,14 @@ vertical-align:top!important;
    if(!empty($social_information['linkedin_id']))$linkedin_id=@$social_information['linkedin_id'];else $linkedin_id="#";
 
 
-
+ ?> 
+ <?php
 
 					if($user_type=="Realtor" || $user_type=="CSR")
 					{
+
+
+
 					//echo "select * from realtor_profile where relator_id='$loggedINID'";
 
 					?>
@@ -296,7 +300,7 @@ vertical-align:top!important;
         <center><span class="sub" id="error" style="color:green;"></span></center>
         <form   method="post" name="stdform" action="" onsubmit="">
         <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim()" class="form-control form-value" required>
-        <input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo $pc_admin_id?>"/><br>
+        <input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo $pc_admin_id; ?>"/><br>
         <center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
         </form>
         <hr class="space l">
@@ -322,10 +326,6 @@ vertical-align:top!important;
 					{
 
 					?>
-
-
-
-
 
 <div class="hidden-xs hidden-sm" style="">
 <br />
