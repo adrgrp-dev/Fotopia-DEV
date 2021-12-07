@@ -528,7 +528,7 @@ $.ajax({
 				<a href="superOrder_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&finished_image=1">
 				<img src="../finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="235" height="140" style="padding-bottom:10px;"/>
 				 <span style="position:absolute; text-align:center;z-index:2;color:#000;background: #FFF!important;
-color:#000!important;padding:3px;opacity:0.5;width:100%;float:left;left:0px;"><?php echo $get_address['property_address']; ?></span>
+color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font-weight:bold;font-size:12px;"><?php echo $get_address['property_address']; ?></span>
 			</a>
 			</div>
 <?php		}
