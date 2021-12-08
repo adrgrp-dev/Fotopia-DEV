@@ -119,7 +119,8 @@ td, th {
                              </tr>
                              <?php
                              $cnt=1;
-                             $get_product_query=mysqli_query($con,"SELECT * FROM `realtor_product_cost` WHERE realtor_id=$realtor_id");
+                             $pc_admin_id = $_SESSION['admin_loggedin_id'];
+                             $get_product_query=mysqli_query($con,"SELECT * FROM `realtor_product_cost` WHERE realtor_id=$realtor_id and pc_admin_id=$pc_admin_id");
                              while($get_product=mysqli_fetch_assoc($get_product_query))
                              {
                              ?>
@@ -140,7 +141,7 @@ td, th {
                                    $get_pcadmin_info=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
                                    $get_info=mysqli_fetch_assoc($get_pcadmin_info);
                                    ?>
-                                  <td style="color:black;"><?php echo @$get_info['organization']; ?></td>
+                                  <td style="color:black;"><?php echo @$get_info['organization_name']; ?></td>
                                     <td style="color:black;"><?php echo @$get_product['product_cost']; ?></td>
                                       <td style="color:black;"><?php echo @$get_product['discount_price']; ?></td>
                                         <td style="color:black;"><?php echo @$get_product1['timeline']; ?></td>

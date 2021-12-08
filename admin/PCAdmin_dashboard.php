@@ -708,7 +708,7 @@ $where="and first_name like '$companySearch%'";
 				$photo=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$superCsr' $where order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
-		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization']."\")'><span adr_trans='label_view1'>View</span></a>";
+		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization_name']."\")'><span adr_trans='label_view1'>View</span></a>";
 
 				?>
 				<table cellspacing="0" border="0" align="center"  cellpadding="0" class="table table-responsive" style="background:#FFF;color:#000;font-weight:600;opacity:0.8;border-radius:10px;width:80%">
@@ -719,7 +719,7 @@ $where="and first_name like '$companySearch%'";
 
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
-				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization']; ?>')" src="data:<?php echo $photo1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($photo1['profile_pic']); ?>" width="120" height="100"  style="max-width: 70px;"/>
+				<img   href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')" src="data:<?php echo $photo1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($photo1['profile_pic']); ?>" width="120" height="100"  style="max-width: 70px;"/>
 
 				   <?php
 
@@ -760,11 +760,11 @@ if($i<=$ratingIs)
 				 <tr class="fade-top" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;display:none;color:#333333" id="show<?php echo $photo1['id']; ?>1">
         <td style="padding-left:10px;">
 
-        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_about_us" adr_trans="label_about_us" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization']; ?>')">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
-        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_photographers" adr_trans="label_photographers" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization']; ?>')">Photographers</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_about_us" adr_trans="label_about_us" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_photographers" adr_trans="label_photographers" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')">Photographers</a>&nbsp;&nbsp;&nbsp;&nbsp;<br>
 
-          <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_products" adr_trans="label_products" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization']; ?>')">Products</a><br>
-        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_contact" adr_trans="label_contact" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization']; ?>')">Contact</a><br>
+          <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_products" adr_trans="label_products" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')">Products</a><br>
+        <a href="#photoCompany" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:none;color:#333333;padding-left:10px;" id="label_contact" adr_trans="label_contact" onclick="GetCompanyDetails(<?php echo $photo1['pc_admin_id']; ?>,<?php echo $photo1['id']; ?>,'<?php echo $photo1['organization_name']; ?>')">Contact</a><br>
 
 
         </td></tr>

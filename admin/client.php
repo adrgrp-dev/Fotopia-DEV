@@ -126,7 +126,7 @@ if(isset($_REQUEST['email']))
 	$email=$_REQUEST['email'];
 	$get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
 	$get_organization=mysqli_fetch_assoc($get_organization_query);
-	$organization=$get_organization['organization'];
+	$organization=$get_organization['organization_name'];
 	$fname=$get_organization['first_name'];
 
 	email($template,$pc_admin_id,$email,$organization,$fname,$con);
@@ -390,7 +390,7 @@ else
                                           <tr class="listPageTR">
                                             <td><?php echo @$realtor1['first_name'];?></td>
                                                 <td><?php echo @$realtor1['last_name'];?></td>
-																									  <td><?php echo @$realtor1['organization'];?></td>
+																									  <td><?php echo @$realtor1['organization_name'];?></td>
                                                     <td style="width:200px;"><?php echo @$realtor1['address_line1'];?></td>
                                                         <td><?php echo @$realtor1['city'];?></td>
                                                             <td><?php echo @$realtor1['state'];?></td>
