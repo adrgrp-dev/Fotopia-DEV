@@ -58,7 +58,7 @@ $contact_number=$_REQUEST['contact_number'];
 $fname=$_REQUEST['fname'];
 $lname=$_REQUEST['lname'];
 
-$about_me=$_REQUEST['about_me'];
+$about_me=addslashes($_REQUEST['about_me']);
 $skills=$_REQUEST['skills'];
 $portfolio=$_REQUEST['portfolio'];
 
