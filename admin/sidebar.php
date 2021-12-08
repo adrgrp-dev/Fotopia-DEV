@@ -60,12 +60,14 @@ padding-left:0px;
    if($user_type=='PCAdmin')
    {
    $social_information_query=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=$loggedINID"); 
+   $social_information=mysqli_fetch_assoc(@$social_information_query);
    }
    if($user_type=="CSR")
    {
     $social_information_query=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id=$loggedINID)"); 
+    $social_information=mysqli_fetch_assoc(@$social_information_query);
    }
-   $social_information=mysqli_fetch_assoc($social_information_query);
+
    if(!empty($social_information['facebook_id']))$facebook_id=@$social_information['facebook_id'];else $facebook_id="#";
    if(!empty($social_information['instagram_id']))$instagram_id=@$social_information['instagram_id']; else $instagram_id="#";
    if(!empty($social_information['twitter_id']))$twitter_id=@$social_information['twitter_id'];else $twitter_id="#";
