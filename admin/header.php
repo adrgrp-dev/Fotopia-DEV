@@ -155,6 +155,22 @@ opacity:1!important;
 
 </style>
 	<script>
+	function getClippedRegion(image, x, y, width, height) {
+   var canvas = document.createElement("canvas"),
+      ctx = canvas.getContext("2d");
+
+   canvas.width = width;
+   canvas.height = height;
+
+   //                   source region         dest. region
+   ctx.drawImage(image, x, y, width, height, 0, 0, width, height);
+
+   return {
+      // Those are some pdfMake params
+      image: canvas.toDataURL(),
+      width: 500
+   };
+}
 function validate_email(val)
 {
   var xhttp= new XMLHttpRequest();

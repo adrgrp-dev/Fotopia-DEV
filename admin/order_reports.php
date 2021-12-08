@@ -610,23 +610,28 @@ $res="";
 
 
 
-														<script type="text/javascript">
-                                     function Orders(){
-                                      html2canvas($('#dataTable')[0], {
-                                          onrendered: function (canvas) {
-                                              var data = canvas.toDataURL();
-                                              var docDefinition = {
-                                                  content: [{
-                                                      image: data,
-                                                      width: 500
-                                                  }]
-                                              };
-                                              pdfMake.createPdf(docDefinition).download("Order_reports.pdf");
-                                          }
-                                      });
-                                    }
+<script type="text/javascript">
+function Orders(){
+html2canvas($('#dataTable')[0], {
+onrendered: function(canvas) {
 
-                              </script>
+let splitAt = 1400; 
+
+let images = [];
+let y = 0;
+while (canvas.height > y) {
+images.push(getClippedRegion(canvas, 0, y, canvas.width, splitAt));
+y += splitAt;
+}
+var docDefinition = {
+content: images,
+pageSize: "LETTER"
+};
+pdfMake.createPdf(docDefinition).download("Order_Report.pdf");
+}
+});
+}
+</script>
                           </div>
 
 
