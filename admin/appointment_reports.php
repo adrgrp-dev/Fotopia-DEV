@@ -525,7 +525,7 @@ $_SESSION['filterby']=$filterBy;
 
 
 
-															<script type="text/javascript">
+															<!-- <script type="text/javascript">
 																		 function appointment(){
 																			html2canvas($('#dataTable')[0], {
 																					onrendered: function (canvas) {
@@ -541,7 +541,31 @@ $_SESSION['filterby']=$filterBy;
 																			});
 																		}
 
-															</script>
+															</script> -->
+
+<script type="text/javascript">
+function appointment(){
+html2canvas($('#dataTable')[0], {
+onrendered: function(canvas) {
+
+let splitAt = 1350; 
+
+let images = [];
+let y = 0;
+while (canvas.height > y) {
+images.push(getClippedRegion(canvas, 0, y, canvas.width, splitAt));
+y += splitAt;
+}
+var docDefinition = {
+content: images,
+pageSize: "LETTER"
+};
+pdfMake.createPdf(docDefinition).download("Appointment_Report.pdf");
+}
+});
+}
+</script>
+
                           </div>
 
 

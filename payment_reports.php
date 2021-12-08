@@ -540,7 +540,7 @@ if(!empty($_REQUEST['pcfilter'])){
 																</div>
 
 
-															<script type="text/javascript">
+															<!-- <script type="text/javascript">
 																		 function payment(){
 																			html2canvas($('#dataTable')[0], {
 																					onrendered: function (canvas) {
@@ -556,7 +556,34 @@ if(!empty($_REQUEST['pcfilter'])){
 																			});
 																		}
 
-															</script>
+															</script> -->
+
+
+<script type="text/javascript">
+function payment(){
+html2canvas($('#dataTable')[0], {
+onrendered: function(canvas) {
+
+let splitAt = 1300; 
+
+let images = [];
+let y = 0;
+while (canvas.height > y) {
+images.push(getClippedRegion(canvas, 0, y, canvas.width, splitAt));
+y += splitAt;
+}
+var docDefinition = {
+content: images,
+pageSize: "LETTER"
+};
+pdfMake.createPdf(docDefinition).download("Payment_Report.pdf");
+}
+});
+}
+</script>
+
+
+
                           </div>
 
 
