@@ -2982,7 +2982,7 @@ if (@$_REQUEST['shar']) {
          {
          if(@$invoice_check['approved']==0)
           {
-           echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending('.$id_url.')" id="button_approved" style="float:right;color:white !important;border-radius: 29px; margin-top: -81px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
+           echo '<a href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending(43)" id="button_approved" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right: 4px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
           }
           else {
               echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
@@ -3231,7 +3231,7 @@ if (@$_REQUEST['shar']) {
   <form method="post">
 
                      <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
-         <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
+         <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline;margin-top: 3px;" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
          <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
 <?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="position: absolute;right: 93%;" value="Done" /><?php } ?>
 
@@ -3252,9 +3252,9 @@ if (@$_REQUEST['shar']) {
                <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
                </td>
                <td id="inv_td" style="text-align: right;">
-   <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
+   <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline;margin-top:3px;" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
 
-<?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="" value="Done" /><?php } ?>
+<?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="margin-bottom: 2.5px;" value="Done" /><?php } ?>
 
 </form>
 
