@@ -183,6 +183,14 @@ html{	background-color:#FFF; }
 	0%		{ top:-300px; }
 	100%	{ top:-17px; }
 }
+@media print
+{
+	#homeseller_label{  padding-right: 40px !important; }
+	body
+	{
+		background: #000080!important;
+	}
+}
 
   </style>
 		<script>
@@ -218,15 +226,25 @@ html{	background-color:#FFF; }
 	}
 
 	 function printDiv() {
-             var printContents = document.getElementById("printArea").innerHTML;
+     var printContents = document.getElementById("printArea").innerHTML;
      var originalContents = document.body.innerHTML;
 
      document.body.innerHTML = printContents;
 
      window.print();
 
+
      document.body.innerHTML = originalContents;
         }
+         window.onbeforeprint = function(event) { 
+
+          $('#homeseller_label').css("margin-right","40px");
+
+         };
+        window.onafterprint = function(event) { 
+          $('#homeseller_label').css("margin-right","0px");
+
+         };
 		</script>
 			</div>
 			      <div class="col-md-10" style="background:#F1F3F4">
@@ -419,8 +437,8 @@ $hs_id=$get_summary['home_seller_id'];
 			</div>
 				</div>
 				<div class="col-md-6">
-					<div style="width: 105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 25px;">
-				<p adr_trans="label_homeseller_info" align="right" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
+					<div style="width: 105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 25px;" id="homeseller_label_div">
+				<p adr_trans="label_homeseller_info" id="homeseller_label" align="right" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">
 				<tr>
