@@ -90,7 +90,7 @@ function email($order_id,$con)
 	$mail->Body.="
 Hello {{realtor_Name}},<br>
 
-Finished images has been uploaded  for the order reference
+Finished images has been uploaded  for the order assignment
 #{{orderId}}, for further details please Login in to
 <a href='{{project_url}}' target='_blank'>Fotopia</a>.
 

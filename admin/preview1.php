@@ -92,7 +92,7 @@ $get_content = $get_email_content1['template_body_text'];
 
 	$mail->Body.="
 {{content}}<br>
-Fotopia with the order reference # F{{orderId}}.<br>
+Fotopia with the order assignment # F{{orderId}}.<br>
 <a href='{{project_url}}download_raw_images.php?secret_code={{secret_code}}'
 target='_blank'>Click here</a> to view and download the images.<br><br>
 You can upload the Finished images in the same link above.

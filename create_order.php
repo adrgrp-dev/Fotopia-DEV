@@ -601,7 +601,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         <input id="sell_name" name="sell_name" placeholder="Enter The home seller name" value="<?php echo  @$appointment_update_details['name'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
     </div>
     <div class="col-md-6">
-                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment no.</p>
+                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment Number</p>
                         <input id=" ref_no" name="ref_no" placeholder="Enter The Assignment Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
 						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />

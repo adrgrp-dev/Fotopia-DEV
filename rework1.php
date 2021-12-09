@@ -57,7 +57,7 @@ function email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_
   Hello {{Editor_Name}},<br>
 
 You have been assigned for Photo Rework from {{photographer_Name}} through
-Fotopia with the order reference # F{{orderId}}.<br>
+Fotopia with the order assignment # F{{orderId}}.<br>
 
 For further details
 <a href='{{project_url}}' target='_blank'>click here</a>.

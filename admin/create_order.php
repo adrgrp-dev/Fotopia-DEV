@@ -759,7 +759,7 @@ if(@$_REQUEST['u']==1)
     </div>
     
     <div class="col-md-6">
-                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment no</p>
+                        <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment Number</p>
                         <input id=" ref_no" name="ref_no" placeholder="Enter The Assignment Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
 						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
 						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />

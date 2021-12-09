@@ -169,7 +169,7 @@ $order_pc_admin_email = $get_pc_admin_details1['email'];
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Dear {{PCAdmin Company name}},<br><br>
 
-Order with Assignment no #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br>
+Order with Assignment No. #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br>
 
 Thanks,<br>
 Fotopia Team.
@@ -2329,7 +2329,7 @@ if($get_order1['status_id']==3)
         <p style="color: black;font-style: Manrope-Regular!important;font-size: 11px;"><strong style="font-size: 14px;">PROPERTY ADDRESS</strong><br><?php echo $homeSeller1['address']; ?></p>
       </div>
       <div class="col-md-6">
-        <p align="right" style="color: black;font-style: Manrope-Regular!important;font-size: 11px;margin-right: 10px;"><strong style="font-size: 14px;">REFERENCE #</strong><br><?php echo $homeSeller1['reference_number']; ?></p>
+        <p align="right" style="color: black;font-style: Manrope-Regular!important;font-size: 11px;margin-right: 10px;"><strong style="font-size: 14px;">ASSIGNMENT #</strong><br><?php echo $homeSeller1['reference_number']; ?></p>
       </div>
     </div>
 
