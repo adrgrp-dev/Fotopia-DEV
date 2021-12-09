@@ -448,7 +448,7 @@ $appointments=mysqli_query($con,"select * from appointments where photographer_i
 	$userInfo1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
 	$userInfo=mysqli_fetch_array($userInfo1);
 	 ?>
-	 <span style="color:#006600;font-size:11px;font-weight:600;margin-left:5px;"><i class="fa fa-chevron-circle-right"></i>&nbsp;<?php echo date("H:i a",strtotime($appointments1['from_datetime']))." to ".date("H:i a",strtotime($appointments1['to_datetime']))." - ".$userInfo['first_name']." ".$userInfo['last_name']." , "."Order #".$orderid.", ".$order_info['property_city'].",".$order_info['property_state']; ?></span><br />
+	 <span style="color:#006600;font-size:11px;font-weight:600;margin-left:5px;"><i class="fa fa-chevron-circle-right"></i>&nbsp;<?php echo date("H:i a",strtotime(@$appointments1['from_datetime']))." to ".date("H:i a",strtotime(@$appointments1['to_datetime']))." - ".@$userInfo['first_name']." ".@$userInfo['last_name']." , "."Order #".@$orderid.", ".@$order_info['property_city'].",".@$order_info['property_state']; ?></span><br />
 	 <?php } ?>
 
 	</div>

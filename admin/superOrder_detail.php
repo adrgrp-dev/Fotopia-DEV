@@ -3311,7 +3311,7 @@ $percentage = @$get_information['tax'];
 
 <div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:60px;">
 
-  <p style="color:white;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
+  <p style="color:#000;font-weight:600;padding-bottom:10px;" align="center">Order Chat Box <?php
 
   $realtor1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
   $realtor=mysqli_fetch_array($realtor1);

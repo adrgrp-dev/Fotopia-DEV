@@ -170,13 +170,13 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 	  	<tr><td colspan="3" style="padding-left:20px;" id="label_no_profile" adr_trans="label_no_profile">No profile information</td></tr>
 
 	 <?php  }
-	 else{
+	 else{ 
 
 	   ?>
 <tr><td colspan="3"><hr class="space xs" /></td></tr> 
 <tr><td colspan="3"><h5 class="text-center" style="margin-left:-10px;">Company profile</h5></td></tr> 
 
-	   <tr><td align="right"  style="font-size: 10px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
+	   <tr><td align="right"  style="font-size: 10px;"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
 		 <tr><td colspan="3"><hr class="space m" /></td></tr>
 		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
