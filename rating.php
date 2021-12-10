@@ -126,7 +126,7 @@ return false;
 				<input type="hidden" name="realtor_id"  value="<?php echo $_SESSION['loggedin_id']; ?>">
 				<input type="hidden" name="photographer_id"  value="<?php echo $photographer_id; ?>">
 				<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span adr_trans="label_comments">Comment</span></p>
-				<textarea name="comment" class="form-control" style="margin:10px;width:350px" adr_trans="label_type_comment">Type your comment</textarea>
+				<textarea name="comment" placeholder="Type your comment" class="form-control" style="margin:10px;width:350px" adr_trans="label_type_comment"></textarea>
 				<input type="submit" name="RateNow" value="Submit" class="btn btn-primary" style="margin:20px;">
 				</form>
 				</td></tr>

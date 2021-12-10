@@ -473,8 +473,31 @@ $hs_id=$get_summary['home_seller_id'];
       $propAddress=$get_summary['property_address']." ".$get_summary['property_zip']." ".$get_summary['property_city']." Norway ";  
   $propAddress=str_replace(",","",$propAddress);
   $propAddress=str_replace(" ","+",$propAddress); 
-?></td>
-				</tr>
+?>
+
+ <hr class="space s">
+      </td>
+        </tr>
+
+<?php  if (!empty($homeSeller1['contact_person_name'])) { ?>
+        <tr>
+        <td align="right" style="font-size:10px;" adr_trans="">Additional Contact Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_name'];?></td>
+        </tr>
+
+<?php } ?>
+
+<?php  if (!empty($homeSeller1['contact_person_email'])) { ?>
+        <tr>
+        <td align="right" style="font-size:10px;" adr_trans="">Additional Contact Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_email'];?></td>
+        </tr>
+  <?php } ?>
+
+      
+<?php  if (!empty($homeSeller1['contact_person_mobile'])) { ?>
+        <tr>
+        <td align="right" style="font-size:10px;" adr_trans="">Additional Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_mobile'];?></td>
+        </tr>
+<?php } ?>
 
 				</table>
 				<br />

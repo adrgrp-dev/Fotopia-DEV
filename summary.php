@@ -459,11 +459,38 @@ $propAddress=$get_summary['property_address']." ".$get_summary['property_zip']."
   $propAddress=str_replace(",","",$propAddress);
   $propAddress=str_replace(" ","+",$propAddress); 
 
-			?></td>
+			?>
+				
+				<hr class="space s">
+			</td>
 				</tr>
+
+<?php  if (!empty($homeSeller1['contact_person_name'])) { ?>
+				<tr>
+				<td align="right" style="font-size:10px;" adr_trans="">Additional Contact Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_name'];?></td>
+				</tr>
+
+<?php } ?>
+
+<?php  if (!empty($homeSeller1['contact_person_email'])) { ?>
+				<tr>
+				<td align="right" style="font-size:10px;" adr_trans="">Additional Contact Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_email'];?></td>
+				</tr>
+	<?php } ?>
+
+			
+<?php  if (!empty($homeSeller1['contact_person_mobile'])) { ?>
+				<tr>
+				<td align="right" style="font-size:10px;" adr_trans="">Additional Phone</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $homeSeller1['contact_person_mobile'];?></td>
+				</tr>
+<?php } ?>
+
+
 
 				</table>
 				<br />
+
+
 				<div class="col-md-12">
   <iframe width="400" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>

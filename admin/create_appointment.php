@@ -1187,7 +1187,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
              </div>
             <div class="col-md-4">
               <p id="label_floor_plans" adr_trans="label_floor_plans">No. Of Floor Plans</p>
-              <input id="plan" name="plan" placeholder="Enter The Floor Number " type="number" min="0" max="14"  autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['number_of_floor_plans']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+              <input id="plan" name="plan" placeholder="Enter The Floor Number " type="number" min="0" max="999"  autocomplete="off" class="form-control form-value" required="" value="<?php echo @$order_fetch['number_of_floor_plans']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
             </div>
             <div class="col-md-4">
               <p id="label_area" adr_trans="label_area">Area (Sq.Mt)</p>
