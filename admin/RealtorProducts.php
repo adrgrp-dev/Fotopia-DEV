@@ -317,7 +317,7 @@ color:#000!important;
                         <th id="label_product_name" adr_trans="label_product_name">Product Name</th>
 						<th><span adr_trans="label_timeline">Timeline</span></th>
                         <th><span adr_trans="label_product_cost">Product Cost</span><span> ($)</span></th>
-						 <th><span adr_trans="label_discount_price">Discount Price</span><span> ($)</span></th>
+						 <th><span>Special Price</span><span> ($)</span></th>
                     </tr>
 
                 </thead>
@@ -394,7 +394,7 @@ $realtorDiscountPrice=0;
 						<td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['total_cost']; ?></td>
                         <td>
-						<input type="number" name="discount_price[]" value="<?php echo $realtorDiscountPrice; ?>" style="width:70px;" max="<?php echo $get_product['total_cost']; ?>">
+						<input type="number" name="discount_price[]" value="<?php echo $realtorDiscountPrice; ?>" style="width:70px;" max="<?php echo $get_product['total_cost']; ?>" step="0.01">
 						<input type="hidden" name="product_cost[]" value="<?php echo $get_product['total_cost']; ?>">
 						<input type="hidden" name="product_id[]" value="<?php echo $get_product['id']; ?>">
 						<input type="hidden" name="pc_admin_id" value="<?php echo $loggedin_id; ?>">

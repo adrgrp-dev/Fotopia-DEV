@@ -343,7 +343,7 @@ $realtorDiscountPrice=0;
 						<td><?php echo $get_product['timeline']; ?></td>
 
                         <td>
-						<input type="number" name="photography_cost[]" value="<?php echo $realtorDiscountPrice; ?>" style="width:70px;">&nbsp;<span adr_trans="label_wo_tax">(w/o tax)</span>
+						<input type="number" name="photography_cost[]" value="<?php echo $realtorDiscountPrice; ?>" style="width:70px;" step="0.01">&nbsp;<span adr_trans="label_wo_tax">(w/o tax)</span>
 
 						<input type="hidden" name="pc_admin_id" value="<?php echo $loggedin_id; ?>">
 						<input type="hidden" name="photographer_id" value="<?php echo $photographer_id; ?>">
