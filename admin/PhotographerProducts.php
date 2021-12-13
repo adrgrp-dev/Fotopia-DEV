@@ -265,7 +265,7 @@ alert(alertmsg);
                         <th id="label_select" adr_trans="label_select">Select</th>
                         <th id="label_product_name" adr_trans="label_product_name">Product Name</th>
 						<th id="label_timeline" adr_trans="label_timeline">Timeline</th>
-                        <th><span adr_trans="label_photographer_earnings">Photographer's Earnings</span><span> ($)</span> </th>
+             <th><span adr_trans="label_photographer_earnings">Photographer's Earnings</span><span> ($)</span> </th>
 
                     </tr>
 
