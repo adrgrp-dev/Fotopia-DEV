@@ -310,7 +310,7 @@ margin-left:0px!important;
 
 <?php if(@isset($_REQUEST["wl"])) { ?>
 
-                            <p class="text-success" align="center" ><br />Added to wishlist successfully<br /></p>
+                            <p class="text-success" align="center" ><br />Added to favorites successfully<br /></p>
 
 						<?php }  ?>
 
