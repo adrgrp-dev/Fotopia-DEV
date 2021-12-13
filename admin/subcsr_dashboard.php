@@ -231,34 +231,31 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 
 						<?php }  ?>
 					<div>
-
                 <div class="col-md-3">
-
-                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
-
-													<hr class="space s">
+                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+                        <!-- <h3 style="margin-bottom: 20px;">Ongoing orders</h3> -->
+                          <hr class="space s">
                         <div class="row">
-													<div class="col-md-12 " style="padding-left: 35px;">
-														<h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span adr_trans="label_completed">Completed</span></h5>
-															<?php
-															$get_order_query=mysqli_query($con,"select count(*) as completed_no from orders where status_id=3 and csr_id=$subcsr");
-															if($get_order=mysqli_fetch_assoc($get_order_query))
-															{
-															?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000">
+                          <div class="col-md-12 pd-2" style="padding-left: 35px;">
+                            <!-- fa fa-xs fa-stack-exchange -->
+                            <h5><i class="fa fa-stack-exchange fa-lg" style="color:#aad1d6;"></i><br /><br /> <span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></h5>
+                              <?php
+                              $get_ongoing_query=mysqli_query($con,"SELECT count(*) as ongoing_no FROM orders where csr_id=$loggedin_id and photographer_id='0' and status_id in(1,6,7) ");
+                              if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
+                              {
+                              ?>
+                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 
-			 <?php echo $get_order["completed_no"]; }?>
-		 </p>
-    
-      <br />
-               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
-													</div>
-													<div class="col-md-6">
+                        <br />
+               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
-                        	</div>
-												</div>
+
+                          </div>
+
+                        </div>
                     </div>
                 </div>
+                
                 <div class="col-md-3">
                      <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
                         <!-- <h3 style="margin-bottom: 20px;">Ongoing orders</h3> -->
@@ -284,26 +281,29 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                     </div>
                 </div>
                 <div class="col-md-3">
-                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
-                        <!-- <h3 style="margin-bottom: 20px;">Ongoing orders</h3> -->
+
+                    <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
+
                           <hr class="space s">
                         <div class="row">
-                          <div class="col-md-12 pd-2" style="padding-left: 35px;">
-                            <!-- fa fa-xs fa-stack-exchange -->
-                            <h5><i class="fa fa-stack-exchange fa-lg" style="color:#aad1d6;"></i><br /><br /> <span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></h5>
+                          <div class="col-md-12 " style="padding-left: 35px;">
+                            <h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span adr_trans="label_completed">Completed</span></h5>
                               <?php
-                              $get_ongoing_query=mysqli_query($con,"SELECT count(*) as ongoing_no FROM orders where csr_id=$loggedin_id and photographer_id='0' and status_id in(1,6,7) ");
-                              if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
+                              $get_order_query=mysqli_query($con,"select count(*) as completed_no from orders where status_id=3 and csr_id=$subcsr");
+                              if($get_order=mysqli_fetch_assoc($get_order_query))
                               {
                               ?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000">
 
-                        <br />
-               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
-
+       <?php echo $get_order["completed_no"]; }?>
+     </p>
+    
+      <br />
+               <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                          </div>
+                          <div class="col-md-6">
 
                           </div>
-
                         </div>
                     </div>
                 </div>
