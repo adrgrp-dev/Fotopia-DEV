@@ -134,8 +134,8 @@ if(isset($_REQUEST['link1']))
   if(!empty($_REQUEST['invoice']))
   {
     $mail->Subject = "Order Cost";
-    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">COST OF THE ORDER</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">COST OF THE ORDER</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Hello {{share_email}},<br>
    Order Cost shared to You through Fotopia <br>
@@ -160,8 +160,8 @@ if(isset($_REQUEST['link1']))
   }
   else{
   $mail->Subject = "Image Link shared with you through Fotopia";
-  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+  $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
   //$mail->AltBody = "This is the plain text version of the email content";
   $mail->Body.="
 
@@ -286,8 +286,8 @@ $realtor_email = $get_realtor_info1['email'];
   $mail->isHTML(true);
 
     $mail->Subject = "Order Declined";
-   $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER HAS BEEN DECLINED</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+   $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">ORDER HAS BEEN DECLINED</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -431,6 +431,20 @@ function getFileCount($path) {
         }
         return $size;
     }
+
+    function countFilesInsideFolderExcludingSubFolder($path)
+  {
+
+ $fi = new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS);
+
+$fileCount = 0;
+foreach ($fi as $f) {
+    if ($f->isFile()) {
+        $fileCount++;
+    }
+  }
+    return $fileCount;
+  }
 
 
 //ZIP file
@@ -747,7 +761,7 @@ unlink($delete_dir);
   overflow: hidden;
   position: fixed;
   top: 178px;
-  right: 680px;
+  
   bottom: 0;
   left: 300px;
   z-index: 1050;
@@ -1313,7 +1327,7 @@ alert(alertmsg);
  };
  xhttp.open("GET","comment.php?id="+a+"&data="+c, true);
  xhttp.send();
- alert("Comment changed");
+ //alert("Comment changed");
 
 
 
@@ -1409,9 +1423,9 @@ alert(alertmsg);
                   {
                     echo '<li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>';
                   }
-                  elseif(($get_order1['status_id']==4)&&($_SESSION['admin_loggedin_type']=="SubCSR"))
+                  if(($get_order1['status_id']==4))
                   {
-                      echo '<li id="tab5"><a  id="" href="#tab6" data-toggle="tab"><span id="label_rework" adr_trans="label_rework">Rework</span></a></li>';
+                      echo '<li id="click7"><a  id="" href="#tab6" data-toggle="tab"><span id="label_rework" adr_trans="label_rework">Rework</span></a></li>';
                   }
                     ?>
 
@@ -1434,6 +1448,11 @@ alert(alertmsg);
                                 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                                 $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
                                 $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
+
+                                 $pcadmin_id=@$get_summary['pc_admin_id'];
+            $get_pcadmin_org_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pcadmin_id'");
+            @$get_org_name=mysqli_fetch_assoc($get_pcadmin_org_query);
+            $Pc_organization=@$get_org_name["organization_name"];
                                 ?>
 
                                 <?php
@@ -1446,7 +1465,7 @@ alert(alertmsg);
                                 ?>
 
 
- <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
+ <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br ><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 
 
@@ -1454,7 +1473,7 @@ alert(alertmsg);
                     <div class="row" style="" id="printArea">
                             <div class="col-md-6">
 
-                              <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+                              <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;max-height:fit-content;min-height:800px">
                          
                             <p align="right" id="label_order_details" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
@@ -1483,7 +1502,9 @@ alert(alertmsg);
                             </tr>
                          
                             <tr>
-
+                              <tr>
+                              <td align="right" style="font-size: 10px;" >Photo Company Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['pc_admin_id']!=0){echo $Pc_organization;} else{echo 'Not yet selected';}?></td>
+                              </tr>
                               <tr>
                               <td align="right" style="font-size: 10px;" adr_trans="">Photographer Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
                               </tr>
@@ -1498,14 +1519,24 @@ alert(alertmsg);
                               $get_hs_details_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                               $get_hs_details=mysqli_fetch_assoc($get_hs_details_query);
                               $realtorID=$get_summary['created_by_id'];
+                               $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
+                                $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
+                                $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
 
                             if($get_hs_details['lead_from']=='realtor')
                             {
                             ?>
                             <tr>
+                            <td align="right" style="font-size: 10px;" >Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                              <?php
+                                echo @$get_realtor_name["organization_name"];
+                                ?>
+                            </td>
+                            </tr>
+                            <tr>
                             <td align="right" style="font-size: 10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                               <?php
-                                echo $get_realtor_name1=$get_hs_details['request_name'];
+                                echo @$get_hs_details['request_name'];
                                 ?>
                             </td>
                             </tr>
@@ -1518,12 +1549,17 @@ alert(alertmsg);
                           <?php }
                           elseif($get_hs_details['lead_from']==""){ ?>
                             <tr>
+                            <td align="right" style="font-size: 10px;" >Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                              <?php
+                                echo @$get_realtor_name["organization_name"];
+                                ?>
+                            </td>
+                            </tr>
+                            <tr>
                             <td align="right" style="font-size: 10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                               <?php
-
-                                $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
-                                $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                echo $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
+                                echo $get_realtor_name1;
+                               
                                 ?>
                             </td>
                             </tr>
@@ -1536,10 +1572,6 @@ alert(alertmsg);
                           <?php } ?>
                             <tr>
                             <td align="right" style="font-size: 10px;vertical-align: baseline;" id="label_due_date" adr_trans="label_due_date">Due Date</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?><hr class="space xs"></td>
-                            
-                            </tr>
-                            <tr>
-                            <td align="right" style="font-size: 10px;vertical-align: baseline;" id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
                             
                             </tr>
                             <tr>
@@ -1561,7 +1593,13 @@ alert(alertmsg);
                         <?php
                          }
                         ?>
-                            <br />
+                                 <hr class="space m">
+        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
+        <table style="color:#000;font-weight:600;font-size:12px;">
+          <tr>
+        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        </tr>
+        </table>
                             <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:15px;">Products For the Order</p>
 
                             <table style="color:#000;font-weight:600;font-size:12px;min-height:50px">
@@ -1578,6 +1616,7 @@ alert(alertmsg);
                             <tr>
                            <td align="right" style="font-size: 10px;" ><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
                             </tr>
+                           
                             <?php } ?>
                             <!-- <td style="font-decoration:bold;">Total Cost</td><td style="padding-left:5px;padding-right:15px;">:</td><td><i class="fa fa-usd"></i>
                             <?php
@@ -1644,7 +1683,7 @@ alert(alertmsg);
 
                             </table>
 
-                            <br />
+                            <br >
                            
 <div class="col-md-12">
   <iframe width="400" height="450" frameborder="0" style="border:0"
@@ -1878,7 +1917,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files").html("<br/><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
                                 $("#drop_files").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files");
                               });
@@ -1912,7 +1951,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files1").html("<br/><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files1").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
                                 $("#drop_files1").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files1");
 
@@ -1947,7 +1986,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files2").html("<br/><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files2").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
                                 $("#drop_files2").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files2");
 
@@ -1986,7 +2025,7 @@ alert(alertmsg);
                          <hr class="space s">
                          <script>
                           $(document).ready(function() {
-                            $("#drop_files3").html("<br/><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                            $("#drop_files3").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
                             $("#drop_files3").css('text-align', 'center');
                             $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files3");
                           });
@@ -2009,248 +2048,390 @@ alert(alertmsg);
                     </div>
                   </div>
 
-                  <div class="panel" id="tab6">
+                  <div class="panel" id="tab6"  style="">
 
-                    <hr class="space s">
-                  <h5 id="zip_standard" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px"><span id="label_standard_photos" adr_trans="label_standard_photos">Standard photos</span></h5>
-                  <div class="maso-list gallery">
-                    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
-                    <?php
-                    $imagesDirectory_standard = "../raw_images/order_".$id_url."/standard_photos";
+                     <hr class="space s">
+                                      <h5 id="zip_standard" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
+                                      <?php
+                                      $imagesDirectory_standard = "../rework_images/order_".$id_url."/standard_photos";
 
-                    if (is_dir($imagesDirectory_standard))
-                    {
-                     $opendirectory = opendir($imagesDirectory_standard);
+                                      ?>
+                                      <form name="zipDownload" method="post" action="">
+                                        <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -50px;position: relative;right: 10px;
+float: right;top: -50px;position: relative;right: 10px;"/>
+                               <input type="hidden" name="imageType" value="rework" />
 
-
-                        while (($image = readdir($opendirectory)) !== false)
-                     {
-                       if(($image == '.') || ($image == '..'))
-                       {
-                         continue;
-                       }
-
-                       $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-
-                       if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
-                       {
-                        ?>
+         <input type="hidden" name="folderToZip" value="<?php echo "./rework_images/order_".$id_url."/standard_photos"; ?>">
+                       <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
+                          <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
 
 
+                                    <?php
+                                         $standard_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=1 and editor_email=''");
+                                         if(mysqli_num_rows($standard_query)!=0)
+                                         {
+                                         $Standard=mysqli_fetch_array(@$standard_query);
 
-                        <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                       if(is_dir($imagesDirectory_standard)){
+                                       if((countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)==0)&&(@$standard['editor_email']==''))
+                                       {
+                                    ?>
 
-                            <a class="img-box i-center" href="<?php echo $imagesDirectory_standard."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
-                                <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
+                                       <center><a  href="<?php echo $standard['images_url']."&rework=1"; ?>" target="_blank">Click here to upload Finished Images</a></center>
+                                     <?php
+                                     }
+                                     } 
+                                     }
+                                     ?>
 
-                                <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="100" height="80"/>
+                                      </form>
+                                      <div class="maso-list gallery">
+                                        <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
 
-                            </a>
-                            <?php
-                            $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                            $get_comment=mysqli_fetch_assoc($get_comment_querry);
+                                        <?php
+                                        if(is_dir($imagesDirectory_standard))
+                                        {
+                                         $opendirectory = opendir($imagesDirectory_standard);
 
-                            ?>
-                            <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
-                              <!-- Modal content -->
+                                        while (($image = readdir($opendirectory)) !== false)
+                                         {
+                                           if(($image == '.') || ($image == '..'))
+                                           {
+                                             continue;
+                                           }
 
-                              <div class="modal-content" style="height:260px;">
-                                 <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
+                                           $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
 
-                                 <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
-                                 <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
-                                   <?php
-                                   $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                                   $get_comment=mysqli_fetch_assoc($get_comment_querry);
-
-                                   ?>
-                           <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" disabled><?php echo $get_comment['comments'];?></textarea>
-                           <hr class="space s">
-
-                                 </div>
-                              </div>
-
-                            </div>
-                             <center class=""><input type="button" class="btn btn-default btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
-
-                        </div>
-
-                        <?php
-
-                       }
-
-                      }
-
-                        closedir($opendirectory);
-                    }
+                                           if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
+                                           {
+                                            ?>
 
 
+
+                                            <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                      <?php
+
+      $raw_images_standard = "../rework_images/order_".$id_url."/standard_photos/";
+  $getrawImage=mysqli_query($con,"select * from image_naming where order_id='$id_url' and downloaded_raw_image_name='$image' or image_name='$image' and downloaded_raw_image_name!=''");
+
+  $imgurl="";
+  $imgExist=mysqli_num_rows($getrawImage);
+  if($imgExist>0)
+  {
+  $getrawImage1=mysqli_fetch_array($getrawImage);
+  $imgurl=$raw_images_standard.$getrawImage1['downloaded_raw_image_name'];
+  }
+  else
+  {
+  $imgurl=$imagesDirectory_standard."/".$image;
+  }
                     ?>
 
+                                                <a class="img-box i-center" href="<?php echo $imgurl; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
+                                                    <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
+
+                                                    <img alt="" id="img" src="<?php echo $imgurl; ?>" width="100" height="80"/>
+
+                                                </a>
+                                                <?php
+                                                $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
+                                                $get_comment=mysqli_fetch_assoc($get_comment_querry);
+
+                                                ?>
+                                                <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="width:600px!important;">
+                                                  <!-- Modal content -->
+
+                                                  <div class="modal-content" style="height:260px;width:530px;">
+                                                     <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
+
+                                                     <center> <img alt="" id="img" src="<?php echo $imgurl ?>" width="120" height="160" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;left:45%">
+                                                       <?php
+                                                       $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
+                                                       $get_comment=mysqli_fetch_assoc($get_comment_querry);
+
+                                                       ?>
+                                               <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
+                                               <hr class="space s">
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "";}?>"><input type="button" class="btn adr-save btn-sm" style="" onclick="Getstandard('<?php echo "../rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel btn-sm" style="" onclick="disapprovestandard('<?php echo "../rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
+                                                     </div>
+                                                  </div>
+
+                                                </div>
+                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+
+                                            </div>
+
+                                            <?php
+
+                                           }
+
+                                          }
+
+                                            closedir($opendirectory);
+                                        }
 
 
-                    </div>
-                    </div>
-                    <hr class="space l">
-                    <h5 id="zip_floor" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px"><span id="label_floor_plans1" adr_trans="label_floor_plans1">Floor plans</span></h5>
+                                        ?>
+                                        <script>
+                                        function Getstandard(data,comment_id,order_id)
+                                        {
 
-                    <hr>
-                    <div class="maso-list gallery">
-                      <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
-                      <?php
-                      $imagesDirectory_floor = "../raw_images/order_".$id_url."/floor_plans";
+                                         
 
-                      if (is_dir($imagesDirectory_floor))
-                      {
-                       $opendirectory = opendir($imagesDirectory_floor);
+                                        if($("#s"+comment_id).val()=="")
+                                        {
+                                         alert("Please enter the comment");
+                                        }
+                                        else{
+                                          Getcomment(comment_id);
+                                          var a=data;
+                                          var c=$("#getdata").val();
+                                          // alert(a);
+                                          var xhttp = new XMLHttpRequest();
+                                          xhttp.onreadystatechange = function() {
+                                          if (this.readyState == 4 && this.status == 200)
+                                          {
+                                          
 
+                                        
+                                         window.location="superOrder_detail.php?fixed=3&id="+order_id;
+                                          }
+                                          };
+                                           xhttp.open("GET","rework1.php?url="+a+"&od="+c+"&order_id="+order_id, true);
+                                           xhttp.send();
+                                          //location.reload();
+                                         }
+                                        }
+                                        function disapprovestandard(data,comment_id,order_id)
+                                        {
+                                          if($("#s"+comment_id).val()=="")
+                                          {
+                                           alert("Please enter the comment");
+                                          }
+                                          else{
+                                            Getcomment(comment_id);
+                                          var a=data;
+                                          var c=$("#getdata").val();
+                                          // alert(a);
+                                          var xhttp = new XMLHttpRequest();
+                                          xhttp.onreadystatechange = function() {
+                                          if (this.readyState == 4 && this.status == 200)
+                                          {
+                                           
+                                          //  document.getElementById("drone_msg").innerHTML = this.responseText;
 
-                          while (($image = readdir($opendirectory)) !== false)
-                       {
-                         if(($image == '.') || ($image == '..'))
-                         {
-                           continue;
-                         }
+                                          window.location="superOrder_detail.php?fixed=3&id="+order_id;
 
-                         $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-
-                         if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
-                         {
-                          ?>
-
-
-
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
-
-                              <a class="img-box i-center" href="<?php echo $imagesDirectory_floor."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
-                                  <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
-
-                                  <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="100" height="80"/>
-
-                              </a>
-                              <?php
-                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                              $get_comment=mysqli_fetch_assoc($get_comment_querry);
-
-                              ?>
-                              <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
-                                <!-- Modal content -->
-
-                                <div class="modal-content" style="height:260px;">
-                                   <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
-
-                                   <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
-                                   <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
-                                     <?php
-                                     $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
-
-                                     ?>
-                             <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" disabled><?php echo $get_comment['comments'];?></textarea>
-                             <hr class="space s">
-
-                                   </div>
-                                </div>
-
-                              </div>
-                               <center class=""><input type="button" class="btn btn-default btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
-                          </div>
-                          <?php
-                         }
-                        }
-                          closedir($opendirectory);
-                      }
-                      ?>
-                      </div>
-                      </div>
-                      <hr class="space l">
-                    <h5 id="zip_Drone" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px"><span id="label_drone_photos" adr_trans="label_drone_photos">Drone photos</span></h5>
-                    <hr>
-                    <div class="maso-list gallery">
-                      <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
-                      <?php
-                      $imagesDirectory_Drone = "../raw_images/order_".$id_url."/Drone_photos";
-                      if (is_dir($imagesDirectory_Drone))
-                      {
-                       $opendirectory = opendir($imagesDirectory_Drone);
-                          while (($image = readdir($opendirectory)) !== false)
-                       {
-                         if(($image == '.') || ($image == '..'))
-                         {
-                           continue;
-                         }
-                         $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
-
-                         if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
-                         {
-                          ?>
+                                          }
+                                          };
+                                           xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
+                                           xhttp.send();
+                                           // location.reload();
 
 
+                                        }
+                                        }
+                                        </script>
 
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                       <?php
+                                         $standard_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=1");
+                                         $Standard=mysqli_fetch_array(@$standard_query);
 
-                              <a class="img-box i-center" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
-                                  <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
+                                       ?>
 
-                                  <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="100" height="80"/>
+                                        </div>
+                                        <?php if(is_dir($imagesDirectory_standard))
+                                        {
+                                          if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)!=0)
+                                        { 
+                                          ?>
+                                          <input type="text" class="form-control" name="commentall" value="<?php echo @$standard['comments'] ?>"/>
+                                        <?php } }?>
+                                        </div>
+                                        <hr class="space l">
+                                        <h5 id="zip_floor" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px" adr_trans="label_floor_plans1">Floor Plans</h5>
 
-                              </a>
-                              <?php
-                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                              $get_comment=mysqli_fetch_assoc($get_comment_querry);
+                                        <?php
+                                        $imagesDirectory_floor = "../rework_images/order_".$id_url."/floor_plans";
+                                        ?>
+                                        <form name="zipDownload" method="post" action="">
+                                          <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -50px;position: relative;right: 10px;
+"/>
+                       <input type="hidden" name="imageType" value="rework" />
 
-                              ?>
-                              <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
-                                <!-- Modal content -->
+                                          <input type ="hidden" name="folderToZip" value="<?php echo $imagesDirectory_floor;?>"/>
+                       <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
+                          <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
+                                       
+                                       <?php
+                                         $floor_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=2 and editor_email=''");
+                                         if(mysqli_num_rows($floor_query)!=0)
+                                         {
+                                         $floor=mysqli_fetch_array(@$floor_query);
+                                         $floor_rework_count=0;
+                                         if(is_dir($imagesDirectory_floor))
+                                         {
+                                         $floor_rework_count=countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor);
+                                         }
+                                       if(($floor_rework_count==0)&&(@$floor['editor_email']==''))
+                                       {
+                                       ?>
 
-                                <div class="modal-content" style="height:260px;">
-                                   <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
+                                         <center><a  href="<?php echo @$floor['images_url']."&rework=1"; ?>" target="_blank" >Click here to upload Finished Images</a></center>
+                                       <?php
+                                       }
+                                       } 
+                                       ?>
+                         
+                                   
 
-                                   <center> <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
-                                   <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
-                                     <?php
-                                     $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
-                                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
-
-                                     ?>
-                             <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" disabled><?php echo $get_comment['comments'];?></textarea>
-                             <hr class="space s">
-
-                                   </div>
-                                </div>
-
-                              </div>
-                               <center class=""><input type="button" class="btn btn-default btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
-
-                          </div>
-
-                          <?php
-
-                         }
-
-                        }
-
-                        closedir($opendirectory);
-                    }
+                                        </form>
+                                         
+                                        <div class="maso-list gallery">
+                                          <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                          <?php
+                                          if (is_dir($imagesDirectory_floor))
+                                          {
+                                           $opendirectory = opendir($imagesDirectory_floor);
 
 
-                    ?>
+                                              while (($image = readdir($opendirectory)) !== false)
+                                           {
+                                             if(($image == '.') || ($image == '..'))
+                                             {
+                                               continue;
+                                             }
+
+                                             $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
+
+                                             if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
+                                             {
+                                              ?>
 
 
 
+                                              <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
 
-                      </div>
-                      </div>
-                    <br>
-                    <br>
+                                                  <a class="img-box i-center" href="<?php echo $imagesDirectory_floor."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
+                                                      <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
+                                                      <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="100" height="80"/>
+
+                                                  </a>
+                                                  <?php
+                                                  $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
+                                                  $get_comment=mysqli_fetch_assoc($get_comment_querry);
+
+                                                  ?>
+                                                  <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="width:600px!important;">
+                                                    <!-- Modal content -->
+
+                                                    <div class="modal-content" style="height:260px;width:530px;">
+                                                       <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
+
+                                                       <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="120" height="140" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                       <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;left:0%">
+                                                         <?php
+                                                         $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
+                                                         $get_comment=mysqli_fetch_assoc($get_comment_querry);
+
+                                                         ?>
+                                                 <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
+                                                 <hr class="space s">
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "";}?>"><input type="button" class="btn adr-save" style="" onclick="Getfloor('<?php echo "../rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>','<?php echo $id_url; ?>')" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel" style="" onclick="disapprovefloor('<?php echo "../rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>','<?php echo $id_url; ?>')" value="Disapprove"/></center>
+                                                       </div>
+                                                    </div>
+
+                                                  </div>
+                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                              </div>
+                                              <?php
+                                             }
+                                            }
+                                              closedir($opendirectory);
+                                          }
+                                          ?>
+                                          <script>
+                                          function Getfloor(data,comment_id,order_id)
+                                          {
+                                            if($("#s"+comment_id).val()=="")
+                                            {
+                                             alert("Please enter the comment");
+                                            }
+                                            else{
+                                              Getcomment(comment_id);
+                                            var a=data;
+                                            var c=$("#getdata").val();
+
+                                            var xhttp = new XMLHttpRequest();
+                                            xhttp.onreadystatechange = function() {
+                                            if (this.readyState == 4 && this.status == 200)
+                                            {
+                                          window.location="superOrder_detail.php?fixed=3&id="+order_id;
+                                            }
+                                            };
+                                             xhttp.open("GET","rework1.php?url="+a+"&od="+c+"&order_id="+order_id, true);
+                                             xhttp.send();
+                                             
+                                           }
+                                          }
+                                          function disapprovefloor(data,comment_id,order_id)
+                                          {
+                                            if($("#s"+comment_id).val()=="")
+                                            {
+                                             alert("Please enter the comment");
+                                            }
+                                            else{
+                                              Getcomment(comment_id);
+                                            var a=data;
+                                            var c=$("#getdata").val();
+                                           
+
+                                            var xhttp = new XMLHttpRequest();
+                                            xhttp.onreadystatechange = function() {
+                                            if (this.readyState == 4 && this.status == 200)
+                                            {
+                                           window.location="superOrder_detail.php?fixed=3&id="+order_id;
+                                            }
+                                            };
+                                             xhttp.open("GET","disapprove.php?id="+a+"&od="+c, true);
+                                             xhttp.send();
+                                             
+                                           }
+                                          }
+                                          </script>
+                                          </div>
+                                          <?php
+                                            $floor_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=2");
+                                            $floor=mysqli_fetch_array(@$floor_query);
+
+                                          ?>
+
+                                          <?php if(is_dir($imagesDirectory_floor))
+                                        {
+                                          if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor)!=0)
+                                        { 
+                                          ?>
+                                         <input type="text" class="form-control" name="commentall" value="<?php echo @$floor['comments'] ?>"/>
+
+                                       <?php }} ?>
+                                         
+                                          </div>
+                                          <br>
+                                          <br>
+                                          <br>
+
+
+
+                   
                       </div>
 
                     <div class="panel" id="tab4">
-                      <input type="hidden" id="count" />
-                      <input type="hidden" id="count2"/>
-                      <input type="hidden" id="count3"/>
-                      <input type="hidden" id="count4"/>
+                      <input type="hidden" id="count" >
+                      <input type="hidden" id="count2">
+                      <input type="hidden" id="count3">
+                      <input type="hidden" id="count4">
 
 <div class="row" style="padding-top:10px;">
  
@@ -2314,7 +2495,7 @@ if (@$_REQUEST['shar']) {
                                                </div>
                                                <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                   <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style="font-family: Manrope-Regular;"  value="Rework" />
+                                                   <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style="font-family: Manrope-Regular;"  value="Rework" >
                                                </div>
                                                <?php } ?>
                                                <?php if(@$get_link['images_url']!='')
@@ -2332,7 +2513,7 @@ if (@$_REQUEST['shar']) {
 
                                                <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" >
 
                                                </div>
 
@@ -2396,7 +2577,7 @@ if (@$_REQUEST['shar']) {
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
 
-                                             <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                             <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                              <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                             <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2444,7 +2625,7 @@ if (@$_REQUEST['shar']) {
                                                   <div class="modal-content" style="height:260px;">
                                                      <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                                      <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                                        <?php
                                                        $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2479,7 +2660,7 @@ if (@$_REQUEST['shar']) {
 
 
                                          </form>
-                                         <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;"/>
+                                         <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;">
                                         </div>
                                         </div>
 
@@ -2520,7 +2701,7 @@ if (@$_REQUEST['shar']) {
 
                                                 <div class="col-md-2" style="display:inline-block">
                                                 
-                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" />
+                                                  <input type="submit"  class="circle-button btn-sm btn adr-save"  name="delete_all" style=""  value="Delete" >
 
                                                </div>
 
@@ -2585,7 +2766,7 @@ if (@$_REQUEST['shar']) {
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
 
-                                             <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                             <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                             <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2622,7 +2803,7 @@ if (@$_REQUEST['shar']) {
                                                   <div class="modal-content" style="height:260px;">
                                                      <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                                      <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                                        <?php
                                                        $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2657,7 +2838,7 @@ if (@$_REQUEST['shar']) {
 
 
                                          </form>
-                                       <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;"/>
+                                       <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;">
                                         </div>
                                         </div>
                                     </div>
@@ -2714,7 +2895,7 @@ if (@$_REQUEST['shar']) {
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
 
-                                             <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                             <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                             <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2749,7 +2930,7 @@ if (@$_REQUEST['shar']) {
                                                   <div class="modal-content" style="height:260px;">
                                                      <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                                      <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                                        <?php
                                                        $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2802,7 +2983,7 @@ if (@$_REQUEST['shar']) {
                                             </div>
                                          </div>
                                          </form>
-                                         <input type="number" id="counts3" value="<?php echo $i;?>" style="display:none;"/>
+                                         <input type="number" id="counts3" value="<?php echo $i;?>" style="display:none;">
                                         </div>
                                         </div>
 
@@ -2860,7 +3041,7 @@ if (@$_REQUEST['shar']) {
                                             $picture_name1=mysqli_fetch_assoc($picture_name);
                                             ?>
                                             ?>
-                                             <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                             <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                              <input type="checkbox" class="selectall" name="allimage[]" id="selectal4" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                             <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2895,7 +3076,7 @@ if (@$_REQUEST['shar']) {
                                                   <div class="modal-content" style="height:260px;">
                                                      <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                                     <center> <img alt="" id="img" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                                      <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                                        <?php
                                                        $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2949,7 +3130,7 @@ if (@$_REQUEST['shar']) {
                                             </div>
                                          </div>
                                          </form>
-                                            <input type="number" id="counts4" value="<?php echo $i;?>" style="display:none;"/>
+                                            <input type="number" id="counts4" value="<?php echo $i;?>" style="display:none;">
                                         </div>
                                         </div>
 
@@ -2985,8 +3166,10 @@ if (@$_REQUEST['shar']) {
                 ?>
 
                   </div>
+                
 
-                        <div class="panel" id="tab5">
+                        <div class="panel" id="tab5" style="background:white">
+                        
 
                           <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;margin-top: 2px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
@@ -2995,9 +3178,9 @@ if (@$_REQUEST['shar']) {
 
       <div id="print">
         <header id="inv_header" >
-          <h4 id="inv_h1" style="font-size:20px; text-align: center;"><span id="label_order_cost" adr_trans="label_order_cost">Order cost</span></h4><br/>
+          <h4 id="inv_h1" style="font-size:20px; text-align: center;"><span id="label_order_cost" adr_trans="label_order_cost">Order cost</span></h4><br>
                <!-- <h1 id="inv_h1" style="font-size:50px; text-align: left; margin-left : 1.5%;
-         padding-left : 1.5%;">Order Cost</h1> <br/> -->
+         padding-left : 1.5%;">Order Cost</h1> <br> -->
 
          <?php
          @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
@@ -3063,7 +3246,7 @@ if (@$_REQUEST['shar']) {
               </td>
             </tr>
           </table>
-          <br/><br/>
+          <br><br>
           <table style="width:100%!important;margin-left : 0px;" id="billedTo">
 
             <?php
@@ -3123,7 +3306,7 @@ if (@$_REQUEST['shar']) {
              ?>
             </table>
 
-        <br/><br/>
+        <br><br>
             <table style="float: right;
         margin-top: -164px;text-align: right;margin-right: 10px;" id="billedFrom">
             <div >
@@ -3204,7 +3387,7 @@ if (@$_REQUEST['shar']) {
                                   $splited_title =  explode(',',$title_split);
                                   foreach($splited_title as $new_title)
                                   {
-                                      echo $new_title; ?> <br/><?php
+                                      echo $new_title; ?> <br><?php
                                   }?>
 
                                   </span></td>
@@ -3215,7 +3398,7 @@ if (@$_REQUEST['shar']) {
                foreach($var as $row)
                 {
 
-               echo $row; ?> <br/><?php
+               echo $row; ?> <br><?php
 
                 }
 
@@ -3231,7 +3414,7 @@ if (@$_REQUEST['shar']) {
                 $price=mysqli_query($con,"SELECT * FROM order_products where product_id='$row' and order_id='$id_url'");
                 $get_price_info=mysqli_fetch_assoc($price);
                $total_cost=@$get_price_info["total_price"];
-               echo "$".@$total_cost; ?> <br/><?php
+               echo "$".@$total_cost; ?> <br><?php
 
                 }
 
@@ -3255,10 +3438,10 @@ if (@$_REQUEST['shar']) {
 
   <form method="post">
 
-                     <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
+                     <input type="hidden" name="id" value="<?php echo $id_url ?>">
          <span style="font-size:15px;padding-right:5px;">$</span><input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php if($invoice_check['other_cost']!=0){echo $invoice_check['other_cost'];}?>" autocomplete="off" class="form-control" style="width:100px;display:inline;margin-top: 3px;" required <?php if($invoice_check['other_cost']!=0){echo "readonly";}?>>
-         <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
-<?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="position: absolute;right: 93%;" value="Done" /><?php } ?>
+         <input type="text" name="description" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> ">
+<?php if($invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="position: absolute;right: 93%;" value="Done" ><?php } ?>
 
  </form>
 </td>
@@ -3272,14 +3455,16 @@ if (@$_REQUEST['shar']) {
 <td id="inv_td" style="">
 
 <form method="post" style="position: relative;left: -150px;">
- <input type="text" name="description" placeholder="Description of cost" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> "/>
+ <input type="text" name="description" placeholder="Description of cost" style="<?php if($invoice_check['other_cost']!=0){echo "display:none";}?> ">
 
-               <input type="hidden" name="id" value="<?php echo $id_url ?>"/>
+               <input type="hidden" name="id" value="<?php echo $id_url ?>">
                </td>
                <td id="inv_td" style="text-align: right;">
    <input id="cost" name="cost" placeholder="Other cost Description" visibility="hidden" type="number" value="<?php echo @$invoice_check['other_cost'];?>"  autocomplete="off" class="form-control" style="width:100px;display:inline;margin-top:3px;" required <?php if(@$invoice_check['other_cost']!=0){echo "readonly";}?>>
 
+
 <?php if(@$invoice_check['other_cost']==0){?><input type="submit" class="btn adr-save" style="margin-bottom: 2.5px;" value="Done" /><?php } ?>
+
 
 </form>
 
@@ -3305,9 +3490,9 @@ $percentage = @$get_information['tax'];
 </tr>
             </tbody>
           </table>
-          <br />
+          <br >
 
-        <br/><br/>
+        <br><br>
     <table style="margin-left : 10px;
          padding-left : 10px;">
       <tr>
@@ -3332,7 +3517,11 @@ $percentage = @$get_information['tax'];
                       </div>
 
                     </div>
+                   
   </div>
+
+
+  
 
 <div class="col-md-2" style="border:none;background:#AAD1D6;opacity:0.7;padding:10px;font-family:Manrope-regular;border-radius:5px;margin-top:60px;">
 
@@ -3350,10 +3539,10 @@ $percentage = @$get_information['tax'];
   </table>
 </div>
 </div>
-  <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
-   <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
-   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["admin_loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;width:95%;" placeholder=" Type your msg, hit enter" required class="form-control" />
+  <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" >
+   <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" >
+   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["admin_loggedin_id"]; ?>" >
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;width:95%;" placeholder=" Type your msg, hit enter" required class="form-control" >
 
 
   </div>
@@ -3398,6 +3587,9 @@ function viewchat()
   xhttp.open("GET","view_chat.php?id="+b+"&id1="+c, true);
   xhttp.send();
 }
+$(document).ready(function(){
+  viewchat();
+});
 
 var scrolled = false;
 function updateScroll(){
@@ -3455,7 +3647,7 @@ function updateScroll(){
 
                                                      <form   method="post" name="stdform" action="" onsubmit="">
                                                      <input id="" name="reason" placeholder="Reason" type="text" autocomplete="off" class="form-control form-value" required>
-                                                     <input type="hidden" name="status_id" id="status_id"/>
+                                                     <input type="hidden" name="status_id" id="status_id">
 
                                                      <hr class="space s">
                                                      <center><button class="btn adr-save" name="link" id="send" ><span id="label_send" adr_trans="label_send">Send</span></button></center>
@@ -3472,9 +3664,9 @@ function updateScroll(){
                                                                     <center><span class="sub" id="error" style="color:green;"></span></center>
                                                                     <form   method="post" name="stdform" action="" onsubmit="">
                                                                     <input id="email1" name="email" onblur="this.value=this.value.trim()" placeholder="Email" type="email"   autocomplete="off" class="form-control form-value" required="">
-                                                                    <input type="hidden" name="link1" id="link"/>
-                                                                    <input type="hidden" name="downloadoption" id="downloadoption" />
-                                                                    <input type="hidden" name="sharename" value="<?php echo $_SESSION['admin_loggedin_name'];?>"  />
+                                                                    <input type="hidden" name="link1" id="link">
+                                                                    <input type="hidden" name="downloadoption" id="downloadoption" >
+                                                                    <input type="hidden" name="sharename" value="<?php echo $_SESSION['admin_loggedin_name'];?>"  >
                                                                     <hr class="space s">
                                                                     <center><button class="btn adr-save" name="link" id="send"><span adr_trans="label_send">Send</span></button></center>
                                                                     </form>

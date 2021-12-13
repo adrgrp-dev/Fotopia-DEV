@@ -223,7 +223,7 @@ color:#000!important;
 <div class="col-md9">
 <div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;background:#aad1d6;color:#000!important;font-weight:600;padding:10px;"><a id="label_product_price" adr_trans="label_product_price" href="products.php" style="color:#000!important">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px;font-weight:600; padding:10px;"><a id="label_realtor_custom" adr_trans="label_realtor_custom" href="RealtorProducts.php" style="color:#000">Custom Price for Realtor</a></div>
-<div class="col-md-4" style="border-radius:0px 25px 25px 0px;border:solid 1px;font-weight:600;padding:10px;"><a id="label_photographer_custom" adr_trans="label_photographer_custom" href="PhotographerProducts.php">Custom Price for Photographers</a></a></div>
+<div class="col-md-4" style="border-radius:0px 25px 25px 0px;border:solid 1px;font-weight:600;padding:10px;"><a  href="PhotographerProducts.php">Photographers Commission</a></a></div>
 </div>
 </center>
 <br><br><br />

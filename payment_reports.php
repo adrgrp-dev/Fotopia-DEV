@@ -90,15 +90,15 @@ return true;
 </script>
 <form name="searchForm" method="post" action="" onsubmit="return validateDates()">
 <div class="row">
-<div class="col-md-2" style="padding-left:10px;width:180px;">
+<div class="col-md-3" style="padding-left:10px;width:200px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
 <input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; class="form-control" style="display:inline-table">
 </div>
-<div class="col-md-2" style="padding-left:10px;width:180px;">
+<div class="col-md-3" style="padding-left:10px;width:200px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
 <input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control" style="">
 </div>
-<div class="col-md-2" style="padding-left:10px;width:180px;">
+<div class="col-md-3" style="padding-left:10px;width:200px;">
 <p><h5 adr_trans="label_photo_company">Photo Company</h5></p>
 <?php
 if(!empty($_REQUEST['pcfilter'])){
@@ -149,7 +149,7 @@ if(!empty($_REQUEST['pcfilter'])){
                                             </span>
                                             <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="">
 
-                                             Ref #
+                                             Assignment #
 
                                             </span>
                                            <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_products">

@@ -1,4 +1,5 @@
 <?php
+
 include "connection.php";
 
 $secret=$_REQUEST["secret_code"];
@@ -360,21 +361,29 @@ $("#dayVal").val(calid);
 $get_folder_querry="";
 if(@$_REQUEST['rework'])
 {
- $imagesDirectory = "./rework_images/order_".$id_url."/".$service."/rework_approved/";
+ $imagesDirectory = "rework_images/order_".$id_url."/".$service."/rework_approved";
  $get_folder_querry=mysqli_query($con,"SELECT * FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and raw_images=1 and comments!=''");
 
 }
 else
 {
-      $imagesDirectory = "./raw_images/order_".$id_url."/".$service;
+      $imagesDirectory = "raw_images/order_".$id_url."/".$service;
 	  $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=$service_id and dynamic_folder!=''");
 	  }
+    //echo $imagesDirectory;
 
+   
+ $opendirectory = opendir($imagesDirectory);
 
-    while($folder=mysqli_fetch_array($get_folder_querry))
-    {
+while (($image = readdir($opendirectory)) !== false)
+ {
+   if(($image == '.') || ($image == '..'))
+   {
+     continue;
+   }
+  
        // $imagesDirectory =".".trim($folder['dynamic_folder'],'.');
-     $image=@$folder['img'];
+     //$image=@$folder['img'];
          $imgFileType = pathinfo($image,PATHINFO_EXTENSION);
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
@@ -392,7 +401,7 @@ else
 {
 
 ?>
-    <img alt="" src="<?php echo "rework_images/order_".$id_url."/".$service."/rework_approved/".$image; ?>" width="100" height="80"/>
+    <img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
 	<?php } else { ?>
 	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
 
@@ -450,8 +459,24 @@ else
         <?php
         $order_id=$raw_images["order_id"];
         $type=$raw_images["service_name"];
+
+        $user_id=0;
+        $user_type="";
+        if(isset($_SESSION['loggedin_id']))
+        {
+            $user_id=$_SESSION['loggedin_id'];
+            $user_type=$_SESSION['user_type'];
+
+        }
+        elseif(isset($_SESSION['loggedin_id']))
+        {
+            $user_id=$_SESSION['admin_loggedin_id'];
+            $user_type=$_SESSION['admin_loggedin_type'];
+        }
+
         ?>
-       <form action="./dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type;?>&user_id=<?php echo '0';?>&user_type=<?php echo ' ';?>" id='uploads' class="dropzone" style="100px">
+
+       <form action="./dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type;?>&user_id=<?php echo $user_id;?>&user_type=<?php echo $user_type;?>" id='uploads' class="dropzone" style="100px">
 
         <span id="drop_files"></span>
         </form>

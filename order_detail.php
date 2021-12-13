@@ -1,3 +1,5 @@
+
+
 <?php
 ob_start();
 include "connection1.php";
@@ -66,7 +68,7 @@ $xyz123=0;
   	$mail->isHTML(true);
 
   	$mail->Subject = "Image Link shared with you through Fotopia";
-  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
   	//$mail->AltBody = "This is the plain text version of the email content";
   	$mail->Body.="Hello {{Editor_email}},<br><br>
 
@@ -165,7 +167,7 @@ $order_pc_admin_email = $get_pc_admin_details1['email'];
     $mail->isHTML(true);
 
     $mail->Subject = "Order Cancelled";
-    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER CANCELLED</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">ORDER CANCELLED</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Dear {{PCAdmin Company name}},<br><br>
 
@@ -268,6 +270,21 @@ function getFileCount($path) {
         }
         return $size;
     }
+
+
+  function countFilesInsideFolderExcludingSubFolder($path)
+  {
+
+ $fi = new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS);
+
+$fileCount = 0;
+foreach ($fi as $f) {
+    if ($f->isFile()) {
+        $fileCount++;
+    }
+  }
+    return $fileCount;
+  }
 
 
 
@@ -1184,6 +1201,7 @@ var c=$('#count').val();
       $("#clicked_img1"+a).removeClass("nonviewed");
       $("#clicked_img2"+a).removeClass("nonviewed");
       $("#clicked_img3"+a).removeClass("nonviewed");
+      $("#ban"+a).addClass("hide");
     }
    };
    xhttp.open("GET","./viewed.php?id="+a, true);
@@ -1271,6 +1289,11 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
               $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
               $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
               $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
+
+               $pcadmin_id=@$get_summary['pc_admin_id'];
+            $get_pcadmin_org_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pcadmin_id'");
+            @$get_org_name=mysqli_fetch_assoc($get_pcadmin_org_query);
+            $Pc_organization=@$get_org_name["organization_name"];
               ?>
               <?php
 
@@ -1280,7 +1303,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
 
 
               ?>
- <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
+ <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br ><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
 
 
 
@@ -1288,7 +1311,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
 
   				<div class="col-md-6">
 			
-         <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:800px">
+         <div style="width:96%;background:#FFF;padding:10px;border-radius:5px;max-height:fit-content;min-height: 800px;">
   			           <p align="right" id="label_order_details" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
   				<table class="" style="color:#000;font-weight:600;font-size:13px;">
 
@@ -1313,7 +1336,9 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             </tr> 
 
                             <tr>
-
+                                 <tr>
+                           <td align="right" style="font-size: 10px;" adr_trans="">Photo Company Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['pc_admin_id']!=0){echo $Pc_organization;} else{echo 'Not yet selected';}?></td>
+                            </tr>
                                 <tr>
                            <td align="right" style="font-size: 10px;" adr_trans="">Photographer name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
                             </tr>
@@ -1322,14 +1347,22 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_session_date_time" adr_trans="label_session_date_time">Session Date & Time</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['session_from_datetime']!='0000-00-00 00:00:00') { echo date("d-m-Y H:i a",strtotime($get_summary['session_from_datetime']))." - ". date("d-m-Y H:i a",strtotime($get_summary['session_to_datetime'])); } else { echo "Session not booked yet.";  } ?><hr class="space xs"></td>
                             </tr>
-                            <tr>
-                            <td align="right" style="font-size: 10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                               <?php
                                 $realtorID=$get_summary['created_by_id']  ;
                                 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                echo $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
+                                 $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
                                 ?>
+                                <tr>
+                            <td align="right" style="font-size: 10px;" id="" >Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                              <?php echo @$get_realtor_name["organization_name"];?>
+                            
+                            </td>
+                            </tr>
+                            <tr>
+                            <td align="right" style="font-size: 10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                              <?php echo @$get_realtor_name1;?>
+                            
                             </td>
                             </tr>
                             <tr>
@@ -1341,15 +1374,15 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_due_date" adr_trans="label_due_date">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime(@$get_summary['order_due_date'])); ?><hr class="space xs"></td>
                             </tr>
-                            <tr>
-                            <td align="right" style="font-size: 10px;" id="label_booking_notes" adr_trans="label_booking_notes">Booking Notes</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo @$get_summary['booking_notes']; ?><hr class="space xs"></td>
-                            </tr>
+                           
                             <tr>
                             <td align="right" style="font-size: 10px;" id="label_status" adr_trans="label_status">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td ><?php $status=$get_summary['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}?></td>  </tr>
                               <?php if($status==5||$status==6||$status==7){?>
                                 <tr><td align="right" style="font-size: 10px;">Reason</td><td>:</td><td><?php echo $get_summary['comment']; ?></td></tr><?php } ?>
 
-                            </table> 
+                            </table>
+
+
                             <hr class="space s">
 
                             <?php
@@ -1364,7 +1397,14 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                         <?php
                          }
                         ?>
-                            <br />
+                            
+                             <hr class="space m">
+        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
+        <table style="color:#000;font-weight:600;font-size:12px;">
+          <tr>
+        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        </tr>
+        </table><br/>
                             <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
 
   				<table style="color:#000;font-weight:600;font-size:12px;min-height:50px">
@@ -1440,7 +1480,7 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 
 
   				</table>
-  				<br />
+  				<br >
   				<div class="col-md-12">
 				
 	<iframe width="400" height="450" frameborder="0" style="border:0"
@@ -1575,10 +1615,10 @@ $('.input'+iconid1).css("visibility","hidden");
 </div>
 
 <div class="panel" id="tab3" style="border-radius:5px;">
-            <input type="hidden" id="count"/>
-            <input type="hidden" id="count2"/>
-            <input type="hidden" id="count3"/>
-            <input type="hidden" id="count4"/>
+            <input type="hidden" id="count">
+            <input type="hidden" id="count2">
+            <input type="hidden" id="count3">
+            <input type="hidden" id="count4">
 
 
 
@@ -1633,7 +1673,7 @@ if (@$_REQUEST['shar']) {
         
            
            
-			 <br />
+			 <br >
                       <div class="tab-box pills" data-tab-anima="fade-right">
                           <ul class="nav nav-pills nav-justified">
                               <li class="current-active active "><a href="#" class="" adr_trans="label_standard_photos">Standard Photos</a></li>
@@ -1671,6 +1711,7 @@ if (@$_REQUEST['shar']) {
                                 <p class="text-center" style="font-weight:600;color:#000080">Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
                                 </div>
                               </div>
+
 
 
                             </div>
@@ -1722,7 +1763,7 @@ if (@$_REQUEST['shar']) {
                                   // print_r($get_comment);
                                   ?>
 
-                                   <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                   <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                   <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -1739,15 +1780,25 @@ if (@$_REQUEST['shar']) {
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                         <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                                   <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                                      <?php if($get_comment['disapprove']==1){ ?>
+                                  <i id="ban<?php echo $get_comment['id'];?>" title="<?php echo @$get_comment['comments']; ?>, So this picture is not accepted for rework" class="fa fa-ban" style="position: absolute;
+    top: 210px;
+    right: 18px;
+    color: #aad1d6;
+    font-weight: 700;
+    padding: 2px;"></i>
+                              <?php } ?>
+
                                     </a>
+                                                                        
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->
 
                                         <div class="modal-content" style="height:260px;">
                                            <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px" title=""/></center>
+                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px" title=""></center>
                                            <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                              <?php
                                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -1776,10 +1827,82 @@ if (@$_REQUEST['shar']) {
 
                                   closedir($opendirectory);
                               }
-                              ?>
+                              ?><div class="col-md-12">
+                               <?php 
+
+                              $imagesDirectory_standard_rework="./Rework_images/order_".$id_url."/standard_photos";
+                              if (is_dir($imagesDirectory_standard_rework))
+                              {
+                               $opendirectory1 = opendir($imagesDirectory_standard_rework);
+                               ?>
+                               
+                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_rework)==0){ echo "hidden";} ?>">Rework Assigned</h6>
+                               <div class="row" style="padding-left:10px">
+                              <?php
+                              while (($image = readdir($opendirectory1)) !== false)
+                               {
+                                if(($image == '.') || ($image == '..'))
+                                 {
+                                   continue;
+                                 }
+                                 if(!is_dir($imagesDirectory_standard_rework."/".$image))
+                                 {
+                                 
+                                ?>
+
+                               <div data-sort="1" class=" col-md-3 cat1" >
+                                <img src="<?php echo $imagesDirectory_standard_rework."/".$image ?>" width="180" height="120">
+                               </div>
+                           
 
 
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
+                               <?php 
+                              }
+                              }
+                              closedir($opendirectory1);
+                               ?></div><?php 
+                              }
+                             ?>
+                          
+                         </div>
+                         <div class="col-md-12">
+                               <?php 
+                              $imagesDirectory_standard_accepted="./Rework_images/order_".$id_url."/standard_photos/rework_approved";
+                              if (is_dir($imagesDirectory_standard_accepted))
+                              {
+                               $opendirectory1 = opendir($imagesDirectory_standard_accepted);
+                               ?>
+                             
+                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_accepted)==0){ echo "hidden";} ?>">Rework Accepted</h6>
+                               <div class="row" style="padding-left:10px">
+
+                               <?php
+
+                              while (($image = readdir($opendirectory1)) !== false)
+                               {
+                                if(($image == '.') || ($image == '..'))
+                                 {
+                                   continue;
+                                 }
+                                 
+                                ?>
+                               
+                                <div data-sort="1" class=" col-md-3 cat1" >
+                                <img src="<?php echo $imagesDirectory_standard_accepted."/".$image ?>" width="180" height="150" >
+                                </div>
+
+                               <?php 
+                              }
+                              closedir($opendirectory1);
+                               ?></div><?php 
+                              }
+                             ?>
+                           
+                         </div>
+                          
+
+
+                                  <center><input type="text" class="comment form-control" name="comment" id="comment2"  value="" placeholder="Enter the comment " style="display: none;"   ></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/standard_photos"; ?>">
                                  <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
@@ -1792,7 +1915,8 @@ if (@$_REQUEST['shar']) {
 
 
                                </form>
-                               <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;"/>
+                                
+                               <input type="number" id="counts" value="<?php echo $i;?>" style="display:none;">
                               </div>
                               </div>
 
@@ -1874,7 +1998,7 @@ if (@$_REQUEST['shar']) {
                                   $picture_name1=mysqli_fetch_assoc($picture_name);
                                   // print_r($get_comment);
                                   ?>
-                                   <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                   <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                   <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -1891,6 +2015,14 @@ if (@$_REQUEST['shar']) {
                                     <?php } ?>
                                       <a  onclick="viewed(<?php echo $get_comment['id']?>)"   onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
                             <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <?php if($get_comment['disapprove']==1){ ?>
+                                  <i id="ban<?php echo $get_comment['id'];?>" class="fa fa-ban" title="<?php echo @$get_comment['comments'];?>, So this picture is not accepted for rework" style="position: absolute;
+    top: 210px;
+    right: 18px;
+    color: #aad1d6;
+    font-weight: 700;
+    padding: 2px;"></i>
+                              <?php } ?>
                           </a>
 
 
@@ -1900,7 +2032,7 @@ if (@$_REQUEST['shar']) {
                                         <div class="modal-content" style="height:260px;">
                                            <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                            <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                              <?php
                                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -1930,8 +2062,88 @@ if (@$_REQUEST['shar']) {
                                   closedir($opendirectory);
                               }
                               ?>
+                               <div class="col-md-12">
+                               <?php 
 
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
+                              $imagesDirectory_floor_rework="./Rework_images/order_".$id_url."/floor_plans";
+                              if (is_dir($imagesDirectory_floor_rework))
+                              {
+                               $opendirectory1 = opendir($imagesDirectory_floor_rework);
+                               ?>
+                               <hr class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_rework)==0){ echo "hidden";} ?>" style="margin-top: 10px;">
+                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_rework)==0){ echo "hidden";} ?>">Rework Assigned</h6>
+                               <div class="row" style="padding-left:10px">
+                              <?php
+                              while (($image = readdir($opendirectory1)) !== false)
+                               {
+                                if(($image == '.') || ($image == '..'))
+                                 {
+                                   continue;
+                                 }
+                                 if(!is_dir($imagesDirectory_floor_rework."/".$image))
+                                 {
+                                 
+                                ?>
+
+                               <div data-sort="1" class=" col-md-3 cat1" >
+                                <img src="<?php echo $imagesDirectory_floor_rework."/".$image ?>" width="180" height="120">
+                               </div>
+                           
+
+
+                               <?php 
+                              }
+                              }
+                              closedir($opendirectory1);
+                               ?></div><?php 
+                              }
+                             ?>
+                           
+                          </div>
+                          <div class="col-md-12">
+                               <?php 
+                              $imagesDirectory_floor_accepted="./Rework_images/order_".$id_url."/floor_plans/rework_approved";
+                              if (is_dir($imagesDirectory_floor_accepted))
+                              {
+                               $opendirectory1 = opendir($imagesDirectory_floor_accepted);
+                               $floor_rework_accepted_count=0;
+                               
+
+                               if (is_dir($imagesDirectory_floor_accepted))
+                               {
+                                 $floor_rework_accepted_count=countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_accepted);
+                               }
+                               ?>
+                               <hr  class="<?php  if($floor_rework_accepted_count==0){ echo "hidden";} ?>" style="margin-top: 10px;">
+                               <h6 class="<?php  if($floor_rework_accepted_count==0){ echo "hidden";} ?>">Rework Accepted</h6>
+                               <div class="row" style="padding-left:10px">
+
+                               <?php
+
+                              while (($image = readdir($opendirectory1)) !== false)
+                               {
+                                if(($image == '.') || ($image == '..'))
+                                 {
+                                   continue;
+                                 }
+                                 
+                                ?>
+                               
+                                <div data-sort="1" class=" col-md-3 cat1" >
+                                <img src="<?php echo $imagesDirectory_floor_accepted."/".$image ?>" width="180" height="150" >
+                                </div>
+
+                               <?php 
+                              }
+                              closedir($opendirectory1);
+                               ?></div><?php 
+                              }
+                             ?>
+                           
+                             
+                          </div>
+
+                                  <center><br ><input type="text" class="comment form-control" name="comment" id="comment22"  value="" placeholder="Enter the comment " style="display: none;"   ></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/floor_plans"; ?>">
 
@@ -1941,7 +2153,8 @@ if (@$_REQUEST['shar']) {
                               <p align="right">&nbsp;
                                 </p>
                                </form>
-                             <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;"/>
+                              
+                             <input type="number" id="counts2" value="<?php echo $i;?>" style="display:none;">
                               </div>
                               </div>
                           </div>
@@ -1998,7 +2211,7 @@ if (@$_REQUEST['shar']) {
                                   $picture_name1=mysqli_fetch_assoc($picture_name);
                                   // print_r($get_comment);
                                   ?>
-                                   <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                   <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                   <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2021,7 +2234,7 @@ if (@$_REQUEST['shar']) {
                                         <div class="modal-content" style="height:260px;">
                                            <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                            <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                              <?php
                                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2057,7 +2270,7 @@ if (@$_REQUEST['shar']) {
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment23"  value="" placeholder="Enter the comment " style="display: none;"  /></center>
+                                  <center><br ><input type="text" class="comment form-control" name="comment" id="comment23"  value="" placeholder="Enter the comment " style="display: none;"  ></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/Drone_photos"; ?>">
 
@@ -2066,7 +2279,7 @@ if (@$_REQUEST['shar']) {
 
                               <p align="right"><input type="submit" class="btn btn-default done" onclick="downloadbtn3()" name="ZIP"  value="Download " style="margin-right: 75%;">&nbsp;<a href="#tnc" class="btn btn-default lightbox link" onclick="shareme3('<?php echo @$get_link['images_url']?>')" name="send2" id="send2"  adr_trans="label_share">share</a></center></p>
                                </form>
-                               <input type="number" id="counts3" value="<?php echo $i;?>" style="display:none;"/>
+                               <input type="number" id="counts3" value="<?php echo $i;?>" style="display:none;">
                               </div>
                               </div>
 
@@ -2124,7 +2337,7 @@ if (@$_REQUEST['shar']) {
                                   $picture_name1=mysqli_fetch_assoc($picture_name);
                                   // print_r($get_comment);
                                   ?>
-                                   <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
+                                   <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectal4" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
                                   <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
@@ -2147,7 +2360,7 @@ if (@$_REQUEST['shar']) {
                                         <div class="modal-content" style="height:260px;">
                                            <span class="close" onclick="document.getElementById('myModal<?php echo $get_comment['id'];?>').style='display:none'" style="margin: 10px;font-size: 25px;color: black;">&times;</span>
 
-                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"/></center>
+                                           <center> <img alt="" id="img" src="<?php echo $imagesDirectory_hdr."/".$image; ?>" width="180" height="200" style="float:left;margin-left:40px;margin-right:40px"></center>
                                            <div style="float: left;margin-right: 0px;border-left:1px solid #DDD;">
                                              <?php
                                              $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
@@ -2183,7 +2396,7 @@ if (@$_REQUEST['shar']) {
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-                                  <center><br /><input type="text" class="comment form-control" name="comment" id="comment24"  value="" placeholder="Enter the comment " style="display: none;"   /></center>
+                                  <center><br ><input type="text" class="comment form-control" name="comment" id="comment24"  value="" placeholder="Enter the comment " style="display: none;"   ></center>
 
                                  <input type="hidden" name="folderToZip" value="<?php echo "finished_images/order_".$id_url."/hdr_photos"; ?>">
 
@@ -2192,7 +2405,7 @@ if (@$_REQUEST['shar']) {
 
                               <p align="right"><input type="submit" class="btn btn-default done" onclick="downloadbtn4()" name="ZIP"  value="Download " style="margin-right: 75%;">&nbsp;<a href="#tnc" class="btn btn-default lightbox link" onclick="shareme4('<?php echo @$get_link['images_url']?>')" name="send2" id="send2"  adr_trans="label_share">share</a></center></p>
                                </form>
-                                  <input type="number" id="counts4" value="<?php echo $i;?>" style="display:none;"/>
+                                  <input type="number" id="counts4" value="<?php echo $i;?>" style="display:none;">
                               </div>
                               </div>
 
@@ -2214,14 +2427,14 @@ if($get_order1['status_id']==3)
 
 </div>
 <div class="panel" id="tab4" style="height:610px">
-  <hr class="space s" />
+  <hr class="space s" >
 <form action="" method="GET" align="center">
 
 <input class="search-field" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
 <input id="submit" type="submit" value="Search">
 </form>
 
-<hr class="space" />
+<hr class="space" >
 
 <center><h3>Exciting add ons coming soon!</h3></center>
 
@@ -2264,7 +2477,7 @@ if($get_order1['status_id']==3)
           </table>
 <table style="width:100%!important;margin-left : 0px;">
 <tr><td style="width:70%!important;">
-        <br />
+        <br >
           <?php
               $id_fetch=mysqli_query($con,"SELECT * FROM home_seller_info where id='$hs_id'");
               $get_id=mysqli_fetch_array($id_fetch);
@@ -2320,7 +2533,7 @@ if($get_order1['status_id']==3)
 	 <td style="width:50%">
           <table style="width:100%;float:right;text-align:right">
 
-<br />
+<br >
           <?php
 
     $get_order_query=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
@@ -2344,7 +2557,7 @@ if($get_order1['status_id']==3)
         </table>
 </td></tr></table>
 
-<br /><br />
+<br ><br >
 
       </header>
       
@@ -2391,7 +2604,7 @@ if($get_order1['status_id']==3)
                                 $splited_title =  explode(',',$title_split);
                                 foreach($splited_title as $new_title)
                                 {
-                                    echo $new_title; ?> <br/><?php
+                                    echo $new_title; ?> <br><?php
                                 }?>
 
                                 </span></td>
@@ -2402,7 +2615,7 @@ if($get_order1['status_id']==3)
                foreach($var as $row)
                 {
 
-               echo $row; ?> <br/><?php
+               echo $row; ?> <br><?php
 
                 }
 
@@ -2417,7 +2630,7 @@ if($get_order1['status_id']==3)
               $price=mysqli_query($con,"SELECT * FROM order_products where product_id='$row' and order_id='$id_url'");
               $get_price_info=mysqli_fetch_assoc($price);
              $total_cost=@$get_price_info["total_price"];
-             echo "$".@$total_cost; ?> <br/><?php
+             echo "$".@$total_cost; ?> <br><?php
 
               }
 
@@ -2456,7 +2669,7 @@ if($get_order1['status_id']==3)
 
 
       </article>
-      <br/><br/>
+      <br><br>
   <table style="margin-left : 10px;
        padding-left : 10px;color:#000">
     <tr>
@@ -2491,8 +2704,8 @@ if($get_order1['status_id']==3)
           <center><span class="sub" id="error" style="color:green;"></span></center>
           <form   method="post" name="stdform" action="" onsubmit="">
           <input id="email1" name="email1" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim()"  class="form-control form-value" required>
-          <input type="hidden" name="link1" id="link"/>
-          <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  />
+          <input type="hidden" name="link1" id="link">
+          <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  >
           <hr class="space s">
           <center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
           </form>
@@ -2516,10 +2729,10 @@ if($get_order1['status_id']==3)
   </table>
 </div>
 </div>
-  <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" />
-   <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" />
-   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" />
-  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;width:95%;" placeholder=" Type your msg, hit enter" required class="form-control" />
+  <input type="hidden" name="created_by_id" id="created_by_id" value="<?php echo $get_order["created_by_id"]; ?>" >
+   <input type="hidden" name="order_id" id="order_id" value="<?php echo $get_order["id"]; ?>" >
+   <input type="hidden" name="logged_id" id="logged_id" value="<?php echo $_SESSION["loggedin_id"]; ?>" >
+  <input type="text" name="chattext" id="chattext1" style="border:solid 0px #000080;font-family:Verdana, Arial, Helvetica, sans-serif;font-size:11px;font-weight:600;border-radius:10px;width:95%;" placeholder=" Type your msg, hit enter" required class="form-control" >
 
 
   </div>
@@ -2554,7 +2767,7 @@ if($get_order1['status_id']==3)
 
         <form   method="post" name="stdform" action="" onsubmit="">
         <input id="" name="reason" placeholder="Reason" type="text" autocomplete="off" class="form-control form-value" required>
-        <input type="hidden" name="status_id" id="status_id"/>
+        <input type="hidden" name="status_id" id="status_id">
 
         <hr class="space s">
         <center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
@@ -2604,6 +2817,9 @@ function viewchat()
   xhttp.open("GET","view_chat.php?id="+b+"&id1="+c, true);
   xhttp.send();
 }
+$(document).ready(function(){
+  viewchat();
+});
 
 var scrolled = false;
 function updateScroll(){

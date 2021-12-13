@@ -215,7 +215,7 @@ alert(alertmsg);
 <div class="col-md-12">
 <div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;font-weight:600;padding:10px;"><a href="products.php" id="label_product_price" adr_trans="label_product_price">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px;font-weight:600;padding:10px;"><a href="RealtorProducts.php" id="label_realtor_custom" adr_trans="label_realtor_custom">Custom Price for Realtor</a></div>
-<div class="col-md-4" style="border-radius:0px 25px 25px 0px;padding:10px;border:solid 1px;font-weight:600;color:#000;background:#aad1d6;color:#000!important;"><a href="PhotographerProducts.php" style="color:#000!important" id="label_photographer_custom" adr_trans="label_photographer_custom">Custom Price for Photographers</a></div>
+<div class="col-md-4" style="border-radius:0px 25px 25px 0px;padding:10px;border:solid 1px;font-weight:600;color:#000;background:#aad1d6;color:#000!important;"><a href="PhotographerProducts.php" style="color:#000!important">Photographers Commission</a></div>
 </div>
 </center>
 <br><br><br />
@@ -264,8 +264,10 @@ alert(alertmsg);
                     <tr>
                         <th id="label_select" adr_trans="label_select">Select</th>
                         <th id="label_product_name" adr_trans="label_product_name">Product Name</th>
-						<th id="label_timeline" adr_trans="label_timeline">Timeline</th>
-             <th><span adr_trans="label_photographer_earnings">Photographer's Earnings</span><span> ($)</span> </th>
+					<th id="label_timeline" adr_trans="label_timeline">Timeline</th>
+						<th >Product Cost</th>
+                        <th><span adr_trans="label_photographer_earnings">Photographer's Earnings</span><span> ($)</span> </th>
+
 
                     </tr>
 
@@ -334,6 +336,11 @@ $realtorDiscountPrice=0;
 					  {
 					  $realtorRate1=mysqli_fetch_array($realtorRate);
 					  $realtorDiscountPrice=$realtorRate1['photography_cost'];
+					  
+
+					  $get_detail=mysqli_query($con,"SELECT * FROM `products` where id=$proID");
+					  $get_product_price=mysqli_fetch_assoc($get_detail);
+
 					  }
 
 				          ?>
@@ -341,6 +348,8 @@ $realtorDiscountPrice=0;
                         <td scope="row"><input type="checkbox" name="product_id[]" value="<?php echo $get_product['id']; ?>" <?php if($rowsExist>0) { ?>checked<?php } ?>></td>
                         <td><?php echo $get_product['product_name']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
+						<td><?php echo $get_product_price['product_cost']; ?></td>
+
 
                         <td>
 						<input type="number" name="photography_cost[]" value="<?php echo $realtorDiscountPrice; ?>" style="width:70px;" step="0.01">&nbsp;<span adr_trans="label_wo_tax">(w/o tax)</span>
@@ -361,7 +370,7 @@ $realtorDiscountPrice=0;
 				   <?php } ?>
 				 <?php
 					if(@$_REQUEST['photographer']) { ?>
-				 <tr><td colspan="3">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn adr-save btn-sm" onClick="return chkBox()"></td></tr>
+				 <tr><td colspan="4">&nbsp;</td><td><input type="submit" name="Save" value="Set Price" class="btn adr-save btn-sm" onClick="return chkBox()"></td></tr>
 				 <?php } ?>
                 </tbody>
 

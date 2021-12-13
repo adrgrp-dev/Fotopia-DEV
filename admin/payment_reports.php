@@ -119,7 +119,7 @@ var days = 1;
 
 
 
-<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+<div style="margin-top: 5px;width:105%;border:solid 1px #000;background-color:white">
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                               <table id="dataTable" align="center" class="table-striped" style="opacity:0.9;width:96%;">
 
@@ -134,7 +134,7 @@ var days = 1;
                                             </span>
                                 <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
 
-                                             Ref #
+                                             Order #
 
 
                                             </span>
@@ -206,12 +206,12 @@ $available=mysqli_num_rows($taxpercent);
 
                                 </span>
 
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                <span class="icon fa "></span></th><!-- <th data-column-id="logo" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                             Realtor
 
                                             </span>
-                                 <span class="icon fa "></span></th>
+                                 <span class="icon fa "></span></th> -->
 
 
 								 <th data-column-id="logo" class="text-center" style=""><span class="text" id="label_date_and_time" adr_trans="label_billedTo">
@@ -225,14 +225,14 @@ $available=mysqli_num_rows($taxpercent);
 
 
 
-								 <th data-column-id="logo" class="text-center" style=""><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
+								 <!-- <th data-column-id="logo" class="text-center" style=""><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
 
                                               Date & Time
 
                                  </span>
 
 
-                                <span class="icon fa "></span></th>
+                                <span class="icon fa "></span></th> -->
 
 
 
@@ -491,9 +491,9 @@ else
                             $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                             ?>
 
-                            <td class="text-center" style=""><?php echo $created_name; ?></td>
+                            <!-- <td class="text-center" style=""><?php //echo $created_name; ?></td> -->
 
-							<td>
+							<td align="center">
 
 							<?php
 							$HS_ID=$get_order2['home_seller_id'];
@@ -522,11 +522,11 @@ else
 
                                <?php
 
-                              $toexp=explode(" ",$get_order2['session_to_datetime']);
+                              // $toexp=explode(" ",$get_order2['session_to_datetime']);
                              ?>
-                            <td class="text-center" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
-		  echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
-
+                           <!--  <td class="text-center" style=""><?php  //if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
+		  //echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
+ -->
 
                             </tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>

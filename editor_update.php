@@ -183,8 +183,8 @@ echo $service;
       }
     }
 
-  }
-	$dir1="./rework_images/order_$order_id/$service_name";
+  }*/
+	$dir1="./rework_images/order_$order_id/$service_name/rework_approved";
 	if (is_dir($dir1)) {
 		$objects = scandir($dir1);
 		foreach ($objects as $object) {
@@ -196,5 +196,5 @@ echo $service;
 			}
 		}
 
-	}*/
+	}
 ?>

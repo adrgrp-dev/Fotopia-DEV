@@ -313,6 +313,13 @@ $hs_id=$get_summary['home_seller_id'];
             $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
             $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
             $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
+
+
+            
+             $pcadmin_id=@$get_summary['pc_admin_id'];
+            $get_pcadmin_org_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pcadmin_id'");
+            @$get_org_name=mysqli_fetch_assoc($get_pcadmin_org_query);
+            $Pc_organization=@$get_org_name["organization_name"];
             ?>
             <?php
 
@@ -361,7 +368,10 @@ $hs_id=$get_summary['home_seller_id'];
 				<tr>
 				<td align="right" style="font-size:10px;vertical-align: baseline;" id="label_property_address" adr_trans="label_property_address">Property Address</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo $get_summary['property_address'],",".$get_summary['property_city']."<br>".$get_summary['property_state'].",".$get_summary['property_zip']; ?><hr class="space xs"></td>
 				</tr>
-			
+			   
+         <tr>
+        <td align="right" style="font-size:10px;" >Photo Company Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['pc_admin_id']!=0){echo $Pc_organization;} else{echo 'Not yet selected';}?></td>
+        </tr>
         <tr>
         <td align="right" style="font-size:10px;" adr_trans="">Photographer Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
         </tr>
@@ -375,13 +385,26 @@ $hs_id=$get_summary['home_seller_id'];
           $get_hs_details=mysqli_fetch_assoc($get_hs_details_query);
           $realtorID=$get_summary['created_by_id'];
 
+
+            $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
+            $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
+            $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
+            
+
         if($get_hs_details['lead_from']=='realtor')
         {
         ?>
         <tr>
+        <td align="right" style="font-size:10px;" >Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+          <?php
+            echo @$get_realtor_name["organization_name"];
+            ?>
+        </td>
+        </tr>
+        <tr>
         <td align="right" style="font-size:10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
           <?php
-            echo $get_realtor_name1=$get_hs_details['request_name'];
+            echo @$get_hs_details['request_name'];
             ?>
         </td>
         </tr>
@@ -393,14 +416,15 @@ $hs_id=$get_summary['home_seller_id'];
         </tr>
       <?php }
       elseif($get_hs_details['lead_from']==""){ ?>
+        
+            <tr>
+        <td align="right" style="font-size:10px;" >Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+         <?php echo $get_realtor_name["organization_name"]; ?>
+        </td>
+        </tr>
         <tr>
         <td align="right" style="font-size:10px;" id="label_realtor_name" adr_trans="label_realtor_name">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
-          <?php
-
-            $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
-            $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-            echo $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
-            ?>
+         <?php echo $get_realtor_name1; ?>
         </td>
         </tr>
         <tr>

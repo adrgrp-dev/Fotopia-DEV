@@ -114,7 +114,19 @@ function getFileCount($path) {
         }
         return $size;
     }
+ function countFilesInsideFolderExcludingSubFolder($path)
+  {
 
+ $fi = new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS);
+
+$fileCount = 0;
+foreach ($fi as $f) {
+    if ($f->isFile()) {
+        $fileCount++;
+    }
+  }
+    return $fileCount;
+  }
 
 //ZIP file
 if(isset($_POST['ZIP']))
@@ -1012,6 +1024,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                                   $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
                                   $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
                                   $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
+
+                                   $pcadmin_id=@$get_summary['pc_admin_id'];
+            $get_pcadmin_org_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pcadmin_id'");
+            @$get_org_name=mysqli_fetch_assoc($get_pcadmin_org_query);
+            $Pc_organization=@$get_org_name["organization_name"];
                                   ?>
                                   <?php
 
@@ -1025,7 +1042,7 @@ header("location:photographerDashboard.php?private=1"); exit;
    <div class="col-md-12"><div class="ribbon" style="padding-left:13px;font-weight:600;padding-top:5px;color:#FFF"><span adr_trans="label_order_value">Order Value</span><br /><span style="padding-left:20px;">$<?php echo $total_cost1['totalPrice']?><i class="fa fa-info-circle" style="color:#000;padding-left:5px;" title="Order Value w/o tax and other cost. Please refer order cost for more details."></i></span></div></div>
                       <div class="row" style="margin:0px;" id="printArea">
                       				<div class="col-md-6" style="">
-<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;height:600px">
+<div style="width:96%;background:#FFF;padding:10px;border-radius:5px;max-height:fit-content;min-height:800px">
                       				<p align="right" adr_trans="label_order_details" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
                       				<table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -1055,6 +1072,9 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				?>
                       				</td> -->
                       				</tr>
+                               <tr>
+        <td adr_trans="" align="right" style="font-size:10px;">Photo Comapany Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['pc_admin_id']!=0){echo $Pc_organization;} else{echo 'Not yet selected';}?></td>
+        </tr>
 
                               <tr>
         <td adr_trans="" align="right" style="font-size:10px;">Photographer Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php if($get_summary['photographer_id']!=0){echo $photographer_Name;} else{echo 'Not yet selected';}?></td>
@@ -1068,9 +1088,20 @@ header("location:photographerDashboard.php?private=1"); exit;
                                 $get_hs_details_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                                 $get_hs_details=mysqli_fetch_assoc($get_hs_details_query);
                                 $realtorID=$get_summary['created_by_id'];
+
+                                $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
+                                  $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
+                                 $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
                               if($get_hs_details['lead_from']=='realtor')
                               {
                               ?>
+                              <tr>
+                              <td align="right" style="font-size:10px;">Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                                <?php
+                                  echo @$get_realtor_name["organization_name"];
+                                  ?>
+                              </td>
+                              </tr>
                               <tr>
                               <td align="right" id="label_realtor_name" adr_trans="label_realtor_name" style="font-size:10px;">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                                 <?php
@@ -1087,12 +1118,17 @@ header("location:photographerDashboard.php?private=1"); exit;
                             <?php }
                             elseif($get_hs_details['lead_from']==""){ ?>
                               <tr>
+                              <td align="right" style="font-size:10px;">Realtor Organization</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
+                                <?php
+                                  echo @$get_realtor_name["organization_name"];
+                                  ?>
+                              </td>
+                              </tr>
+                              <tr>
                               <td align="right" id="label_realtor_name" adr_trans="label_realtor_name" style="font-size:10px;">Realtors Name</td><td style="padding-left:5px;padding-right:15px;">:</td><td>
                                 <?php
-
-                                  $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
-                                  $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                  echo $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
+                                    echo $get_realtor_name1;
+                                  
                                   ?>
                       				</td>
                       				</tr>
@@ -1106,13 +1142,18 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <tr>
                               <td align="right" id="label_due_date" adr_trans="label_due_date" style="font-size:10px;">Due Date</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo date("d-m-Y",strtotime($get_summary['order_due_date'])); ?><hr class="space xs" /></td>
                               </tr>
-                              <tr>
-                              <td align="right" id="label_booking_notes" adr_trans="label_booking_notes" style="font-size:10px;">Booking Notes</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['booking_notes']; ?></td>
-                              </tr>
                       				<tr>
                       				<td align="right" id="label_status" adr_trans="label_status" style="font-size:10px;">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";}?></td>
                       				</tr>
-                      				</table><br />
+                      				</table>
+                                   <hr class="space m">
+        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
+        <table style="color:#000;font-weight:600;font-size:12px;">
+          <tr>
+        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        </tr>
+        </table>
+                              <br />
                       				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
 
                       				<table style="color:#000;font-weight:600;font-size:10px;">
@@ -1136,7 +1177,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</div>
 									
                       				<div class="col-md-6">
-								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:600px">	
+								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px">	
                       				<p align="right" adr_trans="label_homeseller_info" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -1529,17 +1570,35 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                           <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
 
 
+                                    <?php
+                                         $standard_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=1 and editor_email=''");
+                                         if(mysqli_num_rows($standard_query)!=0)
+                                         {
+                                         $Standard=mysqli_fetch_array(@$standard_query);
+
+                                        if(is_dir($imagesDirectory_standard))
+                                        {
+                                       if((countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)==0)&&(@$standard['editor_email']==''))
+                                       {
+                                    ?>
+
+                                       <center><a  href="<?php echo $standard['images_url']."&rework=1"; ?>" target="_blank" >Click here to upload Finished Images</a></center>
+                                     <?php
+                                     }
+                                     } 
+                                     }
+                                     ?>
+
                                       </form>
                                       <div class="maso-list gallery">
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
 
                                         <?php
-                                        if (is_dir($imagesDirectory_standard))
+                                        if(is_dir($imagesDirectory_standard))
                                         {
                                          $opendirectory = opendir($imagesDirectory_standard);
 
-
-                                            while (($image = readdir($opendirectory)) !== false)
+                                        while (($image = readdir($opendirectory)) !== false)
                                          {
                                            if(($image == '.') || ($image == '..'))
                                            {
@@ -1599,7 +1658,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                                        ?>
                                                <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                <hr class="space s">
-                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "hidden";}?>"><input type="button" class="btn adr-save btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
+                                                  <center><input type="hidden" class="btn btn-primary btn-sm" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "";}?>"><input type="button" class="btn adr-save btn-sm" style="" onclick="Getstandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel btn-sm" style="" onclick="disapprovestandard('<?php echo "./rework_images/order_".$id_url."/standard_photos"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="Disapprove"/></center>
                                                      </div>
                                                   </div>
 
@@ -1684,7 +1743,13 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                        ?>
 
                                         </div>
+                                        <?php if(is_dir($imagesDirectory_standard))
+                                        {
+                                          if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)!=0)
+                                        { 
+                                          ?>
                                           <input type="text" class="form-control" name="commentall" value="<?php echo @$standard['comments'] ?>"/>
+                                        <?php } }?>
                                         </div>
                                         <hr class="space l">
                                         <h5 id="zip_floor" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px" adr_trans="label_floor_plans1">Floor Plans</h5>
@@ -1699,7 +1764,31 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                           <input type ="hidden" name="folderToZip" value="<?php echo $imagesDirectory_floor;?>"/>
 										   <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                           <input type="hidden" name="service_ID" value="<?php echo '2'; ?>">
+                                       
+                                       <?php
+                                         $floor_query=mysqli_query($con,"select * from raw_images where order_id=$id_url and service_name=2 and editor_email=''");
+                                         if(mysqli_num_rows($floor_query)!=0)
+                                         {
+                                         $floor=mysqli_fetch_array(@$floor_query);
+                                         $floor_rework_count=0;
+                                         if(is_dir($imagesDirectory_floor))
+                                         {
+                                         $floor_rework_count=countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor);
+                                         }
+                                       if(($floor_rework_count==0)&&(@$floor['editor_email']==''))
+                                       {
+                                       ?>
+
+                                         <center><a  href="<?php echo @$floor['images_url']."&rework=1" ?>" target="_blank">Click here to upload Finished Images</a></center>
+                                       <?php
+                                       }
+                                       } 
+                                       ?>
+                         
+                                   
+
                                         </form>
+                                         
                                         <div class="maso-list gallery">
                                           <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                                           <?php
@@ -1751,7 +1840,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                                          ?>
                                                  <textarea id="s<?php echo $get_comment['id'];?>"  rows="4" cols="35" style="margin-left:20px;margin-top:30px" ><?php echo $get_comment['comments'];?></textarea>
                                                  <hr class="space s">
-                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "hidden";}?>"><input type="button" class="btn adr-save" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
+                                                 <center><input type="hidden" class="btn btn-primary" id="btn1" style=""  onclick="Getcomment('<?php echo $get_comment['id'];?>')" value="comment"/>&nbsp;&nbsp;&nbsp;<span class="<?php if($get_comment['uploaded_by_id']!=0){ echo "";}?>"><input type="button" class="btn adr-save" style="" onclick="Getfloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>',<?php echo $id_url; ?>)" value="approve"/></span>&nbsp;&nbsp;&nbsp;<input type="button" class="btn adr-cancel" style="" onclick="disapprovefloor('<?php echo "./rework_images/order_".$id_url."/floor_plans"."/".$image;?>','<?php echo $get_comment['id'];?>')" value="Disapprove"/></center>
                                                        </div>
                                                     </div>
 
@@ -1818,7 +1907,16 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                             $floor=mysqli_fetch_array(@$floor_query);
 
                                           ?>
+
+                                          <?php if(is_dir($imagesDirectory_floor))
+                                        {
+                                          if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor)!=0)
+                                        { 
+                                          ?>
                                          <input type="text" class="form-control" name="commentall" value="<?php echo @$floor['comments'] ?>"/>
+
+                                       <?php }} ?>
+                                         
                                           </div>
                                           <hr class="space l">
                                           <div style="display:none">
@@ -3005,6 +3103,9 @@ function viewchat()
   xhttp.open("GET","view_chat.php?id="+b+"&id1="+c, true);
   xhttp.send();
 }
+$(document).ready(function(){
+  viewchat();
+});
 var scrolled = false;
 function updateScroll(){
     if(!scrolled){
