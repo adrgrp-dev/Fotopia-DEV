@@ -68,13 +68,13 @@ if(isset($_REQUEST['loginbtn']))
 													<hr class="space s">
 												<div class="row">
 													<div class="col-md-6">
-														<h5>Photographers</h5>
+														<h5>Photo Companies</h5>
 		<?php
-$get_photographer_query=mysqli_query($con,"select count(*) as photographer_no from user_login where type_of_user='Photographer'");
+$get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no from admin_users where type_of_user='PCAdmin'");
 		
 			$get_photographer=mysqli_fetch_assoc($get_photographer_query);
 
- $cnt_get_photographer=$get_photographer['photographer_no'];
+ $cnt_get_photographer=$get_photographer['photo_companies_no'];
 
 															  ?>
 						<p class="counter" data-speed="1000" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
@@ -84,15 +84,14 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photographer_no fr
 													 </p>
 													</div>
 													<div class="col-md-6">
-														<h5>CSR & Realtor</h5>
+														<h5>Realtors</h5>
 														<?php
-														$get_csr_query=mysqli_query($con,"select count(*) as csr_no from user_login where type_of_user in ('Realtor')");
-														$get_csr_query1=mysqli_query($con,"select count(*) as csr_no1 from admin_users where type_of_user in ('SuperCSR','SubCSR','StandaloneCSR')");
-
-														if($get_csr=mysqli_fetch_assoc($get_csr_query) and $get_csr1=mysqli_fetch_assoc($get_csr_query1))
-														{
-														$total_realtor_csr = $get_csr["csr_no"] + $get_csr1["csr_no1"]  ?>
-														<p class="counter" data-speed="1000" data-to=" <?php echo $total_realtor_csr;?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; }?></p>
+														$get_csr_query=mysqli_query($con,"select count(*) as realtor_no from user_login where type_of_user='Realtor'");
+														
+														$get_csr_query1=mysqli_fetch_assoc($get_csr_query);
+														
+														$total_realtor_csr = $get_csr_query1["realtor_no"] ?>
+														<p class="counter" data-speed="1000" data-to=" <?php echo $total_realtor_csr;?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; ?></p>
 													</div>
 												</div>
                     </div>
