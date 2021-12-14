@@ -150,14 +150,14 @@ $id=@$_REQUEST['id'];
 				$res1=mysqli_fetch_array($res);
 
 				?>
-					<table class="table-stripped" style="color: #000;background: #FFF;opacity:0.7;width:50%;border-radius:10px!important;padding:20px; margin-left:20px;">
+					<table class="table-stripped" style="color: #000;background: #FFF;opacity:0.7;width:80%;border-radius:10px!important;padding:20px; margin-left:20px;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
 
 
       <tr><td colspan="3" style="padding-top:10px;"> <h5 class="text-center"  id="label_csr_details" adr_trans="label_csr_details">CSR Details</h5></td></tr>   
 
-	  <tr><td align="right"  style="font-size: 10px;width:200px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+	  <tr><td align="right"  style="font-size: 10px;width:350px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 
 
