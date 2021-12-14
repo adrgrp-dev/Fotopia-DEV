@@ -101,7 +101,7 @@ error: function(){
 
 
 $('input[type=text]').each(function(){
-    $(this).attr("pattern","[a-zA-Z0-9_]+.*$");
+    $(this).attr("pattern","^[a-zA-Z0-9_]+.*$");
 	$(this).attr("title","Input must contain atleast one character, No space at beginning and no symbol at beginning and must start with a character.");
 })
 
