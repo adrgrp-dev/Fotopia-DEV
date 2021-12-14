@@ -326,6 +326,8 @@ $realtorDiscountPrice=0;
                   {
 	                  $cnt++;
 					  $proID=$get_product['id'];
+                      $get_detail=mysqli_query($con,"SELECT * FROM `products` where id=$proID");
+					  $get_product_price=mysqli_fetch_assoc($get_detail);
 
 					  $realtorDiscountPrice=0;
 
@@ -338,9 +340,7 @@ $realtorDiscountPrice=0;
 					  $realtorDiscountPrice=$realtorRate1['photography_cost'];
 					  
 
-					  $get_detail=mysqli_query($con,"SELECT * FROM `products` where id=$proID");
-					  $get_product_price=mysqli_fetch_assoc($get_detail);
-
+					 
 					  }
 
 				          ?>
