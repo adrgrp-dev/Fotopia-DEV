@@ -150,6 +150,36 @@ color:#333333!important;
 }
 	</style>
 	<script>
+  function validate_fname(val)
+  {
+  	var pattern=/^[a-zA-Z0-9_]+.*$/;
+    if(val.match(pattern))
+    {
+    $("#validation_message").html("");
+    return true;
+    }
+    else
+    {
+    $("#validation_message").html("Input must contain atleast one character, No space at beginning and no symbol at beginning and must start with a character.").show();
+    return false;
+    }
+  }
+  function validate_tel(val)
+  {
+  	//alert(val);
+  	var pattern=/[0-9+.()-]$/;
+
+    if(val.match(pattern))
+    {
+    $("#validation_message").html("");
+    return true;
+    }
+    else
+    {
+    $("#validation_message").html("Please enter the contact number with only the allowed symbols ()-+.").show();
+    return false;
+    }
+  }
 	function validate_email(val)
 {
 if(val!="")
@@ -809,7 +839,7 @@ $("#country").css("border","solid 1px grey");
       </div>
 						<div class="col-md-6">
                                 <p><span id="label_first_name" adr_trans="label_first_name">First Name</span></p>
-                                <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="" >
+                                <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" onblur="return validate_fname(this.value)" required="" >
                             </div>
 
 							<div class="col-md-6">
@@ -840,7 +870,7 @@ $("#country").css("border","solid 1px grey");
 
 							 <div class="col-md-6">
                                 <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
-           <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" min="1" autocomplete="off" class="form-control form-value" required="">
+           <input id="contactno" name="contactno" placeholder="Contact number" type="tel"  onblur="return validate_tel(this.value)" min="1" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
 
