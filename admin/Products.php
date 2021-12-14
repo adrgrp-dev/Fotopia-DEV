@@ -239,7 +239,7 @@ color:#000!important;
 						 <th><span adr_trans="label_total_cost">Total Cost ($)</span><br />(Incl. Tax)</th>
 						 <th id="label_timeline" adr_trans="label_timeline">Timeline</th>
 						  <th id="label_description" adr_trans="label_description">Description</th>
-						 <th><span adr_trans="label_action">Action</span></th>
+						 <th align="center"><span adr_trans="label_action">Action</span></th>
                     </tr>
 
                 </thead>
@@ -303,8 +303,8 @@ color:#000!important;
 					             	<td><?php echo $get_product['tax']; ?></td>
                         <td><?php echo $get_product['total_cost']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
-						<td style="word-wrap:break-word;width:250px"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
-				                <td><a  href="products.php?prodid=<?php echo $get_product['id']; ?>&edit=1"><i class="fa fa-pencil" title="Edit"></i></a> &nbsp;
+						<td style="word-wrap:break-word;width:220px;white-space: pre-wrap;"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
+				                <td align="center"><a  href="products.php?prodid=<?php echo $get_product['id']; ?>&edit=1"><i class="fa fa-pencil" title="Edit"></i></a> &nbsp;
 				                 <a href="products.php?prodid=<?php echo $get_product['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash-o" title="Delete"></i></a>
 						            </td>
                     </tr>
