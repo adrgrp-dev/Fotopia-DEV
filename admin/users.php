@@ -55,7 +55,7 @@ if(isset($_REQUEST['loginbtn']))
 <div>
 
 		<span style="position: absolute;right: 25px">
-				<form name="searchUser1" method="post" action="users.php" onsubmit="return validate1()" style="margin-left:5px;">
+				<form name="searchUser1" method="post" id="searchUser1" action="users.php" onsubmit="return validate1()" style="margin-left:5px;">
 				Search :
 				 <input type="text"  list="Suggestions1" class="form-control form-value" id="user_name1" name="user_name1" value="" style="display:inline;width:150px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
@@ -138,11 +138,11 @@ var initialArray = [];
 		<form name="search_filter1" method="post" action="users.php">
 <select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:200px;left: 15px;">
 				<option value="">Select a user type</option>
-			    <!-- <option value="Photographer" <?php if(@$_REQUEST['user_type1']=="Photographer") { echo "selected"; } ?>>Photographer</option> -->
-			    <option value="Realtor" <?php if(@$_REQUEST['user_type1']=="Realtor" || "Realtor" == isset($_SESSION['usertype1'])) { echo "selected"; } ?>>Realtor</option>
-			    <!-- <option value="CSR" <?php //if(@$_REQUEST['user_type1']=="CSR") { echo "selected"; } ?>>CSR</option> -->
-					<option value="PCAdmin" <?php if(@$_REQUEST['user_type1']=="PCAdmin" || "PCAdmin" == isset($_SESSION['usertype1'])) { echo "selected"; } ?>>PCAdmin</option>
-			    <!-- <option value="All" <?php //if(@$_REQUEST['user_type1']=="All") { echo "selected"; } ?>>All</option> -->
+			
+			    <option value="Realtor" asdsa <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
+			
+					<option value="PCAdmin" <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='PCAdmin' ) { echo "selected"; } else { echo " "; }  ?>>PCAdmin</option>
+		
   		</select>
 		</form>
 </div>
@@ -210,11 +210,30 @@ var initialArray = [];
                         </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
-				<?php
-                   //	---------------------------------  pagination starts ---------------------------------------
-if(!isset($_REQUEST['user_type1'])){
 
-	      		// unset($_SESSION['usertype1']);
+    <?php
+                   //	---------------------------------  pagination starts ---------------------------------------
+if(!isset($_REQUEST['user_type1'])){ ?>
+
+	      		
+<script>
+ document.getElementById('searchUser1').style.display = "none";
+</script>
+
+
+<?php
+
+// unset($_SESSION['usertype1']);
+
+if (isset($_REQUEST['user_name1'])) {
+
+?>
+
+<script>
+ document.getElementById('searchUser1').style.display = "block";
+</script>
+
+<?php }
 
 	      	}
 								$q1 = "SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=1) AS total;";
@@ -424,7 +443,7 @@ if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
 
 				<td class="text-center" style=""><?php echo $res1['contact_number']; ?></td>
 
-				<td class="text-center" style=""><?php $approved=''; if(empty($res1['is_approved'])){$approved=$res1['email_verified'];} else{$approved=$res1['is_approved'];} if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
+				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($res1['type_of_user']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
@@ -454,7 +473,7 @@ if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
 <div>
 
 		<span style="position: absolute;right: 25px">
-				<form name="searchUser2" method="post" action="" onsubmit="return validate2()" style="margin-left:5px;">
+				<form name="searchUser2" id="searchUser2" method="post" action="" onsubmit="return validate2()" style="margin-left:5px;">
 				Search :
 				 <input type="text"  list="Suggestions2" class="form-control form-value" id="user_name2" name="user_name2" value="" style="display:inline;width:150px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
@@ -466,9 +485,9 @@ if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
  //
 	//  $user_name2=mysqli_query($con,"select * from user_login where email_verified=0 order by id desc");
  // }
- if(!empty($_SESSION['usertype1']))
+ if(!empty($_SESSION['usertype2']))
  {
- if($_SESSION['usertype1']!='PCAdmin')
+ if($_SESSION['usertype2']!='PCAdmin')
  {
 	 $user_name2=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and email_verified=0 order by id desc");
  }
@@ -476,14 +495,15 @@ if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
  {
 	 $user_name2=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=0 order by id desc");
  }
-}
+
 							while($user_first_name=mysqli_fetch_assoc($user_name2))
 							{
 							?>
 
 							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
-							<?php } ?>
+							<?php } }?>
+
 </datalist>
 </form>
 </span>
@@ -536,10 +556,10 @@ var initialArray = [];
 		<form name="search_filter2"  method="post" action="">
 		<select name="user_type2" class="form-control" id="user_type2" onchange="this.form.submit()" style="width:200px;left: 15px;">
 				<option value="">Select a user type</option>
-			  <!-- <option value="Photographer" <?php// if(@$_REQUEST['user_type2']=="Photographer") { echo "selected"; } ?>>Photographer</option> -->
-			    <option value="Realtor" <?php if(@$_REQUEST['user_type2']=="Realtor") { echo "selected"; } ?>>Realtor</option>
-			  <option value="PCAdmin" <?php if(@$_REQUEST['user_type1']=="PCAdmin") { echo "selected"; } ?>>PCAdmin</option>
-			    <!-- <option value="All" <?php //if(@$_REQUEST['user_type2']=="All") { echo "selected"; } ?>>All</option> -->
+			 
+			    <option value="Realtor" <?php if(@$_REQUEST['user_type2']=="Realtor" || "Realtor" == isset($_SESSION['usertype2'])) { echo "selected"; } ?>>Realtor</option>
+			  <option value="PCAdmin" <?php if(@$_REQUEST['user_type2']=="PCAdmin" || "PCAdmin" == isset($_SESSION['usertype2'])) { echo "selected"; } ?>>PCAdmin</option>
+			    
   		</select>
 		</form>
 </div>
@@ -607,9 +627,35 @@ var initialArray = [];
                         </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
-				<?php
+
+
+    <?php
                    //	---------------------------------  pagination starts ---------------------------------------
-				   $Pending="SELECT count(*) as total FROM user_login WHERE email_verified='0' and type_of_user='Realtor'";
+if(!isset($_REQUEST['user_type2'])){ ?>
+
+	      		
+<script>
+ document.getElementById('searchUser2').style.display = "none";
+</script>
+
+
+<?php
+
+// unset($_SESSION['usertype1']);
+
+if (isset($_REQUEST['user_name2'])) {
+
+?>
+
+<script>
+ document.getElementById('searchUser2').style.display = "block";
+</script>
+
+<?php }
+
+	      	}
+                   //	---------------------------------  pagination starts ---------------------------------------
+				   $Pending="SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=0 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=0) AS total;";
 				if(empty($_GET["page1"]))
 				{
 					$_SESSION["page1"]=1;
@@ -680,6 +726,7 @@ else {
 	$Pending = "select count(*) as total from admin_users WHERE type_of_user='PCAdmin' AND is_approved='0' AND (first_name like '%$user2%' or last_name like '%$user2%' or organization_name like '%$user2%') ";
 }
 }
+
 
 
 				//$Pending="select count(*) as total from user_login WHERE type_of_user=''";
@@ -772,6 +819,15 @@ if($_SESSION['usertype2']!='PCAdmin')
 }
 
 
+if (empty($_REQUEST['user_type2']) && empty($_REQUEST['user_name2'])) {
+	// code...
+
+	 $Pending_data = "SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,is_approved,registered_on FROM `admin_users` where type_of_user='PCAdmin' and is_approved=0 UNION ALL SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,email_verified as is_approved,registered_on FROM `user_login` where type_of_user='Realtor' AND email_verified=0 order by registered_on desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+
+}
+
+
+
 				@$pending_data1=mysqli_query($con,@$Pending_data);
 				if(@$pending_data1 == "0"){
 					?><h5 align="center"> <?php echo "No Pending Users are Found";?> </h5>
@@ -797,8 +853,11 @@ if($_SESSION['usertype2']!='PCAdmin')
 				<img src="data:<?php echo $pending_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($pending_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-center" style=""><?php echo $pending_data2['contact_number']; ?></td>
-				<td class="text-center" style=""><?php if($_SESSION['usertype2']!='PCAdmin'){$approved=$pending_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$pending_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
-				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype2']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
+
+
+				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span></td>
+
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($pending_data2['type_of_user']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>  
@@ -828,29 +887,29 @@ if($_SESSION['usertype2']!='PCAdmin')
 <div style="width:100%">
 
 		<span style="position: absolute;right: 25px">
-				<form name="searchUser3" method="post" action="" onsubmit="return validate3()" style="margin-left:5px;">
+				<form name="searchUser3" id="searchUser3" method="post" action="" onsubmit="return validate3()" style="margin-left:5px;">
 				Search :
 				 <input type="text"  list="Suggestions3" class="form-control form-value" id="user_name3" name="user_name3" value="" style="display:inline;width:150px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
 
  <datalist id="Suggestions3"  >
  <?php
- if(empty($_SESSION['usertype3']))
- {
+ // if(empty($_SESSION['usertype3']))
+ // {
 
-	 $user_name3=mysqli_query($con,"select * from user_login where email_verified=2 order by id desc");
- }
+	//  $user_name3=mysqli_query($con,"select * from user_login where email_verified=2 order by id desc");
+ // }
  if(!empty($_SESSION['usertype3']))
  {
- if($_SESSION['usertype1']!='PCAdmin')
+ if($_SESSION['usertype3']!='PCAdmin')
  {
-	 $user_name3=mysqli_query($con,"select * from user_login where email_verified=2 order by id desc");
+	 $user_name3=mysqli_query($con,"select * from user_login  where type_of_user='Realtor' and email_verified=2 order by id desc");
  }
  else
  {
 	 $user_name3=mysqli_query($con,"select * from admin_users where type_of_user='PCAdmin' AND is_approved=2 order by id desc");
  }
-}
+
 							while($user_first_name=mysqli_fetch_assoc($user_name3))
 							{
 							?>
@@ -858,7 +917,7 @@ if($_SESSION['usertype2']!='PCAdmin')
 
 							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
-							<?php } ?>
+							<?php }} ?>
 </datalist>
 </form>
 </span>
@@ -911,10 +970,11 @@ var initialArray = [];
 		<form name="search_filter3" method="post" action="">
 		<select name="user_type3" class="form-control"  id="user_type3" onchange="this.form.submit()" style="width:200px;left: 15px;">
 				<option value="">Select a user type</option>
-			   <!-- <option value="Photographer" <?php //if(@$_REQUEST['user_type3']=="Photographer") { echo "selected"; } ?>>Photographer</option> -->
-			    <option value="Realtor" <?php if(@$_REQUEST['user_type3']=="Realtor") { echo "selected"; } ?>>Realtor</option>
-			 		<option value="PCAdmin" <?php if(@$_REQUEST['user_type1']=="PCAdmin") { echo "selected"; } ?>>PCAdmin</option>
-			     <option value="All" <?php if(@$_REQUEST['user_type3']=="All") { echo "selected"; } ?>>All</option> 
+			  
+			   <option value="Realtor" <?php if(@$_REQUEST['user_type3']=="Realtor" || "Realtor" == isset($_SESSION['usertype3'])) { echo "selected"; } ?>>Realtor</option>
+			   
+			  <option value="PCAdmin" <?php if(@$_REQUEST['user_type3']=="PCAdmin" || "PCAdmin" == isset($_SESSION['usertype3'])) { echo "selected"; } ?>>PCAdmin</option>
+			     
   		</select>
 		</form>
 </div>
@@ -982,10 +1042,34 @@ var initialArray = [];
                         </span><span class="icon fa "></span></th></tr>
                 </thead>
                 <tbody>
-				<?php
+				
+    <?php
                    //	---------------------------------  pagination starts ---------------------------------------
+if(!isset($_REQUEST['user_type3'])){ ?>
 
-				   $denied = "select count(*) as total from admin_users WHERE WHERE is_approved='2' AND type_of_user='PCAdmin'";
+	      		
+<script>
+ document.getElementById('searchUser3').style.display = "none";
+</script>
+
+
+<?php
+
+// unset($_SESSION['usertype1']);
+
+if (isset($_REQUEST['user_name3'])) {
+
+?>
+
+<script>
+ document.getElementById('searchUser3').style.display = "block";
+</script>
+
+<?php }
+
+	      	}
+				   $denied = "SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=2 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=2) AS total;";
+
 				if(empty($_GET["page2"]))
 				{
 					$_SESSION["page2"]=1;
@@ -1168,6 +1252,14 @@ if($_SESSION['usertype3']!='PCAdmin')
 
 }
 
+if (empty($_REQUEST['user_type3']) && empty($_REQUEST['user_name3'])) {
+	// code...
+
+	 $denied_data = "SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,is_approved,registered_on FROM `admin_users` where type_of_user='PCAdmin' and is_approved=2 UNION ALL SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,email_verified as is_approved,registered_on FROM `user_login` where type_of_user='Realtor' AND email_verified=2 order by registered_on desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+
+}
+
+
 				$denied_data1=mysqli_query($con,@$denied_data);
 				if(@$denied_data1 == "0"){
 					?><h5 align="center"> <?php echo "No Denied Users Found";?> </h5>
@@ -1193,8 +1285,10 @@ if($_SESSION['usertype3']!='PCAdmin')
 				<img src="data:<?php echo $denied_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($denied_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-center" style=""><?php echo $denied_data2['contact_number']; ?></td>
-				<td class="text-center" style=""><?php if(@$_SESSION['usertype3']!='PCAdmin'){$approved=$denied_data2['email_verified']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }}else{$approved=$denied_data2['is_approved']; if($approved==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; }} ?></td>
-				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($_SESSION['usertype3']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
+
+				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span></td>
+
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($denied_data2['type_of_user']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
