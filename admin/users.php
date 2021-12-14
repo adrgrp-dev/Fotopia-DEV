@@ -42,7 +42,7 @@ if(isset($_REQUEST['loginbtn']))
 			</div>
 
                 <div class="col-md-10">
-									<a href="create_organization.php" class="circle-button btn adr-save" style="float:right;"><i class="fa fa-plus" style="">&nbsp;Create</i></a>
+									<a href="create_organization.php" class="circle-button btn adr-save" style="float:right;font-family:Manrope-Regular;font-size:11px;"><i class="fa fa-plus fa-xs"></i>Create</a>
                 	<div class="tab-box" data-tab-anima="show-scale">
                     <h5 class="text-center">List of users</h5>
                     <ul class="nav nav-tabs">
@@ -53,7 +53,190 @@ if(isset($_REQUEST['loginbtn']))
 
 <div class="panel active" id="tab1">
 <div>
+<?php
+$q1 = "SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=1) AS total;";
+								// echo $q1;
+								$q="";
+									 if(@$_GET["page"]<0)
+								   {
+								   $_GET["page"]=1;
+								   }
+				if(empty($_GET["page"]))
+				{
+					$_SESSION["page"]=1; 
+				}
+				else {
+					$_SESSION["page"]=$_GET["page"];
+				}
+				if($_SESSION["page"] < 0)
+				{
+					$_SESSION["page"]=1;
+				}
+				if(isset($_REQUEST['user_type1']))
+	      {
+	      	$_SESSION['usertype1']=$_REQUEST['user_type1'];
 
+					if($_REQUEST['user_type1']=="PCAdmin")
+					{
+
+
+							$_SESSION['usertype1']=$_REQUEST['user_type1'];
+							// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
+								$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
+					}
+	      	else{
+	     $_SESSION['usertype1']=$_REQUEST['user_type1'];
+	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'" ;
+	 }
+	      }
+	   elseif(!empty($_SESSION['usertype1']))
+	     {
+	     	if ($_SESSION['usertype1'] =="All") {
+
+	     		// echo "coimmg";
+
+	     		$q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
+	     	}
+				elseif($_SESSION['usertype1']=="PCAdmin")
+				{
+
+							$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
+				}
+	     	else{
+	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'";
+
+
+	 }
+	      }
+				
+
+
+				// elseif(empty($_SESSION['usertype1']))
+				//  {
+				//   $q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
+				// }
+
+			if(isset($_REQUEST['user_name1']))
+{
+	$user1 = trim($_REQUEST['user_name1']);
+
+// $new1 = explode(" ",$user1);
+//  $fname1 = $new1['0'];
+//  $lname1 = $new1['1'];
+if('PCAdmin'!=$_SESSION['usertype1'])
+{
+
+	$q1 = "select count(*) as total from user_login WHERE type_of_user='Realtor' AND email_verified='1' AND (first_name like '%$user1%' or last_name like '%$user1%' or organization_name like '%$user1%') ";
+}
+else {
+	$q1 = "select count(*) as total from admin_users WHERE type_of_user='PCAdmin' AND  is_approved='1' AND (first_name like '%$user1%' or last_name like '%$user1%' or organization_name like '%$user1%') ";
+}
+}
+
+// echo $q1;
+				//$q1="select count(*) as total from user_login WHERE type_of_user=''";
+				@$result=mysqli_query($con,@$q1);
+				if(@$result == "0"){
+					$cnt =0;
+			     	$total_no=0;
+			     	$start_no_users= -1;
+				}
+				else{
+				$data=mysqli_fetch_assoc(@$result);
+				$number_of_pages=50;
+
+				// total number of user shown in database
+				$total_no=$data['total'];
+
+				$Page_check=intval($total_no/$number_of_pages);
+				$page_check1=$total_no%$number_of_pages;
+				if($page_check1 == 0)
+				;
+				else{
+					$Page_check=$Page_check+1;
+				}
+				if($Page_check<=$_SESSION["page"])
+				{
+					$_SESSION["page"]=$Page_check;
+				}
+				// how many entries shown in page
+
+				//starting number to print the users shown in page
+				$start_no_users = ($_SESSION["page"]-1) * $number_of_pages;
+
+         $cnt=$start_no_users;
+     }
+
+
+	 // echo $q;
+if(isset($_REQUEST['user_type1']))
+{
+$user_type=$_REQUEST['user_type1'];
+
+if($_REQUEST['user_type1'] == "All"){
+
+$q = "SELECT *FROM user_login WHERE email_verified='1' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+
+}
+elseif($_REQUEST['user_type1']=="PCAdmin")
+{
+      echo "";
+			$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' .$number_of_pages;
+}
+else{
+$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+}
+}
+elseif(!empty($_SESSION['usertype1']))
+{
+	if ($_SESSION['usertype1'] =="All") {
+
+		$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
+	}
+	elseif($_SESSION['usertype1']=="PCAdmin")
+	{
+
+				$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+	}
+	else{
+	$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+}
+}
+// elseif(empty($_SESSION['usertype1']))
+//  {
+// 	$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
+// }
+
+if(isset($_REQUEST['user_name1']))
+{
+	// echo "coimng".$_SESSION['usertype1'];
+	$userName1 = trim($_REQUEST['user_name1']);
+// $new = explode(" ",$userName1);
+// $fname = $new['0'];
+// $lname = $new['1'];
+if('PCAdmin'!=$_SESSION['usertype1'])
+{
+	$q = "SELECT *FROM user_login WHERE type_of_user='Realtor' AND email_verified='1' AND (first_name like '%$userName1%' or last_name like '%$userName1%' or organization_name like '%$userName1%') order by id desc  LIMIT " . $start_no_users . ',' . $number_of_pages;
+	// echo "coimng1111";
+}
+	else {
+		$q = "SELECT *FROM admin_users WHERE type_of_user='PCAdmin' AND is_approved='1' AND (first_name like '%$userName1%' or last_name like '%$userName1%' or organization_name like '%$userName1%') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+
+			// echo "coimng2222";
+	}
+}
+// echo $q;
+if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
+	// code...
+
+	 $q = "SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,is_approved,registered_on FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,email_verified as is_approved,registered_on FROM `user_login` where type_of_user='Realtor' AND email_verified=1 order by registered_on desc LIMIT " . $start_no_users . ',' . $number_of_pages;
+
+}
+
+
+
+
+?>
 		<span style="position: absolute;right: 25px">
 				<form name="searchUser1" method="post" id="searchUser1" action="users.php" onsubmit="return validate1()" style="margin-left:5px;">
 				Search :
@@ -236,187 +419,7 @@ if (isset($_REQUEST['user_name1'])) {
 <?php }
 
 	      	}
-								$q1 = "SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=1) AS total;";
-								// echo $q1;
-								$q="";
-									 if(@$_GET["page"]<0)
-								   {
-								   $_GET["page"]=1;
-								   }
-				if(empty($_GET["page"]))
-				{
-					$_SESSION["page"]=1; 
-				}
-				else {
-					$_SESSION["page"]=$_GET["page"];
-				}
-				if($_SESSION["page"] < 0)
-				{
-					$_SESSION["page"]=1;
-				}
-				if(isset($_REQUEST['user_type1']))
-	      {
-	      	$_SESSION['usertype1']=$_REQUEST['user_type1'];
-
-					if($_REQUEST['user_type1']=="PCAdmin")
-					{
-
-
-							$_SESSION['usertype1']=$_REQUEST['user_type1'];
-							// echo "select count(*) as total from admin_users WHERE is_approved='1' type_of_user='PCAdmin';
-								$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
-					}
-	      	else{
-	     $_SESSION['usertype1']=$_REQUEST['user_type1'];
-	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'" ;
-	 }
-	      }
-	   elseif(!empty($_SESSION['usertype1']))
-	     {
-	     	if ($_SESSION['usertype1'] =="All") {
-
-	     		// echo "coimmg";
-
-	     		$q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
-	     	}
-				elseif($_SESSION['usertype1']=="PCAdmin")
-				{
-
-							$q1 = "select count(*) as total from admin_users WHERE is_approved='1' and type_of_user='".$_SESSION['usertype1']."'";
-				}
-	     	else{
-	     $q1 = "select count(*) as total from user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."'";
-
-
-	 }
-	      }
-				
-
-
-				// elseif(empty($_SESSION['usertype1']))
-				//  {
-				//   $q1 = "select count(*) as total from user_login WHERE email_verified='1' ";
-				// }
-
-			if(isset($_REQUEST['user_name1']))
-{
-	$user1 = trim($_REQUEST['user_name1']);
-
-// $new1 = explode(" ",$user1);
-//  $fname1 = $new1['0'];
-//  $lname1 = $new1['1'];
-if('PCAdmin'!=$_SESSION['usertype1'])
-{
-
-	$q1 = "select count(*) as total from user_login WHERE type_of_user='Realtor' AND email_verified='1' AND (first_name like '%$user1%' or last_name like '%$user1%' or organization_name like '%$user1%') ";
-}
-else {
-	$q1 = "select count(*) as total from admin_users WHERE type_of_user='PCAdmin' AND  is_approved='1' AND (first_name like '%$user1%' or last_name like '%$user1%' or organization_name like '%$user1%') ";
-}
-}
-
-// echo $q1;
-				//$q1="select count(*) as total from user_login WHERE type_of_user=''";
-				@$result=mysqli_query($con,@$q1);
-				if(@$result == "0"){
-					$cnt =0;
-			     	$total_no=0;
-			     	$start_no_users= -1;
-				}
-				else{
-				$data=mysqli_fetch_assoc(@$result);
-				$number_of_pages=50;
-
-				// total number of user shown in database
-				$total_no=$data['total'];
-
-				$Page_check=intval($total_no/$number_of_pages);
-				$page_check1=$total_no%$number_of_pages;
-				if($page_check1 == 0)
-				;
-				else{
-					$Page_check=$Page_check+1;
-				}
-				if($Page_check<=$_SESSION["page"])
-				{
-					$_SESSION["page"]=$Page_check;
-				}
-				// how many entries shown in page
-
-				//starting number to print the users shown in page
-				$start_no_users = ($_SESSION["page"]-1) * $number_of_pages;
-
-         $cnt=$start_no_users;
-     }
-
-
-	 // echo $q;
-if(isset($_REQUEST['user_type1']))
-{
-$user_type=$_REQUEST['user_type1'];
-
-if($_REQUEST['user_type1'] == "All"){
-
-$q = "SELECT *FROM user_login WHERE email_verified='1' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-
-}
-elseif($_REQUEST['user_type1']=="PCAdmin")
-{
-      echo "";
-			$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' .$number_of_pages;
-}
-else{
-$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-}
-}
-elseif(!empty($_SESSION['usertype1']))
-{
-	if ($_SESSION['usertype1'] =="All") {
-
-		$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
-	}
-	elseif($_SESSION['usertype1']=="PCAdmin")
-	{
-
-				$q = "SELECT *FROM admin_users WHERE is_approved='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-	}
-	else{
-	$q = "SELECT *FROM user_login WHERE email_verified='1' AND type_of_user='".$_SESSION['usertype1']."' order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-}
-}
-// elseif(empty($_SESSION['usertype1']))
-//  {
-// 	$q = "SELECT *FROM user_login WHERE email_verified='1' LIMIT " . $start_no_users . ',' . $number_of_pages;
-// }
-
-if(isset($_REQUEST['user_name1']))
-{
-	// echo "coimng".$_SESSION['usertype1'];
-	$userName1 = trim($_REQUEST['user_name1']);
-// $new = explode(" ",$userName1);
-// $fname = $new['0'];
-// $lname = $new['1'];
-if('PCAdmin'!=$_SESSION['usertype1'])
-{
-	$q = "SELECT *FROM user_login WHERE type_of_user='Realtor' AND email_verified='1' AND (first_name like '%$userName1%' or last_name like '%$userName1%' or organization_name like '%$userName1%') order by id desc  LIMIT " . $start_no_users . ',' . $number_of_pages;
-	// echo "coimng1111";
-}
-	else {
-		$q = "SELECT *FROM admin_users WHERE type_of_user='PCAdmin' AND is_approved='1' AND (first_name like '%$userName1%' or last_name like '%$userName1%' or organization_name like '%$userName1%') order by id desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-
-			// echo "coimng2222";
-	}
-}
-// echo $q;
-if (empty($_REQUEST['user_type1']) && empty($_REQUEST['user_name1'])) {
-	// code...
-
-	 $q = "SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,is_approved,registered_on FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT id,first_name,last_name,organization_name,type_of_user,city,state,profile_pic_image_type,profile_pic,contact_number,email_verified as is_approved,registered_on FROM `user_login` where type_of_user='Realtor' AND email_verified=1 order by registered_on desc LIMIT " . $start_no_users . ',' . $number_of_pages;
-
-}
-
-
-
+								
 				@$res=mysqli_query($con,@$q);
 				if(@$res == "0"){
 					?><h5 align="center"> <?php echo "No Approved Users are Found";?> </h5>
