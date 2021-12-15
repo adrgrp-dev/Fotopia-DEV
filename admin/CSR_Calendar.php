@@ -271,6 +271,13 @@ background: repeating-linear-gradient(
 {
 margin:2px!important;
 }
+.today_appointment
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -429,14 +436,16 @@ businessHours: // specify an array instead
 	<?php
 	$appointments="";
 	if(@$_REQUEST['ph_id']) {
-	$appointments=mysqli_query($con,"select * from appointments where photographer_id!=0 and photographer_id='$_REQUEST[ph_id]' and date(from_datetime)=CURRENT_DATE order by from_datetime");
+	$appointments=mysqli_query($con,"select * from appointments where photographer_id!=0 and photographer_id='$_REQUEST[ph_id]' and date(from_datetime)=CURRENT_DATE and status!=0  order by from_datetime");
 	}
 	else
 	{
-$appointments=mysqli_query($con,"select * from appointments where photographer_id!=0 and photographer_id in(select id from user_login where type_of_user='Photographer' and csr_id='$_SESSION[admin_loggedin_id]') and date(from_datetime)=CURRENT_DATE order by from_datetime");
+$appointments=mysqli_query($con,"select * from appointments where photographer_id!=0 and photographer_id in(select id from user_login where type_of_user='Photographer' and csr_id='$_SESSION[admin_loggedin_id]') and date(from_datetime)=CURRENT_DATE and status!=0 order by from_datetime");
 	}
-
-
+  ?>
+  <hr class="space xs">
+  <table style="background-color: white;font-size:11px;font-weight:600;margin-left:5px;border-radius: 5px;width:200px;">
+    <?php
 	while($appointments1=mysqli_fetch_array($appointments))
 	{
 	$orderid=$appointments1['order_id'];
@@ -448,8 +457,12 @@ $appointments=mysqli_query($con,"select * from appointments where photographer_i
 	$userInfo1=mysqli_query($con,"select * from user_login where id='$photographer_id'");
 	$userInfo=mysqli_fetch_array($userInfo1);
 	 ?>
-	 <span style="color:#006600;font-size:11px;font-weight:600;margin-left:5px;"><i class="fa fa-chevron-circle-right"></i>&nbsp;<?php echo date("H:i a",strtotime(@$appointments1['from_datetime']))." to ".date("H:i a",strtotime(@$appointments1['to_datetime']))." - ".@$userInfo['first_name']." ".@$userInfo['last_name']." , "."Order #".@$orderid.", ".@$order_info['property_city'].",".@$order_info['property_state']; ?></span><br />
+	 <tr><td class="today_appointment"><?php echo $userInfo['first_name']." ".$userInfo['last_name']; ?></td><td class="today_appointment" style="text-align: end;text-decoration: underline;"><?php echo "Order#".$orderid; ?></td></tr>
+        <tr><td class="" colspan="2" style="word-break: break-all;padding-left: 5px;"><p><?php echo $order_info['property_address'];?></p><p style="margin-top: -7px;"><?php echo @$order_info['property_state']." , ".@$order_info['property_city'];?></p></td></tr>
+        <tr><td class="today_appointment"><?php echo date("H:i a",strtotime(@$appointments1['from_datetime']))."-".date("H:i a",strtotime(@$appointments1['to_datetime']))?></td><td class="today_appointment"><a href="superOrder_detail.php?id=<?php echo $orderid;?>" style="float: right;font-size: 8px;" class="btn btn-xs adr-save">See order</a></td></tr>
+
 	 <?php } ?>
+  </table>
 
 	</div>
 	</div>
