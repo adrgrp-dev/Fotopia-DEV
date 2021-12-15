@@ -546,7 +546,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
             </div>
 
                  <hr class="space m" />
-             <p id="label_back_to_order" adr_trans="label_back_to_order" align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="superOrder_detail.php?id=<?php echo $_REQUEST['od']?>"><i style="color:black" class="fa fa-times"></i>Back to Order</a></p>
+             <p id="label_back_to_order" adr_trans="label_back_to_order" align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 adr-save" href="superOrder_detail.php?id=<?php echo $_REQUEST['od']?>"><i style="color:black" class="fa fa-times"></i>Back to Order</a></p>
 
 
 

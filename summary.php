@@ -532,10 +532,10 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
             </div>
                <?php if($_SESSION["user_type"]!='Photographer') {  ?>
                  <hr class="space m" />
-             <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="order_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
+             <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 adr-save" href="order_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
                 <?php } else { ?>
                   <hr class="space m" />
-              <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 " href="Photographerorder_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
+              <p align="center"><a style="background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" class="anima-button circle-button btn-sm btn mt-3 adr-save" href="Photographerorder_list.php"><i style="color:black" class="fa fa-times"></i><span adr_trans="label_back_to_order">Back to Order</span></a></p>
                  <?php } ?>
 
 
