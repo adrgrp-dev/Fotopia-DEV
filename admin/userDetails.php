@@ -333,16 +333,19 @@ elseif($res1['is_approved']==1) { ?>
 								<?php }
 
 								elseif (@$_REQUEST['val'] == 2 ) {
+
+									if(@$_SESSION["admin_loggedin_type"] == "PCAdmin"){
+										
+										?>
+
+							<a class="anima-button circle-button btn-sm btn adr-save" href="csr_list1.php?fp=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+
+								<?php } 
+								else{
 									?>
-									<a class="anima-button circle-button btn-sm btn adr-save" href="csr_list1.php?fp=1"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
+									<a class="anima-button circle-button btn-sm btn adr-save" href="users.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
 
-								<?php }
-
-								elseif (@$_REQUEST['val'] == 3 ) {
-									?>
-									<a class="anima-button circle-button btn-sm btn adr-save" href="subcsr_list1.php"><i class="fa fa-sign-in"></i><span adr_trans="label_back_users_list">Back to users list</span></a>
-
-								<?php }  ?>
+								<?php }}  ?>
 
 
 

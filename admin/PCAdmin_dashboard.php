@@ -593,7 +593,7 @@ $knowMore="";
 				$whereIs=" and location like '%$searchByLocation%'";
 			} */?>
 
-<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="photographersearch" value="<?php echo @$_REQUEST['photographersearch'];?>" style="display:inline;font-size:12px;"  placeholder="Choose Photographer" />
+<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="photographersearch" value="<?php echo @$_REQUEST['photographersearch'];?>" style="display:inline;font-size:12px;"  placeholder="Search Photographer" />
 
 </form>
 
