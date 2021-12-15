@@ -277,7 +277,8 @@ $loggedin_id=$_SESSION["loggedin_id"];
 	 else{
 
 	   ?>
-	   <tr><td colspan="3"><hr class="space s" /></td></tr>
+	   <tr><td colspan="3"><h5 class="text-center" style="margin-left:-10px;">My profile</h5></td></tr> 
+	   <!-- <tr><td colspan="3"><hr class="space s" /></td></tr> -->
 <tr><td align="right"  style="font-size: 10px;width:200px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 <tr><td colspan="3"><hr class="space xs" /></td></tr>
