@@ -282,11 +282,11 @@ min-width:120px!important;
 
                         </span>
 
-                        <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_admin" adr_trans="label_admin">
+                      <!--   <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_admin" adr_trans="label_admin">
 
                                 Admin
 
-                        </span>
+                        </span> -->
 
 
 						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_type" adr_trans="label_type">
@@ -397,7 +397,7 @@ min-width:120px!important;
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['organization_name']; ?></td>
-				<td class="text-left" style="word-break:break-all;"><?php echo @$admin1['first_name']; ?></td>
+				<!-- <td class="text-left" style="word-break:break-all;"><?php //echo @$admin1['first_name']; ?></td>  -->
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
