@@ -108,8 +108,8 @@ return false;
 
 
                 <div class="col-md-8" >
-				<p align="center"><h5 class="text-center" adr_trans="label_photographer_rating"><br>Photographer Rating</h5></p>
-				<table class="table-responsive" align="center"  style="border:solid 1px #DDD;margin-top:30px;width:50%;border-radius:25px 25px 25px 25px!important;">
+				<!-- <p align="center"><h5 class="text-center" adr_trans="label_photographer_rating"><br>Photographer Rating</h5></p> -->
+				<table class="table-responsive" align="center"  style="background: #FFF;margin-top:30px;width:50%;border-radius:10px!important;">
 				<tr><td align="center" style="color:#337AB7;font-size:15px;padding:20px;"><span adr_trans="label_">Rate the Photographer </span>- <?php echo $first_name." ".$last_name; ?></td></tr>
 				<tr><td align="center" style="font-size:18px;padding-top:30px;">
 				<p align="center" style="padding-bottom:20px;"><label id="rateNumber">0</label> Out of 5</p>
@@ -127,7 +127,7 @@ return false;
 				<input type="hidden" name="photographer_id"  value="<?php echo $photographer_id; ?>">
 				<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span adr_trans="label_comments">Comment</span></p>
 				<textarea name="comment" class="form-control" style="margin:10px;width:350px"  placeholder="Type your comments"></textarea>
-				<input type="submit" name="RateNow" value="Submit" class="btn btn-primary" style="margin:20px;">
+				<input type="submit" name="RateNow" value="Submit" class="btn btn-primary adr-save" style="margin:20px;">
 				</form>
 				</td></tr>
 				</table>
