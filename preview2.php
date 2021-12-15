@@ -156,8 +156,9 @@ rmdir("./temp/$timeRandom");
     <style>
 	.adr-save
 	{
-	background:#0275d8!important;
-	border-color:#0275d8!important;
+	background:#aad1d6!important;
+	border-color:#aad1d6!important;
+    color: #000!important;
 	}
 	.adr-cancel
 	{
@@ -360,7 +361,7 @@ $("#dayVal").val(calid);
      }
     ?>
 	<div class="col-md-12">
-    <p align="center"><a href="<?php echo "./download_raw_images.php?secret_code=$secret";?>" class="btn btn-default btn-sm anima-button" style="border-radius:25px"   adr_trans="label_send"><i class="fa fa-paper-plane"></i>send</a></p></div>
+    <p align="center"><a href="<?php echo "./download_raw_images.php?secret_code=$secret";?>" class="btn btn-default btn-sm anima-button adr-save" style="" adr_trans="label_send"><i class="fa fa-paper-plane adr-save"></i>send</a></p></div>
 
    </div>
 
