@@ -45,14 +45,14 @@ $pc_admin_count_query="select count(*) as total from user_actions where ((action
 
  ?>
 
-              	<h4 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
+              	<h5 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 <div style="background-color:white">
- <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;" aria-busy="false">
+ <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;text-align:center;" aria-busy="false">
                    <thead>
                     <tr>
-                      <th id="label_s.no" adr_trans="label_s.no">Sno</th>
-                      <th><span adr_trans="label_activity">Activity</span></th>
-					  <th><span adr_trans="label_date_and_time">Date & Time</span></th>
+                      <th class="text-center" id="label_s.no" adr_trans="label_s.no">Sno</th>
+                      <th class="text-center"><span adr_trans="label_activity">Activity</span></th>
+					  <th class="text-center"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>

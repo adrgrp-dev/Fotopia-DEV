@@ -48,9 +48,10 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
  ?>
 
-              	<h4 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
+              	<h5 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 
-                <table class="" style="color: #000;opacity:0.9;width:100%;text-align:center">
+               <div style="background-color:white">
+ <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;text-align:center;" aria-busy="false">
                   <thead>
                     <tr>
                       <th class="text-center"><span  adr_trans="label_s.no">S.no</span></th>
@@ -147,6 +148,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                 } }?>
                </tbody>
                   </table>
+                </div>
 
                   <div class="col-sm-6">
                         <ul class="pagination ">

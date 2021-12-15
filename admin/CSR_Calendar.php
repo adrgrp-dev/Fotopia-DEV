@@ -424,8 +424,8 @@ businessHours: // specify an array instead
 	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
-	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">
-	<div style="background:#aad1d6;color:#000!important;padding:5px;width:100%;"><h5 id="label_today_appointment" adr_trans="label_today_appointment" align="center" style="color:#000;"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
+	<div class="col-md-2" style="margin-top:80px;padding-right:0px;height:auto">
+	<div class="adr-save" style="background:#aad1d6;color:#000!important;padding:5px;width:100%;"><h5 id="label_today_appointment" adr_trans="label_today_appointment" align="center" style="color:#000;"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 	<?php
 	$appointments="";
 	if(@$_REQUEST['ph_id']) {

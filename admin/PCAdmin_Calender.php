@@ -439,7 +439,7 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
-	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">
+	<div class="col-md-2" style="margin-top:80px;padding-right:0px;height:auto">
 	<div class="adr-save" style="border: none;padding:5px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 
 	<?php
