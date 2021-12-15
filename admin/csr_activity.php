@@ -22,7 +22,7 @@ mysqli_query($con,"update user_actions set is_read=1,csr_read=1 where (action_do
 
 
 			</div>
-                <div class="col-md-10" style="">
+                <div class="col-md-10" style="background-color: white;margin-top: 25px;">
 <?php
 
 $csr_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='CSR') or csr_id='$loggedin_id') and (is_read=0 or csr_read=0)";
@@ -33,7 +33,7 @@ $csr_count_query="select count(*) as total from user_actions where ((action_done
 
  ?>
 
-              	<h4 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h4>
+              	<h5 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 
 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
                   <thead>

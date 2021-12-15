@@ -133,7 +133,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
                   <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                      <table class="table-striped" aria-busy="false" style="width:100% !important">
+                      <table class="table-striped" aria-busy="false" style="width:99% !important">
                           <thead>
                               <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
@@ -398,7 +398,7 @@ header("location:subcsrOrder_list1.php?app=1");
                  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
-                      <table class="table-striped" aria-busy="false" style="width:100% !important">
+                      <table class="table-striped" aria-busy="false" style="width:99% !important">
                         <thead>
                             <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
@@ -663,7 +663,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
 
 
-                      <table class="table-striped" aria-busy="false" style="width:100% !important">
+                      <table class="table-striped" aria-busy="false" style="width:99% !important">
                         <thead>
                             <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
@@ -921,7 +921,7 @@ header("location:subcsrOrder_list1.php?app=1");
                   <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
-                      <table class="table-striped" aria-busy="false" style="width:100% !important">
+                      <table class="table-striped" aria-busy="false" style="width:99% !important">
                         <thead>
                             <tr><th  class="text-center" style=""><span class="text" id="label_order_no" adr_trans="label_order_no">
 
