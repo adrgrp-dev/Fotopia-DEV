@@ -26,7 +26,7 @@ p{
 
 
 			</div>
-                <div class="col-md-10" style="background:#FFF;color:#000;border:solid 1px #000;opacity:0.8;padding:10px;padding-left:30px;">
+                <div class="col-md-10" style="background:#FFF;color:#000;opacity:0.8;padding:10px;padding-left:30px;margin-top: 24px;">
 
 
 
