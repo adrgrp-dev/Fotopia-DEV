@@ -268,7 +268,7 @@ $("#dayVal").val(calid);
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button>
-                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
+                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-6px;">
 						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -492,7 +492,7 @@ $(function(){
 ?> <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button> <?php } ?>
-                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/logo-1.png" alt="logo" style="margin-top:-6px;">
+                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-6px;">
 						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
 
