@@ -262,7 +262,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-6px;">
-						<span style="display:ineline;font-size:14px;color:#000"><span style="color:#AAD1D6;font-size:18px;">f</span>otopia</span></a>
+						<span style="display:ineline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
 
                     </div>
                     <?php

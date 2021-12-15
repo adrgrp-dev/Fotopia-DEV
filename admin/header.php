@@ -313,12 +313,12 @@ var langval="";
 <div class="col-md-5">
                      <div class="col-md-3 hidden-xs hidden-sm" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-4px;">
-          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
                   </div>
 
 				   <div class="col-md-3 hidden-md hidden-lg hidden-xl" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-4px;width:40px;height:30px;">
-          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
                   </div>
 
 </div>
@@ -556,7 +556,7 @@ $(function(){
 
 				   <div class="col-md-3 hidden-md hidden-lg hidden-xl" style="margin-left:20px;">
                       <a class="navbar-brand" href="<?php echo $page; ?>"><img src="../images/Fotopia-New-Logo.png" alt="logo" style="margin-top:-4px;width:40px;height:30px;">
-          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
+          <span style="display:inline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
                   </div>
 
 </div>
