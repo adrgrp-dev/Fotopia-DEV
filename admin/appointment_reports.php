@@ -38,7 +38,7 @@ if(isset($_REQUEST['label_search']))
 
                   <hr class="space s">
                   <div class="col-md-12">
-                           <ul class="nav nav-pills" style="margin-left:20px;">
+                           <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
                               <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" class="btn btn-default btn-sm adr-save " >Appointment Report</a></li>
                               <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Payment Report</a></li>
@@ -70,15 +70,15 @@ var days = 1;
 </script>
 <form>
 <div class="row">
-<div class="col-md-2" style="padding-left:30px;">
+<div class="col-md-2" style="padding-left:15px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:160px;">&nbsp;&nbsp;&nbsp;
+<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:160px;padding:0px;">
 </div>
-<div class="col-md-2" style="padding-left:30px;">
+<div class="col-md-2" style="padding-left:15px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="width:160px;">
+<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="width:160px;padding:0px;">
 </div>
-<div class="col-md-3" style="padding-left:30px;">
+<div class="col-md-3" style="padding-left:15px;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
  <input type="text"  list="Suggestions1" placeholder="Search Photographer" class="form-control form-value" id="user_name1" name="user_name1" value="<?php echo @$_REQUEST["user_name1"] ?>" style="display:inline;" autocomplete="off" />
  <!-- <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button> -->

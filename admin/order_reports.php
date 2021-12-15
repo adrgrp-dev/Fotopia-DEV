@@ -42,7 +42,7 @@ if(isset($_REQUEST['label_search']))
                   <hr class="space s">
                   <div class="col-md-12">
 
-                          <ul class="nav nav-pills" style="margin-left:20px;">
+                          <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm adr-save ">Order Report</a></li>
                               <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" style="background:#FFF!important;color:#000!important;" class="btn btn-default btn-sm ">Appointment Report</a></li>
                               <li class="active"><a href="payment_reports.php" id="label_payment_report" adr_trans="label_payment_report" style="background:#FFF!important;color:#000!important;" class="btn btn-default btn-sm ">Payment Report</a></li>
@@ -112,15 +112,15 @@ var days = 1;
 </script>
 <br />
 
-<div class="row" style="width:100%;margin-left:20px;">
+<div class="row" style="width:100%;margin-left:0px;">
 <form>
 <div class="col-md-2" style="padding-left:0px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" value="<?php echo @$_REQUEST['starting']?>" name="starting" class="form-control">
+<input type="date" onchange="setSecondDate();" id="start" value="<?php echo @$_REQUEST['starting']?>" name="starting" class="form-control" style="padding:0px;">
 </div>
 <div class="col-md-2" style="padding-left:5px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control" style="padding:0px;">
 </div>
 
 <div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:200px!important"; } else
@@ -143,7 +143,7 @@ else{?>
   <?php
 if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 
-<select name="realtor" id="realtor" class="form-control" style="display:block;margin-top:25px;width:150px;">
+<select name="realtor" id="realtor" class="form-control" style="display:block;margin-top:22px;width:150px;">
 <option value="">Select Realtor</option>
 
  <?php
@@ -158,7 +158,7 @@ if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 </select>
 <?php } ?>
 
-<select name="photographer10" id="photographer"  class="form-control" style="display:none;margin-top:25px;width:175px;">
+<select name="photographer10" id="photographer"  class="form-control" style="display:none;margin-top:22px;width:175px;">
 <option value="">Select Photographer</option>
 
 <?php
@@ -193,7 +193,7 @@ else{
               <?php }} ?>
 </select>
 <?php  if($_SESSION['admin_loggedin_type']=="PCAdmin"){?>
-<select name="csr10" id="csr" class="form-control"  style="display:none;margin-top:25px;width:150px;">
+<select name="csr10" id="csr" class="form-control"  style="display:none;margin-top:22px;width:150px;">
 <option value="">Select CSR</option>
 
 <?php
@@ -209,7 +209,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
   <?php } ?>
 </div>
 
-<div class="col-md-3" style="margin-top:25px;width:170px;">
+<div class="col-md-3" style="margin-top:22px;width:170px;">
 <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="border-radius:20px 20px 20px 20px;">Search</button>
 <a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
@@ -220,7 +220,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 
 
 
-			<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+			<div style="margin-top: 5px;width:100%;background-color:white">
                           <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                             <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
