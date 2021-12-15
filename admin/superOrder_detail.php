@@ -1413,23 +1413,18 @@ alert(alertmsg);
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab"><span id="label_order_details" adr_trans="label_order_details">Order Detail</span></a></li>
                   <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
                   $get_order1=mysqli_fetch_array($get_order_query1);
-                  if($get_order1['status_id']!=3){?>
+                 ?>
                   <li  id="click3" ><a  href="#tab3" data-toggle="tab"><span id="label_upload_raw_images" adr_trans="label_upload_raw_images">Upload Raw Images</span></a></li>
-                <?php }?>
+                <?php ?>
                   <li id="click4"><a   href="#tab4" data-toggle="tab"><span id="label_finished_images" adr_trans="label_finished_images">Finished Images</span></a></li>
                   <?php if(($get_order1['status_id']==4))
                   {
                       echo '<li id="click7"><a  id="" href="#tab6" data-toggle="tab"><span id="label_rework" adr_trans="label_rework">Rework</span></a></li>';
                   }
                   ?>
-                  <?php
-
-                  if(($get_order1['status_id']==3)||($get_order1['status_id']==1)||($get_order1['status_id']==2)||($get_order1['status_id']==4))
-                  {
-                    echo '<li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>';
-                  }
-                 
-                    ?>
+                  
+                  <li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>;
+                  
 
                   </ul>
 
