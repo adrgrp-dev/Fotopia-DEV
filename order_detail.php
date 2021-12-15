@@ -681,7 +681,7 @@ float:left!important;
 text-align:center;
 }
 .nonviewed{
-  opacity:0.3;
+  opacity:1;
 }
 
 
@@ -1783,19 +1783,22 @@ if (@$_REQUEST['shar']) {
                                     <?php if($get_comment['disapprove']!=1){?>
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
-                                    <a  onclick="viewed(<?php echo $get_comment['id']?>)"  onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                                   <img alt="" class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                                    <a    onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                   <img alt="" onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
                                       <?php if($get_comment['disapprove']==1){ ?>
-                                  <i id="ban<?php echo $get_comment['id'];?>" title="<?php echo @$get_comment['comments']; ?>, So this picture is not accepted for rework" class="fa fa-ban" style="position: absolute;
-    top: 210px;
-    right: 18px;
+                                  <i id="ban<?php echo $get_comment['id'];?>" title="<?php echo @$get_comment['comments']; ?>, So this picture is not accepted for rework" class="fa fa-times" style="position: absolute;
+    top: 206px;
+    right: 16px;
     color: #aad1d6;
     font-weight: 700;
-    padding: 2px;"></i>
+    padding: 2px; background:#FFF;padding:5px;"></i>
                               <?php } ?>
 
                                     </a>
-                                                                        
+                                        <?php /*
+   onclick="viewed(<?php echo $get_comment['id']?>)"
+  "
+                                        */ ?>                                
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
                                         <!-- Modal content -->
 
@@ -2017,17 +2020,19 @@ if (@$_REQUEST['shar']) {
                                     <?php if($get_comment['disapprove']!=1){?>
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)"  value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                     <?php } ?>
-                                      <a  onclick="viewed(<?php echo $get_comment['id']?>)"   onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                      <a onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
                             <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
                             <?php if($get_comment['disapprove']==1){ ?>
-                                  <i id="ban<?php echo $get_comment['id'];?>" class="fa fa-ban" title="<?php echo @$get_comment['comments'];?>, So this picture is not accepted for rework" style="position: absolute;
-    top: 210px;
-    right: 18px;
+                                  <i id="ban<?php echo $get_comment['id'];?>" class="fa fa-times" title="<?php echo @$get_comment['comments'];?>, So this picture is not accepted for rework" style="position: absolute;
+    top: 206px;
+    right: 16px;
     color: #aad1d6;
     font-weight: 700;
-    padding: 2px;"></i>
+    padding: 2px; background:#FFF;padding:5px;"></i>
                               <?php } ?>
                           </a>
+                               
+                             <!--   onclick="viewed(<?php // echo $get_comment['id']?>)" -->
 
 
                                       <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="">
