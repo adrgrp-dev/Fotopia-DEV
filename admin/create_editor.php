@@ -120,14 +120,9 @@ if(isset($_REQUEST['signupbtn']))
 	$contactno=$_REQUEST['contactno'];
 	$photographer_id=$_REQUEST['photographer_id'];
   $service=$_REQUEST['service'];
-  if(empty($_REQUEST["org_website"]))
-{
-  $org_website=0;
-}
-else
-{
+  
 $org_website = $_REQUEST["org_website"];
-}
+
 
 $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$email_verification_code=getName(10);

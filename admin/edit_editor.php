@@ -40,14 +40,8 @@ $id=$_REQUEST['id'];
 	$org=$_REQUEST['org'];
 	$service=$_REQUEST['service'];
 
-  if(empty($_REQUEST["org_website"]))
-{
-  $org_website="";
-}
-else
-{
 $org_website = $_REQUEST["org_website"];
-}
+
 
 $photographer_id=$_REQUEST['photographer_id'];
  // print_r($photographer_id);
