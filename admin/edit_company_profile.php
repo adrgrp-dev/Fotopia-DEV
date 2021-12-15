@@ -61,13 +61,12 @@ $res1=mysqli_fetch_array($res);
 
 
 
-if($userExist==0)
+/*if($userExist==0)
 {
 
 mysqli_query($con,"insert into photo_company_profile(about_us,skills,portfolio,location,pc_admin_id)values('','','','','$loggedin_id')");
 
-
-}
+}*/
 
 if(isset($_REQUEST['profilebtn']))
 {

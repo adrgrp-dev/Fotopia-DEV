@@ -164,11 +164,12 @@ $typeofuser = "Realtor";
 
    mysqli_query($con,"insert into user_login_temp (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,email_verification_code,email_verified,profile_pic,profile_pic_image_type,registered_on)values('$typeofuser','$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$email_verification_code',0,'$imgData','$imageType',now())");
 $inserted_id=mysqli_insert_id($con);
-
-
+if($inserted_id!=0)
+{
 mysqli_query($con,"insert into realtor_profile (organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,realtor_id)values('$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType','$inserted_id')");
 $profile_id=mysqli_insert_id($con);
 email($email,$typeofuser,$fname,$inserted_id,$profile_id);
+}
 header("location:users.php");
 
 }
@@ -182,14 +183,13 @@ $user = "PCAdmin";
 
 mysqli_query($con,"insert into admin_users_temp (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$user','$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())");
 $inserted_id=mysqli_insert_id($con);
-
-// echo "insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')";
-// exit;
+if($inserted_id!=0)
+{
 mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id')");
 $profile_id=mysqli_insert_id($con);
 email($email,$typeofuser,$fname,$inserted_id,$profile_id);
+}
 header("location:users.php");
-
 
 
 }

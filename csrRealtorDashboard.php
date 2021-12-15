@@ -989,7 +989,7 @@ if($i<=$ratingIs)
 					<?php } ?>
 
 <?php
-        $photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
+        $photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') and pc_admin_id!=0 order by id desc");
         while($photo1=mysqli_fetch_array($photo))
         {
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view1">View</span></a>';
