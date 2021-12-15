@@ -40,7 +40,7 @@ if(isset($_REQUEST['loginbtn']))
 															if($get_order=mysqli_fetch_assoc($get_order_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
+                            <p class="counter" data-speed="1000" data-to="<?php echo $get_order["completed_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
@@ -52,7 +52,7 @@ if(isset($_REQUEST['loginbtn']))
 															if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to="<?php echo $get_ongoing["ongoing_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 													</div>
 												</div>
                     </div>
@@ -74,10 +74,10 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no
 		
 			$get_photographer=mysqli_fetch_assoc($get_photographer_query);
 
- $cnt_get_photographer=$get_photographer['photo_companies_no'];
+             $cnt_get_photographer=$get_photographer['photo_companies_no'];
 
 															  ?>
-						<p class="counter" data-speed="1000" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
+						<p class="counter" data-speed="1000" data-to="<?php echo $cnt_get_photographer;?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
 
 							<?php echo $cnt_get_photographer; ?>
 													
@@ -114,7 +114,7 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no
 															if($get_order=mysqli_fetch_assoc($get_order_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;">
+                            <p class="counter" data-speed="1000" data-to="<?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;">
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
@@ -126,7 +126,7 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no
 															if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to="<?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 													</div>
 												</div>
                     </div>
@@ -157,7 +157,7 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no
 														if($get_csr=mysqli_fetch_assoc($get_csr_query) and $get_csr1=mysqli_fetch_assoc($get_csr_query1))
 														{
 														$total_realtor_csr = $get_csr["csr_no"] + $get_csr1["csr_no1"]  ?>
-														<p class="counter" data-speed="1000" data-to=" <?php echo $total_realtor_csr;?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; }?></p>
+														<p class="counter" data-speed="1000" data-to="<?php echo $total_realtor_csr;?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;"><?php echo $total_realtor_csr; }?></p>
 													</div>
 												</div>
                     </div>
