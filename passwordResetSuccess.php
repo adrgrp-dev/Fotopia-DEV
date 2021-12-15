@@ -11,8 +11,8 @@
                         <h5 adr_trans="label_changed_success">
                            Your password has been changed successfully!.
                         </h5>
-                        <hr class="space m">
-                        <a class="anima-button btn-ms btn circle-button" href="login.php"><i class="fa fa-sign-in" adr_trans="label_login"></i>Login</a>
+                        <hr class="space s">
+                        <a class="anima-button btn-ms btn circle-button adr-save" href="login.php"><i class="fa fa-sign-in" adr_trans="label_login"></i>Login</a>
                     </div>
                 </div>
             </div>
