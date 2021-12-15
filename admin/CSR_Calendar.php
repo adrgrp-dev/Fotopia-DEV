@@ -68,7 +68,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
             $get_pcadmin=mysqli_fetch_array($get_pcadmin_query);
             $pc_admin_id=$get_pcadmin['pc_admin_id'];
           ?>
-               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i> Create New Order</a>
+               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save" style="font-size: 10px;"><i class="fa fa-calendar"></i> Create New Order</a>
                 </p></center></div>
 				</div>
 			</div>
@@ -425,7 +425,7 @@ businessHours: // specify an array instead
 
     </div>
 	<div class="col-md-2" style="margin-top:80px;border:solid 1px #000;padding-right:0px;height:auto">
-	<div style="background:#aad1d6;color:#000!important;padding:5px;width:100%;"><h5 id="label_today_appointment" adr_trans="label_today_appointment" align="center" style="color:#FFF;"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
+	<div style="background:#aad1d6;color:#000!important;padding:5px;width:100%;"><h5 id="label_today_appointment" adr_trans="label_today_appointment" align="center" style="color:#000;"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 	<?php
 	$appointments="";
 	if(@$_REQUEST['ph_id']) {
