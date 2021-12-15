@@ -220,6 +220,11 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 	<?php include "sidebar.php"; ?>
   <style>
 
+#calendar{
+
+  background: #FFF!important;
+}
+
 .breadcrumb1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1340,7 +1345,7 @@ $from123=preg_replace("/ /","T",$from123);
             </form>
 			</div>
 			<div class="col-md-3">
-
+<hr class="space s">
 			<div id='calendar'  <?php if(isset($_SESSION['date'])=='' && isset($_SESSION['fromDatetime'])=='' && isset($_SESSION['Photographer_id'])=='') { echo "style='display:none'";  } else { echo "style='display:block'"; } ?>></div>
 
 			</div>

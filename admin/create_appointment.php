@@ -342,6 +342,11 @@ header("location:select_products.php?od=$order_id&pc_admin_id=$pc_admin_id1&Phot
 	<?php include "sidebar.php"; ?>
   <style>
 
+  	#calendar{
+
+  background: #FFF!important;
+}
+
 .breadcrumb1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1481,8 +1486,8 @@ $appointmentsAre1=mysqli_fetch_array($appointmentsAre);
             </form>
 			</div>
 			<div class="col-md-3">
-
-			<div id='calendar' style="display:block;margin-top: 17px;"></div>
+<hr class="space s">
+			<div id='calendar' style="display:block;"></div>
 
 			</div>
 
