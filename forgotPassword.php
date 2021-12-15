@@ -117,14 +117,14 @@ mysqli_query($con,"update user_login set email_verification_code='$email_verific
 email($email_verification_code,$email,$get_user['first_name']);
 //echo "update user_login set email_verification_code='$email_verification_code' where email='$email'";exit;
 
-// header("location:forgotPassword.php?codesent=1");
+header("location:forgotPassword.php?codesent=1");
 }
 
 
 }
 
 
-
+ 
 
 //$code=$_REQUEST['code'];
 //$res=mysqli_query($con,"select * from user_login where email_verification_code='$code'");
