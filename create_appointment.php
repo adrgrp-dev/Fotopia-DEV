@@ -1161,9 +1161,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
 	   <input list="photocompanies" name="pht" class="form-control form-value" id="phtcompany"  value="<?php echo strtoupper(@$photoCompanyNameIs); ?>" <?php //if(@$_REQUEST['Photographer_id']) { echo "readonly"; } ?> <?php if(@$_REQUEST['pc_admin_id']=='') { echo "required"; } ?> type="text"   placeholder="Select Photo company" autocomplete="off" />
         <datalist id="photocompanies">
- 	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photo Company</option
-
-	   ><?php
+ 	 <option data-value="" value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photo Company</option><?php
 	   $photoCompanyIs="";
 	   if(@$_REQUEST['pc_admin_id'])
 	   {
@@ -1177,9 +1175,9 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
          $Photographers_list=mysqli_query($con,$photographers);
          while($Photographers_list1=mysqli_fetch_assoc($Photographers_list))
         {?>
-                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo $Photographers_list1["organization"];?>" <?php if($Photographers_list1["id"]==@$_REQUEST['$pc_admin_id'] || $Photographers_list1["id"]==@$order_fetch['$pc_admin_id']) { echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo $Photographers_list1["organization_name"];?>" <?php if($Photographers_list1["id"]==@$_REQUEST['$pc_admin_id'] || $Photographers_list1["id"]==@$order_fetch['$pc_admin_id']) { echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>><?php echo $Photographers_list1["organization_name"];?></option>
                   <?php } ?>
-                    <!-- </select> -->
+
                   </datalist>
 
 
