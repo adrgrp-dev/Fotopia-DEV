@@ -50,9 +50,10 @@ $pc_admin_count_query="select count(*) as total from user_actions where ((action
  <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;text-align:center;" aria-busy="false">
                    <thead>
                     <tr>
-                      <th class="text-center" id="label_s.no" adr_trans="label_s.no">Sno</th>
-                      <th class="text-center"><span adr_trans="label_activity">Activity</span></th>
-					  <th class="text-center"><span adr_trans="label_date_and_time">Date & Time</span></th>
+
+                      <th class="text-center" id="label_s.no" adr_trans="label_s.no" style="padding:10px">Sno</th>
+                      <th class="text-center" style="padding:10px"><span adr_trans="label_activity" >Activity</span></th>
+					  <th class="text-center" style="padding:10px"><span adr_trans="label_date_and_time" >Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>
