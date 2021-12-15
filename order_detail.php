@@ -1400,10 +1400,14 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                             
                              <hr class="space m">
         <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
-        <table style="color:#000;font-weight:600;font-size:12px;">
+        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+
           <tr>
+
         <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+
         </tr>
+
         </table><br/>
                             <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
 

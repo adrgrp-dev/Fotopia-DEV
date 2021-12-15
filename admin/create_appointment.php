@@ -1298,9 +1298,9 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
          $Photographers_list=mysqli_query($con,$photographers);
          while($Photographers_list1=mysqli_fetch_assoc($Photographers_list))
         {?>
-                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo strtoupper($Photographers_list1["first_name"]);?>" <?php if($Photographers_list1["id"]==@$_REQUEST['$pc_admin_id'] || $Photographers_list1["id"]==@$order_fetch['$pc_admin_id']) { echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                    <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo strtoupper($Photographers_list1["organization_name"]);?>" <?php if($Photographers_list1["id"]==@$_REQUEST['$pc_admin_id'] || $Photographers_list1["id"]==@$order_fetch['$pc_admin_id']) { echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>><?php echo strtoupper($Photographers_list1["organization_name"]);?></option>
                   <?php } ?>
-                    <!-- </select> -->
+                   
                   </datalist>
 
 
@@ -1344,7 +1344,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
         {?>
                     <option data-value="<?php echo $Photographers_list1["id"]; ?>" value="<?php echo $Photographers_list1["first_name"]." ".$Photographers_list1["last_name"];?>" <?php if($Photographers_list1["id"]==@$_REQUEST['Photographer_id'] || $Photographers_list1["id"]==@$order_fetch['Photographer_id']) { echo "selected"; } ?>></option>
                   <?php } ?>
-                    <!-- </select> -->
+                   
                   </datalist>
 
                   </div>
