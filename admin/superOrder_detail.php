@@ -2541,9 +2541,11 @@ if (@$_REQUEST['shar']) {
                                                </div>
 
 <?php }?>
+<?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                <div class="col-md-2" style="display:inline-block">
                       <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span   adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                                </div>
+                                               <?php }?>
 
 
                                             </div>
@@ -2747,9 +2749,11 @@ if (@$_REQUEST['shar']) {
                                                </div>
 
                                               <?php } ?>
+                                              <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                               <div class="col-md-2"  style="display:inline-block">
                                                  <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
                                               </div>
+                                            <?php } ?>
                                              </div>
 
 

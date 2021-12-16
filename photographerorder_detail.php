@@ -2479,9 +2479,11 @@ if (@$_REQUEST['shar']) {
                                                              <div class="col-md-3" style="display:inline-block">
                                                               <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                                              </div>
+                                                             <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                              <div class="col-md-3" style="display:inline-block">
                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="" adr_trans="label_click_to_upload">Click to Upload</a>
                                                              </div>
+                                                           <?php } ?>
                                                            </div>
 
                                                            <div class="row">
@@ -2630,9 +2632,11 @@ if (@$_REQUEST['shar']) {
                                                            <div class="col-md-3" style="display:inline-block">
                                                              <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                                            </div>
+                                                           <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                            <div class="col-md-3" style="display:inline-block">
                                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2" style="" adr_trans="label_click_to_upload">Click to Upload</a>
                                                            </div>
+                                                         <?php } ?>
                                                          </div>
 
                                                          <div class="row">
