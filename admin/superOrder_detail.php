@@ -3235,15 +3235,29 @@ if (@$_REQUEST['shar']) {
          {
          if(@$invoice_check['approved']==0)
           {
-           echo '<a href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending(43)" id="button_approved" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right: 4px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>';
+            ?>
+
+           <a href="#" class="anima-button circle-button btn-sm btn adr-save" title="Approved Order Cost" name="button" onclick="pending(<?php echo $id_url; ?>)" id="button_approved" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right: 4px;"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a>
+          
+           <?php
           }
+
           else {
-              echo '<a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved " name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
+             ?>
+
+             <!-- <a  href="#" class="anima-button circle-button btn-sm btn adr-save" title="Already Approved" name="button" id="button_approved" style="float:right;border-radius: 29px;padding: 3px;   margin-top: -80px;"><b><span adr_trans="label_approved">Approved</span></b></a>';
+ -->
+              <a href="#" class="circle-button btn-sm btn adr-save" title="Already Approved" name="button" id="button_approved" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right: 4px;"><span adr_trans="label_approved">Approved</span></a>
+         
+<?php
           }
         }
         else {
+?>
+            <a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right:10px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>
+        
+        <?php 
 
-            echo '<a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right:10px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>';
          }
 
           ?>
