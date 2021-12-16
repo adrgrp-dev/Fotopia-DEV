@@ -388,7 +388,7 @@ $hs_id=$get_summary['home_seller_id'];
 
             $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
             $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-            $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
+            $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
             
 
         if($get_hs_details['lead_from']=='realtor')

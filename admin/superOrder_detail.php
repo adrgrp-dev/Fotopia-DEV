@@ -1423,9 +1423,8 @@ alert(alertmsg);
                   }
                   ?>
                   
-                  <li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>;
-                  
-
+                  <li id="click5"><a  id="" href="#tab5" data-toggle="tab"><span id="label_order_cost" adr_trans="label_order_cost">Order Cost</span></a></li>
+                
                   </ul>
 
                   <div class="panel active" id="tab1" style="background:#F1F3F4">
@@ -1840,7 +1839,7 @@ alert(alertmsg);
                       }
                     </script>
                 </div>
-                  <div class="panel" id="tab3">
+                  <div class="panel" id="tab3" style="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "height: 610px;";}?>">
                     <?php
                     $standard_value=0;
                     $floor_value=0;
@@ -1865,6 +1864,7 @@ alert(alertmsg);
                            <?php if(!empty($standard['order_id'])){ ?>
                             <center> <a href="../raw_image_history.php?id=<?php echo $id_url;?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
                           <?php } ?>
+                          <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";} ?>">
                           <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
                           </p>
@@ -1932,9 +1932,10 @@ alert(alertmsg);
                                    else
                                    window.location='<?php echo "preview1.php?id=$id_url";?>';
                                });
-
+                                    
                              </script>
                                 <!-- standard photo end -->
+                              </div>
                               </div>
                             </div>
 
@@ -2495,9 +2496,30 @@ if (@$_REQUEST['shar']) {
                                                  <input type="submit" class="circle-button btn-sm btn done adr-save" style=""  onclick="downloadbtn()" name="ZIP" value="Download" >
                                                </div>
                                                <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
-                                               <div class="col-md-2" style="display:inline-block">
+                                               <?php 
+                                                  $showReworkbutton=0;
+                                                  $checkRework_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and service_id=1");
+                                                  while($check_condition=mysqli_fetch_array($checkRework_query))
+                                                  {
+                                                      if($check_condition['uploaded_by_id']!=0)
+                                                      {
+                                                        $showReworkbutton=1;
+                                                        break;
+                                                      }
+                                                      else{
+                                                        $showReworkbutton=0;
+                                                      }
+                                                  }
+
+                                               ?>
+                                               <?php if($showReworkbutton==0)
+                                               {?>
+                                                 <div class="col-md-2" style="display:inline-block">
                                                    <input type="submit"  class="adr-save circle-button btn-sm btn rework"  name="rework" style="font-family: Manrope-Regular;"  value="Rework" >
-                                               </div>
+                                                   </div>
+                                                   <?php } ?>
+                                               
+                                               
                                                <?php } ?>
                                                <?php if(@$get_link['images_url']!='')
                                                {
@@ -2684,10 +2706,28 @@ if (@$_REQUEST['shar']) {
                                                   <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download" >
                                                 </div>
                                                 <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  {?>
+
+                                                  <?php 
+                                                  $showReworkbutton=0;
+                                                  $checkRework_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and service_id=2");
+                                                  while($check_condition=mysqli_fetch_array($checkRework_query))
+                                                  {
+                                                      if($check_condition['uploaded_by_id']!=0)
+                                                      {
+                                                        $showReworkbutton=1;
+                                                        break;
+                                                      }
+                                                      else{
+                                                        $showReworkbutton=0;
+                                                      }
+                                                  }
+
+                                               ?>
+                                               <?php if($showReworkbutton==1){?>
                                                 <div class="col-md-2"  style="display:inline-block">
                                                 <input type="submit" class=" circle-button btn-sm adr-save btn rework"  name="rework"  value="Rework" / >
                                                 </div>
-                                                <?php }?>
+                                                <?php }}?>
                                                 <?php if(@$get_link['images_url']!='')
                                                 {
                                                   ?>
