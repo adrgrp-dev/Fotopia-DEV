@@ -970,10 +970,11 @@ var checkedImgs=0;
                   <ul class="nav nav-tabs">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab" adr_trans="label_order_detail" >Order Detail</a></li>
                   <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
-                  $get_order1=mysqli_fetch_array($get_order_query1);;
-                  if($get_order1['status_id']!=3){?>  <!-- <li ><a href="#tab2" data-toggle="tab">Homeseller Info</a></li> -->
+                  $get_order1=mysqli_fetch_array($get_order_query1);
+                  ?>
+                
                   <li id="click3"><a href="#tab3" data-toggle="tab" adr_trans="label_upload_raw_images">Upload Raw images</a></li>
-                  <?php }?>
+                 
                   <li id="click4" ><a  id="click4" href="#tab4" data-toggle="tab" adr_trans="label_finished_images">Finished Images</a></li>
                   <?php
                   //&&($get_order1['super_csr_id']==0)
@@ -1091,7 +1092,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
                                 $get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtorID'");
                                   $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
-                                 $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
+                                 $get_realtor_name1=@$get_realtor_name["first_name"]." ".@$get_realtor_name["last_name"];
                               if($get_hs_details['lead_from']=='realtor')
                               {
                               ?>
@@ -1369,6 +1370,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                           <?php if(!empty($standard['order_id'])){ ?>
                             <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
                          <?php } ?>
+                         <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";}?>">
                          <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
                           </p>
@@ -1444,6 +1446,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
                              </script>
                                 <!-- standard photo end -->
+                              </div>
                               </div>
                             </div>
 
@@ -2254,7 +2257,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
            window.location.href = "photographerorder_list.php";
         }
         </script>
-          <table style="margin-left : 30px;width:100%;margin-top:10px;">
+          <table style="margin-left : 0px;width:100%;margin-top:10px;">
 
             <tr>
               <th style="width:30%;text-align:left">
@@ -2278,7 +2281,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
               </td>
             </tr>
           </table>
-<table style="width:100%!important;margin-left : 30px;">
+<table style="width:100%!important;margin-left : 0px;">
 <tr><td style="width:70%!important;">
         <table style="width:100%!important;float:right;text-align:left">
        <?php
@@ -3145,7 +3148,7 @@ function updateScroll(){
                                              if($get_images["status"]==3)
                                              {
 
-                                              echo '<script>$("#standard_photos_div").hide();$("#floor_div").hide();$("#drone_div").hide();$("#hdr_div").hide();$("#standard_photos_booked").html("<center><span>order completed<span></center>");$("#standard_photos_booked").css({"color": "green", "padding": "70px 0px 100px 0px","font-size":"16px"});$("#finished_images_floor_photos").show();</script>';
+                                              echo '';
 
                                               }
                                               elseif($get_images["service_name"] == 1&&$get_images["status"]==1)
