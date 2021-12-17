@@ -576,17 +576,17 @@ if(isset($_REQUEST['rework']))
   $file1=$_POST['folderToZip']."/".$get_image['img'];
   //  echo $data1[3];
   // exit;
-  if($data=@mkdir("../raw_images/order_".$id_url))
+  if($data=@mkdir("../rework_images/order_".$id_url))
   {
 
   }
-  if($data=@mkdir("../raw_images/order_".$id_url."/".$data1[3]))
+  if($data=@mkdir("../rework_images/order_".$id_url."/".$data1[3]))
   {
 
   }
   // mkdir("rework_images/order_".$id_url);
   // mkdir("rework_images/order_".$id_url."/".$data1[3]);
-    $file="../raw_images/order_".$id_url."/".$data1[3]."/".$get_image['img'];
+    $file="../rework_images/order_".$id_url."/".$data1[3]."/".$get_image['img'];
   rename($file1,$file);
   }
   //
