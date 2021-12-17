@@ -377,9 +377,9 @@ $get_pc_admin_csr =  mysqli_query($con,"select * from user_login where id='$phot
 
 $get_pc_admin_csr1 = mysqli_fetch_array($get_pc_admin_csr);
 
-$pc_admin_id = $get_pc_admin_csr1['pc_admin_id'] ;
+$pc_admin_id = @$get_pc_admin_csr1['pc_admin_id'] ;
 
-$csr_id = $get_pc_admin_csr1['csr_id'] ;
+$csr_id = @$get_pc_admin_csr1['csr_id'] ;
 
 $loggedin_id = $_SESSION['admin_loggedin_id'];
 
