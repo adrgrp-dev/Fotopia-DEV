@@ -141,7 +141,7 @@ border-radius:25px 25px 0px 0px;
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 
 .fc-prev-button, .fc-next-button
