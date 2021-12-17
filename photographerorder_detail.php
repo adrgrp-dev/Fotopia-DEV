@@ -132,7 +132,7 @@ foreach ($fi as $f) {
 if(isset($_POST['ZIP']))
 {
 
-$OrderCityState=mysqli_query($con,"select * from orders where id='$id'");
+$OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
 $property_state=$OrderCityState1['property_state'];
