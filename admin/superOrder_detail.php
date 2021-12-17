@@ -1686,7 +1686,7 @@ alert(alertmsg);
                             <br >
                            
 <div class="col-md-12">
-  <iframe width="400" height="450" frameborder="0" style="border:0"
+  <iframe width="380" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&key=<?php echo $_SESSION['googleMapApiKey']; ?>"></iframe>
 </div> 
 
