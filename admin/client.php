@@ -92,9 +92,12 @@ function email($template,$pc_admin_id,$email,$organization,$fname,$con)
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
-
+ 
 
 	$mail->Body.=$template;
+
+$mail->Body .= "<a href='{{project_url}}signup.php'
+  target='_blank'>Click here</a> to register with Fotopia application.";
 
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
   $mail->Body=str_replace('{{organization}}', $organization , $mail->Body);

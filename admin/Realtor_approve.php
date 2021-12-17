@@ -21,25 +21,39 @@ include "connection.php";
   <link rel="stylesheet" href="../scripts/jquery.flipster.min.css">
 
     <style>
- .adr-save
- {
- background:#0275d8!important;
- border-color:#0275d8!important;
- }
- .adr-cancel
- {
- /*background:#5cb85c!important;
- border-color:#5cb85c!important;*/
- background:#f0ad4e!important;
- border-color:#f0ad4e!important;
- }
-  .adr-success
- {
- /*background:#5cb85c!important;
- border-color:#5cb85c!important;*/
- background: green !important;
- border-color:#6cc070!important;
- }
+  .adr-save,.adr-save:hover
+    {
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    }
+    .adr-cancel
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#F2ADA8!important;
+    border-color:#F2ADA8!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+     
+    }
+    .adr-success
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+     color: #000 !important;
+     border-radius: 5px !important;
+    }
+
+     a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
+{
+  color: #000 !important;
+
+} 
+
   .tab-black
   {
     background-color: white;
@@ -84,7 +98,7 @@ $("#dayVal").val(calid);
                               <i class="fa fa-bars"></i>
                           </button>
                           <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="../images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;">
-  						<span style="display:ineline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+  						<span style="display:ineline;font-size:14px;color:#000"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
                       </div>
 
@@ -141,7 +155,7 @@ if(isset($_REQUEST['passresetbtn']))
                           <span >You can login only after admin approves your account.</span>
                           </h5>
                           <hr class="space m">
-                          <a class="anima-button btn-ms btn adr-cancel circle-button"  href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
+                          <a class="anima-button btn-ms btn adr-cancel"  href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
                       </div>
                   </div>
               </div>
@@ -160,7 +174,7 @@ if(isset($_REQUEST['fail'])) {
                        Thanks & Hope you come back with us soon!<br />
                       </h3>
                        <hr class="space m">
-                       <a class="anima-button btn-ms btn adr-success circle-button" style="" id="label_go_back_home" adr_trans="label_go_back_home" href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
+                       <a class="anima-button btn-ms btn adr-save circle-button" style="" id="label_go_back_home" adr_trans="label_go_back_home" href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
                      </div>
                  </div>
              </div>
@@ -211,8 +225,8 @@ if(isset($_REQUEST['update_password']))
   <div class="alert alert-warning" id="error-msg">&nbsp;</div>
   </div>
 
-  <button class="anima-button circle-button btn-sm btn" type="submit" name="passresetbtn"><i class="fa fa-sign-in"></i>Create</button>
-  &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" id="label_cancel" adr_trans="label_cancel" href="login.php"><i class="fa fa-sign-in"></i>Cancel</a>
+  <button class="anima-button btn-sm btn adr-save" type="submit" name="passresetbtn"><i class="fa fa-sign-in"></i>Create</button>
+  &nbsp;&nbsp;<a class="anima-button  btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" href="login.php"><i class="fa fa-sign-in"></i>Cancel</a>
   </center>
   </div>
   </div>
