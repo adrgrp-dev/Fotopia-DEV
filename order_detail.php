@@ -1,5 +1,3 @@
-
-
 <?php
 ob_start();
 include "connection1.php";
@@ -383,7 +381,7 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
-delete_files("./temp/$timeRandom");
+unlinkr("./temp/$timeRandom");
 rmdir("./temp/$timeRandom");
 
   }
