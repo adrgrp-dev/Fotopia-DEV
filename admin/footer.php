@@ -123,19 +123,18 @@ $(this).attr("type","text");
 
 <script>
 
-/*$('input[type=text]').each(function(){
-    $(this).attr("pattern","[a-zA-Z0-9_]+.*$");
-    $(this).attr("title","Input must contain atleast one character, No space at beginning and no symbol at beginning and must start with a character.");
-})
+var form_enabled = true;
+$().ready(function(){
+       // allow the user to submit the form only once each time the page loads
+       $('form').on('submit', function(){
+               if (form_enabled) {
+                       form_enabled = false;
+                       return true;
+               }
 
-$('input[type=email]').each(function(){
-//[^@\s]+@[^@\s]+\.[^@\s]+
-$(this).attr("type","text");
-    $(this).attr("pattern","[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}");
-    $(this).attr("title","Invalid email address");
-})
-
-*/
+               return false;
+        });
+});
 </script>
 
     <?php

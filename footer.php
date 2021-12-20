@@ -108,6 +108,19 @@ $(this).attr("type","text");
 
 
 });
+
+var form_enabled = true;
+$().ready(function(){
+       // allow the user to submit the form only once each time the page loads
+       $('form').on('submit', function(){
+               if (form_enabled) {
+                       form_enabled = false;
+                       return true;
+               }
+
+               return false;
+        });
+});
 </script>
 
 <?php
