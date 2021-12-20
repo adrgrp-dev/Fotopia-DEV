@@ -282,12 +282,12 @@ function validate_email(val)
 
   						 <div class="col-md-6">
   						  <p id="label_address_line1" adr_trans="label_address_line1">Address Line 1</p>
-  						   <input id="addressline1" name="addressline1" placeholder="Address line 1" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $get_profile1['address_line1']; ?>">
+  						   <input id="addressline1" name="addressline1" placeholder="Address line 1" type="text" autocomplete="off" class="form-control form-value" required="" >
   						 </div>
 
   							 <div class="col-md-6">
   						  <p id="label_address_line2" adr_trans="label_address_line2">Address Line 2</p>
-  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" value="<?php echo $get_profile1['address_line2']; ?>">
+  						   <input id="addressline2" name="addressline2" placeholder="Address line 2" type="text" autocomplete="off" class="form-control form-value" >
   						 </div>
 
   						<div class="col-md-6">
@@ -317,7 +317,7 @@ function validate_email(val)
   							</div>
   						 <div class="col-md-6">
                                   <p id="label_zip_code" adr_trans="label_zip_code">Zip Code</p>
-                                  <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value" required="" value="<?php echo $get_profile1['postal_code']; ?>">
+                                  <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value" required="" >
                               </div>
 
 
