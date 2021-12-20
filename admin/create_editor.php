@@ -193,7 +193,7 @@ function validate_email(val)
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","editor_validate_email.php?id="+val,true);
   xhttp.send();
 }
 </script>
@@ -213,7 +213,7 @@ function validate_email(val)
 <div class="col-md-12"><h5 align="center" id="label_create_editor" adr_trans="label_create_editor"> Create Editor</h5></div>
 
 
-
+<p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error"></span></p>
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="5" maxlength="20" class="form-control form-value" required="">
@@ -227,8 +227,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
-						</p>
+                                  <p id="label_email" adr_trans="label_email">Email</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="">
 
  															</div>

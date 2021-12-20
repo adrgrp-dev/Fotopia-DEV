@@ -78,6 +78,12 @@ foreach ($photographer_id as $key => $value) {
 			<script>
 function validate_email(val)
 {
+  var curent_email="<?php echo $editor['email']; ?>";
+  if(curent_email==val){
+
+    return true;
+  }
+  else{
   var xhttp= new XMLHttpRequest();
   xhttp.onreadystatechange = function()
   {
@@ -106,8 +112,9 @@ function validate_email(val)
      }
     }
   };
-  xhttp.open("GET","validate_email.php?id="+val,true);
+  xhttp.open("GET","editor_validate_email.php?id="+val,true);
   xhttp.send();
+}
 }
 </script>
 			</div>
@@ -124,7 +131,7 @@ function validate_email(val)
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="color: #000;background: #fff;width:100%;border-radius:5px!important;padding:20px;margin-left:30px;">
  <div class="col-md-12"><h5 align="center" id="label_edit_editor" adr_trans="label_edit_editor"> Edit Editor</h5></div>
 
-
+<p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error"></span></p>
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $editor['first_name']; ?>">
@@ -136,8 +143,7 @@ function validate_email(val)
                               </div>
 
                                <div class="col-md-6">
-                                  <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
-            </p>
+                                  <p id="label_email" adr_trans="label_email">Email</p>
   <input id="email" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $editor['email']; ?>">
 
                               </div>
