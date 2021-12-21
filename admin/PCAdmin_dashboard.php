@@ -254,7 +254,7 @@ border:none;
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
 
 						<?php }  ?>
-						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:12px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
+						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:20px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
 					<div class="row" style="margin-left:10px;">
 
                
@@ -267,7 +267,7 @@ border:none;
 															<div class="row">
 
 															<div class="col-md-12" style="padding-left: 35px;">
-																	<h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_ongoing" adr_trans="">New / Ongoing </span></h5>
+																	<h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span\>New /<br> Ongoing </span></h5>
 																		<?php
 																		$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4) and pc_admin_id=$superCsr");
 																		if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
@@ -347,7 +347,7 @@ border:none;
                           	<hr class="space s">
 												<div class="row">
 												<div class="col-md-12" style="padding-left: 35px;">
-														<h5><i class="fa fa-sliders fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_total_revenue" adr_trans="label_revenue">Revenue this Month</span></h5>
+														<h5><i class="fa fa-sliders fa-lg " style="color:#aad1d6;"></i><br /><br /><span>Revenue<br/> this Month</span></h5>
 
 															<?php
 
