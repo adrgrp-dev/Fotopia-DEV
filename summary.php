@@ -430,7 +430,7 @@ $hs_id=$get_summary['home_seller_id'];
 
           <tr>
 
-        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
 
         </tr>
 

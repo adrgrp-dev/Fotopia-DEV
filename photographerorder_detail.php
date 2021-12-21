@@ -1153,7 +1153,7 @@ header("location:photographerDashboard.php?private=1"); exit;
 
           <tr>
 
-        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
 
         </tr>
 

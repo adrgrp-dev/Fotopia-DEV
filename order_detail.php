@@ -1402,7 +1402,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
 
           <tr>
 
-        <td><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+        <td style="text-align:justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
 
         </tr>
 
