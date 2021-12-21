@@ -313,7 +313,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                           	<hr class="space s">
 												<div class="row">
 													<div class="col-md-12 pd-2" style="padding-left: 35px;">
-														<h5><i class="fa fa-sliders fa-lg " style="color:#aad1d6;"></i><br /><br /> <span adr_trans="label_revenue">Revenue this Month</span></h5>
+														<h5><i class="fa fa-sliders fa-lg " style="color:#aad1d6;"></i><br /><br /> <span>Revenue<br/> this Month</span></h5>
                       <?php
                             $total1=0;
   													$get_invoiced_name_query=mysqli_query($con,"SELECT id,product_id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and csr_id=$loggedin_id");
