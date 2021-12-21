@@ -2526,12 +2526,12 @@ if (@$_REQUEST['shar']) {
                                                  ?>
                                                  <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor"&&$get_link['images_url']!='')  { ?>
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1" style="font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send">send</span></a>
+                                                 <a href="#tnc1" style="font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send3"><span adr_trans="label_send" style="font-size: 12px;">send</span></a>
                                                </div>
                                                <?php } ?>
 
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1"  style="font-size: 12px;font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share">share</span></a>
+                                                 <a href="#tnc1"  style="font-size: 12px;font-family: Manrope-Regular;" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share" style="font-size:12px;">share</span></a>
                                                </div>
 
                                                <div class="col-md-2" style="display:inline-block">
@@ -2542,8 +2542,8 @@ if (@$_REQUEST['shar']) {
 
 <?php }?>
 <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
-                                               <div class="col-md-2" style="display:inline-block">
-                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span   adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                               <div class="col-md-2" style="display:inline-block;font-size:11px;">
+                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span   adr_trans='label_click_to_upload' style="font-size:11px;">Click to Upload</span></a>
                                                </div>
                                                <?php }?>
 
@@ -2735,11 +2735,11 @@ if (@$_REQUEST['shar']) {
                                                   ?>
                                                   <?php if($_SESSION['admin_loggedin_id']==$get_summary['created_by_id']&&$get_hs_details['lead_from']=="homeseller"&&$get_summary['created_by_type']!="Realtor")  { ?>
                                                 <div class="col-md-2" style="display:inline-block">
-                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send">send</span></a>
+                                                 <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','1')" name="send2" id="send2" ><span adr_trans="label_send" style="font-size:12px;">send</span></a>
                                                 </div>
                                                 <?php } ?>
                                                 <div class="col-md-2" style="display:inline-block">
-                                                  <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share">share</span></a>
+                                                  <a href="#tnc1" style="" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share" style="font-size:12px;">share</span></a>
                                                 </div>
 
                                                 <div class="col-md-2" style="display:inline-block">
@@ -2751,7 +2751,7 @@ if (@$_REQUEST['shar']) {
                                               <?php } ?>
                                               <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                               <div class="col-md-2"  style="display:inline-block">
-                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span adr_trans='label_click_to_upload' style="font-size: 11px;">Click to Upload</span></a>
                                               </div>
                                             <?php } ?>
                                              </div>
@@ -2892,7 +2892,7 @@ if (@$_REQUEST['shar']) {
 
                                            <form  onsubmit="return check3();" name="zipDownload" id="zipDownload3" method="post" action="">
                                        <input type="checkbox" id="remove3" onclick="selectAllImages3()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                           <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=3" id="clicktoupload3" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                           <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=3" id="clicktoupload3" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload' style="font-size: 11px;">Click to Upload</span></a>
                                         <p id="label_drone_photos" adr_trans="label_drone_photos" style="position: relative;top: 0px;left: 44%;font-weight:600">Drone Photos</p>
                                       </div>
                                       <div class="maso-list gallery">
@@ -3038,7 +3038,7 @@ if (@$_REQUEST['shar']) {
 
                                            <form  onsubmit="return check4();" name="zipDownload" id="zipDownload4" method="post" action="">
                                          <input type="checkbox" id="remove4" onclick="selectAllImages4()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                             <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=4" id="clicktoupload4" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a>
+                                             <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=4" id="clicktoupload4" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload' style="font-size:11px;">Click to Upload</span></a>
                                           <p style="position: relative;top: 0px;left: 44%;font-weight:600;" adr_trans="label_hdr_photos">HDR Photos</p>
                                       </div>
                                       <div class="maso-list gallery">
