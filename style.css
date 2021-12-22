@@ -225,7 +225,6 @@ color:#000!important;
 .nav-tabs > li > a
 {
 background:#FFF!important;
-color:#000;
 padding-top:5px;
 padding-bottom:7px;
 padding-left:5px;
@@ -234,6 +233,8 @@ font-size:11px;
 font-weight:bold;
 color:#000!important;
 }
+
+
 
 #preloader {
     position: fixed;

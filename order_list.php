@@ -124,6 +124,33 @@ min-width:100px!important;
 
 }
 
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+}    
+
      </style>
      <script>
 
@@ -142,7 +169,7 @@ min-width:100px!important;
    <p align="right" style="position: absolute;right: 15px;" >
         <!-- <a href="create_order.php" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a> -->
         </p>
-<ul class="nav nav-tabs" style="padding-left:15px">
+<ul class="nav nav-tabs" style="">
 <li id="click11" class="active"><a href="#tab1" id="click1" adr_trans="label_ongoing_orders">On Going Orders</a></li>
 <li id="click22" ><a href="#tab2" id="click2" adr_trans="label_completed_orders">Completed Orders</a></li>
 </ul>

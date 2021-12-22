@@ -812,6 +812,33 @@ padding:0px!important;
   border-color: #AAD1D6;
 }
 
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+.nav-tabs > li > a
+{
+  border-radius: 5px;
+}
+
+.tab-box .nav-tabs li.active ,.tab-box .nav-tabs li.active:hover
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+}    
+
+
 </style>
 <script>
 function  singleComment(data,id)
@@ -1240,7 +1267,7 @@ alert("comment changed");
         <div class="" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="margin-left:0px;">
+                <div class="col-md-2" style="margin-top:17px;">
 
 	   <?php include "sidebar.php";  ?>
 
@@ -1658,7 +1685,7 @@ if (@$_REQUEST['shar']) {
 
 
   <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
-              <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete">
+              <input type="button" id="done_hide" style="font-size: 12px;" class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete">
             <?php } ?>
 
  <?php if($get_summary['status_id']==3)
@@ -1841,8 +1868,9 @@ if (@$_REQUEST['shar']) {
                                $opendirectory1 = opendir($imagesDirectory_standard_rework);
                                ?>
                                
-                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_rework)==0){ echo "hidden";} ?>">Rework Assigned</h6>
-                               <div class="row" style="padding-left:10px">
+                               <?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_rework)!=0){  ?><hr class="space s"><hr><h5 align="center" style="color:#000060;"> Rework Assigned Pictures</h5><hr class="space s">
+                             <?php }?>
+                               <div class="row" style="padding-left:15px">
                               <?php
                               while (($image = readdir($opendirectory1)) !== false)
                                {
@@ -1856,7 +1884,7 @@ if (@$_REQUEST['shar']) {
                                 ?>
 
                                <div data-sort="1" class=" col-md-3 cat1" >
-                                <img src="<?php echo $imagesDirectory_standard_rework."/".$image ?>" width="180" height="120">
+                                <img class="img1" src="<?php echo $imagesDirectory_standard_rework."/".$image ?>"  height="180">
                                </div>
                            
 
@@ -1878,8 +1906,9 @@ if (@$_REQUEST['shar']) {
                                $opendirectory1 = opendir($imagesDirectory_standard_accepted);
                                ?>
                              
-                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_accepted)==0){ echo "hidden";} ?>">Rework Accepted</h6>
-                               <div class="row" style="padding-left:10px">
+                               <?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard_accepted)!=0){ ?><hr class="space s"><hr><h5 align="center" style="color: #000060;">Rework Accepted Picture</h5><hr class="space s">
+                             <?php }?>
+                               <div class="row" style="padding-left:15px">
 
                                <?php
 
@@ -1893,7 +1922,7 @@ if (@$_REQUEST['shar']) {
                                 ?>
                                
                                 <div data-sort="1" class=" col-md-3 cat1" >
-                                <img src="<?php echo $imagesDirectory_standard_accepted."/".$image ?>" width="180" height="150" >
+                                <img class="img1" src="<?php echo $imagesDirectory_standard_accepted."/".$image ?>"  height="180" >
                                 </div>
 
                                <?php 
@@ -2078,8 +2107,10 @@ if (@$_REQUEST['shar']) {
                                $opendirectory1 = opendir($imagesDirectory_floor_rework);
                                ?>
                                <hr class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_rework)==0){ echo "hidden";} ?>" style="margin-top: 10px;">
-                               <h6 class="<?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_rework)==0){ echo "hidden";} ?>">Rework Assigned</h6>
-                               <div class="row" style="padding-left:10px">
+                               <?php if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor_rework)!=0){  ?><hr class="space s"><h5 align="center" style="color: #000060;">Rework Assigned Picture</h5><hr class="space s">
+
+                             <?php }?>
+                               <div class="row" style="padding-left:15px">
                               <?php
                               while (($image = readdir($opendirectory1)) !== false)
                                {
@@ -2093,7 +2124,7 @@ if (@$_REQUEST['shar']) {
                                 ?>
 
                                <div data-sort="1" class=" col-md-3 cat1" >
-                                <img src="<?php echo $imagesDirectory_floor_rework."/".$image ?>" width="180" height="120">
+                                <img class="img1" src="<?php echo $imagesDirectory_floor_rework."/".$image ?>"  height="180">
                                </div>
                            
 
@@ -2122,8 +2153,9 @@ if (@$_REQUEST['shar']) {
                                }
                                ?>
                                <hr  class="<?php  if($floor_rework_accepted_count==0){ echo "hidden";} ?>" style="margin-top: 10px;">
-                               <h6 class="<?php  if($floor_rework_accepted_count==0){ echo "hidden";} ?>">Rework Accepted</h6>
-                               <div class="row" style="padding-left:10px">
+                               <?php  if($floor_rework_accepted_count!=0){  ?><hr class="space s"><h5 align="center" style="color: #000060;">Rework Accepted Picture</h5><hr class="space s">
+                             <?php } ?>
+                               <div class="row" style="padding-left:15px">
 
                                <?php
 
@@ -2137,7 +2169,7 @@ if (@$_REQUEST['shar']) {
                                 ?>
                                
                                 <div data-sort="1" class=" col-md-3 cat1" >
-                                <img src="<?php echo $imagesDirectory_floor_accepted."/".$image ?>" width="180" height="150" >
+                                <img class="img1" src="<?php echo $imagesDirectory_floor_accepted."/".$image ?>"  height="180" >
                                 </div>
 
                                <?php 
@@ -2437,8 +2469,8 @@ if($get_order1['status_id']==3)
   <hr class="space s" >
 <form action="" method="GET" align="center">
 
-<input class="search-field" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
-<input id="submit" type="submit" value="Search">
+<input class="search-field form-control" style="float: left;width:300px;margin-left: 230px;" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
+<input id="submit" style="float: left;margin-left: 5px;" class="btn adr-save" type="submit" value="Search">
 </form>
 
 <hr class="space" >

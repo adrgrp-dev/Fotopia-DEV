@@ -64,6 +64,32 @@ font-weight:600!important;
 		}
 
 		}
+    .nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px !important;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 
 
 </style>
@@ -112,7 +138,7 @@ $pht = $_SESSION['loggedin_id'];
 
         <div >
 <div id="" style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-      <table class="" aria-busy="false" width="100%">
+      <table class="" aria-busy="false" width="99%">
           <thead>
               <tr><th  class="text-center" style="" id="label_s.no"  ><span adr_trans="label_order_no">
                           Order#
@@ -304,7 +330,7 @@ $pht = $_SESSION['loggedin_id'];
 
 
 <div id="" style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-      <table class="" aria-busy="false" style="width:100%">
+      <table class="" aria-busy="false" style="width:99%">
           <thead>
 						<tr><th  class="text-center" style="" id="label_s.no"  ><span adr_trans="label_order_no">
 												Order#

@@ -43,7 +43,7 @@ header("location:photographerCalendar.php?busydate=$busyDate");
 
 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="margin-top:-5px;">
 <div class="row">
 <div class="col-md-12" style="padding-left:20px;height:30px;width:98%">
 				<div class="col-md-12" style="float:left;display:inline-block">
@@ -175,7 +175,7 @@ border-radius:25px;
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 
 

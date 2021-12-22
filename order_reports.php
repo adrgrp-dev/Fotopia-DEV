@@ -16,6 +16,11 @@ if(isset($_REQUEST['loginbtn']))
 ?>
 
 <?php include "header.php";  ?>
+<style>
+ .nav-pills > li > a{
+  padding: 6px;
+  }
+  </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
@@ -34,7 +39,7 @@ if(isset($_REQUEST['loginbtn']))
                   <hr class="space s">
                   <div class="col-md-12" >
 
-                          <ul class="nav nav-pills" style="margin-left:20px;">
+                          <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm adr-save"  adr_trans="label_order_reports">Order Report</a></li>
 
                               <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_payment_report">Payment Report</a></li>
@@ -100,7 +105,7 @@ var days = 1;
 </script>
 <br />
 
-<div class="row" style="width:100%;margin-left:20px;">
+<div class="row" style="width:100%;margin-left:0px;">
 <form>
 <div class="col-md-3" style="padding-left:0px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>

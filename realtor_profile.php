@@ -112,7 +112,8 @@ Fotopia Team.";
 
 			</div>
                 <div class="col-md-8"  style="padding-top:0px;">
-                <hr class="space s" />    
+                <hr class="space s" />  
+
 
 <?php
 
@@ -131,7 +132,8 @@ $loggedin_id=$_SESSION["loggedin_id"];
 					<table class=""  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;margin-left:10px;" cellpadding="10" cellspacing="10">
 
 					<tbody>
-
+						<tr><td colspan="3"><hr class="space xs" /></td></tr>
+            <tr><td align="center" colspan="3" style="font-size: 10px;"><span><h5>Realtor Profile</h5></span></td></tr>
 	  <?php
 
 	  $userExist=mysqli_num_rows($res);
@@ -145,7 +147,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 	   ?>
 <tr><td colspan="3"><hr class="space xs" /></td></tr>
-	    <tr><td align="right"  style="font-size: 10px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
+	    <tr><td align="right"  style="font-size: 10px;width: 390px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
 		 <tr><td colspan="3"><hr class="space xs" /></td></tr>
 		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>

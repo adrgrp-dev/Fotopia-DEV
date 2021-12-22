@@ -556,6 +556,32 @@ border-bottom:none!important;
 {
 padding:0px!important;
 }
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 
  </style>
@@ -2481,7 +2507,7 @@ if (@$_REQUEST['shar']) {
                                                              </div>
                                                              <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                              <div class="col-md-3" style="display:inline-block">
-                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="" adr_trans="label_click_to_upload">Click to Upload</a>
+                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="" adr_trans="label_upload">Upload</a>
                                                              </div>
                                                            <?php } ?>
                                                            </div>
@@ -2634,7 +2660,7 @@ if (@$_REQUEST['shar']) {
                                                            </div>
                                                            <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                            <div class="col-md-3" style="display:inline-block">
-                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2" style="" adr_trans="label_click_to_upload">Click to Upload</a>
+                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2" style="" adr_trans="label_upload"> Upload</a>
                                                            </div>
                                                          <?php } ?>
                                                          </div>

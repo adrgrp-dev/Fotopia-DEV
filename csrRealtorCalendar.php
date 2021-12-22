@@ -18,7 +18,7 @@ include "connection1.php";
 
 			</div>
 
-				<div class="col-md-10">
+				<div class="col-md-10" style="margin-top: -7px;">
 <div class="row">
 <div class="col-md-12" style="padding-left:20px;height:30px;">
 				<div class="col-md-6" style="float:left;display:inline-block">
@@ -148,7 +148,7 @@ border-radius:25px;
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 
 

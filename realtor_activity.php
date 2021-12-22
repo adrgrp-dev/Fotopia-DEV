@@ -50,7 +50,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
               	<h5 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 
-               <div style="background-color:white">
+               <div style="background-color:white;padding-top: 10px;border-radius: 5px;">
  <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;text-align:center;" aria-busy="false">
                   <thead>
                     <tr>
