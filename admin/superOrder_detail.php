@@ -683,12 +683,43 @@ unlink($delete_dir);
    }
 
 
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
 
 
+.nav-tabs > li > a
+{
+  border-radius: 5px!important;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px!important;
+    padding-bottom: 6px!important;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
+
+a >span{
+
+  font-size: 12px!important;
+}
 	/*.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
     opacity: 0.8;
+}
 
 
 }
@@ -774,8 +805,8 @@ unlink($delete_dir);
   width: 100% !important;
   max-width: 50px !important;
   top: 43px;
-  background:#000;
-  color:white !important;
+  background:#aad1d6;
+  color:#000 !important;
   border-radius:0px 20px 20px 0px;
   padding: 11px 0px;
   z-index: 1;
@@ -786,8 +817,8 @@ unlink($delete_dir);
   width: 100% !important;
   max-width: 50px !important;
   top: 50px;
-   background:#000;
-  color:#FFF;
+  background:#aad1d6;
+  color:#000 !important;
   border-radius:20px 0px 0px 20px;
   display: inline-block;
   overflow: hidden;
@@ -1798,9 +1829,9 @@ alert(alertmsg);
                     </div>
                     <?php if($get_summary['status_id']==1||$get_summary['status_id']==2||$get_summary['status_id']==7){?>
                     <?php if($get_summary['created_by_id']!=$_SESSION['admin_loggedin_id']&&$get_summary['created_by_type']=="PCAdmin"){ ?>
-                    <p align="right"><a id="label_edit_reshedule_order" adr_trans="label_edit_reshedule_order" class="anima-button circle-button btn-sm adr-save" style="margin-top:10px;background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" href="create_appointment.php?hs_id=<?php echo @$get_summary['home_seller_id']?>&pc_admin_id=<?php echo @$get_summary['pc_admin_id']?>&Photographer_id=<?php echo @$get_summary['photographer_id'] ?>&od=<?php echo @$get_summary['id']?>&edit=1"><i style="color:black;" class="fa fa-long-arrow-right"></i>Edit/Reshedule Order </a></p>
+                    <p align="right"><a id="label_edit_reshedule_order" adr_trans="label_edit_reshedule_order" class="anima-button circle-button btn-sm adr-save" style="margin-right: 13px;margin-top:10px;background-color: #AAD1D6;color: #000;border-color: #AAD1D6;" href="create_appointment.php?hs_id=<?php echo @$get_summary['home_seller_id']?>&pc_admin_id=<?php echo @$get_summary['pc_admin_id']?>&Photographer_id=<?php echo @$get_summary['photographer_id'] ?>&od=<?php echo @$get_summary['id']?>&edit=1"><i style="color:black;" class="fa fa-long-arrow-right"></i>Edit/Reshedule Order </a></p>
                   <?php }else{ ?>
-                    <p align="right"><a id="label_edit_reshedule_order" style="margin-top:10px;background-color: #AAD1D6;color: #000;border-color:  #AAD1D6;" adr_trans="label_edit_reshedule_order" class="anima-button circle-button btn-sm adr-save" href="create_appointment.php?hs_id=<?php echo @$get_summary['home_seller_id']?>&pc_admin_id=<?php echo @$get_summary['pc_admin_id']?>&Photographer_id=<?php echo @$get_summary['photographer_id'] ?>&od=<?php echo @$get_summary['id']?>&edit=1"><i style="color:black;" class="fa fa-long-arrow-right"></i>Edit/Reshedule Order </a></p>
+                    <p align="right"><a id="label_edit_reshedule_order" style="margin-right: 13px;margin-top:10px;background-color: #AAD1D6;color: #000;border-color:  #AAD1D6;" adr_trans="label_edit_reshedule_order" class="anima-button circle-button btn-sm adr-save" href="create_appointment.php?hs_id=<?php echo @$get_summary['home_seller_id']?>&pc_admin_id=<?php echo @$get_summary['pc_admin_id']?>&Photographer_id=<?php echo @$get_summary['photographer_id'] ?>&od=<?php echo @$get_summary['id']?>&edit=1"><i style="color:black;" class="fa fa-long-arrow-right"></i>Edit/Reshedule Order </a></p>
                   <?php } }?>
 
 
@@ -1868,7 +1899,7 @@ alert(alertmsg);
                           <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
                           </p>
-                          <select class="btn adr-save" id='purpose' style="float:right" onchange="tab_show(this.value)">
+                          <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;" onchange="tab_show(this.value)">
                             <option value="1">Photos <span class="badge"><?php
 
                             $raw_images_standard = "../raw_images/order_".$id_url."/standard_photos/";
@@ -2543,14 +2574,14 @@ if (@$_REQUEST['shar']) {
 <?php }?>
 <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                                <div class="col-md-2" style="display:inline-block;font-size:11px;">
-                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span   adr_trans='label_click_to_upload' style="font-size:11px;">Click to Upload</span></a>
+                      <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span   adr_trans='label_upload' style="font-size:11px;">Upload</span></a>
                                                </div>
                                                <?php }?>
 
 
                                             </div>
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                     <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload'>Click to Upload</span></a> -->
+                                     <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_upload'>Upload</span></a> -->
                                      <div class="row">
                                        <div class="col-md-12">
                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
@@ -2751,7 +2782,7 @@ if (@$_REQUEST['shar']) {
                                               <?php } ?>
                                               <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
                                               <div class="col-md-2"  style="display:inline-block">
-                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span adr_trans='label_click_to_upload' style="font-size: 11px;">Click to Upload</span></a>
+                                                 <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2"  id="clicktoupload2" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span adr_trans='label_upload' style="font-size: 11px;">Upload</span></a>
                                               </div>
                                             <?php } ?>
                                              </div>
@@ -2892,7 +2923,7 @@ if (@$_REQUEST['shar']) {
 
                                            <form  onsubmit="return check3();" name="zipDownload" id="zipDownload3" method="post" action="">
                                        <input type="checkbox" id="remove3" onclick="selectAllImages3()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                           <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=3" id="clicktoupload3" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload' style="font-size: 11px;">Click to Upload</span></a>
+                                           <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=3" id="clicktoupload3" style="float:right;margin-right:10px;"><span adr_trans='label_upload' style="font-size: 11px;">Upload</span></a>
                                         <p id="label_drone_photos" adr_trans="label_drone_photos" style="position: relative;top: 0px;left: 44%;font-weight:600">Drone Photos</p>
                                       </div>
                                       <div class="maso-list gallery">
@@ -3038,7 +3069,7 @@ if (@$_REQUEST['shar']) {
 
                                            <form  onsubmit="return check4();" name="zipDownload" id="zipDownload4" method="post" action="">
                                          <input type="checkbox" id="remove4" onclick="selectAllImages4()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
-                                             <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=4" id="clicktoupload4" style="float:right;margin-right:10px;"><span adr_trans='label_click_to_upload' style="font-size:11px;">Click to Upload</span></a>
+                                             <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=4" id="clicktoupload4" style="float:right;margin-right:10px;"><span adr_trans='label_upload' style="font-size:11px;">Upload</span></a>
                                           <p style="position: relative;top: 0px;left: 44%;font-weight:600;" adr_trans="label_hdr_photos">HDR Photos</p>
                                       </div>
                                       <div class="maso-list gallery">
@@ -3216,7 +3247,7 @@ if (@$_REQUEST['shar']) {
                         <div class="panel" id="tab5" style="background:white">
                         
 
-                          <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;margin-top: 2px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+                          <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;margin-top: 2px;font-size: 12px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <link rel="stylesheet" href="../css/style_invoice.css">
         <!-- <script src="script.js"></script> -->
@@ -3254,7 +3285,7 @@ if (@$_REQUEST['shar']) {
         }
         else {
 ?>
-            <a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;color:white !important;border-radius: 29px;margin-top: -78px;margin-right:10px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>
+            <a href="#invoice" class="anima-button circle-button  btn adr-save lightbox link" style="float:right;margin-top: -78px;margin-right:10px;font-size: 12px;" ><i class="fa fa-paper-plane"></i><span adr_trans="label_send">Send</span></a>
         
         <?php 
 

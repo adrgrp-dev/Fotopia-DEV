@@ -17,6 +17,33 @@ min-width:100px!important;
 
 }
 
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px!important;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px!important;
+    padding-bottom: 6px!important;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
 </style>
 <?php
 if(isset($_REQUEST['rejectbtn']))
@@ -987,7 +1014,7 @@ ul.pagination > li.last > a
 
 <hr class="space s" />
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:350px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;font-size: 12px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:350px;float:right;margin-bottom:20px;font-size: 12px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
 

@@ -76,10 +76,10 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 <div class="row">
 <div class="col-md-12" style="padding-left:20px;height:30px;width:100%">
 				<div class="col-md-12" style="float:left;display:inline-block">
-				<center><h5> <span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?>
+				<center><span style="font-size:12px;font-style: bold"><span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?>
 
-				</h5>  <p align="right" style="position: absolute;right: 15px;" >
-               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order"class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order"> Create New Order</span></a>
+				</span>  <p align="right" style="position: absolute;right: -27px;top: 35px;" >
+               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order"class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order" style="font-size: 12px;"> Create New Order</span></a>
                 </p></center></div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 <table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
 <tr>
 <td align="left" style="width:200px;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:175px;margin-bottom:10px;font-size: 12px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
@@ -446,7 +446,7 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 
     </div>
 	<div class="col-md-2" style="margin-top:80px;padding-right:0px;height:auto">
-	<div class="adr-save" style="border: none;padding:5px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment"><u>Today's Appointment</u><br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
+	<div class="adr-save" style="border: none;padding-top:10px;padding-bottom:1px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment">Today's Appointment<br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 
 	<?php
 	$appointments="";

@@ -539,7 +539,7 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 
 
 <p align="center">
- <a class="btn btn-sm" href="superorder_list1.php?c=1" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_order">View My Orders</span> </a>
+ <a class="btn btn-sm" href="superorder_list1.php?c=1" style="margin-top:25px;background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_order">View My Orders</span> </a>
  </p>
 
 
