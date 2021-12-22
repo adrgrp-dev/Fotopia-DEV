@@ -482,7 +482,7 @@ while (($image = readdir($opendirectory)) !== false)
         </form>
          <script>
           $(document).ready(function() {
-            $("#drop_files").html("<br/><h3> Click to Upload </h3>");
+            $("#drop_files").html("<br/><h3> Click or Drag and Drop to Upload Pictures </h3>");
             $("#drop_files").css('text-align', 'center');
             $("<div><p align='center'><img src='./dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files");
           });

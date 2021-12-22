@@ -320,7 +320,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
   													while(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
   													{
   														$order_id=$get_name['id'];
-  														  $total_cost=mysqli_query($con,"SELECT sum(total_price*quantity) as totalPrice from order_products WHERE order_id='$order_id'");
+  														  $total_cost=mysqli_query($con,"SELECT sum(price*quantity) as totalPrice from order_products WHERE order_id='$order_id'");
   																	while($get_product=mysqli_fetch_array($total_cost))
                                      {
 

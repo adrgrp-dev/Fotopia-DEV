@@ -195,7 +195,7 @@ if(isset($_REQUEST['send']))
      </form>
       <script>
        $(document).ready(function() {
-         $("#drop_files").html("<br/><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+         $("#drop_files").html("<br/><h3 adr_trans='label_click_drag'> Click or Drag and Drop to Upload Pictures </h3>");
          $("#drop_files").css('text-align', 'center');
          $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files");
        });

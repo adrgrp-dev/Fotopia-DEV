@@ -423,7 +423,7 @@ if(!empty($_REQUEST['pcfilter'])){
 
 						 //  $product=mysqli_query($con,"select sum(total_price)+sum(photographer_cost)+sum(other_cost) as total_value,GROUP_CONCAT(product_title,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
 
-								 $product=mysqli_query($con,"select sum(total_price*quantity) as total_value,GROUP_CONCAT(product_title,' X ',quantity,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
+								 $product=mysqli_query($con,"select sum(price*quantity) as total_value,GROUP_CONCAT(product_title,' X ',quantity,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
 
 						 // $product=mysqli_query($con,"select * from order_products where order_id=$order_id")
 														 $product_detail=mysqli_fetch_array($product);

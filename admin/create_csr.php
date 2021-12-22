@@ -95,6 +95,8 @@ if(isset($_REQUEST['loginbtn']))
 	header("location:index.php?failed=1");
 }
 
+
+
 function getName($n) {
     $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $randomString = '';
@@ -229,6 +231,42 @@ function validate_email(val)
   xhttp.open("GET","validate_email.php?id="+val+"&type=CSR",true);
   xhttp.send();
 }
+
+
+function showPassword() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+    $('#pass_icon').removeClass('fa-eye');
+     $('#pass_icon').addClass('fa-eye-slash');
+
+  } else {
+    x.type = "password";
+    $('#pass_icon').removeClass('fa-eye-slash');
+     $('#pass_icon').addClass('fa-eye');
+
+  }
+
+}
+
+
+function showPassword2() {
+  var y = document.getElementById("confirmpassword");
+  if (y.type === "password") {
+    y.type = "text";
+    $('#pass_icon2').removeClass('fa-eye');
+     $('#pass_icon2').addClass('fa-eye-slash');
+
+  } else {
+    y.type = "password";
+    $('#pass_icon2').removeClass('fa-eye-slash');
+     $('#pass_icon2').addClass('fa-eye');
+
+  }
+}
+
+
+
 </script>
 			</div>
 			
@@ -269,12 +307,12 @@ function validate_email(val)
                                   <input id="contactno" name="contactno" placeholder="Contact number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" required="">
                               </div>
                               <div class="col-md-6">
-                                  <p id="label_password" adr_trans="label_password">Password</p>
-                                  <input id="password" name="password" placeholder="password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-
+                                  <p id="label_password" adr_trans="label_password">Password</p><i class="fa fa-eye" id="pass_icon" onclick="showPassword()" style="display:inline;position: absolute;float: right;z-index:999;right: 0;padding-right: 23px;padding-top: 10px;"></i>
+                                  <input id="password" name="password" placeholder="password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" >
+ 
                               </div>
   							<div class="col-md-6">
-                                  <p id="label_confirm_password" adr_trans="label_confirm_password">Confirm Password</p>
+                                  <p id="label_confirm_password" adr_trans="label_confirm_password">Confirm Password</p><i class="fa fa-eye" id="pass_icon2" onclick="showPassword2()" style="display:inline;position: absolute;float: right;z-index:999;right: 0;padding-right: 23px;padding-top: 10px;"></i>
                                   <input id="confirmpassword" name="confirmpassword" placeholder="Confirm password" type="password" autocomplete="off" class="form-control form-value" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                               </div>
 

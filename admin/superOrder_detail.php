@@ -1918,7 +1918,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files").html("<br><h3 adr_trans='label_click_drag'> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files");
                               });
@@ -1953,7 +1953,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files1").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files1").html("<br><h3 adr_trans='label_click_drag'> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files1").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files1");
 
@@ -1988,7 +1988,7 @@ alert(alertmsg);
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files2").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                                $("#drop_files2").html("<br><h3 adr_trans='label_click_drag'> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files2").css('text-align', 'center');
                                 $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files2");
 
@@ -2027,7 +2027,7 @@ alert(alertmsg);
                          <hr class="space s">
                          <script>
                           $(document).ready(function() {
-                            $("#drop_files3").html("<br><h3 adr_trans='label_click_to_upload'> Click to Upload </h3>");
+                            $("#drop_files3").html("<br><h3 adr_trans='label_click_drag'> Click or Drag and Drop to Upload Pictures </h3>");
                             $("#drop_files3").css('text-align', 'center');
                             $("<div><p align='center'><img src='../dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files3");
                           });

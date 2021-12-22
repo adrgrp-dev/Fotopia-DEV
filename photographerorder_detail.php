@@ -1429,7 +1429,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files").html("<br/><h3> Click to Upload </h3>");
+                                $("#drop_files").html("<br/><h3> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files").css('text-align', 'center');
                                 $("<div><p align='center'><img src='dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files");
                               });
@@ -1464,7 +1464,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files1").html("<br/><h3> Click to Upload </h3>");
+                                $("#drop_files1").html("<br/><h3> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files1").css('text-align', 'center');
                                 $("<div><p align='center'><img src='dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files1");
 
@@ -1499,7 +1499,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
-                                $("#drop_files2").html("<br/><h3> Click to Upload </h3>");
+                                $("#drop_files2").html("<br/><h3> Click or Drag and Drop to Upload Pictures </h3>");
                                 $("#drop_files2").css('text-align', 'center');
                                 $("<div><p align='center'><img src='dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files2");
 
@@ -1537,7 +1537,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                          <hr class="space s">
                          <script>
                           $(document).ready(function() {
-                            $("#drop_files3").html("<br/><h3> Click to Upload </h3>");
+                            $("#drop_files3").html("<br/><h3> Click or Drag and Drop to Upload Pictures </h3>");
                             $("#drop_files3").css('text-align', 'center');
                             $("<div><p align='center'><img src='dropzone/upload-icon.png' class='img-rounded' height='30px'  id='icon'></p></div>").insertAfter("#drop_files3");
                           });

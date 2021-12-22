@@ -358,7 +358,7 @@ border:none;
 													{
 														$order_id=$get_name['id'];
 														//echo "SELECT sum(total_price*quantity) as totalPrice from order_products WHERE order_id='$order_id'";
-														  $total_cost=mysqli_query($con,"SELECT sum(total_price*quantity) as totalPrice from order_products WHERE order_id='$order_id'");
+														  $total_cost=mysqli_query($con,"SELECT sum(price*quantity) as totalPrice from order_products WHERE order_id='$order_id'");
 																	if($get_product=mysqli_fetch_array($total_cost))
                                    {
 													     	   @$total1 +=@$get_product['totalPrice'];

@@ -46,7 +46,7 @@
 <!----------- Custom JS --------------->
 <script>
 	$(document).ready(function() {
-		$("span").html("<h3>Drop files here <br/> Or </h3> <small> Click to Upload</small>");
+		$("span").html("<h3>Drop files here <br/> Or </h3> <small> Click or Drag and Drop to Upload Pictures</small>");
 		$("span").css('text-align', 'center');
 
 		$("<div><img src='/upload-icon.png';" class='img-rounded' id='icon'></div>").insertAfter("span");
