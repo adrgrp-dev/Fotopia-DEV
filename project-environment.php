@@ -11,7 +11,7 @@ $dbhost = "localhost";
 // Email credentials
 $emailHost='smtp.office365.com';
 $emailUserID='test.deve@adrgrp.com';
-$emailPassword='Outlook1#$';
+$emailPassword='ADRIndia@2022';
 $emailPort = 587;
 $googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
 

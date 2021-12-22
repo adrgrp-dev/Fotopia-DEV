@@ -40,11 +40,11 @@ if($type=="PCAdmin")
 
 		if($aboutPC=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
 		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }
-		if($DiscountFound==0 && !@$_REQUEST['first']) { header("location:RealtorProducts.php?first=1"); exit; }
+		/*if($DiscountFound==0 && !@$_REQUEST['first']) { header("location:RealtorProducts.php?first=1"); exit; }
 		if($CSRFound==0 && !@$_REQUEST['first']) { header("location:create_csr.php?first=1"); exit; }
 	if($PhotographerFound==0 && !@$_REQUEST['first']) { header("location:create_photographer.php?first=1"); exit; }
 	if($EarningsFound==0 && !@$_REQUEST['first']) { header("location:PhotographerProducts.php?first=1"); exit; }
-	if($editorFound==0 && !@$_REQUEST['first']) { header("location:create_editor.php?first=1"); exit; }
+	if($editorFound==0 && !@$_REQUEST['first']) { header("location:create_editor.php?first=1"); exit; }*/
 
 
 
