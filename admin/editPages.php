@@ -50,7 +50,7 @@ header("location:pages.php");
 
 
 			</div>
-                <div class="col-md-10" style="padding-left:15px;">
+                <div class="col-md-10" style="padding: 15px;">
 
 
                  <?php 
@@ -62,7 +62,7 @@ header("location:pages.php");
 
 
 
-			<div style="width:100%;overflow:scroll;border:solid 1px #000">
+			<div style="width:100%;overflow:scroll;background-color: #fff;border-radius: 5px;padding: 5px;">
 			<form  name="savePages" method="post" action="">
 			<input type="hidden" name="pageId" value="<?php echo @$_REQUEST['id']; ?>" />
 			<table class="table-stripped">
