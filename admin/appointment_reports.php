@@ -17,6 +17,12 @@ if(isset($_REQUEST['label_search']))
 }
 ?>
 <?php include "header.php";  ?>
+<style>
+  .nav-pills > li > a
+  {
+    padding: 6px;
+  }
+</style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  <div class="section-empty bgimage5">
@@ -37,7 +43,7 @@ if(isset($_REQUEST['label_search']))
 
 
                   <hr class="space s">
-                  <div class="col-md-12">
+                  <div class="col-md-12" style="margin-top:5px;">
                            <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
                               <li class="active"><a href="appointment_reports.php" id="label_appointment_report" adr_trans="label_appointment_report" class="btn btn-default btn-sm adr-save " >Appointment Report</a></li>
@@ -128,7 +134,7 @@ var days = 1;
 
 
 
-<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+<div style="margin-top: 5px;width:100%;border-radius: 5px;background-color:white">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
               <table  id="dataTable" align="center" cellpadding="10" class="table-striped" style="width:98%;">
 

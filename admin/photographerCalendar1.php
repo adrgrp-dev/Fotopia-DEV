@@ -37,6 +37,9 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 			<hr class="space s">
                 <div class="col-md-2" style="padding-left:10px;">
 	<?php include "sidebar.php"; ?>
+	<style>
+		
+	</style>
 <script>
 			function fillPhId()
 			{
@@ -59,11 +62,11 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 
 
 			<?php if(@$_REQUEST['Photographer_id']!='') { ?>	<h5 class="text-center"><?php echo $photographer_name_is; ?> - Photographer's Calendar</h5>
-			<?php }  else { ?><h5 style="color:#006666;padding-top:20px;" class="text-center">Select a Photographer from the below list to create an Order OR bypass to order detail screen</h5> <?php } ?>
+			<?php }  else { ?><h5 style="color:#006666;padding-top:0px;" class="text-center">Select a Photographer from the below list to create an Order OR bypass to order detail screen</h5> <?php } ?>
 
 
 <div class="row" style="border-color:none!important;width:100%;background: #FFF!important;
-color:#000!important;box-shadow:10px 10px 10px 10px #DDD;border-radius:25px;">
+color:#000!important;border-radius:5px;margin-top: 0px;">
 <div class="col-md-4" style="padding:10px;padding-left:30px;">
 <form name="" method="post" action="" id="filterForm">
 <input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" placeholder="Select a photographer" value="<?php echo @$_REQUEST['ph_name']; ?>"  autocomplete="off"  class="form-control btn btn-default" style="color: black;width:250px;margin-bottom:10px;padding: 0px;margin-top:10px;border-radius:25px;"/>

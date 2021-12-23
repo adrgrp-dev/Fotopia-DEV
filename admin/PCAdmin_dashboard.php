@@ -254,11 +254,11 @@ border:none;
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
 
 						<?php }  ?>
-						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:20px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
-					<div class="row" style="margin-left:10px;">
+						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:0px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
+					<div class="row" style="margin-left:0px;">
 
                
-								<div class="row" style="margin-left:10px;">
+								<div class="row" style="margin-left:0px;">
 
 											<div class="col-md-3">
 													 <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">

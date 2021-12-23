@@ -218,7 +218,7 @@ color:#000!important;
 						</center>
 						<a class="lightbox btn adr-save btn-sm circle-button" id="addedit" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;"><span id="label_add_new_product" adr_trans="label_add_new_product">+Add Product</span></a>
 						
-						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;">
+						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;border-radius: 5px;margin-top: -5px;">
 
 <center>
 <div class="col-md9">

@@ -42,6 +42,32 @@ td
 min-width:120px!important;
 }
 }
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px!important;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px!important;
+    padding-bottom: 6px!important;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">

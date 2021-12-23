@@ -71,7 +71,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 			var urlNew="";
 			</script>
 
-                <div class="col-md-8">
+                <div class="col-md-8" style="margin-top:-6px;">
 
 <div class="row">
 <div class="col-md-12" style="padding-left:20px;height:30px;width:100%">
@@ -230,7 +230,7 @@ border-radius:25px;
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 
 
@@ -445,7 +445,7 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
-	<div class="col-md-2" style="margin-top:80px;padding-right:0px;height:auto">
+	<div class="col-md-2" style="margin-top:70px;padding-right:0px;height:auto">
 	<div class="adr-save" style="border: none;padding-top:10px;padding-bottom:1px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment">Today's Appointment<br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 
 	<?php

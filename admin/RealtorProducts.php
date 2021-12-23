@@ -262,7 +262,7 @@ color:#000!important;
 						<?php }  ?>
 						</center>
 
-						<div class="col-md-12" style="width: 100%;background:#FFF;color:#000;opacity:0.8;padding:10px;border:solid 1px #000;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+						<div class="col-md-12" style="width: 100%;background:#FFF;color:#000;opacity:0.8;padding:10px;border-radius:5px;scrollbar-width: none;overflow-x: hidden;overflow-y:hidden;margin-top: 25px;">
 
 <center>
 <div class="col-md-12">

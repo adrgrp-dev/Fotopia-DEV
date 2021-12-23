@@ -18,6 +18,12 @@ if(isset($_REQUEST['label_search']))
 ?>
 
 <?php include "header.php";  ?>
+<style>
+  .nav-pills > li > a
+  {
+    padding: 6px;
+  }
+</style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  <div class="section-empty bgimage2">
@@ -40,7 +46,7 @@ if(isset($_REQUEST['label_search']))
 
 
                   <hr class="space s">
-                  <div class="col-md-12">
+                  <div class="col-md-12" style="margin-top:5px;">
 
                           <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a href="order_reports.php" id="label_order_report" adr_trans="label_order_report" class="btn btn-default btn-sm adr-save ">Order Report</a></li>

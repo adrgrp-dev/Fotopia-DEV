@@ -22,7 +22,7 @@ mysqli_query($con,"update user_actions set is_read=1,csr_read=1 where (action_do
 
 
 			</div>
-                <div class="col-md-10" style="background-color: white;margin-top: 25px;">
+                <div class="col-md-10" style="background-color: white;margin-top: 25px;padding: 5px;border-radius: 5px;">
 <?php
 
 $csr_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='CSR') or csr_id='$loggedin_id') and (is_read=0 or csr_read=0)";
@@ -158,7 +158,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 
 
 
-                  <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
+                  <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" style="margin-bottom: 10px;" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
 
         </div>
 

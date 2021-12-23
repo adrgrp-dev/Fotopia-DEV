@@ -123,7 +123,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 
 				  </table>
 				  <br />
-				  <a id="label_add_profile" adr_trans="label_add_profile"  class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 65%;" href="edit_company_profile.php"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a id="label_add_profile" adr_trans="label_add_profile"  class="anima-button circle-button btn-success btn-sm btn adr-save" style="float: right;margin-right: -8px;" href="edit_company_profile.php"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 
 

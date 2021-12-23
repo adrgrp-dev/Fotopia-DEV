@@ -209,7 +209,7 @@ alert(alertmsg);
 						<?php }  ?>
 						</center>
 
-						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; border:solid 1px #000;width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+						<div class="col-md-12" style="background:#FFF;color:#000;opacity:0.8;padding:10px; border-radius:5px;width:100%;scrollbar-width: none;overflow-x: hidden;overflow-y:hidden;margin-top:25px;">
 
 <center>
 <div class="col-md-12">
