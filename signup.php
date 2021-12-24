@@ -673,6 +673,21 @@ $("#country").css("border","solid 1px grey");
 }
 
 }
+
+function get_states(cityIs) {
+	
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+  var split=this.responseText.split("zipcode");
+    document.getElementById("state").innerHTML = split[0];
+    document.getElementById("zip").value= split[1];
+	
+    }
+  xhttp.open("GET", "getState.php?city="+cityIs, true);
+  xhttp.send();
+}	 
+
 	</script>
 
 
@@ -948,7 +963,7 @@ $("#country").css("border","solid 1px grey");
 
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
-							<select name="city" id="city" class="form-control form-value" required="">
+							<select name="city" id="city" onchange="get_states(this.value)" class="form-control form-value" required="">
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
@@ -962,18 +977,12 @@ $("#country").css("border","solid 1px grey");
 							<div class="col-md-6">
 							 <p id="label_state" adr_trans="label_state">State</p>
 							<select name="state" id="state" class="form-control form-value" required="">
-							<?php
-							$state1=mysqli_query($con,"select distinct(states) from norway_states_cities order by states asc");
-							while($state=mysqli_fetch_array($state1))
-							{
-							?>
-							<option value="<?php echo $state['states']; ?>"><?php echo $state['states']; ?></option>
-							<?php } ?>
+						
 							</select>
 							</div>
 						 <div class="col-md-6">
                                 <p id="label_zip_code" adr_trans="label_zip_code">Zip Code</p>
-                                <input id="zip" name="zip" id="zip" placeholder="Zip code" type="number" min="1" autocomplete="off" class="form-control form-value" required="">
+                                <input name="zip" id="zip" placeholder="Zip code" type="number" min="1" autocomplete="off" class="form-control form-value" readonly required="">
                             </div>
 
 

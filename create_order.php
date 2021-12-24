@@ -394,6 +394,21 @@ border-radius:0px!important;
 
 </style>
 <script>
+function get_states(cityIs)
+{
+  
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+  var split=this.responseText.split("zipcode");
+    document.getElementById("state").innerHTML = split[0];
+    document.getElementById("zip").value= split[1];
+  
+    }
+  xhttp.open("GET", "getState.php?city="+cityIs, true);
+  xhttp.send();
+}  
+
 $('#anc1').removeAttr('onclick');
 
 //---------------------------------------- validate greater than or not-----------------------------//
@@ -614,7 +629,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                       </div>
     <div class="col-md-6">
        <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value"  value="<?php echo  @$appointment_update_details['city'];?>"  required="">
+      <select name="city" class="form-control form-value" onchange="get_states(this.value)" value="<?php echo  @$appointment_update_details['city'];?>"  required="">
         <option value="<?php echo  @$appointment_update_details['city'];?>" selected  hidden><?php echo @$appointment_update_details['city']; ?></option>
                     <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
@@ -628,20 +643,13 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
       <div class="col-md-6">
        <p id="label_state" adr_trans="label_state">STATE</p>
-      <select name="state" class="form-control form-value"  value="<?php echo  @$appointment_update_details['state'];?>" required="">
-        <option value="<?php echo  @$appointment_update_details['state'];?>" selected  hidden><?php echo @$appointment_update_details['state']; ?></option>
-                   <?php
-							$state1=mysqli_query($con,"select distinct(states) from norway_states_cities order by states asc ");
-							while($state=mysqli_fetch_array($state1))
-							{
-							?>
-							<option value="<?php echo $state['states']; ?>"><?php echo $state['states']; ?></option>
-							<?php } ?>
+      <select name="state" id="state" class="form-control form-value"  value="<?php echo  @$appointment_update_details['state'];?>" required="">
+        
                     </select>
       </div>
      <div class="col-md-6">
                         <p id="label_zip_code" adr_trans="label_zip_code">ZIP CODE</p>
-                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>" required="">
+                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>" readonly required="">
                     </div>
 
 

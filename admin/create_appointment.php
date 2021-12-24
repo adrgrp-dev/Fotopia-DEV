@@ -595,6 +595,21 @@ font-size:11px!important;
 
   <script>
 
+  	  function get_states(cityIs)
+ {
+  
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+  var split=this.responseText.split("zipcode");
+    document.getElementById("property_state").innerHTML = split[0];
+    document.getElementById("property_zip").value= split[1];
+  
+    }
+  xhttp.open("GET", "../getState.php?city="+cityIs, true);
+  xhttp.send();
+}  
+
  document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 	var today123='<?php echo $todayIs; ?>';
@@ -1205,7 +1220,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
             </div>
 <div class="col-md-6">
        <p id="label_property_city" adr_trans="label_property_city">Property City</p>
-      <select id="property_city"  name="property_city" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+      <select id="property_city" onchange="get_states(this.value)"  name="property_city" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
                     <?php
               $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
               while($city=mysqli_fetch_array($city1))
@@ -1218,20 +1233,14 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 
       <div class="col-md-6">
        <p id="label_property_state" adr_trans="label_property_state">Property State</p>
-      <select id="property_state" name="property_state" class="form-control form-value"  required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+      <select id="property_state"  name="property_state" class="form-control form-value"  required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
 
-                   <?php
-              $state1=mysqli_query($con,"select distinct(states) from norway_states_cities order by states asc ");
-              while($state=mysqli_fetch_array($state1))
-              {
-              ?>
-              <option value="<?php echo $state['states']; ?>" <?php if(@$order_fetch['property_state']==@$state['states']){ echo "selected"; } ?>><?php echo $state['states']; ?></option>
-              <?php } ?>
+                 
                     </select>
       </div>
      <div class="col-md-6">
                         <p id="label_property_zip" adr_trans="label_property_zip">Property Zip code</p>
-                        <input id="property_zip" name="property_zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"   required="" value="<?php echo @$order_fetch['property_zip']; ?>" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+                        <input id="property_zip" name="property_zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"   required="" value="<?php echo @$order_fetch['property_zip']; ?>" readonly>
                     </div>
 
 
