@@ -287,8 +287,8 @@ $("#dayVal").val(calid);
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button>
-                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
+                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;margin-left:-4px"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav over mega-menu-fullwidth">
@@ -511,8 +511,8 @@ $(function(){
 ?> <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button> <?php } ?>
-                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;">
-						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
+                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
+						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;margin-left:-4px"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
 
 
 

@@ -80,8 +80,8 @@ $("#dayVal").val(calid);
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;">
-						<span style="display:ineline;font-size:14px;color:#FFFFFF"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+                        <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
+						<span style="display:ineline;font-size:13px;color:#FFFFFF;margin-left:-4px"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
 
                     </div>
 
@@ -116,7 +116,7 @@ $id = $_REQUEST['id'];
 
 
                 <div class="col-md-10">
-  <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+  <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;" onClick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 <div id="printtable"></div>
     <div id="print">
 
@@ -371,8 +371,8 @@ $id = $_REQUEST['id'];
      <h5 style="color:#333333" align="center" adr_trans="label_enter_the_email">Enter the share Email</h5>
         <hr>
         <center><span class="sub" id="error" style="color:green;"></span></center>
-        <form   method="post" name="stdform" action="" onsubmit="">
-        <input id="email1" name="email" placeholder="Email" onblur="this.value=this.value.trim()" type="email" autocomplete="off" class="form-control form-value" required>
+        <form   method="post" name="stdform" action="" onSubmit="">
+        <input id="email1" name="email" placeholder="Email" onBlur="this.value=this.value.trim()" type="email" autocomplete="off" class="form-control form-value" required>
         <input type="hidden" name="link1" id="link" value="<?php echo "secret_code=".$secret?>">
         <!-- <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  /> -->
         <hr class="space s">
