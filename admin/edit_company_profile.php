@@ -210,7 +210,7 @@ function validate_email(val)
 
 <table style="color: #000;background: #FFF;border-radius:10px;opacity:0.7;margin-left:30px;"><tr><td style="padding:20px;">
 				<!-- <h5 class="text-center" style="color:#000;display:none" id="label_my_profile" adr_trans="label_my_profile">My Profile</h5> -->
-<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Step #1 of 7 : Fill out the Company profile</h5></div> <?php } ?>
+<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Welcome to Fotopia!<br />Step #1 of 2 : Fill out the Company profile</h5></div> <?php } ?>
 						<div class="col-md-12"><h5 align="center" id="label_add_company_profile" adr_trans="label_add_company_profile" style="color:#000!important">Add / Edit company profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
