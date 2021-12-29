@@ -372,7 +372,7 @@ function validate_email(val)
 	<p><span id="label_set_location" adr_trans="label_set_location" style="color:#000;">Set Location</span> (Add multiple locations seperated by comma)</p>
 <?php /*?> <input id="location" name="location" placeholder="Set location" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $res1['location']; ?>"><?php */?>
 
-<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="location" value="<?php echo @$res1['location']; ?>" autocomplete="off" />
+<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="location" value="<?php echo @$res1['location']; ?>" autocomplete="off" required />
 
 <datalist id="Suggestions">
 <?php

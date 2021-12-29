@@ -156,7 +156,7 @@ function validate_email(val)
 
                 <div class="col-md-6">
                                 <p id="label_organization" adr_trans="label_organization">Organization</p>
-                                <input id="org" name="org" placeholder="Organization" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $editor['organization_name']; ?>">
+                                <input id="org" name="org" placeholder="Organization" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="" value="<?php echo $editor['organization_name']; ?>">
                             </div>
 
                               <div class="col-md-6">
