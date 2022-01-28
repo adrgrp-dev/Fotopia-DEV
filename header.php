@@ -471,8 +471,8 @@ font-weight:bold;
                             </div>
 
 			<select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected='selected'"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected='selected'"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session'])=='en') { echo "selected='selected'"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session'])=='no') { echo "selected='selected'"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -560,8 +560,8 @@ if(isset($_SESSION['loggedin_email']))
 
 
 		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:20px;color:#000;background:#FFF">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session'])=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session'])=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 

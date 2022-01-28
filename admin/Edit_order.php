@@ -57,8 +57,8 @@ else
 }
 
 $update_homeseller=mysqli_query($con,"UPDATE `home_seller_info` SET `name`='$sell_name',`address`='$address',`mobile_number`='$mobile_no',`email`= ' $email_id ',`city`='$city',`state`='$state',`country`='Norway',`zip`='$zip',`reference_number`='$ref_no',`contact_person_name`='$name',`contact_person_mobile`='$mobile_no1',`contact_person_email`='$email_id1',`notes`=' ' where id='$home_sell_id'");
-$loggedin_name=$_SESSION['loggedin_name'];
-$loggedin_id=$_SESSION['loggedin_id'];
+$loggedin_name=$_SESSION['admin_loggedin_name'];
+$loggedin_id=$_SESSION['admin_loggedin_id'];
 $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`, `Realtor_id`,`action_date`) VALUES ('Order','Updated','$loggedin_name',$loggedin_id,$loggedin_id,now())");
 
             if($_SESSION["admin_loggedin_type"]!='SubCSR') {

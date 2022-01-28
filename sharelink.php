@@ -517,7 +517,7 @@ if (@$_REQUEST['shar']) {
         <form   method="post" name="stdform" action="" onSubmit="">
         <input id="email1" name="email" placeholder="Email" type="email" autocomplete="off"  onblur="this.value=this.value.trim()" class="form-control form-value" required>
         <input type="hidden" name="link1" id="link" value="<?php echo "secret_code=".$secret?>">
-        <!-- <input type="hidden" name="sharename" value="<?php echo $loggedin_name;?>"  /> -->
+        <!-- <input type="hidden" name="sharename" value="<?php //echo $loggedin_name;?>"  /> -->
         <hr class="space s">
         <center><button class="btn adr-save" style="color:#000" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
         </form>

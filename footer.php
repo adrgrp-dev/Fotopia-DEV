@@ -37,7 +37,7 @@
     </footer>
     <script>
 $( document ).ready(function() {
-var lang="<?php echo $_SESSION['Selected_Language_Session']; ?>";
+var lang="<?php if(isset($_SESSION['Selected_Language_Session'])) { echo $_SESSION['Selected_Language_Session']; } ?>";
 if(lang=="en")
 {
 loadfile="en.json";

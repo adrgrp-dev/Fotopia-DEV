@@ -1322,7 +1322,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
             $csr_id=$_SESSION['admin_loggedin_id'];
          $wherecod="and csr_id=$csr_id";
        }
-	   $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$_REQUEST[pc_admin_id]' $where order by first_name";
+	   $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$_REQUEST[pc_admin_id]' $wherecod order by first_name";
 	   }
 	   else
 	   {

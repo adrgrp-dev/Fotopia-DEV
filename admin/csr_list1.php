@@ -601,7 +601,7 @@ min-width:120px!important;
 				  ?></td>
 				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
-				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res13["id"]; ?>">
+				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>

@@ -1,7 +1,9 @@
 <?php
+if(!isset($_SESSION['admin_loggedin_id']))
+{
+session_start();
+}
 include "../project-environment.php";
-
-
 
 $page="index.php";
  if(isset($_SESSION['admin_loggedin_id']))

@@ -467,7 +467,7 @@ else
 				<center><span class="sub" id="error" style="color:green;"></span></center>
 				<form   method="post" name="stdform" action="" onsubmit="">
 				<input id="email1" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim()" class="form-control form-value" required>
-				<input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo $pc_admin_id?>"/><br>
+				<input type="hidden" name="pc_admin_id" id="pc_admin_id" value="<?php echo $_SESSION['admin_loggedin_id']; ?>"/><br>
 				<center><button class="btn adr-save" name="link" id="send" ><span adr_trans="label_send">Send</span></button></center>
 				</form>
 				<hr class="space l">

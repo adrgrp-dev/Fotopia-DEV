@@ -86,8 +86,8 @@ $contact_number=$_REQUEST['contact_number'];
 
 $fname=$_REQUEST['fname'];
 $lname=$_REQUEST['lname'];
-$user_id=$_REQUEST['user_id'];
-$password=$_REQUEST['password'];
+//$user_id=$_REQUEST['user_id'];
+//$password=$_REQUEST['password'];
 // $profile_pic=$_REQUEST['profile_pic'];
 
 

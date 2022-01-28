@@ -1235,7 +1235,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
        <p id="label_property_state" adr_trans="label_property_state">Property State</p>
       <select id="property_state"  name="property_state" class="form-control form-value"  required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
 
-                 
+               <?php if($order_fetch['property_state']!='') { ?><option value="<?php echo  @$order_fetch['property_state'];?>"><?php echo  @$order_fetch['property_state'];?></option><?php } ?>   
                     </select>
       </div>
      <div class="col-md-6">
@@ -1346,7 +1346,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
             $csr_id=$_SESSION['admin_loggedin_id'];
          $wherecod="and csr_id=$csr_id";
        }
-	   $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$_REQUEST[pc_admin_id]' $where order by first_name";
+	   $photographers="select * from user_login where type_of_user='Photographer' and pc_admin_id='$_REQUEST[pc_admin_id]' $wherecod order by first_name";
 	   }
 	   else
 	   {

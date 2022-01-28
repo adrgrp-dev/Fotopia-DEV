@@ -156,7 +156,7 @@ $.ajax({
     }
     else
     {
-     // var phId='<?php echo $_SESSION['loggedin_id']; ?>';
+     // var phId='<?php echo $_SESSION['admin_loggedin_id']; ?>';
   var FcTop=$(this).find("div.fc-daygrid-day-top");
   var existing=FcTop.html();
   FcTop.html(existing+"<a href='./create_order.php?date="+dateIs+"' class='fc-daygrid-day-number' id='createEvent' style='float:left;padding-right:20px;text-decoration:underline;color:blue'>Create event</a>");

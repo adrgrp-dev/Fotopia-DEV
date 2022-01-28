@@ -94,8 +94,8 @@ else
                    //-------------------------------------------------------------value are insert in  database--------------------------------------------------------/
                    mysqli_query($con,"UPDATE `orders` SET `property_type`='$property',`number_of_floor_plans`='$plan',`area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',`product_id`='$product',`session_from_datetime`='$chk_from',`session_to_datetime`='$chk_to',`order_due_date`='$due_date',`booking_notes`='$notes' WHERE id='$id_url'");
                    mysqli_query($con,"UPDATE `appointments` SET `from_datetime`='$chk_from',`to_datetime`='$chk_to' WHERE order_id='$id_url'");
-                   $loggedin_name=$_SESSION['loggedin_name'];
-                   $loggedin_id=$_SESSION['loggedin_id'];
+                   $loggedin_name=$_SESSION['admin_loggedin_name'];
+                   $loggedin_id=$_SESSION['admin_loggedin_id'];
                    $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`photographer_id`, `Realtor_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,$pht_id,$loggedin_id,now())");
                    mysqli_query("delete from order_products where order_id='$id_url' and photographer_id='$pht_id'");
 $products=mysqli_query($con,"select * from products where id in($product)");

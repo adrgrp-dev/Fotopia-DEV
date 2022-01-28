@@ -82,7 +82,7 @@ if(isset($_REQUEST['signupbtn']))
 	$email=$_REQUEST['email'];
 	$org=$_REQUEST['org'];
 	$contactno=$_REQUEST['contactno'];
-$photographer_id=$_SESSION['loggedin_id'];
+$photographer_id=$_SESSION['admin_loggedin_id'];
 	// $email_verification_code=getName(10);
 
 
@@ -282,7 +282,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 									{
 										$_SESSION["page"]=1;
 									}
-									$created_by_id=$_SESSION['loggedin_id'];
+									$created_by_id=$_SESSION['admin_loggedin_id'];
 									$q1="select count(*) as total from editor where photographer_id='$created_by_id'";
 									$result=mysqli_query($con,$q1);
 									$data=mysqli_fetch_assoc($result);
