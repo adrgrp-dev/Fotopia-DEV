@@ -38,7 +38,7 @@ $mail->FromName = "Fotopia";
 // ;
 // $mail->addAddress("sidambara.selvan@adrgrp.com","Sid");
 
-$mail->addAddress($_REQUEST['email']);
+$mail->addAddress($email);
 
 
 //Address to which recipient will reply
@@ -87,9 +87,6 @@ $mail->Body=str_replace('{{Organisation_Name}}','Fotopia', $mail->Body);
 $mail->Body=str_replace('{{id}}',$id, $mail->Body);
 $mail->Body=str_replace('{{profile_id}}',$profile_id, $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$first_name, $mail->Body);
-// echo $mail->Body;exit;
-
-
 
 try {
     $mail->send();
@@ -869,7 +866,7 @@ $("#country").css("border","solid 1px grey");
                             <div class="col-md-6">
                                 <p adr_trans="label_org_email">Organization Email</p>
 
-                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();validate_email(this.value)">
+                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="">
                             </div>
 
 
