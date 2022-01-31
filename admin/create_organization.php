@@ -227,7 +227,10 @@ box-shadow:5px 5px 5px 5px #DDD;
 function get_states(cityIs)
 {
   
-
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
@@ -237,6 +240,12 @@ function get_states(cityIs)
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
+  }
+  else
+  {
+  	$("#validation_message").css("display","block");
+    $("#validation_message").html("Please select your city!.");
+  }
 } 
 
 	function validate_email(val,type)
@@ -728,7 +737,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-8" style="padding-left:30px;">
+                <div class="col-md-10" style="color: #000;background: #fff;padding:10px;border-radius:5px;">
 
 
                       		<br>
@@ -837,7 +846,7 @@ $("#country").css("border","solid 1px grey");
                             </div>
 
 
-                            <div class="col-md-6" align="left">
+                            <div class="col-md-12" align="center">
                                 <br><br>
 
                             <a class="anima-button circle-button btn-sm btn adr-save" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
@@ -888,11 +897,13 @@ $("#country").css("border","solid 1px grey");
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
 							<select name="city" onchange="get_states(this.value)" id="city" class="form-control form-value" required="">
+								<option value="">Select City</option>
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
 							{
 							?>
+
 							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
 							<?php } ?>
 							</select>

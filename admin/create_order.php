@@ -526,7 +526,10 @@ $("#realtor_employer_id").val(abc[0].realtor_employer_id);
 }
 function get_states(cityIs)
 {
-  
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
 
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -537,7 +540,14 @@ function get_states(cityIs)
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
+  }
+  else
+  {
+    $("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+  }
 }  
+
 
 </script>
 
@@ -788,16 +798,17 @@ if(@$_REQUEST['u']==1)
                       </div>
     <div class="col-md-6">
        <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value" onchange="get_states(this.value)" value="<?php echo  @$appointment_update_details['city'];?>"  required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
-        <option value="<?php echo  @$appointment_update_details['city'];?>" selected  hidden><?php echo @$appointment_update_details['city']; ?></option>
+      <select name="city" class="form-control form-value" onchange="get_states(this.value)" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                    <option value="">Select City</option>
                     <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
 							{
 							?>
-							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
+							<option value="<?php echo $city['cities']; ?>" <?php if(@$appointment_update_details['city']==@$city['cities']){echo "selected";} ?>><?php echo $city['cities']; ?></option>
 							<?php } ?>
                     </select>
+                    <span id="validation_message" style="display: none;color: red;position: absolute;top:0px;left:45px;"><span>
       </div>
 
       <div class="col-md-6">

@@ -555,8 +555,10 @@ font-size:11px!important;
   <script>
      function get_states(cityIs)
  {
-  
-
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
@@ -566,6 +568,12 @@ font-size:11px!important;
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
+ }
+ else
+  {
+    $("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+  }
 } 
 
  document.addEventListener('DOMContentLoaded', function() {
@@ -1195,14 +1203,16 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 <div class="col-md-6">
        <p id="label_property_city" adr_trans="label_property_city">Property City</p>
       <select id="property_city" onchange="get_states(this.value)"  name="property_city" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+        <option value="">Select City</option>
                     <?php
               $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
               while($city=mysqli_fetch_array($city1))
               {
               ?>
-              <option value="<?php echo $city['cities']; ?>" <?php if(@$order_fetch['property_city']==$city['cities']){ echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>><?php echo $city['cities']; ?></option>
+              <option value="<?php echo $city['cities']; ?>" <?php if(@$order_fetch['property_city']==@$city['cities']){ echo "selected"; } ?> <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>><?php echo $city['cities']; ?></option>
               <?php } ?>
                     </select>
+                    <span id="validation_message" style="display: none;color: red;position: absolute;top:0px;left:100px;"><span>
       </div>
 
       <div class="col-md-6">

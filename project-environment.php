@@ -1,5 +1,5 @@
 <?php
- $_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
+ $_SESSION['project_url']="http://localhost/Photo/";
 $application_url="http://fotopia.adrgrp.com/photo-dev";
 
 //Database Credentials
@@ -11,7 +11,7 @@ $dbhost = "localhost";
 // Email credentials
 $emailHost='smtp.office365.com';
 $emailUserID='test.deve@adrgrp.com';
-$emailPassword='ADRIndia@2022';
+$emailPassword='ADRgroup@2022';
 $emailPort = 587;
 $googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
 

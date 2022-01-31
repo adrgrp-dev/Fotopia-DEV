@@ -468,7 +468,10 @@ background: repeating-linear-gradient(
 
     function get_states(cityIs)
  {
-  
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
 
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -479,6 +482,13 @@ background: repeating-linear-gradient(
     }
   xhttp.open("GET", "getState.php?city="+cityIs, true);
   xhttp.send();
+  }
+  else
+  {
+    $("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+  }
+
 }  
 
  document.addEventListener('DOMContentLoaded', function() {
@@ -790,13 +800,14 @@ $("#plan").attr("placeholder","Enter the floor number");
 }
 
              function setpropertyAddress(){
-var property_address="<?php echo $_SESSION['property_address']; ?>";
-var property_city="<?php echo $_SESSION['property_city']; ?>";
-var property_state="<?php echo $_SESSION['property_state']; ?>";
-var property_country="<?php echo $_SESSION['property_country']; ?>";
-var property_zip="<?php echo $_SESSION['property_zip']; ?>";
-var property_contact_mobile="<?php echo $_SESSION['property_contact_mobile']; ?>";
-var property_contact_email="<?php echo $_SESSION['property_contact_email']; ?>";
+
+var property_address="<?php if(isset($_SESSION['property_address'])) { echo $_SESSION['property_address']; } else { echo ""; } ?>";
+var property_city="<?php if(isset($_SESSION['property_city'])) { echo $_SESSION['property_city']; } else { echo ""; } ?>";
+var property_state="<?php if(isset($_SESSION['property_state'])) { echo $_SESSION['property_state']; } else { echo ""; } ?>";
+var property_country="<?php if(isset($_SESSION['property_country'])) { echo $_SESSION['property_country']; } else { echo ""; } ?>";
+var property_zip="<?php if(isset($_SESSION['property_zip'])) { echo $_SESSION['property_zip']; } else { echo ""; } ?>";
+var property_contact_mobile="<?php if(isset($_SESSION['property_contact_mobile'])) { echo $_SESSION['property_contact_mobile']; } else { echo ""; } ?>";
+var property_contact_email="<?php if(isset($_SESSION['property_contact_email'])) { echo $_SESSION['property_contact_email']; } else { echo ""; } ?>";
 
 
               if($("#address_same").prop('checked') == true)
@@ -1100,6 +1111,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
 <div class="col-md-6">
        <p>Property City</p>
       <select id="property_city"  name="property_city" onchange="get_states(this.value)" class="form-control form-value" required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
+        <option value="">Select City</option>
                     <?php
               $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
               while($city=mysqli_fetch_array($city1))
@@ -1108,6 +1120,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
               <option value="<?php echo $city['cities']; ?>" <?php if(@$order_fetch['property_city']==@$city['cities']){ echo "selected"; } ?>><?php echo $city['cities']; ?></option>
               <?php } ?>
                     </select>
+                    <span id="validation_message" style="display: none;color: red;position: absolute;top:0px;left:100px;"><span>
       </div>
 
       <div class="col-md-6">

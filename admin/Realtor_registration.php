@@ -575,7 +575,10 @@ function showStep1() {
 function get_states(cityIs)
 {
   
-
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
@@ -585,6 +588,13 @@ function get_states(cityIs)
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
+  }
+  else
+  {
+    $("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+  }
+
 }  
 
 
@@ -725,16 +735,16 @@ $("#country").css("border","solid 1px grey");
 
             <div class="row">
             	
-<div class="col-md-8">                
+<div class="col-md-10" style="color: #000;background: #fff;padding:10px;border-radius:5px;">                
 
-			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()">
+			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()" >
 
 			<!-- <div class="col-md-6">&nbsp;
       </div> -->
 
 
 
-                <div class="col-md-12" style="padding-left:200px;">
+                <div class="col-md-12" style="padding:0px 200px;">
 
 
                       		<br>
@@ -889,6 +899,7 @@ $("#country").css("border","solid 1px grey");
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
 							<select name="city" onchange="get_states(this.value)" id="city" class="form-control form-value" required="">
+							<option value="">Select City</option>
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))

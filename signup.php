@@ -676,7 +676,10 @@ $("#country").css("border","solid 1px grey");
 
 function get_states(cityIs) {
 	
-
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
@@ -686,6 +689,12 @@ function get_states(cityIs) {
     }
   xhttp.open("GET", "getState.php?city="+cityIs, true);
   xhttp.send();
+  }
+  else
+  {
+    $("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+  }
 }	 
 
 	</script>
@@ -964,6 +973,7 @@ function get_states(cityIs) {
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
 							<select name="city" id="city" onchange="get_states(this.value)" class="form-control form-value" required="">
+								<option value="">Select City</option>
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
