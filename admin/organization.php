@@ -23,15 +23,15 @@ include "connection.php";
     <style>
  .adr-save
  {
- background:#0275d8!important;
- border-color:#0275d8!important;
+ background:#AAD1D6!important;
+ border-color:#AAD1D6!important;
  }
  .adr-cancel
  {
  /*background:#5cb85c!important;
  border-color:#5cb85c!important;*/
- background:#f0ad4e!important;
- border-color:#f0ad4e!important;
+ background:#F2ADA8!important;
+ border-color:#F2ADA8!important;
  }
   .adr-success
  {
@@ -236,8 +236,8 @@ if(isset($_REQUEST['update_password']))
   <div class="alert alert-warning" id="error-msg">&nbsp;</div>
   </div>
 
-  <button class="anima-button circle-button btn-sm btn" type="submit" name="passresetbtn"><i class="fa fa-sign-in"></i>Create</button>
-  &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" id="label_cancel" adr_trans="label_cancel" href="login.php"><i class="fa fa-sign-in"></i>Cancel</a>
+  <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="passresetbtn"><i class="fa fa-sign-in"></i>Create</button>
+  &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" href="login.php"><i class="fa fa-sign-in"></i>Cancel</a>
   </center>
   </div>
   </div>
