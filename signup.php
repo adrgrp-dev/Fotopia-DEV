@@ -180,10 +180,27 @@ color:#333333!important;
     return false;
     }
   }
+
+
 	function validate_email(val)
 {
-if(val!="")
+// alert(type);
+var email=$("#email").val(); 
+if(email==""){
+
+	// alert("Please enter an email");
+	return false;
+}
+else{
+
+	val=email;
+}
+var type= $("input[name='for_whom']:checked").val();
+
+
+if(val!="" && typeof type !== 'undefined')
 {
+	// alert(type); 
   var xhttp= new XMLHttpRequest();
   xhttp.onreadystatechange = function()
   {
@@ -212,8 +229,15 @@ if(val!="")
      }
     }
   };
-  xhttp.open("GET","validate_email_signup.php?id="+val,true);
+  xhttp.open("GET","validate_email_signup.php?id="+val+"&type="+type,true);
   xhttp.send();
+  }
+  else{
+  
+  $("#Email_exist_error").html("Please select the user type!");
+	   $("#Email_exist_error").show();
+	   $("#email").val("");
+	    $("#email").focus();
   }
 }
 
@@ -843,20 +867,20 @@ function get_states(cityIs) {
                        <div class="error-box" id="validation_message" style="margin-left:20px;color:red;display:none;font-style:italic;" align="center">
                             <div class="text-warning" ></div>
                         </div>
-			<span style="margin-left:100px;color:red;display:none;font-style:italic;" id="Email_exist_error" align="center" class=""></span>
+			<span style="margin-left:110px;color:red;display:none;font-style:italic;" id="Email_exist_error" align="center" class=""></span>
 
           <div id="step1" name="step1">
 
              <div class="col-md-6">
-    <center><label for="from_homeseller">
-          <input type="radio" id="for_whom" name="for_whom" value="realtor" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
+    <center><label for="from_homeseller"> 
+          <input type="radio" name="for_whom" onchange="validate_email('aa')" value="realtor" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
         </label>
       </center>
       </div>
 
       <div class="col-md-6">
         <center><label for="from_realtor">
-          <input type="radio" id="for_whom" name="for_whom" value="photo_company"  />&nbsp;&nbsp;<span adr_trans="label_photo_company"> Photo company</span>
+          <input type="radio" name="for_whom" onchange="validate_email('aa')" value="photo_company"  />&nbsp;&nbsp;<span adr_trans="label_photo_company"> Photo company</span>
         </label>
         </center>
         <br>
@@ -951,7 +975,7 @@ function get_states(cityIs) {
                             <div class="col-md-6">
                                 <p adr_trans="label_org_email">Organization Email</p>
 
-                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();validate_email(this.value)">
+                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();">
                             </div>
 
 

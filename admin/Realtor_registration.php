@@ -877,7 +877,7 @@ $("#country").css("border","solid 1px grey");
                             <div class="col-md-6">
                                 <p adr_trans="label_org_email">Organization Email</p>
 
-                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();validate_email(this.value)">
+                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();">
                             </div>
 
 

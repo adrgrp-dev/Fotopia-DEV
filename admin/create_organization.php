@@ -38,7 +38,7 @@ $mail->FromName = "Fotopia";
 // ;
 // $mail->addAddress("sidambara.selvan@adrgrp.com","Sid");
 
-$mail->addAddress($email);
+$mail->addAddress($_REQUEST['email']);
 
 
 //Address to which recipient will reply
@@ -87,6 +87,9 @@ $mail->Body=str_replace('{{Organisation_Name}}','Fotopia', $mail->Body);
 $mail->Body=str_replace('{{id}}',$id, $mail->Body);
 $mail->Body=str_replace('{{profile_id}}',$profile_id, $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$first_name, $mail->Body);
+// echo $mail->Body;exit;
+
+
 
 try {
     $mail->send();
@@ -227,10 +230,7 @@ box-shadow:5px 5px 5px 5px #DDD;
 function get_states(cityIs)
 {
   
-  if(cityIs!="")
-  {
-  $("#validation_message").css("display","none");
-  $("#validation_message").html("");
+
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
@@ -240,19 +240,27 @@ function get_states(cityIs)
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
-  }
-  else
-  {
-  	$("#validation_message").css("display","block");
-    $("#validation_message").html("Please select your city!.");
-  }
 } 
 
-	function validate_email(val,type)
+	function validate_email(val)
 {
-//alert(type); 
-if(val!="")
+// alert(type);
+var email=$("#email").val(); 
+if(email==""){
+
+	// alert("Please enter an email");
+	return false;
+}
+else{
+
+	val=email;
+}
+var type= $("input[name='for_whom']:checked").val();
+
+
+if(val!="" && typeof type !== 'undefined')
 {
+	// alert(type); 
   var xhttp= new XMLHttpRequest();
   xhttp.onreadystatechange = function()
   {
@@ -283,6 +291,13 @@ if(val!="")
   };
   xhttp.open("GET","validate_email_signup.php?id="+val+"&type="+type,true);
   xhttp.send();
+  }
+  else{
+  
+  $("#Email_exist_error").html("Please select the user type!");
+	   $("#Email_exist_error").show();
+	   $("#email").val("");
+	    $("#email").focus();
   }
 }
 
@@ -737,8 +752,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-10" style="color: #000;background: #fff;padding:10px;border-radius:5px;">
-
+                <div class="col-md-8" style="padding-left:30px;">
 
                       		<br>
 						<?php if(@isset($_REQUEST["success"])) { ?>
@@ -768,20 +782,20 @@ $("#country").css("border","solid 1px grey");
                        <div class="error-box" id="validation_message" style="margin-left:20px;color:red;display:none;font-style:italic;" align="center">
                             <div class="text-warning" ></div>
                         </div>
-			<span style="margin-left:100px;color:red;display:none;font-style:italic;" id="Email_exist_error" align="center" class=""></span>
+			<span style="margin-left:250px;color:red;display:none;font-style:italic;" id="Email_exist_error" class=""></span>
 
           <div id="step1" name="step1">
 
              <div class="col-md-6">
     <center><label for="from_homeseller">
-          <input type="radio" id="for_whom" name="for_whom" value="realtor" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
+          <input type="radio" name="for_whom" value="realtor" onchange="validate_email('aa')" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
         </label>
       </center>
       </div>
 
       <div class="col-md-6">
         <center><label for="from_realtor">
-          <input type="radio" id="for_whom" name="for_whom" value="photo_company"  />&nbsp;&nbsp;<span adr_trans="label_photo_company"> Photo company</span>
+          <input type="radio" name="for_whom" value="photo_company" onchange="validate_email('aa')" />&nbsp;&nbsp;<span adr_trans="label_photo_company"> Photo company</span>
         </label>
         </center>
         <br>
@@ -812,7 +826,7 @@ $("#country").css("border","solid 1px grey");
 
                             <div class="col-md-6">
                                 <p id="label_email" adr_trans="label_email">Email</p>
-                                <input id="email" name="email" placeholder="Email" type="email"    autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();validate_email(this.value,document.getElementsByName('for_whom').value)">
+                                <input id="email" name="email" placeholder="Email" type="email"    autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();validate_email(this.value)">
                             </div>
 
 
@@ -846,7 +860,7 @@ $("#country").css("border","solid 1px grey");
                             </div>
 
 
-                            <div class="col-md-12" align="center">
+                            <div class="col-md-6" align="left">
                                 <br><br>
 
                             <a class="anima-button circle-button btn-sm btn adr-save" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
@@ -875,7 +889,7 @@ $("#country").css("border","solid 1px grey");
                             <div class="col-md-6">
                                 <p adr_trans="label_org_email">Organization Email</p>
 
-                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="">
+                                <input id="org_email" name="org_email" placeholder="Organization Email" type="email" autocomplete="off" class="form-control form-value" required="" onblur="this.value=this.value.trim();">
                             </div>
 
 
@@ -897,13 +911,11 @@ $("#country").css("border","solid 1px grey");
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
 							<select name="city" onchange="get_states(this.value)" id="city" class="form-control form-value" required="">
-								<option value="">Select City</option>
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
 							{
 							?>
-
 							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
 							<?php } ?>
 							</select>
