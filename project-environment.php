@@ -1,5 +1,5 @@
 <?php
- $_SESSION['project_url']="http://localhost/Photo/";
+ $_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
 $application_url="http://fotopia.adrgrp.com/photo-dev";
 
 //Database Credentials
