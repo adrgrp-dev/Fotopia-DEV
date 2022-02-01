@@ -1218,7 +1218,7 @@ var od='<?php echo @$_REQUEST["od"]; ?>';
       <div class="col-md-6">
        <p id="label_property_state" adr_trans="label_property_state">Property State</p>
       <select id="property_state" name="property_state" class="form-control form-value"  required="" <?php if(@$_REQUEST['edit']) { echo "readonly"; } ?>>
-
+                    <option value="<?php if(isset($_SESSION['property_state'])) {echo $_SESSION['property_state'];}?>"><?php if(isset($_SESSION['property_state'])) {echo $_SESSION['property_state'];}?></option>
                 
                     </select>
       </div>
