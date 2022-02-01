@@ -240,7 +240,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                             <!-- fa fa-xs fa-stack-exchange -->
                             <h5><i class="fa fa-stack-exchange fa-lg" style="color:#aad1d6;"></i><br /><br /> <span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></h5>
                               <?php
-                              $get_ongoing_query=mysqli_query($con,"SELECT count(*) as ongoing_no FROM orders where csr_id=$loggedin_id and photographer_id='0' and status_id in(1,6,7) ");
+                              $get_ongoing_query=mysqli_query($con,"SELECT count(*) as ongoing_no FROM orders where csr_id=$loggedin_id and status_id in(1,7) ");
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>
@@ -264,7 +264,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 													<div class="col-md-12 pd-2" style="padding-left: 35px;">
                             <h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_ongoing" adr_trans="label_ongoing">Ongoing</span></h5>
                               <?php
-                              $get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4) and csr_id=$subcsr");
+                              $get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4,8) and csr_id=$subcsr");
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>

@@ -179,7 +179,7 @@ height:fit-content!important;
                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 							<?php
                // $user_id=$_SESSION["loggedin_id"];
-               $get_order_query=mysqli_query($con,"SELECT count(photographer_id) as COUNT FROM `orders` WHERE photographer_id='$user_id' and status_id in(2,4)");
+               $get_order_query=mysqli_query($con,"SELECT count(photographer_id) as COUNT FROM `orders` WHERE photographer_id='$user_id' and status_id in(2,4,8)");
                $get_order=mysqli_fetch_array($get_order_query);
 
                ?>
@@ -225,7 +225,7 @@ height:fit-content!important;
 
                             <?php
                             $total1=0;
-                            @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id =3 and photographer_id=$user_id");
+                            @$get_invoiced_name_query=mysqli_query($con,"SELECT id FROM orders where month(session_from_datetime)=month(now()) and status_id=3 and photographer_id=$user_id");
                             while(@$get_name=mysqli_fetch_assoc(@$get_invoiced_name_query))
                             {
                               @$id=@$get_name['id'];

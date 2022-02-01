@@ -269,7 +269,7 @@ border:none;
 															<div class="col-md-12" style="padding-left: 35px;">
 																	<h5><i class="fa fa-arrow-circle-right fa-lg" style="color:#aad1d6;"></i><br /><br /><span\>New /<br> Ongoing </span></h5>
 																		<?php
-																		$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4) and pc_admin_id=$superCsr");
+																		$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(1,2,4,7,8) and pc_admin_id=$superCsr");
 																		if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 																		{
 																		?>
