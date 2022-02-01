@@ -324,10 +324,12 @@ var initialArray = [];
             document.getElementById('Suggestions1').innerHTML = options;
           }
         });
+		
+		
 </script>
-
+<div class="col-md-3">
 		<form name="search_filter1" method="post" action="users.php">
-<select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:200px;left: 15px;">
+<select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:200px;left: 15px;display:inline">
 				<option value="">Select a user type</option>
 			
 			    <option value="Realtor" <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
@@ -336,6 +338,13 @@ var initialArray = [];
 		
   		</select>
 		</form>
+		</div>
+		<div class="col-md-3">
+		<form name="clear_approved_user_filter" method="post" action="">
+		<input type="hidden" name="user_type1" value="<?php echo $_SESSION['usertype1']; ?>" />
+		<input type="submit" name="clear_approved_user_filter_btn" value="Clear Filter" class="btn btn-primary" />
+		</form>
+		</div>
 </div>
 
 
