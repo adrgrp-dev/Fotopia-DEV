@@ -1729,7 +1729,7 @@ if (@$_REQUEST['shar']) {
                                   <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
                                 </div>
                                 <div class="col-md-3" style="display:inline-block">
-                                  <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
+                                  <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
                                 </div>
                                 <div class="col-md-3" style="display:inline-block">
                                     <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
@@ -1973,7 +1973,7 @@ if (@$_REQUEST['shar']) {
                                      <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
                                    </div>
                                    <div class="col-md-3" style="display:inline-block">
-                                     <a href="#tnc" class="circle-button btn-sm btn lightbox link adr-save" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
+                                     <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
                                    </div>                                   
                                    <div class="col-md-3" style="display:inline-block">
                                     <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">

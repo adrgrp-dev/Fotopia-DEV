@@ -341,8 +341,8 @@ var initialArray = [];
 		</div>
 		<div class="col-md-3">
 		<form name="clear_approved_user_filter" method="post" action="">
-		<input type="hidden" name="user_type1" value="<?php echo $_SESSION['usertype1']; ?>" />
-		<input type="submit" name="clear_approved_user_filter_btn" value="Clear Filter" class="btn btn-primary" />
+		<input type="hidden" name="user_type1" value="<?php if(isset($_SESSION['usertype1'])){echo $_SESSION['usertype1'];} ?>" />
+		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
 		</form>
 		</div>
 </div>
@@ -755,6 +755,7 @@ var initialArray = [];
         });
 
 </script>
+<div class="col-md-3">
 	<form name="search_filter2" method="post" action="users.php">
 <select name="user_type2" class="form-control" id="user_type2" onchange="this.form.submit()" style="width:200px;left: 15px;">
 				<option value="">Select a user type</option>
@@ -765,6 +766,13 @@ var initialArray = [];
 		
   		</select>
 		</form>
+	</div>
+	<div class="col-md-3">
+		<form name="clear_pending_user_filter" method="post" action="">
+		<input type="hidden" name="user_type2" value="<?php if(isset($_SESSION['usertype2'])){echo $_SESSION['usertype2'];} ?>" />
+		<input type="submit" name="clear_pending_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
+		</form>
+		</div>
 </div>
 
 
@@ -1202,6 +1210,7 @@ var initialArray = [];
 
 
 </script>
+<div class="col-md-3">
 		<form name="search_filter3" method="post" action="users.php">
 <select name="user_type3" class="form-control" id="user_type3" onchange="this.form.submit()" style="width:200px;left: 15px;">
 				<option value="">Select a user type</option>
@@ -1212,6 +1221,14 @@ var initialArray = [];
 		
   		</select>
 		</form>
+	</div>
+	<div class="col-md-3">
+		<form name="clear_blocked_user_filter" method="post" action="">
+		<input type="hidden" name="user_type3" value="<?php if(isset($_SESSION['usertype3'])){echo $_SESSION['usertype3'];} ?>" />
+		<input type="submit" name="clear_blocked_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
+		</form>
+		</div>
+
 </div>
 
 
