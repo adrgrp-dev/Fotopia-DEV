@@ -33,8 +33,7 @@ if(isset($_REQUEST['loginbtn']))
 		$user_type=$getres['type_of_user'];
 		$uid=$getres['id'];
 		 $email_verified=$getres['email_verified'];
-		  $super_csr_id=$getres['super_csr_id'];
-		   $sub_csr_id=$getres['sub_csr_id'];
+		 
 
 		if($email_verified==0)
 		{
@@ -52,8 +51,7 @@ $_SESSION['EXPIRES'] = time() + 3600;
 		$_SESSION["loggedin_email"]=$email;
 		$_SESSION["loggedin_name"]=$user_name;
 		$_SESSION["user_type"]=$user_type;
-		$_SESSION["super_csr_id"]=$super_csr_id;
-		$_SESSION["sub_csr_id"]=$sub_csr_id;
+		
 
 
 
