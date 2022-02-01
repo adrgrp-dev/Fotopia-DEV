@@ -384,7 +384,7 @@ margin-left:0px!important;
                                         <p style="color:white;font-size:25px;font-weight:600">  &nbsp;<label class="counter" data-speed="1000" data-to="<?php echo $get_order['dueToday'];?>" style="color:white;font-size:25px;font-weight:600;color:#000;"><?php echo $get_order['dueToday'];?></label></p>
 
                                          <br />
-                                        <a class="btn-sm" adr_trans="label_view" href="csrRealtorCalendar.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                                        <a class="btn-sm" adr_trans="label_view" href="order_list.php?due=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
                                          
                                     </div>

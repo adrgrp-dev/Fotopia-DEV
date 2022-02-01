@@ -315,10 +315,15 @@ min-width:100px!important;
 
      $q1="SELECT count(*) as total FROM orders where realtor_id='$loggedin_id' and status_id ='$statusId'";
 		}
+    elseif(@$_REQUEST['due']==1)
+    {
+      $q1="SELECT count(*) as total FROM orders where realtor_id='$loggedin_id' and status_id !=3 and order_due_date=CURRENT_DATE()";
+    }
 		else
 		{
 		 $q1="SELECT count(*) as total FROM orders where realtor_id='$loggedin_id' and status_id !=3 ";
 		}
+
           $result=mysqli_query($con,$q1);
           $data=mysqli_fetch_assoc($result);
           $total_no=$data['total'];
@@ -356,7 +361,10 @@ min-width:100px!important;
 		    $statusId=$_REQUEST['filterByStatus'];
 		    $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id='$statusId' order by id desc limit $limit");
 		  }
-
+    elseif(@$_REQUEST['due']==1)
+    {
+      $get_order_query=mysqli_query($con,"SELECT * FROM orders where realtor_id='$loggedin_id' and  status_id!=3 and order_due_date=CURRENT_DATE() order by id desc limit $limit");
+    }
 		  else
 		  {
 
