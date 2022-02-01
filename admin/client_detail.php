@@ -67,24 +67,79 @@ td, th {
              <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
 			   <hr class="space s">
                      <table class="table-striped" style="width:100%; border:solid">
-					 <tr><td rowspan="8" style="width:200px;">
-					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="190" height="200" />
+					 <tr><td rowspan="21" style="width:300px;">
+					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="290" height="200" />
 					 </td></tr>
                        <tr>
                          <td align="left" class="text"><span adr_trans="label_name">Name</span></td>
                          <td>:</td>
-                         <td align="left"><?php  echo @$get_data['first_name']?></td>
+                         <td align="left"><?php  echo @$get_data['first_name']." ".@$get_data['last_name']?></td>
                        </tr>
                        <tr>
                          <td align="left"><span adr_trans="label_role">Role</span></td>
                          <td>:</td>
-                         <td align="left"><span adr_trans="label_realtor">Realtor</span></td>
+                         <td align="left"><span adr_trans="label_realtor" style="font-size:13px;">Realtor</span></td>
                        </tr>
                        <tr>
-                         <td align="left"><span adr_trans="label_organization">Organization</span></td>
+                         <td align="left"><span adr_trans="label_org_name">Organization Name</span></td>
                          <td>:</td>
                          <td align="left"><?php echo @$get_data['organization_name']?></td>
                        </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_org_branch">Organization Branch</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['organization_branch']?></td>
+                       </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_org_contact_no">Organization Contact number</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['organization_contact_number']?></td>
+                       </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_org_email">Organization Email</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['organization_email']?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="">Company ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['realtor_employer_id'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_address">Address</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['address_line1'].", ".@$get_data['address_line2']?></td>
+                       </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_city">City</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['city'].", ".@$get_data['address_line2']?></td>
+                       </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_state">State</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['state'] ?></td>
+                       </tr>
+
+                        <tr>
+                         <td align="left"><span adr_trans="label_zip_code">Zip code</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['postal_code'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_country">Country</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['country'] ?></td>
+                       </tr>
+
                        <tr>
                          <td align="left"><span adr_trans="label_contact">Contact</span></td>
                          <td>:</td>
@@ -94,6 +149,42 @@ td, th {
                          <td align="left"><span adr_trans="label_email">Email</span></td>
                          <td>:</td>
                          <td align="left"><?php echo @$get_data['email'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_portfolio_website">Portfolio/Website</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['portfolio'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_fb_id">Facebook ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['facebook_id'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_insta_id">Instagram ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['instagram_id'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_twitter_id">Twitter ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['twitter_id'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_youtube_id">Youtube ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['youtube_id'] ?></td>
+                       </tr>
+
+                       <tr>
+                         <td align="left"><span adr_trans="label_linkedin_id">LinkedIN ID</span></td>
+                         <td>:</td>
+                         <td align="left"><?php echo @$get_data['linkedin_id'] ?></td>
                        </tr>
                      </table>
                    </div>

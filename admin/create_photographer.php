@@ -310,12 +310,12 @@ function showPassword2() {
 
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
-                                  <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="5" maxlength="20" class="form-control form-value" required="">
                               </div>
 
   							<div class="col-md-6">
                                   <p id="label_last_name" adr_trans="label_last_name">Last Name</p>
-                                  <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="">
                               </div>
 <?php if($_SESSION['admin_loggedin_type'] != "CSR"){ ?>
 

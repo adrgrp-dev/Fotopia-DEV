@@ -220,7 +220,7 @@ height:fit-content!important;
 
                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 					
-					<h5><i class="fa fa-sliders fa-lg" style="color:#aad1d6"></i><br /><br /><span adr_trans="label_my_earnings_month">My Earnings this Month</span></h5>
+					<h5><i class="fa fa-sliders fa-lg" style="color:#aad1d6"></i><br /><br /><span adr_trans="label_my_earnings_month">My Commissions this month</span></h5>
                             
 
                             <?php

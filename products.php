@@ -69,7 +69,7 @@ th,td
                         <th>#</th>
                         <th ><span adr_trans="label_product_name">Product name</span></th>
                         <th ><span adr_trans="label_timeline">Timeline</span></th>
-                        <th ><span adr_trans="label_earnings">Earnings</span><span>($)</span></th>
+                        <th ><span adr_trans="label_earnings">Commissions</span><span>($)</span></th>
                        	<th style="width:450px"><span adr_trans="label_description">Description</span></th>
                     </tr>
 

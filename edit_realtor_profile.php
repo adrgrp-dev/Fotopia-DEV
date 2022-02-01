@@ -211,7 +211,7 @@ margin-left:0px!important;
 								</div>
 
 								<div class="col-md-6">
-                                <p style="color:#000;">Realtor Employer ID</p>
+                                <p style="color:#000;">Company ID</p>
                                 <input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['realtor_employer_id']; ?>">
 								</div>
 
@@ -275,7 +275,7 @@ margin-left:0px!important;
 
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_last_name">Last name</p>
-                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
+                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
                 </div>
 
 

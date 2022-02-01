@@ -151,7 +151,7 @@ p{
 
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_last_name">Last name</p>
-                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
+                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
                 </div>
 
 

@@ -90,7 +90,7 @@ $Instructions="<br>As a Photo Company, Kindly do all the below steps to continue
 3.	Set custom price for realtors (discount)<br>
 4.	Create a CSR <br>
 		5.	Create a Photographer<br>
-		6.	Set custom price for photographers (earnings)<br>
+		6.	Set custom price for photographers (Commissions)<br>
 		7.	Create an Editor <br><br>
 */
 $mail->Body=str_replace('{{Instructions}}', $Instructions , $mail->Body);

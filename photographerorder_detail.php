@@ -1027,7 +1027,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                   $get_createid1=mysqli_fetch_assoc($get_createdid_query);
                   if(($get_order1['status_id']==3))
                   {
-                    echo '<li id="click5"><a  id="" href="#tab5" adr_trans="label_my_earnings" data-toggle="tab">My Earnings</a></li>';
+                    echo '<li id="click5"><a  id="" href="#tab5" adr_trans="label_my_earnings" data-toggle="tab">My Commissions</a></li>';
                   }
                   if($get_order1['status_id']==4)
                   {
@@ -1081,7 +1081,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                               </tr>
                              
                               <tr>
-                              <td id="label_floors" align="right" adr_trans="label_floors" style="font-size:10px;">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
+                              <td id="label_floors" align="right" adr_trans="label_floors" style="font-size:10px;">No. of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
                               </tr>
                               <tr>
                               <td id="label_area" align="right" adr_trans="label_area"style="font-size:10px;">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?><hr class="space xs" /></td>
@@ -1173,19 +1173,11 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				<td align="right" id="label_status" adr_trans="label_status" style="font-size:10px;">Status</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php $status=$get_summary['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip'style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;width:60px;'>Working with Customer</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";}?></td>
                       				</tr>
                       				</table>
-                                   <hr class="space m">
-        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
-        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+                                   <hr class="space s">
+       
+                      				<p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Products Ordered</p>
 
-          <tr>
-
-        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
-
-        </tr>
-
-        </table>
-                              <br />
-                      				<p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
+                               <hr class="space xs">
 
                       				<table style="color:#000;font-weight:600;font-size:10px;">
 									 
@@ -1204,6 +1196,22 @@ header("location:photographerDashboard.php?private=1"); exit;
                               <?php } ?>
 
                       				</table>
+
+                               <br />
+
+                               <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Booking Notes</p>
+                               <hr class="space xs">
+        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+
+          <tr>
+
+        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+
+        </tr>
+
+
+        </table>
+                             
 									</div>
                       				</div>
 									

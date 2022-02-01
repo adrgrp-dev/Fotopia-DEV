@@ -1351,7 +1351,7 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                           <td align="right" style="font-size: 10px;" id="label_property_type" adr_trans="label_property_type">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
                           </tr>
                           <tr>
-                          <td align="right" style="font-size: 10px;" id="label_floors" adr_trans="label_floors">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
+                          <td align="right" style="font-size: 10px;" id="label_floors" adr_trans="label_floors">No. of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
                           </tr>
                           <tr>
                           <td align="right" style="font-size: 10px;" id="label_area" adr_trans="label_area">Area</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['area']?><hr class="space xs"></td>
@@ -1423,18 +1423,10 @@ if($get_order1['status_id']==3||$get_order1['status_id']==1||$get_order1['status
                          }
                         ?>
                             
-                             <hr class="space m">
-        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
-        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
-
-          <tr>
-
-        <td style="text-align:justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
-
-        </tr>
-
-        </table><br/>
-                            <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:12px;">Products For the Order</p>
+                             <hr class="space s">
+       
+                            <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Products Ordered</p>
+                            <hr class="space xs">
 
   				<table style="color:#000;font-weight:600;font-size:12px;min-height:50px">
   				<?php
@@ -1448,11 +1440,24 @@ $get_product =  mysqli_query($con,"SELECT * FROM order_products WHERE order_id =
 
   				?>
   				<tr>
-  				<td align="right" style="font-size: 10px;" ><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
+  				<td><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
   				</tr>
   				<?php } ?>
 
   				</table>
+<br/>
+           <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Booking Notes</p>
+           <hr class="space xs">
+        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+
+          <tr>
+
+        <td style="text-align:justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+
+        </tr>
+
+        </table>
+
           </div>
 
   				</div>

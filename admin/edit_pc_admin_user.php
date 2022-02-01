@@ -145,7 +145,7 @@ function validate_email(val)
 
   							<div class="col-md-6">
                                   <p id="label_last_name" adr_trans="label_last_name">Last Name</p>
-                                  <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" minlength="5" maxlength="20" class="form-control form-value" required="" value="<?php echo $pcAdmin['last_name']; ?>">
+                                  <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="" value="<?php echo $pcAdmin['last_name']; ?>">
                               </div>
 
 <div class="col-md-6">

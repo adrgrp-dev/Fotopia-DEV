@@ -188,7 +188,7 @@ alert(alertmsg);
 			
 			
 			
-			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #6 of 7 : Set custom price for photographers (earnings)</h5></div> <?php } ?>
+			<?php if(@$_REQUEST['first']) { ?><div class="col-md-12"><h5 align="center" id="label_add_company_profile" style="color:#006600!important;font-size:13px;">Step #6 of 7 : Set custom price for photographers (commissions)</h5></div> <?php } ?>
 			
 			
 			
@@ -266,7 +266,7 @@ alert(alertmsg);
                         <th id="label_product_name" adr_trans="label_product_name">Product Name</th>
 					<th id="label_timeline" adr_trans="label_timeline">Timeline</th>
 						<th >Product Cost</th>
-                        <th><span adr_trans="label_photographer_earnings">Photographer's Earnings</span><span> ($)</span> </th>
+                        <th><span adr_trans="label_photographer_earnings">Photographer's Commission</span><span> ($)</span> </th>
 
 
                     </tr>
@@ -365,7 +365,7 @@ $realtorDiscountPrice=0;
 				   <tr><td colspan="7" id="label_no_product" adr_trans="label_no_product">No products found.</td></tr>
 				   <?php }  } else  { ?>
 
-				   <center><br><span id="label_select_photographer_product" adr_trans="label_select_photographer_product" style="font-weight:600;color:#006600;">Select a Photographer from the list to show the photographer's earnings for each product</span><br><br></center>
+				   <center><br><span id="label_select_photographer_product" adr_trans="label_select_photographer_product" style="font-weight:600;color:#006600;">Select a Photographer from the list to show the photographer's commission for each product</span><br><br></center>
 
 				   <?php } ?>
 				 <?php

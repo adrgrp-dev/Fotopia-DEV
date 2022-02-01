@@ -1517,7 +1517,7 @@ alert(alertmsg);
                             <td align="right" style="font-size: 10px;" id="label_property_type" adr_trans="label_property_type">Property Type</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['property_type']?></td>
                             </tr>
                                <tr>
-                            <td align="right" style="font-size: 10px;" id="label_floors" adr_trans="label_floors">No. Of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
+                            <td align="right" style="font-size: 10px;" id="label_floors" adr_trans="label_floors">No. of Floors</td><td style="padding-left:5px;padding-right:15px;">:</td><td><?php echo $get_summary['number_of_floor_plans']?></td>
                             </tr>
                             <tr>
                             <td align="right" style="font-size: 10px;vertical-align: baseline;" id="label_area" adr_trans="label_area">Area</td><td style="padding-left:5px;padding-right:15px;vertical-align: baseline;">:</td><td><?php echo $get_summary['area']?><hr class="space xs" ></td>
@@ -1621,17 +1621,10 @@ alert(alertmsg);
                          }
                         ?>
                                  <hr class="space m">
-        <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:11px;">Booking notes: </p>
-        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+       
+                            <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Products Ordered</p>
 
-          <tr>
-
-        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
-
-        </tr>
-
-        </table>
-                            <p id="label_order_products" adr_trans="label_order_products" align="left" style="color:#000;font-weight:600;font-size:15px;">Products For the Order</p>
+                            <hr class="space xs">
 
                             <table style="color:#000;font-weight:600;font-size:12px;min-height:50px">
                             <?php
@@ -1645,19 +1638,33 @@ alert(alertmsg);
 
                             ?>
                             <tr>
-                           <td align="right" style="font-size: 10px;" ><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
+                           <td><?php echo $product_title['product_title']; ?></td><td>&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;</td><td><?php echo $product_title['quantity']; ?></td>
                             </tr>
                            
                             <?php } ?>
                             <!-- <td style="font-decoration:bold;">Total Cost</td><td style="padding-left:5px;padding-right:15px;">:</td><td><i class="fa fa-usd"></i>
                             <?php
-                             $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
-                                $total_cost1=mysqli_fetch_array($total_cost);
-                            echo $total_cost1['totalPrice'];
+                             // $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
+                                // $total_cost1=mysqli_fetch_array($total_cost);
+                            // echo $total_cost1['totalPrice'];
 
                             ?>
                             </td> -->
                             </table>
+
+                            <br>
+
+                             <p id="" adr_trans="" align="left" style="color:#000;font-weight:600;font-size:15px;">Booking Notes</p>
+                             <hr class="space xs">
+        <table style="color:#000;font-weight:600;font-size:12px;white-space:pre-wrap">
+
+          <tr>
+
+        <td style="text-align: justify;"><?php echo $get_summary['booking_notes']; ?><hr class="space xs"></td>
+
+        </tr>
+
+        </table>
                           </div>
                             </div>
                             <div class="col-md-6">
