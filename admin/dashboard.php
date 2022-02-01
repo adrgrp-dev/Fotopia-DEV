@@ -48,7 +48,7 @@ if(isset($_REQUEST['loginbtn']))
 													<div class="col-md-6">
 														<h5>Ongoing</h5>
 															<?php
-															$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id not in(2,4,8)");
+															$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4,8)");
 															if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
 															{
 															?>
