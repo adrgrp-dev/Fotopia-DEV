@@ -342,7 +342,7 @@ var initialArray = [];
 		<div class="col-md-3">
 		<form name="clear_approved_user_filter" method="post" action="">
 		<input type="hidden" name="user_type1" value="<?php if(isset($_SESSION['usertype1'])){echo $_SESSION['usertype1'];} ?>" />
-		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
+		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
 		</form>
 		</div>
 </div>
@@ -770,7 +770,7 @@ var initialArray = [];
 	<div class="col-md-3">
 		<form name="clear_pending_user_filter" method="post" action="">
 		<input type="hidden" name="user_type2" value="<?php if(isset($_SESSION['usertype2'])){echo $_SESSION['usertype2'];} ?>" />
-		<input type="submit" name="clear_pending_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
+		<input type="submit" name="clear_pending_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
 		</form>
 		</div>
 </div>
@@ -1225,7 +1225,7 @@ var initialArray = [];
 	<div class="col-md-3">
 		<form name="clear_blocked_user_filter" method="post" action="">
 		<input type="hidden" name="user_type3" value="<?php if(isset($_SESSION['usertype3'])){echo $_SESSION['usertype3'];} ?>" />
-		<input type="submit" name="clear_blocked_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm" />
+		<input type="submit" name="clear_blocked_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
 		</form>
 		</div>
 
