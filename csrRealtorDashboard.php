@@ -933,7 +933,7 @@ if(isset($_REQUEST['companySearch']))
 $companySearch=$_REQUEST['companySearch'];
 $where="(location like '%$companySearch%' or organization_name like '%$companySearch%' or organization_branch like '%$companySearch%') and ";
 }
-				$photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc");
+				$photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') and pc_admin_id not in (select id from admin_users where is_approved=2) order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
 
@@ -942,7 +942,7 @@ $where="(location like '%$companySearch%' or organization_name like '%$companySe
 				<tr style="float:left;"><td rowspan="0" align="center" style="padding:15px;border:none">
 
 				 <?php
-                if ($ph=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') order by id desc")) {
+                if ($ph=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') and pc_admin_id not in (select id from admin_users where is_approved=2) order by id desc")) {
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view1">View</span></a>';
                   ?>
 <div ng-repeat="file in imagefinaldata" class="img_wrp" style="display: inline-block;position: relative;">
@@ -989,7 +989,7 @@ if($i<=$ratingIs)
 					<?php } ?>
 
 <?php
-        $photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') and pc_admin_id!=0 order by id desc");
+        $photo=mysqli_query($con,"select * from photo_company_profile where $where pc_admin_id not in(select super_csr_id from wishlist where realtor_id = '$loggedin_id') and pc_admin_id!=0 and pc_admin_id not in (select id from admin_users where is_approved=2) order by id desc");
         while($photo1=mysqli_fetch_array($photo))
         {
 $knowMore='<a href="#photoCompany"  class="lightbox link" data-lightbox-anima="show-scale" onclick="GetCompanyDetails('.$photo1['pc_admin_id'].',\''.$photo1['organization_name'].'\')"><span adr_trans="label_view1">View</span></a>';

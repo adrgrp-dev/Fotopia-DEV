@@ -651,6 +651,7 @@ $appointment_update=mysqli_query($con,"select * from home_seller_info where id='
 $appointment_update_details=mysqli_fetch_array($appointment_update);
 }
 ?>
+<div  id="radioBtn">
 <div class="col-md-6">
         <label for="from_realtor">
           <input type="radio" id="from_realtor" name="from_whom" value="realtor" <?php if(@$_REQUEST["hs_id"]!='' && $appointment_update_details['lead_from']=="realtor"){ echo "checked"; };?> /><span adr_trans="label_from_realtor"> FROM REALTOR </span>
@@ -675,6 +676,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
         </label>
 
       </div>
+    </div>
       
 
     <br>
@@ -962,6 +964,17 @@ if(@$_REQUEST['u']==0 && isset($_REQUEST['hs_id'])==0)
 <script> 
 
 $("#from_realtor").click();
+
+</script>
+
+<?php } ?>
+
+<?php if(@$_REQUEST['u']==1@$appointment_update_details['lead_from']=="")
+  { ?>
+
+<script> 
+
+$("#radioBtn").css("display","none");
 
 </script>
 

@@ -213,9 +213,9 @@ alert(alertmsg);
 
 <center>
 <div class="col-md-12">
-<div class="col-md-4" style="border-radius:25px 0px 0px 25px;border:solid 1px;font-weight:600;padding:10px;"><a href="products.php" id="label_product_price" adr_trans="label_product_price">Products & It's Price</a></div>
+<div class="col-md-4" style="border-radius:5px 0px 0px 5px;border:solid 1px;font-weight:600;padding:10px;"><a href="products.php" id="label_product_price" adr_trans="label_product_price">Products & It's Price</a></div>
 <div class="col-md-4" style="border:solid 1px;font-weight:600;padding:10px;"><a href="RealtorProducts.php" id="label_realtor_custom" adr_trans="label_realtor_custom">Custom Price for Realtor</a></div>
-<div class="col-md-4" style="border-radius:0px 25px 25px 0px;padding:10px;border:solid 1px;font-weight:600;color:#000;background:#aad1d6;color:#000!important;"><a href="PhotographerProducts.php" style="color:#000!important">Photographers Commission</a></div>
+<div class="col-md-4" style="border-radius:0px 5px 5px 0px;padding:10px;border:solid 1px;font-weight:600;color:#000;background:#aad1d6;color:#000!important;"><a href="PhotographerProducts.php" style="color:#000!important">Photographers Commission</a></div>
 </div>
 </center>
 <br><br><br />
