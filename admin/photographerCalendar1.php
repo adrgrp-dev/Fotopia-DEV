@@ -363,10 +363,23 @@ $.ajax({
   if(todayDate[0]>dateIS[0])
  {
 // alert("Appointment cannot be created to past date");
-$("#warningMsg").click();
+if(confirm("Are you sure want to create an appointment in the Past Date?"))
+{
+var phId1='<?php echo $_REQUEST['Photographer_id']; ?>';
+	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
+ window.location.href="create_order.php?u=0&fromDatetime="+info.startStr+"&toDatetime="+info.endStr+"&Photographer_id="+phId1+"&pc_admin_id="+pc_admin_id+"&past=1";
+ return true;
+ }
+else
+{
+var csr_id='<?php echo $_REQUEST['csr_id']; ?>';
+	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
+window.location.href = "photographerCalendar1.php?pc_admin_id="+pc_admin_id+"&csr_id="+csr_id;
+return false;
+}
 //return false;
  } 
-		createEventDateTimeNew(info.startStr,info.endStr);
+	createEventDateTimeNew(info.startStr,info.endStr);	
 		}
 
       },
