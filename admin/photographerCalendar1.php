@@ -41,6 +41,12 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 		
 	</style>
 <script>
+
+function close_modal()
+{
+$(".mfp-close").click();
+}
+
 			function fillPhId()
 			{
 		  var value= $('#ph_name').val();
@@ -58,7 +64,7 @@ header("location:photographerCalendar1.php?ph_id=$ph_id&ph_name=$ph_name&Photogr
 
 			</div>
                 <div class="col-md-10">
-
+<a class="lightbox btn btn-primary btn-sm circle-button" id="warningMsg" href="#lb2" data-lightbox-anima="show-scale" style="float:right;margin-bottom:10px;display:none;">+Add Product</a>
 
 
 			<?php if(@$_REQUEST['Photographer_id']!='') { ?>	<h5 class="text-center"><?php echo $photographer_name_is; ?> - Photographer's Calendar</h5>
@@ -281,6 +287,12 @@ background: repeating-linear-gradient(
   )!important;
 
 }
+
+.btn-default
+    {
+    padding-top:0px!important;
+	padding:8px!important;
+    }
 				</style>
 				<script src='../lib/main.js'></script>
 <script>
@@ -348,12 +360,12 @@ $.ajax({
  var todayDate1=new Date().toISOString();
  var todayDate=todayDate1.split("T");
 
- /* if(todayDate[0]>dateIS[0])
+  if(todayDate[0]>dateIS[0])
  {
- alert("Appointment cannot be created to past date");
-  return false;
-
- } */
+// alert("Appointment cannot be created to past date");
+$("#warningMsg").click();
+//return false;
+ } 
 		createEventDateTimeNew(info.startStr,info.endStr);
 		}
 
@@ -469,7 +481,9 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
     }
 </script>
 <?php if(@$_REQUEST['Photographer_id']!='') { ?>
+
 	<div id='calendar'  style="border-radius:5px"></div>
+
 <?php } ?>
                 </div>
 
@@ -520,4 +534,18 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
 
     }
 </script>
+
+<div id="lb2" class="box-lightbox col-md-4" style="padding-left:20px;padding-right:20px;padding-bottom:10px;padding-top:20px;color:#000!important;border-radius:25px;border:none!important;">
+                      	   <h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Booking Warning!<br /></h5>
+					<table class="table table-responsive"><tr><td>
+
+<span style="font-size:12px;margin-bottom:20px;"><br /><br />Are you sure want to create an appointment in the past date?</span>
+
+<p align="center" style="margin-top:40px;"><a href="photographerCalendar1.php" class="btn btn-default anima-button circle-button btn-sm" style="width:90px!important"><i class="fa fa-times-circle"></i><span>&nbsp;No</span>&nbsp;&nbsp;</a>&nbsp;&nbsp;<button type="button" class="btn btn-default anima-button circle-button btn-sm" onclick="close_modal();" style="width:90px;"><i class="fa fa-check-circle"></i><span adr_trans="label_yes">Yes</span></button></p>
+
+
+
+</td></tr></table></div>
+
+
 		<?php include "footer.php";  ?>

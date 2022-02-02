@@ -969,7 +969,7 @@ $("#from_realtor").click();
 
 <?php } ?>
 
-<?php if(@$_REQUEST['u']==1@$appointment_update_details['lead_from']=="")
+<?php if(@$_REQUEST['u']==1 && @$appointment_update_details['lead_from']=="")
   { ?>
 
 <script> 
