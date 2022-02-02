@@ -372,9 +372,10 @@ var phId1='<?php echo $_REQUEST['Photographer_id']; ?>';
  }
 else
 {
-var csr_id='<?php echo $_REQUEST['csr_id']; ?>';
-	var pc_admin_id='<?php echo $_REQUEST['pc_admin_id']; ?>';
-window.location.href = "photographerCalendar1.php?pc_admin_id="+pc_admin_id+"&csr_id="+csr_id;
+var phId1='<?php echo @$_REQUEST['Photographer_id']; ?>';
+var csr_id='<?php echo @$_REQUEST['csr_id']; ?>';
+	var pc_admin_id='<?php echo @$_REQUEST['pc_admin_id']; ?>';
+window.location.href = "photographerCalendar1.php?pc_admin_id="+pc_admin_id+"&csr_id="+csr_id+"&Photographer_id="+phId1;
 return false;
 }
 //return false;
