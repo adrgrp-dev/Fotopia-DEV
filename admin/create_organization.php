@@ -229,7 +229,10 @@ box-shadow:5px 5px 5px 5px #DDD;
 	<script>
 function get_states(cityIs)
 {
-  
+  if(cityIs!="")
+  {
+  $("#validation_message").css("display","none");
+  $("#validation_message").html("");
 
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -240,6 +243,11 @@ function get_states(cityIs)
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);
   xhttp.send();
+   }
+   else{
+   	$("#validation_message").css("display","block");
+    $("#validation_message").html("(Please select your city!.)");
+   }
 } 
 
 	function validate_email(val)
@@ -911,6 +919,7 @@ $("#country").css("border","solid 1px grey");
 						<div class="col-md-6">
 							 <p id="label_city" adr_trans="label_city">City</p>
 							<select name="city" onchange="get_states(this.value)" id="city" class="form-control form-value" required="">
+								<option value="">select city</option>
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
