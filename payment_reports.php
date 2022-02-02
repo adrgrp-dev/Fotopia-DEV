@@ -97,7 +97,7 @@ return true;
 <div class="row">
 <div class="col-md-3" style="padding-left:10px;width:200px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
-<input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; class="form-control" style="display:inline-table">
+<input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; onchange="setSecondDate();" class="form-control" style="display:inline-table">
 </div>
 <div class="col-md-3" style="padding-left:10px;width:200px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
