@@ -569,6 +569,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 //unset($_SESSION['toDatetime']);
 //unset($_SESSION['date']);
 unset($_SESSION['realtor_employer_id']);
+unset($_SESSION['property_state']);
 
 ?>
 		<?php include "footer.php";  ?>

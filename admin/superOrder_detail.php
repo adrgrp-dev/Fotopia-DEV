@@ -2613,7 +2613,7 @@ if (@$_REQUEST['shar']) {
                                                <?php } ?>
 
                                                <div class="col-md-2" style="display:inline-block">
-                                                 <a href="<?php if(@getFileCount("../finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>"  style="font-size: 12px;font-family: Manrope-Regular;" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("../finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share" style="font-size:12px;">share</span></a>
+                                                 <a href="<?php if(@getFileCount("../finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc1";}?>"  style="font-size: 12px;font-family: Manrope-Regular;" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("../finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2"><span adr_trans="label_share" style="font-size:12px;">share</span></a>
                                                </div>
 
                                                <div class="col-md-2" style="display:inline-block">
@@ -2821,7 +2821,7 @@ if (@$_REQUEST['shar']) {
                                                 </div>
                                                 <?php } ?>
                                                 <div class="col-md-2" style="display:inline-block">
-                                                  <a href="<?php if(@getFileCount("../finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" style="" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("../finished_images/order_".$id_url."/floor_plans")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share" style="font-size:12px;">share</span></a>
+                                                  <a href="<?php if(@getFileCount("../finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc1";}?>" style="" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("../finished_images/order_".$id_url."/floor_plans")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>','0')" name="send2" id="send2" ><span adr_trans="label_share" style="font-size:12px;">share</span></a>
                                                 </div>
 
                                                 <div class="col-md-2" style="display:inline-block">

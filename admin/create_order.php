@@ -904,7 +904,7 @@ if($user_type=="Photographer")
               ?> onclick="return confirm('Are you sure want to cancel?');" <?php } else{ ?> onclick="return confirm('Are you sure want to cancel the order?');" <?php } ?> adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } else { ?>
-			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" <?php  if ($_REQUEST['u']) {
+			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" <?php  if (@$_REQUEST['u']) {
               ?> onclick="return confirm('Are you sure want to cancel?');" <?php } else{ ?> onclick="return confirm('Are you sure want to cancel the order?');" <?php } ?> href="superorder_list1.php"><i class="fa fa-times"></i>Cancel</a>
 
 			   <?php } ?>
@@ -969,16 +969,7 @@ $("#from_realtor").click();
 
 <?php } ?>
 
-<?php if(@$_REQUEST['u']==1 && @$appointment_update_details['lead_from']=="")
-  { ?>
 
-<script> 
-
-$("#radioBtn").css("display","none");
-
-</script>
-
-<?php } ?>
 
 <script>
   
@@ -1011,5 +1002,16 @@ $("#realtor_id").css("visibility","hidden");
 
 </script>
 
+<?php if(@$_REQUEST['u']==1 && @$appointment_update_details['lead_from']=="")
+  { ?>
+
+<script> 
+
+$("#radioBtn").css("display","none");
+$("#from_realtor").removeAttr("required");
+$("#from_homeseller").removeAttr("required");
+</script>
+
+<?php } ?>
 
 		<?php include "footer.php";  ?>
