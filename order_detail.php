@@ -977,7 +977,6 @@ var checkedImgs=0;
 function downloadbtn2()
 {
    $("#comment22").removeAttr('required');
-   $("#zipDownload2").submit();
 }
 function shareme2(d)
 {
@@ -1532,7 +1531,7 @@ src="https://www.google.com/maps/embed/v1/place?q=Danholmen+25-3128+Notteroy+Nor
       $("#comment2").attr("required",true);
   if($("#count").val()!=''&&($("#count").val()!=0))
    {
-     $("#comment2").Attr("required");
+     $("#comment2").attr("required");
      return true;
 
    }
@@ -1555,7 +1554,7 @@ alert(alertmsg);
   $("#comment22").attr("required",true);
   if($("#count2").val()!=''&&($("#count2").val()!=0))
   {
-       $("#comment2").Attr("required");
+       $("#comment2").attr("required");
     return true;
 
   }
@@ -1579,7 +1578,7 @@ function check3(){
  if($("#count3").val()!=''&&($("#count3").val()!=0))
  {
    return true;
-    $(".comment").Attr("required");
+    $(".comment").attr("required");
  }
  else{
    var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
@@ -1601,7 +1600,7 @@ function check4(){
  if($("#count4").val()!=''&&($("#count4").val()!=0))
  {
    return true;
-    $(".comment").Attr("required");
+    $(".comment").attr("required");
  }
  else{
    var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
@@ -1814,7 +1813,7 @@ if (@$_REQUEST['shar']) {
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a    onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                                   <img alt="" onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                                   <img alt="" onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
                                       <?php if($get_comment['disapprove']==1){ ?>
                                   <i id="ban<?php echo $get_comment['id'];?>" title="<?php echo @$get_comment['comments']; ?>, So this picture is not accepted for rework" class="fa fa-times" style="position: absolute;
     top: 206px;
