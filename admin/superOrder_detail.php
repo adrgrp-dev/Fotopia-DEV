@@ -1136,7 +1136,6 @@ alert(alertmsg);
  function downloadbtn2()
  {
     $("#comment22").removeAttr('required');
-    $("#zipDownload2").submit();
  }
  function shareme2(d,option)
  {
@@ -1779,7 +1778,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                         $("#comment2").attr("required",true);
                     if($("#count").val()!=''&&($("#count").val()!=0))
                      {
-                       $("#comment2").Attr("required");
+                       $("#comment2").attr("required");
                        return true;
 
                      }
@@ -1802,7 +1801,7 @@ alert(alertmsg);
                     $("#comment22").attr("required",true);
                     if($("#count2").val()!=''&&($("#count2").val()!=0))
                     {
-                         $("#comment2").Attr("required");
+                         $("#comment2").attr("required");
                       return true;
 
                     }
