@@ -85,8 +85,15 @@ opacity:1!important;
                       $get_comment=mysqli_fetch_assoc($get_comment_querry);
 
         $hdrpicCount=mysqli_num_rows($get_comment_querry);
+                      if(strpos($get_comment['description'],".")!=0)
+                       {
+                          $previewvalue="";
+                       }
+                       else{
+                           $previewvalue=$get_comment['description'];
+                       }
                       ?>
-                      <input type="text" list="pic_type3" class="form-control stdImg"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>,'<?php echo $service ?>')" required placeholder="Name the pic"/>
+                      <input type="text" list="pic_type3" class="form-control stdImg"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $previewvalue; ?>" style="width:120px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>,'<?php echo $service ?>')" required placeholder="Name the pic"/>
                       <datalist id="pic_type3" />
 
 
