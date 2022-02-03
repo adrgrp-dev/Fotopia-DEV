@@ -450,15 +450,55 @@ foreach ($fi as $f) {
 //ZIP file
 if(isset($_POST['ZIP']))
 {
+
+
 $OrderCityState=mysqli_query($con,"select * from orders where id='$id_url'");
 $OrderCityState1=mysqli_fetch_array($OrderCityState);
 $property_city=$OrderCityState1['property_city'];
 $property_state=$OrderCityState1['property_state'];
 $timeRandom=rand(1000000000,9999999999);
 mkdir("../temp/$timeRandom");
-  if(isset($_POST['directory']))
+
+
+  if(isset($_REQUEST['imageType']))
   {
-   $dir=$_POST['directory'];
+    $dir=$_REQUEST['folderToZip'];
+
+
+
+
+   $path = $dir;
+
+if ($handle = opendir($path)) {
+    while (false !== ($file = readdir($handle))) {
+        if ('.' === $file) continue;
+        if ('..' === $file) continue;
+
+
+	/*$getrawImage=mysqli_query($con,"select image_name from image_naming where order_id='$id_url' and downloaded_raw_image_name='$file'");
+
+
+	$imgExist=mysqli_num_rows($getrawImage);
+	if($imgExist>0)
+	{
+	$getrawImage1=mysqli_fetch_array($getrawImage);
+
+	//$dir=str_replace("rework_images","raw_images",$dir);
+	
+	$file=$getrawImage1['image_name'];*/
+	if($file!='rework_approved')
+	{
+	 copy($dir."/".$file,"../temp/$timeRandom/".$file);
+	 //}
+	}
+
+    }
+
+	$dir="../temp/$timeRandom/";
+
+    closedir($handle);
+}
+
   }
 else{
   $image=@$_REQUEST['selected_image'];
@@ -471,16 +511,19 @@ foreach($image as $id)
 $get_image_query=mysqli_query($con,"select * from img_upload where id=$id");
 $get_image=mysqli_fetch_array(@$get_image_query);
 
+
+
 $file1=@$_POST['folderToZip']."/".@$get_image['img'];
 
   $file="../temp/$timeRandom/".@$get_image['img'];
-copy($file1,$file);
+copy($file1,strtoupper($file));
 }
   $dir = "../temp/$timeRandom";
   }
 
  $zip_file = "Fotopia_".$property_city."_".$property_state."_Order_".$id_url."_".$timeRandom.".zip";
 // Get real path for our folder
+
 $rootPath = realpath($dir);
 
 // Initialize archive object
@@ -514,7 +557,7 @@ foreach ($files as $name => $file)
 	$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 		$ParsedFileName=$ParsedFileNameIS[0]."-".$x.".".$file->getExtension();
 	$ParsedFileNameWithoutExtension=$ParsedFileNameIS[0]."-".$x;
-		if (file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF")) {
+		if (file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpg") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".png") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".jpeg") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".JPEG") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".PNG") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".gif") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".GIF") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".DNG") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".dng") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".CR2") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".cr2") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".NEF") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".nef") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".ARW") || file_exists("../temp/$timeRandom/".$ParsedFileNameWithoutExtension.".arw")) {
 		$x++;
 		}
 		else
@@ -543,8 +586,9 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($zip_file));
 readfile($zip_file);
 unlink($zip_file);
-delete_files("../temp/$timeRandom");
+unlinkr("../temp/$timeRandom");
 rmdir("../temp/$timeRandom");
+
 }
 
 
@@ -2101,7 +2145,7 @@ alert(alertmsg);
 float: right;top: -50px;position: relative;right: 10px;"/>
                                <input type="hidden" name="imageType" value="rework" />
 
-         <input type="hidden" name="folderToZip" value="<?php echo "./rework_images/order_".$id_url."/standard_photos"; ?>">
+         <input type="hidden" name="folderToZip" value="<?php echo "../rework_images/order_".$id_url."/standard_photos"; ?>">
                        <input type="hidden" name="Order_ID" id="getdata" value="<?php echo $id_url; ?>">
                           <input type="hidden" name="service_ID" value="<?php echo '1'; ?>">
 
@@ -3310,7 +3354,7 @@ if (@$_REQUEST['shar']) {
             //  document.getElementById("drone_msg").innerHTML = this.responseText;
             }
             };
-             xhttp.open("GET","./approved.php?id="+data, true);
+             xhttp.open("GET","../approved.php?id="+data, true);
              xhttp.send();
              window.location.href = "superOrder_detail.php?fo=1&id="+data;
            }
