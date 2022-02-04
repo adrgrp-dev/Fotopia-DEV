@@ -263,7 +263,7 @@ margin-left:0px!important;
 
 
                                 <p id="label_portfolio" adr_trans="label_portfolio" style="color:#000;" adr_trans="label_portfolio">Portfolio</p>
-                                <input id="portfolio" name="portfolio" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['portfolio']; ?>">
+                                <input id="portfolio" name="portfolio" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo @$res1['portfolio']; ?>">
 
 								</div>
 

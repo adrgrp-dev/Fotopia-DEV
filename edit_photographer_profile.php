@@ -169,7 +169,7 @@ p{
                                 <input id="contact_number" name="skills" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['skills']; ?>"></div>
 								  <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_contact_portfolio">Portfolio</p>
-                                <input id="contact_number" name="portfolio" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['portfolio']; ?>">
+                                <input id="contact_number" name="portfolio" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo @$res1['portfolio']; ?>">
                 </div>
                 <div class="col-md-6">
                 <p style="color:#000;" adr_trans="label_address_line1">Address line 1</p>

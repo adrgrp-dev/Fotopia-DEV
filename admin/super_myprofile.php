@@ -74,7 +74,7 @@ p{
 
 							<div class="col-md-12">
                                 <p id="label_portfolio" adr_trans="label_portfolio" style="color:#1D1E5F;">Portfolio</p>
-                                <input id="portfolio" name="portfolio" placeholder="portfolio link" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo $res1['portfolio']; ?>">
+                                <input id="portfolio" name="portfolio" placeholder="portfolio link" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo $res1['portfolio']; ?>">
                             </div>
 
 							<div class="col-md-12">
