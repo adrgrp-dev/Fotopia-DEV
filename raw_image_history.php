@@ -256,8 +256,8 @@ foreach(glob($dir . '/*') as $file) {
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                               ?>
-  <div class="col-md-2">
-      <center>  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
+  <div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+      <center>  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="150" style="border-radius:5px;"><br />
     <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
   </div>
                   <?php
@@ -292,8 +292,8 @@ $getImgName1=mysqli_fetch_array($getImgName);
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                          ?>
-<div class="col-md-2">
- <center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="180" height="150"><br>
+<div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;"> 
+ <center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="180" style="border-radius:5px;"><br>
  <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
 </div>
              <?php

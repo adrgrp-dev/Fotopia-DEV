@@ -121,22 +121,6 @@ $(this).attr("type","text");
 
 
 
-<script>
-
-var form_enabled = true;
-$().ready(function(){
-       // allow the user to submit the form only once each time the page loads
-       $('form').on('submit', function(){
-               if (form_enabled) {
-                       form_enabled = false;
-                       return true;
-               }
-
-               return false;
-        });
-});
-</script>
-
     <?php
 if(isset($_SESSION['admin_loggedin_type']))
 {
@@ -300,5 +284,22 @@ elseif ($usertype == 'CSR'){
 
 }
 
-
+if(strpos($currentPage, "superOrder_detail") != true)
+{
  ?>
+<script>
+
+var form_enabled = true;
+$().ready(function(){
+       // allow the user to submit the form only once each time the page loads
+       $('form').on('submit', function(){
+               if (form_enabled) {
+                       form_enabled = false;
+                       return true;
+               }
+
+               return false;
+        });
+});
+</script>
+<?php } ?>

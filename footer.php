@@ -109,18 +109,7 @@ $(this).attr("type","text");
 
 });
 
-var form_enabled = true;
-$().ready(function(){
-       // allow the user to submit the form only once each time the page loads
-       $('form').on('submit', function(){
-               if (form_enabled) {
-                       form_enabled = false;
-                       return true;
-               }
 
-               return false;
-        });
-});
 </script>
 
 <?php
@@ -218,10 +207,24 @@ if ($usertype == 'Realtor'){
 
  }
 
-
+if(strpos($currentPage, "photographerorder_detail") != true && strpos($currentPage, "order_detail") != true)
+{
  ?>
+<script>
 
+var form_enabled = true;
+$().ready(function(){
+       // allow the user to submit the form only once each time the page loads
+       $('form').on('submit', function(){
+               if (form_enabled) {
+                       form_enabled = false;
+                       return true;
+               }
 
-
+               return false;
+        });
+});
+</script>
+<?php } ?>
 </body>
 </html>
