@@ -441,7 +441,7 @@ if (@$_REQUEST['shar']) {
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
           ?>
-                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:2px 2px;">
+                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
@@ -464,13 +464,14 @@ if (@$_REQUEST['shar']) {
                       <a class="img-box i-center" href="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                           <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                          <img alt="" src="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" width="100" height="180"/>
+                          <img alt="" src="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" width="240" height="180"/>
                       </a>
                       <?php
                       $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
                       $get_comment=mysqli_fetch_assoc($get_comment_querry);
                       ?>
                     <!-- //  <p><span style="color:red;"></span><?php //echo $get_comment['comments'];?> </p> -->
+                    <center><span style="text-align:center"><?php echo @$checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1["created_on"]));?></span></center>
                   </div>
           <?php
          }
