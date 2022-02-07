@@ -388,22 +388,23 @@ while (($image = readdir($opendirectory)) !== false)
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
           ?>
-                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
+                    $commented = $get_comment['description'];
                     ?>
-                    <p><span style="color:red;">*</span><?php echo $get_comment['description']; ?></p>
-
+                
                       <a class="img-box i-center" href="<?php echo "raw_images/order_".$id_url."/".$service."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                           <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 <?php if(@$_REQUEST['rework'])
 {
 
 ?>
-    <img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
+    <img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:5px;"/>
+
 	<?php } else { ?>
-	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="100" height="80"/>
+	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:5px;"/>
 
 	<?php } ?>
                       </a>
@@ -411,7 +412,7 @@ while (($image = readdir($opendirectory)) !== false)
                       $get_comment_querry=mysqli_query($con,"select * from img_upload where order_id=$id_url and img='$image'");
                       $get_comment=mysqli_fetch_assoc($get_comment_querry);
                       ?>
-                      <p><span style="color:red;"></span><?php echo @$get_comment['comments'];?></p>
+                      <center><span style="text-align:center;margin-top: 5px;"><?php echo $commented."<br>"."Comments : ".$get_comment['comments']; ?></span></center>
                   </div>
 
 

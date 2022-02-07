@@ -325,7 +325,7 @@ $("#dayVal").val(calid);
                   <?php  }?>
                 </datalist>
                 */ ?>
-                    <center><span style="text-align:center"><?php echo $$get_comment['description']."<br>".date("d-m-Y h:i a",strtotime($get_comment["create_on"]));?></span></center>
+                    <center><span style="text-align:center"><?php echo $get_comment['description']."<br>".date("d-m-Y h:i a",strtotime($get_comment["created_on"]));?></span></center>
                   </div>
 
                   <script>
