@@ -34,7 +34,7 @@ opacity:1!important;
      $id_url=$_REQUEST["id"];
 
   ?>
-  <div class="maso-list gallery" style="border:solid 1px black; border-radius:20px 20px 0px 0px;margin-bottom:20px">
+  <div class="maso-list gallery" style="margin-bottom:20px;">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
       <?php
 
