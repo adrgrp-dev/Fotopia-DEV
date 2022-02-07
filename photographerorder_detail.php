@@ -395,11 +395,11 @@ border:none!important;
   display: inline;
   width: 100% !important;
   max-width: 50px !important;
-  top: 43px;
+  top: -12px;
   background:#AAD1D6;
   color:#000;
   border-radius:0px 20px 20px 0px;
-  padding: 11px 0px;
+  padding: 7px 0px;
   z-index: 1;
 }
 #imga1
@@ -407,7 +407,7 @@ border:none!important;
   float: right;
   width: 100% !important;
   max-width: 50px !important;
-  top: 50px;
+  top: 0px;
    background:#AAD1D6;
   color:#000;
   border-radius:20px 0px 0px 20px;
@@ -453,6 +453,12 @@ position: relative;
 float: right;
 top: -40px;
 }
+
+.img1,.img12,#img{
+
+  border-radius: 5px!important;
+}
+
 
 html{	background-color:#FFF; }
 
@@ -1654,7 +1660,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
 
 
-                                            <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                            <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 											<?php
 
 			$raw_images_standard = "./rework_images/order_".$id_url."/standard_photos/";
@@ -1672,11 +1678,17 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 	$imgurl=$imagesDirectory_standard."/".$image;
 	}
 										?>
+                     <?php
+                                                $get_img_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                                $get_img_name1=mysqli_fetch_assoc($get_img_name);
+
+                                                ?>
 
                                                 <a class="img-box i-center" href="<?php echo $imgurl; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                     <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                                                    <img alt="" id="img" src="<?php echo $imgurl; ?>" width="180" height="120"/>
+                                                    <img alt="" id="img" src="<?php echo $imgurl; ?>" width="240" height="180"/>
+                                                    <center><span style="text-align:center;margin-top: 5px;"><?php echo $get_img_name1['description']."<br>".date("d-m-Y h:i a",strtotime($get_img_name1['created_on'])); ?></span></center>
 
                                                 </a><hr class="space xs" />
                                                 <?php
@@ -1852,13 +1864,18 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                               ?>
 
 
+<?php
+                                                $get_img_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                                $get_img_name1=mysqli_fetch_assoc($get_img_name);
 
-                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                                ?>
+                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                   <a class="img-box i-center" href="<?php echo $imagesDirectory_floor."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                       <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                                                      <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="180" height="120"/>
+                                                      <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="240" height="180"/>
+                                                       <center><span style="text-align:center;margin-top: 5px;"><?php echo $get_img_name1['description']."<br>".date("d-m-Y h:i a",strtotime($get_img_name1['created_on'])); ?></span></center>
 
                                                   </a>
                                                   <?php
@@ -1989,7 +2006,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
 
 
-                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                   <a class="img-box i-center" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                       <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
@@ -2130,7 +2147,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
 
 
-                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                                              <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                   <a class="img-box i-center" href="<?php echo $imagesDirectory_Hdr."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                                       <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
@@ -2482,7 +2499,7 @@ function printPage()
                                                     <li class=""><a href="#">Drone Photos</a></li>
                                                       <li class=""><a href="#">Hdr Photos</a></li>
                                                 </ul> -->
-                                                  <div id="finished_images_standard_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px">
+                                                  <div id="finished_images_standard_photos" class="" style="border:solid 1px white; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px">
                                                   <div style="border-bottom: 1px solid black">
                                                     <?php
 
@@ -2584,7 +2601,7 @@ if (@$_REQUEST['shar']) {
                                                          <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                                          <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                                        <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                                        <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                           <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_standard."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2594,7 +2611,8 @@ if (@$_REQUEST['shar']) {
                                                               <i class="fa fa-square icons"  id="check<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
-                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                  <img alt="" class="img1" id="clicked_img<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" onclick="clickimg(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;margin-top:-50px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                  <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center>
 
                                                             <div id="myModal<?php echo $get_comment['id'];?>" class="modal" style="width:600px!important;">
                                                               <!-- Modal content -->
@@ -2646,7 +2664,7 @@ if (@$_REQUEST['shar']) {
                                                     </div>
                                                     </div>
                                                 </div>
-                                                    <div id="finished_images_floor_photos" class="" style="border:solid 1px black; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:block">
+                                                    <div id="finished_images_floor_photos" class="" style="border:solid 1px white; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:block">
                                                   <div style="border-bottom: 1px solid black">
                                                     <?php
 
@@ -2732,7 +2750,7 @@ if (@$_REQUEST['shar']) {
                                                          <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                                          <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                                        <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                                        <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                           <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_floor."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2741,7 +2759,8 @@ if (@$_REQUEST['shar']) {
                                                               <i class="fa fa-square icons2"  id="check2<?php echo $get_comment['id'];?>" style="position:revert !important;top:50px;font-size: 16px;"></i>
 
                                                           </a>
-                                                  <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                  <img alt="" class="img12" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" height="180" width="240" style="z-index: -1;margin-bottom:5px;margin-top:-50px;" onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
+                                                  <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center>
 
 
 
@@ -2851,7 +2870,7 @@ if (@$_REQUEST['shar']) {
                                                          <input type="checkbox" class="selectimg3"  name="selected_image[]" id="selected_image3<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                                          <input type="checkbox" class="selectall" name="allimage[]" id="selectall3" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                                        <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                                        <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                           <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2976,7 +2995,7 @@ if (@$_REQUEST['shar']) {
                                                          <input type="checkbox" class="selectimg4"  name="selected_image[]" id="selected_image4<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" />
                                                          <input type="checkbox" class="selectall" name="allimage[]" id="selectal4" value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                                        <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                                        <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                                           <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_hdr."/".$image; ?>" title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                                               <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>

@@ -602,7 +602,7 @@ visibility: hidden;
   display: inline;
   width: 100% !important;
   max-width: 40px !important;
-  top: 42px;
+  top: -12px;
   background:#AAD1D6;
   color:#FFF;
   border-radius:0px 20px 20px 0px;
@@ -615,7 +615,7 @@ visibility: hidden;
   float: right;
   width: 100% !important;
   max-width: 40px !important;
-  top: 50px;
+  top: 0px;
    background:#AAD1D6;
   color:#FFF;
   border-radius:20px 0px 0px 20px;
@@ -632,9 +632,9 @@ visibility: hidden;
 }
 #input2
 {
-  left: 20px;
+  left: 30px;
   width: 75% !important;
-  top: 180px;
+  top: 140px;
   color: #000;
   border: 1px solid #000 !important;
   border-radius: 11px;
@@ -655,7 +655,10 @@ i.fa{
   background: none !important;
 }
 
+.img1,.img12,#img{
 
+  border-radius: 5px!important;
+}
 
 
 .btn-default
@@ -1795,11 +1798,10 @@ if (@$_REQUEST['shar']) {
 
                                   // print_r($get_comment);
                                   ?>
-
                                    <input type="checkbox" class="selectimg"  name="selected_image[]" id="selected_image<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]"  value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?>" id="imga" href="<?php echo $imagesDirectory_standard."/".$image; ?>" title="<?php echo @$picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye" style="position:revert !important;top:50px;"></i>
@@ -1813,10 +1815,10 @@ if (@$_REQUEST['shar']) {
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)" title="<?php echo $get_comment['comments']; ?>" value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                      <?php }?>
                                     <a    onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                                   <img alt="" onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;margin-bottom:5px;width:100%">
+                                   <img alt="" onclick="clickimg(<?php echo $get_comment['id'];?>)" id="clicked_img<?php echo $get_comment['id'];?>"class="img1 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>"  title="<?php  echo @$get_comment['comments']; ?>" src="<?php echo $imagesDirectory_standard."/".$image; ?>" height="180" style="z-index: -1;width:100%;margin-top:-50px;margin-bottom: 5px">
                                       <?php if($get_comment['disapprove']==1){ ?>
                                   <i id="ban<?php echo $get_comment['id'];?>" title="<?php echo @$get_comment['comments']; ?>, So this picture is not accepted for rework" class="fa fa-times" style="position: absolute;
-    top: 206px;
+    top: 154px;
     right: 16px;
     color: #aad1d6;
     font-weight: 700;
@@ -1824,6 +1826,7 @@ if (@$_REQUEST['shar']) {
                               <?php } ?>
 
                                     </a>
+                                    <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center>
                                         <?php /*
    onclick="viewed(<?php echo $get_comment['id']?>)"
   "
@@ -1887,8 +1890,9 @@ if (@$_REQUEST['shar']) {
                                  
                                 ?>
 
-                               <div data-sort="1" class=" col-md-3 cat1" >
-                                <img class="img1" src="<?php echo $imagesDirectory_standard_rework."/".$image ?>"  height="180">
+                               <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
+                                <img class="img1" src="<?php echo $imagesDirectory_standard_rework."/".$image ?>"  height="180" style="margin-bottom: 5px;">
+                                 <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center>
                                </div>
                            
 
@@ -1925,8 +1929,9 @@ if (@$_REQUEST['shar']) {
                                  
                                 ?>
                                
-                                <div data-sort="1" class=" col-md-3 cat1" >
-                                <img class="img1" src="<?php echo $imagesDirectory_standard_accepted."/".$image ?>"  height="180" >
+                                <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
+                                <img class="img1" src="<?php echo $imagesDirectory_standard_accepted."/".$image ?>"  height="180" style="margin-bottom: 5px;">
+                                <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center>
                                 </div>
 
                                <?php 
@@ -2039,7 +2044,7 @@ if (@$_REQUEST['shar']) {
                                    <input type="checkbox" class="selectimg2"  name="selected_image[]" id="selected_image2<?php echo $get_comment['id'];?>" value="<?php echo $get_comment['id'];?>" style="display:none;" >
                                    <input type="checkbox" class="selectall" name="allimage[]" id="selectall2"value="<?php echo $get_comment['id'];?> " checked  style="display:none;" >
 
-                                  <div data-sort="1" class=" col-md-3 cat1" style="margin-right:-10px;margin-top: -50px;">
+                                  <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                                     <a class="img-box icons<?php echo $get_comment['id'];?> " id="imga" href="<?php echo $imagesDirectory_floor."/".$image; ?>"   title="<?php echo $picture_name1['description']; ?>" style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                         <i class="fa fa-eye " style="position:revert !important;top:50px;"></i>
@@ -2052,17 +2057,17 @@ if (@$_REQUEST['shar']) {
                                     <input type="text" id="input2"  onkeyup="singleComment(this.value,<?php echo $get_comment['id']; ?>)"  value="<?php echo $get_comment['comments']; ?>" class="input<?php echo $get_comment['id']; ?>"  style="visibility: hidden;" onmouseover="showicons(<?php echo $get_comment['id'];?>)">
                                     <?php } ?>
                                       <a onmouseover="showicons(<?php echo $get_comment['id'];?>)"   onmouseout="hideicons(<?php echo $get_comment['id'];?>)">
-                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-bottom:5px;">
+                            <img alt="" class="img12 <?php if($get_comment['disapprove']==1){ echo "nonviewed"; }?>" onclick="clickimg2(<?php echo $get_comment['id'];?>)" title="<?php  echo @$get_comment['comments']; ?>" id="clicked_img2<?php echo $get_comment['id'];?>" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="180" width="240" style="z-index: -1;margin-top:-50px;margin-bottom: 5px">
                             <?php if($get_comment['disapprove']==1){ ?>
                                   <i id="ban<?php echo $get_comment['id'];?>" class="fa fa-times" title="<?php echo @$get_comment['comments'];?>, So this picture is not accepted for rework" style="position: absolute;
-    top: 206px;
+    top: 154px;
     right: 16px;
     color: #aad1d6;
     font-weight: 700;
     padding: 2px; background:#FFF;padding:5px;"></i>
                               <?php } ?>
                           </a>
-                               
+                               <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center> 
                              <!--   onclick="viewed(<?php // echo $get_comment['id']?>)" -->
 
 
@@ -2127,8 +2132,9 @@ if (@$_REQUEST['shar']) {
                                  
                                 ?>
 
-                               <div data-sort="1" class=" col-md-3 cat1" >
-                                <img class="img1" src="<?php echo $imagesDirectory_floor_rework."/".$image ?>"  height="180">
+                               <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
+                                <img class="img1" src="<?php echo $imagesDirectory_floor_rework."/".$image ?>"  height="180" style="margin-bottom: 5px;">
+                                <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center> 
                                </div>
                            
 
@@ -2172,8 +2178,9 @@ if (@$_REQUEST['shar']) {
                                  
                                 ?>
                                
-                                <div data-sort="1" class=" col-md-3 cat1" >
-                                <img class="img1" src="<?php echo $imagesDirectory_floor_accepted."/".$image ?>"  height="180" >
+                                <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+                                <img class="img1" src="<?php echo $imagesDirectory_floor_accepted."/".$image ?>"  height="180" style="margin-bottom: 5px;" >
+                                <center><span style="text-align:center;margin-top: 5px;"><?php echo $checknaming1['description']."<br>".date("d-m-Y h:i a",strtotime($checknaming1['created_on'])); ?></span></center> 
                                 </div>
 
                                <?php 
