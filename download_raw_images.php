@@ -401,10 +401,10 @@ while (($image = readdir($opendirectory)) !== false)
 {
 
 ?>
-    <img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:5px;"/>
+    <img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:0px;"/>
 
 	<?php } else { ?>
-	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:5px;"/>
+	<img alt="" src="<?php echo $imagesDirectory.'/'.$image; ?>" width="240" height="180" style="margin-bottom:0px;"/>
 
 	<?php } ?>
                       </a>
