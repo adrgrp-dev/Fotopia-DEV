@@ -199,7 +199,12 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin: 16px;
+    margin-top:5px;
+    border:solid 2px #aaa;
+    padding:5px;
+    background:#ddd !important;
+    margin:15px;
+    border-radius:5px !important;
     min-height: 100px; }
     .dropzone .dz-preview:hover {
       z-index: 1000; }
@@ -268,7 +273,7 @@
       -webkit-filter: blur(8px);
       filter: blur(8px); }
     .dropzone .dz-preview .dz-image {
-      border-radius: 20px;
+      border-radius: 5px;
       overflow: hidden;
       width: 120px;
       height: 120px;

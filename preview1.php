@@ -343,10 +343,10 @@ var a;
 
                         ?>
 
-                        <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                        <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                             <a class="img-box i-center" href="<?php echo $imagesDirectory_standard."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                 <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
-                                <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>"   height="80"/>
+                                <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>"   height="150" width="240"/>
                             </a>
                             <?php
                           //  echo "SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'";
@@ -356,7 +356,7 @@ var a;
 						              	$stdPicCount=mysqli_num_rows($get_comment_querry);
                             ?>
                             <center>
-                              <input type="text" list="pic_type" class="form-control stdImg" size="" id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type" class="form-control stdImg" size="" id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:140px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type" />
                                 <option value="">choose your description</option>
                               <?php
@@ -457,18 +457,18 @@ var a;
                          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
                               <a class="img-box i-center" href="<?php echo $imagesDirectory_floor."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                   <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                                  <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="100" height="80"/>
+                                  <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" height="150" width="240"/>
                               </a>
                               <?php
                               $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                               $get_comment=mysqli_fetch_assoc($get_comment_querry);
 							 $floorPicCount=mysqli_num_rows($get_comment_querry);
                               ?>
-                              <input type="text" list="pic_type1"class="form-control stdImg1"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction1(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type1"class="form-control stdImg1"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:140px;margin-top:10px;" onchange="myFunction1(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type1" />
 
                    <option value="">choose your description</option>
@@ -563,7 +563,7 @@ var a;
 
 							  $dronePicCount=mysqli_num_rows($get_comment_querry);
                               ?>
-                              <input type="text" list="pic_type2" class="form-control stdImg2"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction2(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type2" class="form-control stdImg2"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:160px;margin-top:10px;" onchange="myFunction2(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type2" />
 
                    <option value="">choose your description</option>

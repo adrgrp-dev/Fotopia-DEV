@@ -215,7 +215,7 @@ foreach(glob($dir . '/*') as $file) {
 
                     </div>
                     
-                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;">Welcome to Fotopia</p>
+                      <p align="center" style="font-size: x-large;color: #000;margin-top: 10px;margin-right: 110px;">Welcome to Fotopia</p>
 
                     </div>
                 </div>
@@ -244,7 +244,7 @@ foreach(glob($dir . '/*') as $file) {
                          <?php } ?>
                          </form>
                          <br> <br>
-                  <div class="row" style="overflow:scroll;height:300px;box-shadow:10px 10px 10px 10px #ddd;background:#fff">
+                  <div class="row" style="overflow:scroll;height:300px;background:#fff;width:99%;margin-left:10px;">
 
 
               <?php
@@ -280,7 +280,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                 	  <?php } ?>
                   	</form>
                      <br> <br>
-           <div class="row" style="overflow:scroll;height:300px;box-shadow:10px 10px 10px 10px #ddd;background:#fff">
+           <div class="row" style="overflow:scroll;height:300px;background:#fff;width:99%;margin-left:10px;">
 
           <?php
              while($get_order=mysqli_fetch_assoc($get_order_query))
@@ -292,7 +292,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                          ?>
-<div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;"> 
+<div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;"> 
  <center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="180" style="border-radius:5px;"><br>
  <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
 </div>
