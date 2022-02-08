@@ -380,7 +380,12 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
                           elseif (!empty($_SESSION['starting_time'])) {
                             $start = $_SESSION['starting_time'];
                              $end = $_SESSION['ending_time'] ;
-														 $filterBy=$_SESSION['filterby'] ;
+                             if (isset($_SESSION['filterby'])) {
+                               
+                               $filterBy=$_SESSION['filterby'] ;
+                               
+                             }
+														 
 
                             if($_SESSION['admin_loggedin_type']=="PCAdmin")
                            {
@@ -466,7 +471,11 @@ $res="";
 	                          elseif (!empty($_SESSION['starting_time'])) {
 	                            $start = $_SESSION['starting_time'];
 	                             $end = $_SESSION['ending_time'] ;
-															 $filterBy=$_SESSION['filterby'] ;
+															 if (isset($_SESSION['filterby'])) {
+                               
+                               $filterBy=$_SESSION['filterby'] ;
+                               
+                             }
 
 	                            if($_SESSION['admin_loggedin_type']=="PCAdmin")
 	                           {
