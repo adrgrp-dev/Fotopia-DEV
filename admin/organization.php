@@ -32,6 +32,7 @@ include "connection.php";
  border-color:#5cb85c!important;*/
  background:#F2ADA8!important;
  border-color:#F2ADA8!important;
+ border-radius: 5px !important;
  }
   .adr-success
  {
@@ -184,7 +185,7 @@ if(isset($_REQUEST['fail'])) {
                       Thanks & Hope you come back with us soon!<br />
                       </h3>
                        <hr class="space m">
-                       <a class="anima-button btn-ms btn adr-success circle-button" style="" id="label_go_back_home" adr_trans="label_go_back_home" href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
+                       <a class="anima-button btn-ms btn adr-cancel circle-button" style="" id="label_go_back_home" adr_trans="label_go_back_home" href="../index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
                      </div>
                  </div>
              </div>
