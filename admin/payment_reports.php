@@ -59,7 +59,7 @@ if(isset($_REQUEST['loginbtn']))
 
                          <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a id="label_order_report" adr_trans="label_order_report" href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
-                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="appointment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
+                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
                               <li class="active"><a id="label_payment_report" adr_trans="label_payment_report" href="payment_reports.php" class="btn btn-default btn-sm adr-save ">Payment Report</a></li>
                                 </ul>
 <br />
@@ -85,21 +85,51 @@ var days = 1;
     return '0' + val;
 }
 
+function radioFilter(val)
+{
+  if(val=="Photographer")
+  {
+    $("#realtorDropdown").css("display","none");
+    $("#photographerDropdown").css("display","block");
+    $("#label_photographer_commission").css("display","block");
+    $("#value_photographer_commission").css("display","block");
+    $(".label_total").css("visibility","hidden");
+    $(".filter2").hide()
+    $(".newfilter2").show();
+  }
+  else{
+    $("#realtorDropdown").css("display","block");
+    $("#photographerDropdown").css("display","none");
+    $("#label_photographer_commission").css("display","none");
+    $("#value_photographer_commission").css("display","none");
+    $(".label_total").css("visibility","visible");
+    $(".filter2").show();
+    $(".newfilter2").hide();
+    
+
+  }
+}
+
 </script>
 <form>
 <div class="row">
-<div class="col-md-3" style="padding-left:15px;">
+<div class="col-md-2" style="padding-left:15px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date" style="padding-left:5px;">From date</h5></p>
 <input type="date" onchange="setSecondDate();" id="start"  name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;">
 </div>
-<div class="col-md-3" style="padding-left:10px;">
+<div class="col-md-2" style="padding-left:10px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date" style="padding-left:5px;">To date</h5></p>
 <input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>"class="form-control" style="">
 </div>
-<div class="col-md-3">
-<p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By Realtor</h5></p>
-<select name="realtor_id" class="form-control" list="realtors_list">
-<option value="">-- Choose RealtorCompany --</option>
+<div class="col-md-3" >
+  <p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By</h5></p>
+  <input type="radio" id="radioRealtor" name="filter" value="RealtorCompany" <?php if(@$_REQUEST['filter']!='Photographer'){ echo 'checked';} ?>  onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>RealtorCompany</span>&nbsp;&nbsp;
+ <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>Photographer</span>
+<?php } ?>
+</div>
+<div class="col-md-2" style="padding-top: 20px;">
+<select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="">
+<option value=0>-- Choose RealtorCompany --</option>
 						<?php
 
 						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
@@ -108,6 +138,32 @@ var days = 1;
 						?>
 						<option value="<?php echo $selectrealtor1['id']; ?>" <?php if($selectrealtor1['id']==@$_REQUEST['realtor_id']){ echo "selected"; }?>><?php echo $selectrealtor1['org']; ?></option>
 						<?php } ?>
+
+</select>
+<select name="photographer_id" id="photographerDropdown" class="form-control" list="realtors_list" style="display: none;">
+<option value=0>-- Choose Photographer --</option>
+            <?php
+            $loggedin_type=$_SESSION['admin_loggedin_type'];
+            $loggedin_id=$_SESSION['admin_loggedin_id'];
+            if($loggedin_type=="PCAdmin")
+            {
+            $selectphotographer=mysqli_query($con,"SELECT * FROM `user_login` where type_of_user='Photographer' and pc_admin_id=$loggedin_id");
+            }
+            elseif($loggedin_type=="CSR")
+            {
+             $selectphotographer=mysqli_query($con,"SELECT * FROM `user_login` where type_of_user='Photographer' and csr_id=$loggedin_id");
+            }
+            else
+            {
+              $selectphotographer=mysqli_query($con,"SELECT * FROM `user_login` where type_of_user='Photographer'");
+            }
+
+            while($selectphotographer1=mysqli_fetch_array($selectphotographer))
+            {
+            ?>
+            <option value="<?php echo $selectphotographer1['id']; ?>" <?php if($selectphotographer1['id']==@$_REQUEST['photographer_id']){ echo "selected"; }?>><?php echo $selectphotographer1['first_name']; ?></option>
+            <?php } 
+            ?>
 
 </select>
 
@@ -146,7 +202,7 @@ var days = 1;
                                             </span>
 
 
-                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
+                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center filter2" style="" ><span class="text">
 
                                            Products & Value
 
@@ -156,14 +212,8 @@ var days = 1;
                                             <span class="icon fa "></span></th>
 
 
-							<!--	<th data-column-id="logo" class="text-center" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
-
-                                          Photographer Cost
-
-
-                                            </span>
-                                <span class="icon fa "></span></a></th>-->
-								<th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_other_cost">
+								
+								<th data-column-id="logo" class="text-center filter2" style=""><span class="text" adr_trans="label_other_cost">
 
                                           Other Cost
 
@@ -171,9 +221,10 @@ var days = 1;
                                             </span>
                                 <span class="icon fa "></span></th>
 
-								<th data-column-id="logo" class="text-center" style=""><span class="text">
+								<th data-column-id="logo" class="text-center filter2" style=""><span class="text">
 <?php
 $taxpercentage=0;
+$filterWhereCondition="";
  $pc_admin_id=$_SESSION['admin_loggedin_id'];
  $taxpercent="";
 	 if($_SESSION['admin_loggedin_type']=="PCAdmin"){
@@ -198,21 +249,31 @@ $available=mysqli_num_rows($taxpercent);
                                             </span>
                                 <span class="icon fa "></span></th>
 
-								<th data-column-id="logo" class="text-center" style=""><span class="text" id="label_total_value" adr_trans="label_total_value">
+								<th data-column-id="logo" class="text-center filter2" style=""><span class="text" id="label_total_value" adr_trans="label_total_value">
 
                                           Total Value
 
 
                                             </span>
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th>
+                                <th data-column-id="logo" class="text-center newfilter2" style=" display: none;width: 170px;"><span class="text">
 
 
-                                          Photographer
-
+                                          Address
 
                                 </span>
 
-                                <span class="icon fa "></span></th><!-- <th data-column-id="logo" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                <span class="icon fa "></span></th>
+                                <th data-column-id="logo" class="text-center " style=""><span class="text"  id="label_photographer" adr_trans="label_photographer">
+
+
+                                         
+                                         Photographer
+
+                                </span>
+
+                                <span class="icon fa "></span></th>
+                                <!-- <th data-column-id="logo" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                             Realtor
 
@@ -231,14 +292,14 @@ $available=mysqli_num_rows($taxpercent);
 
 
 
-								 <!-- <th data-column-id="logo" class="text-center" style=""><span class="text" id="label_date_and_time" adr_trans="label_date_and_time">
+								<th data-column-id="more-info" id="label_photographer_commission" class="text-center" style="display: none;"><span class="text">
 
-                                              Date & Time
-
-                                 </span>
+                                           Photographer's Commission
 
 
-                                <span class="icon fa "></span></th> -->
+                                            </span>
+
+                                            <span class="icon fa "></span></th>
 
 
 
@@ -263,35 +324,64 @@ $available=mysqli_num_rows($taxpercent);
                             {
                               $_SESSION["page"]=1;
                             }
-							if(isset($_REQUEST['realtor_id']))
+                             $_SESSION['starting_time'] = @$_REQUEST['starting'];
+                             $_SESSION['ending_time'] = @$_REQUEST['ending'];
+							if(@$_REQUEST['filter']=="RealtorCompany")
 							{
-							$_SESSION['realtor_id'] = $_REQUEST['realtor_id'];
+							$_SESSION['realtor_id1'] = @$_REQUEST['realtor_id'];
+              // if(isset($_SESSION['photographer_id'])){unset($_SESSION['photographer_id'])}
 							}
-							else
+							elseif(@$_REQUEST['filter']=="Photographer")
+              {
+                $_SESSION['photographer_id1'] = @$_REQUEST['photographer_id'];
+                 // if(isset($_SESSION['realtor_id'])){unset($_SESSION['realtor_id'])}
+              }
+              else
 							{
-							unset($_SESSION['realtor_id']);
+							unset($_SESSION['realtor_id1']);
+              unset($_SESSION['photographer_id1']);
 							}
 
 						   $CSRWhereCondition="";
+               $photographer_id=@$_REQUEST['photographer_id'];
  if($_SESSION['admin_loggedin_type']=="CSR"){
  $csr_id=$_SESSION['admin_loggedin_id'];
+ if(@$_REQUEST['filter']=="Photographer" && $_SESSION['photographer_id1']!=0)
+ {
+  $photographer_id=$_SESSION['photographer_id1'];
+ $filterWhereCondition="and photographer_id=$photographer_id ";
+ }
+  elseif(@$_REQUEST['filter']=="RealtorCompany" && $_SESSION['realtor_id1']!=0){
+  $realtor_id=$_SESSION['realtor_id1'];
+  $filterWhereCondition="and realtor_id=$realtor_id ";
+ }
  $CSRWhereCondition=" and csr_id='$csr_id' ";
  }
  if($_SESSION['admin_loggedin_type']=="PCAdmin")
  {
   $pc_admin_id=$_SESSION['admin_loggedin_id'];
- $CSRWhereCondition=" and pc_admin_id='$pc_admin_id' ";
+  if(@$_REQUEST['filter']=="Photographer" && $_SESSION['photographer_id1']!=0)
+ {
+  $photographer_id=$_SESSION['photographer_id1'];
+ $filterWhereCondition="and photographer_id=$photographer_id";
+ }
+ elseif(@$_REQUEST['filter']=="RealtorCompany" && $_SESSION['realtor_id1']!=0){
+  $realtor_id=$_SESSION['realtor_id1'];
+  $filterWhereCondition="and realtor_id=$realtor_id  ";
+ }
+ $CSRWhereCondition="and pc_admin_id='$pc_admin_id' ";
  }
 
 
-if(!empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
+
+
+if(!empty($_SESSION['starting_time']) && (!empty($_SESSION['realtor_id1']) || !empty($_SESSION['photographer_id1']) ))
 {
  $start = $_SESSION['starting_time'];
   $end = $_SESSION['ending_time'] ;
-  $realtor_id = $_SESSION['realtor_id'] ;
-  $q1="select count(*) as total FROM `orders` where status_id=3 AND  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and realtor_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
+  $q1="select count(*) as total FROM `orders` where status_id=3 AND  DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' $filterWhereCondition $CSRWhereCondition  ORDER BY session_from_datetime asc ";
 }
-else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
+elseif(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id1'])) {
                             $start = $_SESSION['starting_time'];
                              $end = $_SESSION['ending_time'] ;
 
@@ -300,10 +390,10 @@ else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
 
 
                           }
-else if(empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
+elseif(empty($_SESSION['starting_time']) && (!empty($_SESSION['realtor_id1']) || !empty($_SESSION['photographer_id1'])))
 {
-  $realtor_id = $_SESSION['realtor_id'] ;
-  $q1="select count(*) as total FROM `orders` where status_id=3  and realtor_id='$realtor_id'  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
+
+  $q1="select count(*) as total FROM `orders` where status_id=3 $filterWhereCondition  $CSRWhereCondition  ORDER BY session_from_datetime asc ";
 }
 else
 {
@@ -311,10 +401,9 @@ else
 }
 
 
-
-
+                            //echo $q1;
                             $result=mysqli_query($con,$q1);
-                            $data=mysqli_fetch_assoc($result);
+                            @$data=mysqli_fetch_assoc(@$result);
                             $number_of_pages=50;
 
                             // total number of user shown in database
@@ -351,40 +440,38 @@ else
 
 
 
-                             $_SESSION['starting_time'] = @$_REQUEST['starting'];
-                             $_SESSION['ending_time'] = @$_REQUEST['ending'];
+                             
 
-                            $start = $_SESSION['starting_time'];
-                            $end = $_SESSION['ending_time'] ;
-
-
-if(!empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
-{
- $start = $_SESSION['starting_time'];
-  $end = $_SESSION['ending_time'] ;
-  $realtor_id = $_SESSION['realtor_id'] ;
-  $q2="select *  FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' and realtor_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
-}
-else if(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id'])) {
-                            $start = $_SESSION['starting_time'];
+                             $start = $_SESSION['starting_time'];
                              $end = $_SESSION['ending_time'] ;
 
 
-                              $q2="select * FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start' AND '$end' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
+if(!empty($_SESSION['starting_time']) && (!empty($_SESSION['realtor_id1']) || !empty($_SESSION['photographer_id1'])))
+{
+ $start1 = $_SESSION['starting_time'];
+  $end1 = $_SESSION['ending_time'] ;
+  $q2="select *  FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start1' AND '$end1' $filterWhereCondition $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
+}
+elseif(!empty($_SESSION['starting_time']) && empty($_SESSION['realtor_id1'])) {
+                            $start1 = $_SESSION['starting_time'];
+                             $end1 = $_SESSION['ending_time'] ;
+
+
+                              $q2="select *  FROM `orders` where status_id=3 and DATE(session_from_datetime)  BETWEEN  '$start1' AND '$end1'   $CSRWhereCondition ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
 
 
                           }
-else if(empty($_SESSION['starting_time']) && !empty($_SESSION['realtor_id']))
+elseif(empty($_SESSION['starting_time']) && (!empty($_SESSION['realtor_id1']) || !empty($_SESSION['photographer_id1'])))
 {
-  $realtor_id = $_SESSION['realtor_id'] ;
-  $q2="select *  FROM `orders` where status_id=3 and realtor_id='$realtor_id' $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
+  
+  $q2="select *  FROM `orders` where status_id=3 $filterWhereCondition $CSRWhereCondition  ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages	;
 }
 else
 {
   $q2="select *  FROM `orders` where status_id=3 $CSRWhereCondition ORDER BY session_from_datetime asc LIMIT " . $start_no_users . ',' . $number_of_pages;
 }
 
-//echo $q2;
+//echo "<br>".$q2;
                             $res2=mysqli_query($con,$q2);
 							$grandTotal=0;
                             if($res2)
@@ -445,7 +532,7 @@ else
 							   }
 
                             ?>
-                            <td class="text-center" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
+                            <td class="text-center filter2" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
 
 
 
@@ -460,13 +547,19 @@ else
                         {
                           $prodQuan.=$product_title['quantity'].',';
                         }
+                         
+                         $photography_query=mysqli_query($con,"SELECT sum(photography_cost) as photo_commission_cost,GROUP_CONCAT(product_id) FROM `photographer_product_cost` where product_id in (SELECT product_id FROM `order_products` where order_id in (select id from orders where status_id=3 and id=$order_id))");
+                         $photography_earning_cost=mysqli_fetch_assoc($photography_query);
+
+                         $home_seller_query=mysqli_query($con,"select * from home_seller_info where id in (select home_seller_id from orders where status_id=3 and id=$order_id)");
+                        $Home_seller_detail=mysqli_fetch_array($home_seller_query);
                           ?>
 
 
-							<td class="text-center" style=""><?php echo "$".$otherCost1['other_cost']; ?></td>
-							<td class="text-leenterft" style=""><?php echo "$".$taxation; ?></td>
-						<?php /*	<td class="text-center" style="" title="<?php  echo $photography1['photography_title']; ?>">$<?php  echo $photography1['photography_value']; ?></td> */ ?>
-                            <td class="text-center" style=""><?php echo "$".$totalOrderValue; ?></td>
+							
+							<td class="text-leenterft filter2" style=""><?php echo "$".$taxation; ?></td>
+						 	<td class="text-center filter2" style="" title="<?php  echo $photography1['photography_title']; ?>">$<?php  echo $photography1['photography_value']; ?></td>  
+                            <td class="text-center filter2" style=""><?php echo "$".$totalOrderValue; ?></td>
 
                             <?php
                             $photographer_id=$get_order2['photographer_id'];
@@ -474,6 +567,7 @@ else
                             $get_name=mysqli_fetch_array($get_photgrapher_name_query);
                             @$photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
                             ?>
+                            <td class="text-center newfilter2" style="display: none;width: 150px;word-wrap:break-word"><?php echo $Home_seller_detail['address']."<br>".$Home_seller_detail['city']." ".$Home_seller_detail['state']; ?></td>
                             <td class="text-center" style=""><?php echo $photographer_Name; ?></td>
                             <?php
                            $created_by_id=$get_order2['created_by_id'];
@@ -521,6 +615,18 @@ else
 							?>
 
 							</td>
+               <td class="text-center newfilter2" style="display: none"><?php
+
+                if (empty($photography_earning_cost['photo_commission_cost'])) {
+
+                   echo "$"."0";
+                }
+
+                else{
+
+               echo "$".$photography_earning_cost['photo_commission_cost']; 
+
+             } ?></td>
 
 
 
@@ -537,8 +643,8 @@ else
                             </tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
-													<tr><td colspan="5">&nbsp;</td>
-													<td style="font-weight:600;">TOTAL </td><td style="font-weight:600;">$<?php echo $grandTotal; ?></td>
+													<tr ><td colspan="5">&nbsp;</td>
+													<td style="font-weight:600;"  ><b class="label_total">TOTAL</b> </td><td style="font-weight:600;"><b class="label_total">$<?php echo $grandTotal; ?></b></td>
 													<td colspan="4">&nbsp;</td>
 													</tr>
 													</tbody>
@@ -546,17 +652,19 @@ else
                               </div>
 															<div id="undefined-footer" class="bootgrid-footer container-fluid">
 																<div class="row"><div class="col-sm-6">
-																	<ul class="pagination">
-																		<li class="first disabled" aria-disabled="true"><a href="./payment_reports.php?page=1" class="button">«</a></li>
-																		<li class="prev disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]-1);?>&realtor_id=<?php echo @$_REQUEST['realtor_id']; ?>" class="button">&lt;</a></li>
-																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
-																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]+1);?>&realtor_id=<?php echo @$_REQUEST['realtor_id']; ?>" class="button">&gt;</a></li>
-																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($Page_check);?>&realtor_id=<?php echo @$_REQUEST['realtor_id']; ?>" class="button">»</a></li></ul></div>
-																		<div class="col-sm-6 infoBar"style="margin-top:24px">
-																		<div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)>0){ echo " 0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p></div>
-																		</div>
-																	</div>
+                                  <ul class="pagination">
+                                    <li class="first disabled" aria-disabled="true"><a href="./payment_reports.php?page=1&filter=<?php echo @$_REQUEST['filter']?>" class="button">«</a></li>
+                                    <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]-1)."&filter=".@$_REQUEST['filter'];?>" class="button">&lt;</a></li>
+                                    <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
+                                    <li class="next disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]+1)."&filter=".@$_REQUEST['filter'];?>" class="button">&gt;</a></li>
+                                    <li class="last disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($Page_check)."&filter=".@$_REQUEST['filter'];?>" class="button">»</a></li></ul></div>
+                                    <div class="col-sm-6 infoBar"style="margin-top:24px">
+                                    <div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($total_no)<=0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span>
+                                    <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">entries</span></p></div>
+                                    </div>
+                                  </div>
 																</div>
+                                
 
 
 															<!-- <script type="text/javascript">
@@ -578,6 +686,8 @@ else
 															</script> -->
 
 <script type="text/javascript">
+
+
 function payment(){
 html2canvas($('#dataTable')[0], {
 onrendered: function(canvas) {
@@ -618,4 +728,30 @@ pdfMake.createPdf(docDefinition).download("Payment_Report.pdf");
 <script src="tableExport.js"></script>
 <script type="text/javascript" src="jquery.base64.js"></script>
 <script src="export.js"></script>
+
+<?php
+
+if(@$_REQUEST['filter']=='Photographer') { ?> 
+
+<script>
+  
+  $('#radioPhotographer').click();
+  radioFilter("Photographer");
+
+</script>
+
+<?php } 
+
+elseif(@$_REQUEST['filter']=='RealtorCompany') { ?>
+
+  <script>
+
+  $('#radioRealtor').click();
+   radioFilter("RealtorCompany");
+
+</script>
+
+<?php }?>
+
+
 		<?php include "footer.php";  ?>
