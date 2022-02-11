@@ -3825,7 +3825,7 @@ function updateScroll(){
 
                                                             <div id="tnc1" class="box-lightbox white" style="padding:25px;border-radius:25px 25px 25px 25px;width:300px;height:200px;">
                                                                <div class="subtitle g" style="color:#333333">
-                                                                 <h5 style="color:#333333" align="center" adr_trans="label_enter_share_mail">Enter the share Email</h5>
+                                                                 <h5 style="color:#333333" align="center" adr_trans="label_enter_share_mail">Enter the Email</h5>
                                                                     <hr>
                                                                     <center><span class="sub" id="error" style="color:green;"></span></center>
                                                                     <form   method="post" name="stdform" action="" onsubmit="">
