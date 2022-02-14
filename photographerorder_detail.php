@@ -2266,7 +2266,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                       <div class="panel" id="tab5">
 
 
-        <p align="right"><a class="anima-button circle-button btn-sm btn adr-save " style="position: relative;margin-right:85px;color:white !important;" id="mobileprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+        <p align="right"><a class="anima-button circle-button btn-sm btn adr-save " style="position: relative;margin-right:15px;margin-top: 5px;color:white !important;" id="mobileprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
       <link rel="stylesheet" href="./css/style_invoice.css">
       <!-- <script src="script.js"></script> -->
@@ -2316,13 +2316,13 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
               </th>
 			  <th style="width:40%;text-align:center" align="center">&nbsp;</th>
               <th  style="width:30%" align="right">
-                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:30px;float:right;
+                <p id="label_date_issue" adr_trans="label_date_issue" style="font-size:14px; margin-right:10px;float:right;
         "><strong> DATE OF ISSUE </strong><br></p>
               </th>
             </tr>
             <tr>
               <td style="width:30%" align="left">
-                <p style="font-size:11px;text-align:left;"> <?php echo $id_url; ?></p>
+                <p style="font-size:11px;text-align:left;margin-left: 5px;"> <?php echo  $id_url; ?></p>
               </td>
 			   <td style="width:40%" align="center">
                 <p style="font-size:11px;text-align:center;"> &nbsp;<?php // echo "FOT".@$invoice_check['invoice_id']; ?></p>
@@ -2349,10 +2349,10 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                 <tr><th><p style="font-size:14px;text-align:left"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
                   <th><p style="font-size:11px;text-align:left"><strong><?php  echo $get_name_create["organization_name"]?> </strong><br></p></th></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['address_line1']; echo " , ";
+                  <tr><td><p style="font-size:11px;margin-left:5px;"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px;"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px;"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
                   <br>
 
 
@@ -2373,9 +2373,9 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
               ?>
   <tr><th><p style="font-size:14px;text-align:right;padding-right:15px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
   <tr><th><p style="font-size:11px;text-align:right;padding-right:15px"><strong><?php  echo $photographer_Name; ?> </strong><br></p></th></tr>
-  <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
-  <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
-  <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
+  <tr><td><p style="font-size:11px;padding-right:15px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
+  <tr><td><p style="font-size:11px;padding-right:15px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
+  <tr><td><p style="font-size:11px;padding-right:15px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
 
 
 
