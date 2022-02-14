@@ -272,16 +272,16 @@ $get_realtor_info = mysqli_query($con,"select * from user_login where id='$realt
 $get_realtor_info1 = mysqli_fetch_array($get_realtor_info);
 $realtor_email = $get_realtor_info1['email'];
 
-   $mail->addAddress($realtor_email);
-
+  $mail->addAddress($_SESSION['admin_loggedin_email']);
 
   //Address to which recipient will reply
   $mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
-  //CC and BCC
-  //$mail->addCC("cc@example.com");
-  //$mail->addBCC("bcc@example.com");
-
+ //CC and BCC
+  if(!empty($realtor_email))
+  {
+    $mail->addCC($realtor_email);
+  }
   //Send HTML or Plain Text email
   $mail->isHTML(true);
 
