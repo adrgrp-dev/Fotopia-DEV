@@ -401,9 +401,9 @@ $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
 <?php } else { ?>
 <div class="btn-group navbar-left navbar-social" style="padding-right:10px;">
                                 <div class="btn-group social-group">
-				<a href="login.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Login
-	&nbsp;&nbsp; | &nbsp;&nbsp; </a>
-	<a target="" href="signup.php" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Signup</a>
+				<a href="login.php" adr_trans="label_login" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Login
+	 </a><p style="display: inline;position: relative;top: 6px;">&nbsp;&nbsp; | &nbsp;</p>
+	<a target="" href="signup.php" adr_trans="label_signup" style="font-weight:bold;vertical-align:middle;margin-top:10px;color:#000">Signup</a>
 	</div>
 <?php } ?></div>
 
