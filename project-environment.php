@@ -8,11 +8,16 @@ $dbhost = "localhost";
  $dbpass = "";
  $db = "photography_app";
  
+  $con = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+  
+  $configuration=mysqli_query($con,"select * from configuration where config_type='email'");
+ $configuration1=mysqli_fetch_array($configuration);
+ 
 // Email credentials
-$emailHost='smtp.office365.com';
-$emailUserID='test.deve@adrgrp.com';
-$emailPassword='ADRgroup@2022';
-$emailPort = 587;
+$emailHost=$configuration1['url'];
+$emailUserID=$configuration1['userid'];
+$emailPassword=$configuration1['pass'];
+$emailPort = $configuration1['port'];;
 $googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
 
 //$emailHost='smtp.gmail.com';
