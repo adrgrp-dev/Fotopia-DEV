@@ -2,7 +2,7 @@
 ob_start();
 include "connection.php";
 
-
+echo $_SESSION['Selected_Language_Session'];
 //Login Check
 if(isset($_REQUEST['loginbtn']))
 {

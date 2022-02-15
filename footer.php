@@ -38,6 +38,7 @@
     <script>
 $( document ).ready(function() {
 var lang="<?php if(isset($_SESSION['Selected_Language_Session'])) { echo $_SESSION['Selected_Language_Session']; } ?>";
+changeLanguage(lang);
 if(lang=="en")
 {
 loadfile="en.json";
@@ -207,7 +208,7 @@ if ($usertype == 'Realtor'){
 
  }
 
-if(strpos($currentPage, "photographerorder_detail") != true && strpos($currentPage, "order_detail") != true)
+if(strpos($currentPage, "photographerorder_detail") != true && strpos($currentPage, "order_detail") != true  && strpos($currentPage, "signup") != true)
 {
  ?>
 <script>

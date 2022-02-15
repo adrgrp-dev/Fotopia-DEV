@@ -20,6 +20,14 @@ $emailPassword=$configuration1['pass'];
 $emailPort = $configuration1['port'];;
 $googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
 
+
+
+if(!isset($_SESSION['Selected_Language_Session']))
+ {
+ $_SESSION['Selected_Language_Session']="en";
+ }
+
+
 //$emailHost='smtp.gmail.com';
 //$emailUserID='test.deve@adrgrp.com';
 //$emailPassword='adrgrp@123';
