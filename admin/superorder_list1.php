@@ -412,7 +412,7 @@ ul.pagination > li.last > a
               {
                 ?>
                 <tr>
-                  <td class="text-left hide" id="viewclick<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
+                  <td class="text-center hide" id="viewclick<?php echo $get_order['id']?>" colspan="8" style="background-color: white;
     color: black;" ><span id='label_comments' adr_trans='label_comments' style="color:red;font-size:13px;">Comments:</span><?php echo $get_order['comment'];?> </td>
                 </tr>
             <?php  }
