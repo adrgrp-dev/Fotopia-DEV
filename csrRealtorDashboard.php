@@ -366,7 +366,7 @@ margin-left:0px!important;
                                         </p>
 
                                         <br />
-                                        <a class="btn-sm" adr_trans="label_view" href="order_list.php?o=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+                                        <a class="btn-sm" adr_trans="label_view" href="order_list.php?O=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
                                         
                                     </div></div>
