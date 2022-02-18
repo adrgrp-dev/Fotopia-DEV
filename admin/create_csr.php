@@ -62,12 +62,19 @@ function email($template,$Password,$fname,$email,$secret_code,$con)
  $pcadmin_contact=$get_profile['contact_number'];
 
  $mail->Subject = $get_profile['organization_name']." has added you as a CSR";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">You are created as a CSR successful!</td>
- <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">YOU ARE SUCCESSFULLY REGISTERED AS A CSR!</td>
+ <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
  $mail->Body.=$template;
-$mail->Body.="<br> You have been added as a CSR for ".$get_profile['organization_name'];
-$mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> Reset your password and using a {{secret_code}} code.";
+$mail->Body.="Dear {{Name}},<br>";
+$mail->Body.=$template;
+$mail->Body.="
+You have been successfully registered as a CSR (Customer Service Representative) for ".$get_profile['organization_name']."<br>
+<a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> to reset your password using this secure code.<br><br>
+{{secret_code}}<br><br>
+Thanks,<br>
+Fotopia Team."
+;
 
 
    $url=$_SESSION['project_url']."admin/";
@@ -78,7 +85,7 @@ $mail->Body.="<br><a href='{{project_url}}resetPassword.php?email={{email}}&secr
   $mail->Body=str_replace('{{email}}',$email, $mail->Body);
    $mail->Body.="<br><br></td></tr></table></html>";
 	 $mail->Body.="<br><br></td></tr></table></html>";
-//	echo $mail->Body;exit;
+  //echo $mail->Body;exit;
  try {
 		 $mail->send();
 		 echo "Message has been sent successfully";
@@ -132,7 +139,7 @@ if(isset($_REQUEST['signupbtn']))
 
   }
 
-$select_admin = $_REQUEST['select_admin'];
+$select_admin = @$_REQUEST['select_admin'];
 
 	$city=$_REQUEST['city'];
 	$state=$_REQUEST['state'];
