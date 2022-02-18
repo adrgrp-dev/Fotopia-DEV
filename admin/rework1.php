@@ -49,18 +49,14 @@ function email($editor_fname,$photographer_Name,$order_id,$editor_email,$images_
 	$mail->isHTML(true);
 
 
-	$mail->Subject = "Rework assigned to editor";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REWORK ASSIGNED</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Subject = "Rework Assigned for order #F{{orderId}}";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REWORK ASSIGNED</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="
-  Hello {{Editor_Name}},<br>
+  Dear {{Editor_Name}},<br>
 
-You have been assigned for Photo Rework from {{photographer_Name}} through
-Fotopia with the order reference # F{{orderId}}.<br>
-
-For further details
-<a href='{{project_url}}' target='_blank'>click here</a>.
+Some of the pictures on order #F{{orderId}} requires rework.<br><br>Please refer to the comments in the application for details <a href='{{project_url}}' target='_blank'>click here</a>.
 
 <br><br>
 Thanks,<br>
@@ -68,10 +64,11 @@ Fotopia Team.";
 $imageurl=explode("=",$images_url);
    $link=$_SESSION['project_url']."download_raw_images.php?rework=1&secret_code=".$imageurl[1];
 
+	$mail->Subject=str_replace('F{{orderId}}',$order_id, $mail->Subject);
 	$mail->Body=str_replace('{{project_url}}',$link, $mail->Body);
   $mail->Body=str_replace('{{Editor_Name}}', $editor_fname , $mail->Body);
 	$mail->Body=str_replace('F{{orderId}}',$order_id, $mail->Body);
-  	$mail->Body=str_replace('{{photographer_Name}}',$photographer_Name, $mail->Body);
+  	// $mail->Body=str_replace('{{photographer_Name}}',$photographer_Name, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 	//echo $mail->Body;exit;
 	try {
