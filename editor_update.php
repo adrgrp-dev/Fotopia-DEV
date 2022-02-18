@@ -84,32 +84,31 @@ function email($order_id,$con)
 	//Send HTML or Plain Text email
 	$mail->isHTML(true);
 
-	$mail->Subject = "Editor has uploaded finished images";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR UPLOADED FINISHED IMAGES</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Subject = "Editor has uploaded finished images for order #{{orderId}} ";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR UPLOADED FINISHED IMAGES</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 	$mail->Body.="
 Hello {{realtor_Name}},<br>
 
-Finished images has been uploaded  for the order assignment
-#{{orderId}}, for further details please Login in to
-<a href='{{project_url}}' target='_blank'>Fotopia</a>.
+Finished images have been uploaded for the order #{{orderId}}.<br><br>For further details please check the order in <a href='{{project_url}}' target='_blank'>Fotopia</a>.
 
 <br><br>
 Thanks,<br>
 Fotopia Team.";
 
 $project_url=$_SESSION['project_url'];
-if($get_detail['status_id']==4)
-{
-	$mail->Body=str_replace('Finished images','Rework finished images', $mail->Body);
-}
+// if($get_detail['status_id']==4)
+// {
+// 	$mail->Body=str_replace('Finished images','Rework finished images', $mail->Body);
+// }
 
 	$mail->Body=str_replace('{{project_url}}',$project_url, $mail->Body);
   $mail->Body=str_replace('{{realtor_Name}}', $realtor_Name , $mail->Body);
 	$mail->Body=str_replace('{{orderId}}',$order_id, $mail->Body);
+	$mail->Subject=str_replace('{{orderId}}',$order_id, $mail->Subject);
   //	$mail->Body=str_replace('{{Editor_email}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-//	echo $mail->Body;exit;
+	// echo $mail->Body;exit;
 	try {
 	    $mail->send();
 	    echo "Message has been sent successfully";
