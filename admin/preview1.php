@@ -71,7 +71,7 @@ $get_order_pcadmin_id = $get_order_pcadmin1['pc_admin_id'];
 
 $get_email_content = mysqli_query($con,"select * from email_template where pc_admin_id='$get_order_pcadmin_id' and template_title='Raw images uploaded'");
 $get_email_content1 = mysqli_fetch_array($get_email_content);
-$get_content = $get_email_content1['template_body_text'];
+$get_content = @$get_email_content1['template_body_text'];
 
   $get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$id_url'");
   $get_detail=mysqli_fetch_array($get_orderdetail_query);
@@ -86,25 +86,25 @@ $get_content = $get_email_content1['template_body_text'];
 
 	$mail->Subject = "Raw Image Download Link";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">RAW IMAGE DOWNLOAD LINK</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 
 	$mail->Body.="
 {{content}}<br>
-Fotopia with the order assignment # F{{orderId}}.<br>
+Raw images for F{{orderId}} are available for editing. <br>
 <a href='{{project_url}}download_raw_images.php?secret_code={{secret_code}}'
-target='_blank'>Click here</a> to view and download the images.<br><br>
-You can upload the Finished images in the same link above.
-<br><br>
+target='_blank' style='color:blue;text-decoration:underline;'>Click here</a> to view and download the images. <br>Please use the same link to upload the images once completed. 
+ <br><br>
 Thanks,<br>
-Fotopia Team.
+Fotopia Team
+
 ";
   $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
   $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
   $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
-	$mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
+	$mail->Body=str_replace('F{{orderId}}',"Order#".$z, $mail->Body);
   	$mail->Body=str_replace('{{Editor_email}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 	//echo $mail->Body;exit;
