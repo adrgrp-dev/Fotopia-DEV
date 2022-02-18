@@ -50,16 +50,19 @@ function email($x,$y)
  $mail->isHTML(true);
 
  $mail->Subject = "Security code to change your Email";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Security code to Change Email</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Security code to Change Email</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
- $mail->Body.="
- Your security code to change your login email in Fotopia is {{security code here }}.
+ $mail->Body.="Dear {{username}}<br>
+A request to update your login email address has been submitted.<br>  
+Please find the security code to change your login email for Fotopia here.<br>
+<span style='color:blue'>{{security code here }}</span><br>
+
 
 <br><br>
 Thanks,<br>
 Fotopia Team.";
 
-
+     $mail->Body=str_replace('{{username}}', $_SESSION['admin_loggedin_name'] , $mail->Body);
 	 $mail->Body=str_replace('{{security code here }}', $x , $mail->Body);
 
 	 $mail->Body.="<br><br></td></tr></table></html>";
