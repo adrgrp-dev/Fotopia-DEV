@@ -49,8 +49,8 @@ $mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 //Send HTML or Plain Text email
 $mail->isHTML(true);
 
-$mail->Subject = "Signup Successful";
-$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REGISTRATION SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+$mail->Subject = @$_REQUEST['type']." Registration";
+$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\"> ".strtoupper($_REQUEST['type'])." REGISTRATION SUCCESSFUL</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -58,9 +58,8 @@ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,A
 
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
-You are successfully registered as a {{Type_of_user}}.<br>
-You will be notified in email when Fotopia Admin approved your registration. <br />
-You can login only after admin approved your account.
+You are successfully registered as a {{Type_of_user}} in our Fotopia application.<br>
+You will be notified via email once a Fotopia Admin approves your registration. (*Please note that you will not be able to login until approved).
 <br><br>
 Thanks,<br>
 Fotopia Team.";
