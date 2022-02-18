@@ -65,14 +65,15 @@ $xyz123=0;
   	//Send HTML or Plain Text email
   	$mail->isHTML(true);
 
-  	$mail->Subject = "Image Link shared with you through Fotopia";
-  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+  	$mail->Subject = "Your property pictures for {{order#}}";
+  	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED PICTURES LINK</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
   	//$mail->AltBody = "This is the plain text version of the email content";
-  	$mail->Body.="Hello {{Editor_email}},<br><br>
+  	$mail->Body.="Dear {{Editor_email}},<br><br>
 
-   Photo link shared from {{you}} through Fotopia <br><br>
+  The pictures for {{order#}} are completed and can be access via our Fotopia app
   <a href='{{link}}'
-  target='_blank'>Click here</a> to view the shared images.
+  target='_blank'>Click here</a>.<br>
+  Thank you for choosing Fotopia! 
 
   <br><br>
   Thanks,<br>
@@ -86,9 +87,11 @@ $xyz123=0;
   	// $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
     	$mail->Body=str_replace('{{Editor_email}}',$_REQUEST['email1'], $mail->Body);
       $mail->Body=str_replace('{{you}}',$_REQUEST['sharename'], $mail->Body);
+      $mail->Body=str_replace('{{order#}}',"Order#".@$_REQUEST['id'], $mail->Body);
+      $mail->Subject=str_replace('{{order#}}',"Order#".@$_REQUEST['id'], $mail->Subject);
   	$mail->Body.="<br><br></td></tr></table></html>";
-  	// echo $mail->Body;exit;
-    // exit;
+  	 // echo $mail->Body;exit;
+    //  exit;
   	try {
   	    $mail->send();
   	    //echo "Message has been sent successfully";
