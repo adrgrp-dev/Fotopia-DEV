@@ -68,8 +68,8 @@ In order to check your discounted rates, please check the Products tab after sel
 	$mail->Body.="<br><br></td></tr></table></html>";
 
 
-	 echo $mail->Body;
-	 exit;
+	 // echo $mail->Body;
+	 // exit;
 
 
 
