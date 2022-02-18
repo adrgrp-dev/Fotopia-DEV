@@ -55,29 +55,23 @@ function email($fname,$email,$admin_name,$organization,$con)
  $pcadmin_email=$get_profile['email'];
  $pcadmin_contact=$get_profile['contact_number'];
  $mail->Subject = "New editor created";
- $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Editor Created Successfully!</td>
- <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">EDITOR CREATED SUCCESSFULLY!</td>
+ <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
  //$mail->AltBody = "This is the plain text version of the email content";
- $mail->Body.="Hi {{name}},<br/>
+ $mail->Body.="Hi {{name}},<br/><br/>
 
-Welcome to Real Estate Photography world!<br/>
+Welcome to our Fotopia Real Estate Photography world. You have been chosen as an Editor for our {{organization}}. When they upload raw images, we will send you a link to download them for editing.<br/>
 
-You are chosen as an Editor for our company {{organization}}, we will send a link to download the Real estate raw images for editing.<br/>
-
-For further quires on how to download & upload raw images & finished image, please follow the tutorials given below.<br/>
-
-tutorial<br/>
-
-Thanks<br/>
-{{admin_name}}<br/>
-{{organization}}";
+<br/>
+Thanks,<br>
+Fotopia Team.";
 
 
 
  $mail->Body=str_replace('{{user_type}}','Editor', $mail->Body);
  $mail->Body=str_replace('{{organization}}',$organization, $mail->Body);
  $mail->Body=str_replace('{{name}}',$fname, $mail->Body);
- $mail->Body=str_replace('{{admin_name}}',$admin_name, $mail->Body);
+ // $mail->Body=str_replace('{{admin_name}}',$admin_name, $mail->Body);
 
 
 	 $mail->Body.="<br><br></td></tr></table></html>";
