@@ -43,12 +43,16 @@ function email($order_id,$realtor_email,$con)
 	 $home_seller_id=$get_detail['home_seller_id'];
 	 $pc_admin_id=$get_detail['pc_admin_id'];
 	 $from_date=@$get_detail['session_from_datetime'];
+   $end_time=@$get_detail['session_to_datetime'];
 	 $date=date_create($from_date);
+    $date1=date_create($end_time);
 	 $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
 	 $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
 	 $pcadmin_email=$get_profile['email'];
 	 $pcadmin_contact=$get_profile['contact_number'];
-	 $formated_date=date_format($date,"d F Y g:ia");
+	 $formated_date=date_format($date,"d F Y");
+   $formated_time=date_format($date,"g:ia");
+     $formated_time1=date_format($date1,"g:ia");
 	 $get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
 	 $get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
 	 $get_org=$get_pcadmindetail['organization_name'];
@@ -98,23 +102,31 @@ if($_REQUEST['edit']==1){
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 
-	$mail->Subject = "Appointment updated";
+	$mail->Subject = "Appointment date and time updated for order #{{Order_ID}}";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT UPDATED SUCCESSFULLY</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
-	$mail->Body.=$appointment_updated_template;
-  $mail->Body.="<br>Hi! <br>
-	{{Photographer_Name}} will come for Photography session,<br>
-  Appointment Session Date & Time - {{from}}.<br>
-  Kindly check the order #4 in the orders page for any details, Thank you for continued support.<br>
+
+  $mail->Body.="Hi!<br><br>";
+
+  $mail->Body.=$appointment_updated_template."<br><br>
+
+  {{Photographer_Name}} is scheduled to come out on <b>{{from}}</b>, from <b>{{from2}}</b> to <b>{{from3}}</b>.
+For further info, booking notes etc., please check order #{{Order_ID}} in the application.<br><br>
+
+If you have any questions or need to provide further info about the appointment, please chat with your customer service representative via the chat on the order.<br>Thank you for continued support.
+
 
   <br><br>
   Thanks,<br>
   Fotopia Team.";
 
+  $mail->Subject=str_replace('{{Order_ID}}', $order_id , $mail->Subject);
   $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
 	$mail->Body=str_replace('{{from}}', $formated_date , $mail->Body);
+  $mail->Body=str_replace('{{from2}}', $formated_time , $mail->Body);
+  $mail->Body=str_replace('{{from3}}', $formated_time1 , $mail->Body);
 	$mail->Body=str_replace('{{Photographer_Name}}', $photographer_Name , $mail->Body);
 
 	$mail->Body.="<br><br></td></tr></table></html>";
