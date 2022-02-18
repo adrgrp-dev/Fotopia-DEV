@@ -1,6 +1,7 @@
 <?php
- $_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
+$_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
 $application_url="http://fotopia.adrgrp.com/photo-dev";
+$support_team_email="info@fotopia.com";
 
 //Database Credentials
 $dbhost = "localhost";
@@ -36,6 +37,7 @@ $_SESSION['emailHost']=$emailHost;
 $_SESSION['emailUserID']=$emailUserID;
 $_SESSION['emailPassword']=$emailPassword;
 $_SESSION['emailPort']=$emailPort;
+$_SESSION['support_team_email']=$support_team_email;
 
 
 ?>
