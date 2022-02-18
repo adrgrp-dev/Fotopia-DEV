@@ -56,21 +56,21 @@ function email($y,$z,$type_of_user)
 	//Send HTML or Plain Text email
 	$mail->isHTML(true);
 
-	$mail->Subject = "Your account approved by admin";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ADMIN APPROVED YOUR ACCOUNT SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Subject = $type_of_user." Registration Approved";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">".strtoupper($type_of_user)." REGISTRATION APPROVED SUCCESSFUL!</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 
 
 	$mail->Body.="Dear {{Registrered_User_Name}},<br><br>
 
-Welcome to Fotopia!<br><br>
+Your account has been approved by our Fotopia Admin team.<br>
+<a href='{{project_url}}' target='_blank'>click here</a> to login to your Fotopia account.<br>
+Thank you for choosing Fotopia! We look forward to saving you time by simplifying your real-estate photography experience.<br>
+Know someone else that might benefit from using Fotopia? login to invite other real-estate agents or PhotoCompany into our community.<br>
 
-Your account has been approved by Fotopia Admin Team.<br>
-<a href='{{project_url}}' target='_blank'>click here</a>
-to login in to your Fotopia account.
-<br>
-{{Instructions}}
+Your account has been approved by Fotopia Admin Team.<br>{{Instructions}}
+
 <br>
 Thanks,<br>
 Fotopia Team.";
@@ -93,13 +93,13 @@ $Instructions="<br>As a Photo Company, Kindly do all the below steps to continue
 		6.	Set custom price for photographers (Commissions)<br>
 		7.	Create an Editor <br><br>
 */
-$mail->Body=str_replace('{{Instructions}}', $Instructions , $mail->Body);
+$mail->Body=str_replace('{{Instructions}}', @$Instructions , $mail->Body);
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url']."admin/index.php" , $mail->Body);
 }
 
 	$mail->Body=str_replace('{{Registrered_User_Name}}',$y, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-	 // echo $mail->Body;exit;
+	  //echo $mail->Body;exit;
 
 
 
