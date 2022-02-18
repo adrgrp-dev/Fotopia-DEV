@@ -88,24 +88,28 @@ function email($template,$pc_admin_id,$email,$organization,$fname,$con)
   //<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Send invite successfully</td>
   //<td align=\"right\"><img src=\"data:".$get_profile['logo_image_type'].";base64,".base64_encode($get_profile['logo'])."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>
 
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Invitation to join Fotopia</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">INVITATION TO JOIN FOTOPIA</td>
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
  
 
-	$mail->Body.=$template;
+	$mail->Body.=$template."<br><br>";
 
 $mail->Body .= "<a href='{{project_url}}signup.php'
-  target='_blank'>Click here</a> to register with Fotopia application.";
+  target='_blank'>Click here</a> to register with Fotopia application.
+
+  <br><br>
+  Thanks,<br>
+  Fotopia Team.";
 
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
   $mail->Body=str_replace('{{organization}}', $organization , $mail->Body);
 	$mail->Body=str_replace('{{name}}',$fname, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 
-    echo $mail->Body;
-   //exit;
+    //echo $mail->Body;
+    // exit;
 
 
 	try {
@@ -125,7 +129,7 @@ if(isset($_REQUEST['email']))
   $pc_admin_id=$_SESSION['admin_loggedin_id'];
 	$get_template_query=mysqli_query($con,"SELECT * FROM `email_template` WHERE template_title='Inviting new clients' and pc_admin_id='$pc_admin_id'");
   $get_template=mysqli_fetch_assoc($get_template_query);
-	$template=$get_template['template_body_text'];
+	$template=@$get_template['template_body_text'];
 	$email=$_REQUEST['email'];
 	$get_organization_query=mysqli_query($con,"select * from admin_users where id=$pc_admin_id");
 	$get_organization=mysqli_fetch_assoc($get_organization_query);

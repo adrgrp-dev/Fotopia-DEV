@@ -63,7 +63,7 @@ $mail->Body = "<html><head><style>.button {
   display: inline-block;
   font-size: 16px;
 }
-.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">USER REGISTRATION SUCCESSFUL</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">USER REGISTRATION SUCCESSFUL</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -71,8 +71,8 @@ $mail->Body = "<html><head><style>.button {
 
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
-{{Organisation_Name}} has created you as a {{Type_of_user}} with fotopia application .<br>
-To register with Fotopia App please follow the options below, <br />
+Fotopia has created you as a {{Type_of_user}} in our fotopia application.<br>
+To complete the registration,please follow the options below. <br />
 <br><br>
 <a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&user_type={{Type_of_user}}&approve=1' class='button' style='background:#5cb85c !important' >Proceed</a>&nbsp;&nbsp;<a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&approve=0' class='button' style='background:#d9534f !important'>Decline</a>
 <br><br>
@@ -81,13 +81,18 @@ Thanks,<br>
 Fotopia Team.";
 
 $mail->Body.="<br><br></td></tr></table></html>";
+
+if($type_of_user=="Photo Company")
+{
+	$type_of_user="Photo Company Admin";
+}
 $mail->Body=str_replace('{{Type_of_user}}',$type_of_user, $mail->Body);
 $mail->Body=str_replace('{{project_url}}',$_SESSION['project_url'], $mail->Body);
 $mail->Body=str_replace('{{Organisation_Name}}','Fotopia', $mail->Body);
 $mail->Body=str_replace('{{id}}',$id, $mail->Body);
 $mail->Body=str_replace('{{profile_id}}',$profile_id, $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$first_name, $mail->Body);
-// echo $mail->Body;exit;
+//echo $mail->Body;exit;
 
 
 
