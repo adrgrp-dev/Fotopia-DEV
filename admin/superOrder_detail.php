@@ -287,7 +287,7 @@ $realtor_email = $get_realtor_info1['email'];
 
     $mail->Subject = "Order Declined";
    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">ORDER HAS BEEN DECLINED</td>
-  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+  <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
     //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -303,19 +303,23 @@ $get_content = @$get_email_content1['template_body_text'];
 
     $mail->Body.="
 {{content}}<br><br>
-Kindly check the order #{{Order_ID}} in your orders page for details.<br>
-Thank you for continued support.
+{{photocompany}} was not able to accommodate your order at this time. <br>
+Kindly check {{Order_ID}} in your orders page for details.<br>
+Thank you for your continued support.
+
 
 
   <br><br>
   Thanks,<br>
   Fotopia Team.
   ";
+      $mail->Body=str_replace('{{photocompany}}', $_SESSION['admin_loggedin_org'], $mail->Body);
       $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
-      $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
-    $mail->Body.="<br><br></td></tr></table></html>";
+      $mail->Body=str_replace('{{Order_ID}}',"Order#".$id_url, $mail->Body);
+      $mail->Body.="<br><br></td></tr></table></html>";
 
-
+  // echo $mail->Body;
+  // exit;
 
     try {
       $mail->send();
