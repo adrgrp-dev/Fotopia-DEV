@@ -41,9 +41,13 @@ function email($order_id,$condition,$con)
 	$get_detail=mysqli_fetch_array($get_orderdetail_query);
 	$pc_admin_id=$get_detail['pc_admin_id'];
 	$from_date=$get_detail['session_from_datetime'];
+  $end_date=$get_detail['session_to_datetime'];
 	$date=date_create($from_date);
+  $date1=date_create($end_date);
 	$realtor_email=$_SESSION['loggedin_email'];
-  $formated_date=date_format($date,"Y/m/d H:i:s");
+  $formated_date=date_format($date,"d/m/Y");
+  $formated_time=date_format($date,"H:ia");
+  $formated_time1=date_format($date1,"H:ia");
 	$get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
 	$get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
 	$get_org=$get_pcadmindetail['organization_name'];
@@ -104,17 +108,21 @@ elseif($condition=="book online")
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
 	$mail->Subject = "New Appointment Created.";
-	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT CREATEED SUCCESSFULLY</td><td align=\"right\">info@fotopia.com<br>343 4543 213</td></tr><tr><td colspan=\"2\"><br><br>";
+	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ONLINE BOOKING SCHEDULED</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
 
 
 
-	$mail->Body.="Hello {{PCAdmin Company name}},<br><br>
+	$mail->Body.="Dear {{PCAdmin Company name}},<br><br>
 
-You Have a Photography Session Schedule For
-{{DateAndTime}} with reference to Order # F{{orderId}}.<br>
-Please arrive 10 minutes prior to your session,
-for further details please login to <a href='{{project_url}}'>Fotopia</a>.<br>
+You have been booked for a photography session by {{Realtor_name}}.<br>
+
+<br><b>
+Order #F{{orderId}},<br>
+Date {{DateAndTime}},<br>
+From {{DateAndTime2}} to {{DateAndTime3}},</b><br><br>
+
+For further information including booking notes please login to <a href='{{project_url}}'>Fotopia</a>.Should you have any questions or clarifications, please chat with your customer service representative via the chat on the order.<br><br>
 Thank you for continued support.
 
 <br><br>
@@ -124,6 +132,9 @@ Fotopia Team.";
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
 	$mail->Body=str_replace('F{{orderId}}', $order_id , $mail->Body);
 	$mail->Body=str_replace('{{DateAndTime}}',$formated_date, $mail->Body);
+  $mail->Body=str_replace('{{DateAndTime2}}',$formated_time, $mail->Body);
+  $mail->Body=str_replace('{{DateAndTime3}}',$formated_time1, $mail->Body);
+  $mail->Body=str_replace('{{Realtor_name}}', $_SESSION['loggedin_name'] , $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
 	// echo $mail->Body;
 	// exit;
