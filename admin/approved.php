@@ -48,6 +48,7 @@
   	$get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
   	$pcadmin_email=$get_profile['email'];
   	$pcadmin_contact=$get_profile['contact_number'];
+   $pcadmin_org=$get_profile['organization_name'];
     $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Order Cost'");
  	  $get_template=mysqli_fetch_array($get_template_query);
  	  $order_cost_template=$get_template['template_body_text'];
@@ -58,13 +59,15 @@
     $mail->addAddress($realtor_email);
    	$mail->isHTML(true);
 
-   	$mail->Subject = "Order Cost";
-    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER COST</td>
-    <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">info@fotopia.com<br>343 4543 213</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
+   	$mail->Subject = "Order Cost Approved";
+    $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">ORDER COST APPROVED</td>
+    <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
    	//$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.=$order_cost_template;
    	$mail->Body.="
-    </br>Kindly check the order #{{Order_ID}} in your orders page for details</br>
+    </br>The cost on the order #{{Order_ID}} has been approved by {{Organization_Name}}. Please check the orders page for details</br>
+
+
 Thank you for continued support.
 <br><br>
 Thanks,<br>
@@ -72,6 +75,7 @@ Fotopia Team.";
 
 
    	  $mail->Body=str_replace('{{Order_ID}}',$order_id, $mail->Body);
+        $mail->Body=str_replace('{{Organization_Name}}',$pcadmin_org, $mail->Body);
 
    	  $mail->Body.="<br><br></td></tr></table></html>";
    	// echo $mail->Body;exit;
