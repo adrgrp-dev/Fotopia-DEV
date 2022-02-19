@@ -42,6 +42,7 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
     // // //Recipient name is optional
     // //;
     // ;
+	//$mail->SMTPDebug  = 1;
      $mail->addAddress($_REQUEST['email']);
 
 
@@ -68,6 +69,8 @@ $realtor_full_name1=mysqli_fetch_array($realtor_full_name);
   Thanks,<br>
   Fotopia Team.
   ";
+  
+  
     // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
     // $link=explode('?',$_REQUEST['link1']);
     $link1=$_SESSION['project_url']."signup.php";
