@@ -122,10 +122,12 @@ $(this).attr("type","text");
 
 
     <?php
+    $currentPage=$_SERVER['PHP_SELF'];
+    
 if(isset($_SESSION['admin_loggedin_type']))
 {
 $usertype = $_SESSION['admin_loggedin_type'];
-$currentPage=$_SERVER['PHP_SELF'];
+
 
 if ($usertype == 'FotopiaAdmin'){
 

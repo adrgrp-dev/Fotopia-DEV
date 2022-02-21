@@ -1890,8 +1890,13 @@ if (@$_REQUEST['shar']) {
                                  }
                                  if(!is_dir($imagesDirectory_standard_rework."/".$image))
                                  {
+
+                                  $checknaming=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                  $checknaming1=mysqli_fetch_assoc($checknaming);
                                  
                                 ?>
+
+
 
                                <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
                                 <img class="img1" src="<?php echo $imagesDirectory_standard_rework."/".$image ?>"  height="180" style="margin-bottom: 5px;">
@@ -1929,6 +1934,9 @@ if (@$_REQUEST['shar']) {
                                  {
                                    continue;
                                  }
+
+                                 $checknaming=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                  $checknaming1=mysqli_fetch_assoc($checknaming);
                                  
                                 ?>
                                
@@ -2133,6 +2141,9 @@ if (@$_REQUEST['shar']) {
                                  if(!is_dir($imagesDirectory_floor_rework."/".$image))
                                  {
                                  
+                                  $checknaming=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                  $checknaming1=mysqli_fetch_assoc($checknaming);
+
                                 ?>
 
                                <div data-sort="1" class=" col-md-3 cat1" style="border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;" >
@@ -2178,6 +2189,9 @@ if (@$_REQUEST['shar']) {
                                  {
                                    continue;
                                  }
+
+                                  $checknaming=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image'");
+                                  $checknaming1=mysqli_fetch_assoc($checknaming);
                                  
                                 ?>
                                
