@@ -130,7 +130,7 @@ color:#000!important;
 		$taxPercent=$tax['tax'];
 		?>
 
-					<div id="lb2" class="box-lightbox col-md-4" style="padding:0px;color:#000!important;border-radius:25px;">
+					<div id="lb2" class="box-lightbox col-md-4" style="padding:20px;border-radius:25px;color:#000!important;">
                    <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table table-striped" style="width:100%;"><tr><td>
 					
