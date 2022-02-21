@@ -3382,7 +3382,7 @@ if (@$_REQUEST['shar']) {
             //  document.getElementById("drone_msg").innerHTML = this.responseText;
             }
             };
-             xhttp.open("GET","../approved.php?id="+data, true);
+             xhttp.open("GET","approved.php?id="+data, true);
              xhttp.send();
              window.location.href = "superOrder_detail.php?fo=1&id="+data;
            }
