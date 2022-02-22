@@ -107,9 +107,9 @@ function email($order_id,$realtor_email,$con)
 Appointment Session Date & Time - {{from}}.<br>
 Kindly check the order #4 in the orders page for any details, Thank you for continued support.<br>
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.";
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.";
 
   $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);
 	$mail->Body=str_replace('{{from}}', $formated_date , $mail->Body);

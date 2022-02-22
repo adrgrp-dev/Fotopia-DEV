@@ -73,9 +73,9 @@ if(isset($_REQUEST['link1']))
   target='_blank'>Click here</a>.<br>
   Thank you for choosing Fotopia! 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.
 ";
   // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
   $link=explode('?',$_REQUEST['link1']);

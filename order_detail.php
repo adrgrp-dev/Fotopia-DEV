@@ -75,9 +75,9 @@ $xyz123=0;
   target='_blank'>Click here</a>.<br>
   Thank you for choosing Fotopia! 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.
   ";
     // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
     $link=explode('?',$_REQUEST['link1']);
@@ -172,8 +172,7 @@ $order_pc_admin_email = $get_pc_admin_details1['email'];
     //$mail->AltBody = "This is the plain text version of the email content";
     $mail->Body.="Dear {{PCAdmin Company name}},<br><br>
 
-Order with Assignment No. #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br>
-
+Order with Assignment No. #{{order no}} has been cancelled by the realtor {{realtor name}}<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.
 ";

@@ -59,9 +59,9 @@ function email($x,$y,$z)
  You will be notified in email when Company approved your registration. <br />
  you can resetpassword using secret code <b>{{project_url}}</b>.
  <a href='http://fotopia.adrgrp.com/photo/admin/resetPassword.php?email={{email}}&secret_code={{project_url}}' target='_blank'>ResetPassword</a>
- <br><br>
- Thanks,<br>
- Fotopia Team.";
+ <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.";
 
 
    $mail->Body=str_replace('{{project_url}}',$z, $mail->Body);

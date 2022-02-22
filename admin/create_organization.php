@@ -75,8 +75,7 @@ Fotopia has created you as a {{Type_of_user}} in our fotopia application.<br>
 To complete the registration,please follow the options below. <br />
 <br><br>
 <a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&user_type={{Type_of_user}}&approve=1' class='button' style='background:#5cb85c !important' >Proceed</a>&nbsp;&nbsp;<a href='{{project_url}}admin/organization.php?id={{id}}&profile_id={{profile_id}}&approve=0' class='button' style='background:#d9534f !important'>Decline</a>
-<br><br>
-
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 

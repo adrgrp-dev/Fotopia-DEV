@@ -61,9 +61,9 @@ In order to check your discounted rates, please check the Products tab after sel
 
 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.";
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.";
 
 	$mail->Body.="<br><br></td></tr></table></html>";
 

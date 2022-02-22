@@ -116,7 +116,7 @@ function email($order_id,$con)
 	$mail->Body.=$finished_image_upload_template;
   $mail->Body.="</br>Kindly check the order #{{Order_ID}} in your orders page for details</br>
 Thank you for continued support.
- <br><br>
+ <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
  $mail->Body=str_replace('{{Order_ID}}',$order_id, $mail->Body);

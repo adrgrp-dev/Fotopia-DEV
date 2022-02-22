@@ -99,9 +99,9 @@ function email($template,$pc_admin_id,$email,$organization,$fname,$con)
 $mail->Body .= "<a href='{{project_url}}signup.php'
   target='_blank'>Click here</a> to register with Fotopia application.
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.";
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.";
 
 	$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'] , $mail->Body);
   $mail->Body=str_replace('{{organization}}', $organization , $mail->Body);

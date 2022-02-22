@@ -73,7 +73,7 @@ Your Secret Code is : {{secret_code}}<br><br>
 <a href='{{project_url}}/resetPassword.php?email={{user_email}}' target='_blank'>
 Click here</a> to reset your password
 
-<br><br>
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
   $mail->Body=str_replace('{{secret_code}}', $x , $mail->Body);

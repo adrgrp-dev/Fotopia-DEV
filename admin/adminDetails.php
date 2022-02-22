@@ -60,7 +60,7 @@ Welcome to Fotopia!<br><br>
 Your account has been approved by Fotopia Admin Team.<br>
 <a href='{{project_url}}/login.php' target='_blank'>click here</a>
 to login in to your Fotopia account.
-<br><br>
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 

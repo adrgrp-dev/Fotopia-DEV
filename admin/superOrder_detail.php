@@ -142,9 +142,9 @@ if(isset($_REQUEST['link1']))
   <a href='{{link}}'
   target='_blank'>Click here</a> to view the Order Cost.<br><br>
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.
   ";
     // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
     $link1=$_SESSION['project_url']."invoice.php?id=".$_REQUEST['invoice'];
@@ -170,9 +170,9 @@ if(isset($_REQUEST['link1']))
   target='_blank'>Click here</a>.<br>
   Thank you for choosing Fotopia! 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.
 ";
   // $mail->Body=str_replace('{{secret_code}}', $v , $mail->Body);
 
@@ -307,9 +307,9 @@ Thank you for your continued support.
 
 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.
   ";
       $mail->Body=str_replace('{{photocompany}}', $_SESSION['admin_loggedin_org'], $mail->Body);
       $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);

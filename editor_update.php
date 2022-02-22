@@ -93,7 +93,7 @@ Hello {{realtor_Name}},<br>
 Finished images have been uploaded for the order #{{orderId}}.<br><br>For further details please check the order in <a href='{{project_url}}' target='_blank'>Fotopia</a>.<br>
 Thank you for continued support.
 
-<br><br>
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 

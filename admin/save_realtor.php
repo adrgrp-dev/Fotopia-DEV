@@ -100,8 +100,7 @@ $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 To register with Fotopia App please follow the options below, <br />
 <br><br>
 <a href='{{project_url}}admin/Realtor_approve.php?id={{id}}&profile_id={{profile_id}}&user_type={{Type_of_user}}&approve=1' class='button' style='background:#5cb85c !important;padding:5px;' >Proceed</a>&nbsp;&nbsp;<a href='{{project_url}}admin/Realtor_approve.php?id={{id}}&profile_id={{profile_id}}&approve=0' class='button' style='background:#d9534f !important;padding:5px'>Decline</a>
-<br><br>
-
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 

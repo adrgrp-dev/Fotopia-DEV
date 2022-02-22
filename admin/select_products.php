@@ -118,9 +118,9 @@ For further info, booking notes etc., please check order #{{Order_ID}} in the ap
 If you have any questions or need to provide further info about the appointment, please chat with your customer service representative via the chat on the order.<br>Thank you for continued support.
 
 
-  <br><br>
-  Thanks,<br>
-  Fotopia Team.";
+  <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
+Thanks,<br>
+Fotopia Team.";
 
   $mail->Subject=str_replace('{{Order_ID}}', $order_id , $mail->Subject);
   $mail->Body=str_replace('{{Order_ID}}', $order_id , $mail->Body);

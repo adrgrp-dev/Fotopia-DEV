@@ -70,7 +70,7 @@ function email($template,$fname,$email,$password,$secret_code,$con)
  $mail->Body.=
  $get_profile['organization_name']." has successfully registered you as s a Photographer.<br>
 <a href='{{project_url}}resetPassword.php?email={{email}}&secret_code={{secret_code}}'>Click here</a> to reset your password using this secure code.<br><br>
- {{secret_code}}<br><br>
+ {{secret_code}}<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.
 ";

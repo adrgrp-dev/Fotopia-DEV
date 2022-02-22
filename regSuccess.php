@@ -60,7 +60,7 @@ $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
 You are successfully registered as a {{Type_of_user}} in our Fotopia application.<br>
 You will be notified via email once a Fotopia Admin approves your registration. (*Please note that you will not be able to login until approved).
-<br><br>
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 

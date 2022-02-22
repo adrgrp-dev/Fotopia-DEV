@@ -60,7 +60,7 @@ You may login to <a href=
 '{{project_url}}' target='_blank'>Fotopia</a> to
 review and approve the Order Cost.
 
-<br><br>
+<br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 
