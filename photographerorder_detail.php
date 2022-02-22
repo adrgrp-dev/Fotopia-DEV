@@ -2584,8 +2584,8 @@ if (@$_REQUEST['shar']) {
                                                         $checknaming1=mysqli_fetch_assoc($checknaming);
                                                         if($checknaming1['description']=="")
                                                         {
-                                                        $image_namecond=explode("-",$image);
-                                                        $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                                        $image_namecond=explode("-",@$image);
+                                                        @$image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
 
                                                         $image_namecond1=rtrim($image_namecond1,"-");
                                                           //echo $image_namecond1;
@@ -2738,8 +2738,8 @@ if (@$_REQUEST['shar']) {
                                                         $checknaming1=mysqli_fetch_assoc($checknaming);
                                                         if($checknaming1['description']=="")
                                                         {
-                                                        $image_namecond=explode("-",$image);
-                                                        $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                                        $image_namecond=explode("-",@$image);
+                                                        @$image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
                                                         $image_namecond1=rtrim($image_namecond1,"-");
                                                         $picture_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image_namecond1'");
                                                         }
@@ -2858,8 +2858,8 @@ if (@$_REQUEST['shar']) {
                                                         $checknaming1=mysqli_fetch_assoc($checknaming);
                                                         if($checknaming1['description']=="")
                                                         {
-                                                        $image_namecond=explode("-",$image);
-                                                        $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                                        $image_namecond=explode("-",@$image);
+                                                        @$image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
                                                         $image_namecond1=rtrim($image_namecond1,"-");
                                                         $picture_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image_namecond1'");
                                                         }
@@ -2983,8 +2983,8 @@ if (@$_REQUEST['shar']) {
                                                         $checknaming1=mysqli_fetch_assoc($checknaming);
                                                         if($checknaming1['description']=="")
                                                         {
-                                                        $image_namecond=explode("-",$image);
-                                                        $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                                        $image_namecond=explode("-",@$image);
+                                                        @$image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
                                                         $image_namecond1=rtrim($image_namecond1,"-");
                                                         $picture_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image_namecond1'");
                                                         }

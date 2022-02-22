@@ -130,9 +130,10 @@ if(isset($_REQUEST['link1']))
   //$mail->addBCC("bcc@example.com");
 
   //Send HTML or Plain Text email
-  $mail->isHTML(true);
+  
   if(!empty($_REQUEST['invoice']))
   {
+    $mail->isHTML(true);
     $mail->Subject = "Order Cost";
     $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">COST OF THE ORDER</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -159,6 +160,7 @@ if(isset($_REQUEST['link1']))
 
   }
   else{
+  $mail->isHTML(true);
   $mail->Subject = "Your property pictures for {{Order_ID}}";
   $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -2696,8 +2698,8 @@ if (@$_REQUEST['shar']) {
                                             $checknaming1=mysqli_fetch_assoc($checknaming);
                                             if($checknaming1['description']=="")
                                             {
-                                            $image_namecond=explode("-",$image);
-                                            $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                            $image_namecond=explode("-",@$image);
+                                            @$image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
                                             $image_namecond1=rtrim($image_namecond1,"-");
                                             $picture_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image_namecond1'");
                                             }
@@ -2907,8 +2909,8 @@ if (@$_REQUEST['shar']) {
                                             $checknaming1=mysqli_fetch_assoc($checknaming);
                                             if($checknaming1['description']=="")
                                             {
-                                            $image_namecond=explode("-",$image);
-                                            $image_namecond1=strtoupper($image_namecond[2])."-".$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
+                                            $image_namecond=explode("-",@$image);
+                                            $image_namecond1=strtoupper(@$image_namecond[2])."-".@$image_namecond[3]."-".@$image_namecond[4]."-".@$image_namecond[5];
                                             $image_namecond1=rtrim($image_namecond1,"-");
                                             $picture_name=mysqli_query($con,"select * from image_naming where order_id=$id_url and image_name='$image_namecond1'");
                                             }
