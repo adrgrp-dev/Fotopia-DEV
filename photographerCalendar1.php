@@ -208,17 +208,23 @@ background: repeating-linear-gradient(
   )!important;
 
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
+
+#calendar{
+
+	width: 392px;
+}	
+
   .fc-prev-button, .fc-next-button, .fc-button
 {
-background:#000!important;
-color:#FFF!important;
+/*background:#000!important;
+color:#FFF!important;*/
 margin:3px!important;
 font-size: 10px!important;
 }
 .fc .fc-toolbar-title
 {
-font-size:7px!important;
+font-size:5px!important;
 }
 .forMobile
 {
