@@ -62,9 +62,10 @@ $raw_images=mysqli_fetch_assoc($get_raw_images);
   	//$mail->AltBody = "This is the plain text version of the email content";
   	$mail->Body.="Hi,<br>
 
-   Photo link shared to you through Fotopia <br>
+   The pictures are completed and can be access via our Fotopia app
   <a href='{{link}}'
-  target='_blank'>Click here</a> to view the shared images.<br><br>
+  target='_blank'>Click here</a><br>
+  Thank you for choosing Fotopia! 
 
   <br><br>
   Thanks,<br>
