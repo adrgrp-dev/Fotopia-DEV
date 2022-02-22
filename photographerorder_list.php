@@ -89,6 +89,7 @@ font-weight:600!important;
     padding-bottom: 6px !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
+     background-color: #aad1d6 !important;
 }
 
 

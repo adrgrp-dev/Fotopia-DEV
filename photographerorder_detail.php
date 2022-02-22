@@ -495,6 +495,7 @@ html{	background-color:#FFF; }
   .img1,.img12{
     width:100% !important;
   }
+
 }
 @media only screen and (max-width: 600px) {
   .img1,.img12{
@@ -502,7 +503,7 @@ html{	background-color:#FFF; }
   }
 td
 {
-min-width:100px!important;
+min-width:50px!important;
 }
 #billedTo
 {
@@ -590,6 +591,42 @@ padding:0px!important;
     padding-bottom: 6px;
     padding-left: 0px;
     padding-right: 0px;
+
+}
+.homeseller_box
+{
+  width:100%;
+  background:#FFF;
+  padding:10px;
+  border-radius:5px;
+  height:800px;
+}
+ @media (max-width: 600px) {
+}
+.td-space
+{
+   padding-left:5px;padding-right:15px;
+}
+.homeseller_box
+{
+    width: 96%;
+    margin-top: 10px !important;
+}
+iframe
+{
+  margin-left: -35px;
+}
+.search-field
+{
+  margin-left: 0px;
+}
+
+.ribbon
+{
+  right: 61px;
+}
+
+
 }
 
 
@@ -1225,7 +1262,7 @@ header("location:photographerDashboard.php?private=1"); exit;
                       				</div>
 									
                       				<div class="col-md-6">
-								<div style="width:100%;background:#FFF;padding:10px;border-radius:5px;height:800px">	
+								<div class="homeseller_box" style="">	
                       				<p align="right" adr_trans="label_homeseller_info" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
                       <table class="" style="color:#000;font-weight:600;font-size:13px;">
