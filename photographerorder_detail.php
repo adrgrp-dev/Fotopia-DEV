@@ -625,7 +625,21 @@ iframe
 {
   right: 61px;
 }
+.modal{
 
+    width: 96%!important;
+    margin-left: -293px;
+}
+.modal-content > center > #img{
+
+  height: 100px!important;
+  width: 100px!important;
+  margin-top: 30px;
+}
+textarea{
+
+  width: 165px;
+}
 
 }
 
