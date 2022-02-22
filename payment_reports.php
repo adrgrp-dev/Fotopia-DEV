@@ -443,7 +443,7 @@ if(!empty($_REQUEST['pcfilter'])){
 								$otherCost=mysqli_query($con,"select other_cost from invoice where order_id='$order_id'");
 								 $otherCost1=mysqli_fetch_array($otherCost);
 
-								 $totalCostIs=$product_detail['total_value']+$otherCost1['other_cost'];
+								 $totalCostIs=@$product_detail['total_value']+@$otherCost1['other_cost'];
 								// echo ""
 
 

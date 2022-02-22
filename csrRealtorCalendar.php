@@ -188,6 +188,9 @@ font-size: 8px!important;
 font-size:9px!important;
 
 }
+.fc .fc-button-primary {
+  margin: 0px !important;
+  }
 .forMobile
 {
 height:fit-content!important;

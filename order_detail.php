@@ -787,7 +787,7 @@ overflow:scroll!important;
 #noprint{
   padding-left:10px;
   float: right;
-  top: 60px;
+  top: 0px;
 }
 #inv_h1{
   font-size: 32px !important;
@@ -802,6 +802,9 @@ margin-left:0px!important;
 {
 border:none!important;
 padding:0px;
+}
+.nav-tabs > li.active > a {
+    background-color: #aad1d6 !important;
 }
 .nav-tabs {
 border-bottom:none!important;
@@ -851,7 +854,13 @@ padding:0px!important;
   width:300px;
   margin-left: 230px;
 }
-
+.print-btn
+{
+  position: relative;
+  margin-top: -30px;
+  margin-right: 10px;
+  color:white !important;
+}
 
  @media (max-width: 600px) {
 .td-space
@@ -871,6 +880,13 @@ iframe
 {
   margin-left: 0px;
 }
+
+.ribbon
+{
+  right: 61px;
+}
+
+
 }
 
 
@@ -2545,7 +2561,7 @@ if($get_order1['status_id']==3)
         @$invoice_check_query=mysqli_query($con,"select * from invoice where order_id=$id_url");
         @$invoice_check=mysqli_fetch_assoc(@$invoice_check_query);?>
 
-        <h1 id="inv_h1" style="font-size:25px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1><p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-top: -30px;margin-right: 10px;color:white !important;" id="noprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+        <h1 id="inv_h1" style="font-size:25px; text-align: center;" adr_trans="label_order_cost">Order Cost</h1><p align="right"><a class="anima-button circle-button btn-sm btn adr-save print-btn" style="" id="noprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <hr class="space s">
          <table style="margin-left : 0px;width:100%">
