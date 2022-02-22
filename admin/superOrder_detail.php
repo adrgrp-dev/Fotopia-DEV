@@ -130,10 +130,9 @@ if(isset($_REQUEST['link1']))
   //$mail->addBCC("bcc@example.com");
 
   //Send HTML or Plain Text email
-  
+  $mail->isHTML(true);
   if(!empty($_REQUEST['invoice']))
   {
-    $mail->isHTML(true);
     $mail->Subject = "Order Cost";
     $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">COST OF THE ORDER</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -160,13 +159,11 @@ if(isset($_REQUEST['link1']))
 
   }
   else{
-  $mail->isHTML(true);
-  $mail->Subject = "Your property pictures for {{Order_ID}}";
+  $mail->Subject = "Image Link shared with you through Fotopia";
   $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" ></td><td align=\"center\" class=\"titleCss\">FINISHED IMAGE LINK</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
   //$mail->AltBody = "This is the plain text version of the email content";
-  $mail->Body.="
-Dear {{share_email}},<br>{{content}}<br>
+  $mail->Body.="Dear {{share_email}},<br>{{content}}<br>
 
   The pictures for {{Order_ID}} are completed and can be access via our Fotopia app
   <a href='{{link}}'
@@ -210,17 +207,17 @@ $get_content = @$get_email_content1['template_body_text'];
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
 
    $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
-      $mail->Body=str_replace('{{Order_ID}}',"Order #".$id_url, $mail->Body);
-       $mail->Subject=str_replace('{{Order_ID}}',"Order #".$id_url, $mail->Body);
-       $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
+      $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
+      $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
+
   // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
   // $mail->Body=str_replace('F{{orderId}}',$z, $mail->Body);
   $mail->Body.="<br><br></td></tr></table></html>";
-  
+
   header("location:superOrder_detail.php?id=".$id_url."&ff=1&shar=".$_REQUEST['email']);
 }
-  // echo $mail->Body;
-  // exit;
+ // echo $mail->Body;
+ //  exit;
   try {
       $mail->send();
       //echo "Message has been sent successfully";
