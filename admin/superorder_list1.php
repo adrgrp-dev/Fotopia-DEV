@@ -41,6 +41,10 @@ min-width:100px!important;
 {
   padding-left: -10px !important;
 }
+.form-control
+{
+  width: 95% !important;
+}
 }
 
 /*mobiles css code end*/
