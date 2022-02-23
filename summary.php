@@ -110,12 +110,12 @@ include "connection1.php";
   font-weight: bold;
 }
 
-#thirdStep:hover {
-background-color:none;
+#thirdStep:after {
+background-color:#aad1d6;
 }
 
-#thirdStep:after {
-background-color:#337AB7;
+#thirdStep:hover {
+background-color:#aad1d6;
 }
 
 @media all and (max-width: 1000px) {
@@ -144,7 +144,22 @@ background-color:#337AB7;
     -webkit-transform: scale(0.707) rotate(45deg);
             transform: scale(0.707) rotate(45deg);
   }
+  #homeseller_label_div
+  {
+  	margin-left: -5px !important;
+  }
+  iframe{
+  	margin-left: -20px;
+  	width: 270px;
+  }
+  .ribbon{
+  	margin-right: 45px;
+  }
 }
+ #homeseller_label_div
+  {
+  	margin-left: 25px ;
+  }
 
 
 .btn-default
@@ -301,7 +316,7 @@ html{	background-color:#FFF; }
 
 			</span>
 		</a>
-		<a href="#" class="btn btn-primary">
+		<a href="#" class="bbtn btn-default">
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title" adr_trans="">Summary</span>
 
@@ -458,7 +473,7 @@ $hs_id=$get_summary['home_seller_id'];
 			</div>
 				</div>
 				<div class="col-md-6">
-					<div style="width: 105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 25px;" id="homeseller_label_div">
+					<div style="width: 105%;background:#FFF;padding:10px;border-radius:5px;height:800px;" id="homeseller_label_div">
 				<p adr_trans="label_homeseller_info" id="homeseller_label" align="right" style="color:#000;font-weight:600;font-size:15px;">Home Seller Info</p>
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">
