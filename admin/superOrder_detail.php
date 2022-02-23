@@ -989,6 +989,30 @@ iframe{
    width: 320px;
    height: 390px;
 }
+input[name="description"] {
+  margin-left: 130px!important;
+  font-size: 8px;
+    width: 82px;
+}
+#inv_header{
+
+  width: 415px;
+}
+.modal{
+
+    width: 96%!important;
+    margin-left: -293px;
+}
+.modal-content > center > #img{
+
+  height: 100px!important;
+  width: 100px!important;
+  margin-top: 30px;
+}
+textarea{
+
+  width: 165px;
+}
 
 
 }

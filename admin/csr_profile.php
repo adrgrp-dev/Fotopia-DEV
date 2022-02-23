@@ -94,6 +94,13 @@ Fotopia Team.";
 
 <?php include "header.php";  ?>
 	<style>
+@media only screen and (max-width: 600px) {
+		#table2{
+
+      width: 138%;
+    margin-left: -85px;
+}
+}
 
 	</style>
 <div class="section-empty bgimage7">
