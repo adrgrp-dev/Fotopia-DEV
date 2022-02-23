@@ -195,15 +195,6 @@ var langval="";
 
     <style>
 
-
-      @media (max-width: 769px) {
-[class*="col-md"] {
-margin-left: 18px !important;
-
-}
-
-}
-
 	.adr-save,.adr-save:hover
 	{
 	background:#AAD1D6!important;

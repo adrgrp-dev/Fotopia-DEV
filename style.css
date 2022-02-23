@@ -139,6 +139,15 @@ opacity:0.9;
    
 } */
 
+      @media (max-width: 769px) {
+[class*="col-md"] {
+margin-left: 18px !important;
+
+}
+
+}
+
+
 body
 {
 font-family:Manrope-Regular!important;
