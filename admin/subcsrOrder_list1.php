@@ -14,7 +14,49 @@ td
 {
 min-width:100px!important;
 }
+#label_list_order
+{
+  margin-bottom: 50px;
+}
+#label_create_new_order 
+{
+  margin-top:-40px;
+  right: 10%;
+}
+.infobar
+{
+      margin-top: -23px !important;
+    margin-right: -50px;
+}
+.nav-tabs
+{
+ border: none !important; 
+ margin-top: 5px !important ;
+}
+.view-btn{
+ 
+   margin-left:40% !important;
+}
+.search-field
+{
+  padding-left: -10px !important;
+}
+.form-control
+{
+  width: 95% !important;
+}
 
+}
+.view-btn{
+  display:inline-table;
+  float:left;
+  margin-left:20px;
+  border-radius:20px;
+  padding:2px;
+  font-size: 12px;
+}
+.btn-default{
+  padding-top: 5px !important;
 }
 .nav-tabs > li
 {
@@ -935,7 +977,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                 <hr class="space s" />
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default view-btn" style="">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
                 <p style="text-align: center;"><?php if(@isset($_REQUEST["s"])) { ?>
