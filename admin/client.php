@@ -178,6 +178,10 @@ tr:nth-child(even) {
 background: none !important;
 
 } 
+.realtor-btn{
+  float:right;
+  margin-top:-6px;
+}
 
 /*.current-active
 {
@@ -188,6 +192,13 @@ background: none !important;
 td
 {
 min-width:100px!important;
+}
+.realtor-btn{
+  
+  margin-top:-30px !important;
+}
+.link,.link>i{
+ margin-right: 70px;
 }
 .tab-box
 {
@@ -251,7 +262,7 @@ var xhttp= new XMLHttpRequest();
 			</div>
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
-                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save"  style="float:right;margin-top:-6px;"><i class="fa fa-plus"></i>Add Realtor</a>
+                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save realtor-btn"  style=""><i class="fa fa-plus"></i>Add Realtor</a>
 
 <?php if(@isset($_REQUEST["a"])) { ?>
                         <div class="success-box" style="display:block;margin-left:300px;">
@@ -281,13 +292,11 @@ var xhttp= new XMLHttpRequest();
 				color: #aad1d6;
 				top: -43px;
 				font-size: 50px;
-
-				margin-right: 5px;
 				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
 				</div>
                                     <hr class="space s">
 
-									 <div style="width:100%;">
+									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                                     <table style="width:100%" align="center" class="table-stripped" style="background:#FFF;color:#000;">
                                        <tr>
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
@@ -384,7 +393,7 @@ else
 				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
 				</div>
                                     <hr class="space s">
-									 <div style="width:100%;">
+									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                                     <table style="width:100%" align="center" class="table-striped" >
                                        <tr style="background-color: white">
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
