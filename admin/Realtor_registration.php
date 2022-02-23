@@ -184,6 +184,12 @@ header("location:client.php?a=1");
 ?>
 <?php include "header.php";  ?>
 	<style>
+@media only screen and (max-width: 600px) {
+.mobile
+{
+	padding:0px 0px !important;
+}
+}
 	.container.content
 	{
 		padding-top:20px;
@@ -197,6 +203,11 @@ input
 {
 box-shadow:5px 5px 5px 5px #DDD;
 }
+/*.mobile
+{
+	padding:0px 200px;
+}*/
+
 	</style>
 	<script>
 	function validate_email(val)
@@ -743,7 +754,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-12" style="padding:0px 200px;">
+                <div class="col-md-12 mobile" style="">
 
 
                       		<br>
