@@ -37,6 +37,12 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }*/
 @media only screen and (max-width: 600px) {
+.infos
+{
+margin-left: 0px !important;
+margin-top: -20px !important;
+margin-right: -35px !important;
+}
 td
 {
 min-width:120px!important;
