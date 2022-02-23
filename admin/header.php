@@ -672,7 +672,7 @@ $(function(){
 
 <div class="col-sm-2" style="float:right;margin-top:0px;">
 <ul class="nav navbar-nav" style="margin-left:-13px;">
-<li class="dropdown current-active">
+<li class="dropdown current-active" style="z-index:999">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="float:right;margin-right:5px;"><i class="fa fa-bars"></i></span></a>
                            <ul class="dropdown-menu" style="top:30px;position:absolute;background-color:#000000;color:white;right:70px;">
 
