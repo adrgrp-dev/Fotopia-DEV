@@ -146,7 +146,40 @@ background-color:#aad1d6;
     -webkit-transform: scale(0.707) rotate(45deg);
             transform: scale(0.707) rotate(45deg);
   }
+
+
+
+#homeseller_label_div
+{
+margin-left: -5px !important;
 }
+
+#order_detail_div{
+
+  width: 105%!important;
+}
+
+iframe{
+margin-left: -20px;
+width: 270px;
+}
+.ribbon{
+margin-right: 30px;
+}
+
+
+}
+
+#homeseller_label_div
+{
+margin-left: 25px;
+}
+
+#order_detail_div{
+
+  width: 101%;
+}
+
 
 td{
 padding-right:15px;
@@ -284,7 +317,7 @@ border-radius:0px!important;
 
 			</span>
 		</a>
-		<a href="#" class="btn btn-primary">
+		<a href="#" class="btn btn-default">
 			<span class="breadcrumb__inner">
 				<span class="breadcrumb__title">Summary</span>
 
@@ -346,7 +379,7 @@ $hs_id=$get_summary['home_seller_id'];
 				<div class="row" style="margin:0px;" id="printArea">
           <hr class="space xs">
 				<div class="col-md-6">
-        <div style="width:101%;background:#FFF;padding:10px;border-radius:5px;min-height: 800px;max-height: fit-content;">
+        <div id="order_detail_div" style="background:#FFF;padding:10px;border-radius:5px;min-height: 800px;max-height: fit-content;">
 				<p id="label_order_details" adr_trans="label_order_details" align="right" style="color:#000;font-weight:600;font-size:15px;">Order Details</p>
 
 				<table class="" style="color:#000;font-weight:600;font-size:13px;">
@@ -482,7 +515,7 @@ $hs_id=$get_summary['home_seller_id'];
       </div>
 				</div>
 				<div class="col-md-6">
-          <div style="width:105%;background:#FFF;padding:10px;border-radius:5px;height:800px;margin-left: 20px;">
+          <div  id="homeseller_label_div" style="width:105%;background:#FFF;padding:10px;border-radius:5px;height:800px;">
 				<p align="right" style="color:#000;font-weight:600;font-size:15px;" id="label_homeseller_info" adr_trans="label_homeseller_info">Home Seller Info</p>
 
 <table class="" style="color:#000;font-weight:600;font-size:13px;">
