@@ -470,10 +470,10 @@ font-weight:bold;
 
                                 </div>
                             </div>
-<?php  $sessval=$_SESSION['Selected_Language_Session']; ?>
+<?php  //$sessval=$_SESSION['Selected_Language_Session']; ?>
 			<select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($sessval=='en') { echo "selected='selected'"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($sessval=='no') { echo "selected='selected'"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -512,7 +512,13 @@ $(function(){
 ?> <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button> <?php } ?>
-                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
+                <a class="navbar-brand" href="<?php echo $page; ?>" style="padding-left:30px;">
+				
+				<img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px" class="hidden-sm hidden-xs">
+				
+				<img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:40px" class="hidden-md hidden-lg hidden-xl">
+				
+				
 						       <span style="display:inline;font-size:13px;color:#000!important;font-weight:bold;margin-left:-4px"><span style="color:#aad1d6;font-size:18px;padding-left:13px">f</span>otopia</span></a>
 
 
@@ -558,11 +564,11 @@ if(isset($_SESSION['loggedin_email']))
 		<div>
 
 
+<?php  $sessval1=$_SESSION['Selected_Language_Session']; ?>
 
-
-		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:20px;color:#000;background:#FFF">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session'])=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session'])=='no') { echo "selected"; } ?>>Norwegian</option>
+		<select class="selectpicker" data-width="fit" onChange="changeLanguage(this.value)" style="margin-top:10px;margin-left:5px;color:#000;background:#FFF;">
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -579,11 +585,11 @@ $(function(){
 </script>
 <?php
 
- if(isset($_SESSION['user_type'])=="Photographer")
+ if(isset($_SESSION['user_type']) && $_SESSION['user_type']=="Photographer")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-5px;">
-                            <li class="dropdown current-active" style="float:left;display:inline-block">
+                            <li class="dropdown current-active" style="float:left;display:inline-block;z-index:999">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="width:40px;float:right"><i class="fa fa-bars"></i></span></a>
                            <ul class="dropdown-menu" style="top:50px;position:absolute;background-color:#FFF;color:#000;display:">
 
@@ -605,12 +611,11 @@ $(function(){
 <?php } ?>
 
 <?php
-
- if(isset($_SESSION['user_type'])=="Realtor")
+ if(isset($_SESSION['user_type']) && $_SESSION['user_type']=="Realtor")
     {
 ?>
 <ul class="nav navbar-nav" style="width:10px;float:left;display:inline-block;margin-top:0px;margin-left:-10px;">
-                            <li class="dropdown current-active" style="float:left;display:inline-block">
+                            <li class="dropdown current-active" style="float:left;display:inline-block;z-index:999">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="width:40px;float:right"><i class="fa fa-bars fa-2x"></i></span></a>
                            <ul class="dropdown-menu" style="top:50px;position:absolute;background-color:#000000;color:white;display:">
 

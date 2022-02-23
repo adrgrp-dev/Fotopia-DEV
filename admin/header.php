@@ -496,8 +496,8 @@ else { ?>
 
     <?php //echo $_SESSION['Selected_Language_Session']; ?>
 	<select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if($_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if($_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -651,8 +651,8 @@ else { ?>
 		   <a href="notification.php" >
 <i class="fa fa-bell fa-1x" style="color:#FFF;margin-right:5px;margin-top:15px;"  aria-hidden="true"></i>
 </a>		   <select class="selectpicker sss" data-width="fit" onChange="changeLanguage(this.value)">
-			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session'])=='en') { echo "selected"; } ?>>English</option>
-    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session'])=='no') { echo "selected"; } ?>>Norwegian</option>
+			 <option  data-content='<span class="flag-icon flag-icon-us"></span> US' value='en' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='en') { echo "selected"; } ?>>English</option>
+    <option data-content='<span class="flag-icon flag-icon-no"></span> NO' value='no' <?php if(isset($_SESSION['Selected_Language_Session']) && $_SESSION['Selected_Language_Session']=='no') { echo "selected"; } ?>>Norwegian</option>
 </select>
 <input type="hidden" name="Selected_Language" id="Selected_Language" value="en" />
 
@@ -678,8 +678,7 @@ $(function(){
 
 
 <?php
-
- if($_SESSION['admin_loggedin_type']=="CSR")
+if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']=="CSR")
     {
 ?>
 <li><a href="subcsr_dashboard.php"><i class="fa fa-home" style="padding-right:10px;margin-left:-15px"></i><span adr_trans="label_home">Home</span></a></li>
@@ -694,8 +693,7 @@ $(function(){
 <?php } ?>
 
 <?php
-
- if($_SESSION['admin_loggedin_type']=="PCAdmin")
+if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']=="PCAdmin")
     {
 ?>
 <li><a href="PCAdmin_dashboard.php"><i class="fa fa-home" style="padding-right:10px;margin-left:-15px"></i><span adr_trans="label_home">Home</span></a></li>
@@ -712,8 +710,7 @@ $(function(){
 <?php } ?>
 
 <?php
-
- if($_SESSION['admin_loggedin_type']=="FotopiaAdmin")
+if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']=="FotopiaAdmin")
     {
 ?>
 <li><a href="dashboard.php"><i class="fa fa-home" style="padding-right:10px;"></i><span adr_trans="label_home">Home</span></a></li>
