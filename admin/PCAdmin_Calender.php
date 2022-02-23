@@ -71,23 +71,21 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 			var urlNew="";
 			</script>
 
-                <div class="col-md-8" style="margin-top:-6px;">
+                <div class="col-md-8" style="padding-left:10px;">
 
 <div class="row">
-<div class="col-md-12" style="padding-left:20px;height:30px;width:100%">
-				<div class="col-md-12" style="float:left;display:inline-block">
-				<center><span style="font-size:12px;font-style: bold"><span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?>
+<div class="col-md-12">
+				<div class="col-md-8" style="float:left;padding-left:10px;">
+				<span style="font-size:12px;font-style: bold;padding-left:10px;"><span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?></span>
 
-				</span>  <p align="right" style="position: absolute;right: -27px;top: 35px;" >
+				 </div><div class="col-md-4" style="float:left;padding-left:10px;">
                <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="label_create_new_order"class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order" style="font-size: 12px;"> Create New Order</span></a>
-                </p></center></div>
+               </div></div>
 				</div>
-			</div>
-
-<table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
-<tr>
-<td align="left" style="width:200px;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:175px;margin-bottom:10px;font-size: 12px;"/>
+<div class="row" style="padding-left:10px;">
+<div class="col-md-12">
+				<div class="col-md-4" style="float:left;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
+<center><input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:225px;margin-bottom:10px;font-size: 12px;"/></center>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
@@ -102,13 +100,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 
                   </datalist>
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
-				  </form></td>
-				  <td align="left" style="color:#000;padding-left:20px;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </td>
-				  <td>
-
-
-
-</table>
+				  </form></div><div class="col-md-8" style="float:left;padding-top:10px;"><?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </div></div></div>
 
 
 

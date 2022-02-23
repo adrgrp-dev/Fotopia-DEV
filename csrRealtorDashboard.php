@@ -1164,7 +1164,9 @@ window.reload();
 
 
 
-			<div id="photoCompany" class="box-lightbox" style="background: #F1F3F4;padding:25px;height:450px;border-radius:10px;">
+			
+			</div>
+<div id="photoCompany" class="box-lightbox" style="background: #F1F3F4;padding:25px;height:450px;border-radius:10px;">
                         <div class="subtitle g" style="color:#333333">
                             <h5 style="color:#333333" align="center">
 							<span id="companyName" style="text-transform:uppercase"></span></h5>
@@ -1198,8 +1200,6 @@ window.reload();
 
 
             </div>
-			</div>
-
 
 
 <?php if(isset($_REQUEST['companySearch']) || @$_REQUEST['cw']) { ?>

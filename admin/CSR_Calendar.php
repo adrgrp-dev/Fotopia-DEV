@@ -58,22 +58,22 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
                 <div class="col-md-8" style="padding-left:10px;">
 
 <div class="row">
-<div class="col-md-12" style="padding-left:20px;height:30px;width:100%">
-				<div class="col-md-6" style="float:left;">
-				<center><h5> CSR <span class="text-center" id="label_calendar" adr_trans="label_calendar"> Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_name']); ?>
-				</h5>  </center></div><div class="col-md-6" style="float:right;">
+<div class="col-md-12">
+				<div class="col-md-8" style="float:left;padding-left:10px;">
+				<h5> CSR <span class="text-center" id="label_calendar" adr_trans="label_calendar"> Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_name']); ?>
+				</h5>  </div><div class="col-md-4" style="float:left;padding-left:10px;">
           <?php
            $csr_id=$_SESSION['admin_loggedin_id'];
             $get_pcadmin_query=mysqli_query($con,"select * from admin_users where id=$csr_id");
             $get_pcadmin=mysqli_fetch_array($get_pcadmin_query);
             $pc_admin_id=$get_pcadmin['pc_admin_id'];
           ?>
-               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save" style="font-size: 10px;"><i class="fa fa-calendar"></i> Create New Order</a>
+               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save" style="font-size: 10px;"><i class="fa fa-calendar"></i> Create New Order</a>
               </div></div>
-				</div></div>
-<table class="table-responsive table-stripped" style="border-color:none!important;width:100%">
-<tr>
-<td align="left" style="width:200px;"><form name="" method="post" action="" id="filterForm">
+				</div>
+<div class="row" style="padding-left:10px;">
+<div class="col-md-12">
+				<div class="col-md-4" style="float:left;"><form name="" method="post" action="" id="filterForm">
 <input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name'];?>" placeholder="Select a photographer" autocomplete="off"  class="form-control" style="width:200px;margin-bottom:10px;"/>
 
  <datalist id="phList">
@@ -89,10 +89,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 
                   </datalist>
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
-				  </form></td>
-				  <td align="left" style="color:#000;">&nbsp; <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></td>
-
-</table>
+				  </form></div><div class="col-md-8" style="float:left;padding-top:10px;"> <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></div></div></div>
 
 
 <div class="row">
