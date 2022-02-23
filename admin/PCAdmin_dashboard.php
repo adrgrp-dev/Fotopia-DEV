@@ -90,7 +90,7 @@ $("#photo_company").show();
 }
 		</script>
 <style>
-
+ 
 .mobileLinks
 {
 width:75px!important;
@@ -225,17 +225,18 @@ font-size:11px!important;
 
 
 	@media only screen and (max-width: 600px) {
-  .fc-prev-button, .fc-next-button
+  .fc-prev-button, .fc-next-button, .fc-button
 {
-background:#FFF!important;
-color:#000!important;
+/*background:#000!important;
+color:#FFF!important;*/
 margin:2px!important;
 font-size: 7px!important;
 }
 .fc .fc-toolbar-title
 {
-font-size:8px!important;
+font-size:7px!important;
 }
+
 .forMobile
 {
 height:fit-content!important;

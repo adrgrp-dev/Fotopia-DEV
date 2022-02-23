@@ -942,7 +942,7 @@ opacity:1!important;
 @media only screen and (max-width: 600px) {
 td
 {
-min-width:100px !important;
+min-width:20px !important;
 }
 .img1,.img12{
   width:100% !important;
@@ -980,6 +980,15 @@ padding:5px!important;
 margin-left:5px!important;
 display:inline!important;
 }
+.ribbon{
+
+  margin-right: 45px!important;
+}
+iframe{
+   margin-left: -30px!important;
+   width: 320px;
+   height: 390px;
+}
 
 
 }
@@ -996,6 +1005,9 @@ border-bottom:none!important;
 {
 padding:0px!important;
 }
+
+
+
 
  </style>
  <script>
