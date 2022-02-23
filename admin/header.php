@@ -718,8 +718,8 @@ if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']==
 <li><a href="notification.php"><i class="fa fa-bell" style="padding-right:10px;"></i><span adr_trans="label_notification">Notification</span></a></li>
 <li><a  href=""><i class="fa fa-line-chart" style="padding-right:10px;"></i><span adr_trans="label_statistics">Statistics</span></a></li>
 <li><a  href="admin_users.php"><i class="fa fa-user-secret" style="padding-right:10px;"></i><span adr_trans="label_admin_users">Admin users</span></a></li>
-<li><a  href="csr_list.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="label_csr">CSR</span></a></li>
-<li><a  href="order_reports.php"><i class="fa fa-stack-exchange" style="padding-right:10px;"></i><span adr_trans="label_reports">Reports</span></a></li>
+<li><a  href="order_reports.php"><i class="fa fa-user" style="padding-right:10px;"></i><span adr_trans="">Order Reports</span></a></li>
+<li><a  href="pages.php"><i class="fa fa-stack-exchange" style="padding-right:10px;"></i><span adr_trans="">Pages</span></a></li>
 
 <?php } ?>
 

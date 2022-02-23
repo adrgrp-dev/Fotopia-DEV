@@ -247,15 +247,14 @@ $get_realtor_id=mysqli_fetch_assoc($get_realtor_details);
 
 $realtor_id = $get_realtor_id['created_by_id'];
 
-echo "update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'";
 
  mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'");
 
 mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 
 $get_appointment=mysqli_query($con,"SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))");
-echo "SELECT * FROM appointments WHERE photographer_id=$Photographer_id1 and ((from_datetime <= '$chk_from' AND to_datetime > '$chk_from') OR (from_datetime < '$chk_to' AND to_datetime >= '$chk_to'))";exit;
- echo "<br>sss".$number=mysqli_num_rows($get_appointment);
+
+ $number=mysqli_num_rows($get_appointment);
 if($number>0)
 {
 header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_admin_id1&&Photographer_id=$Photographer_id1&&od=$order_id&appdup=1");exit;
