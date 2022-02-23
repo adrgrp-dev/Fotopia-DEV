@@ -14,6 +14,16 @@ if(isset($_REQUEST['loginbtn']))
 ?>
 
 <?php include "header.php";  ?>
+<style>
+@media only screen and (max-width: 600px) {
+.infos
+{
+    margin-left: 0px !important;
+    margin-top: -50px !important;
+    margin-right: -35px !important;
+}
+}}
+</style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  <div class="section-empty bgimage2">
