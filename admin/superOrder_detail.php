@@ -1013,6 +1013,10 @@ textarea{
 
   width: 165px;
 }
+#assignm{
+
+  float: left;
+}
 
 
 }
@@ -2629,6 +2633,7 @@ if (@$_REQUEST['shar']) {
                                         ?>
                                            <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
                                              <div class="row" style="padding:10px" >
+                                              <div class="col-md-12">
                                                <div class="col-md-2" style="display:inline-block">
                                                  <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px;font-family: Manrope-Regular; class="circle-button btn-sm btn done adr-save">&nbsp;<b><span adr_trans="label_select_all">Select All</span> </b></input>
                                                </div>
@@ -2685,9 +2690,10 @@ if (@$_REQUEST['shar']) {
                                                <div class="col-md-2" style="display:inline-block;font-size:11px;">
                       <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1"  id="clicktoupload" class="circle-button btn-sm btn adr-save" style="padding:5px;font-size:11px;"><span   adr_trans='label_upload' style="font-size:11px;">Upload</span></a>
                                                </div>
+                                            
                                                <?php }?>
 
-
+                                            </div>
                                             </div>
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                      <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_upload'>Upload</span></a> -->
@@ -2843,6 +2849,7 @@ if (@$_REQUEST['shar']) {
 
                                            <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
                                              <div class="row" style="padding:10px">
+                                              <div class="col-md-12">
                                                <div class="col-md-2"  style="display:inline-block">
                                                     <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                                </div>
@@ -2897,6 +2904,7 @@ if (@$_REQUEST['shar']) {
                                               </div>
                                             <?php } ?>
                                              </div>
+                                           </div>
 
 
                                              <div class="row">
@@ -3550,7 +3558,7 @@ if (@$_REQUEST['shar']) {
          <div class="col-md-6" >
         <p style="color: black;font-style: Manrope-Regular!important;font-size: 11px;"><strong style="font-size: 14px;">PROPERTY ADDRESS</strong><br><?php echo $homeSeller1['address']; ?></p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" id="assignm">
         <p align="right" style="color: black;font-style: Manrope-Regular!important;font-size: 11px;margin-right: 10px;"><strong style="font-size: 14px;">ASSIGNMENT #</strong><br><?php echo $homeSeller1['reference_number']; ?></p>
       </div>
     </div>

@@ -115,6 +115,25 @@ th
 {
 padding-left:20px!important;
 }
+
+@media only screen and (max-width: 600px) {
+		
+.col-md-10{
+
+      width: 110%;
+    
+    
+}
+#first_td{
+
+	width: 142px!important;
+}
+
+
+}
+
+
+
 	</style>
 <div class="section-empty bgimage3">
             <div class="row">
@@ -157,7 +176,7 @@ $id=@$_REQUEST['id'];
 
       <tr><td colspan="3" style="padding-top:10px;"> <h5 class="text-center"  id="label_csr_details" adr_trans="label_csr_details">CSR Details</h5></td></tr>   
 
-	  <tr><td align="right"  style="font-size: 10px;width:350px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+	  <tr><td align="right" id="first_td" style="font-size: 10px;width:350px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 
 
