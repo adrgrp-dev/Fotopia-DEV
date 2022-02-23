@@ -39,7 +39,10 @@ td, th {
  color:#FFF!important;border-bottom-color:#000!important;
 }*/
 @media only screen and (max-width: 600px) {
-
+td > img
+{
+  width: 120px !important;
+}
 
 }
 .view{
