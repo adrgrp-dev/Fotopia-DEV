@@ -14,6 +14,14 @@ if(isset($_REQUEST['loginbtn']))
 		margin-left: 269px;
 		margin-top: 20px;
 	 }
+@media only screen and (max-width: 600px) {
+.infos
+{
+    margin-left: 0px !important;
+    margin-top: -20px !important;
+    margin-right: -35px !important;
+}
+}}
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage1">
