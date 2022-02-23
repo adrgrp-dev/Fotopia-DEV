@@ -38,6 +38,16 @@ td, th {
  background:#000!important;
  color:#FFF!important;border-bottom-color:#000!important;
 }*/
+@media only screen and (max-width: 600px) {
+
+
+}
+.view{
+width:100%;
+scrollbar-width: none;
+overflow-x: scroll;
+overflow-y:hidden;
+}
   </style>
    <?php
       $realtor_id=@$_REQUEST['realtor_id'];
@@ -66,6 +76,7 @@ td, th {
 
              <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
 			   <hr class="space s">
+         <div class="view" style="">
                      <table class="table-striped" style="width:100%; border:solid">
 					 <tr><td rowspan="21" style="width:300px;">
 					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="290" height="200" />
@@ -188,6 +199,7 @@ td, th {
                        </tr>
                      </table>
                    </div>
+                   </div>
 
                    </div>
                    <div class="col-md-1">
@@ -198,7 +210,7 @@ td, th {
                      <hr class="space s">
 					 <div>
                       <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                      <div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:white">
                      <table align="center" style="color: #000;opacity:0.9;width:98%;">
                           <tr >
                            <th style="color:black;"><span> S.no</span></th>
