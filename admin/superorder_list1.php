@@ -21,19 +21,45 @@ min-width:100px!important;
 #label_create_new_order 
 {
   margin-top:-40px;
-  right: 65%;
+  right: 10%;
 }
 .infobar
 {
       margin-top: -23px !important;
     margin-right: -50px;
 }
+.nav-tabs
+{
+ border: none !important; 
+ margin-top: 5px !important ;
+}
+.view-btn{
+ 
+   margin-left:40% !important;
+}
+.search-field
+{
+  padding-left: -10px !important;
+}
+}
 
+/*mobiles css code end*/
+.view-btn{
+  display:inline-table;
+  float:left;
+  margin-left:20px;
+  border-radius:20px;
+  padding:2px;
+  font-size: 12px;
+}
+.btn-default{
+  padding-top: 5px !important;
 }
 .infobar
 {
   margin-top:24px;
 }
+
 
 .nav-tabs > li
 {
@@ -1032,7 +1058,7 @@ ul.pagination > li.last > a
 
 <hr class="space s" />
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;font-size: 12px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:350px;float:right;margin-bottom:20px;font-size: 12px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default view-btn" style="">View All</a><input type="text" name="searchAddress" class="form-control search-field" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:350px;float:right;margin-bottom:20px;font-size: 12px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
 
