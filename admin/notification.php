@@ -9,6 +9,17 @@ include "connection1.php";
 
 <?php include "header.php";  ?>
 
+<style>
+  @media only screen and (max-width: 600px) {
+.infos
+{
+    margin-left: 0px !important;
+    margin-top: -50px !important;
+    margin-right: 14px !important;
+}
+}}
+   </style>
+
  <div class="section-empty bgimage1">
         <div class="container" style="margin-left:0px;height:inherit;">
             <div class="row">
