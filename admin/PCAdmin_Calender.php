@@ -318,6 +318,16 @@ margin-right:-70px!important;
 font-size:10px!important;
 margin-top:15px;
 }
+.fc .fc-button-primary
+{
+    color: #000 !important;
+    background-color: #aad1d6 !important;
+}
+#label_create_new_order
+{
+    left: 53px;
+    top: -15px;
+}
 }
 
 
