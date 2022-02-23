@@ -110,6 +110,8 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 				<style>
 
 
+			
+
 				#calendar
 
 				{
@@ -223,7 +225,7 @@ border-radius:25px;
 
 .fc-scroller-harness,.fc-scroller-harness-liquid
 {
-border-radius:25px!important;
+border-radius:0px!important;
 }
 
 
@@ -246,10 +248,6 @@ color:#242526!important;
 font-weight:bold;
 }
 */
-.fc-timegrid-event .fc-event-time
-{
-margin-bottom:0px!important;
-}
 .fc-timegrid-event .fc-event-time
 {
 margin-bottom:0px!important;
@@ -287,7 +285,6 @@ margin:2px!important;
     padding-bottom: 2px;
 }
 
-
 @media only screen and (max-width: 600px) {
   .fc-prev-button, .fc-next-button, .fc-button
 {
@@ -312,9 +309,19 @@ font-size:10px!important;
 #label_create_new_order
 {
 float:right!important;
-margin-right:-160px!important;
+margin-right:-70px!important;
 font-size:10px!important;
 margin-top:15px;
+}
+.fc .fc-button-primary
+{
+    color: #000 !important;
+    background-color: #aad1d6 !important;
+}
+#label_create_new_order
+{
+    left: 53px;
+    top: -15px;
 }
 }
 
