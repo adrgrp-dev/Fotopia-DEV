@@ -1017,6 +1017,10 @@ textarea{
 
   float: left;
 }
+.hidden-btn{
+
+  background: none!important;
+}
 
 
 }
@@ -1706,7 +1710,7 @@ alert(alertmsg);
                                 <option value="6">Decline Order</option>
                                 <option value="7">Working with Customer</option>
                         </select>
-<a href="#tnc" class="btn btn-default lightbox link"  name="" id="send"  style="display:none"></a>
+<a href="#tnc" class="btn btn-default lightbox link hidden-btn"  name="" id="send"  style="display:none"></a>
                         <?php
                          }
                         ?>
