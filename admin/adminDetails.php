@@ -98,6 +98,39 @@ if(isset($_REQUEST['approve']))
 ?>
 <?php include "header.php";  ?>
 
+<style>
+	
+@media only screen and (max-width: 600px) {
+
+#mob-table{
+
+width: 100%!important;
+
+margin-left: 15px!important;
+
+}
+
+.mob-td{
+
+	width: 100px!important;
+}
+
+}
+
+
+#mob-table{
+
+width: 70%;
+	
+}
+
+.mob-td{
+
+	width: 400px;
+}
+
+</style>
+
 <div class="section-empty bgimage3">
             <div class="row">
 
@@ -120,13 +153,13 @@ $id=@$_REQUEST['id'];
 				$res=mysqli_query($con,"select * from admin_users where id='$id'");
 				$res1=mysqli_fetch_array($res);
 				?>
-					<table style="background:#FFF;color:#000;opacity:0.8;width:70%;border-radius:10px!important;">
+					<table id="mob-table" style="background:#FFF;color:#000;opacity:0.8;border-radius:10px!important;margin-left: 50px;">
 					<tbody>
       <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
 
       <tr><td colspan="3" style="padding-top: 5px;"> <h5 class="text-center">Admins Details</h5></td></tr>
 	 
-	   <tr><td align="right"  style="font-size: 10px;width:270px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:5px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+	   <tr><td align="right" class="mob-td"  style="font-size: 10px;"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:5px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 
 		   <tr><td colspan="3"><hr class="space xs" /></td></tr>
