@@ -374,7 +374,7 @@ $pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
 
 
                                <ul class="nav navbar-nav" style="display:inline-block;float:right;" id="MenuList">
-                                   <li class="dropdown current-active">
+                                   <li class="dropdown current-active" style="z-index:999">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo $loggedin_name; ?> <span class="caret"></span></a>
                            <ul class="dropdown-menu">
         <li><a href="change_email_password.php" adr_trans="label_my_account"><i class="fa fa-key" style="padding-right:10px;"></i>My Account</a></li>
@@ -579,15 +579,15 @@ $(function(){
 
 
                                <ul class="nav navbar-nav" style="display:inline-block">
-                                   <li class="dropdown current-active">
+                                   <li class="dropdown current-active" style="z-index:999">
    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Hi <?php echo substr($loggedin_name,0,5).".."; ?> <span class="caret"></span>  </a>
                            <ul class="dropdown-menu">
-        <li><a href="change_email_password.php"><i class="fa fa-key" style="padding-right:0px;"></i><span adr_trans="label_my_account">My Account</span></a></li>
+        <li><a href="change_email_password.php"><i class="fa fa-key" style="padding-right:0px;"></i>My Account</a></li>
   <li><a href="cms.php?id=1"><i class="fa fa-camera-retro" style="padding-right:10px;"></i>About Fotopia</a></li>
 				  <li><a href="cms.php?id=3"><i class="fa fa-question" style="padding-right:10px;"></i>FAQ</a></li>
 				  <li><a href="cms.php?id=4"><i class="fa fa-envelope-o" style="padding-right:10px;"></i>Help & Support</a></li>
 				  <li><a href="cms.php?id=2"><i class="fa fa-check-square-o" style="padding-right:10px;"></i>Terms & Conditions</a></li>
-          <li><a href="logout.php"><i class="fa fa-sign-out" style="padding-right:0px;"></i><span adr_trans="label_logout">Logout</span></a></li>
+          <li><a href="logout.php"><i class="fa fa-sign-out" style="padding-right:0px;"></i>Logout</a></li>
                                        </ul>
                                </li>
 
