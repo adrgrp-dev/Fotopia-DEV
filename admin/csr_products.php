@@ -14,6 +14,16 @@ p{
 		padding-bottom:0px;
 	}
 
+@media only screen and (max-width: 600px) {
+.infos
+{
+margin-left: 0px !important;
+margin-top: -50px !important;
+margin-right: -25px !important;
+}
+
+}
+
 </style>
 
  <div class="section-empty bgimage3">
