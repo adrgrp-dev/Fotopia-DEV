@@ -3470,14 +3470,27 @@ if (@$_REQUEST['shar']) {
                 $id_fetch=mysqli_query($con,"SELECT * FROM home_seller_info where id='$home_sell_id'");
                 $get_id=mysqli_fetch_array($id_fetch);
 
+
+                 $created_Name1=$get_summary["realtor_id"];
+                 $realtor_profile_query=mysqli_query($con,"SELECT * FROM `realtor_profile` where realtor_id=$created_Name1");
+                 //echo "SELECT * FROM `realtor_profile` where realtor_id=$created_Name1";
+                  $realtor_profile=mysqli_fetch_array($realtor_profile_query);
+
                 if ($get_id['lead_from'] == "realtor") {
                   $created_Name1=$get_summary["realtor_id"];
                   $get_created_name_query1=mysqli_query($con,"SELECT * FROM user_login where id=".$created_Name1);
                   $get_name_create1=mysqli_fetch_assoc($get_created_name_query1);
+
+
+                 
                 ?>
                 <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong><br></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo @$get_name_create1["organization_name"]; ?> </strong><br></p> </th> </tr>
+                  <th><p style="font-size:11px"><strong><?php  echo @$get_name_create1["organization_name"]."<br>".$realtor_profile["realtor_employer_id"];  ?> </strong><br></p> </th> </tr>
+                   <tr>
+                    <th><p style="font-size:11px"><strong><?php  echo "(".@$realtor_profile["realtor_employer_id"].")"?> </strong><br></p></th></tr>
+                 
+                  
                   <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
                   <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
              <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
@@ -3511,6 +3524,8 @@ if (@$_REQUEST['shar']) {
                   <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong></p></th></tr>
                   <tr>
                     <th><p style="font-size:11px"><strong><?php  echo @$get_name_create["organization_name"]?> </strong><br></p></th></tr>
+                   <tr>
+                    <th><p style="font-size:11px"><strong><?php  echo "(".@$realtor_profile["realtor_employer_id"].")"?> </strong><br></p></th></tr>
                     <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                     echo $get_name_create['address_line2']; ?><br></p></td></tr>
                     <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
