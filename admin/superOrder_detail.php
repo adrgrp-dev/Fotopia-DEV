@@ -3486,7 +3486,7 @@ if (@$_REQUEST['shar']) {
                 ?>
                 <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong><br></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo @$get_name_create1["organization_name"]."<br>".$realtor_profile["realtor_employer_id"];  ?> </strong><br></p> </th> </tr>
+                  <th><p style="font-size:11px"><strong><?php  echo @$get_name_create1["organization_name"]."<br>"."(".$realtor_profile["realtor_employer_id"].")";  ?> </strong><br></p> </th> </tr>
                    <tr>
                     <th><p style="font-size:11px"><strong><?php  echo "(".@$realtor_profile["realtor_employer_id"].")"?> </strong><br></p></th></tr>
                  
@@ -3523,9 +3523,8 @@ if (@$_REQUEST['shar']) {
                   ?>
                   <tr><th><p id="label_billed_to" adr_trans="label_billed_to" style="font-size:14px"><strong> BILLED TO </strong></p></th></tr>
                   <tr>
-                    <th><p style="font-size:11px"><strong><?php  echo @$get_name_create["organization_name"]?> </strong><br></p></th></tr>
-                   <tr>
-                    <th><p style="font-size:11px"><strong><?php  echo "(".@$realtor_profile["realtor_employer_id"].")"?> </strong><br></p></th></tr>
+                    <th><p style="font-size:11px"><strong><?php  echo @$get_name_create["organization_name"]."<br>"."(".$realtor_profile["realtor_employer_id"].")"?> </strong><br></p></th></tr>
+                  
                     <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                     echo $get_name_create['address_line2']; ?><br></p></td></tr>
                     <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
