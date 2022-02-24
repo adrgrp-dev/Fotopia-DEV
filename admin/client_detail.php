@@ -44,7 +44,23 @@ td > img
   width: 120px !important;
 }
 
+.table-mobile{
+
+
+  width: 134%!important;
+
 }
+
+}
+
+
+.table-mobile{
+
+  width: 100%;
+  
+}
+
+
 .view{
 width:100%;
 scrollbar-width: none;
@@ -80,7 +96,7 @@ overflow-y:hidden;
              <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
 			   <hr class="space s">
          <div class="view" style="">
-                     <table class="table-striped" style="width:100%; border:solid">
+                     <table class="table-striped table-mobile" style="border:solid">
 					 <tr><td rowspan="21" style="width:300px;">
 					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="290" height="200" />
 					 </td></tr>
