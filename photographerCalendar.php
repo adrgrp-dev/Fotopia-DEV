@@ -372,7 +372,7 @@ $.ajax({
    window.location.href = "photographerorder_detail.php?id="+even.extendedProps.orderId;
    }
    }
-    else
+    if(info.event.extendedProps.status=='BUSY' && info.event.extendedProps.gmailEvent!=1)
    {
    if(confirm("Are you sure want to remove the selected BUSY event?")) {
   // alert(info.event.extendedProps.orderId);

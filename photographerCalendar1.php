@@ -242,6 +242,12 @@ font-size:10px!important;
 margin-top:15px;
 }
 }
+
+
+.busyIcon
+{
+display:none;
+}
 				</style>
 				<script src='lib/main.js'></script>
 <script>

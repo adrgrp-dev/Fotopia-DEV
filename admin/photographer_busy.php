@@ -16,11 +16,11 @@ $csr_id=@$_REQUEST['csr_id'];
 $sql="";
 if($csr_id!=0)
 {
-$sql = "select ' Busy' as address,'BUSY' as title, id as orderId,'' as id, from_datetime as start, to_datetime as end,'' as gmailEvent,'BUSY' as status from appointments where photographer_id in(select id from user_login where type_of_user='Photographer' and pc_admin_id='$pc_admin_id' and csr_id='$csr_id' and id='$photographer_id') and status=0";
+$sql = "select ' Busy' as address,'BUSY' as title, id as orderId,'' as id, from_datetime as start, to_datetime as end,gmail_cal_event as gmailEvent,'BUSY' as status from appointments where photographer_id in(select id from user_login where type_of_user='Photographer' and pc_admin_id='$pc_admin_id' and csr_id='$csr_id' and id='$photographer_id') and status=0";
 }
 else if($photographer_id!=0 && $csr_id==0)
 {
-$sql = "select ' Busy' as address,'BUSY' as title, id as orderId,'' as id, from_datetime as start, to_datetime as end,'' as gmailEvent,'BUSY' as status from appointments where photographer_id in(select id from user_login where type_of_user='Photographer' and pc_admin_id='$pc_admin_id' and id='$photographer_id') and status=0";
+$sql = "select ' Busy' as address,'BUSY' as title, id as orderId,'' as id, from_datetime as start, to_datetime as end,gmail_cal_event as gmailEvent,'BUSY' as status from appointments where photographer_id in(select id from user_login where type_of_user='Photographer' and pc_admin_id='$pc_admin_id' and id='$photographer_id') and status=0";
 }
 else
 {

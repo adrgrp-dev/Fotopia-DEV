@@ -441,7 +441,8 @@ alert(alertmsg);
 		var even=info.event;
    window.location.href = "superOrder_detail.php?id="+even.extendedProps.orderId;
    }
-   else
+   
+   if(info.event.extendedProps.status=='BUSY' && info.event.extendedProps.gmailEvent!=1)
    {
    var ph_name='<?php echo strtoupper(@$_REQUEST['ph_name']);?>';
     var ph_id='<?php echo @$_REQUEST['Photographer_id'];?>';
