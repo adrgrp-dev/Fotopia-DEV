@@ -140,7 +140,7 @@ var days = 1;
 <input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control" style="padding:0px;">
 </div>
 
-<div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:200px!important"; } else
+<div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:260px!important"; } else
 { echo "width:140px!important"; } ?>;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
 <?php
