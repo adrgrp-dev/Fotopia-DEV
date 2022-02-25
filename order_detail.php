@@ -2608,7 +2608,7 @@ if($get_order1['status_id']==3)
 			 <table style="width:100%!important;">
               <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
               <tr>
-                <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create1["organization_name"]."<br>"."(".$realtor_profile["realtor_employer_id"].")"; ?> </strong><br></p> </th> </tr>
+                <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo @$get_name_create1["organization_name"]."<br>"."(".@$realtor_profile["realtor_employer_id"].")"; ?> </strong><br></p> </th> </tr>
                 
                 <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
                 <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
@@ -2637,7 +2637,7 @@ if($get_order1['status_id']==3)
 				<table style="width:100%!important;">
                 <tr><th align="left"><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
-                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo $get_name_create["organization_name"]."<br>"."(".$realtor_profile["realtor_employer_id"].")";?> </strong><br></p></th></tr>
+                  <th align="left"><p style="font-size:11px;margin-left:0px"><strong><?php  echo @$get_name_create["organization_name"]."<br>"."(".@$realtor_profile["realtor_employer_id"].")";?> </strong><br></p></th></tr>
                   
                   <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
