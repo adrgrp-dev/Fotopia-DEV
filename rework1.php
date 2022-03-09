@@ -70,7 +70,7 @@ $mail->Subject=str_replace('F{{orderId}}',$order_id, $mail->Subject);
 	$mail->Body=str_replace('F{{orderId}}',$order_id, $mail->Body);
   	// $mail->Body=str_replace('{{photographer_Name}}',$photographer_Name, $mail->Body);
 	$mail->Body.="<br><br></td></tr></table></html>";
-	echo $mail->Body;exit;
+	// echo $mail->Body;exit;
 	try {
 	    $mail->send();
 	    echo "Message has been sent successfully";
