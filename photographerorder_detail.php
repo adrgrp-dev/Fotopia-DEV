@@ -602,7 +602,6 @@ padding:0px!important;
   height:800px;
 }
  @media (max-width: 600px) {
-}
 .td-space
 {
    padding-left:5px;padding-right:15px;
