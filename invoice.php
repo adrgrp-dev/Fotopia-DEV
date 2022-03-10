@@ -25,8 +25,8 @@ include "connection.php";
     <style>
 	.adr-save
 	{
-	background:#0275d8!important;
-	border-color:#0275d8!important;
+	background:#AAD1D6!important;
+	border-color:#AAD1D6!important;
 	}
 	.adr-cancel
 	{
@@ -39,8 +39,8 @@ include "connection.php";
 	{
 	/*background:#5cb85c!important;
 	border-color:#5cb85c!important;*/
-	background:#6cc070!important;
-	border-color:#6cc070!important;
+	background:#AAD1D6!important;
+	border-color:#AAD1D6!important;
 	}
   .tab-black
   {
@@ -49,6 +49,10 @@ include "connection.php";
   }
   .tab-box > .panel, .tab-box > .panel-box > .panel{
     border-color: #585858;
+  }
+  th, th > span 
+  {
+    margin-left: 0px !important;
   }
 	</style>
 
@@ -81,7 +85,7 @@ $("#dayVal").val(calid);
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
-						<span style="display:ineline;font-size:13px;color:#FFFFFF;margin-left:-4px"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+						<span style="display:ineline;font-size:13px;color:#000;margin-left:-4px"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
                     </div>
 
@@ -116,7 +120,7 @@ $id = $_REQUEST['id'];
 
 
                 <div class="col-md-10">
-  <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;color:white !important;" onClick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+  <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;color:black !important;" onClick="printPage()"><i class="fa fa-print" style="color: black;"></i><span adr_trans="label_print">Print</span></a></p>
 <div id="printtable"></div>
     <div id="print">
 
@@ -136,34 +140,29 @@ $id = $_REQUEST['id'];
 
 
         <hr class="space s">
-        <table style="">
+        <table style="width: 100%;margin-bottom: 10px;">
 
           <tr>
             <th>
-              <p style="font-size:14px"><strong adr_trans="label_order_number">ORDER NO.</strong><br></p>
+              <p style="font-size:14px;float: left;"><strong adr_trans="label_order_number">ORDER NO.</strong><br></p>
             </th>
             <th>
-              <p style="font-size: 14px;
-    margin-left: 47pc;
-    padding-left: 0px;
-  ;"><strong adr_trans="label_date_issue"> DATE OF ISSUE </strong><br></p>
+              <p style="font-size: 14px;float: right;"><strong adr_trans="label_date_issue"> DATE OF ISSUE </strong><br></p>
             </th>
           </tr>
           <tr>
             <td>
-              <p style="font-size:11px;text-align:center;"> <?php echo $id; ?></p>
+              <p style="font-size:11px;margin-left: 10px;"> <?php echo $id; ?></p>
             </td>
             <td>
               <p style="
-       font-size:11px;
-       margin-left: 47pc;
-       padding-left : 0px;
+       font-size:11px;float: right;
        "> <?php echo date("d/m/y"); echo " ("; echo date("h:i:a"); echo ")"; ?></p>
             </td>
           </tr>
         </table>
 
-        <table style="margin-top: 10px;">
+        <table style="margin-top: 10px;display: inline;">
 
           <?php
               $id_fetch=mysqli_query($con,"SELECT * FROM home_seller_info where id='$hs_id'");
@@ -171,22 +170,22 @@ $id = $_REQUEST['id'];
 
               if ($get_id['lead_from'] == "realtor") {
               ?>
-              <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
+              <tr><th><p style="font-size:14px;float:left"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
               <tr>
-                <th><p style="font-size:11px"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
-                <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
-                <tr><td><p style="font-size:11px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
-           <tr><td><p style="font-size:11px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
+                <th><p style="font-size:11px;float:left"><strong><?php  echo $get_id['request_name']; ?> </strong><br></p> </th> </tr>
+                <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_address']; ?></p></td></tr>
+                <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['request_email']; ?><br></p></td></tr>
+           <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo $get_id['request_contact_no']; ?></p></td></tr>
               <?php
               }
               elseif ($get_id['lead_from'] == "homeseller") {
                 ?>
-                <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
+                <tr><th><p style="font-size:14px;float:left"><strong adr_trans="label_billed_to"> BILLED TO </strong><br></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo $get_id['name']; ?> </strong><br></p></th></tr>
-                 <tr> <td><p style="font-size:11px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
+                  <th><p style="font-size:11px;float:left"><strong><?php  echo $get_id['name']; ?> </strong><br></p></th></tr>
+                 <tr> <td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['address']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_id['city']; echo " , "; echo $get_id['state']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_id['zip']; ?><br></p></td></tr>
               <?php
               }
               else {
@@ -194,25 +193,23 @@ $id = $_REQUEST['id'];
                 $get_created_name_query=mysqli_query($con,"SELECT * FROM admin_users where id=".$created_Nam);
                 $get_name_create=mysqli_fetch_assoc($get_created_name_query);
                 ?>
-                <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
+                <tr><th><p style="font-size:14px;float:left"><strong adr_trans="label_billed_to"> BILLED TO </strong></p></th></tr>
                 <tr>
-                  <th><p style="font-size:11px"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['address_line1']; echo " , ";
+                  <th><p style="font-size:11px;float:left"><strong><?php  echo $get_name_create["first_name"]." ".$get_name_create["last_name"]?> </strong><br></p></th></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['address_line1']; echo " , ";
                   echo $get_name_create['address_line2']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
-                  <tr><td><p style="font-size:11px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php   echo $get_name_create['city']; echo " , "; echo $get_name_create['state']; ?><br></p></td></tr>
+                  <tr><td><p style="font-size:11px;margin-left:5px"> <?php  echo "Zip Code : "; echo $get_name_create['postal_code']; ?><br></p></td></tr>
                   <br>
                 <?php
               }
            ?>
           </table>
 
-      <br/><br/>
-          <table style="margin-left: 87%;
-    padding-left: 55.7%;
-    margin-top: -97px;
-    ">
-          <div >
+     
+          <table style="float:right;text-align: right;">
+            <div style="display: inline;">
+         
           <?php
 
     $get_order_query=mysqli_query($con,"SELECT * FROM orders where id='$id'");
@@ -226,12 +223,12 @@ $id = $_REQUEST['id'];
               $get_information=mysqli_fetch_assoc($get_photo_info);
 
               ?>
-  <tr><th><p style="font-size:14px"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
-  <tr><th><p style="font-size:11px"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
-  <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " , "; echo $get_information['address_line2']; ?></p></td></tr>
+  <tr><th><p style="font-size:14px;text-align:right"><strong adr_trans="label_billed_from"> Billed From </strong><br></p></th></tr>
+  <tr><th><p style="font-size:11px;text-align: right"><strong><?php  echo $get_information['organization_name']; ?> </strong><br></p></th></tr>
+  <tr><td><p style="font-size:11px" > <?php   echo $get_information['address_line1']; echo " ,<br> "; echo $get_information['address_line2']; ?></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php   echo $get_information['city']; echo " , "; echo $get_information['state']; ?><br></p></td></tr>
   <tr><td><p style="font-size:11px" > <?php  echo "Zip Code : "; echo $get_information['postal_code']; ?><br></p></td></tr>
-        </div>
+       </div>
         </table>
       </header>
       <article>

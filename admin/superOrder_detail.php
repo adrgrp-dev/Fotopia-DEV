@@ -207,7 +207,7 @@ $get_content = @$get_email_content1['template_body_text'];
   $mail->Body=str_replace('{{link}}', $link1 , $mail->Body);
 
    $mail->Body=str_replace('{{content}}', $get_content , $mail->Body);
-      $mail->Body=str_replace('{{Order_ID}}',$id_url, $mail->Body);
+      $mail->Body=str_replace('{{Order_ID}}',"Order #".$id_url, $mail->Body);
       $mail->Body=str_replace('{{share_email}}',$_REQUEST['email'], $mail->Body);
 
   // $mail->Body=str_replace('{{Photographer_Name}}', $x , $mail->Body);
