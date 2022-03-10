@@ -2207,7 +2207,7 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                          $Standard=mysqli_fetch_array(@$standard_query);
 
                                        if(is_dir($imagesDirectory_standard)){
-                                       if((countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)==0)&&(@$standard['editor_email']==''))
+                                       if((countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)==0)&&(@$standard['editor_email']=='') && @$standard['total_files'] !=0 )
                                        {
                                     ?>
 
@@ -2415,7 +2415,7 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                          {
                                          $floor_rework_count=countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor);
                                          }
-                                       if(($floor_rework_count==0)&&(@$floor['editor_email']==''))
+                                       if(($floor_rework_count==0)&&(@$floor['editor_email']=='') && @$floor['total_files'] !=0 )
                                        {
                                        ?>
 
