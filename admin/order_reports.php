@@ -314,14 +314,14 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 $filterBy="1";
 $filterBy1="";
 $filterbyid=0;
-if(!empty($_REQUEST['photographer10']))
+if(!empty($_REQUEST['photographer10'])&&(@$_REQUEST['filter']=="photographer"))
 {
 	$filterbyid=$_REQUEST['photographer10'];
 }
 if (!empty($_REQUEST['csr10'])) {
 	$filterbyid=$_REQUEST['csr10'];
 }
-if (!empty($_REQUEST['realtor'])) {
+if (!empty($_REQUEST['realtor'])&&(@$_REQUEST['filter']=="realtor")) {
 		$filterbyid=$_REQUEST['realtor'];
 }
 //	$_SESSION['filterby']=$filterBy;
@@ -336,7 +336,12 @@ elseif((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !
 		$ending=$_REQUEST['ending'];
 
 		if(!empty($_REQUEST['csr10']))$filterBy=" super_csr_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
-	if(!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']))$filterBy=" created_by_id=".$filterbyid." or photographer_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
+	if(!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']))
+     if(@$_REQUEST['filter']=="realtor")
+      $filterBy=" realtor_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
+    else
+      $filterBy="photographer_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
+    
 
 
   //$filterBy=" created_by_id=".$filterbyid." AND DATE(session_from_datetime) BETWEEN '$starting' AND '$ending'";
@@ -358,7 +363,12 @@ elseif((empty($_REQUEST['photographer10']) && empty($_REQUEST['realtor']) && emp
 if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empty($_REQUEST['csr10'])) && (empty($_REQUEST['starting']) && empty($_REQUEST['ending'])))
 {
 	if(!empty($_REQUEST['csr10']))$filterBy=" super_csr_id=".$filterbyid;
-	if(!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']))$filterBy=" created_by_id=".$filterbyid." or photographer_id=".$filterbyid;
+	if(!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']))
+    if(@$_REQUEST['filter']=="realtor")
+      $filterBy=" realtor_id=".$filterbyid;
+    else
+      $filterBy="photographer_id=".$filterbyid;
+
 
 
  //	$filterBy1=" super_csr_id=".$_REQUEST['csr10']." ";
@@ -426,7 +436,7 @@ if((!empty($_REQUEST['photographer10']) || !empty($_REQUEST['realtor']) || !empt
                               $q1="select count(*) as total FROM `orders` where $filterBy ";
                             }
                           }
-											//		echo $q1;
+													//echo $q1;
 
 $res="";
 
@@ -519,7 +529,7 @@ $res="";
 	                          }
 
 								@$res1=mysqli_query($con,@$res);
-								// echo $res;
+								 //echo "<br>".$res;
 
                            if(@$res1)
                             {
