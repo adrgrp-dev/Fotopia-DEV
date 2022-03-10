@@ -211,14 +211,76 @@ if(isset($_REQUEST['send']))
 
      if(c!=0)
      {
+        <?php
+
+$get_orderdetail_query=mysqli_query($con,"SELECT * from orders WHERE id='$order_id'");
+    $get_detail=mysqli_fetch_array($get_orderdetail_query);
+    $order_status_id=$get_detail['status_id'];
+
+if($order_status_id==4) {
+
+     if($type1 == 1)
+   {
+   $root_dir='/standard_photos';
+   }
+   else if($type1 == 2)
+   {
+   $root_dir='/floor_plans';
+     }
+
+      $delete_dir='../rework_images/order_'.$order_id.$root_dir.'/';       
+
+if(is_dir($delete_dir))
+    {
+foreach(glob($delete_dir.'*.*') as $v){
+    unlink($v);
+}
+}
+
+$total_standard_photos=0;
+$total_floor_photos=0;
+
+$standard_link='../rework_images/order_'.$order_id.'/standard_photos/';
+$floor_link='../rework_images/order_'.$order_id.'/floor_plans/';
+
+
+if(is_dir($standard_link))
+    {
+
+foreach(glob($standard_link.'*.*') as $total_standard_photos){
+
+    $total_standard_photos++;
+
+    }}
+
+if(is_dir($floor_link))
+    {
+
+        foreach(glob($floor_link.'*.*') as $total_floor_photos){
+    
+    $total_floor_photos++;
+
+    } }
+
+if ($total_standard_photos==0 && $total_floor_photos==0) {
+
+mysqli_query($con,"UPDATE `orders` SET status_id=2 WHERE id='$order_id'");
+
+
+}
+}
+
+?>
      ajax();
+
      window.location='<?php echo "finished_image_upload.php?id=".$order_id."&type=". $type1?>&send=1';
+
      }
      else {
            $("#error1").html("<center><h5 class='text-success' adr_trans='label_choose_upload_photos'>please choose upload photos</h5></center>");
      }
 
-
+ 
  });
  function ajax()
  {
