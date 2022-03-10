@@ -1,7 +1,7 @@
 <?php
 $_SESSION['project_url']="http://fotopia.adrgrp.com/photo-dev/";
 $application_url="http://fotopia.adrgrp.com/photo-dev";
-$support_team_email="info@fotopia.com";
+$support_team_email="support@fotopia.no";
 $support_team_phone="";
 
 //Database Credentials
