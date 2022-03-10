@@ -70,7 +70,7 @@ if(isset($_REQUEST['loginbtn']))
 
                          <ul class="nav nav-pills" style="margin-left:0px;">
                               <li class="active"><a id="label_order_report" adr_trans="label_order_report" href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Order Report</a></li>
-                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="payment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
+                              <li class="active"><a id="label_appointment_report" adr_trans="label_appointment_report" href="appointment_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;">Appointment Report</a></li>
                               <li class="active"><a id="label_payment_report" adr_trans="label_payment_report" href="payment_reports.php" class="btn btn-default btn-sm adr-save ">Payment Report</a></li>
                                 </ul>
 <br />

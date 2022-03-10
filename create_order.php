@@ -652,9 +652,9 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
       </div>
 
       <div class="col-md-6">
-       <p id="label_state" adr_trans="label_state">STATE</p>
-      <select name="state" id="state" class="form-control form-value"  value="<?php echo  @$appointment_update_details['state'];?>" required="">
-        
+       <p id="label_state" adr_trans="label_state">STATE</p> 
+      <select name="state" class="form-control form-value" id="state" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+       <?php if($appointment_update_details['state']!='') { ?><option value="<?php echo  @$appointment_update_details['state'];?>"><?php echo  @$appointment_update_details['state'];?></option><?php } ?>
                     </select>
       </div>
      <div class="col-md-6">
