@@ -1,8 +1,5 @@
 <?php 
 include "header.php"; 
-
-
-
 ?>
 
     <div class="my-class-home section-bg-animation header-animation box-middle-container full-screen-size white" data-sub-height="60" style="background-image:url('images/photo-intro.jpg');">
@@ -31,4 +28,6 @@ include "header.php";
             </div>
         </div>
     </div>
-    
+    <?php 
+include "footer.php"; 
+?>
