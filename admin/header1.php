@@ -157,7 +157,7 @@ function validate_email(val)
 				 
 </div>
          <div class="col-md-7">
-       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;" ><span adr_trans="label_photo_app_admin">Photography App - Adminstration</span></p>
+       <p style="font-weight:bold;margin-top:20px;color:#000;float:left;display:inline-table;" ><span adr_trans="label_photo_app_admin">Photography App - Adminstration</span></p>
 	 
 
 </div>

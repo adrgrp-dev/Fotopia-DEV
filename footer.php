@@ -6,10 +6,10 @@
             <div class="container" style="color:#000!important;font-weight:bold;">
                 <div class="row">
                     <div class="col-md-6 footer-left">
-                        <p adr_trans="label_copyright">Copyright © 2021 Photography App. All Rights Reserved.</p>
+                        <p adr_trans="">Copyright © 2022 Fotopia App. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 footer-right">
-                        <span style="color:#000!important;font-weight:bold;">+1 800 123 21 05</span>
+                        <span style="color:#000!important;font-weight:bold;">support@fotopia.no</span>
                         <span class="space"></span>
                         <div class="btn-group navbar-social">
                             <div style="margin-left:7px;background:#FFF!important;text-align:center;">

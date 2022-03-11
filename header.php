@@ -301,30 +301,30 @@ $("#dayVal").val(calid);
 						  ?>
 
 						    <li class="dropdown current-active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_home">Home <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $page; ?>" >Home</a></li>
+                                <a href="index.php" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_home">Home <span class="caret"></span></a>
+                               <!-- <ul class="dropdown-menu">
+                                    <li><a href="<?php //echo $page; ?>" >Home</a></li>
 
 
-                                </ul>
+                                </ul>-->
                             </li>
 
 
 							 <li class="dropdown current-active">
-                                <a href="about.php" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_about_us">About Us <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_about_us">About Us <span class="caret"></span></a>
 
                             </li>
 
                             <li class="dropdown">
-                                <a href="overview.php" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_overview">Overview <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_overview">Overview <span class="caret"></span></a>
+                                <!--<ul class="dropdown-menu">
                                     <li><a href="gallery-grid.html">overview 1</a></li>
 
-                                </ul>
+                                </ul>-->
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="keyfeatures.php" adr_trans="label_key_features">Key Features <span class="caret"></span></a>
-                                <div class="mega-menu dropdown-menu multi-level row bg-menu" style="background-image:url(images/menu-bg.jpg);">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" adr_trans="label_key_features">Key Features <span class="caret"></span></a>
+                                <!--<div class="mega-menu dropdown-menu multi-level row bg-menu" style="background-image:url(images/menu-bg.jpg);">
                                     <div class="col">
                                         <h5 adr_trans="label_portfolio">Portfolio 1</h5>
                                         <ul class="fa-ul text-s">
@@ -334,11 +334,11 @@ $("#dayVal").val(calid);
 
                                     </div>
 
-                                </div>
+                                </div>-->
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="testimonial.php" adr_trans="label_testimonial">Testimonial <span class="caret"></span></a>
-                                <div class="mega-menu dropdown-menu multi-level row bg-menu" style="background-image:url(images/menu-bg.jpg)">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" adr_trans="label_testimonial">Testimonial <span class="caret"></span></a>
+                               <!-- <div class="mega-menu dropdown-menu multi-level row bg-menu" style="background-image:url(images/menu-bg.jpg)">
                                     <div class="col">
                                         <ul class="fa-ul text-s">
                                             <li><i class="fa-li fa fa-newspaper-o"></i><a href="blog-1.html">Blog 1</a></li>
@@ -346,14 +346,14 @@ $("#dayVal").val(calid);
 
                                         </ul>
                                     </div>
-                                </div>
+                                </div>-->
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" adr_trans="label_contacts">Contacts <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                               <!-- <ul class="dropdown-menu">
                                     <li><a href="contacts-1.html">Contacts 1</a></li>
 
-                                </ul>
+                                </ul>-->
                             </li>
 							<?php } ?>
                         </ul>

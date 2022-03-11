@@ -325,7 +325,7 @@ var langval="";
 
 </div>
          <div class="col-md-2">
-       <p style="font-weight:bold;margin-top:20px;color:white;float:left;display:inline-table;"><span adr_trans="label_administration" style="color:#000">Adminstration</span></p>
+       <p style="font-weight:bold;margin-top:20px;color:#000;float:left;display:inline-table;"><span adr_trans="label_administration" style="color:#000">Adminstration</span></p>
 
 
 </div>
