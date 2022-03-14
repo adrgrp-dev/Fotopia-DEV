@@ -887,7 +887,7 @@ function get_states(cityIs) {
       </div>
 						<div class="col-md-6">
                                 <p><span id="label_first_name" adr_trans="label_first_name">First Name</span></p>
-                                <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" onblur="return validate_fname(this.value)" minlength="5" maxlength="20" required="" >
+                                <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" onblur="return validate_fname(this.value)" minlength="1" maxlength="20" required="" >
                             </div>
 
 							<div class="col-md-6">

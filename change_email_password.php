@@ -338,7 +338,7 @@ $("#moreInfoText").toggle(1000);
 
 				</td></tr>
 				<form name="changepersonal" method="post" action="">
-	<tr><td adr_trans="label_first_name">First Name</td><td>:</td><td><input type="text" name="fname" class="form-control" minlength="5" maxlength="20" required value="<?php echo $user1['first_name']; ?>" /></td></tr>
+	<tr><td adr_trans="label_first_name">First Name</td><td>:</td><td><input type="text" name="fname" class="form-control" minlength="1" maxlength="20" required value="<?php echo $user1['first_name']; ?>" /></td></tr>
 
 	<tr><td adr_trans="label_last_name">Last Name</td><td>:</td><td><input type="text" name="lname" class="form-control" minlength="1" maxlength="20" required value="<?php echo $user1['last_name']; ?>" /></td></tr>
 

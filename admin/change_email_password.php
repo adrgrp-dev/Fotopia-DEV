@@ -349,7 +349,7 @@ function validate_email1(val)
 
 				</td></tr>
 				<form name="changepersonal" method="post" action="">
-	<tr><td id="label_first_name" adr_trans="label_first_name">First Name</td><td>:</td><td><input type="text" name="fname" minlength="5" maxlength="20" class="form-control" required value="<?php echo $user1['first_name']; ?>" /></td></tr>
+	<tr><td id="label_first_name" adr_trans="label_first_name">First Name</td><td>:</td><td><input type="text" name="fname" minlength="1" maxlength="20" class="form-control" required value="<?php echo $user1['first_name']; ?>" /></td></tr>
 
 	<tr><td id="label_last_name" adr_trans="label_last_name">Last Name</td><td>:</td><td><input type="text" name="lname" minlength="1" maxlength="20" class="form-control" required value="<?php echo $user1['last_name']; ?>" /></td></tr>
 

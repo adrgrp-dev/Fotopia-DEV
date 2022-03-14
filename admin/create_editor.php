@@ -210,7 +210,7 @@ function validate_email(val)
 <p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error"></span></p>
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
-                                  <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="5" maxlength="20" class="form-control form-value" required="">
+                                  <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="">
                               </div>
 
   							<div class="col-md-6">

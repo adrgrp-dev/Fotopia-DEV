@@ -291,7 +291,7 @@ function showPassword2() {
 
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
-                                  <input id="fname" name="fname" minlength="5" maxlength="20" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="fname" name="fname" minlength="1" maxlength="20" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" required="">
                               </div>
 
   							<div class="col-md-6">

@@ -146,7 +146,7 @@ p{
 
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_first_name">First name</p>
-                                <input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['first_name']; ?>">
+                                <input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['first_name']; ?>">
                 </div>
 
                 <div class="col-md-6">
