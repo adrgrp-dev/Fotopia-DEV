@@ -20,7 +20,7 @@ $emailHost=$configuration1['url'];
 $emailUserID=$configuration1['userid'];
 $emailPassword=$configuration1['pass'];
 $emailPort = $configuration1['port'];;
-$googleMapApiKey="AIzaSyDMLLrgGfzVEqV_xISKSQQbPG3mnADwmuI";
+$googleMapApiKey="AIzaSyCTPPWUkcYXU_s0Qelncs3GKrKW_kQDUIs";
 
 
 

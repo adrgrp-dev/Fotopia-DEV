@@ -2,7 +2,7 @@
 include "connection.php";
 session_start();
 //error_reporting(E_ALL);
-$APIkey='AIzaSyA52XoPUU23-mcTv-c-q_9nowk-LQV1u6k';
+$APIkey='AIzaSyCTPPWUkcYXU_s0Qelncs3GKrKW_kQDUIs';
 //$CalId='bharathwaj.v@adrgrp.com';
 
 //selinux command for curl support is below :
