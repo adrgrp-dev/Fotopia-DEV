@@ -731,6 +731,18 @@ function getAddressApi()
     }
   });
 }
+function validateAddress()
+{
+    var locationTextField=$('#locationTextField').val();
+    if(locationTextField=="")
+    {
+      alert("Please find your location and confirm");
+      $('#locationTextField').focus();
+      $('#locationTextField').val('Norway');
+      return false;
+    }
+}
+
 
 
 </script>
@@ -797,9 +809,12 @@ if(@$_REQUEST['u']==1)
 ?>
 
     <div class="col-md-12">
-                        <p id="label_find_address" adr_trans="label_find_address">FIND ADDRESS</p>
-                        <input id="locationTextField" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="0" style="width: 90%;display: inline;" class="form-control " <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
-                        <button class="mt-3 btn adr-save" onclick="getAddressApi()">Confirm</button>
+                          <div class="col-md-6">
+                          <p adr_trans="label_find_address" style="display:inline-block">FIND ADDRESS</p>&nbsp;&nbsp;<i class="fa fa-map-marker " aria-hidden="true" style="font-size:20px; color:#006600;margin-top:3px;"></i>
+                        <br>
+                        <input id="locationTextField" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="0" style="width: 60%;display: inline;margin-right: 8px;" class="form-control " <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                       <input type="button" class="mt-3 btn adr-save btn-sm" onclick="validateAddress();getAddressApi()" value="Confirm" />
+                      </div>
                        <!--  <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span> -->
     </div>
 
