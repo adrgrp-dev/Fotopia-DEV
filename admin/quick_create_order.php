@@ -543,7 +543,33 @@ function get_states(cityIs)
   }
 }  
 
+function getAddressApi()
+{
+  var locationTextField=$('#locationTextField').val();
+  //alert('getGooglePlacesDetails.php?locationTextField='+locationTextField);
+  $.ajax({
+    url:'../getGooglePlacesDetails.php?locationTextField='+locationTextField,
+    type:'GET',
+    success:function(result)
+    {
+      var json=JSON.parse(result);
+      var city=json.predictions[0].terms;
+      var citylength=city.length;
+      var cityval=city[citylength-2].value;
+      get_states(cityval);
+      $('#city').val(cityval);
+      $('#address').val(locationTextField);
+
+      //alert("helloo");
+      
+    }
+  });
+}
+
+
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&&libraries=places&key=AIzaSyCTPPWUkcYXU_s0Qelncs3GKrKW_kQDUIs&&callback=initAutocomplete"></script>
 
  <div class="section-empty bgimage3">
         <div class="" style="margin-left:0px;height:inherit">
@@ -772,8 +798,8 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
     <div class="col-md-12">
                         <p id="label_find_address" adr_trans="label_find_address">FIND ADDRESS</p>
-                        <input id="fnd_address" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="off" class="form-control form-value" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
-                        <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span>
+                        <input id="locationTextField" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="0" class="form-control form-value" style="width: 90%;display: inline;" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>> <button class="mt-3 btn adr-save" onclick="getAddressApi()">Confirm</button>
+                        <!-- <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span> -->
     </div>
 
     <div class="col-md-6">
@@ -796,7 +822,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                       </div>
     <div class="col-md-6">
        <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value" onchange="get_states(this.value)" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+      <select name="city" id="city" class="form-control form-value" onchange="get_states(this.value)" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
         <option value="">Select city</option> 
                     <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
@@ -992,5 +1018,15 @@ $("#realtor_id").css("visibility","hidden");
 
 
 </script>
+
+     <script>
+            function init() {
+                var input = document.getElementById('locationTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+
+            google.maps.event.addDomListener(window, 'load', init);
+        </script>
+
 
 		<?php include "footer.php";  ?>
