@@ -659,7 +659,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
       </div>
      <div class="col-md-6">
                         <p id="label_zip_code" adr_trans="label_zip_code">ZIP CODE</p>
-                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>" readonly required="">
+                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="0" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>"  required="">
                     </div>
 
 
