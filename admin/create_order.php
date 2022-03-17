@@ -550,6 +550,7 @@ function get_states(cityIs)
 
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&&libraries=places&key=AIzaSyCTPPWUkcYXU_s0Qelncs3GKrKW_kQDUIs&&callback=initAutocomplete"></script>
 
  <div class="section-empty bgimage3">
         <div class="" style="margin-left:0px;height:inherit">
@@ -710,6 +711,27 @@ $(function() {
    });
  });
 
+function getAddressApi()
+{
+  var locationTextField=$('#locationTextField').val();
+  //alert('getGooglePlacesDetails.php?locationTextField='+locationTextField);
+  $.ajax({
+    url:'../getGooglePlacesDetails.php?locationTextField='+locationTextField,
+    type:'GET',
+    success:function(result)
+    {
+      var json=JSON.parse(result);
+      var city=json.predictions[0].terms;
+      var citylength=city.length;
+      var cityval=city[citylength-2].value;
+      get_states(cityval);
+      $('#city').val(cityval);
+      $('#address').val(locationTextField);
+      
+    }
+  });
+}
+
 
 </script>
 
@@ -776,8 +798,9 @@ if(@$_REQUEST['u']==1)
 
     <div class="col-md-12">
                         <p id="label_find_address" adr_trans="label_find_address">FIND ADDRESS</p>
-                        <input id="fnd_address" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="off" class="form-control form-value" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
-                        <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span>
+                        <input id="locationTextField" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="0" style="width: 90%;display: inline;" class="form-control " <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+                        <button class="mt-3 btn adr-save" onclick="getAddressApi()">Confirm</button>
+                       <!--  <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span> -->
     </div>
 
     <div class="col-md-6">
@@ -799,8 +822,8 @@ if(@$_REQUEST['u']==1)
                         <input id="address" name="address" placeholder="Enter The Address" type="text" autocomplete="off"  value="<?php echo  @$appointment_update_details['address'];?>" class="form-control form-value" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
                       </div>
     <div class="col-md-6">
-       <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value" onchange="get_states(this.value)" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
+       <p id="label_city"  adr_trans="label_city">CITY</p>
+      <select name="city" id="city" class="form-control form-value" onchange="get_states(this.value)" required="" <?php if(@$_REQUEST['u']) { echo "readonly"; } ?>>
                     <option value="">Select City</option>
                     <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
@@ -924,6 +947,7 @@ if($user_type=="Photographer")
 
      <?php if((@$_REQUEST['u']==1)&&(@$appointment_update_details['lead_from']=="realtor")){?>
 
+    
      <script>
      //alert("sarath");
 
@@ -1012,6 +1036,16 @@ $("#from_realtor").removeAttr("required");
 $("#from_homeseller").removeAttr("required");
 </script>
 
+
 <?php } ?>
+
+ <script>
+            function init() {
+                var input = document.getElementById('locationTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+
+            google.maps.event.addDomListener(window, 'load', init);
+        </script>
 
 		<?php include "footer.php";  ?>

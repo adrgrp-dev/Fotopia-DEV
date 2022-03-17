@@ -434,17 +434,38 @@ function show()
     document.getElementById('show').style.display="none";
   }
 }
+function getAddressApi()
+{
+  var locationTextField=$('#locationTextField').val();
+  //alert('getGooglePlacesDetails.php?locationTextField='+locationTextField);
+  $.ajax({
+    url:'getGooglePlacesDetails.php?locationTextField='+locationTextField,
+    type:'GET',
+    success:function(result)
+    {
+      var json=JSON.parse(result);
+      var city=json.predictions[0].terms;
+      var citylength=city.length;
+      var cityval=city[citylength-2].value;
+      get_states(cityval);
+      $('#city').val(cityval);
+      $('#address').val(locationTextField);
+      
+    }
+  });
+}
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&&libraries=places&key=AIzaSyCTPPWUkcYXU_s0Qelncs3GKrKW_kQDUIs&&callback=initAutocomplete"></script>
 
  <div class="section-empty bgimage3">
         <div class="container" style="margin-left:0px;height:inherit">
             <div class="row">
-			<hr class="space s">
+      <hr class="space s">
                 <div class="col-md-2" style="margin-left:-15px;">
-	<?php include "sidebar.php"; ?>
+  <?php include "sidebar.php"; ?>
 
-			</div>
+      </div>
 
 
       <div class="col-md-10" style="padding-top:10px;">
@@ -455,72 +476,72 @@ function show()
 
 
 
-	<div class="breadcrumb1 hidden-xs hidden-sm">
-		<a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000"></i>
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
-				<span class="breadcrumb__desc" id="label_fill_order" adr_trans="label_fill_order">Fill the order</span>
-			</span>
-		</a>
+  <div class="breadcrumb1 hidden-xs hidden-sm">
+    <a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000"></i>
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
+        <span class="breadcrumb__desc" id="label_fill_order" adr_trans="label_fill_order">Fill the order</span>
+      </span>
+    </a>
 
-		<a href="#" id="secondStep"><i class="fa fa-calendar" style="font-size:30px;padding-top:10px;"></i>
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
-				<span class="breadcrumb__desc" id="label_pick_appointment" adr_trans="label_pick_appointment">Pick appointment</span>
+    <a href="#" id="secondStep"><i class="fa fa-calendar" style="font-size:30px;padding-top:10px;"></i>
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
+        <span class="breadcrumb__desc" id="label_pick_appointment" adr_trans="label_pick_appointment">Pick appointment</span>
 
-			</span>
-		</a>
-		<a href="#" id="thirdStep"><i class="fa fa-database" style="font-size:30px;padding-top:10px;"></i>
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_products" adr_trans="label_products">Products</span>
-				<span class="breadcrumb__desc" id="label_select_products" adr_trans="label_select_products">Select Products</span>
+      </span>
+    </a>
+    <a href="#" id="thirdStep"><i class="fa fa-database" style="font-size:30px;padding-top:10px;"></i>
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_products" adr_trans="label_products">Products</span>
+        <span class="breadcrumb__desc" id="label_select_products" adr_trans="label_select_products">Select Products</span>
 
-			</span>
-		</a>
-		<a href="#"><i class="fa fa-file-text-o" style="font-size:30px;padding-top:10px;"></i>
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_summary" adr_trans="label_summary">Summary</span>
-				<span class="breadcrumb__desc" id="label_order_status" adr_trans="label_order_status">Order Status</span>
-			</span>
-		</a>
-	</div>
+      </span>
+    </a>
+    <a href="#"><i class="fa fa-file-text-o" style="font-size:30px;padding-top:10px;"></i>
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_summary" adr_trans="label_summary">Summary</span>
+        <span class="breadcrumb__desc" id="label_order_status" adr_trans="label_order_status">Order Status</span>
+      </span>
+    </a>
+  </div>
 
 
 
 <div class="breadcrumb1 hidden-md hidden-lg hidden-xl" style="height:50px;">
-		<a href="#" class="btn btn-default" id="firstStep">
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
+    <a href="#" class="btn btn-default" id="firstStep">
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_order" adr_trans="label_order">Order</span>
 
-			</span>
-		</a>
+      </span>
+    </a>
 
-		<a href="#" id="secondStep">
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
-
-
-			</span>
-		</a>
-		<a href="#" id="thirdStep">
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_products" adr_trans="label_products">Products</span>
+    <a href="#" id="secondStep">
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_appointment" adr_trans="label_appointment">Appointment</span>
 
 
-			</span>
-		</a>
-		<a href="#">
-			<span class="breadcrumb__inner">
-				<span class="breadcrumb__title" id="label_summary" adr_trans="label_summary">Summary</span>
-
-			</span>
-		</a><br />
-	</div>
+      </span>
+    </a>
+    <a href="#" id="thirdStep">
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_products" adr_trans="label_products">Products</span>
 
 
+      </span>
+    </a>
+    <a href="#">
+      <span class="breadcrumb__inner">
+        <span class="breadcrumb__title" id="label_summary" adr_trans="label_summary">Summary</span>
+
+      </span>
+    </a><br />
+  </div>
 
 
-    <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="" style="color: #000;background: #fff;border-radius: 5px;padding-left: 8px;padding-bottom: 20px;">
+
+
+    <form action="" autocomplete="off" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="" style="color: #000;background: #fff;border-radius: 5px;padding-left: 8px;padding-bottom: 20px;">
 
 
       <?php
@@ -616,8 +637,8 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
 
     <div class="col-md-12">
                         <p id="label_find_address" adr_trans="label_find_address">FIND ADDRESS</p>
-                        <input id="fnd_address" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="off" class="form-control form-value">
-                        <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span>
+                        <input id="locationTextField" name="fnd_address" placeholder="Find The Address" type="text" autocomplete="0" class="form-control" style="width: 90%;display: inline;"> <button class="mt-3 btn adr-save" onclick="getAddressApi()">Confirm</button>
+                        <!-- <span style="float:right;margin-top:-30px;"><i class="fa fa-search" style="margin-left:-25px;"></i></span> -->
     </div>
 
     <div class="col-md-6">
@@ -627,9 +648,9 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
     <div class="col-md-6">
                         <p id="label_assignment_no" adr_trans="label_assignment_no">Assignment Number</p>
                         <input id=" ref_no" name="ref_no" placeholder="Enter The Assignment Number"  value="<?php echo  @$appointment_update_details['reference_number'];?>" type="text" autocomplete="off" class="form-control form-value" required="">
-						<input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
-						<input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />
-						<input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
+            <input type="hidden" name="pc_admin_id" value="<?php echo @$_REQUEST['pc_admin_id']; ?>" />
+            <input type="hidden" name="Photographer_id" value="<?php echo @$_REQUEST['Photographer_id']; ?>" />
+            <input type="hidden" name="od" value="<?php echo @$_REQUEST['od']; ?>" />
 
     </div>
     <div class="col-md-12">
@@ -638,15 +659,15 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                       </div>
     <div class="col-md-6">
        <p id="label_city" adr_trans="label_city">CITY</p>
-      <select name="city" class="form-control form-value" onchange="get_states(this.value)" required="">
+      <select name="city" id="city" class="form-control form-value" onchange="get_states(this.value)" required="">
         <option value="">Select City</option>
                     <?php
-							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
-							while($city=mysqli_fetch_array($city1))
-							{
-							?>
-							<option value="<?php echo $city['cities']; ?>" <?php if(@$appointment_update_details['city']==@$city['cities']){echo "selected";}?>><?php echo $city['cities']; ?></option>
-							<?php } ?>
+              $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
+              while($city=mysqli_fetch_array($city1))
+              {
+              ?>
+              <option value="<?php echo $city['cities']; ?>" <?php if(@$appointment_update_details['city']==@$city['cities']){echo "selected";}?>><?php echo $city['cities']; ?></option>
+              <?php } ?>
                     </select>
                     <span id="validation_message" style="display: none;color: red;position: absolute;top:0px;left:45px;"><span>
       </div>
@@ -659,7 +680,7 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
       </div>
      <div class="col-md-6">
                         <p id="label_zip_code" adr_trans="label_zip_code">ZIP CODE</p>
-                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="0" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>"  required="">
+                        <input id="zip" name="zip" placeholder="Zip code" type="number" autocomplete="off" class="form-control form-value"  value="<?php echo  @$appointment_update_details['zip'];?>" required="">
                     </div>
 
 
@@ -729,19 +750,19 @@ if($user_type=="Photographer")
 
      <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="SaveOrder" adr_trans="label_next"><i class="fa fa-chevron-circle-right"></i>Next</button>
 
-	 <?php
-	 $user_type=$_SESSION['user_type'];
+   <?php
+   $user_type=$_SESSION['user_type'];
 
-					if($user_type=="Photographer")
-					{
+          if($user_type=="Photographer")
+          {
 
-	 ?>
+   ?>
                &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="photographerCalendar.php"  id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
-			   <?php } else { ?>
-			     &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" onclick="return confirm('Are you sure want to cancel the order?');" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
+         <?php } else { ?>
+           &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" id="label_cancel" adr_trans="label_cancel" onclick="return confirm('Are you sure want to cancel the order?');" href="csrRealtorCalendar.php"><i class="fa fa-times"></i>Cancel</a>
 
-			   <?php } ?>
+         <?php } ?>
 </center>
      </div>
 
@@ -755,8 +776,15 @@ if($user_type=="Photographer")
             </div>
         </div>
      </div>
+     <script>
+            function init() {
+                var input = document.getElementById('locationTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+
+            google.maps.event.addDomListener(window, 'load', init);
+        </script>
 
 
 
-
-		<?php include "footer.php";  ?>
+    <?php include "footer.php";  ?>
