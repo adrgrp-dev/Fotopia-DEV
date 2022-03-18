@@ -1016,7 +1016,7 @@ function get_states(cityIs) {
 							</div>
 						 <div class="col-md-6">
                                 <p id="label_zip_code" adr_trans="label_zip_code">Zip Code</p>
-                                <input name="zip" id="zip" placeholder="Zip code" type="number" min="1" autocomplete="off" class="form-control form-value" readonly required="">
+                                <input name="zip" id="zip" placeholder="Zip code" type="number" min="1" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
 
