@@ -304,7 +304,7 @@ function validate_email(val)
   							</div>
   						<div class="col-md-6">
                                   <p>Profile Pic</p>
-                                  <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value" required="">
+                                  <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value" >
                               </div>
 
 
