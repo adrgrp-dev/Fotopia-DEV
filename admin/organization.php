@@ -125,7 +125,7 @@ mysqli_query($con,"delete from user_login_temp where id=$id");
 }
 else{
 
-  mysqli_query($con,"INSERT INTO admin_users(SELECT null, `first_name`, `last_name`, `email`, `password`, `type_of_user`, `organization`, `organization_name`, `organization_branch`, `organization_email`, `organization_contact_number`, `contact_number`, `address_line1`, `address_line2`, `city`, `state`, `postal_code`, `country`, `profile_pic`, `profile_pic_image_type`, `last_login`, `last_login_ip`, `registered_on`, `is_approved`, `pc_admin_id`, `assigned_admin_id`, `secret_code` from admin_users_temp where id=$id)");
+  mysqli_query($con,"INSERT INTO admin_users(SELECT null, `first_name`, `last_name`, `email`, `password`, `type_of_user`, `organization`, `organization_name`, `organization_branch`, `organization_email`, `organization_contact_number`, `contact_number`, `address_line1`, `address_line2`, `city`, `state`, `postal_code`, `country`, `profile_pic`, `profile_pic_image_type`, `last_login`, `last_login_ip`, `registered_on`, `is_approved`, `pc_admin_id`, `assigned_admin_id`, `secret_code`,`updated_on` from admin_users_temp where id=$id)");
   $inserted_id=mysqli_insert_id($con);
   $profile_id=@$_REQUEST['profile_id'];
   mysqli_query($con,"update photo_company_profile set pc_admin_id=$inserted_id where id=$profile_id");
