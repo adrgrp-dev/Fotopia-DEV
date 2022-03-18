@@ -346,6 +346,10 @@ var pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
 var emailpattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+var contactpattern= /[0-9+.\(\)\-\s+]*/;
+
+
+
 
 if(fname=='')
 {
@@ -395,6 +399,7 @@ else
 {
 $("#confirmpassword").css("border","solid 1px grey");
 }
+
 
 
 
@@ -505,11 +510,33 @@ var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
   $("#contactno").focus();
   return false;
 }
-
-else{
-
+else
+{
   $("#validation_message").css("display","none");
 }
+
+
+if(contactno.match(contactpattern) == '')
+{
+var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
+		var alertmsg='';
+		if(langIs=='no')
+		{
+		$("#validation_message").html("Vennligst skriv inn kontaktnummeret!");
+		}
+		else
+		{
+	 $("#validation_message").html("please enter the correct contact number");
+		}
+  $("#validation_message").html("Please enter the correct contact number!");
+  $("#validation_message").css("display","block");
+  $("#contactno").focus();
+  return false;
+}
+
+
+
+
 
 if (password==""){
 var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';

@@ -20,6 +20,7 @@ if($type=="PCAdmin")
 		$pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
 		$pc_profile1=mysqli_fetch_array($pc_profile);
 		$aboutPC=$pc_profile1['about_us'];
+        $organization_number=$pc_profile1['organization_number'];
 
 		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
 		$productsFound=mysqli_num_rows($products);
@@ -40,7 +41,7 @@ if($type=="PCAdmin")
 	$editorFound=mysqli_num_rows($getEditor);
 
 
-		if($aboutPC=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
+		if($organization_number=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
 		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }
 		/*if($DiscountFound==0 && !@$_REQUEST['first']) { header("location:RealtorProducts.php?first=1"); exit; }
 		if($CSRFound==0 && !@$_REQUEST['first']) { header("location:create_csr.php?first=1"); exit; }
