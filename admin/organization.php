@@ -21,26 +21,38 @@ include "connection.php";
   <link rel="stylesheet" href="../scripts/jquery.flipster.min.css">
 
     <style>
- .adr-save
- {
- background:#AAD1D6!important;
- border-color:#AAD1D6!important;
- }
- .adr-cancel
- {
- /*background:#5cb85c!important;
- border-color:#5cb85c!important;*/
- background:#F2ADA8!important;
- border-color:#F2ADA8!important;
- border-radius: 5px !important;
- }
-  .adr-success
- {
- /*background:#5cb85c!important;
- border-color:#5cb85c!important;*/
- background: green !important;
- border-color:#6cc070!important;
- }
+ .adr-save,.adr-save:hover
+    {
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+    }
+    .adr-cancel
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#F2ADA8!important;
+    border-color:#F2ADA8!important;
+    color: #000 !important;
+    border-radius: 5px !important;
+     
+    }
+    .adr-success
+    {
+    /*background:#5cb85c!important;
+    border-color:#5cb85c!important;*/
+    background:#AAD1D6!important;
+    border-color:#AAD1D6!important;
+     color: #000 !important;
+     border-radius: 5px !important;
+    }
+
+     a.adr-save > i,button.adr-save > i,a.adr-cancel > i,button.adr-cancel > i,a.adr-save > span,a.btn-default > i,button.btn-default > i
+{
+  color: #000 !important;
+
+} 
   .tab-black
   {
     background-color: white;
@@ -76,7 +88,7 @@ $("#dayVal").val(calid);
   <body class="home device-l"><input type="hidden" name="dayVal" id="dayval" value="">
 
       <div id="preloader" style="display: none;"></div>
-      <header data-menu-anima="fade-left">
+            <header data-menu-anima="fade-left">
           <div class="navbar navbar-default over wide-area" role="navigation">
               <div class="navbar navbar-main over">
                   <div class="container">
@@ -84,8 +96,8 @@ $("#dayVal").val(calid);
                           <button type="button" class="navbar-toggle">
                               <i class="fa fa-bars"></i>
                           </button>
-                          <a class="navbar-brand" href="index.php" style="padding-left:30px;"><img src="../images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
-  						<span style="display:ineline;font-size:13px;color:#FFFFFF;margin-left:-4px"><span style="color:#00A8F3;font-size:18px;">f</span>otopia</span></a>
+                          <a class="navbar-brand" href="../index.php" style="padding-left:30px;"><img src="../images/Fotopia-New-Logo1.png" alt="logo" style="margin-top:-6px;width:65px;height:60px">
+              <span style="display:ineline;font-size:13px;color:#000;margin-left:-4px"><span style="color:#aad1d6;font-size:18px;">f</span>otopia</span></a>
 
                       </div>
 
