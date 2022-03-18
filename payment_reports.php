@@ -118,7 +118,7 @@ if(!empty($_REQUEST['pcfilter'])){
 <input type="text" name="pcfilter" id="pcfilter" class="form-control" placeholder="<?php echo @$select_organization['org'];?>" list="pclist"  onchange="PCAdminSearch()"  autocomplete="off" />
 <datalist id="pclist">
  <?php
-							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile");
+							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile where pc_admin_id in (select id from admin_users where is_approved=1)");
 							while($city=mysqli_fetch_array($city1))
 							{
 							?>

@@ -129,7 +129,7 @@ $realtorID=$_SESSION['loggedin_id'];
 ?>
 
  <?php
-              $realtor=mysqli_query($con,"select distinct(organization_name),id from admin_users where type_of_user='PCAdmin'");
+              $realtor=mysqli_query($con,"select distinct(organization_name),id from admin_users where type_of_user='PCAdmin' and is_approved=1");
 
               while($realtor1=mysqli_fetch_array($realtor))
               {

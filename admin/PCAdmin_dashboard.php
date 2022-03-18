@@ -611,7 +611,7 @@ $knowMore="";
 				}
 
 
-				$photo=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and pc_admin_id=$superCsr $whereIs order by id desc");
+				$photo=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Photographer' and pc_admin_id=$superCsr $whereIs order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
 
@@ -707,7 +707,7 @@ $companySearch=$_REQUEST['companySearch'];
 $where="and first_name like '$companySearch%'";
 }
 
-				$photo=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$superCsr' $where order by id desc");
+				$photo=mysqli_query($con,"select * from admin_users where is_approved=1 and type_of_user='CSR' and pc_admin_id='$superCsr' $where order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
 		 $knowMore="<a href='#photoCompany'  class='lightbox link' data-lightbox-anima='show-scale' onclick='GetCompanyDetails(".$photo1['pc_admin_id'].",".$photo1['id'].",\"".$photo1['organization_name']."\")'><span adr_trans='label_view1'>View</span></a>";

@@ -319,12 +319,12 @@ if(@$_REQUEST['filter_realtor'])
 {
 $searchKey=$_REQUEST['filter_realtor'];
 $conditions="and (first_name like '%$searchKey%' or last_name like '%$searchKey%' or organization_name like '%$searchKey%' or city like '%$searchKey%')";
-$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions");
+$realtor_query=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Realtor' $conditions");
 }
 else
 {
 // $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id not in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
-	$realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor'");
+	$realtor_query=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Realtor'");
 }
 
 
@@ -416,14 +416,14 @@ else
 
 			$conditions1="and (first_name like '%$searchKey1%' or last_name like '%$searchKey1%' or organization_name like '%$searchKey1%' or city like '%$searchKey1%')";
 
-			$realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' $conditions1 and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+			$realtor_query1=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Realtor' $conditions1 and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
 
 					}
 
 				else
 				{
 
-		$realtor_query1=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
+		$realtor_query1=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='$loggedin_id')");
 
 				}
                                        // $realtor_query=mysqli_query($con,"select * from user_login where type_of_user='Realtor' and id in(select realtor_id from company_favourite_realtor where pc_admin_id='10')");

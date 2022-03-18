@@ -164,7 +164,7 @@ if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 <option value="">Select Realtor</option>
 
  <?php
-              $realtor=mysqli_query($con,"select distinct(first_name),id from user_login where type_of_user='Realtor'");
+              $realtor=mysqli_query($con,"select distinct(first_name),id from user_login where type_of_user='Realtor' and email_verified=1");
 
               while($realtor1=mysqli_fetch_array($realtor))
               {

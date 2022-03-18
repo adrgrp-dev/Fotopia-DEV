@@ -295,7 +295,7 @@ color:#000!important;
 						<datalist id="realtors">
 
 						<?php
-						$selectrealtor=mysqli_query($con,"select * from user_login where type_of_user='Realtor'");
+						$selectrealtor=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Realtor'");
 						while($selectrealtor1=mysqli_fetch_array($selectrealtor))
 						{
 						?>

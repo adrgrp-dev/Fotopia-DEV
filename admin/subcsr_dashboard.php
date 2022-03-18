@@ -535,7 +535,7 @@ $knowMore="";
 				$whereIs=" and first_name like '%$searchBy%'";
 				}
 
-				$photo=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and csr_id='$subcsr' $whereIs  order by id desc");
+				$photo=mysqli_query($con,"select * from user_login where email_verified=1 and type_of_user='Photographer' and csr_id='$subcsr' $whereIs  order by id desc");
 				while($photo1=mysqli_fetch_array($photo))
 				{
 
