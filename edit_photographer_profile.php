@@ -162,11 +162,11 @@ p{
 
   <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_contact_about">About Me</p>
-                                <input id="contact_number" name="about_me" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['about_me']; ?>">
+                                <input id="contact_number" name="about_me" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['about_me']; ?>">
                 </div>
 				  <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_contact_skills">Skills</p>
-                                <input id="contact_number" name="skills" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['skills']; ?>"></div>
+                                <input id="contact_number" name="skills" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['skills']; ?>"></div>
 								  <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_contact_portfolio">Portfolio</p>
                                 <input id="contact_number" name="portfolio" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo @$res1['portfolio']; ?>">

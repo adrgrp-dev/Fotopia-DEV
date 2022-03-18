@@ -347,14 +347,14 @@ function validate_email(val)
 
 						<div class="col-md-6">
                                 <p id="label_about_me" adr_trans="label_about_us" style="color:#000;">About Us</p>
-                                <textarea id="aboutus" name="aboutus"  class="form-control form-value" required="" rows="2" cols="40"><?php echo @$res1['about_us']; ?></textarea>
+                                <textarea id="aboutus" name="aboutus"  class="form-control form-value" rows="2" cols="40"><?php echo @$res1['about_us']; ?></textarea>
 
 							</div>
 
 							<div class="col-md-6">
 
                                 <p id="label_skills" adr_trans="label_skills" style="color:#000;">Skills</p>
-                               <textarea id="skills" name="skills"  class="form-control form-value" required="" rows="2" cols="40"><?php echo @$res1['skills']; ?></textarea>
+                               <textarea id="skills" name="skills"  class="form-control form-value" rows="2" cols="40"><?php echo @$res1['skills']; ?></textarea>
 				              </div>
 
 				              <div class="col-md-6">

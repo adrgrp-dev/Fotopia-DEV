@@ -1034,7 +1034,7 @@ function get_states(cityIs) {
 							</div>
 						<div class="col-md-6">
                                 <p id="label_profile_pic" adr_trans="label_profile_pic">Profile Pic</p>
-           <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value" required="" accept="image/*">
+           <input id="profilepic" name="profilepic" placeholder="Profile pic" type="file" autocomplete="off" class="form-control form-value"  accept="image/*">
                             </div>
 
 
