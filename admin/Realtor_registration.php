@@ -243,7 +243,7 @@ if(val!="")
      }
     }
   };
-  xhttp.open("GET","../validate_email.php?id="+val,true);
+  xhttp.open("GET","validate_email_signup.php?id="+val+"&type=realtor",true);
   xhttp.send();
   }
 }
