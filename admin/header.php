@@ -1,8 +1,5 @@
 <?php
-if(!isset($_SESSION['admin_loggedin_id']))
-{
-session_start();
-}
+session_status() === PHP_SESSION_ACTIVE ?: session_start();
 include "../project-environment.php";
 
 $page="index.php";
@@ -345,10 +342,15 @@ var langval="";
 
 $detailsOdUser="";
 $detailsOdUser1="";
+$loggedINID="";
+$loggedin_name="";
+
+if(isset($_SESSION['admin_loggedin_id']))
+{
 	$loggedINID=$_SESSION['admin_loggedin_id'];
 		$loggedin_name=$_SESSION['admin_loggedin_name'];
-
-		if($_SESSION['admin_loggedin_type']=='PCAdmin')
+}
+		if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']=='PCAdmin')
 		{
 		$detailsOdUser=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$loggedINID'");
 $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
@@ -357,7 +359,7 @@ $pc_admin_profile=mysqli_query($con,"select * from admin_users where id='$logged
 $pc_admin_profile1=mysqli_fetch_array($pc_admin_profile);
 
 }
-if($_SESSION['admin_loggedin_type']=='CSR')
+if(isset($_SESSION['admin_loggedin_type']) && $_SESSION['admin_loggedin_type']=='CSR')
 {
 $detailsOdUser=mysqli_query($con,"select * from photo_company_profile where pc_admin_id=(select pc_admin_id from admin_users where id='$loggedINID')");
 $detailsOdUser1=mysqli_fetch_array($detailsOdUser);
