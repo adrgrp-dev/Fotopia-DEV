@@ -51,11 +51,6 @@ function email($template,$pc_admin_id,$email,$organization,$fname,$con)
 	$mail->From = $_SESSION['emailUserID'];
 	$mail->FromName = "Fotopia";
 
-	//To address and name
-	// ;
-	// // //Recipient name is optional
-	// //;
-	// ;
 	$mail->addAddress($email);
  // $mail->addAddress("sidambara.selvan@adrgrp.com");
 
@@ -63,31 +58,11 @@ function email($template,$pc_admin_id,$email,$organization,$fname,$con)
 	//Address to which recipient will reply
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 
-	//CC and BCC
-	//$mail->addCC("cc@example.com");
-	//$mail->addBCC("bcc@example.com");
-
-	//Send HTML or Plain Text email
 	$mail->isHTML(true);
-   //$data=$get_profile['logo_image_type'].";base64,".base64_encode($get_profile['logo']);
-   //echo $data;
-  //echo $get_profile['logo_image_type'];
-   //echo base64_encode($get_profile['logo']);
-   //$mail->AddStringAttachment("data:".$get_profile['logo_image_type'].";base64,".base64_encode($get_profile['logo']));
-
-
-
-
-
-
-
-//  exit;
-
+   
 	$mail->Subject = "Invitation to join Fotopia";
 
-  //<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">Send invite successfully</td>
-  //<td align=\"right\"><img src=\"data:".$get_profile['logo_image_type'].";base64,".base64_encode($get_profile['logo'])."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>
-
+  
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">INVITATION TO JOIN FOTOPIA</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
 	//$mail->AltBody = "This is the plain text version of the email content";
