@@ -87,8 +87,10 @@ function email($order_id,$realtor_email,$con)
 
 if($_REQUEST['edit']==1){
 
-
+  $mail->addAddress("ssselvan.83@gmail.com");
+  
   $mail->addAddress($realtor_email);
+  
 	if(!empty($csr_email))
 	{
 	$mail->AddCC($csr_email);
@@ -134,16 +136,43 @@ Fotopia Team.";
 
 	 // echo $mail->Body;
 	 // exit;
+	 
+	 include "CalendarEvent.php";
 
 
 
-	try {
-	    $mail->send();
-	    echo "Message has been sent successfully";
-	} catch (Exception $e) {
-		// echo $e->getMessage();
-	  //   echo "Mailer Error: " . $mail->ErrorInfo;
-	}
+
+
+$from_name = "Fotopia";        
+$from_address = "alerts@fotopia.no";        
+$to_name = "Photographer / PCAdmin";        
+$to_address = "ssselvan.83@gmail.com,sidambara.selvan@adrgrp.com";        
+$startTime = "10-04-2022 19:00:00";        
+$endTime = "10-04-2022 20:00:00";       
+$subject = "Lets connect to discuss about Photo App USA demo";        
+$description = "ADR USA discussion";        
+$location = "Scrum Meeting Room";
+$domain="fotopia.no";
+$UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+
+$icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
+$description, $location,"REQUEST",$UID);
+$mail->AltBody = $icalIs; // in your case once more the $text string
+$mail->Ical = $icalIs;
+
+   // $mail->Subject = "Fotopia Meeting";
+    
+    try {
+        $mail->send();
+     
+    } catch (Exception $e) {
+      echo $e->getMessage();
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+	
+	
+
+	
 }
 }
 
