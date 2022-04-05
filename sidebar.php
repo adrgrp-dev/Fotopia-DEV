@@ -254,23 +254,23 @@ vertical-align:top!important;
 
 
 <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csrRealtorDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csrRealtorDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csrRealtorCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
+<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csrRealtorCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="order_list.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
+<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="order_list.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
+<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="realtor_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
+<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="realtor_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="realtor_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="realtor_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 
@@ -334,24 +334,24 @@ vertical-align:top!important;
 <br />
 
 <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="photographerDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
+<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="photographerCalendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographerorder_list.php"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
+<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="photographerorder_list.php"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="photographeractivity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
-
-
-<tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="productsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="Products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
+<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="photographeractivity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="photographer_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="productsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="Products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
+
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="photographer_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 

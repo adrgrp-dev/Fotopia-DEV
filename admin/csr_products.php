@@ -23,6 +23,13 @@ margin-right: -25px !important;
 }
 
 }
+th{
+
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
 
 </style>
 

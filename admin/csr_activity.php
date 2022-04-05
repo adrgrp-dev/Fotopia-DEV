@@ -9,7 +9,13 @@ mysqli_query($con,"update user_actions set is_read=1,csr_read=1 where (action_do
 ?>
 
 <style>
+th{
 
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
 
 </style>
 <?php include "header.php";  ?>
@@ -145,7 +151,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
               
 
                   <div class="col-sm-6">
-                        <ul class="pagination " style="font-weight:bold!important;">
+                        <ul class="pagination " style="font-weight:bold!important;padding-left: 7px;">
                           <li class="first disabled" aria-disabled="true"><a href="./csr_activity.php?page=1" class="button">«</a></li>
                           <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./csr_activity.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
                           <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
@@ -158,7 +164,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 
 
 
-                  <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" style="margin-bottom: 10px;" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
+                  <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" style="margin-bottom: 10px;margin-right: 15px;" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
 
         </div>
 

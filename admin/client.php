@@ -207,6 +207,13 @@ width:100%!important;
     padding-left: 0px!important;
     padding-right: 0px!important;
 }
+th
+{
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
 
   </style>
 <script>

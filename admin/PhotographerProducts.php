@@ -43,6 +43,17 @@ p
 {
 color:#000!important;
 }
+th
+{
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infoBar .infos p
+{
+	margin-right: -10px;
+}
 
 </style>
 <script>
@@ -249,7 +260,7 @@ alert(alertmsg);
 						</datalist>
 
 						</form>
-						</p><form name="submitFrm" method="post" action="">
+						</p><br><form name="submitFrm" method="post" action="">
 						  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-striped" style="width:100%;">
                 <?php

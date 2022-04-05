@@ -27,7 +27,24 @@ if(isset($_REQUEST['loginbtn']))
   }
   .infobar
   {
-    margin-top: 24px;
+    margin-top: 22px;
+  }
+  thead > tr:last-child > th,th > span
+  {
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+  }
+  .infobar .infos p
+  {
+    margin-right: -90px;
+  }
+  #undefined-footer
+  {
+    background: white;
+    padding: 0px 25px;
+    margin-right: -49px;
   }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -138,7 +155,7 @@ function radioFilter(val)
  <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>Photographer</span>
 <?php } ?>
 </div>
-<div class="col-md-2" style="padding-top: 20px;">
+<div class="col-md-2" style="padding-top: 23px;">
 <select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="">
 <option value=0>-- Choose RealtorCompany --</option>
 						<?php
@@ -180,10 +197,10 @@ function radioFilter(val)
 
 </div>
 <div class="col-md-3" style="margin-top:23px;padding-left:20px;">
-    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="border-radius:20px 20px 20px 20px;">Search</button>
+    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="padding: 6px 10px !important;">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:30px;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:30px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
 
   </div>
 </div>
@@ -197,15 +214,15 @@ function radioFilter(val)
                               <table id="dataTable" align="center" class="table-striped" style="opacity:0.9;width:96%;">
 
                                     <thead>
-			<tr class="text-center"><th align="center" colspan="11" style="font-size:15px;"><center><b><br /><span  adr_trans="label_payment_report">Payment Reports</span><br /></b></center></th></tr>
-                                        <tr><th data-column-id="id" class="text-center" style=""><span class="text">
+			<tr class="text-left"><th align="center" colspan="11" style="font-size:15px;"><center><b><br /><span  adr_trans="label_payment_report">Payment Reports</span><br /></b></center></th></tr>
+                                        <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                               S.No
 
-                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" id="label_order_cost_no" adr_trans="label_order_cost_no">
+                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_order_cost_no" adr_trans="label_order_cost_no">
                                               Order Cost No
                                             </span>
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                              Order #
 
@@ -213,7 +230,7 @@ function radioFilter(val)
                                             </span>
 
 
-                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center filter2" style="" ><span class="text">
+                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left filter2" style="" ><span class="text">
 
                                            Products & Value
 
@@ -224,7 +241,7 @@ function radioFilter(val)
 
 
 								
-								<th data-column-id="logo" class="text-center filter2" style=""><span class="text" adr_trans="label_other_cost">
+								<th data-column-id="logo" class="text-left filter2" style=""><span class="text" adr_trans="label_other_cost">
 
                                           Other Cost
 
@@ -232,7 +249,7 @@ function radioFilter(val)
                                             </span>
                                 <span class="icon fa "></span></th>
 
-								<th data-column-id="logo" class="text-center filter2" style=""><span class="text">
+								<th data-column-id="logo" class="text-left filter2" style=""><span class="text">
 <?php
 $taxpercentage=0;
 $filterWhereCondition="";
@@ -260,14 +277,14 @@ $available=mysqli_num_rows($taxpercent);
                                             </span>
                                 <span class="icon fa "></span></th>
 
-								<th data-column-id="logo" class="text-center filter2" style=""><span class="text" id="label_total_value" adr_trans="label_total_value">
+								<th data-column-id="logo" class="text-left filter2" style=""><span class="text" id="label_total_value" adr_trans="label_total_value">
 
                                           Total Value
 
 
                                             </span>
                                 <span class="icon fa "></span></th>
-                                <th data-column-id="logo" class="text-center newfilter2" style=" display: none;width: 170px;"><span class="text">
+                                <th data-column-id="logo" class="text-left newfilter2" style=" display: none;width: 170px;"><span class="text">
 
 
                                           Address
@@ -275,7 +292,7 @@ $available=mysqli_num_rows($taxpercent);
                                 </span>
 
                                 <span class="icon fa "></span></th>
-                                <th data-column-id="logo" class="text-center " style=""><span class="text"  id="label_photographer" adr_trans="label_photographer">
+                                <th data-column-id="logo" class="text-left " style=""><span class="text"  id="label_photographer" adr_trans="label_photographer">
 
 
                                          
@@ -284,7 +301,7 @@ $available=mysqli_num_rows($taxpercent);
                                 </span>
 
                                 <span class="icon fa "></span></th>
-                                <!-- <th data-column-id="logo" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                <!-- <th data-column-id="logo" class="text-left" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                             Realtor
 
@@ -292,7 +309,7 @@ $available=mysqli_num_rows($taxpercent);
                                  <span class="icon fa "></span></th> -->
 
 
-								 <th data-column-id="logo" class="text-center" style=""><span class="text" id="label_date_and_time" adr_trans="label_billedTo">
+								 <th data-column-id="logo" class="text-left" style=""><span class="text" id="label_date_and_time" adr_trans="label_billedTo">
 
                                               Billed To
 
@@ -303,7 +320,7 @@ $available=mysqli_num_rows($taxpercent);
 
 
 
-								<th data-column-id="more-info" id="label_photographer_commission" class="text-center" style="display: none;"><span class="text">
+								<th data-column-id="more-info" id="label_photographer_commission" class="text-left" style="display: none;"><span class="text">
 
                                            Photographer's Commission
 
@@ -499,9 +516,9 @@ else
   														$get_invoice_query=mysqli_query($con,"SELECT * FROM `invoice` WHERE order_id=$order_id");
   														$get_invoice=mysqli_fetch_assoc($get_invoice_query);
   														?>
-                            <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-                            <td class="text-center" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
-                            <td class="text-center" style=""><?php echo "FOT#".$get_invoice['order_id']; ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                            <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
+                            <td class="text-left" style=""><?php echo "FOT#".$get_invoice['order_id']; ?></td>
                             <?php  $product_id_is=$get_order2['product_id'];
 
 						 //  $product=mysqli_query($con,"select sum(total_price)+sum(photographer_cost)+sum(other_cost) as total_value,GROUP_CONCAT(product_title,' - $',total_price SEPARATOR '<br>') as title from order_products where order_id='$order_id'");
@@ -543,7 +560,7 @@ else
 							   }
 
                             ?>
-                            <td class="text-center filter2" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
+                            <td class="text-left filter2" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
 
 
 
@@ -568,9 +585,9 @@ else
 
 
 							
-							<td class="text-leenterft filter2" style=""><?php echo "$".$taxation; ?></td>
-						 	<td class="text-center filter2" style="" title="<?php  echo $photography1['photography_title']; ?>">$<?php  echo $photography1['photography_value']; ?></td>  
-                            <td class="text-center filter2" style=""><?php echo "$".$totalOrderValue; ?></td>
+							<td class="text-left filter2" style=""><?php echo "$".$taxation; ?></td>
+						 	<td class="text-left filter2" style="" title="<?php  echo $photography1['photography_title']; ?>">$<?php  echo $photography1['photography_value']; ?></td>  
+                            <td class="text-left filter2" style=""><?php echo "$".$totalOrderValue; ?></td>
 
                             <?php
                             $photographer_id=$get_order2['photographer_id'];
@@ -578,8 +595,8 @@ else
                             $get_name=mysqli_fetch_array($get_photgrapher_name_query);
                             @$photographer_Name=$get_name["first_name"]." ".$get_name["last_name"];
                             ?>
-                            <td class="text-center newfilter2" style="display: none;width: 150px;word-wrap:break-word"><?php echo $Home_seller_detail['address']."<br>".$Home_seller_detail['city']." ".$Home_seller_detail['state']; ?></td>
-                            <td class="text-center" style=""><?php echo $photographer_Name; ?></td>
+                            <td class="text-left newfilter2" style="display: none;width: 150px;word-wrap:break-word"><?php echo $Home_seller_detail['address']."<br>".$Home_seller_detail['city']." ".$Home_seller_detail['state']; ?></td>
+                            <td class="text-left" style=""><?php echo $photographer_Name; ?></td>
                             <?php
                            $created_by_id=$get_order2['created_by_id'];
 						   $pcAdminId=$get_order2['pc_admin_id'];
@@ -602,7 +619,7 @@ else
                             $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                             ?>
 
-                            <!-- <td class="text-center" style=""><?php //echo $created_name; ?></td> -->
+                            <!-- <td class="text-left" style=""><?php //echo $created_name; ?></td> -->
 
 							<td align="center">
 
@@ -626,7 +643,7 @@ else
 							?>
 
 							</td>
-               <td class="text-center newfilter2" style="display: none"><?php
+               <td class="text-left newfilter2" style="display: none"><?php
 
                 if (empty($photography_earning_cost['photo_commission_cost'])) {
 
@@ -647,7 +664,7 @@ else
 
                               // $toexp=explode(" ",$get_order2['session_to_datetime']);
                              ?>
-                           <!--  <td class="text-center" style=""><?php  //if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
+                           <!--  <td class="text-left" style=""><?php  //if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
 		  //echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
  -->
 
@@ -655,7 +672,7 @@ else
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 													<?php } }?>
 													<tr ><td colspan="5">&nbsp;</td>
-													<td style="font-weight:600;"  ><b class="label_total">TOTAL</b> </td><td style="font-weight:600;"><b class="label_total">$<?php echo $grandTotal; ?></b></td>
+													<td style="font-weight:600;padding-left:3px ;"  ><b class="label_total">TOTAL</b> </td><td style="font-weight:600;padding-left:3px ;"><b class="label_total">$<?php echo $grandTotal; ?></b></td>
 													<td colspan="4">&nbsp;</td>
 													</tr>
 													</tbody>
@@ -670,7 +687,7 @@ else
                                     <li class="next disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]+1)."&filter=".@$_REQUEST['filter'];?>" class="button">&gt;</a></li>
                                     <li class="last disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($Page_check)."&filter=".@$_REQUEST['filter'];?>" class="button">»</a></li></ul></div>
                                     <div class="col-sm-6 infobar"style="">
-                                    <div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($total_no)<=0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span>
+                                    <div class="infos"><p align="right" style="    margin-right: -25px;"><span adr_trans="label_showing">Showing</span> <?php  if(($total_no)<=0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span>
                                     <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">entries</span></p></div>
                                     </div>
                                   </div>

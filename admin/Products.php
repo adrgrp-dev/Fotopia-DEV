@@ -75,6 +75,18 @@ p
 {
 color:#000!important;
 }
+th
+{
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infoBar .infos p
+{
+	margin-right: -10px;
+}
+
 
 </style>
 <script>
@@ -195,7 +207,6 @@ color:#000!important;
                 <div class="col-md-2" style="margin-left:10px;">
                 	<hr class="space xs">
 	<?php include "sidebar.php"; ?>
-
 			</div>
             <div class="col-md-9" style="margin-left:40px;">
 			<center>
@@ -329,8 +340,8 @@ color:#000!important;
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
 										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
 										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./Products.php?page=".($Page_check);?>" class="button">>></a></li></ul></div>
-										<div class="col-sm-6 infoBar"style="margin-top:24px">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div>
+										<div class="col-sm-6 infoBar"style="margin-top:22px">
+										<div class="infos"><p align="right" style=""><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> <span> of </span> <?php echo $total_no; ?> <span adr_trans="label_entries"> entries</span></p></div>
 										</div><?php } ?>
 				</div>
 

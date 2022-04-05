@@ -167,10 +167,10 @@ background:#FFF;
 }
 .listPageTR
 {
-border-top:solid 1px #AAA;
+border-top:solid 0.5px #AAA;
 border-bottom:solid 0.5px #AAA;
-border-left:solid 1px #AAA;
-border-right:solid 1px #AAA;
+border-left:solid 0.5px #AAA;
+border-right:solid 0.5px #AAA;
 background:#FFF;
 }
 .listPageTR>td
@@ -184,11 +184,12 @@ color:#000!important;
 }
 th,th > span
 {
-font-family: Manrope-Regular;
-font-size:11px;
-color:#000!important;
-padding-bottom:10px;
-padding-left:5px!important;
+    font-family: Manrope-Regular;
+    font-size: 11px;
+    /*background: #aad1d6;*/
+    color: #000!important;
+    padding-bottom: 10px;
+    padding-left: 3px!important;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,.active
 {
@@ -209,6 +210,12 @@ font-size:14px!important;
 {
 font-size:12px!important;
 }
+/*nav tab border black removed*/
+.nav-tabs 
+{
+border-bottom: none;
+}
+/**/
 .nav-tabs > li
 {
 margin-bottom:10px;
@@ -6539,7 +6546,7 @@ ul.pagination > li.active > a
 div.infos > p > span
 {
   padding-right: 2px;
-
+  padding-left: 2px;
 }
 
 input
@@ -6548,6 +6555,10 @@ box-shadow:none!important;
 background:#FFF;
 color:#000;
 border-radius:5px!important;
+}
+select
+{
+    border-radius: 5px !important;
 }
 .dropdown-toggle:focus
 {
@@ -6559,3 +6570,18 @@ border:none!important;
  box-shadow: none !important;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+     background-color: #fff; 
+}
+thead > tr:last-child
+{
+     border-top: solid 1px #aad1d6!important;
+    border-bottom: solid 0.5px #aad1d6!important;
+    border-left: solid 1px #aad1d6!important;
+    border-right: solid 1.5px #aad1d6!important;
+}
+.infos p,.infos
+{
+    color: black !important;
+    font-weight: 600 !important;
+}

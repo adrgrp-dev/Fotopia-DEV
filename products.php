@@ -40,6 +40,22 @@ th,td
 		padding:5px!important;
 		text-align:left!important;
 		}*/
+
+th
+{
+  background: #aad1d6;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 3px !important;
+}
+.infobar .infos p
+{
+  margin-right: -10px;
+}
+.pagination
+{
+	padding-left: 7px;
+} 
 </style>
 
  <div class="section-empty bgimage3">
@@ -62,7 +78,7 @@ th,td
 						<!-- <div class="col-md-8" style="background:#CCEDFC;opacity:0.8;padding:10px;"> -->
 
 						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products" style="color:#000">List of Products</h5>
-						<div id="" style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+						<div id="" style="width:100%;scrollbar-width: none;overflow-x: hidden;overflow-y:hidden">
 					<table align="center" class="table-striped" width="98%">
                 <thead>
                     <tr>
@@ -171,14 +187,9 @@ th,td
 										<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
 										<li class="next disabled" aria-disabled="true"><a href="<?php echo "./products.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
 										<li class="last disabled" aria-disabled="true"><a href="<?php echo "./products.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
-										<div class="col-sm-6 infoBar"style="margin-top:24px">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+										<div class="col-sm-6 infoBar"style="margin-top:20px">
+										<div class="infos"><p align="right" style="margin-right:-10px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 										</div><?php } ?>
-
-
-
-
-
 							<!-- </div> -->
 
 

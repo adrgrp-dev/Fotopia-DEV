@@ -32,7 +32,27 @@ if(isset($_REQUEST['label_search']))
   }
   .infobar
   {
-    margin-top: 24px;
+    margin-top: 22px;
+  }
+  .infobar .infos p
+  {
+    margin-right: -40px;
+  }
+  thead > tr:last-child > th,th > span
+  {
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+  }
+  th:last-child > span
+  {
+    vertical-align: text-top;
+  }
+  #undefined-footer
+  {
+    background: white;
+    padding: 0px 25px;
   }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -226,10 +246,10 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
   <?php } ?>
 </div>
 
-<div class="col-md-3" style="margin-top:22px;width:170px;">
-<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="border-radius:20px 20px 20px 20px;">Search</button>
-<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
+<div class="col-md-3" style="margin-top:25px;width:170px;">
+<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;">Search</button>
+<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
 								</div>
 </div>
 </form>

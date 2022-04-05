@@ -25,8 +25,26 @@ background:#D9534F!important;
 color:white!important;
 padding-left:5px;
 }
-
-
+th
+{
+  background: #aad1d6;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 2px !important;
+}
+th:last-child > span
+{
+  vertical-align: text-top;
+}
+.infobar .infos p
+{
+  margin-right: -10px;
+}
+#undefined-footer
+{
+  background: white;
+  padding:10px 10px;
+}
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
@@ -51,12 +69,12 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
               	<h5 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 
                <div style="background-color:white;padding-top: 10px;border-radius: 5px;">
- <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;text-align:center;" aria-busy="false">
+ <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;padding-left:3px;" aria-busy="false">
                   <thead>
                     <tr>
-                      <th class="text-center"><span  adr_trans="label_s.no">S.no</span></th>
-                     <th class="text-center"><span adr_trans="label_activity">Activity</span></th>
-           <th class="text-center"><span adr_trans="label_date_and_time">Date & Time</span></th>
+                      <th class="text-left"><span  adr_trans="label_s.no">S.no</span></th>
+                     <th class="text-left"><span adr_trans="label_activity">Activity</span></th>
+           <th class="text-left"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>
@@ -149,7 +167,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                </tbody>
                   </table>
                 </div>
-
+                  <div id="undefined-footer">
                   <div class="col-sm-6">
                         <ul class="pagination ">
                           <li class="first disabled" aria-disabled="true"><a href="./realtor_activity.php?page=1" class="button">«</a></li>
@@ -157,14 +175,15 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                           <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
                           <li class="next disabled" aria-disabled="true"><a href="<?php echo "./realtor_activity.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                           <li class="last disabled" aria-disabled="true"><a href="<?php echo "./realtor_activity.php?page=".($Page_check);?>" class="button">»</a></li></ul>  </div>
-                          <div class="col-sm-6 infoBar"style="margin-top:24px">
-                          <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+                          <div class="col-sm-6 infoBar"style="margin-top:22px;">
+                          <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of&nbsp; <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                             <br>  <br>
                           </div>
 
 
 
                   <p align="right">   <a href="./csrRealtorDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home">Back To Home</a></p>
+                </div>
 
         </div>
 

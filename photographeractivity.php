@@ -31,6 +31,22 @@ padding-left:5px;
 {
 padding:15px!important;
 }*/
+th
+{
+  background: #aad1d6;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 3px !important;
+}
+.infobar .infos p
+{
+  margin-right: -10px;
+}
+#undefined-footer
+{
+  background: white;
+  padding:10px 10px;
+}
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage2">
@@ -166,7 +182,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
                </tbody>
                   </table>
                 </div>
-
+                <div id="undefined-footer">
                   <div class="col-sm-6">
                         <ul class="pagination " style="font-weight:bold!important;">
                           <li class="first disabled" aria-disabled="true"><a href="./photographeractivity.php?page=1" class="button">«</a></li>
@@ -174,14 +190,15 @@ $limit=$start_no_users. ',' . $number_of_pages;
                           <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
                           <li class="next disabled" aria-disabled="true"><a href="<?php echo "./photographeractivity.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                           <li class="last disabled" aria-disabled="true"><a href="<?php echo "./photographeractivity.php?page=".($Page_check);?>" class="button">»</a></li></ul>  </div>
-                          <div class="col-sm-6 infoBar"style="margin-top:24px">
-                          <div class="infos" style="color: black"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?>  of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p></div>
+                          <div class="col-sm-6 infoBar"style="margin-top:22px">
+                          <div class="infos" style="color: black"><p align="right"><span adr_trans="label_showing">Showing</span><?php if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                             <br>  <br>
                           </div>
 
 
 
                   <p align="right">   <a href="photographerDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home"><i class="fa fa-sign-out"></i>Back To Home</a></p>
+                </div>
 
         </div>
                 </div>

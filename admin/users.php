@@ -27,6 +27,7 @@ if(isset($_REQUEST['loginbtn']))
    .infos{
 		margin-left: 269px;
 		margin-top: 20px;
+		margin-right: -40px;
 	 }
 
 @media only screen and (max-width: 600px) {
@@ -40,8 +41,20 @@ margin-right: -35px !important;
 {
 	margin-top: -35px !important;
 }
-}	 
+}	
+th
+{
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+} 
+input[type="submit"]
+{
+	padding: 6px 10px;
+}
 	</style>
+
 <?php include "header.php";  ?>
  <div class="section-empty bgimage5">
         <div class="" style="margin-left:0px;height:inherit">
@@ -56,7 +69,7 @@ margin-right: -35px !important;
                 <div class="col-md-10">
 									<a href="create_organization.php" class="circle-button btn adr-save" style="float:right;font-family:Manrope-Regular;font-size:11px;"><i class="fa fa-plus fa-xs"></i>Create</a>
                 	<div class="tab-box" data-tab-anima="show-scale">
-                    <h5 class="text-center">List of users</h5>
+                    <h5 class="text-left">List of users</h5>
                     <ul class="nav nav-tabs">
 <li  id="tab11" class="active"><a onclick="" class="click" href="#">Approved Users</a></li>
 <li id="tab21"><a class="click" href="#">Pending Users</a></li>
@@ -364,52 +377,52 @@ var initialArray = [];
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width:100%">
                 <thead>
-                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style="width:100px;"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Status
 
@@ -464,18 +477,18 @@ if (isset($_REQUEST['user_name1']) || !empty($_SESSION['usertype1'])) {
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0" class="listPageTR">
-				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-center" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['organization_name']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['type_of_user']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['city']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['state']; ?></td>
-				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['organization_name']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
+				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-center" style=""><?php echo $res1['contact_number']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
 
-				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span></td>
+				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($res1['type_of_user']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
@@ -495,7 +508,7 @@ if (isset($_REQUEST['user_name1']) || !empty($_SESSION['usertype1'])) {
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -792,52 +805,52 @@ var initialArray = [];
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width: 100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center"  style="width:100px;"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left"  style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Status
 
@@ -896,19 +909,19 @@ if (isset($_REQUEST['user_name2'])) {
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0" class="listPageTR">
-				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-center" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
-				<td class="text-center" style=""><?php echo $pending_data2['organization_name']; ?></td>
-				<td class="text-center" style=""><?php echo $pending_data2['type_of_user']; ?></td>
-				<td class="text-center" style=""><?php echo $pending_data2['city']; ?></td>
-				<td class="text-center" style=""><?php echo $pending_data2['state']; ?></td>
-				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $pending_data2["id"]; ?>">
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['organization_name']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['type_of_user']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['city']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['state']; ?></td>
+				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $pending_data2["id"]; ?>">
 				<img src="data:<?php echo $pending_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($pending_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-center" style=""><?php echo $pending_data2['contact_number']; ?></td>
+				<td class="text-left" style=""><?php echo $pending_data2['contact_number']; ?></td>
 
 
-				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span></td>
+				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($pending_data2['type_of_user']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
@@ -929,7 +942,7 @@ if (isset($_REQUEST['user_name2'])) {
 							<a href="#1" class="button"><?php echo $_SESSION["page1"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page1=".($_SESSION["page1"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page1=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -1248,52 +1261,52 @@ var initialArray = [];
 <div style="width: 100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width: 100%;" >
                 <thead>
-                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center"  style="width:100px;"><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left"  style="width:100px;"><span class="text">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center"><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left"><span class="text">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Status
 
@@ -1350,18 +1363,18 @@ if (isset($_REQUEST['user_name3'])) {
 				   //	---------------------------------  pagination starts ---------------------------------------
 				?>
 				<tr data-row-id="0" class="listPageTR">
-				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-center" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
-				<td class="text-center" style=""><?php echo $denied_data2['organization_name']; ?></td>
-				<td class="text-center" style=""><?php echo $denied_data2['type_of_user']; ?></td>
-				<td class="text-center" style=""><?php echo $denied_data2['city']; ?></td>
-				<td class="text-center" style=""><?php echo $denied_data2['state']; ?></td>
-				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $denied_data2["id"]; ?>">
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['organization_name']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['type_of_user']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['city']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['state']; ?></td>
+				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $denied_data2["id"]; ?>">
 				<img src="data:<?php echo $denied_data2['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($denied_data2['profile_pic']); ?>" width="50" height="50" /></td>
 
-				<td class="text-center" style=""><?php echo $denied_data2['contact_number']; ?></td>
+				<td class="text-left" style=""><?php echo $denied_data2['contact_number']; ?></td>
 
-				<td class="text-center" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span></td>
+				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($denied_data2['type_of_user']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
@@ -1381,7 +1394,7 @@ if (isset($_REQUEST['user_name3'])) {
 							<a href="#1" class="button"><?php echo $_SESSION["page2"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./users.php?page2=".($_SESSION["page2"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./users.php?page2=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to">  to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?><span adr_trans="label_entries">  entries</span></p></div></div>
 									</div>
 								</div>
 

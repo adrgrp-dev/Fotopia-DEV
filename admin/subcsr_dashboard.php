@@ -244,9 +244,9 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top: 15px;padding-bottom: 3px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 
-                        <br />
+                        <hr class="space xs" />
                <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 
@@ -268,10 +268,10 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                               if($get_ongoing=mysqli_fetch_assoc($get_ongoing_query))
                               {
                               ?>
-                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
+                            <p class="counter" data-speed="1000" data-to="  <?php echo $get_ongoing["ongoing_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top: 15px;padding-bottom: 3px;color:#000"> <?php echo $get_ongoing["ongoing_no"]; }?></p>
 
                         
-                        <br />
+                        <hr class="space xs" />
                <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?o=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 
@@ -293,13 +293,14 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
                               if($get_order=mysqli_fetch_assoc($get_order_query))
                               {
                               ?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top:5px;color:#000">
+                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:white;font-size:25px;font-weight:600;padding-top: 15px;padding-bottom: 3px;color:#000">
 
        <?php echo $get_order["completed_no"]; }?>
      </p>
     
-      <br />
+     <hr class="space xs" />
                <a class="btn-sm" adr_trans="label_view" href="subcsrOrder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
+
                           </div>
                           <div class="col-md-6">
 
@@ -461,7 +462,7 @@ $.ajax({
 <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
  <div id='calendar' style="border-radius:5px"></div>
 <hr class="space s">
-                <center>  <a href="CSR_Calendar.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
+                <center>  <a href="CSR_Calendar.php" class="anima-button circle-button btn-sm btn adr-save" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar"><i class="fa fa-calendar" style="color: black;"></i>View Calender</span></a>  </center>
     </div>
 
 
@@ -498,7 +499,7 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 
 
 <p align="center">
- <a id="label_view_order" adr_trans="label_view_order" class="btn btn-sm" href="subcsrOrder_list1.php?c=1" style="margin-top:20px;background:#aad1d6;color:#000;border-radius:8px;border:none;">View My Orders </a>
+ <a class="anima-button circle-button btn-sm adr-save" href="subcsrOrder_list1.php?c=1" style="margin-top:25px;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
  </p>
 </div>
 

@@ -20,6 +20,22 @@ if(isset($_REQUEST['loginbtn']))
  .nav-pills > li > a{
   padding: 6px;
   }
+thead > tr:last-child > th,th > span
+{
+  background: #aad1d6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 3px !important;
+}
+th:last-child > span
+{
+  vertical-align: text-top;
+}
+#undefined-footer
+{
+  background: white !important;
+  padding: 0px 25px;
+}
   </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -106,6 +122,7 @@ var days = 1;
 <br />
 
 <div class="row" style="width:100%;margin-left:0px;">
+
 <form>
 <div class="col-md-3" style="padding-left:0px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
@@ -141,40 +158,40 @@ $realtorID=$_SESSION['loggedin_id'];
 </div>
 
 <div class="col-md-3" style="margin-top:25px">
-<button type="submit" id="submit" name="label_search" class="btn btn-default btn-sm" style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
-<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
+<button type="submit" id="submit" name="label_search" class="btn btn-default btn-sm" style="padding: 8px 10px !important;" adr_trans="label_search">Search</button>
+<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:31px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:31px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
 								</div>
 </div>
 </form>
-<div style="margin-top: 5px;width:100%;border:solid 1px #000;background-color:white">
+<div style="margin-top: 5px;width:100%;border:solid 1px #fff;background-color:white">
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden  ">
 
                             <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
 						<tr><th colspan="8" align="center"><center><b adr_trans="label_order_reports"><br />Order Reports<br /></b></center></th></tr>
-                                      <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
+                                      <tr><th data-column-id="id" class="text-left" style=""><span class="text" adr_trans="label_s.no">
 
                                             S.No
 
-                                          </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" adr_trans="label_property">
+                                          </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" adr_trans="label_property">
                                             Property
                                           </span>
-                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_photo_company">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_photo_company">
 
                                            Photo Company
 
                                           </span>
 
 
-                              <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_session_date_time">
+                              <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" adr_trans="label_session_date_time">
 
                                          Session Date & Time
 
 
                                           </span>
 
-                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_products">
+                              <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_products">
 
 
                                           Products
@@ -184,7 +201,7 @@ $realtorID=$_SESSION['loggedin_id'];
 
                                            <span class="icon fa "></span></th>
 
-										 <!--  <th data-column-id="logo" class="text-center" style=""><span class="text">
+										 <!--  <th data-column-id="logo" class="text-left" style=""><span class="text">
 
 
                                           Quantity
@@ -195,21 +212,21 @@ $realtorID=$_SESSION['loggedin_id'];
                               <span class="icon fa "></span></th> -->
 
 
-										   <th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_total_value">
+										   <th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_total_value">
 
                                         Total Value
 
 
                                           </span>
 
-                              <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+                              <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                           Realtor
 
                                           </span> -->
 
 
-                              <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style="margin-right: 5px;"><span class="text" adr_trans="label_status">
+                              <span class="icon fa "></span></th><th data-column-id="link" class="text-left" style="margin-right: 5px;"><span class="text" adr_trans="label_status">
 
                                                   Status
 
@@ -413,13 +430,13 @@ $res="";
                              //	---------------------------------  pagination starts ---------------------------------------
                           ?>
                           <tr class="listPageTR">
-                          <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                          <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                           <?php
                             $hs_id=$get_order["home_seller_id"];
                             $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                             $get_home=mysqli_fetch_assoc($get_home_query);
                            ?>
-                          <td class="text-center" style=""><?php echo $get_order["property_type"]; ?> <br><?php echo @$get_home["city"].",".@$get_home['state'];?></td>
+                          <td class="text-left" style=""><?php echo $get_order["property_type"]; ?> <br><?php echo @$get_home["city"].",".@$get_home['state'];?></td>
                           <?php
                           $pc_id=$get_order['pc_admin_id'];
 													 $order_id=$get_order['id'];
@@ -427,13 +444,13 @@ $res="";
                           $get_name=mysqli_fetch_assoc($get_pc_name_query);
                           $pc_Name=@$get_name["organization_name"];
                           ?>
-                          <td class="text-center" style=""><?php echo $pc_Name; ?></td>
+                          <td class="text-left" style=""><?php echo $pc_Name; ?></td>
                           <?php
 
                             $toexp=explode(" ",$get_order['session_to_datetime']);
 														//echo $toexp[1];
                            ?>
-                          <td class="text-center" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
+                          <td class="text-left" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
 
 													<?php
@@ -450,7 +467,7 @@ $res="";
 												}
 								  				?>
 
-                          <td class="text-center" style="word-wrap:break-word;width:250px"><?php  echo @substr($prodName,0,-1); ?></td>
+                          <td class="text-left" style="word-wrap:break-word;width:250px"><?php  echo @substr($prodName,0,-1); ?></td>
 
                            <?php
   $prodQuan="";
@@ -463,14 +480,14 @@ $res="";
                           $prodQuan.=$product_title['quantity'].',';
                         }
                           ?>
-                       <?php /*   <td class="text-center" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
+                       <?php /*   <td class="text-left" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
 
 													<?php
 													 $total_cost=mysqli_query($con,"SELECT sum(total_price) as totalPrice from order_products WHERE order_id='$order_id'");
 															$total_cost1=mysqli_fetch_array($total_cost);
 
 													?>
-                          <td class="text-center" style=""><?php echo "$".@$total_cost1['totalPrice']; ?></td>
+                          <td class="text-left" style=""><?php echo "$".@$total_cost1['totalPrice']; ?></td>
                           <?php
                           $created_by_id=$get_order['created_by_id'];
                           $get_create_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$created_by_id'");
@@ -484,8 +501,8 @@ $res="";
                           $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                           ?>
 
-                          <!-- <td class="text-center" style=""><?php echo $created_name; ?></td> -->
-                          <td class="text-center" style="width:70px;padding-right: 10px;"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:80px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
+                          <!-- <td class="text-left" style=""><?php echo $created_name; ?></td> -->
+                          <td class="text-left" style="width:70px;padding-right: 10px;"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:80px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -501,8 +518,8 @@ $res="";
 																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button "><?php echo $_SESSION["page"]; ?></a></li>
 																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($_SESSION["page"]+1);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button ">&gt;</a></li>
 																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_reports.php?page=".($Page_check);?>&starting=<?php echo @$_REQUEST['starting']; ?>&ending=<?php echo @$_REQUEST['ending']; ?>" class="button ">»</a></li></ul></div>
-																		<div class="col-sm-6 infoBar"style="margin-top:24px">
-																<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?>  of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+																		<div class="col-sm-6 infoBar"style="margin-top:22px">
+																<div class="infos"><p align="right" style="margin-right: -15px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 																		</div>
 																	</div>
 																</div>

@@ -67,6 +67,14 @@ scrollbar-width: none;
 overflow-x: scroll;
 overflow-y:hidden;
 }
+th
+{
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+
   </style>
    <?php
       $realtor_id=@$_REQUEST['realtor_id'];
@@ -96,7 +104,7 @@ overflow-y:hidden;
              <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
 			   <hr class="space s">
          <div class="view" style="">
-                     <table class="table-striped table-mobile" style="border:solid">
+                     <table class="table-stripped table-mobile" style="border:solid;background: white;">
 					 <tr><td rowspan="21" style="width:300px;">
 					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="290" height="200" />
 					 </td></tr>
@@ -229,7 +237,7 @@ overflow-y:hidden;
                      <hr class="space s">
 					 <div>
                       <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:white">
+                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:none">
                      <table align="center" style="color: #000;opacity:0.9;width:98%;">
                           <tr >
                            <th style="color:black;"><span> S.no</span></th>
@@ -272,6 +280,7 @@ overflow-y:hidden;
                               <?php } ?>
                      </table>
                    </div>
+}
 </div>
                      <div>
 

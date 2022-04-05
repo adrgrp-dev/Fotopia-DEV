@@ -18,7 +18,13 @@ if(isset($_REQUEST['loginbtn']))
    .infos{
 		margin-left: 269px;
 		margin-top: 20px;
+		margin-right: -45px;
 	 }
+
+ .infos span
+{
+  padding: 0px 2px;
+}
 	 
 /* table {
   font-family: arial, sans-serif;
@@ -73,6 +79,17 @@ min-width:120px!important;
     padding-bottom: 6px!important;
     padding-left: 0px!important;
     padding-right: 0px!important;
+}
+th
+{
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infoBar .infos p
+{
+	margin-right: -10px;
 }
 	</style>
 <?php include "header.php";  ?>
@@ -143,7 +160,7 @@ min-width:120px!important;
 
 <div class="panel active " id="tab1" style="width:100%;">
 
-<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;" >Create Admin</a></p>
+<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;font-size: 10px;" >Create Admin</a></p>
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table class="table-striped" align="center" aria-busy="false" style="width:100%;">
                 <thead>
@@ -198,7 +215,7 @@ min-width:120px!important;
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text"  id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text"  id="label_details" adr_trans="label_details">
 
                                 Details
 
@@ -272,7 +289,7 @@ min-width:120px!important;
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_pending' adr_trans='label_pending'>Pending</span>"; } elseif($approved2==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_blocked' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_approved' adr_trans='label_approved'>Approved</span>"; } ?></td>
-				<td class="text-left" style=""><a target="" href="pc_admin_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-center" style=""><a target="" href="pc_admin_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_pc_admin_user.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Admin details"></i></a></td>
 				</tr>
@@ -288,7 +305,7 @@ min-width:120px!important;
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?a=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?a=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><p align="right" style="margin-right:0px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -356,7 +373,7 @@ min-width:120px!important;
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
@@ -438,7 +455,7 @@ min-width:120px!important;
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' >Pending</span>"; } elseif($approved2==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
-				<td class="text-left" style=""><a target="" href="csr_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-center" style=""><a target="" href="csr_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_csr.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit CSR details"></i></a></td>
 				</tr>
@@ -454,7 +471,7 @@ min-width:120px!important;
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?c=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?c=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><p align="right" style="margin-right:0px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div></div>
 									</div>
 								</div>
 
@@ -519,7 +536,7 @@ min-width:120px!important;
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
@@ -612,7 +629,7 @@ min-width:120px!important;
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved=$res1['email_verified']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
-				<td class="text-left" style=""><a target="" href="userDetails.php?val=2&id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-center" style=""><a target="" href="userDetails.php?val=2&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_photographer.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit photographer details"></i></td>
 				</tr>
@@ -627,7 +644,7 @@ min-width:120px!important;
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?p=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?p=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><p align="right" style="margin-right:0px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div></div>
 									</div>
 								</div><!--Panel 3 ends-->
 
@@ -723,7 +740,7 @@ header("location:csr_list1.php?ed=1");
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text" id="label_details" adr_trans="label_details">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
@@ -821,7 +838,7 @@ header("location:csr_list1.php?ed=1");
 				 ?></td>
 
 
-				<td class="text-left" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo @$get_photographer_id_query1['service_type']; ?>" class="link">
+				<td class="text-center" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo @$get_photographer_id_query1['service_type']; ?>" class="link">
 				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
 				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
 				</tr>
@@ -837,7 +854,7 @@ header("location:csr_list1.php?ed=1");
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./csr_list1.php?e=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./csr_list1.php?e=1&page=".($Page_check);?>" class="button">>></a></li></ul></div><div class="col-sm-6 infoBar">
-										<div style="float:right;" class="infos"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></div></div>
+										<div style="float:right;" class="infos"><p align="right" style="margin-right:0px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div></div>
 									</div>
 								</div>
 

@@ -128,6 +128,17 @@ p
 {
 color:#000!important;
 }
+th
+{
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infoBar .infos p
+{
+	margin-right: -10px;
+}
 
 </style>
 <script>
@@ -182,7 +193,7 @@ color:#000!important;
 					
 
 					<table class="table table-responsive"><tr><td>
-					<h5 class="text-center" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
+					<h5 class="text-left" id="label_edit_products" adr_trans="label_edit_products" style="color:#000000!important;">Add/Edit Products</h5>
 
 						<form name="profile" method="post" action="">
 						<div class="col-md-12">
@@ -276,7 +287,7 @@ color:#000!important;
 </div>
 </center>
 <br><br><br />
-						<h5 class="text-center" id="label_list_products"><span adr_trans="label_list_products">List of Products</span>
+						<h5 class="text-left" id="label_list_products"><span adr_trans="label_list_products">List of Products</span>
 						<?php
 
 						if(@$_REQUEST['realtor']) {
@@ -305,6 +316,7 @@ color:#000!important;
 
 						</form>
 						</p>
+						<br>
 						  <div style="width:100%;width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-striped" align="center" style="width:100%;">
                 <?php

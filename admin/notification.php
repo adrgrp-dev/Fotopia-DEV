@@ -17,9 +17,19 @@ include "connection1.php";
     margin-top: -50px !important;
     margin-right: 14px !important;
 }
-}}
+}
+th
+{
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infos p
+{
+  margin-right: -10px;
+}
    </style>
-
  <div class="section-empty bgimage1">
         <div class="container" style="margin-left:0px;height:inherit;">
             <div class="row">
@@ -43,33 +53,30 @@ include "connection1.php";
       </select>
       </center>
     </form>
-<div class="col-md-10">
+<div class="col-md-10" style="background: white;padding: 0px;">
 
         <div class="col-md-12">
-
-
-
          <hr class="space s" />
-         <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-      <table class="table-striped" style="color:#000;opacity:0.8;width:90%;">
+         <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background: white;">
+      <table class="table-striped" style="color:#000;opacity:0.8;width:100%;margin-left:10px;">
           <thead>
-              <tr><th  class="text-center" style="">
+              <tr><th  class="text-left" style="">
                           S.No
 
-                 </th><th  class="text-center" style="">
+                 </th><th  class="text-left" style="">
                           Module
 
-                  </th><th  class="text-center" style="">
+                  </th><th  class="text-left" style="">
                           Action
 
-                  </th><th  class="text-center" style="">
+                  </th><th  class="text-left" style="">
                           Action done by
 
-                 </th><th  class="text-center" style="">
+                 </th><th  class="text-left" style="">
                           Action date
 
                  </th>
-                 <!-- <th  class="text-center" style="">
+                 <!-- <th  class="text-left" style="">
 
                           Due date
 
@@ -253,11 +260,11 @@ if($get_action['module']== $new)
 
   ?>
          <tr class="listPageTR">
-          <td class="text-center"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-          <td class="text-center"><?php echo $get_action['module'] ?> </td>
-          <td class="text-center"><?php echo $get_action['action'] ?> </td>
-          <td class="text-center"><?php echo $get_action['action_done_by_name'] ?></td>
-          <td class="text-center"><?php echo $date1 ?></td>
+          <td class="text-left"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+          <td class="text-left"><?php echo $get_action['module'] ?> </td>
+          <td class="text-left"><?php echo $get_action['action'] ?> </td>
+          <td class="text-left"><?php echo $get_action['action_done_by_name'] ?></td>
+          <td class="text-left"><?php echo $date1 ?></td>
         </tr>
         <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
@@ -267,19 +274,19 @@ if($get_action['module']== $new)
 ?>
 </tbody>
                   </table></div>
-
+                  <div class="undefined-footer">
                   <div class="col-sm-6">
-                        <ul class="pagination ">
+                        <ul class="pagination" style="padding-left:10px ;">
                           <li class="first disabled" aria-disabled="true"><a href="./notification.php?page=1" class="button">«</a></li>
                           <li class="prev disabled" aria-disabled="true"><a href="<?php echo "./notification.php?page=".($_SESSION["page"]-1);?>" class="button">&lt;</a></li>
                           <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
                           <li class="next disabled" aria-disabled="true"><a href="<?php echo "./notification.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                           <li class="last disabled" aria-disabled="true"><a href="<?php echo "./notification.php?page=".($Page_check);?>" class="button">»</a></li></ul>  </div>
                           <div class="col-sm-6 infoBar"style="margin-top:24px">
-                          <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to </span><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_entries; ?><span adr_trans="label_entries"> entries</span></p></div>
+                          <div class="infos"><p align="right" style="margin-right:0px;"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                             <br>  <br>
                           </div>
-
+                          </div>
 <?php
 
  ?>

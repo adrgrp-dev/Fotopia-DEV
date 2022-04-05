@@ -21,7 +21,18 @@ if(isset($_REQUEST['loginbtn']))
     margin-top: -20px !important;
     margin-right: -35px !important;
 }
-}}
+}
+th
+{
+    background: #aad1d6;
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+}
+.infos p
+{
+  margin-right: -40px;
+ }
 	</style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage1">
@@ -47,37 +58,38 @@ if(isset($_REQUEST['loginbtn']))
 
 
 <hr class="space s">
+<div style="background: white;padding: 10px;">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" style="color:#000;opacity:0.8;width:100%;">
                 <thead>
-                    <tr><th data-column-id="id" class="text-center" style=""><span class="text">
+                    <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text">
+                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text">
 
                                 Name
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                 Picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text">
 
                                 Contact
 
@@ -85,7 +97,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text">
+						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-left" style=""><span class="text">
 
                                 Details
 
@@ -141,14 +153,14 @@ if(isset($_REQUEST['loginbtn']))
 				//-----------------------------------pagination end---------------------------------------------
 				?>
 				<tr data-row-id="0" class="listPageTR">
-				<td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-				<td class="text-center" style=""><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['city']; ?></td>
-				<td class="text-center" style=""><?php echo $res1['state']; ?></td>
-				<td class="text-center" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
+				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+				<td class="text-left" style=""><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
+				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
+				<td class="text-left" style=""><a class="lightbox" href="imageView.php?image_id=<?php echo $res1["id"]; ?>">
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
-				<td class="text-center" style=""><?php echo $res1['contact_number']; ?></td>
-				<td class="text-center" style=""><a target="" href="adminDetails.php?id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
+				<td class="text-left" style=""><a target="" href="adminDetails.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-external-link"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -162,10 +174,11 @@ if(isset($_REQUEST['loginbtn']))
 							<a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li><li class="next disabled" aria-disabled="true">
 								<a href="<?php echo "./admin_users.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li><li class="last disabled" aria-disabled="true">
 									<a href="<?php echo "./admin_users.php?page=".($Page_check);?>" class="button">»</a></li></ul></div><div class="col-sm-6 infoBar">
-										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+										<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to&nbsp</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 								</div>
                 </div>
             </div>
+        </div>
         </div>
 			</div>
 		</div>

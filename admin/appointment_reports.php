@@ -31,7 +31,23 @@ if(isset($_REQUEST['label_search']))
   }
   .infobar
   {
-    margin-top: 24px;
+    margin-top: 22px;
+  }
+  thead > tr:last-child > th,th > span
+  {
+    background: #aad1d6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px !important;
+  }
+  .infobar .infos p
+  {
+    margin-right: -40px;
+  }
+  #undefined-footer
+  {
+    background: white;
+    padding: 0px 25px;
   }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -131,10 +147,10 @@ var days = 1;
 
 
 <div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:30px;">
-  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save" style="border-radius:20px 20px 20px 20px;">Search</button>
+  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save" style="padding: 6px 10px !important;">Search</button>
 
-   <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:50px;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
+   <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:20px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
 
 </div>
 </div>
@@ -152,16 +168,16 @@ var days = 1;
 
 
                                     <thead>
-					<tr class="text-center"><th align="center" colspan="8"><center><b><br /><span adr_trans="label_appointment_report">Appointment Reports</span><br /></b></center></th></tr>
+					<tr class="text-left"><th align="center" colspan="8"><center><b><br /><span adr_trans="label_appointment_report">Appointment Reports</span><br /></b></center></th></tr>
 
-                                        <tr><th data-column-id="id" class="text-center" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
+                                        <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                               S.No
 
-                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" id="label_home_address" adr_trans="label_home_address">
+                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_home_address" adr_trans="label_home_address">
                                               Home Address
                                             </span>
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_city" adr_trans="label_city">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                              City
 
@@ -169,14 +185,14 @@ var days = 1;
                                             </span>
 
 
-                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" id="label_state" adr_trans="label_state">
+                                <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                            State
 
 
                                             </span>
 
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
 
                                             Photographer
@@ -184,21 +200,21 @@ var days = 1;
 
                                             </span>
 
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_session_date_time" adr_trans="label_session_date_time">
 
                                           Session Date & Time
 
 
                                             </span>
 
-                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" id="label_products" adr_trans="label_products">
+                                <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_products" adr_trans="label_products">
 
                                            Products
 
                                             </span>
 
 
-                                          <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
+                                          <span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor">
 
                                               Realtor
 
@@ -441,15 +457,15 @@ $_SESSION['filterby']=$filterBy;
                                //	---------------------------------  pagination starts ---------------------------------------
                             ?>
                             <tr data-row-id="0" class="listPageTR">
-                            <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
                             <?php
                               $hs_id=$get_order["home_seller_id"];
                               $get_home_query=mysqli_query($con,"select * from home_seller_info where id=$hs_id");
                               $get_home=mysqli_fetch_assoc($get_home_query);
                              ?>
-                            <td class="text-center" style=""><?php echo $get_home["address"];?></td>
-                              <td class="text-center" style=""><?php echo $get_home["city"];?></td>
-                                <td class="text-center" style=""><?php echo $get_home["state"];?></td>
+                            <td class="text-left" style=""><?php echo $get_home["address"];?></td>
+                              <td class="text-left" style=""><?php echo $get_home["city"];?></td>
+                                <td class="text-left" style=""><?php echo $get_home["state"];?></td>
                             <?php
                             $photographer_id=$get_order['photographer_id'];
 														  $order_id=$get_order['id'];
@@ -457,12 +473,12 @@ $_SESSION['filterby']=$filterBy;
                             $get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
                             $photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
                             ?>
-                            <td class="text-center" style=""><?php echo @$photographer_Name; ?></td>
+                            <td class="text-left" style=""><?php echo @$photographer_Name; ?></td>
                             <?php
 
                               $toexp=explode(" ",$get_order['session_to_datetime']);
                              ?>
-                            <td class="text-center" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
+                            <td class="text-left" style=""><?php  if($get_order['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
                             <?php
 														$prodName="";
@@ -476,7 +492,7 @@ $_SESSION['filterby']=$filterBy;
 								  				$prodName.=$prodsList1['product_name'].'&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;'.$prodQty['quantity'].'<br>';
 																									}
                             ?>
-                            <td class="text-center" style="width: 200px;word-wrap: break-word;"><?php  echo @substr($prodName,0,-1); ?></td>
+                            <td class="text-left" style="width: 200px;word-wrap: break-word;"><?php  echo @substr($prodName,0,-1); ?></td>
 
                             <?php
                            $prodQuan="";
@@ -518,7 +534,7 @@ $_SESSION['filterby']=$filterBy;
                             $created_name=@$get_name_create["first_name"]." ".@$get_name_create["last_name"];
                             ?>
 
-                            <td class="text-center" style=""><?php echo $created_name; ?></td>
+                            <td class="text-left" style=""><?php echo $created_name; ?></td>
 
                             </tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>

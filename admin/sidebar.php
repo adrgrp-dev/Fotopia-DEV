@@ -93,28 +93,28 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
 
                    <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="subcsr_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="subcsr_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="CSR_Calendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
+<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="CSR_Calendar.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="subcsrOrder_list1.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
+<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="subcsrOrder_list1.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
-
-
-<tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csr_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
+<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="productMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csr_products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
+<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csr_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="csr_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="productMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csr_products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
+
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="csr_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 
@@ -143,32 +143,32 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
 <?php
        echo '<table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="PCAdmin_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="PCAdmin_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="PCAdmin_Calender.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
+<tr><td id="calendarMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="PCAdmin_Calender.php"><i class="fa fa-xs fa-calendar"></i><span adr_trans="label_calendar" style="padding-left:15px;font-size:13px;">Calendar</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="superorder_list1.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
+<tr><td id="ordersMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="superorder_list1.php?status=1"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_order" style="padding-left:15px;font-size:13px;">Orders</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
+<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="pc_admin_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
+<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="pc_admin_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="clientMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="client.php"><i class="fa fa-xs fa-user-secret"></i><span adr_trans="label_clients" style="padding-left:15px;font-size:13px;">Client</span></a></td></tr>
+<tr><td id="clientMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="client.php"><i class="fa fa-xs fa-user-secret"></i><span adr_trans="label_clients" style="padding-left:15px;font-size:13px;">Client</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="productMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
+<tr><td id="productMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="products.php"><i class="fa fa-xs fa-list"></i><span adr_trans="label_products" style="padding-left:15px;font-size:13px;">Products</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="csr_list1.php"><i class="fa fa-xs fa-users"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
+<tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csr_list1.php"><i class="fa fa-xs fa-users"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="company_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="company_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 
@@ -196,30 +196,30 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
       <div class="hidden-xs hidden-sm">
 <table align="center">
-<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
+<tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="users.php?user_type=1"><i class="fa fa-xs fa-user-secret"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
+<tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="users.php?user_type=1"><i class="fa fa-xs fa-user-secret"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="notification.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
-
-
-<tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="statisticMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="#"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_statistics" style="padding-left:15px;font-size:13px;">Statistics</span></a></td></tr>
-
-<tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="adminuserMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="admin_users.php?user_type=1"><i class="fa fa-xs fa-users"></i><span adr_trans="label_admin_users" style="padding-left:15px;font-size:13px;">Admin users</span></a></td></tr>
-
-
+<tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="notification.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
+<tr><td id="statisticMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="#"><i class="fa fa-xs fa-stack-exchange"></i><span adr_trans="label_statistics" style="padding-left:15px;font-size:13px;">Statistics</span></a></td></tr>
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td id="adminuserMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="admin_users.php?user_type=1"><i class="fa fa-xs fa-users"></i><span adr_trans="label_admin_users" style="padding-left:15px;font-size:13px;">Admin users</span></a></td></tr>
+
+
 
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="pagesMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:0px 5px 5px 0px;font-size:15px;"><a href="pages.php"><i class="fa fa-xs fa-user"></i><span  adr_trans="label_pages" style="padding-left:15px;font-size:13px;">Pages</span></a></td></tr>
+<tr><td id="reportsMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="order_reports.php"><i class="fa fa-xs fa-bar-chart"></i><span adr_trans="label_order_reports" style="padding-left:15px;font-size:13px;">Order reports</span></a></td></tr>
+
+
+<tr style="line-height:8px;"><td>&nbsp;</td></tr>
+<tr><td id="pagesMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="pages.php"><i class="fa fa-xs fa-user"></i><span  adr_trans="label_pages" style="padding-left:15px;font-size:13px;">Pages</span></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 

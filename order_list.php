@@ -13,9 +13,7 @@ if(isset($_REQUEST['filterByStatus'])){
   //echo $_SESSION['status'];
 }
 else{
-
 $_SESSION['status']=0;
-
 }
 
 if(@$_REQUEST['status'])
@@ -109,7 +107,7 @@ margin-top: -55px !important;
 
 	#ListingTable td,th
 	{
-	text-align:center;
+	text-align:left;
 	}
 	}
 	 @media only screen and (max-width: 800px) {
@@ -168,7 +166,23 @@ min-width:100px!important;
     padding-bottom: 6px;
     padding-left: 0px;
     padding-right: 0px;
-}    
+}  
+ th,th > span
+{
+  background: #aad1d6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 3px !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd)
+{
+  background-color: #fff;
+}
+th:last-child > span
+{
+  vertical-align: text-top;
+}
 
      </style>
      <script>
@@ -238,30 +252,30 @@ min-width:100px!important;
 </form>
       <table class="table-stripped table-responsive" style="width:100%;" id="ListingTable">
           <thead>
-          <tr><th class="text-center"><span class="text" id="label_s.no" adr_trans="label_order_no">
+          <tr><th class="text-left"><span class="text" id="label_s.no" adr_trans="label_order_no">
 
                           Order#
 
                   </span>
 
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                           Homeseller
 
                   </span>
 
                   
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" id="label_photo_company" adr_trans="label_photo_company">
 
                           Photo Company
 
                   </span>
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                           Photographer
 
                   </span>
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_address" adr_trans="label_address">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                           Address
 
@@ -274,12 +288,12 @@ min-width:100px!important;
                   </span> -->
 
 
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                           From date & time
 
                   </span>
-                  <span class="icon fa "></span></th><th class="text-center" style=""><span class="text" adr_trans="label_due_date">
+                  <span class="icon fa "></span></th><th class="text-left" style=""><span class="text" adr_trans="label_due_date">
 
                           Due date
 
@@ -289,7 +303,7 @@ min-width:100px!important;
                            Created By
 
                   </span> -->
-                  <span class="icon fa "></span></th><th class="text-center" style="width: 100px;"><span class="text" id="label_status" adr_trans="label_status">
+                  <span class="icon fa "></span></th><th class="text-left" style="width: 100px;"><span class="text" id="label_status" adr_trans="label_status">
 
                            Status
 
@@ -445,7 +459,7 @@ min-width:100px!important;
 		  echo date('d/m/Y H:i',strtotime($get_order['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
           <td style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
-                          <td style=""><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' style='position: relative;top: -28px;right: -35px;color: black;' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
+                          <td style=""><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' style='position: relative;top: -28px;right: -75px;color: black;' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
                                       <td style="" class="text-center"><a target="" href="order_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
           <i class="fa fa-external-link"></i></a></td>
 
@@ -456,7 +470,7 @@ min-width:100px!important;
           {
             ?>
             <tr>
-              <td class="text-center hide" id="click<?php echo $get_order['id']?>" colspan="9" style="background-color: white;
+              <td class="text-left hide" id="click<?php echo $get_order['id']?>" colspan="9" style="background-color: white;
 color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php echo @$get_order['comment'];?> </td>
             </tr>
         <?php  }
@@ -516,8 +530,8 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_list.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_list.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
-                                <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+                                <div class="col-sm-6 infoBar"style="margin-top:22px">
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                                 </div>
                               </div>
                             </div>
@@ -527,7 +541,6 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
 <div class="panel" id="tab2">
 
-<hr class="space s" >
 <div class="col-md-12" style="float:right">
 <form name="searchOrder" method="post" action=""> <a href="order_list.php?c=1" class="btn btn-default" id="view_button" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;" placeholder="Search Address / Order # / PC / Homeseller " />
 </form>
@@ -725,16 +738,16 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
            @$approved_check=mysqli_fetch_assoc(@$approved_check_query);
               if(@$approved_check['approved']==1)
                {
-                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="order_detail.php?c=1&id='.$get_order['id'].'" class="link">
+                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="order_detail.php?c=1&id='.$get_order['id'].'" class="link">
                  <i class="fa fa-file-text-o " title="View Order Cost"></i></a></td>';
                }
                else {
-                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
+                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
                  <i class="fa fa-file-o " title="Order Cost is not Approved"></i></a></td>';
                }
           }
           else {
-            echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
+            echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
             <i class="fa fa-file-o " title="Order Cost is not Ready"></i></a></td>';
           }
 
@@ -746,7 +759,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
               {
                 ?>
                 <tr>
-                  <td class="text-center hide" id="click<?php echo $get_order['id']?>" colspan="9" style="background-color: white;
+                  <td class="text-left hide" id="click<?php echo $get_order['id']?>" colspan="9" style="background-color: white;
     color: black;" ><span style="color:red;font-size:13px;">Comments:</span><?php echo $get_order['comment'];?> </td>
                 </tr>
             <?php  }?>
@@ -763,8 +776,8 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
                                 <li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button"><?php echo $_SESSION["page"]; ?></a></li>
                                 <li class="next disabled" aria-disabled="true"><a href="<?php echo "./order_list.php?o=1&page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
                                 <li class="last disabled" aria-disabled="true"><a href="<?php echo "./order_list.php?o=1&page=".($Page_check);?>" class="button">»</a></li></ul></div>
-                                <div class="col-sm-6 infoBar"style="margin-top:24px">
-                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
+                                <div class="col-sm-6 infoBar"style="margin-top:22px">
+                                <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
                                 </div>
                               </div>
                             </div>

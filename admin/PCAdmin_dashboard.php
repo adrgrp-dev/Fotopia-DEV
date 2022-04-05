@@ -255,7 +255,7 @@ border:none;
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
 
 						<?php }  ?>
-						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;margin-left:0px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
+						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:5px;border:none;margin-left:0px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
 					<div class="row" style="margin-left:0px;">
 
                
@@ -291,17 +291,18 @@ border:none;
                         <div class="row">
 													<div class="col-md-12" style="padding-left: 35px;">
 														<h5><i class="fa fa-check-circle fa-lg" style="color:#aad1d6;"></i><br /><br /><span id="label_completed" adr_trans="label_completed">Completed</span></h5>
+														<hr class="space xs">
 															<?php
 															$get_order_query=mysqli_query($con,"select count(*) as completed_no from orders where status_id=3 and pc_admin_id=$superCsr");
 															if($get_order=mysqli_fetch_assoc($get_order_query))
 															{
 															?>
-                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
+                            <p class="counter" data-speed="1000" data-to=" <?php echo $get_order["completed_no"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;margin-top: 2px;">
 
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
 
-		 <br />
+		 <hr class="space xs">
 							 <a class="btn-sm" adr_trans="label_view" href="superorder_list1.php?c=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 		  
@@ -317,6 +318,7 @@ border:none;
 												<div class="row">
 													<div class="col-md-12" style="padding-left: 35px;">
                               <h5><i class="fa fa-users circle-right fa-lg " style="color:#aad1d6;"></i><br /><br /><span id="label_users" adr_trans="label_users">Users</span></h5>
+                              <hr class="space xs">
 															<?php
 															$get_user_query=mysqli_query($con,"select count(*) as user_no from user_login where type_of_user='Photographer' and pc_admin_id=$superCsr");
 
@@ -328,12 +330,12 @@ border:none;
 															$get_user1=mysqli_fetch_assoc($get_user_query1);
 															$get_user2=mysqli_fetch_assoc($get_user_query2);
 															  ?>
-														<p class="counter" data-speed="1000" data-to="<?php echo $get_user["user_no"]+$get_user1["user_no1"]+$get_user2["user_no2"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;">
+														<p class="counter" data-speed="1000" data-to="<?php echo $get_user["user_no"]+$get_user1["user_no1"]+$get_user2["user_no2"];?>" style="color:#000;font-size:25px;font-weight:600;padding-top:5px;margin-top: 2px;">
 
 		<?php echo $get_user["user_no"]+$get_user1["user_no1"]+$get_user2["user_no2"]; ?>
 		 </p>
 
-		 <br />
+		 <hr class="space xs">
 							 <a class="btn-sm" adr_trans="label_view" href="csr_list1.php?p=1" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
 		     
@@ -366,8 +368,8 @@ border:none;
 													       }
                           }
 												?>
-											   <p style="color:white;font-size:25px;font-weight:600"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:#000;font-size:25px;font-weight:600"><?php echo "$".$total1; ?></label></p>
-											   <hr class="space xs" />
+											   <p style="color:white;font-size:25px;font-weight:600;margin-bottom:5px;"><label class="" data-speed="1000" data-to="<?php echo $total1;?>" style="color:#000;font-size:22px;font-weight:600;margin-top: 3px;"><?php echo "$".$total1; ?></label></p>
+											 
 											   
 							 <a class="btn-sm" adr_trans="label_view" href="payment_reports.php" style="background:#aad1d6!important;color:#000!important;font-weight:600;border-radius:5px;padding-left:40px;padding-right:40px;">View </a>
 
@@ -506,7 +508,8 @@ $.ajax({
               <center>    <h5 adr_trans="label_upcoming_events">Upcoming Events</h5></center>
  <div id='calendar' style="background:#FFF!important;border-radius:5px;"></div>
   <hr class="space s">
-                <center>  <a href="PCAdmin_calender.php" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_calendar">View Calender</span></a>    </center>
+                <center>
+                <a href="PCAdmin_calender.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i>View My Calender</a>   </center>
     </div>
 
 <!-- calendar ends -->
@@ -540,7 +543,8 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 
 
 <p align="center">
- <a class="btn btn-sm" href="superorder_list1.php?c=1" style="margin-top:25px;background:#aad1d6;color:#000;border-radius:8px;border:none;"><span adr_trans="label_view_order">View My Orders</span> </a>
+
+ <a class="anima-button circle-button btn-sm adr-save" href="superorder_list1.php?c=1" style="margin-top:25px;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
  </p>
 
 
@@ -558,8 +562,8 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 <hr class="space s" />
 
 <table class="table-responsive"><tr><td style="font-size:12px;font-weight:600;padding-left:10px;">
-	<input type="radio" name="toglePH"  value="photographers" checked="checked" onchange="togglePH(this.value)" /><span id="label_photographers" adr_trans="label_photographers"  style="color:#000!important;">&nbsp;Photographers<br /></span></td>
-	<td style="font-size:11px;font-weight:600;">&nbsp;&nbsp;<input type="radio"  name="toglePH"  value="photo_company"  onchange="togglePH(this.value)"/>&nbsp;<span id="label_csr" adr_trans="label_csr" style="color:#000!important;">CSR</span></td>
+	<input type="radio" name="toglePH"  value="photographers" checked="checked" onchange="togglePH(this.value)" /><span id="label_photographers" adr_trans="label_photographers"  style="color:#000!important;position: relative;top:-3px;">&nbsp;Photographers<br /></span></td>
+	<td style="font-size:11px;font-weight:600;">&nbsp;&nbsp;<input type="radio"  name="toglePH"  value="photo_company"  onchange="togglePH(this.value)"/>&nbsp;<span id="label_csr" adr_trans="label_csr" style="color:#000!important;position: relative;top:-3px;">CSR</span></td>
 	</tr>
 	</table>
 

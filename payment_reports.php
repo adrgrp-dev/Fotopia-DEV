@@ -17,6 +17,23 @@ if(isset($_REQUEST['loginbtn']))
  .nav-pills > li > a{
   padding: 6px;
   }
+thead > tr:last-child > th,th > span
+{
+  background: #aad1d6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 2px !important;
+}
+th:last-child > span
+{
+  vertical-align: text-top;
+}
+#undefined-footer
+{
+  background: white !important;
+  padding: 0px 25px;
+  margin-right: 40px;
+}
   </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -95,7 +112,7 @@ return true;
 </script>
 <form name="searchForm" method="post" action="" onsubmit="return validateDates()">
 <div class="row">
-<div class="col-md-3" style="padding-left:10px;width:200px;">
+<div class="col-md-3" style="padding-left:15px;width:200px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
 <input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; onchange="setSecondDate();" class="form-control" style="display:inline-table">
 </div>
@@ -126,48 +143,48 @@ if(!empty($_REQUEST['pcfilter'])){
 							<?php } ?>
 </datalist>
 </div>
-<div class="col-md-3" style="margin-top:23px;padding-left:30px;">
-    <button type="submit" id="submit" class="btn btn-default " style="border-radius:20px 20px 20px 20px;" adr_trans="label_search">Search</button>
+<div class="col-md-3" style="margin-top: 23px;padding-left: 10px;">
+    <button type="submit" id="submit" class="btn btn-default " style="padding:7px 10px !important;" adr_trans="label_search">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;" title="Download Excel"></i></a>
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
 
   </div>
 </div>
 
 </form>
-<div style="margin-top: 5px;width:96%;border:solid 1px #000;background-color:white">
+<div style="margin-top: 5px;width:96%;border:solid 1px #fff;background-color:white">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                               <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.9;width:96%;">
 
 
                                     <thead>
-			<tr class="text-center"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
-                                        <tr><th data-column-id="id" class="text-center" style=""><span class="text" adr_trans="label_s.no">
+			<tr class="text-left"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
+                                        <tr><th data-column-id="id" class="text-left" style=""><span class="text" adr_trans="label_s.no">
 
                                               S.No
 
-                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-center" style=""><span class="text" adr_trans="label_order_cost_no">
+                                            </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" adr_trans="label_order_cost_no">
 
                                               Order Cost No
 
                                             </span>
-                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="">
+                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="">
 
                                              Assignment #
 
                                             </span>
-                                           <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_products">
+                                           <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" adr_trans="label_products">
 
                                           Products & Value
 
                                            </span>
-																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" adr_trans="label_otherCost">
+																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" adr_trans="label_otherCost">
 
                                           Other Cost
 
                                            </span>
-																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-center" style=""><span class="text" >
+																					 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" >
 
 																					Tax
 
@@ -176,7 +193,7 @@ if(!empty($_REQUEST['pcfilter'])){
                                             <span class="icon fa "></span></th>
 
 
-										<!--	<th data-column-id="logo" class="text-center" style=""><span class="text">
+										<!--	<th data-column-id="logo" class="text-left" style=""><span class="text">
 
 
                                           Quantity
@@ -187,28 +204,28 @@ if(!empty($_REQUEST['pcfilter'])){
                                            <span class="icon fa "></span></th>-->
 
 
-										   <th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_total_value">
+										   <th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_total_value">
 
                                           Total Value
 
                                             </span>
-                                           <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_photo_company">
+                                           <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_photo_company">
 
                                           Photo Company
 
                                            </span>
-                                            <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text">
+                                            <!-- <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text">
 
                                             Realtor
 
                                             </span> -->
-                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-center" style=""><span class="text" adr_trans="label_date_and_time">
+                                            <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="label_date_and_time">
 
                                               Date & Time
 
                                             </span>
 
-                                <span class="icon fa "></span></th><th data-column-id="link" class="text-center" style=""><span class="text" adr_trans="label_status">
+                                <span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" adr_trans="label_status">
 
                                              Status
                                 </span>
@@ -406,9 +423,9 @@ if(!empty($_REQUEST['pcfilter'])){
 															 $get_invoice=mysqli_fetch_array($get_invoiced_name_query);
 
 																					?>
-                            <td class="text-center" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
-                            <td class="text-center" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
-                            <td class="text-center" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
+                            <td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
+                            <td class="text-left" style=""><?php echo "FOT".$get_invoice['invoice_id']; ?></td>
+                            <td class="text-left" style=""><?php echo "FOT#".@$homeSeller1['reference_number']; ?></td>
 														<?php
 														$taxpercentage=0;
 														 $pc_admin_id=$get_order2['pc_admin_id'];
@@ -465,8 +482,8 @@ if(!empty($_REQUEST['pcfilter'])){
 								 }
 
 														?>
-														<td class="text-center" style="width:200px;"><?php  echo $product_detail['title']; ?></td>
-																<td class="text-center" style=""><?php echo "$".$otherCost1['other_cost']; ?></td>
+														<td class="text-left" style="width:220px;"><?php  echo $product_detail['title']; ?></td>
+																<td class="text-left" style=""><?php echo "$".$otherCost1['other_cost']; ?></td>
 																	<td class="text-leenterft" style=""><?php echo "$".$taxation; ?></td>
 
 
@@ -486,8 +503,8 @@ if(!empty($_REQUEST['pcfilter'])){
 
 
 
-                         <?php /* <td class="text-center" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
-                            <td class="text-center" style=""><?php echo "$".$totalOrderValue; ?></td>
+                         <?php /* <td class="text-left" style="word-wrap:break-word;width:100px"><?php  echo @substr($prodQuan,0,-1); ?></td> */ ?>
+                            <td class="text-left" style=""><?php echo "$".$totalOrderValue; ?></td>
 														<?php
 	                          $pc_id=$get_order2['pc_admin_id'];
 														 $order_id=$get_order2['id'];
@@ -495,7 +512,7 @@ if(!empty($_REQUEST['pcfilter'])){
 	                          $get_name=mysqli_fetch_assoc($get_pc_name_query);
 	                          $pc_Name=@$get_name["organization_name"];
 	                          ?>
-                            <td class="text-center" style=""><?php echo  $pc_Name; ?></td>
+                            <td class="text-left" style=""><?php echo  $pc_Name; ?></td>
                             <!-- <?php
                            $created_by_id=$get_order2['created_by_id'];
                           $get_create_name_query=mysqli_query($con,"SELECT * FROM admin_users where id='$created_by_id'");
@@ -515,14 +532,14 @@ if(!empty($_REQUEST['pcfilter'])){
                             $created_name=$get_name_create["first_name"]." ".$get_name_create["last_name"];
                             ?>
 
-                            <td class="text-center" style=""><?php echo $created_name; ?></td> -->
+                            <td class="text-left" style=""><?php echo $created_name; ?></td> -->
                                <?php
 
                               $toexp=explode(" ",$get_order2['session_to_datetime']);
                              ?>
-                            <td class="text-center" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
+                            <td class="text-left" style=""><?php  if($get_order2['session_from_datetime']!='0000-00-00 00:00:00') {
 		  echo date('d/m/Y H:i',strtotime($get_order2['session_from_datetime'])); } else { echo "Not booked yet."; } ?></td>
-                            <td class="text-center" style="padding-right: 10px;"><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
+                            <td class="text-left" style="padding-right: 10px;"><?php $status=$get_order2['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} ?></td>
 
                             </tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -538,8 +555,8 @@ if(!empty($_REQUEST['pcfilter'])){
 																		<li class="page-1 active" aria-disabled="false" aria-selected="true"><a href="#1" class="button "><?php echo $_SESSION["page"]; ?></a></li>
 																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($_SESSION["page"]+1);?>" class="button ">&gt;</a></li>
 																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./payment_reports.php?page=".($Page_check);?>" class="button ">»</a></li></ul></div>
-																		<div class="col-sm-6 infoBar"style="margin-top:24px">
-																		<div class="infos"><p align="right" style="    margin-right: -px;">Showing <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> to <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of <?php echo $total_no; ?> entries</p></div>
+																		<div class="col-sm-6 infoBar"style="margin-top:22px">
+																		<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span><?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?> <span adr_trans="label_to">to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> of &nbsp;<?php echo $total_no; ?> <span adr_trans="label_entries">entries</span></p></div>
 																		</div>
 																	</div>
 																</div>
