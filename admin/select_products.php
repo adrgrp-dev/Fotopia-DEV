@@ -81,25 +81,29 @@ function email($order_id,$realtor_email,$con)
 
 	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
 	 $get_template=mysqli_fetch_array($get_template_query);
-	 $appointment_updated_template=$get_template['template_body_text'];
+	 $appointment_updated_template=@$get_template['template_body_text'];
 	 $get_hs_detail_query=mysqli_query($con,"select * from home_seller_info where id=$home_seller_id");
 	 $get_hs_detail=mysqli_fetch_array($get_hs_detail_query);
 
 if($_REQUEST['edit']==1){
 
-  $mail->addAddress("ssselvan.83@gmail.com");
+  // $mail->addAddress("ssselvan.83@gmail.com");
   
   $mail->addAddress($realtor_email);
   
+  $to_emails=$realtor_email.",".$pcadmin_email;
 	if(!empty($csr_email))
 	{
 	$mail->AddCC($csr_email);
+  $to_emails=$to_emails.",".$csr_email;
 	}
 	$mail->AddCC($pcadmin_email);
 	if(!empty($photographer_email))
 	{
 	$mail->AddCC($photographer_email);
+  $to_emails=$to_emails.",".$photographer_email;
 	}
+  $to_emails=$to_emails.",".$get_hs_detail['email'];
 	$mail->AddCC($get_hs_detail['email']);
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
@@ -139,28 +143,52 @@ Fotopia Team.";
 	 
 	 include "CalendarEvent.php";
 
-
-
-
-
 $from_name = "Fotopia";        
 $from_address = "alerts@fotopia.no";        
 $to_name = "Photographer / PCAdmin";        
-$to_address = "ssselvan.83@gmail.com,sidambara.selvan@adrgrp.com";        
-$startTime = "10-04-2022 19:00:00";        
-$endTime = "10-04-2022 20:00:00";       
-$subject = "Lets connect to discuss about Photo App USA demo";        
+$to_address = $to_emails;        
+$startTime = $from_date;        
+$endTime = $end_time;       
+$subject = $mail->Subject;        
 $description = "ADR USA discussion";        
-$location = "Scrum Meeting Room";
+$location = $get_detail['property_address'];
 $domain="fotopia.no";
 $UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+if($get_detail['status_id']==1)
+{
+mysqli_query($con,"update orders set Invite_UID='$UID' where id='$order_id'");
 
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
 $description, $location,"REQUEST",$UID);
 $mail->AltBody = $icalIs; // in your case once more the $text string
 $mail->Ical = $icalIs;
+}
+elseif($get_detail['status_id']==2)
+{
+$UID1=$get_detail['Invite_UID'];
+$startTime1=$_SESSION['old_from_time'];
+$endTime1=$_SESSION['old_to_time'];
+$icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime1, $endTime1, $subject,     
+$description, $location,"CANCEL",$UID1);
+$mail->AltBody = $icalIs; // in your case once more the $text string
+$mail->Ical = $icalIs;
+mysqli_query($con,"update orders set Invite_UID='$UID' where id='$order_id'");
 
-   // $mail->Subject = "Fotopia Meeting";
+try {
+        $mail->send();
+     
+    } catch (Exception $e) {
+      echo $e->getMessage();
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+
+$icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
+$description, $location,"REQUEST",$UID);
+$mail->AltBody = $icalIs; // in your case once more the $text string
+$mail->Ical = $icalIs;
+}
+
+
     
     try {
         $mail->send();
@@ -261,10 +289,12 @@ else
 {
 $quickOrderStatus=2;
 }
-  mysqli_query($con,"update orders set status_id='$quickOrderStatus' where id='$order_id'");
+ 
 
-
+  echo $get_realtor['status_id'];
 	email($order_id,$realtor_email,$con);
+   
+   mysqli_query($con,"update orders set status_id='$quickOrderStatus' where id='$order_id'");
 
 
   if(@$_REQUEST['u']==1)
