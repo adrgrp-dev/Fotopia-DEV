@@ -563,7 +563,7 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 
 <table class="table-responsive"><tr><td style="font-size:12px;font-weight:600;padding-left:10px;">
 	<input type="radio" name="toglePH"  value="photographers" checked="checked" onchange="togglePH(this.value)" /><span id="label_photographers" adr_trans="label_photographers"  style="color:#000!important;position: relative;top:-3px;">&nbsp;Photographers<br /></span></td>
-	<td style="font-size:11px;font-weight:600;">&nbsp;&nbsp;<input type="radio"  name="toglePH"  value="photo_company"  onchange="togglePH(this.value)"/>&nbsp;<span id="label_csr" adr_trans="label_csr" style="color:#000!important;position: relative;top:-3px;">CSR</span></td>
+	<td style="font-size:11px;font-weight:600;">&nbsp;&nbsp;<input type="radio"  name="toglePH"  value="photo_company"  onchange="togglePH(this.value)"/><span id="label_csr" adr_trans="label_csr" style="color:#000!important;position: relative;top:-3px;">CSR</span></td>
 	</tr>
 	</table>
 
