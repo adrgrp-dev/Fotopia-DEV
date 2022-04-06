@@ -103,6 +103,7 @@ function email($order_id,$con)
     $mail->Body.="<br><br></td></tr></table></html>";
   }
   else{
+  //this is for realtor scenario
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
