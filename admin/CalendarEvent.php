@@ -69,7 +69,7 @@ $domain="fotopia.no";
     $message .= "Content-Transfer-Encoding: 8bit\n\n";
     $message .= $ical;
 
-//echo $ical; exit;
+// echo "<pre>".$ical; exit;
 return $ical;
 
 

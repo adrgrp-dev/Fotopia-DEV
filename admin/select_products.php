@@ -176,6 +176,7 @@ $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTi
 $description, $location,"REQUEST",$UID);
 echo "<pre>";
 echo $icalIs;
+echo "<script>console.log('request:".$UID."')</script>";
 // exit;
 $mail->AltBody = $icalIs; // in your case once more the $text string
 $mail->Ical = $icalIs;
@@ -187,10 +188,12 @@ $subject=str_replace("{order_id}",$order_id,$subject);
 $UID1=$get_detail['Invite_UID'];
 $startTime1=$_SESSION['old_from_time'];
 $endTime1=$_SESSION['old_to_time'];
+
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime1, $endTime1, $subject,     
 $description, $location,"CANCEL",$UID1);
 echo "<pre>";
 echo $icalIs;
+// echo "<script>console.log('cancel:".$UID1."')</script>";
 // exit;
 
 
@@ -207,6 +210,7 @@ try {
 $subject="New updated schedule for Order# {order_id}.";
 $subject=str_replace("{order_id}",$order_id,$subject);
 $UIDNew=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+echo "<script>console.log('newrequet:".$UID."')</script>";
 mysqli_query($con,"update orders set Invite_UID='$UIDNew' where id='$order_id'");
 
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
@@ -319,7 +323,7 @@ $quickOrderStatus=2;
 }
  
 
-   echo $get_realtor['status_id'];
+   // echo $get_realtor['status_id'];
 	email($order_id,$realtor_email,$con,$realtor_name);
    
    mysqli_query($con,"update orders set status_id='$quickOrderStatus' where id='$order_id'");
@@ -562,6 +566,13 @@ border:none;
   -ms-transform:rotate(-7deg);
   -o-transform:rotate(-7deg);
   transform:rotate(-7deg);
+}
+thead > tr:last-child
+{
+      border-top: solid 1px #fff!important;
+    border-bottom: solid 0.5px #fff!important;
+    border-left: solid 1px #fff!important;
+    border-right: solid 1.5px #fff!important;
 }
   </style>
   <script>

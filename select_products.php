@@ -456,6 +456,13 @@ background:#aad1d6!important;
   -o-transform:rotate(-7deg);
   transform:rotate(-7deg);
 }
+thead > tr:last-child
+{
+      border-top: solid 1px #fff!important;
+    border-bottom: solid 0.5px #fff!important;
+    border-left: solid 1px #fff!important;
+    border-right: solid 1.5px #fff!important;
+}
   </style>
   <script>
   function setSecondDate()
