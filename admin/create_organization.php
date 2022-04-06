@@ -242,7 +242,7 @@ function get_states(cityIs)
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
     document.getElementById("state").innerHTML = split[0];
-    document.getElementById("zip").value= split[1];
+    // document.getElementById("zip").value= split[1];
   
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);

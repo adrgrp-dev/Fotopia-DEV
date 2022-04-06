@@ -314,7 +314,6 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 
 
  $insert_action=mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`,`photographer_id`, `Realtor_id`,`pc_admin_id`,`csr_id`,`action_date`) VALUES ('Appointment','Updated','$loggedin_name',$loggedin_id,'$loggedin_type',$pht_id,$realtor_id,$pc_admin_id1,$subCSR_ID,now())");
-
 }
 else
 {
@@ -652,7 +651,7 @@ if(cityIs!="")
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
     document.getElementById("property_state").innerHTML = split[0];
-    document.getElementById("property_zip").value= split[1];
+    // document.getElementById("property_zip").value= split[1];
   
     }
   xhttp.open("GET", "../getState.php?city="+cityIs, true);

@@ -477,7 +477,7 @@ background: repeating-linear-gradient(
   xhttp.onload = function() {
   var split=this.responseText.split("zipcode");
     document.getElementById("property_state").innerHTML = split[0];
-    document.getElementById("property_zip").value= split[1];
+    // document.getElementById("property_zip").value= split[1];
   
     }
   xhttp.open("GET", "getState.php?city="+cityIs, true);
