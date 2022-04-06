@@ -237,8 +237,8 @@ th
                      <hr class="space s">
 					 <div>
                       <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:none">
-                     <table align="center" style="color: #000;opacity:0.9;width:98%;">
+                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:none;margin-left: -16px;">
+                     <table align="center" style="color: #000;opacity:0.9;width:100%;">
                           <tr >
                            <th style="color:black;"><span> S.no</span></th>
                              <th style="color:black;"><span adr_trans="label_product">Product</span></th>
@@ -280,7 +280,7 @@ th
                               <?php } ?>
                      </table>
                    </div>
-}
+
 </div>
                      <div>
 

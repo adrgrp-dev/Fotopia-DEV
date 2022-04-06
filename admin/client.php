@@ -244,7 +244,7 @@ var xhttp= new XMLHttpRequest();
 			</div>
                 <div class="col-md-10">
                   <?php   //echo $_SESSION['project_url'];?>
-                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save realtor-btn"  style=""><i class="fa fa-plus"></i>Add Realtor</a>
+                   <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save realtor-btn"  style="position: relative;top: 30px;z-index: 2;"><i class="fa fa-plus"></i>Add Realtor</a>
 
 <?php if(@isset($_REQUEST["a"])) { ?>
                         <div class="success-box" style="display:block;margin-left:300px;">
@@ -257,7 +257,7 @@ var xhttp= new XMLHttpRequest();
                               <div class="tab-box " data-tab-anima="fade-right" style="">
 
 
-                                  <ul class="nav nav-tabs" style="border-bottom:1px solid #000;">
+                                  <ul class="nav nav-tabs" style="">
                                       <li id="click1" class="active current-active"><a href="#" id="label_all_realtor" adr_trans="label_all_realtor">All Realtor</a></li>
                                       <li id="click2"><a href="#" id="label_favourite_realtor" adr_trans="label_favourite_realtor">My Favourite Realtor</a></li>
 
@@ -279,7 +279,7 @@ var xhttp= new XMLHttpRequest();
                                     <hr class="space s">
 
 									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                                    <table style="width:100%" align="center" class="table-stripped" style="background:#FFF;color:#000;">
+                                    <table style="width:98%" align="center" class="table-stripped" style="background:#FFF;color:#000;">
                                        <tr>
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
@@ -376,7 +376,7 @@ else
 				</div>
                                     <hr class="space s">
 									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                                    <table style="width:100%" align="center" class="table-striped" >
+                                    <table style="width:98%" align="center" class="table-striped" >
                                        <tr style="background-color: white">
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
