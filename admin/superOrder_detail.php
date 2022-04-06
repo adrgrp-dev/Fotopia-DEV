@@ -1997,10 +1997,10 @@ alert(alertmsg);
                             <center> <a href="../raw_image_history.php?id=<?php echo $id_url;?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
                           <?php } ?>
                           <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";} ?>">
-                          <p align="right" style="margin-right: 16px;">
+                          <p align="right" style="margin-right: 30px;">
                           <label for="service">Select a service:</label>
                           </p>
-                          <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;" onchange="tab_show(this.value)">
+                          <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;margin-right: 10px;" onchange="tab_show(this.value)">
                             <option value="1">Photos <span class="badge"><?php
 
                             $raw_images_standard = "../raw_images/order_".$id_url."/standard_photos/";
@@ -2046,7 +2046,7 @@ alert(alertmsg);
                                <span id="drop_files"></span>
                              </form>
                              <hr class="space s">
-                             <a   id="edit_button" class="btn adr-save" style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+                             <a   id="edit_button" class="btn adr-save" style="float:right;margin-right: 10px;"><span id="label_submit" adr_trans="label_submit">Submit</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview" data-lightbox-anima="show-scale" style="margin-left: 10px;"><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -2071,7 +2071,7 @@ alert(alertmsg);
                               </div>
                             </div>
 
-                            <div class="panel" id="floor_dropdown" style="display:none">
+                            <div class="panel" id="floor_dropdown" style="display:none;margin-top: -25px;">
                               <!-- floor plans start-->
                               <div id="floor_booked">
                               </div>
@@ -2081,7 +2081,7 @@ alert(alertmsg);
                                <span id="drop_files1"></span>
                              </form>
                              <hr class="space s">
-                             <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn adr-save" id="edit_button1"  style="float:right;"><span id="label_upload" adr_trans="label_upload">Upload</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview1" data-lightbox-anima="show-scale" style=""><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+                             <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn adr-save" id="edit_button1"  style="float:right;margin-right: 10px;"><span id="label_submit" adr_trans="label_submit">Submit</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview1" data-lightbox-anima="show-scale" style="margin-left: 10px;"><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -2703,7 +2703,7 @@ if (@$_REQUEST['shar']) {
                                      <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_upload'>Upload</span></a> -->
                                      <div class="row">
                                        <div class="col-md-12">
-                                          <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
+                                          <p class="text-center" style="font-weight:600;"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
                                        </div>
 
                                      </div>
@@ -2913,7 +2913,7 @@ if (@$_REQUEST['shar']) {
 
                                              <div class="row">
                                                <div class="col-md-12">
-                                               <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
+                                               <p class="text-center" style="font-weight:600;"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
                                                </div>
 
 

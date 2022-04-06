@@ -228,11 +228,11 @@ foreach(glob($dir . '/*') as $file) {
             <div class="row">
 
 
-                <div class="col-md-12" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;">
+                <div class="col-md-8" align="center" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;border-radius: 10px;margin-left: 197px;">
                   <p ><h3 style="text-align:center;padding:10px;">Raw Images</h3></p>
                      <?php if(isset($_REQUEST['p'])){?>
                      <div>
-                       <p ><h4 style="text-align:center;padding:10px;">Photos</h4></p>
+                       <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
                        <?php
                        $RowsFound=0;
                        $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 and dynamic_folder!='' order by upload_on desc");
@@ -244,7 +244,7 @@ foreach(glob($dir . '/*') as $file) {
                          <?php } ?>
                          </form>
                          <br> <br>
-                  <div class="row" style="overflow:scroll;height:300px;background:#fff;width:99%;margin-left:10px;">
+                  <div class="row" style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid black;">
 
 
               <?php
@@ -256,8 +256,8 @@ foreach(glob($dir . '/*') as $file) {
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                               ?>
-  <div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
-      <center>  <img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="150" style="border-radius:5px;"><br />
+  <div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;width: 190px;">
+      <center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="180" style="border-radius:5px;"><br />
     <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
   </div>
                   <?php
@@ -268,7 +268,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
               <?php } ?>
               <?php if(isset($_REQUEST['f'])){?>
                 <div>
-                  <p ><h4 style="text-align:center;padding:30px;background:#FFF!important">Floor Plans</h4></p>
+                  <p ><h4 style="text-align:center;padding:10px;margin-top:25px;">Floor Plans</h4></p>
                   <?php
                   $RowsFound1=0;
                   $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=2 and dynamic_folder!='' order by upload_on desc");
@@ -280,7 +280,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
                 	  <?php } ?>
                   	</form>
                      <br> <br>
-           <div class="row" style="overflow:scroll;height:300px;background:#fff;width:99%;margin-left:10px;">
+           <div class="row" style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid black;">
 
           <?php
              while($get_order=mysqli_fetch_assoc($get_order_query))
@@ -292,7 +292,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
 $getImgName=mysqli_query($con,"SELECT * FROM `image_naming` WHERE image_name='$image'");
 $getImgName1=mysqli_fetch_array($getImgName);
                          ?>
-<div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;"> 
+<div class="col-md-2" style="margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;width: 190px;"> 
  <center><img src="<?php echo str_replace('../','./',$dynamic_folder).'/'.$image; ?>" alt="" width="240" height="180" style="border-radius:5px;"><br>
  <span style="text-align:center"><?php echo $getImgName1['description']."<br>".$uploaded_on; ?></span></center>
 </div>

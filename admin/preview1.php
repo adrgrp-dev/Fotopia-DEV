@@ -390,7 +390,7 @@ var a;
                   }
                     ?>
                     </div>
-                    <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here" style="width:90%;color: black;"/><center>
+                    <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here" style="width:97%;color: black;"/><center>
                     </div>
                     <hr class="space l">
                     <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
@@ -493,7 +493,7 @@ var a;
                       }
                       ?>
                       </div>
-                        <br><center><input type="text" name="commentall" id="comment_all2" placeholder="Comment here" style="width:90%;color: black;"/><center>
+                        <br><center><input type="text" name="commentall" id="comment_all2" placeholder="Comment here" style="width:97%;color: black;"/><center>
                       </div>
                         <hr class="space l">
                       <div style="display:none">
@@ -586,7 +586,7 @@ var a;
                     }
                     ?>
                       </div>
-                        <br><center><input type="text" name="commentall" id="comment_all3" placeholder="Comment here" style="width:90%;color: black;"/><center>
+                        <br><center><input type="text" name="commentall" id="comment_all3" placeholder="Comment here" style="width:97%;color: black;"/><center>
                       </div>
                     </div>
                   <div style="display:none;">
@@ -677,7 +677,7 @@ var a;
                     }
                     ?>
                       </div>
-                        <br><center><input type="text" name="commentall" id="comment_all4" placeholder="Comment here" style="width:90%;color: black;"/><center>
+                        <br><center><input type="text" name="commentall" id="comment_all4" placeholder="Comment here" style="width:97%;color: black;"/><center>
                       </div>
                     </div>
                     <br>

@@ -177,6 +177,18 @@ if(isset($_REQUEST['send']))
 <script src="../dropzone/validate.js"></script>
 
 <link rel="stylesheet" href="../dropzone/dropzone.css">
+
+<style>
+    
+/*.dz-preview{
+
+width: 220px!important;
+}*/
+
+ .dropzone .dz-preview:first-child {
+     margin-left: 40px !important;
+    }
+</style>
  <div class="section-empty bgimage9">
         <div class="container" style="margin-left:0px;height:inherit">
             <div class="row">
@@ -186,10 +198,10 @@ if(isset($_REQUEST['send']))
 
 
 </div>
-<div class="col-md-10">
-  <div id="standard_photos_div" >
+<div class="col-md-9">
+  <div id="standard_photos_div" style="margin-left:40px;margin-top:25px;" >
         <div id="error1" ></div>
-    <form action="../dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type1;?>&user_id=<?php echo $_SESSION['admin_loggedin_id'];?>&user_type=<?php echo $_SESSION['admin_loggedin_type'];?>" id='uploads' class="dropzone" style="100px">
+    <form action="../dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type1;?>&user_id=<?php echo $_SESSION['admin_loggedin_id'];?>&user_type=<?php echo $_SESSION['admin_loggedin_type'];?>" id='uploads' class="dropzone" style="">
 
      <span id="drop_files"></span>
      </form>
@@ -201,7 +213,7 @@ if(isset($_REQUEST['send']))
        });
 
      </script>
-        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn adr-save" style="float:left"><span adr_trans="label_preview">preview</span></a><p align="right"><a href="#" id="edit_button" class="btn adr-save" style="position: relative; "><span adr_trans="label_upload">Upload</span></a></p>
+        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn adr-save" style="float:left;margin-top: 10px;"><span adr_trans="label_preview">preview</span></a><p align="right"><a href="#" id="edit_button" class="btn adr-save" style="position: relative;margin-top: 10px;"><span adr_trans="label_submit">Submit</span></a></p>
 
       <input type="hidden"  id="order_id"  value="<?php echo $order_id?>"/>
        <input type="hidden"  id="service_name"  value="<?php echo $type1?>"/>
