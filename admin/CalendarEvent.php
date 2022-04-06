@@ -39,14 +39,14 @@ $domain="fotopia.no";
     'END:VTIMEZONE' . "\r\n" .  
     'BEGIN:VEVENT' . "\r\n" .
     'ORGANIZER;CN="'.$from_name.'":MAILTO:'.$from_address. "\r\n";
-   
+
 	 $to_addressIs=explode(",",$to_address);
 	 $addressCount=count($to_addressIs);
 	 for($i=0;$i<$addressCount;$i++)
 	 {	 
-	 $ical.='ATTENDEE;CN=Member '.$i.';ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:'.$to_addressIs[$i]."\r\n";
+    $to_nameIs=explode("--",$to_addressIs[$i]);
+	 $ical.='ATTENDEE;CN='.$to_nameIs[0].';ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:'.$to_nameIs[1]."\r\n";
 	 }
-	   
     $ical.='LAST-MODIFIED:' . date("Ymd\TGis") . "\r\n" .
     'UID:'.$GID."\r\n" .
     'DTSTAMP:'.date("Ymd\TGis"). "\r\n" .

@@ -246,10 +246,10 @@ $get_realtor_details=mysqli_query($con,"select * from orders WHERE id='$order_id
 $get_realtor_id=mysqli_fetch_assoc($get_realtor_details);
 
 $realtor_id = $get_realtor_id['created_by_id'];
-$_SESSION['old_from_time']= $get_realtor_id['from_datetime'];
-$_SESSION['old_to_time']= $get_realtor_id['to_datetime'];
+$_SESSION['old_from_time']= $get_realtor_id['session_from_datetime'];
+$_SESSION['old_to_time']= $get_realtor_id['session_to_datetime'];
 
- mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now(), `status_id`='2' where id='$_REQUEST[od]'");
+ mysqli_query($con,"update orders set `home_seller_id`='$home_seller_id', `property_type`='$property', `number_of_floor_plans`='$plan', `area`='$area',`property_address`='$property_address',`property_city`='$property_city',`property_state`='$property_state',`property_country`='$property_country',`property_zip`='$property_zip',`property_contact_mobile`='$property_contact_mobile',`property_contact_email`='$property_contact_email',`address_same`='$address_same',`rental_dormitory`='$rental_dormitory',  `photographer_id`='$Photographer_id1', `session_from_datetime`='$chk_from', `session_to_datetime`='$chk_to', `order_due_date`='$chk_due', `booking_notes`='$notes',`pc_admin_id`='$pc_admin_id1',`csr_id`='$subCSR_ID',`created_datetime`=now() where id='$_REQUEST[od]'");
 
 mysqli_query($con,"delete from `appointments` where order_id='$_REQUEST[od]'");
 

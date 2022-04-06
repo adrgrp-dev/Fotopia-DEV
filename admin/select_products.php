@@ -5,7 +5,7 @@ include "connection1.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($order_id,$realtor_email,$con)
+function email($order_id,$realtor_email,$con,$realtor_name)
 {
 	/* Exception class. */
 	require 'C:\PHPMailer\src\Exception.php';
@@ -48,14 +48,16 @@ function email($order_id,$realtor_email,$con)
     $date1=date_create($end_time);
 	 $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
 	 $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
+   // $pcadmin_fname=$get_profile['first_name'];
 	 $pcadmin_email=$get_profile['email'];
 	 $pcadmin_contact=$get_profile['contact_number'];
 	 $formated_date=date_format($date,"d F Y");
    $formated_time=date_format($date,"g:ia");
-     $formated_time1=date_format($date1,"g:ia");
+   $formated_time1=date_format($date1,"g:ia");
 	 $get_pcadmindetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$pc_admin_id'");
 	 $get_pcadmindetail=mysqli_fetch_assoc($get_pcadmindetail_query);
 	 $get_org=$get_pcadmindetail['organization_name'];
+   $pcadmin_fname=$get_pcadmindetail['first_name'];
 	 $PCAdmin_email=$get_pcadmindetail['email'];
 	 $photographer_id=@$get_detail['photographer_id'];
 	 $get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
@@ -68,15 +70,19 @@ function email($order_id,$realtor_email,$con)
 
 	 if($csr_id==0 && $pc_admin_user_id!=0)
 	 {
+    // echo "123132";
 	 $pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
 	 $pc_admin_user=mysqli_fetch_array($pc_admin_user1);
 	 $csr_email=$pc_admin_user['email'];
+   $csr_name=$pc_admin_user['first_name'];
 	 }
 	 if($csr_id!=0)
 	 {
+    // echo "asdada";
 	 $get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
 	 $get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	 $csr_email=$get_csrdetail['email'];
+   $csr_name=$get_csrdetail['first_name'];
 	 }
 
 	 $get_template_query=mysqli_query($con,"select * from email_template where pc_admin_id='$pc_admin_id' and template_title='Appointment updated'");
@@ -91,23 +97,25 @@ if($_REQUEST['edit']==1){
   
   $mail->addAddress($realtor_email);
   
-  $to_emails=$realtor_email.",".$pcadmin_email;
+  $to_emails=$realtor_name."--".$realtor_email.",".$pcadmin_fname."--".$pcadmin_email;
 	if(!empty($csr_email))
 	{
-	$mail->AddCC($csr_email);
-  $to_emails=$to_emails.",".$csr_email;
+    // addcc change to addaddress for calender invite purpose.
+	$mail->addAddress($csr_email);
+ 
+  $to_emails=$to_emails.",".$csr_name."--".$csr_email;
 	}
-	$mail->AddCC($pcadmin_email);
+	$mail->addAddress($pcadmin_email);
 	if(!empty($photographer_email))
 	{
-	$mail->AddCC($photographer_email);
-  $to_emails=$to_emails.",".$photographer_email;
+	$mail->addAddress($photographer_email);
+  $photographer_name=$get_name['first_name'];
+  $to_emails=$to_emails.",".$photographer_name."--".$photographer_email;
 	}
-  $to_emails=$to_emails.",".$get_hs_detail['email'];
-	$mail->AddCC($get_hs_detail['email']);
+  $to_emails=$to_emails.",".$get_hs_detail['name']."--".$get_hs_detail['email'];
+	$mail->addAddress($get_hs_detail['email']);
 	$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 	$mail->isHTML(true);
-
 	$mail->Subject = "Appointment date and time updated for order #{{Order_ID}}";
 	$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">APPOINTMENT UPDATED SUCCESSFULLY</td>
   <td align=\"right\"><img src=\"".$_SESSION['project_url'].$get_profile['logo_image_url']."\" width=\"110\" height=\"80\"/></td>  </tr><tr><td align=\"left\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td><td colspan=\"2\" align=\"right\">".strtoupper($get_profile['organization_name'])."<br>".$pcadmin_email."<br>".$pcadmin_contact."</td></tr><tr><td colspan=\"2\"><br><br>";
@@ -153,26 +161,41 @@ $subject = $mail->Subject;
 $description = "ADR USA discussion";        
 $location = $get_detail['property_address'];
 $domain="fotopia.no";
-$UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+// $UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+echo $_SESSION['old_to_time'];
+
+
+
+
 if($get_detail['status_id']==1)
 {
+$UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
 mysqli_query($con,"update orders set Invite_UID='$UID' where id='$order_id'");
 
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
 $description, $location,"REQUEST",$UID);
+echo "<pre>";
+echo $icalIs;
+// exit;
 $mail->AltBody = $icalIs; // in your case once more the $text string
 $mail->Ical = $icalIs;
 }
 elseif($get_detail['status_id']==2)
 {
+$subject="Appointment Rescheduled for Order# {order_id} - Check for updates.";
+$subject=str_replace("{order_id}",$order_id,$subject);
 $UID1=$get_detail['Invite_UID'];
 $startTime1=$_SESSION['old_from_time'];
 $endTime1=$_SESSION['old_to_time'];
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime1, $endTime1, $subject,     
 $description, $location,"CANCEL",$UID1);
+echo "<pre>";
+echo $icalIs;
+// exit;
+
+
 $mail->AltBody = $icalIs; // in your case once more the $text string
 $mail->Ical = $icalIs;
-mysqli_query($con,"update orders set Invite_UID='$UID' where id='$order_id'");
 
 try {
         $mail->send();
@@ -181,9 +204,13 @@ try {
       echo $e->getMessage();
         echo "Mailer Error: " . $mail->ErrorInfo;
     }
+$subject="New updated schedule for Order# {order_id}.";
+$subject=str_replace("{order_id}",$order_id,$subject);
+$UIDNew=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+mysqli_query($con,"update orders set Invite_UID='$UIDNew' where id='$order_id'");
 
 $icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
-$description, $location,"REQUEST",$UID);
+$description, $location,"REQUEST",$UIDNew);
 $mail->AltBody = $icalIs; // in your case once more the $text string
 $mail->Ical = $icalIs;
 }
@@ -279,6 +306,7 @@ $photography_cost1=$photographer_cost[$i];
 	 $get_realtor_name=mysqli_fetch_assoc($get_realtor_name_query);
 	 $get_realtor_name1=$get_realtor_name["first_name"]." ".$get_realtor_name["last_name"];
 	 $realtor_email=$get_realtor_name['email'];
+   $realtor_name=$get_realtor_name["first_name"];
 
 $quickOrderStatus=1;
 if(@$_REQUEST['quickOrder'])
@@ -291,8 +319,8 @@ $quickOrderStatus=2;
 }
  
 
-  echo $get_realtor['status_id'];
-	email($order_id,$realtor_email,$con);
+   echo $get_realtor['status_id'];
+	email($order_id,$realtor_email,$con,$realtor_name);
    
    mysqli_query($con,"update orders set status_id='$quickOrderStatus' where id='$order_id'");
 
