@@ -97,7 +97,7 @@ function email($order_id,$con)
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
-		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}
+		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}if(!empty($photographer_email)){$mail->AddCC($photographer_email);}
     $mail->addAddress($get_lead_detail['request_email']);
 		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
