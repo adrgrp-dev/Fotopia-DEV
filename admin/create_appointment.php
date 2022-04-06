@@ -40,31 +40,40 @@ function email($order_id,$con)
   $get_pcadmin_profile_query=mysqli_query($con,"SELECT * FROM `photo_company_profile` WHERE pc_admin_id=$pc_admin_id");
   $get_profile=mysqli_fetch_assoc($get_pcadmin_profile_query);
   $pcadmin_email=$_SESSION['admin_loggedin_email'];
+  $pcadmin_name=$_get_profile['first_name'];
   $pcadmin_contact=$get_profile['contact_number'];
 	$photographer_id=@$get_detail['photographer_id'];
 	$realtor_id=@$get_detail['realtor_id'];
 	$get_realtor_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$realtor_id'");
 	$get_name_realtor=mysqli_fetch_assoc($get_realtor_name_query);
 	$realtor_email=@$get_name_realtor["email"];
+	$realtor_name=$get_name_realtor['first_name'];
 	$get_photgrapher_name_query=mysqli_query($con,"SELECT * FROM user_login where id='$photographer_id'");
 	$get_name=mysqli_fetch_assoc($get_photgrapher_name_query);
 	$photographer_Name=@$get_name["first_name"]." ".@$get_name["last_name"];
 	$photographer_email=@$get_name["email"];
+	$photographer_name=$get_name['first_name'];
 	$csr_id=@$get_name['csr_id'];
 	$csr_email="";
 	$pc_admin_user_id=@$get_name['pc_admin_user_id'];
+	$get_hs_detail_query=mysqli_query($con,"select * from home_seller_info where id=$home_seller_id");
+	 $get_hs_detail=mysqli_fetch_array($get_hs_detail_query);
 	if($csr_id==0 && $pc_admin_user_id!=0)
 	{
 	$pc_admin_user1=mysqli_query($con,"select * from photo_company_admin where id='$pc_admin_user_id'");
 	$pc_admin_user=mysqli_fetch_array($pc_admin_user1);
 	$csr_email=$pc_admin_user['email'];
+	$csr_name=$pc_admin_user['first_name'];
 	}
 	if($csr_id!=0)
 	{
 	$get_csrdetail_query=mysqli_query($con,"SELECT * FROM admin_users where id='$csr_id'");
 	$get_csrdetail=mysqli_fetch_assoc($get_csrdetail_query);
 	$csr_email=$get_csrdetail['email'];
+	$csr_name=$get_csrdetail['first_name'];
 	}
+	 $from_date1=$get_detail['session_from_datetime'];
+    $to_date1=$get_detail['session_to_datetime'];
 
   if($get_lead_detail['lead_from']=="homeseller")
   {
@@ -97,7 +106,7 @@ function email($order_id,$con)
     $from_date=date_create($get_detail['session_from_datetime']);
     $to_date=date_create($get_detail['session_to_datetime']);
     $mail->addAddress($get_lead_detail['email']);
-		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}if(!empty($photographer_email)){$mail->AddCC($photographer_email);}
+		if(!empty($csr_email)){$mail->AddCC($csr_email);}if(!empty($pcadmin_email)){$mail->AddCC($pcadmin_email);}if(!empty($realtor_email)){$mail->AddCC($realtor_email);}
     $mail->addAddress($get_lead_detail['request_email']);
 		$mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 		$mail->isHTML(true);
@@ -119,13 +128,49 @@ function email($order_id,$con)
 
     $mail->Body.="<br><br></td></tr></table></html>";
   }
+   
+  
+  $to_emails=$realtor_name."--".$realtor_email.",".$pcadmin_name."--".$pcadmin_email;
+	if(!empty($csr_email))
+	{
+    // addcc change to addaddress for calender invite purpose.
+	$mail->addAddress($csr_email);
+ 
+  $to_emails=$to_emails.",".$csr_name."--".$csr_email;
+	}
+	$mail->addAddress($pcadmin_email);
+	if(!empty($photographer_email))
+	{
+	$mail->addAddress($photographer_email);
+  $photographer_name=$get_name['first_name'];
+  $to_emails=$to_emails.",".$photographer_name."--".$photographer_email;
+	}
+  $to_emails=$to_emails.",".$get_hs_detail['name']."--".$get_hs_detail['email'];
+	$mail->addAddress($get_hs_detail['email']);
 
-
-
+if(!empty($from_date1) && !empty($from_date1))
+{
 	 // echo $mail->Body;
 	 // exit;
+include "CalendarEvent.php";
 
-
+$from_name = "Fotopia";        
+$from_address = "alerts@fotopia.no";        
+$to_name = "Photographer / PCAdmin";        
+$to_address = $to_emails;        
+$startTime = $from_date1;        
+$endTime = $to_date1;       
+$subject = $mail->Subject;        
+$description = "ADR USA discussion";        
+$location = $get_detail['property_address'];
+$domain="fotopia.no";
+$UID=date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain;
+mysqli_query($con,"update orders set Invite_UID='$UID' where id='$order_id'");
+$icalIs=sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $subject,     
+$description, $location,"REQUEST",$UID);
+$mail->AltBody = $icalIs;
+$mail->Ical = $icalIs;
+}
 
 	try {
 	    $mail->send();
