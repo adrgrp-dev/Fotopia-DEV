@@ -141,23 +141,23 @@ function radioFilter(val)
 </script>
 <form>
 <div class="row">
-<div class="col-md-2" style="padding-left:15px;">
+<div class="col-md-2" style="padding-left:15px;width:fit-content">
 <p><h5 id="label_from_date" adr_trans="label_from_date" style="padding-left:5px;">From date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start"  name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;">
+<input type="date" onchange="setSecondDate();" id="start"  name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:170px;">
 </div>
-<div class="col-md-2" style="padding-left:10px;">
+<div class="col-md-2" style="padding-left:10px;width:fit-content">
 <p><h5 id="label_to_date" adr_trans="label_to_date" style="padding-left:5px;">To date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>"class="form-control" style="">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>"class="form-control" style="width:170px;">
 </div>
 <div class="col-md-3" >
   <p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By</h5></p>
-  <input type="radio" id="radioRealtor" name="filter" value="RealtorCompany" <?php if(@$_REQUEST['filter']!='Photographer'){ echo 'checked';} ?>  onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>RealtorCompany</span>&nbsp;&nbsp;
- <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>Photographer</span>
+  <input type="radio" id="radioRealtor" name="filter" value="RealtorCompany" <?php if(@$_REQUEST['filter']!='Photographer'){ echo 'checked';} ?>  onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>&nbsp;Realtor Company</span>&nbsp;
+ <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>&nbsp;&nbsp;Photographer</span>
 <?php } ?>
 </div>
 <div class="col-md-2" style="padding-top: 23px;">
-<select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="">
-<option value=0>-- Choose RealtorCompany --</option>
+<select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="width:170px">
+<option value=0>-- Select --</option>
 						<?php
 
 						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
@@ -169,7 +169,7 @@ function radioFilter(val)
 
 </select>
 <select name="photographer_id" id="photographerDropdown" class="form-control" list="realtors_list" style="display: none;">
-<option value=0>-- Choose Photographer --</option>
+<option value=0>-- Select --</option>
             <?php
             $loggedin_type=$_SESSION['admin_loggedin_type'];
             $loggedin_id=$_SESSION['admin_loggedin_id'];
@@ -196,11 +196,11 @@ function radioFilter(val)
 </select>
 
 </div>
-<div class="col-md-3" style="margin-top:23px;padding-left:20px;">
-    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="padding: 6px 10px !important;">Search</button>
+<div class="col-md-2" style="margin-top:23px;padding-left:10px;">
+    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="padding: 6px 6px !important;">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:30px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:5px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:5px;vertical-align: middle;" title="Download Excel"></i></a>
 
   </div>
 </div>
