@@ -183,6 +183,8 @@ foreach(glob($dir . '/*') as $file) {
     border-color:#AAD1D6!important;
     color: #000!important;
 }
+standard_photos > 
+
  </style>
 
     <meta charset="utf-8">
@@ -229,24 +231,24 @@ foreach(glob($dir . '/*') as $file) {
 
 
                 <div class="col-md-8" align="center" style="background:#FFF;color:#000;opacity:0.9;padding-left:10px;border-radius: 10px;margin-left: 197px;">
-                  <p ><h3 style="text-align:center;padding:10px;">Raw Images</h3></p>
+                  <p><h5 style="text-align:center;padding:10px;margin-top: 10px;font-size: 16px;">Raw Images - Photos</h5></p>
                      <?php if(isset($_REQUEST['p'])){?>
-                     <div>
-                       <p><h4 style="text-align:center;padding:10px;">Photos</h4></p>
+                     <div style="position: relative;top: -45px;">
                        <?php
                        $RowsFound=0;
                        $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=1 and dynamic_folder!='' order by upload_on desc");
                        $RowsFound=mysqli_num_rows($get_order_query);?>
-                       <form name="zipDownload" method="post" action="">
+                       <form name="zipDownload" method="post" action="" style="padding-bottom:40px;">
                            <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."standard_photos"; ?>">
                            <?php if($RowsFound>0)
-                         { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download Photos">
+                         { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;font-size: 12px;" name="ZIP" value="ZIP and Download Photos">
                          <?php } ?>
                          </form>
-                         <br> <br>
-                  <div class="row" style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid black;">
+                         
+                  <div class="row"  style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid fff;">
 
 
+               <div id="standard_photos" style="margin-left:7%">
               <?php
                   while($get_order=mysqli_fetch_assoc($get_order_query))
                   {
@@ -264,24 +266,27 @@ $getImgName1=mysqli_fetch_array($getImgName);
                   }
                   ?>
                   </div>
+                  </div>
                 </div>
               <?php } ?>
               <?php if(isset($_REQUEST['f'])){?>
-                <div>
-                  <p ><h4 style="text-align:center;padding:10px;margin-top:25px;">Floor Plans</h4></p>
+                <p ><h4 style="text-align:center;padding:10px;margin-top:35px;font-size: 16px;">Raw Images - Floor Plans</h4></p>
+                <div style="position: relative;top: -45px;">
+                  
                   <?php
                   $RowsFound1=0;
                   $get_order_query=mysqli_query($con,"select * from img_upload where order_id='$id_url' and raw_images=1 and service_id=2 and dynamic_folder!='' order by upload_on desc");
                   $RowsFound1=mysqli_num_rows($get_order_query);?>
-                  <form name="zipDownload" method="post" action="">
+                  <form name="zipDownload" method="post" action="" style="padding-bottom:40px;">
                       <input type="hidden" name="folderToZip" value="<?php echo "./raw_images/order_".$id_url."/"."floor_plans"; ?>">
                       <?php if($RowsFound1>0)
-                	  { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;" name="ZIP" value="ZIP and Download  Floor Plans">
+                	  { ?> <input type="submit" class="btn adr-save" style="float:right;background: black;color:white;border-radius:25px;font-size: 12px;" name="ZIP" value="ZIP and Download  Floor Plans">
                 	  <?php } ?>
                   	</form>
-                     <br> <br>
-           <div class="row" style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid black;">
-
+                     
+           <div class="row" style="overflow:scroll;height:300px;background:#fff;width:100%;border-top: 1px solid fff;">
+    
+           <div style="margin-left: 7%;">
           <?php
              while($get_order=mysqli_fetch_assoc($get_order_query))
              {
@@ -299,6 +304,7 @@ $getImgName1=mysqli_fetch_array($getImgName);
              <?php
              }
              ?>
+             </div>
              </div>
            </div>
          <?php } ?>
