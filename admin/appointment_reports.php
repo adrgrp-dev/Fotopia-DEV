@@ -55,7 +55,7 @@ if(isset($_REQUEST['label_search']))
  <div class="section-empty bgimage5">
         <div class="container" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
-			<hr class="space s">
+			
                 <div class="col-md-2">
 									<?php	if($_SESSION['admin_loggedin_type']=="PCAdmin"){
 								 	include "sidebar.php";

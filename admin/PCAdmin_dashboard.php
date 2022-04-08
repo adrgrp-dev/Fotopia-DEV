@@ -181,18 +181,9 @@ font-size: 10px!important;
 
 
   .status1{
-
-
-
-		background-color:#86C4F0!important;
-
-
-
-        color:#000!important;
-
-
-
-        }
+background-color:#86C4F0!important;
+color:#000!important;
+     }
 .status4,.status5,.status6{
 		background-color:#F58883!important;
 		color:#000!important;
@@ -255,8 +246,10 @@ border:none;
                             <p class="text-error" align="center" style="font-style:italic;color:red"><br />You are not Authorized to view the details of the requested Order.<br /></p>
 
 						<?php }  ?>
-						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:5px;border:none;margin-left:0px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important;">Quick Order</a> 
-					<div class="row" style="margin-left:0px;">
+						<div class="row">
+						<p align="left"><span style="padding-left:5px;color:#000;">PC Admin Dashboard</span>	
+						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:5px;border:none;margin-right:15px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important; float:right">Quick Order</a> 
+					<div class="row" style="margin-left:0px;"></p></div>
 
                
 								<div class="row" style="margin-left:0px;">
@@ -559,7 +552,7 @@ color:#000!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font
 
 
 <div class="col-md-2">
-<hr class="space s" />
+
 
 <table class="table-responsive"><tr><td style="font-size:11px;font-weight:600;padding-left:10px;">
 	<input type="radio" name="toglePH"  value="photographers" checked="checked" onchange="togglePH(this.value)" />&nbsp;&nbsp;<span id="label_photographers" adr_trans="label_photographers"  style="color:#000!important;position: relative;top:-3px;">&nbsp;Photographers<br /></span></td>

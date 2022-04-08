@@ -54,6 +54,9 @@ if(isset($_REQUEST['label_search']))
     background: white;
     padding: 0px 25px;
   }
+  .nav > li {
+  margin-right:10px;
+  }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -149,24 +152,24 @@ var days = 1;
 </script>
 <br />
 
-<div class="row" style="width:100%;margin-left:0px;">
+<div class="row" style="width:100%;margin-left:3px;">
 <form>
 <div class="col-md-2" style="padding-left:0px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" value="<?php echo @$_REQUEST['starting']?>" name="starting" class="form-control" style="padding:0px;">
+<input type="date" onchange="setSecondDate();" id="start" value="<?php echo @$_REQUEST['starting']?>" name="starting" class="form-control" style="padding-left:5px;width:160px;height:30px">
 </div>
 <div class="col-md-2" style="padding-left:5px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control" style="padding:0px;">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control" style="padding-left:2px;width:160px;height:30px">
 </div>
 
-<div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:260px!important"; } else
+<div class="col-md-3" style="padding-left:15px;margin-top:5px;<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){  echo "width:230px!important"; } else
 { echo "width:140px!important"; } ?>;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
 <?php
 if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
-<input type="radio" value="realtor" name="filter"  <?php if(@$_REQUEST['filter']!='photographer'){echo'checked';} ?> onchange="filter1(this.value)"><span adr_trans="label_realtor">Realtor</span>&nbsp;
-<input type="radio"  value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?> onchange="filter1(this.value)" onclick="filter1(this.value)"><span adr_trans="label_photographer">Photographer</span>&nbsp;
+<input type="radio" value="realtor" name="filter"  <?php if(@$_REQUEST['filter']!='photographer'){echo'checked';} ?> onchange="filter1(this.value)">&nbsp;&nbsp;<span adr_trans="label_realtor" style="font-size:13px;color:#666666;">Realtor</span>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio"  value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?> onchange="filter1(this.value)" onclick="filter1(this.value)">&nbsp;&nbsp;<span adr_trans="label_photographer" style="font-size:13px;color:#666666;">Photographer</span>&nbsp;
 <?php if($_SESSION['admin_loggedin_type']=="CSR"){ ?><input type="radio" value="csr" name="filter" onchange="filter1(this.value)"><span adr_trans="label_csr">CSR</span>&nbsp;<?php } ?>
 <?php }
 else{?>
@@ -180,7 +183,7 @@ else{?>
   <?php
 if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 
-<select name="realtor" id="realtor" class="form-control" style="display:block;margin-top:22px;width:150px;">
+<select name="realtor" id="realtor" class="form-control" style="display:block;margin-top:22px;width:200px;height:30px;font-size:13px;padding:0px 0px 0px 5px">
 <option value="">Select Realtor</option>
 
  <?php
@@ -195,7 +198,7 @@ if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 </select>
 <?php } ?>
 
-<select name="photographer10" id="photographer"  class="form-control" style="display:none;margin-top:22px;width:175px;">
+<select name="photographer10" id="photographer"  class="form-control" style="display:none;margin-top:22px;width:200px;height:30px;font-size:13px;padding:0px 0px 0px 5px">
 <option value="">Select Photographer</option>
 
 <?php
@@ -246,10 +249,10 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
   <?php } ?>
 </div>
 
-<div class="col-md-3" style="margin-top:25px;width:170px;">
-<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;">Search</button>
-<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
+<div class="col-md-3" style="margin-top:22px;width:220px;margin-left:20px;">
+<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;height:30px">Search</button>
+<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download Excel"></i></a>
 								</div>
 </div>
 </form>
@@ -643,7 +646,7 @@ $res="";
                           ?>
 
                           <td class="text-left" style=""><?php echo $created_name; ?></td>
-                          <td class="text-left" style=""><?php $status=$get_order['status_id'];if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:80px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:60px;' id='' adr_trans=''>Reopen</span>";} ?></td>
+                          <td class="text-left" style=""><?php $status=$get_order['status_id'];if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;'>Cancelled</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;width:70px;' id='' adr_trans=''>Reopen</span>";} ?></td>
 
                           </tr>
                            <tr><td class="listPageTRGap">&nbsp;</td></tr>

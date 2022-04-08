@@ -76,14 +76,16 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 <div class="row" style="width:100%">
 <div class="col-md-12" style="padding-left:0px;">
 				<div class="col-md-12">
-				<center><span style="font-size:12px;font-style: bold;text-align:center;padding-left:20px;"><span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?></span></center>
+				<span style="font-style: bold;text-align:left;padding-left:20px;color:#000"><span class="text-center" id="label_pca_calendar" adr_trans="label_pca_calendar"> Photo Company Admin Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_org']); ?></span>
 
 				 </div></div>
 				</div>
-<div class="row" style="padding-left:15px;">
+<div class="row" style="padding-left:5px;">
 <div class="col-md-12">
-				<div class="col-md-6" style="float:left;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:175px;margin-bottom:10px;font-size: 12px;"/>
+<div class="col-md-7" style="text-align:left;margin-top:10px;padding-left:15px;"><?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </div>
+
+				<div class="col-md-2" style="float:left;"><form name="" method="post" action="PCAdmin_Calender.php" id="filterForm">
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name']; ?>" placeholder="Select a photographer"  autocomplete="off"  class="form-control" style="width:175px;margin-bottom:10px;font-size: 12px;height:30px;"/>
 
  <datalist id="phList">
  	 <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
@@ -100,13 +102,12 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 				  <input type="hidden" name="ph_id" id="ph_id" value="<?php echo @$_REQUEST['ph_id']; ?>" />
 				  </form></div>
 				  
-				  <div class="col-md-6" style="float:right;text-align:right;margin-right:-40px;">
+				  <div class="col-md-3" style="float:right;text-align:right;margin-right:-40px;">
                <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="" class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order" style="font-size: 12px;"> Create New Order</span></a>
                 </div>
 				  </div></div>
 
-<div class="row" style="padding-left:15px;">
-<div class="col-md-12" style="text-align:center;margin-top:0px;"><?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } if(@$_REQUEST['notexist']==1) { echo "<span style='color:red;font-weight:400'>Please type and select the Photographer <br>&nbsp;&nbsp;from the dropdown suggestion list.</span>"; } ?> </div></div>
+
 
 <link href='../lib/main.css' rel='stylesheet' />
 				<style>
@@ -450,8 +451,8 @@ if(busyDate==1)calendar.gotoDate(busyDateIs);
 	<div id='calendar' style="border-radius:5px"></div>
 
     </div>
-	<div class="col-md-2" style="margin-top:70px;padding-right:0px;height:auto">
-	<div class="adr-save" style="border: none;padding-top:10px;padding-bottom:1px;width:100%;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment">Today's Appointment<br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
+	<div class="col-md-2" style="margin-top:17px;padding-right:0px;height:auto">
+	<div class="adr-save" style="border: none;padding-top:10px;padding-bottom:1px;width:100%;height:30px;"><h5 align="center" style="color:#000;" id="label_today_appointment" adr_trans="label_today_appointment">Today's Appointment<br /><br /> <?php echo date("d-M-Y"); ?></h5></div>
 
 	<?php
 	$appointments="";

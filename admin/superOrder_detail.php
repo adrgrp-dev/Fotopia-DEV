@@ -1534,7 +1534,7 @@ alert(alertmsg);
                 <div class="col-md-8">
 <hr class="space s">
                   <div class="tab-box" data-tab-anima="show-scale" style="width:100%;padding-left:30px;">
-                  <ul class="nav nav-tabs">
+                  <ul class="nav nav-tabs" style="margin-left:-15px">
                   <li id="click1" class="active"><a href="#tab1" data-toggle="tab"><span id="label_order_details" adr_trans="label_order_details">Order Detail</span></a></li>
                   <?php $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
                   $get_order1=mysqli_fetch_array($get_order_query1);
@@ -1971,7 +1971,7 @@ alert(alertmsg);
                       }
                     </script>
                 </div>
-                  <div class="panel" id="tab3" style="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "height: 610px;";}?>">
+                  <div class="panel" id="tab3" style="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "height: 610px;";}?>margin-left:-15px;padding:20px;" >
                     <?php
                     $standard_value=0;
                     $floor_value=0;
@@ -2000,7 +2000,7 @@ alert(alertmsg);
                           <p align="right" style="margin-right: 30px;">
                           <label for="service">Select a service:</label>
                           </p>
-                          <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;margin-right: 10px;" onchange="tab_show(this.value)">
+                          <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;margin-right: 0px;" onchange="tab_show(this.value)">
                             <option value="1">Photos <span class="badge"><?php
 
                             $raw_images_standard = "../raw_images/order_".$id_url."/standard_photos/";
@@ -2046,7 +2046,17 @@ alert(alertmsg);
                                <span id="drop_files"></span>
                              </form>
                              <hr class="space s">
-                             <a   id="edit_button" class="btn adr-save" style="float:right;margin-right: 10px;"><span id="label_submit" adr_trans="label_submit">Submit</span></a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview" data-lightbox-anima="show-scale" style="margin-left: 10px;"><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+							 <div class="row" style="margin-left:15px;">
+							 <div class="col-md-12">
+							 <div class="col-md-9">&nbsp;</div>
+							
+							 <div class="col-md-2" style="padding-right:30px;">
+							  <a href="<?php echo "preview1.php?id=$id_url";?>" class="btn adr-save" id="preview" data-lightbox-anima="show-scale" style="float:right;margin-right:-10px;"><span id="label_preview" adr_trans="label_preview">Preview</span> </a>
+							  </div>
+							   <div class="col-md-1">
+                             <a   id="edit_button" class="btn adr-save" style="float:right;margin-right:-15px;"><span id="label_submit" adr_trans="label_submit">Submit</span></a>
+							 </div>
+							 </div></div>
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -2182,7 +2192,7 @@ alert(alertmsg);
                     </div>
                   </div>
 
-                  <div class="panel" id="tab6"  style="">
+                  <div class="panel" id="tab6"  style="margin-left: -15px;">
 
                      <hr class="space s">
                                       <h5 id="zip_standard" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
@@ -2577,7 +2587,7 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                    
                       </div>
 
-                    <div class="panel" id="tab4">
+                    <div class="panel" id="tab4" style="margin-left: -15px;">
                       <input type="hidden" id="count" >
                       <input type="hidden" id="count2">
                       <input type="hidden" id="count3">
@@ -3370,15 +3380,15 @@ if (@$_REQUEST['shar']) {
                   </div>
                 
 
-                        <div class="panel" id="tab5" style="background:white">
+                        <div class="panel" id="tab5" style="background:white;margin-right:-10px;margin-left: -15px;">
                         
 
-                          <p align="right"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;margin-top: 2px;font-size: 12px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
+                          <p align="right" style="padding-top:10px;"><a class="anima-button circle-button btn-sm btn adr-save" style="position: relative;margin-right:110px;margin-top: 2px;font-size: 12px;" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
 
         <link rel="stylesheet" href="../css/style_invoice.css">
         <!-- <script src="script.js"></script> -->
 
-      <div id="print">
+      <div id="print" style="padding-left:15px;padding-right:15px;padding-bottom:10px;">
         <header id="inv_header" >
           <h4 id="inv_h1" style="font-size:20px; text-align: center;"><span id="label_order_cost" adr_trans="label_order_cost">Order cost</span></h4><br>
                <!-- <h1 id="inv_h1" style="font-size:50px; text-align: left; margin-left : 1.5%;

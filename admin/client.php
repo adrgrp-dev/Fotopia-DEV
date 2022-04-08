@@ -266,15 +266,15 @@ var xhttp= new XMLHttpRequest();
                                     <div class="col-md-9">
 
 																		<form name="realtorSearch" method="post" action="client.php" >
-																	  <input type="text" class="form-control form-value" name="filter_realtor" value="<?php echo @$_REQUEST['filter_realtor'];?>" placeholder="Name,City,Organization" onBlur="this.form.submit()" style=""/>
+																	  <input type="text" class="form-control form-value" name="filter_realtor" value="<?php echo @$_REQUEST['filter_realtor'];?>" placeholder="Name,City,Organization" onBlur="this.form.submit()" style="margin-top:25px;"/>
 																		</form>
 																		</div><div class="col-md-3">
-																		<p style="float:right"><a href="#tnc" class=" lightbox link">
+																		<p style="float:right"><a href="#tnc" class=" lightbox link"><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b><br />
 																		<i style="
 				color: #aad1d6;
 				top: -43px;
 				font-size: 50px;
-				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
+				" class="fa fa-envelope" aria-hidden="true"></i><br /></a></p>
 				</div>
                                     <hr class="space s">
 

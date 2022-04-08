@@ -25,6 +25,10 @@
 padding-left:0px;
 }
 
+.menuTable a
+{
+color:#000!important;
+}
 
 
 </style>
@@ -142,7 +146,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
 
 <?php
-       echo '<table align="center">
+       echo '<table align="center" class="menuTable">
 <tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="PCAdmin_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
