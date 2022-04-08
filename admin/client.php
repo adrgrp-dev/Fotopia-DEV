@@ -323,7 +323,7 @@ else
                                                         <td><?php echo @$realtor['city'];?></td>
                                                         <td><?php echo @$realtor['state'];?></td>
                                                        <td><?php echo @$realtor['country'];?></td>
-                               <td><a href="client_detail.php?realtor_id=<?php echo $realtor['id'];?>"><i class="fa fa-external-link"></i></a></td>
+                               <td><a href="client_detail.php?realtor_id=<?php echo $realtor['id'];?>" style="padding-left:10px;"><i class="fa fa-chevron-circle-right fa-lg" style="color:#000" title="View Client detail"></i></a></td>
                           <?php
 
                           $realtor_id=$realtor['id'];
@@ -336,7 +336,7 @@ else
                           {
                           ?>
 
-                           <td><a title="Add to favorites" onclick="favourite('<?php echo $realtor['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart-o"></i></a></td>
+                           <td><a title="Add to favorites" onclick="favourite('<?php echo $realtor['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart-o" style="padding-left:30px"></i></a></td>
                            <?php
 
                        }
@@ -344,7 +344,7 @@ else
                        else{
                        	?>
 
-                       	<td><a title="Already added to favourites"><i class="fa fa-heart" style="color:green;"></i></a></td>
+                       	<td><a title="Already added to favourites"><i class="fa fa-heart" style="color:green;padding-left:30px"></i></a></td>
 
 					<?php } ?>
 
@@ -361,16 +361,7 @@ else
 	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Search by Name,City,Organization and hit enter key" align="center" style="margin-left:25px;height:30px;width:96%" value="<?php echo @$_REQUEST['filter_realtor_favourite'];?>" onBlur="this.form.submit()"/>
 			</form>
 		</div>
-		<div class="col-md-3">
-				<p style="float:right"><a href="#tnc" class=" lightbox link">
-			<i style="
-				color: #aad1d6;
-				top: -43px;
-				font-size: 50px;
-
-				margin-right: 5px;
-				" class="fa fa-envelope" aria-hidden="true"></i><br /><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b></a></p>
-				</div>
+		
                                     <hr class="space s">
 									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                                     <table style="width:98%" align="center" class="table-striped" >
@@ -417,8 +408,8 @@ else
                                                         <td><?php echo @$realtor1['city'];?></td>
                                                             <td><?php echo @$realtor1['state'];?></td>
                                                                 <td><?php echo @$realtor1['country'];?></td>
-                                                                    <td><a href="client_detail.php?realtor_id=<?php echo $realtor1['id'];?>"><i class="fa fa-external-link"></i></a></td>
-                                                                        <td><a title="Remove from favourites" onclick="unfavourite('<?php echo $realtor1['id'];?>','<?php echo $loggedin_id;?>');"><i class="fa fa-heart" style="color:green;"></i></a></td>
+                                                                    <td><a href="client_detail.php?realtor_id=<?php echo $realtor1['id'];?>" style="padding-left:10px"><i class="fa fa-chevron-circle-right fa-lg" style="color:#000" title="View Client detail"></i></a></td>
+                                                                        <td><a title="Remove from favourites" onclick="unfavourite('<?php echo $realtor1['id'];?>','<?php echo $loggedin_id;?>');" style="text-align:center"><i class="fa fa-heart" style="color:green;padding-left:20px"></i></a></td>
                                           </tr>
                                            <tr><td class="listPageTRGap">&nbsp;</td></tr>
                                           <?php

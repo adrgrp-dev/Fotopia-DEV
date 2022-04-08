@@ -106,8 +106,9 @@ th
 	
 	 </style>
                 <div class="col-md-10" style="padding-left:30px;">
+				<hr class="space s" />
                 	<div class="tab-box" data-tab-anima="show-scale">
-                    <h5 class="text-center" adr_trans="label_users_list">List of Users</h5>
+                    <!--<h5 class="text-center" adr_trans="label_users_list">List of Users</h5>-->
 					<?php if(isset($_REQUEST['c'])) { ?>
 
 					<p align="center" class="text-success" id="label_csr_created" adr_trans="label_csr_created">CSR created Successfully!.</p>
@@ -160,7 +161,7 @@ th
 
 <div class="panel active " id="tab1" style="width:100%;">
 
-<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;font-size: 10px;" >Create Admin</a></p>
+<p align="right"><a href="create_pc_admin_user.php" id="label_create_admin" adr_trans="label_create_admin" class="btn adr-save " style="margin-bottom: 10px;font-size: 12px;" >Create Admin</a></p>
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 <table class="table-striped" align="center" aria-busy="false" style="width:100%;">
                 <thead>
@@ -290,8 +291,8 @@ th
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_pending' adr_trans='label_pending'>Pending</span>"; } elseif($approved2==2) { echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_blocked' adr_trans='label_blocked'>Blocked</span>"; } else { echo "<span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='label_approved' adr_trans='label_approved'>Approved</span>"; } ?></td>
 				<td class="text-center" style=""><a target="" href="pc_admin_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_pc_admin_user.php?id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-pencil" title="Edit Admin details"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a>&nbsp;&nbsp;<a target="" href="edit_pc_admin_user.php?id=<?php echo $res1['id']; ?>" class="link">
+				<i class="fa fa-pencil fa-lg" style="padding-left:3px" title="Edit Admin details"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
@@ -456,8 +457,8 @@ th
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved2=$res1['is_approved']; if($approved2==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' >Pending</span>"; } elseif($approved2==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
 				<td class="text-center" style=""><a target="" href="csr_details.php?val=0&id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_csr.php?id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-pencil" title="Edit CSR details"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a>&nbsp;&nbsp;<a target="" href="edit_csr.php?id=<?php echo $res1['id']; ?>" class="link">
+				<i class="fa fa-pencil fa-lg" style="padding-left:3px" title="Edit CSR details"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
@@ -630,8 +631,8 @@ th
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved=$res1['email_verified']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=2&id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-external-link"></i></a>&nbsp;&nbsp;<a target="" href="edit_photographer.php?id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-pencil" title="Edit photographer details"></i></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a>&nbsp;&nbsp;<a target="" href="edit_photographer.php?id=<?php echo $res1['id']; ?>" class="link">
+				<i class="fa fa-pencil fa-lg" style="padding-left:3px" title="Edit photographer details"></i></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>
@@ -839,8 +840,8 @@ header("location:csr_list1.php?ed=1");
 
 
 				<td class="text-center" style=""><a target="" href="edit_editor.php?id=<?php echo $res1['id']; ?>&service=<?php echo @$get_photographer_id_query1['service_type']; ?>" class="link">
-				<i class="fa fa-pencil" title="Edit Editor details"></i></a>&nbsp;
-				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash" title="Delete"></i></a></td>
+				<i class="fa fa-pencil fa-lg" style="padding-left:3px" title="Edit Editor details"></i></a>&nbsp;
+				                 <a href="csr_list1.php?editor_id=<?php echo $res1['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash fa-lg" style="padding-left:3px;" title="Delete"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?></tbody>

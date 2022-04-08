@@ -238,16 +238,17 @@ th
 <div class="col-md-4" style="border-radius:0px 5px 5px 0px;border:solid 1px;font-weight:600;padding:10px;"><a  href="PhotographerProducts.php">Photographers Commission</a></a></div>
 </div>
 </center>
-<br><br><br />
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products</h5>
+<!--
+						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products</h5>-->
 						  <div style="width:100%;">
+						  <hr class="space xs" />
 					<table align="center" class="table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th id="label_product_name" adr_trans="label_product_name">Product Name</th>
-                        <th><span adr_trans="label_product_cost">Product Cost</span><span> ($)</span></th>
-						 <th id="label_tax" adr_trans="label_tax">Tax</th>
+                        <th style="width:70px"><span adr_trans="label_product_cost">Product Cost</span><span> ($)</span></th>
+						 <th style="width:50px" id="label_tax" adr_trans="label_tax">Tax</th>
 						 <th><span adr_trans="label_total_cost">Total Cost ($)</span><br />&nbsp;&nbsp;(Incl. Tax)</th>
 						 <th id="label_timeline" adr_trans="label_timeline">Timeline</th>
 						  <th id="label_description" adr_trans="label_description">Description</th>
@@ -316,8 +317,8 @@ th
                         <td><?php echo $get_product['total_cost']; ?></td>
 						<td><?php echo $get_product['timeline']; ?></td>
 						<td style="word-wrap:break-word;width:220px;white-space: pre-wrap;"><b id="label_description" adr_trans="label_description">Description </b>: <?php echo $get_product['description']; ?></td>
-				                <td align="center"><a  href="products.php?prodid=<?php echo $get_product['id']; ?>&edit=1"><i class="fa fa-pencil" title="Edit"></i></a> &nbsp;
-				                 <a href="products.php?prodid=<?php echo $get_product['id']; ?>&del=1" onclick="return confirmDelete();"><i class="fa fa-trash-o" title="Delete"></i></a>
+				                <td align="left"><a  href="products.php?prodid=<?php echo $get_product['id']; ?>&edit=1"  style="color:#000"><i class="fa fa-pencil fa-lg" title="Edit"></i></a> &nbsp;&nbsp;&nbsp;
+				                 <a href="products.php?prodid=<?php echo $get_product['id']; ?>&del=1" onclick="return confirmDelete();" style="color:#000!important"><i class="fa fa-trash-o fa-lg" title="Delete" style="color:#000"></i></a>
 						            </td>
                     </tr>
                     <tr><td class="listPageTRGap">&nbsp;</td></tr>

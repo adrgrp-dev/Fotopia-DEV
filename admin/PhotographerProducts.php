@@ -230,7 +230,11 @@ alert(alertmsg);
 </div>
 </center>
 <br><br><br />
-						<h5 class="text-center" id="label_list_products"><span  adr_trans="label_list_products">List of Products</span>
+
+<div class="row">
+						<div class="col-md-12">
+						<div class="col-md-6" style="text-align:left;padding-left:15px;">
+						<h5 class="text-left" id="label_list_products"><span  adr_trans="label_list_products" style="color:#000">List of Products</span>
 						<?php
 
 
@@ -241,11 +245,11 @@ alert(alertmsg);
 						 echo "of ".$photographernameIs; }
 						  ?>
 
-						</h5>
-
-						<p align="left">
+						</div>
+<div class="col-md-6" style="text-align:right">
+						
 						<form name="filterfrm" method="post" action="">
-						<input type="text" name="photographer" class="form-control" style="width:200px;" list="photographers" onChange="this.form.submit();" placeholder="<?php if(empty($_REQUEST['photographer'])) { echo "Select photographer"; } else { echo $photographernameIs; } ?>" autocomplete="off">
+						<input type="text" name="photographer" class="form-control"  style="width:300px;height:30px;font-size:12px;float:right;margin-right:-35px;" list="photographers" onChange="this.form.submit();" placeholder="<?php if(empty($_REQUEST['photographer'])) { echo "Select photographer"; } else { echo $photographernameIs; } ?>" autocomplete="off">
 
 						<datalist id="photographers">
 
@@ -259,8 +263,11 @@ alert(alertmsg);
 						<?php } ?>
 						</datalist>
 
-						</form>
-						</p><br><form name="submitFrm" method="post" action="">
+						
+						</div></div></div>
+						<hr class="space xs" />
+						
+						<form name="submitFrm" method="post" action="">
 						  <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-striped" style="width:100%;">
                 <?php
