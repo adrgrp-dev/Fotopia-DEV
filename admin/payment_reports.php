@@ -46,6 +46,9 @@ if(isset($_REQUEST['loginbtn']))
     padding: 0px 25px;
     margin-right: -49px;
   }
+  .nav > li {
+  margin-right:10px;
+  }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -65,10 +68,10 @@ if(isset($_REQUEST['loginbtn']))
 	}*/
 	</style>
  <div class="section-empty">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%">
+        <div class="" style="margin-left:0px;height:inherit;width:100%">
             <div class="row" style="width:100%">
-			<hr class="space s">
-                <div class="col-md-2">
+			
+               <div class="col-md-2" style="padding-left:15px;">
 									<?php	if($_SESSION['admin_loggedin_type']=="SuperCSR"){
 								 	include "sidebar.php";
 								 } else {
@@ -79,7 +82,7 @@ if(isset($_REQUEST['loginbtn']))
 
 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="padding-left:15px;">
 
 
                   <hr class="space s">
@@ -118,7 +121,7 @@ function radioFilter(val)
   if(val=="Photographer")
   {
     $("#realtorDropdown").css("display","none");
-    $("#photographerDropdown").css("display","block");
+    $("#photographerDropdown").css("display","inline-block");
     $("#label_photographer_commission").css("display","block");
     $("#value_photographer_commission").css("display","block");
     $(".label_total").css("visibility","hidden");
@@ -126,7 +129,7 @@ function radioFilter(val)
     $(".newfilter2").show();
   }
   else{
-    $("#realtorDropdown").css("display","block");
+    $("#realtorDropdown").css("display","inline-block");
     $("#photographerDropdown").css("display","none");
     $("#label_photographer_commission").css("display","none");
     $("#value_photographer_commission").css("display","none");
@@ -139,25 +142,26 @@ function radioFilter(val)
 }
 
 </script>
+
+
+<div class="row" style="width:100%;margin-left:3px;"> 
 <form>
-<div class="row">
-<div class="col-md-2" style="padding-left:15px;width:fit-content">
-<p><h5 id="label_from_date" adr_trans="label_from_date" style="padding-left:5px;">From date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start"  name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:170px;">
+<div class="col-md-2" style="padding-left:0px;margin-top:5px;">
+<h5 id="label_from_date" adr_trans="label_from_date">From Date</h5>
+<input type="date" onchange="setSecondDate();" id="start" value="<?php echo @$_REQUEST['starting']?>" name="starting" class="form-control" style="padding-left:5px;width:160px;height:30px">
 </div>
-<div class="col-md-2" style="padding-left:10px;width:fit-content">
-<p><h5 id="label_to_date" adr_trans="label_to_date" style="padding-left:5px;">To date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>"class="form-control" style="width:170px;">
+<div class="col-md-2" style="padding-left:5px;margin-top:5px;">
+<p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending']?>" class="form-control" style="padding-left:2px;width:160px;height:30px">
 </div>
-<div class="col-md-3" >
-  <p><h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:5px;">Filter By</h5></p>
-  <input type="radio" id="radioRealtor" name="filter" value="RealtorCompany" <?php if(@$_REQUEST['filter']!='Photographer'){ echo 'checked';} ?>  onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>&nbsp;Realtor Company</span>&nbsp;
- <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span>&nbsp;&nbsp;Photographer</span>
+<div class="col-md-6" >
+  <h5 id="label_from_date" adr_trans="label_Choose_Realtor" style="padding-left:15px;margin-top:5px;">Filter By</h5>
+ &nbsp;&nbsp; <input type="radio" id="radioRealtor" name="filter" value="RealtorCompany" <?php if(@$_REQUEST['filter']!='Photographer'){ echo 'checked';} ?>  onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span  style="font-size:13px;color:#666666;">&nbsp;&nbsp;Realtor Company</span>&nbsp;&nbsp;&nbsp;&nbsp;
+ <?php if($_SESSION['admin_loggedin_type']!="FotopiaAdmin"){?> <input type="radio" id="radioPhotographer" name="filter" value="Photographer" <?php if(@$_REQUEST['filter']=='Photographer'){ echo 'checked';} ?> onclick="radioFilter(this.value)" onChange="radioFilter(this.value)"><span style="font-size:13px;color:#666666;display:inline-block">&nbsp;&nbsp;Photographer</span>
 <?php } ?>
-</div>
-<div class="col-md-2" style="padding-top: 23px;">
-<select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="width:170px">
-<option value=0>-- Select --</option>
+
+<select name="realtor_id" id="realtorDropdown" class="form-control" list="realtors_list" style="width:200px;height:30px;font-size:13px;padding:0px 0px 0px 5px;display:inline-block;margin-left:20px;">
+<option value=0> Select Realtor</option>
 						<?php
 
 						$selectrealtor=mysqli_query($con,"SELECT organization_name as org,id,type_of_user FROM `user_login` where organization_name!='' and type_of_user='Realtor' and id in(select distinct(created_by_id) from orders)");
@@ -168,8 +172,8 @@ function radioFilter(val)
 						<?php } ?>
 
 </select>
-<select name="photographer_id" id="photographerDropdown" class="form-control" list="realtors_list" style="display: none;">
-<option value=0>-- Select --</option>
+<select name="photographer_id" id="photographerDropdown" class="form-control" list="realtors_list" style="width:200px;height:30px;font-size:13px;padding:0px 0px 0px 5px;display:none;margin-left:20px;">
+<option value=0>Select Photographer</option>
             <?php
             $loggedin_type=$_SESSION['admin_loggedin_type'];
             $loggedin_id=$_SESSION['admin_loggedin_id'];
@@ -196,11 +200,11 @@ function radioFilter(val)
 </select>
 
 </div>
-<div class="col-md-2" style="margin-top:23px;padding-left:10px;">
-    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="padding: 6px 6px !important;">Search</button>
+<div class="col-md-2" style="margin-top:23px;padding-left:0px;">
+    <button type="submit" id="label_search" adr_trans="label_search" class="btn adr-save s" style="padding: 6px 10px !important;height:30px;font-size:12px;margin-left:-15px;margin-top:5px;">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:5px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:5px;vertical-align: middle;" title="Download Excel"></i></a>
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;float:right;padding-top:5px;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;float:right;padding-top:5px;" title="Download Excel"></i></a>
 
   </div>
 </div>
@@ -209,12 +213,13 @@ function radioFilter(val)
 
 
 
-<div style="margin-top: 5px;width:105%;border-radius: 5px;background-color:white">
+<div style="margin-top: 5px;width:100%;border-radius: 5px;background-color:white">
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                              <table id="dataTable" align="center" class="table-striped" style="opacity:0.9;width:96%;">
+        <table id="dataTable" align="center" class="table-striped" style="opacity:0.9;width:98%;">
 
                                     <thead>
-			<tr class="text-left"><th align="center" colspan="11" style="font-size:15px;"><center><b><br /><span  adr_trans="label_payment_report">Payment Reports</span><br /></b></center></th></tr>
+									<hr class="space xs" />
+			<!--<tr class="text-left"><th align="center" colspan="11" style="font-size:15px;"><center><b><br /><span  adr_trans="label_payment_report">Payment Reports</span><br /></b></center></th></tr>-->
                                         <tr><th data-column-id="id" class="text-left" style=""><span class="text">
 
                                               S.No

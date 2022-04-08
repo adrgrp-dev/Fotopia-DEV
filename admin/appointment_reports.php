@@ -49,14 +49,17 @@ if(isset($_REQUEST['label_search']))
     background: white;
     padding: 0px 25px;
   }
+   .nav > li {
+  margin-right:10px;
+  }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  <div class="section-empty bgimage5">
-        <div class="container" style="margin-left:0px;height:inherit;width:100%">
+        <div class="" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
 			
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-left:15px;">
 									<?php	if($_SESSION['admin_loggedin_type']=="PCAdmin"){
 								 	include "sidebar.php";
 								 } else {
@@ -66,7 +69,7 @@ if(isset($_REQUEST['label_search']))
 								  ?>
 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="padding-left:17px;">
 
 
                   <hr class="space s">
@@ -103,17 +106,17 @@ var days = 1;
 </script>
 <form>
 <div class="row">
-<div class="col-md-2" style="padding-left:15px;">
+<div class="col-md-2" style="padding-left:18px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="display:inline-table;width:160px;padding:0px;">
+<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting']?>" class="form-control" style="padding-left:5px;width:160px;height:30px">
 </div>
-<div class="col-md-2" style="padding-left:15px;">
+<div class="col-md-2" style="padding-left:20px;">
 <p><h5 id="label_to_date" adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="width:160px;padding:0px;">
+<input type="date" id="end" name="ending"  class="form-control" value="<?php echo @$_REQUEST['ending']?>" style="padding-left:5px;width:160px;height:30px">
 </div>
-<div class="col-md-3" style="padding-left:15px;">
+<div class="col-md-3" style="padding-left:25px;">
 <p><h5 id="label_filter_by" adr_trans="label_filter_by">Filter By</h5></p>
- <input type="text"  list="Suggestions1" placeholder="Search Photographer" class="form-control form-value" id="user_name1" name="user_name1" value="<?php echo @$_REQUEST["user_name1"] ?>" style="display:inline;" autocomplete="off" />
+ <input type="text"  list="Suggestions1" placeholder="Search Photographer" class="form-control form-value" id="user_name1" name="user_name1" value="<?php echo @$_REQUEST["user_name1"] ?>" autocomplete="off"  style="width:200px;height:30px;font-size:13px;padding:0px 0px 0px 5px" />
  <!-- <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button> -->
 
  <datalist id="Suggestions1"  >
@@ -146,11 +149,12 @@ var days = 1;
 </div>
 
 
-<div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:30px;">
-  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save" style="padding: 6px 10px !important;">Search</button>
-
-   <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:20px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
+<div class="col-md-3" style="margin-top:23px;padding-left:0px;margin-left:0px;">
+  <button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save" style="padding: 6px 10px !important;height:30px;font-size:12px;margin-left:-15px;">Search</button>
+</div>
+<div class="col-md-2" style="margin-top:23px;float:right;">
+   <a href="#" onclick="appointment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;float:right;margin-right:-15px;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;float:right;" title="Download Excel"></i></a>
 
 </div>
 </div>
@@ -161,14 +165,14 @@ var days = 1;
 
 
 
-<div style="margin-top: 5px;width:100%;border-radius: 5px;background-color:white">
-<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-              <table  id="dataTable" align="center" cellpadding="10" class="table-striped" style="width:98%;">
-
+<div style="margin-top: 5px;width:100%;background-color:white">
+                          <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+               <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
 
 
                                     <thead>
-					<tr class="text-left"><th align="center" colspan="8"><center><b><br /><span adr_trans="label_appointment_report">Appointment Reports</span><br /></b></center></th></tr>
+									<hr class="space xs" />
+				<!--	<tr class="text-left"><th align="center" colspan="8"><center><b><br /><span adr_trans="label_appointment_report">Appointment Reports</span><br /></b></center></th></tr>-->
 
                                         <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 

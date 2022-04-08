@@ -246,6 +246,9 @@ var xhttp= new XMLHttpRequest();
                   <?php   //echo $_SESSION['project_url'];?>
                    <a href="Realtor_registration.php" class="anima-button circle-button btn-sm btn adr-save realtor-btn"  style="position: relative;top: 30px;z-index: 2;"><i class="fa fa-plus"></i>Add Realtor</a>
 
+
+						 <a href="#tnc" class="anima-button circle-button btn-sm btn adr-save realtor-btn lightbox link"  style="height:30px;color:#000!important;font-weight:600;float:right;margin-right:10px;position: relative;top: 30px;z-index: 2;"><i class="fa fa-paper-plane"></i><span adr_trans="label_send_invite" style="color:#000!important;font-weight:600">Send Invite</span></a>
+
 <?php if(@isset($_REQUEST["a"])) { ?>
                         <div class="success-box" style="display:block;margin-left:300px;">
                             <div class="text-success">Realtor has been successfully added and an invite has been sent successfully </br></br></div>
@@ -263,24 +266,18 @@ var xhttp= new XMLHttpRequest();
 
                                   </ul>
                                   <div class="panel active" style="background-color: white;" id="tab1">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
 
 																		<form name="realtorSearch" method="post" action="client.php" >
-																	  <input type="text" class="form-control form-value" name="filter_realtor" value="<?php echo @$_REQUEST['filter_realtor'];?>" placeholder="Name,City,Organization" onBlur="this.form.submit()" style="margin-top:25px;"/>
+																	  <input type="text" class="form-control form-value" name="filter_realtor" value="<?php echo @$_REQUEST['filter_realtor'];?>" placeholder="Search by Name,City,Organization and hit enter key" onBlur="this.form.submit()" align="center" style="margin-left:25px;height:30px;width:96%"/>
 																		</form>
-																		</div><div class="col-md-3">
-																		<p style="float:right"><a href="#tnc" class=" lightbox link"><b style="position: relative;top: 3px;right: 20px;font-size: 16px;"><span adr_trans="label_send_invite">Send Invite</span></b><br />
-																		<i style="
-				color: #aad1d6;
-				top: -43px;
-				font-size: 50px;
-				" class="fa fa-envelope" aria-hidden="true"></i><br /></a></p>
-				</div>
+																		</div>
+						
                                     <hr class="space s">
 
 									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                                    <table style="width:98%" align="center" class="table-stripped" style="background:#FFF;color:#000;">
-                                       <tr>
+               <table align="center" class="table-stripped" style="background:#FFF;color:#000;width:98%">
+                                       <tr style="border:solid 2px #aad1d6;">
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
 										<th><span adr_trans="label_organization">Organization</span></th>
@@ -359,9 +356,9 @@ else
                                      </table></div>
                                   </div>
                                   <div class="panel" id="tab2" style="background-color: white;">
-											<div class="col-md-9">
+											<div class="col-md-12">
 			<form name="realtorSearch" method="post" action="client.php?favourite=1">
-	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Name,City,Organization" value="<?php echo @$_REQUEST['filter_realtor_favourite'];?>" onBlur="this.form.submit()" style="width:100%;display:inline-block"/>
+	  <input type="text" class="form-control form-value" name="filter_realtor_favourite" placeholder="Search by Name,City,Organization and hit enter key" align="center" style="margin-left:25px;height:30px;width:96%" value="<?php echo @$_REQUEST['filter_realtor_favourite'];?>" onBlur="this.form.submit()"/>
 			</form>
 		</div>
 		<div class="col-md-3">
@@ -377,7 +374,7 @@ else
                                     <hr class="space s">
 									 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                                     <table style="width:98%" align="center" class="table-striped" >
-                                       <tr style="background-color: white">
+                                      <tr style="border:solid 2px #aad1d6;">
                                          <th><span adr_trans="label_first_name">Firstname</span></th>
                                          <th><span adr_trans="label_last_name">Lastname</span></th>
 										<th><span adr_trans="label_organization">Organization</span></th>

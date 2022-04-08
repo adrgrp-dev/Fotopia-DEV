@@ -63,8 +63,8 @@ if(isset($_REQUEST['label_search']))
  <div class="section-empty bgimage2">
         <div class="" style="margin-left:0px;height:inherit;width:100%">
             <div class="row">
-			<hr class="space s">
-                <div class="col-md-2">
+			
+               <div class="col-md-2" style="padding-left:15px;">
 
 	<?php	if($_SESSION['admin_loggedin_type']=="PCAdmin"){
  	include "sidebar.php";
@@ -152,7 +152,7 @@ var days = 1;
 </script>
 <br />
 
-<div class="row" style="width:100%;margin-left:3px;">
+<div class="row" style="width:100%;margin-left:3px;"> 
 <form>
 <div class="col-md-2" style="padding-left:0px;">
 <p><h5 id="label_from_date" adr_trans="label_from_date">From Date</h5></p>
@@ -250,7 +250,7 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 </div>
 
 <div class="col-md-3" style="margin-top:22px;width:220px;margin-left:20px;">
-<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;height:30px">Search</button>
+<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;height:30px; margin-left:-10px;">Search</button>
 <a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download Excel"></i></a>
 								</div>
@@ -263,9 +263,11 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 			<div style="margin-top: 5px;width:100%;background-color:white">
                           <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
                             <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
+							
                                   <thead>
-						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="label_order_report">Order Reports</span><br /></b></center></th></tr>
-                                      <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
+								  <hr class="space xs" />
+				<!--<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="label_order_report">Order Reports</span><br /></b></center></th></tr>
+-->                                      <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                             S.No
 

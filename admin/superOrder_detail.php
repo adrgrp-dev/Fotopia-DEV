@@ -756,12 +756,12 @@ unlink($delete_dir);
     padding-right: 0px!important;
 }
 
-
+/*
 a >span{
 
-  font-size: 12px!important;
+font-size: 12px!important;
 }
-	/*.nav-tabs > li.active > a, .current-active {
+	.nav-tabs > li.active > a, .current-active {
     background:#000!important;color:#FFF!important;
     border-radius: 20px 20px 0px 0px;
     opacity: 0.8;
