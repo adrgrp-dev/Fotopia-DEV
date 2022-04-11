@@ -299,12 +299,15 @@ var a;
 
                    <button href="" class="btn adr-save btn-sm"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
                     <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save btn-sm"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;" adr_trans="label_send">Send</a>
-                   <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
+                    
+                   <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -35px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                     <option value="">--Select Your Editor--</option>
                     <?php
                       $photographer_id=$get_order['photographer_id'];
                       $pc_admin_id=$get_order['pc_admin_id'];
-                     $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type,COUNT(e.email) FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=$pc_admin_id and ep.service_type=1");
+
+                     $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type FROM `editor` as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=2 and ep.service_type=1 group by e.email;");
+                     $standard_editor_count=mysqli_num_rows($editor_query);
 
                      while($editor=mysqli_fetch_array($editor_query))
                      {
@@ -403,13 +406,13 @@ var a;
                     <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="text-align: center;font-size: 13px;color: black;">Floor Plans</h5>
                        <button href="" class="btn adr-save btn-sm"  id="edit_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-35px"><span id="label_send" adr_trans="label_send">Send</span></button>
                         <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save btn-sm"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;" adr_trans="label_send">Send</a>
-                        <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
+                        <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="float:right;margin-top: -35px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <option value="">--Select Your Editor--</option>
                           <?php
                             $photographer_id=$get_order['photographer_id'];
                             $pc_admin_id=$get_order['pc_admin_id'];
-
-                           $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type,COUNT(e.email) FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=$pc_admin_id and ep.service_type=2");
+                           
+                           $editor_query=mysqli_query($con,"SELECT e.email,e.organization_name,ep.service_type FROM `editor`as e join editor_photographer_mapping as ep on ep.editor_id=e.id where e.pc_admin_id=$pc_admin_id and ep.service_type=2 group by e.email");
                            while($editor=mysqli_fetch_array($editor_query))
                            {
                              ?>
