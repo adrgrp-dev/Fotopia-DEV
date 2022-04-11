@@ -185,6 +185,11 @@ border-radius:20px;
 th, td
 {
 vertical-align:top!important;
+
+}
+tr
+{
+line-height:23px;
 }
 </style>
 

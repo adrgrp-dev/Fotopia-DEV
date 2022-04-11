@@ -310,6 +310,10 @@ $().ready(function(){
         });
 });
 
+
+</script>
+<?php } ?>
+<script>
 $(window).bind('load', function() {
   $('img').each(function() {
     if( (typeof this.naturalWidth != "undefined" && this.naturalWidth == 0) 
@@ -321,4 +325,3 @@ $(window).bind('load', function() {
   });
 });
 </script>
-<?php } ?>
