@@ -28,6 +28,7 @@ padding-left:0px;
 .menuTable a
 {
 color:#000!important;
+line-height:23px;
 }
 
 
