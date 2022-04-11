@@ -250,20 +250,22 @@ $("#dayVal").val(calid);
       <div class="col-md-1">
         &nbsp;
       </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
 
 <div class="tab-box" data-tab-anima="show-scale">
 <ul class="nav nav-tabs nav-justified">
 <li class=" active "><a href="#" class="">Preview Naming</a></li>
 </ul>
-<div class="panel active" >
+<a href="<?php echo "./download_raw_images.php?secret_code=$secret";?>" class="btn btn-default btn-sm anima-button adr-save" style="float: right;position: relative;top: -26px;border-radius: 5px;" adr_trans="label_send"><i class="fa fa-paper-plane adr-save"></i>send</a>
+<div class="panel active" style="position: relative;top: 10px;">
   <?php
      $id_url=$raw_images["order_id"];
   $get_order_query1=mysqli_query($con,"SELECT * FROM orders where id='$id_url'");
   $get_order1=mysqli_fetch_array($get_order_query1);
   mysqli_query($con,"UPDATE `orders` SET `status_id`=2 WHERE id=$id_url");
   ?>
-  <div class="maso-list gallery">
+  
+  <div class="maso-list gallery" style="overflow: scroll;height: 550px;width: 100% !important;">
     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
       <?php
       if(mysqli_num_rows($get_raw_images))
@@ -360,8 +362,7 @@ $("#dayVal").val(calid);
      echo  "<p align='center' style='' ><b> No Images </b></p>";
      }
     ?>
-	<div class="col-md-12">
-    <p align="center"><a href="<?php echo "./download_raw_images.php?secret_code=$secret";?>" class="btn btn-default btn-sm anima-button adr-save" style="" adr_trans="label_send"><i class="fa fa-paper-plane adr-save"></i>send</a></p></div>
+	
 
    </div>
 
