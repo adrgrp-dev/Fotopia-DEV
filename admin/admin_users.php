@@ -45,21 +45,18 @@ th
 
 			</div>
                 <div class="col-md-10">
-                    <h5 class="text-center">List of Fotopia Admins</h5>
 
 <?php if(isset($_REQUEST['c'])) { ?>
 
 					<p align="center" class="text-success"> Admin created Successfully!.</p>
 					<?php } ?>
 
-		<div class="col-md-12">
-		<a href="create_admin.php" class="circle-button btn adr-save" style="float:right;"><i class="fa fa-plus" style="">&nbsp;Create</i></a>
-</div>
 
-
-<hr class="space s">
-<div style="background: white;padding: 10px;">
-<div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
+ <h5><span style="color:#000;margin-left: 3px;">List of Fotopia Admins</span></h5>
+ 	<a href="create_admin.php" class="circle-button btn adr-save" style="float:right;font-size: 12px;height: 30px;margin-top:-36px;"><i class="fa fa-plus fa-xs" style=""></i>Create</a>      
+<div style="background: white;padding: 10px;border-radius: 5px!important;">
+<div style="width:100%;">
+		
 					<table class="table-stripped" style="color:#000;opacity:0.8;width:100%;">
                 <thead>
                     <tr><th data-column-id="id" class="text-left" style=""><span class="text">
@@ -161,7 +158,7 @@ th
 				<img src="data:<?php echo $res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode($res1['profile_pic']); ?>" width="50" height="50" /></td>
 				<td class="text-left" style=""><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><a target="" href="adminDetails.php?id=<?php echo $res1['id']; ?>" class="link">
-				<i class="fa fa-external-link"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php } ?>

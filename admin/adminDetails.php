@@ -135,12 +135,13 @@ width: 70%;
             <div class="row">
 
 
-			<div class="col-md-2">
+			<div class="col-md-2" style="padding-left:15px;">
+					<hr class="space s"/>
 	<?php include "sidebar.php"; ?>
 
 
 			</div>
-                <div class="col-md-10"  style="padding-top:30px;">
+                <div class="col-md-8"  style="padding-top:21px;">
                    
 
 					<?php if(@isset($_REQUEST["success"])) { ?>
@@ -153,13 +154,11 @@ $id=@$_REQUEST['id'];
 				$res=mysqli_query($con,"select * from admin_users where id='$id'");
 				$res1=mysqli_fetch_array($res);
 				?>
-					<table id="mob-table" style="background:#FFF;color:#000;opacity:0.8;border-radius:10px!important;margin-left: 50px;">
-					<tbody>
-      <?php /*?> <tr><th>ID</th><td>:</td><td><?php echo $res1['id']; ?></td></tr><?php */?>
 
-      <tr><td colspan="3" style="padding-top: 5px;"> <h5 class="text-center">Admins Details</h5></td></tr>
-	 
-	   <tr><td align="right" class="mob-td"  style="font-size: 10px;"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:5px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
+				<h5><span style="color:#000;margin-left: 3px;">Admins Details</span></h5>  
+					<table id="mob-table" class="table-stripped" aria-busy="false" style="color: #000;background: #fff;opacity:0.8;width:90%;border-radius:5px!important;margin-top: 3px;">
+					<tbody>	 
+	   <tr><td align="right" class="mob-td"  style="font-size: 10px;"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-right: 11px;">&nbsp;</td><td align="left" style="font-size:20px;padding-right: 333px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 
 		   <tr><td colspan="3"><hr class="space xs" /></td></tr>
@@ -182,7 +181,7 @@ $id=@$_REQUEST['id'];
 <!-- <tr><td colspan="3" align="center"><a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a></td></tr> -->
 				</tbody>
             </table>
-            <p align="center" style="margin-top:10px;">
+            <p align="center" style="margin-top:10px;margin-right: 150px;">
             	<a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a>
             </p>
                 </div>

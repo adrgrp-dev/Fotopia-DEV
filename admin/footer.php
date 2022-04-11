@@ -166,6 +166,12 @@ if(strpos($currentPage, "admin_users") !== false || strpos($currentPage, "create
  echo "<script>  $('#reportsMenu').css('background','#aad1d6'); </script>";
  }
 
+ if(strpos($currentPage, "editPages") !== false || strpos($currentPage, "pages") !== false)
+ {
+ echo "<script>  $('#pagesMenu').css('background','#aad1d6'); </script>";
+ }
+
+
 }
 
 

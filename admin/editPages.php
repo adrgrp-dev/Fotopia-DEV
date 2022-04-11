@@ -50,7 +50,7 @@ header("location:pages.php");
 
 
 			</div>
-                <div class="col-md-10" style="padding: 15px;">
+                <div class="col-md-8" style="padding: 15px;margin-top: 14px;">
 
 
                  <?php 
@@ -62,7 +62,7 @@ header("location:pages.php");
 
 
 
-			<div style="width:100%;overflow:scroll;background-color: #fff;border-radius: 5px;padding: 5px;">
+			<div style="width:100%;background-color: #fff;border-radius: 5px;padding-left: 92px;">
 			<form  name="savePages" method="post" action="">
 			<input type="hidden" name="pageId" value="<?php echo @$_REQUEST['id']; ?>" />
 			<table class="table-stripped">
@@ -73,7 +73,7 @@ header("location:pages.php");
 			<tr><td>Page Content<br />
 			<textarea name="pageContent" class="form-control" id="editor"><?php echo $page['page_content']; ?></textarea>
 			</td></tr>
-			<tr><td><input type="submit" name="savepage" class="btn adr-save" value="Save" />&nbsp;&nbsp;<a href="pages.php" class="btn adr-cancel">Cancel</a></td></tr>
+			<tr><td><hr class="space xs"><input type="submit" name="savepage" class="btn adr-save" style="height:30px;font-size: 12px;float:right" value="Save" />&nbsp;&nbsp;<a href="pages.php" style="height:30px;font-size: 12px;float:right;margin-right: 10px;" class="btn adr-cancel">Cancel</a><hr class="space xs"></td></tr>
 			</table>
 			
 			</form>

@@ -15,12 +15,12 @@ if(isset($_REQUEST['loginbtn']))
         <div class="container" style="margin-left:0px;height:fit-content">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-left:15px;">
 	<?php include "sidebar.php"; ?>
-
-
+ 
+ 
 			</div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="padding-left: 15px;margin-top: 3px;">
 
 					<div class="row hidden-xs hidden-sm">
 <hr class="space s" />

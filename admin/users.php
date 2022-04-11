@@ -30,6 +30,39 @@ if(isset($_REQUEST['loginbtn']))
 		margin-right: -40px;
 	 }
 
+	 .nav-tabs
+{
+ border: none !important; 
+ margin-top: 5px !important ;
+}
+
+.nav-tabs > li
+{
+  margin-left: 0px !important;
+}
+.nav-tabs > li > a:hover
+{
+  padding-bottom: 8px;
+}
+.nav-tabs > li.active > a:hover
+{
+  padding-bottom: 2px;
+}
+
+
+.nav-tabs > li > a
+{
+  border-radius: 5px!important;
+}
+
+.tab-box .nav-tabs li.active 
+{
+  padding-top: 6px!important;
+    padding-bottom: 6px!important;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
 @media only screen and (max-width: 600px) {
 .infos
 {
@@ -63,13 +96,13 @@ input[type="submit"]
                 <div class="col-md-2" style="padding-left:15px;">
 	<?php include "sidebar.php"; ?>
 
-
+ 
 			</div>
 
-                <div class="col-md-10">
-									<a href="create_organization.php" class="circle-button btn adr-save" style="float:right;font-family:Manrope-Regular;font-size:11px;"><i class="fa fa-plus fa-xs"></i>Create</a>
+                <div class="col-md-10" style="margin-top:19px;">
+									<a href="create_organization.php" class="circle-button btn adr-save" style="float:right;font-size: 12px;height: 30px;margin-top:5px;"><i class="fa fa-plus fa-xs"></i>Create</a>
                 	<div class="tab-box" data-tab-anima="show-scale">
-                    <h5 class="text-left">List of users</h5>
+                   
                     <ul class="nav nav-tabs">
 <li  id="tab11" class="active"><a onclick="" class="click" href="#">Approved Users</a></li>
 <li id="tab21"><a class="click" href="#">Pending Users</a></li>
@@ -352,9 +385,16 @@ var initialArray = [];
 		
 		
 </script>
-<div class="col-md-3">
+
+		<div class="" style="float:right">
+		<form name="clear_approved_user_filter" method="post" action="">
+		<input type="hidden" name="user_type1" value="<?php if(isset($_SESSION['usertype1'])){echo $_SESSION['usertype1'];} ?>" />
+		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" style="height:30px;font-size: 12px;color: #000;" />
+		</form>
+		</div>
+<div class="col-md-2" style="float:right">
 		<form name="search_filter1" method="post" action="users.php">
-<select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:200px;left: 15px;display:inline">
+<select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:160px;left: 15px;display:inline;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
 			
 			    <option value="Realtor" <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
@@ -364,16 +404,9 @@ var initialArray = [];
   		</select>
 		</form>
 		</div>
-		<div class="col-md-3">
-		<form name="clear_approved_user_filter" method="post" action="">
-		<input type="hidden" name="user_type1" value="<?php if(isset($_SESSION['usertype1'])){echo $_SESSION['usertype1'];} ?>" />
-		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
-		</form>
-		</div>
+
 </div>
 
-
-<hr class="space s">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width:100%">
                 <thead>
@@ -479,7 +512,7 @@ if (isset($_REQUEST['user_name1']) || !empty($_SESSION['usertype1'])) {
 				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $res1['first_name']; ?> <?php echo $res1['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $res1['organization_name']; ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $res1['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['city']; ?></td>
 				<td class="text-left" style=""><?php echo $res1['state']; ?></td>
@@ -491,7 +524,7 @@ if (isset($_REQUEST['user_name1']) || !empty($_SESSION['usertype1'])) {
 				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($res1['type_of_user']!='PCAdmin'){ echo "&id=".$res1['id']; }else{ echo "&id1=".$res1['id']; }?>" class="link">
-				<i class="fa fa-external-link"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>
@@ -780,9 +813,17 @@ var initialArray = [];
         });
 
 </script>
-<div class="col-md-3">
+
+	<div class="" style="float:right">
+		<form name="clear_pending_user_filter" method="post" action="">
+		<input type="hidden" name="user_type2" value="<?php if(isset($_SESSION['usertype2'])){echo $_SESSION['usertype2'];} ?>" />
+		<input type="submit" name="clear_pending_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" style="height:30px;font-size: 12px;color: #000;"/>
+		</form>
+		</div>
+
+		<div class="col-md-2" style="float:right">
 	<form name="search_filter2" method="post" action="users.php">
-<select name="user_type2" class="form-control" id="user_type2" onchange="this.form.submit()" style="width:200px;left: 15px;">
+<select name="user_type2" class="form-control" id="user_type2" onchange="this.form.submit()" style="width:160px;left: 15px;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
 			
 			    <option value="Realtor" <?php if(isset($_SESSION['usertype2']) && $_SESSION['usertype2']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
@@ -792,16 +833,8 @@ var initialArray = [];
   		</select>
 		</form>
 	</div>
-	<div class="col-md-3">
-		<form name="clear_pending_user_filter" method="post" action="">
-		<input type="hidden" name="user_type2" value="<?php if(isset($_SESSION['usertype2'])){echo $_SESSION['usertype2'];} ?>" />
-		<input type="submit" name="clear_pending_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
-		</form>
-		</div>
 </div>
 
-
-<hr class="space s">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width: 100%;">
                 <thead>
@@ -911,7 +944,7 @@ if (isset($_REQUEST['user_name2'])) {
 				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $pending_data2['first_name']; ?> <?php echo $pending_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $pending_data2['organization_name']; ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $pending_data2['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['city']; ?></td>
 				<td class="text-left" style=""><?php echo $pending_data2['state']; ?></td>
@@ -924,7 +957,7 @@ if (isset($_REQUEST['user_name2'])) {
 				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($pending_data2['type_of_user']!='PCAdmin'){ echo "&id=".$pending_data2['id']; }else{ echo "&id1=".$pending_data2['id']; }?>" class="link">
-				<i class="fa fa-external-link"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>  
 				<?php } }?>
@@ -1235,9 +1268,17 @@ var initialArray = [];
 
 
 </script>
-<div class="col-md-3">
+
+	<div class="" style="float:right;">
+		<form name="clear_blocked_user_filter" method="post" action="">
+		<input type="hidden" name="user_type3" value="<?php if(isset($_SESSION['usertype3'])){echo $_SESSION['usertype3'];} ?>" />
+		<input type="submit" name="clear_blocked_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" style="height:30px;font-size: 12px;color: #000;" />
+		</form>
+		</div>
+
+		<div class="col-md-2" style="float:right;">
 		<form name="search_filter3" method="post" action="users.php">
-<select name="user_type3" class="form-control" id="user_type3" onchange="this.form.submit()" style="width:200px;left: 15px;">
+<select name="user_type3" class="form-control" id="user_type3" onchange="this.form.submit()" style="width:160px;left: 15px;;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
 			
 			    <option value="Realtor" <?php if(isset($_SESSION['usertype3']) && $_SESSION['usertype3']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
@@ -1247,17 +1288,9 @@ var initialArray = [];
   		</select>
 		</form>
 	</div>
-	<div class="col-md-3">
-		<form name="clear_blocked_user_filter" method="post" action="">
-		<input type="hidden" name="user_type3" value="<?php if(isset($_SESSION['usertype3'])){echo $_SESSION['usertype3'];} ?>" />
-		<input type="submit" name="clear_blocked_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" />
-		</form>
-		</div>
 
 </div>
 
-
-<hr class="space s">
 <div style="width: 100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 					<table class="table-stripped" aria-busy="false" style="width: 100%;" >
                 <thead>
@@ -1365,7 +1398,7 @@ if (isset($_REQUEST['user_name3'])) {
 				<tr data-row-id="0" class="listPageTR">
 				<td class="text-left" style=""><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td>
 				<td class="text-left" style="width:100px;"><?php echo $denied_data2['first_name']; ?> <?php echo $denied_data2['last_name']; ?></td>
-				<td class="text-left" style=""><?php echo $denied_data2['organization_name']; ?></td>
+				<td class="text-left" style="width:100px;"><?php echo $denied_data2['organization_name']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['type_of_user']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['city']; ?></td>
 				<td class="text-left" style=""><?php echo $denied_data2['state']; ?></td>
@@ -1377,7 +1410,7 @@ if (isset($_REQUEST['user_name3'])) {
 				<td class="text-left" style=""><span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span></td>
 
 				<td class="text-center" style=""><a target="" href="userDetails.php?val=0<?php  if($denied_data2['type_of_user']!='PCAdmin'){ echo "&id=".$denied_data2['id']; }else{ echo "&id1=".$denied_data2['id']; }?>" class="link">
-				<i class="fa fa-external-link"></i></a></td>
+				<i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 				</tr>
 				<tr><td class="listPageTRGap">&nbsp;</td></tr>
 				<?php }} ?>

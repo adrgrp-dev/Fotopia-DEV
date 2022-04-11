@@ -39,6 +39,7 @@ tr:last-child > th
 {
   background: white;
   padding: 0px 25px;
+  border-radius: 0px 0px 5px 5px!important;
 }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -65,12 +66,11 @@ tr:last-child > th
 
 
 
-
-			<div style="width:100%;background:#FFF;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;border-radius: 5px;margin-top: 25px;">
-
+<h5><span adr_trans="cms_pages" style="color:#000;margin-left: 3px;">CMS Pages</span></h5>  
+			<div style="width:100%;background:#FFF;border-radius: 5px 5px 0px 0px!important;margin-top: 10px;">
+ <hr class="space xs" />
                             <table id="dataTable" class="table-striped" align="center" style="background:#FFF;color:#000;opacity:0.8;width:98%;">
                                   <thead>
-						<tr><th colspan="8" align="center" ><center><b><br /><span adr_trans="cms_pages">CMS Pages</span><br /><br /></b></center></th></tr>
                                       <tr><th data-column-id="id" class="text-left" style=""><span class="text" id="label_s.no" adr_trans="label_s.no">
 
                                             S.No
@@ -161,7 +161,7 @@ $res="";
                           <tr data-row-id="0" class="listPageTR">
 						   <td><?php echo $cnt; ?></td>
                           <td><?php echo $getCMSPages['page_title']; ?></td>
-						   <td><a href="editPages.php?id=<?php echo $getCMSPages['id']; ?>" class="btn btn-primary btn-sm adr-save">View / Edit</a></td>
+						   <td><a href="editPages.php?id=<?php echo $getCMSPages['id']; ?>" class="btn btn-primary btn-sm adr-save" style="height: 30px;font-size: 12px;">View / Edit</a></td>
 						    <td><?php  echo $getCMSPages['last_updated_on']; ?></td>
 							 <td><?php if($getCMSPages['status']==1) { echo "Active"; } else { echo "Inactive"; } ?></td>
 
@@ -180,7 +180,7 @@ $res="";
 																		<li class="next disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($_SESSION["page"]+1);?>" class="button">&gt;</a></li>
 																		<li class="last disabled" aria-disabled="true"><a href="<?php echo "./pages.php?page=".($Page_check);?>" class="button">»</a></li></ul></div>
 																		<div class="col-sm-6 infoBar"style="margin-top:24px">
-																		<div class="infos"><p align="right" style="    margin-right: -px;"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to"> to </span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> &nbsp;of &nbsp;<?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p></div>
+																		<div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?>&nbsp;<span adr_trans="label_to"> to </span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?> &nbsp;of &nbsp;<?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p><hr class="space s"></div>
 																		</div>
 																	</div>
 																</div>
