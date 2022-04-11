@@ -2631,17 +2631,17 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                       <input type="hidden" id="count2">
                       <input type="hidden" id="count3">
                       <input type="hidden" id="count4">
+<?php 
 
+if (@$_REQUEST['shar']) {
+?>
 <div class="row" style="padding-top:10px;">
  
  <div class="col-md-2">&nbsp;</div> 
 
  <div class="col-md-7">
 
-<?php 
 
-if (@$_REQUEST['shar']) {
-?>
 
 <p align="center" style="color:green;font-style: italic;margin-bottom:-10px ;">
 
@@ -2649,31 +2649,17 @@ if (@$_REQUEST['shar']) {
 
 </p>
  
-<?php } ?>
 
 </div> 
 
  <div class="col-md-3" style="float:right;margin-right:13px;">
 
-
-                      <?php if($get_summary['status_id']!=3&&$get_summary['status_id']!=1)
-                      {?>
-                      <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn adr-save" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
-                    <?php }
-                    elseif($get_summary['status_id']==3) {?>
-                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;margin-top: 5px;margin-right: 5px;" >Reopen</a><br><br>
-                  <?php  } ?>
-                         <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
-                         {
-                            echo '<script>$("#done_hide").hide();</script>';
-                         }
-                          ?>
-
                         </div>
                       </div>
+                      <?php } ?>
                   <!-- //  <p align="right">  <input type="button" id="done_hide"  class="btn btn-default" style="" onclick="done(<?php //echo $id_url; ?>)"  value="Mark as Complete"></p> -->
 
-                                <div class="tab-box pills" data-tab-anima="fade-right" style="top:-60px;position: relative;"> 
+                                <div class="tab-box pills" data-tab-anima="fade-right" style="top:0px;position: relative;"> 
 
                                       <div id="finished_images_standard_photos" class="" style="border:solid 1px white; border-radius:20px 20px 0px 0px;margin-bottom:20px;padding:10px;">
 
@@ -2689,8 +2675,26 @@ if (@$_REQUEST['shar']) {
                                          <!-- <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b><span adr_trans="label_select_all">Select All</span></b></input>
                                      <a href="finished_image_upload.php?id=<?php// echo $id_url?>&type=1" id="clicktoupload" style="float:right;margin-right:10px;"><span adr_trans='label_upload'>Upload</span></a> -->
                                      <div class="row">
-                                       <div class="col-md-12" style="margin-bottom: 20px;color:black;">
-                                          <p class="text-center" style="font-weight:600;"><span adr_trans="label_standard_photos">Standard Photos</span> ( Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files )</p>
+                                       <div class="col-md-12" style="color:black;">
+                                           <div class="row" style="margin-left:25px;">
+                                          <div class="col-md-3">&nbsp;</div>
+                                          <div class="col-md-6"><p class="text-center" style="font-weight:600;"><span adr_trans="label_standard_photos">Standard Photos</span> ( Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("../finished_images/order_".$id_url."/standard_photos") ?></span> Files )</p></div>
+                                          <div class="col-md-3" style="">
+                                             <?php if($get_summary['status_id']!=3&&$get_summary['status_id']!=1)
+                      {?>
+                      <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn adr-save" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
+                    <?php }
+                    elseif($get_summary['status_id']==3) {?>
+                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;margin-top: 5px;margin-right: 5px;" >Reopen</a><br><br>
+                  <?php  } ?>
+                         <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
+                         {
+                            echo '<script>$("#done_hide").hide();</script>';
+                         }
+                          ?>
+                                          </div>
+                                          </div>
+
                                        </div>
                                         <div class="row" style="margin-left: 16px;" >
                                               <div class="col-md-3" style="padding-top: 12px;">
