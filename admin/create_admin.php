@@ -80,8 +80,8 @@ if(isset($_REQUEST['signupbtn']))
 	<div class="section-empty bgimage9">
             <div class="row">
 
-
-			<div class="col-md-2" >
+<hr class="space s">
+			<div class="col-md-2" style="padding-left:15px;" >
 
 
 	<?php include "sidebar.php"; ?>
@@ -122,18 +122,11 @@ function validate_email(val)
 }
 </script>
 			</div>
-                <div class="col-md-10" style="padding:30px;">
+                <div class="col-md-10" style="">
 
+<h5><span adr_trans="" style="color:#000;margin-left: 3px;">Create Admin</span></h5>  
 
-
-
-                         <div class="col-md-12"><h5 align="center"> Create Admin</h5></div>
-
-
-
-
-
-						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="margin-top:40px;background:#fff;color:#000;opacity:0.8;width:90%;padding:20px;">
+						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()" style="background:#fff;color:#000;opacity:0.8;width:90%;padding:20px;border-radius: 5px;">
 
 
   						<div class="col-md-6">

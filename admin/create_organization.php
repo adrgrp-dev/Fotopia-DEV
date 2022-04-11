@@ -210,7 +210,7 @@ header("location:users.php");
 ?>
 <?php include "header.php";  ?>
 <hr class="space s">
-     <div class="col-md-2">
+     <div class="col-md-2" style="">
 	<?php include "sidebar.php"; ?>
 
 
@@ -791,7 +791,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-8" style="padding-left:30px;">
+                <div class="col-md-8" style="color: #000;background: #fff;padding-left:30px;border-radius:5px;margin-top: 3px;">
 
                       		<br>
 						<?php if(@isset($_REQUEST["success"])) { ?>
@@ -812,7 +812,7 @@ $("#country").css("border","solid 1px grey");
                         </div>
 						<?php } ?>
 
-
+ 
 
                        <div class="col-md-12"><h3 align="center" > Create User</h3></div>
 
@@ -899,11 +899,11 @@ $("#country").css("border","solid 1px grey");
                             </div>
 
 
-                            <div class="col-md-6" align="left">
-                                <br><br>
-
+                            <div class="col-md-12" align="center">
+                              <hr class="space s">
                             <a class="anima-button circle-button btn-sm btn adr-save" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="users.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
+                            <hr class="space xs">
 
 
                             </div>
@@ -1016,6 +1016,8 @@ $("#country").css("border","solid 1px grey");
                         </div>
 
 						  <a class="anima-button circle-button btn-sm btn adr-cancel" onclick="showStep1()" id="next" name="next" ><i class="fa fa-chevron-circle-left"></i>Back</a>&nbsp;&nbsp;<button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn" id="label_signup" adr_trans="label_signup" onclick="return step2Validation()"><i class="fa fa-sign-in"></i>Signup</button>
+
+						  <hr class="space xs">
 
 </center>
 					   </div>

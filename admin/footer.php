@@ -138,7 +138,7 @@ if ($usertype == 'FotopiaAdmin'){
  echo "<script>  $('#homeMenu').css('background','#aad1d6'); </script>";
  }
 
-if(strpos($currentPage, "/users") !== false || strpos($currentPage, "userDetails") !== false)
+if(strpos($currentPage, "/users") !== false || strpos($currentPage, "userDetails") !== false || strpos($currentPage, "create_organization") !== false)
  {
  echo "<script>  $('#userMenu').css('background','#aad1d6'); </script>";
  }
