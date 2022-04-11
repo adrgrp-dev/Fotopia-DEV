@@ -2007,13 +2007,14 @@ alert(alertmsg);
                     $hdr_value=@$hdr['total_files'];
                     ?>
                           <div id="error1" ></div>
-                        <hr class="space s">
+                      
                         <div class="tab-box pills" data-tab-anima="fade-left">
-                           <?php if(!empty($standard['order_id'])){ ?>
+
+                          <div class="row" style="margin-left:15px;"> <div class="col-md-8">       <?php if(!empty($standard['order_id'])){ ?>
                              <a href="../raw_image_history.php?id=<?php echo $id_url;?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;z-index: 3;">click here to view already uploaded raw images</a>
-                          <?php } ?>
-                          <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";} ?>" style="position: relative;top: -58px;">
-                          <p align="right" style="margin-right: 30px;">
+                          <?php } ?>  </div>
+                          <div class="col-md-4">
+                            <p align="right" style="margin-right: 30px;">
                           <label for="service">Select a service:</label>
                           </p>
                           <select class="btn adr-save" id='purpose' style="float:right;font-size: 12px;margin-right: 0px;" onchange="tab_show(this.value)">
@@ -2049,6 +2050,12 @@ alert(alertmsg);
                               <option value="4">HDR Photos <span class="badge"><?php //if(!empty($hdr_value)) {echo "(".$hdr_value.")";}?></span></option> -->
 
                             </select>
+                          </div>
+                          </div>
+                                               
+
+                          <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";} ?>" style="position: relative;top: 0px;">
+                          
 
                             <hr class="space s">
                             <div class="panel active" id="standard_dropdown" >
@@ -2220,16 +2227,16 @@ alert(alertmsg);
                     </div>
                   </div>
 
-                  <div class="panel" id="tab6"  style="">
+                  <div class="panel" id="tab6"  style="padding: 10px;">
 
                      <hr class="space s">
-                                      <h5 id="zip_standard" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
+                                      <h5 id="zip_standard" style="text-align: center;font-size: 13px;color: black;" adr_trans="label_standard_photos">Standard Photos</h5>
                                       <?php
                                       $imagesDirectory_standard = "../rework_images/order_".$id_url."/standard_photos";
 
                                       ?>
                                       <form name="zipDownload" method="post" action="">
-                                        <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -50px;position: relative;right: 10px;
+                                        <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -35px !important;position: relative;right: 10px;
 float: right;top: -50px;position: relative;right: 10px;"/>
                                <input type="hidden" name="imageType" value="rework" />
 
@@ -2257,7 +2264,8 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                      ?>
 
                                       </form>
-                                      <div class="maso-list gallery">
+                                      <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;width: 100% !important;">
+
                                         <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
 
                                         <?php
@@ -2337,7 +2345,7 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                                   </div>
 
                                                 </div>
-                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="width: -webkit-fill-available !important" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
 
                                             </div>
 
@@ -2420,22 +2428,24 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                        ?>
 
                                         </div>
-                                        <?php if(is_dir($imagesDirectory_standard))
+                                       
+                                        </div>
+                                        <br>
+                                         <?php if(is_dir($imagesDirectory_standard))
                                         {
                                           if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)!=0)
                                         { 
                                           ?>
                                           <input type="text" class="form-control" name="commentall" value="<?php echo @$standard['comments'] ?>"/>
                                         <?php } }?>
-                                        </div>
                                         <hr class="space l">
-                                        <h5 id="zip_floor" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px" adr_trans="label_floor_plans1">Floor Plans</h5>
+                                        <h5 id="zip_floor" style="text-align: center;font-size: 13px;color: black;" adr_trans="label_floor_plans1">Floor Plans</h5>
 
                                         <?php
                                         $imagesDirectory_floor = "../rework_images/order_".$id_url."/floor_plans";
                                         ?>
                                         <form name="zipDownload" method="post" action="">
-                                          <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -50px;position: relative;right: 10px;
+                                          <input type="submit" name="ZIP" class="btn adr-save btn-sm download" value="Download"  style="float: right;top: -35px;position: relative;right: 10px;
 "/>
                        <input type="hidden" name="imageType" value="rework" />
 
@@ -2467,8 +2477,8 @@ float: right;top: -50px;position: relative;right: 10px;"/>
 
                                         </form>
                                          
-                                        <div class="maso-list gallery">
-                                          <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                        <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;width: 100% !important;">
+                                          <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                           <?php
                                           if (is_dir($imagesDirectory_floor))
                                           {
@@ -2532,7 +2542,7 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                                     </div>
 
                                                   </div>
-                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="width: -webkit-fill-available;" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
                                               </div>
                                               <?php
                                              }
@@ -2596,7 +2606,11 @@ float: right;top: -50px;position: relative;right: 10px;"/>
 
                                           ?>
 
-                                          <?php if(is_dir($imagesDirectory_floor))
+                                         
+                                         
+                                          </div>
+                                          <br>
+                                           <?php if(is_dir($imagesDirectory_floor))
                                         {
                                           if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor)!=0)
                                         { 
@@ -2604,9 +2618,6 @@ float: right;top: -50px;position: relative;right: 10px;"/>
                                          <input type="text" class="form-control" name="commentall" value="<?php echo @$floor['comments'] ?>"/>
 
                                        <?php }} ?>
-                                         
-                                          </div>
-                                          <br>
                                           <br>
                                           <br>
 

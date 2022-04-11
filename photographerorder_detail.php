@@ -1437,7 +1437,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                       }
                     }
                   </script>
-                  <div class="panel" id="tab3" style="height:500px!important;overflow:scroll;">
+                  <div class="panel" id="tab3" style="height:500px!important;overflow:scroll;padding: 10px;">
                       <?php
                       $standard_value=0;
                       $floor_value=0;
@@ -1457,14 +1457,16 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                       $hdr_value=@$hdr['total_files'];
                       ?>
                           <div id="error1" ></div>
-                        <hr class="space s">
+        
                         <div class="tab-box pills" data-tab-anima="fade-left">
-
-                          <?php if(!empty($standard['order_id'])){ ?>
-                            <center><a href="raw_image_history.php?id=<?php echo $id_url; ?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a></center>
+                          <div class="row" style="padding-top:5px;">
+                            <div class="col-md-8" style="padding-left:15px;">
+                              <?php if(!empty($standard['order_id'])){ ?>
+                            <a href="raw_image_history.php?id=<?php echo $id_url; ?>&p=1&f=1" target="_blank" style="font-size:16px;color:blue;text-decoration:underline;">click here to view already uploaded raw images</a>
                          <?php } ?>
-                         <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";}?>">
-                         <p align="right" style="margin-right: 16px;">
+                            </div>
+                            <div class="col-md-4">
+                                                       <p align="right" style="margin-right: 16px;">
                           <label for="service">Select a service:</label>
                           </p>
                           <select class="btn btn-default" id='purpose' style="float:right" onchange="tab_show(this.value)">
@@ -1505,10 +1507,16 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                             <!-- <option value="3">drone photos <span class="badge"><?php //if(!empty($Drone_value)){echo  " (".$Drone_value.")";}?></span></option>
                             <option value="4">HDR Photos  <span class="badge"><?php //if(!empty($hdr_value)){echo  " (".$hdr_value.")";}?></span></option> -->
                             </select>
+                            </div>
+                          </div>
+                          
+                         <div id="Hide_for_completed_orders" class="<?php if($get_summary['status_id']==3 || $get_summary['status_id']==5 || $get_summary['status_id']==6){ echo "hide";}?>">
+
 
                             <hr class="space s">
                             <div class="panel active" id="standard_dropdown" >
                               <!-- standard photo -->
+
                               <div id="standard_photos_booked">
                               </div>
                                  <div id="standard_photos_div">
@@ -1518,7 +1526,20 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                <span id="drop_files"></span>
                              </form>
                              <hr class="space s">
-                             <a   id="edit_button" class="btn btn-default" style="float:right;" adr_trans="label_upload"> Upload</a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview" data-lightbox-anima="show-scale" style="" adr_trans="label_preview">Preview </a>
+                              <div class="row" style="margin-left:15px;">
+               <div class="col-md-12" style="padding:0px;">
+               <div class="col-md-9">&nbsp;</div>
+              
+               <div class="col-md-2" style="padding-right:30px;">
+                 <a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview" data-lightbox-anima="show-scale" style="" adr_trans="label_preview">Preview </a>
+                
+                </div>
+                 <div class="col-md-1">
+                      <a   id="edit_button" class="btn btn-default" style="float:right;" adr_trans=""> Submit</a>
+                             
+               </div>
+               </div></div>
+                            
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -1543,7 +1564,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                               </div>
                             </div>
 
-                            <div class="panel" id="floor_dropdown" style="display:none">
+                            <div class="panel" id="floor_dropdown" style="display:none;margin-top: -25px;">
                               <!-- floor plans start-->
                               <div id="floor_booked">
                               </div>
@@ -1553,7 +1574,20 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                <span id="drop_files1"></span>
                              </form>
                              <hr class="space s">
-                             <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn btn-default" id="edit_button1"  style="float:right;" adr_trans="label_upload"> Upload</a><a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview" data-lightbox-anima="show-scale" style="" adr_trans="label_preview">Preview </a>
+                             <div class="row" style="margin-left:45px;">
+               <div class="col-md-12" style="padding:0px;">
+               <div class="col-md-9">&nbsp;</div>
+              
+               <div class="col-md-2" style="padding-right: 30px;">
+                <a href="<?php echo "preview1.php?id=$id_url";?>" class="btn btn-default" id="preview" data-lightbox-anima="show-scale"  adr_trans="label_preview">Preview </a>
+                
+                </div>
+                 <div class="col-md-1" >
+                     <a href="preview1.php?id=<?php echo $id_url; ?>" class="btn btn-default" id="edit_button1"  style="float: right;" adr_trans=""> Submit</a>
+                             
+               </div>
+             </div></div>
+                             
                              <hr class="space s">
                              <script>
                               $(document).ready(function() {
@@ -1579,7 +1613,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                              </div>
                             </div>
 
-                            <div class="panel" id="drone_dropdown" style="display:none">
+                            <div class="panel" id="drone_dropdown" style="display:none;margin-top: 0px;">
                               <!-- drone images start -->
                               <div id="drone_booked">
                               </div>
@@ -1653,10 +1687,10 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                     </div>
                   </div>
                   <input type="hidden" id="getdata" value="<?php echo $id_url; ?>"/>
-                  <div class="panel" id="tab6">
+                  <div class="panel" id="tab6" style="padding:10px;">
 
                                         <hr class="space s">
-                                      <h5 id="zip_standard" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px" adr_trans="label_standard_photos">Standard Photos</h5>
+                                      <h5 id="zip_standard" style="text-align: center;font-size: 13px;color: black;" adr_trans="label_standard_photos">Standard Photos</h5>
                                       <?php
                                       $imagesDirectory_standard = "./rework_images/order_".$id_url."/standard_photos";
 
@@ -1690,8 +1724,8 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                      ?>
 
                                       </form>
-                                      <div class="maso-list gallery">
-                                        <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                      <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;width: 100% !important;">
+                                        <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
 
                                         <?php
                                         if(is_dir($imagesDirectory_standard))
@@ -1769,7 +1803,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                                   </div>
 
                                                 </div>
-                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                 <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="width: -webkit-fill-available !important" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
 
                                             </div>
 
@@ -1849,16 +1883,18 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                        ?>
 
                                         </div>
-                                        <?php if(is_dir($imagesDirectory_standard))
+                                       
+                                        </div>
+                                        <br>
+                                         <?php if(is_dir($imagesDirectory_standard))
                                         {
                                           if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_standard)!=0)
                                         { 
                                           ?>
                                           <input type="text" class="form-control" name="commentall" value="<?php echo @$standard['comments'] ?>"/>
                                         <?php } }?>
-                                        </div>
                                         <hr class="space l">
-                                        <h5 id="zip_floor" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px" adr_trans="label_floor_plans1">Floor Plans</h5>
+                                        <h5 id="zip_floor" style="text-align: center;font-size: 13px;color: black;" adr_trans="label_floor_plans1">Floor Plans</h5>
 
                                         <?php
                                         $imagesDirectory_floor = "./rework_images/order_".$id_url."/floor_plans";
@@ -1895,8 +1931,8 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
                                         </form>
                                          
-                                        <div class="maso-list gallery">
-                                          <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                        <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;width: 100% !important;">
+                                          <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                           <?php
                                           if (is_dir($imagesDirectory_floor))
                                           {
@@ -1956,7 +1992,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                                     </div>
 
                                                   </div>
-                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
+                                                   <center class=""><input type="button" class="btn adr-save btn-sm" id="myBtn" style="width: -webkit-fill-available !important" onclick="document.getElementById('myModal<?php echo$get_comment['id'];?>').style='display:block'" value="Comment"/></center>
                                               </div>
                                               <?php
                                              }
@@ -2019,7 +2055,10 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
                                           ?>
 
-                                          <?php if(is_dir($imagesDirectory_floor))
+                                         
+                                         
+                                          </div><br>
+                                           <?php if(is_dir($imagesDirectory_floor))
                                         {
                                           if(countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor)!=0)
                                         { 
@@ -2027,8 +2066,6 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                          <input type="text" class="form-control" name="commentall" value="<?php echo @$floor['comments'] ?>"/>
 
                                        <?php }} ?>
-                                         
-                                          </div>
                                           <hr class="space l">
                                           <div style="display:none">
                                         <h5 id="zip_Drone" style="border-bottom:solid 2px #357d8f;border-left:solid 12px #357d8f;padding:10px" adr_trans="label_drone_photos">Drone Photos</h5>
@@ -2553,7 +2590,7 @@ function printPage()
                                                       <li class=""><a href="#">Hdr Photos</a></li>
                                                 </ul> -->
                                                   <div id="finished_images_standard_photos" class="" style="border:solid 1px white; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px">
-                                                  <div style="border-bottom: 1px solid black">
+                                                  <div >
                                                     <?php
 
                                                          $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='1'");
@@ -2572,36 +2609,39 @@ if (@$_REQUEST['shar']) {
 </p>
  <br />
 <?php } ?>
+                                                        <div class="row">
+                                                             <div class="col-md-12">
+                                                         <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> (Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/standard_photos") ?></span> Files )</p>
+                                                             </div>
+                                                           </div>
+                                                           <br>
                                                        <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
                                                            <div class="row" style="margin-left:20px;margin-bottom: 16px;">
-                                                             <div class="col-md-3" style="display:inline-block">
-                                                                  <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left:20px">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
+                                                            <div class="col-md-3">
+                                                            
+                                                                  <input type="checkbox" id="remove" onclick="selectAllImages()" style="margin-left: 50px;margin-top: 10px;">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
+                                                      
                                                              </div>
-                                                             <div class="col-md-3" style="display:inline-block">
-                                                               <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn()" name="ZIP"value="Download " style="margin-right: 75%;" style="display:inline-block">
-                                                             </div>
-                                                             <div class="col-md-3" style="display:inline-block">
-                                                              <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
-                                                             </div>
+                                                             <div class="col-md-9" style="text-align: right;">
+                                                             <!-- <div class="col-md-3" style="display:inline-block"> -->
+                                                               <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn()" name="ZIP"value="Download " style="margin:0px 5px;">
+                                                             <!-- </div> -->
+                                                            <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                                              <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" style="margin:0px 5px;">share</a>
+                                                            <!--  </div> -->
                                                              <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
-                                                             <div class="col-md-3" style="display:inline-block">
-                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="" adr_trans="label_upload">Upload</a>
-                                                             </div>
+                                                            <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                                               <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=1" class="circle-button btn-sm btn adr-save" id="clicktoupload" style="margin:0px 5px;" adr_trans="label_upload">Upload</a>
+                                                            <!--  </div> -->
                                                            <?php } ?>
                                                            </div>
-
-                                                           <div class="row">
-                                                             <div class="col-md-12">
-                                                         <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_standard_photos">Standard Photos</span> <br>Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
-                                                             </div>
-
-
-
                                                            </div>
+
+                                                          
 
                                                   </div>
                                                   <div class="maso-list gallery" style="height:550px;overflow:scroll">
-                                                    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                                    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                                        <input type="hidden" id="allimages" name="allimages" value="0">
                                                     <?php
                                                     $imagesDirectory_standard = "./finished_images/order_".$id_url."/standard_photos";
@@ -2718,7 +2758,7 @@ if (@$_REQUEST['shar']) {
                                                     </div>
                                                 </div>
                                                     <div id="finished_images_floor_photos" class="" style="border:solid 1px white; border-radius:20px 20px 0px 0px;padding:10px;margin-bottom:10px;display:block">
-                                                  <div style="border-bottom: 1px solid black">
+                                                  <div>
                                                     <?php
 
                                                          $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='2'");
@@ -2726,28 +2766,34 @@ if (@$_REQUEST['shar']) {
 
                                                     ?>
 
+                                                        <div class="row">
+                                                           <div class="col-md-12">
+                                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1"> ( Floor Plans</span>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/floor_plans") ?></span> Files )</p>
+                                                           </div>
+                                                           <br>
                                                        <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
-                                                         <div class="row" style="margin-left:20px;margin-bottom: 16px;">
-                                                           <div class="col-md-3" style="display:inline-block">
-                                                                     <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left:20px">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
+                                                         <div class="row" style="margin-left:20px;margin-bottom: 16px;margin-right: 0px;">
+                                                           <div class="col-md-3">
+                                                           
+                                                          <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                                                     <input type="checkbox" id="remove2" onclick="selectAllImages2()" style="margin-left: 65px;margin-top: 15px;">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
+                                                           <!-- </div> -->
                                                            </div>
-                                                           <div class="col-md-3" style="display:inline-block">
-                                                             <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
-                                                           </div>
-                                                           <div class="col-md-3" style="display:inline-block">
-                                                             <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
-                                                           </div>
+                                                           <div class="col-md-9" style="text-align:right;">
+                                                          <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                                             <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin: 0px 5px;">
+                                                          <!--  </div> -->
+                                                           <!-- <div class="col-md-3" style="display:inline-block"> -->
+                                                             <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2"  style="margin: 0px 5px;" id="send2" adr_trans="label_share">share</a>
+                                                          <!--  </div> -->
                                                            <?php if($get_summary['status_id']!=3 && $get_summary['status_id']!=5 && $get_summary['status_id']!=6){?>
-                                                           <div class="col-md-3" style="display:inline-block">
-                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2" style="" adr_trans="label_upload"> Upload</a>
-                                                           </div>
+                                                           <!-- <div class="col-md-3" style="display:inline-block"> -->
+                                                                <a href="finished_image_upload.php?id=<?php echo $id_url?>&type=2" class="circle-button btn-sm btn adr-save" id="clicktoupload2"  style="margin: 0px 5px;" adr_trans="label_upload"> Upload</a>
+                                                           <!-- </div> -->
                                                          <?php } ?>
                                                          </div>
 
-                                                         <div class="row">
-                                                           <div class="col-md-12">
-                                                           <p class="text-center" style="font-weight:600;color:#000080"><span adr_trans="label_floor_plans1">Floor Plans</span> <br>Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
-                                                           </div>
+                                                        </div>
 
 
 
@@ -2755,7 +2801,7 @@ if (@$_REQUEST['shar']) {
 
                                                   </div>
                                                   <div class="maso-list gallery" style="height:550px;overflow:scroll">
-                                                    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                                                    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                                        <input type="hidden" id="allimages2" name="allimages" value="0">
                                                     <?php
                                                     $imagesDirectory_floor = "./finished_images/order_".$id_url."/floor_plans";

@@ -264,7 +264,7 @@ $("#dayVal").val(calid);
   mysqli_query($con,"UPDATE `orders` SET `status_id`=2 WHERE id=$id_url");
   ?>
   <div class="maso-list gallery">
-    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
       <?php
       if(mysqli_num_rows($get_raw_images))
       {
@@ -302,12 +302,12 @@ $("#dayVal").val(calid);
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
           ?>
-                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+                  <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
 
                       <a class="img-box i-center" href="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                           <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                          <img alt="" src="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" width="240" height="150"/>
+                          <img alt="" src="<?php echo "finished_images/order_".$id_url."/".$service."/".$image; ?>" width="240" height="180"/>
                       </a>
                       <?php
                       $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");

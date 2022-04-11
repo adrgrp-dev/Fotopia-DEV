@@ -218,6 +218,13 @@ opacity:1!important;
 
 }
 
+
+.maso-box.no-margins.row 
+{
+  margin-left: 7%;
+}
+
+
 </style>
 <script>
 function show_editbtn()
@@ -284,14 +291,14 @@ var a;
                   <?php include "sidebar.php"?>
 
 			          </div>
-                <div class="col-md-10" style="background:#FFF;color:#000;opacity:0.9">
+                <div class="col-md-8" style="background:#FFF;color:#000;opacity:0.9;padding: 10px;margin-top: 23px;border-radius: 5px;">
                 <hr class="space s">
 
 
-                  <h5 id="label_standard_photos" adr_trans="label_standard_photos" style="border-bottom:solid 2px #a94442;border-left:solid 12px #a94442;padding:10px">Standard Photos</h5>
+                  <h5 id="label_standard_photos" adr_trans="label_standard_photos" style="text-align: center;font-size: 13px;color: black;">Standard Photos</h5>
 
-                   <button href="" class="btn adr-save"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
-                    <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                   <button href="" class="btn adr-save btn-sm"  id="edit_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;"><span id="label_send" adr_trans="label_send"> Send</span></button>
+                    <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save btn-sm"  id="done_button" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;" adr_trans="label_send">Send</a>
                    <select name="editor_email" id="editor_email1" onchange="show_editbtn()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                     <option value="">--Select Your Editor--</option>
                     <?php
@@ -308,7 +315,7 @@ var a;
                      }
                     ?>
                    </select>
-                  <div class="maso-list gallery">
+                  <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;">
                     <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                     <?php  $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=1 and dynamic_folder!=''");
                       while($folder=mysqli_fetch_array($get_folder_querry))
@@ -330,10 +337,10 @@ var a;
                        if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                        {
                         ?>
-                        <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+                        <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                             <a class="img-box i-center" href="<?php echo $imagesDirectory_standard."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                 <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
-                                <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>"   height="150" width="240"/>
+                                <img alt="" id="img" src="<?php echo $imagesDirectory_standard."/".$image; ?>"   height="180" width="240"/>
                             </a>
                             <?php
                             $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
@@ -342,7 +349,7 @@ var a;
 							$stdPicCount=mysqli_num_rows($get_comment_querry);
                             ?>
                             <center>
-                              <input type="text" list="pic_type" class="form-control stdImg"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type" class="form-control stdImg"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width: webkit-fill-available;margin-top:10px;margin-top: 10px;font-size: 12px;height: 30px;" onchange="myFunction(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type" >
 
                                 <option value="">choose your description</option>
@@ -393,9 +400,9 @@ var a;
                     <br><center><input type="text" name="commentall" id="comment_all1" placeholder="Comment here" style="width:97%;color: black;"/><center>
                     </div>
                     <hr class="space l">
-                    <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="border-bottom:solid 2px #4caf50;border-left:solid 12px #4caf50;padding:10px">Floor Plans</h5>
-                       <button href="" class="btn adr-save"  id="edit_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-50px"><span id="label_send" adr_trans="label_send">Send</span></button>
-                        <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -50px;" adr_trans="label_send">Send</a>
+                    <h5 id="label_floor_plans1" adr_trans="label_floor_plans1" style="text-align: center;font-size: 13px;color: black;">Floor Plans</h5>
+                       <button href="" class="btn adr-save btn-sm"  id="edit_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top:-35px"><span id="label_send" adr_trans="label_send">Send</span></button>
+                        <a href="superOrder_detail.php?fr=1&id=<?php echo $id_url?>&upload=1"  class="btn adr-save btn-sm"  id="done_button1" data-lightbox-anima="show-scale" style="display:none;float:right;margin-top: -35px;" adr_trans="label_send">Send</a>
                         <select name="editor_email" id="editor_email2"  onchange="show_editbtn2()" style="float:right;margin-top: -47px;color: black;margin-right: 74px;height: 32px;min-width: 110px;">
                           <option value="">--Select Your Editor--</option>
                           <?php
@@ -412,8 +419,8 @@ var a;
                            }
                           ?>
                          </select>
-                    <hr>
-                    <div class="maso-list gallery">
+                   
+                    <div class="maso-list gallery" style="margin-top: 20px;height:550px;overflow:scroll;">
                       <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
                         <?php
                           $get_folder_querry=mysqli_query($con,"SELECT DISTINCT dynamic_folder FROM `img_upload` WHERE order_id=$id_url and service_id=2 and dynamic_folder!=''");
@@ -439,18 +446,18 @@ var a;
                          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+                          <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                               <a class="img-box i-center" href="<?php echo $imagesDirectory_floor."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                   <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
 
-                                  <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="240" height="150"/>
+                                  <img alt="" id="img" src="<?php echo $imagesDirectory_floor."/".$image; ?>" width="240" height="180"/>
                               </a>
                               <?php
                               $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                               $get_comment=mysqli_fetch_assoc($get_comment_querry);
 							 $floorPicCount=mysqli_num_rows($get_comment_querry);
                               ?>
-                              <input type="text" list="pic_type1" class="form-control stdImg1"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:140px;margin-top:10px;" onchange="myFunction1(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type1" class="form-control stdImg1"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:webkit-fill-available;margin-top:10px;font-size: 12px;height: 30px;" onchange="myFunction1(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type1" >
 
                    <option value="">choose your description</option>
@@ -517,7 +524,7 @@ var a;
                              </select>
                     <hr>
                     <div class="maso-list gallery">
-                      <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                      <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                       <?php
                       $imagesDirectory_Drone = "../raw_images/order_".$id_url."/Drone_photos";
                       if (is_dir($imagesDirectory_Drone))
@@ -533,10 +540,10 @@ var a;
                          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                          <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px">
                               <a class="img-box i-center" href="<?php echo $imagesDirectory_Drone."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                   <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
-                                  <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="100" height="80"/>
+                                  <img alt="" id="img" src="<?php echo $imagesDirectory_Drone."/".$image; ?>" width="240" height="150"/>
                               </a>
                               <?php
                               $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
@@ -544,7 +551,7 @@ var a;
 
 							  $dronePicCount=mysqli_num_rows($get_comment_querry);
                               ?>
-                              <input type="text" list="pic_type2" class="form-control stdImg2"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:120px;margin-top:10px;" onchange="myFunction2(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
+                              <input type="text" list="pic_type2" class="form-control stdImg2"  id="myBtn<?php echo $get_comment['id']; ?>" value="<?php echo $get_comment['description']; ?>" style="width:webkit-fill-available;margin-top:10px;font-size: 12px;" onchange="myFunction2(event,<?php echo  $get_comment['id'];?>)" required placeholder="Name the pic"/>
                               <datalist id="pic_type2" >
 
                    <option value="">choose your description</option>
@@ -626,7 +633,7 @@ var a;
                          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
                          {
                           ?>
-                          <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible; height:fit-content; padding:20px;">
+                          <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible; height:fit-content; padding:20px;">
                               <a class="img-box i-center" href="<?php echo $imagesDirectory_Hdr."/".$image; ?>" data-anima="show-scale" data-trigger="hover" data-anima-out="hide" style="opacity: 1;">
                                   <i class="fa fa-photo anima" aid="0.22880302434786803" style="transition-duration: 500ms; animation-duration: 500ms; transition-timing-function: ease; transition-delay: 0ms; opacity: 0;"></i>
                                   <img alt="" id="img" src="<?php echo $imagesDirectory_Hdr."/".$image; ?>" width="100" height="80"/>

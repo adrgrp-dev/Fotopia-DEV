@@ -1699,7 +1699,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
 </div>
 
-<div class="panel" id="tab3" style="border-radius:5px;">
+<div class="panel" id="tab3" style="border-radius:5px;padding:10px;">
             <input type="hidden" id="count">
             <input type="hidden" id="count2">
             <input type="hidden" id="count3">
@@ -1737,7 +1737,7 @@ if (@$_REQUEST['shar']) {
 
 </div> 
 
- <div class="col-md-3" style="float:right">
+ <div class="col-md-3" style="float:right;margin-right: -54px;">
 
 
   <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
@@ -1767,41 +1767,45 @@ if (@$_REQUEST['shar']) {
                                 <li class=""><a href="#" adr_trans="label_hdr_photos">Hdr Photos</a></li> -->
                           </ul>
                           <div class="panel active fade-right" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;">
-                            <div style="border-bottom: 1px solid black">
+                            <div >
                               <?php
 
                                    $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='1'");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-
-                                 <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
-                                <div class="row" style="margin-left:20px;">
-                                  <div class="col-md-3" style="display:inline-block">
-                                    <input type="checkbox" id="remove" onclick="selectAllImages()">&nbsp;<b adr_trans="label_select_all">Select All</b></input>
-                                  </div>
-                                  
-                                  <div class="col-md-3" style="display:inline-block">
-                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
-                                </div>
-                                <div class="col-md-3" style="display:inline-block">
-                                  <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share">share</a>
-                                </div>
-                                <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin-right: 75%;">
-                                  </div>
-                              </div>
-                              <div class="row">
+                                  <div class="row">
                                 <div class="col-md-12">
                                 <p class="text-center" style="font-weight:600;color:#000080">Selected <span id="selected_count">0</span> / <span id="total_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/standard_photos") ?></span> Files </p>
                                 </div>
                               </div>
+                                 <form onsubmit="return check1();" name="zipDownload" id="zipDownload" method="post"  >
+                                <div class="row" style="margin-left:20px;">
+                                  <div class="col-md-3">  
+                                 
+                                    <input type="checkbox" id="remove" style="margin-left:50px;margin-top: 10px;" onclick="selectAllImages()">&nbsp;<b adr_trans="label_select_all" >Select All</b></input>
+                                 
+                                  </div>
+                                   <div class="col-md-9" style="text-align: right;">
+                                 <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                  <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="margin: 0px 5px;" adr_trans="label_rework">Rework</button>
+                               <!--  </div> -->
+                               <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                  <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme('<?php echo @$get_link['images_url']?>')" style="margin: 0px 5px;" name="send2" id="send2" adr_trans="label_share">share</a>
+                                <!-- </div> -->
+                                <!-- <div class="col-md-3" style="display:inline-block"> -->
+                                    <input type="submit" class="circle-button btn-sm btn done mobilebtn-download adr-save" onclick="downloadbtn()" name="ZIP" value="Download" style="margin: 0px 5px;">
+                                <!--   </div> -->
+                                  </div>
+                              </div>
+                             
 
 
 
                             </div>
+                            <br>
                             <div class="maso-list gallery" style="height:550px;overflow:scroll">
-                              <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                              <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                  <input type="hidden" id="allimages" name="allimages" value="0">
                               <?php
                               $imagesDirectory_standard = "./finished_images/order_".$id_url."/standard_photos";
@@ -2022,39 +2026,44 @@ if (@$_REQUEST['shar']) {
 
                           </div>
                           <div class="panel fade-right" style="transition-duration: 300ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;">
-                            <div style="border-bottom: 1px solid black">
+                            <div>
                               <?php
 
                                    $raw_images_query=mysqli_query($con,"SELECT * FROM `raw_images` WHERE order_id=$id_url and service_name='2'");
                                    $get_link=mysqli_fetch_array($raw_images_query);
 
                               ?>
-
-                                 <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
-                                   <div class="row" style="margin-left:20px;">
-                                     <div class="col-md-3" style="display:inline-block">
-                                       <input type="checkbox" id="remove2" onclick="selectAllImages2()"><b adr_trans="label_select_all">Select All</b></input>
-                                     </div>
-                                     <div class="col-md-3" style="display:inline-block">
-                                     <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="" adr_trans="label_rework">Rework</button>
-                                   </div>
-                                   <div class="col-md-3" style="display:inline-block">
-                                     <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>')" name="send2" id="send2" adr_trans="label_share" >share</a>
-                                   </div>                                   
-                                   <div class="col-md-3" style="display:inline-block">
-                                    <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" name="ZIP"  value="Download " style="margin-right: 75%;">
-                                     </div>
-                                 </div>
-                                 <div class="row">
+                                <div class="row">
                                    <div class="col-md-12">
                                    <p class="text-center" style="font-weight:600;color:#000080"> Selected <span id="selected_floor_count">0</span> / <span id="total_floor_count"><?php echo @getFileCount("./finished_images/order_".$id_url."/floor_plans") ?></span> Files </p>
                                    </div>
                                  </div>
 
+                                 <form onsubmit="return check2();" name="zipDownload" id="zipDownload2" method="post" action="">
+                                   <div class="row" style="margin-left:20px;">
+                                    <div class="col-md-3"> 
+                                   <!--   <div class="col-md-3" style="display:inline-block"> -->
+                                       <input type="checkbox" id="remove2" style="margin-left:50px;margin-top: 10px;"  onclick="selectAllImages2()"><b adr_trans="label_select_all" >Select All</b></input>
+                                    <!--  </div> -->
+                                      </div>
+                                      <div class="col-md-9" style="text-align:right">
+                                     <!-- <div class="col-md-3" style="display:inline-block"> -->
+                                     <button name="rework" onclick="reworks();" class="circle-button btn-sm btn adr-save" style="margin: 0px 5px;" adr_trans="label_rework">Rework</button>
+                                   <!-- </div> -->
+                                <!--    <div class="col-md-3" style="display:inline-block"> -->
+                                     <a href="<?php if(@getFileCount("./finished_images/order_".$id_url."/floor_plans")==0) { echo"javascript:alert('No pictures to share.')";}else{echo "#tnc";}?>" class="circle-button btn-sm btn adr-save <?php if(@getFileCount("./finished_images/order_".$id_url."/standard_photos")!=0) { echo"lightbox link";}?>" onclick="shareme2('<?php echo @$get_link['images_url']?>')" style="margin: 0px 5px;" name="send2" id="send2" adr_trans="label_share" >share</a>
+                                <!--    </div>        -->                            
+                                  <!--  <div class="col-md-3" style="display:inline-block"> -->
+                                    <input type="submit" class="circle-button btn-sm btn done adr-save" onclick="downloadbtn2()" style="margin: 0px 5px;" name="ZIP"  value="Download " >
+                                    <!--  </div> -->
+                                     </div>
+                                 </div>
+                                 
 
                             </div>
+                            <br>
                             <div class="maso-list gallery" style="height:550px;overflow:scroll">
-                              <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;">
+                              <div class="maso-box row no-margins" data-options="anima:fade-in" style="position: relative;margin-left: 7%;">
                                  <input type="hidden" id="allimages2" name="allimages" value="0">
                               <?php
                               $imagesDirectory_floor = "./finished_images/order_".$id_url."/floor_plans";
