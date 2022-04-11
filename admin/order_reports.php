@@ -247,6 +247,10 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
               <?php } }?>
 </select>
   <?php } ?>
+  
+  <?php if($_SESSION['admin_loggedin_type']!="PCAdmin"){ ?> 
+  <script>$("#photographer_radioID").click();  </script>
+  <?php } ?>
 </div>
 
 <div class="col-md-3" style="margin-top:22px;width:220px;margin-left:20px;">
