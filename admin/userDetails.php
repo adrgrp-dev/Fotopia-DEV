@@ -240,7 +240,7 @@ if(isset($_REQUEST['id']))
 
 				</tbody>
 				  </table>
-         <p align="center" style="margin-top:10px;">
+         <p align="right" style="margin-top:10px;margin-right: 82px;">
 				<?php if($res1['type_of_user']!='PCAdmin'){ if($res1['email_verified']==2) { ?>
 				<a class="anima-button circle-button btn-sm btn adr-save" href="userDetails.php?val=2&approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a> <?php }
 

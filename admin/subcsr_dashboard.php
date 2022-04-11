@@ -223,7 +223,7 @@ window.location.href = "./subcsr_dashboard.php?rwl=1";
 
 
 			</div>
-                <div class="col-md-8" style="padding-left:30px;">
+                <div class="col-md-8" style="margin-top: 3px;">
 				<hr class="space s" />
 <?php if(@isset($_REQUEST["na"])) { ?>
 

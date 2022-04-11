@@ -111,7 +111,7 @@ Fotopia Team.";
 				<script>
 				   $(".hidden-xs").css("margin-right":"46px");
 				</script>
-
+<hr class="space s">
 	<?php
 
 		include "sidebar.php";
@@ -162,9 +162,9 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 
 				?>
 
+<h5 style="float:left;color: #000;margin-left: 3px;">Company profile</h5>
 
-
-					<table id="table1"  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:5px!important;margin-left:10px;padding:10px;height:500px;" cellpadding="10" cellspacing="10">
+					<table id="table1"  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:5px!important;padding:10px;height:500px;" cellpadding="10" cellspacing="10">
 
 					<tbody>
 
@@ -181,7 +181,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 
 	   ?>
 <tr><td colspan="3"><hr class="space xs" /></td></tr> 
-<tr><td colspan="3"><h5 class="text-center" style="margin-left:-10px;">Company profile</h5></td></tr> 
+
 
 	   <tr><td align="right"  style="font-size: 10px;"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
@@ -267,6 +267,9 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
                             <div class="text-success" id="label_profile_update_msg" adr_trans="label_profile_update_msg">Profile information updated successfully</div>
                         </div>
 						<?php }  ?>
+
+						<h5 style="float:left;color: #000;margin-left: 12px;">My profile</h5>
+
 					<table id="table"  style="color: #000;background: #FFF;opacity:0.8;width:95%;border-radius:5px!important;margin-left:10px;padding:10px;height:500px;" cellpadding="10" cellspacing="10">
 
 					<tbody>
@@ -283,7 +286,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 	 else{
 
 	   ?>
-<tr><td colspan="3"><h5 class="text-center" style="margin-left:-10px;">My profile</h5></td></tr> 
+
 <tr><td align="right"  style="font-size: 10px;width:200px"><img src="data:<?php echo @$res1['profile_pic_image_type']; ?>;base64,<?php echo base64_encode(@$res1['profile_pic']); ?>" width="70" height="70" style="border-radius:35px" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['first_name']." ".$res1['last_name']; ?>
 		 </td></tr>
 			   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_contact_no">Contact number</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
@@ -304,7 +307,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 				</tbody>
 				  </table>
 				<br />
-				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 40%;" href="edit_csr_profile.php" id="label_add_profile" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="float: right;margin-right: 15px;" href="edit_csr_profile.php" id="label_add_profile" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 </div>
 

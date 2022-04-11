@@ -181,7 +181,7 @@ $id=@$_REQUEST['id'];
 <!-- <tr><td colspan="3" align="center"><a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a></td></tr> -->
 				</tbody>
             </table>
-            <p align="center" style="margin-top:10px;margin-right: 150px;">
+            <p align="right" style="margin-top:10px;margin-right: 82px;">
             	<a class="anima-button circle-button btn-sm btn adr-save" href="admin_users.php"><i class="fa fa-sign-in"></i>Back to Admin list</a>
             </p>
                 </div>

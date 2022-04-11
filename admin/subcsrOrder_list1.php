@@ -192,7 +192,7 @@ header("location:subcsrOrder_list1.php?app=1");
                 </ul>
                 <div class="panel active" id="tab3">
 
-                <hr class="space s" />
+            
 
                 <p style="text-align: center;">
                 <?php if(@isset($_REQUEST["s"])) { ?>
@@ -400,8 +400,8 @@ header("location:subcsrOrder_list1.php?app=1");
                     <td class="text-left" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
                                             <td class="text-left" style="width: 100px;"><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' style='position: relative;top: -17px;right: -73px;color: black;' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
-                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link"> <i class="fa fa-external-link"></i></a></td>
-
+                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link"> <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
+ 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
                           <?php
@@ -475,12 +475,7 @@ header("location:subcsrOrder_list1.php?app=1");
                 </div>
                 <div class="panel" id="tab4">
 
-                <hr class="space s" />
-
-
-
-
-
+        
                  <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
 
@@ -659,7 +654,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                                           <td class="text-left" style=""><a onclick="mouseover2(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;' id='label_created' adr_trans='label_created'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Declined</span>";}  elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle mob-i' style='position: relative;top: -17px;right: -64px;color: black;' aria-hidden='true' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
                                                       <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-                          <i class="fa fa-external-link"></i></a></td>
+                          <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -738,12 +733,6 @@ header("location:subcsrOrder_list1.php?app=1");
 
                 </div>
                 <div class="panel" id="tab1">
-
-                <hr class="space s" />
-
-
-
-
 
                   <div  style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
 
@@ -922,7 +911,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                                           <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Decline</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}?></td>
                                                       <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-                          <i class="fa fa-external-link"></i></a></td>
+                          <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -993,9 +982,9 @@ header("location:subcsrOrder_list1.php?app=1");
 
                 <div class="panel" id="tab2">
 
-                <hr class="space s" />
+                
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default view-btn" style="">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default view-btn" style="height: 30px;font-size:12px;">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;height: 30px;font-size:12px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
                 <p style="text-align: center;"><?php if(@isset($_REQUEST["s"])) { ?>
@@ -1207,7 +1196,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                                             <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Decline</span>";}?></td>
                                                         <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-                            <i class="fa fa-external-link"></i></a></td>
+                            <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
                           <?php
                           if($get_order['status_id']==3)
                           {

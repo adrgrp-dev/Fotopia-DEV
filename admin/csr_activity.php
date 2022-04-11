@@ -28,19 +28,16 @@ th{
 
 
 			</div>
-                <div class="col-md-10" style="background-color: white;margin-top: 25px;padding: 5px;border-radius: 5px;">
+      <h5 class="text-left"><span id="label_notification" adr_trans="label_notification" style="color:#000">Notifications</span>(<?php echo $countIs; ?>)</h5>
+                <div class="col-md-10" style="background-color: white;margin-top: 0px;padding: 5px;border-radius: 5px;">
 <?php
 
 $csr_count_query="select count(*) as total from user_actions where ((action_done_by_id='$loggedin_id' and action_done_by_type='CSR') or csr_id='$loggedin_id') and (is_read=0 or csr_read=0)";
                   $csr_count_result=mysqli_query($con,$csr_count_query);
           $csr_data=mysqli_fetch_assoc($csr_count_result);
                   $countIs=$csr_data['total'];
-
-
  ?>
-
-              	<h5 class="text-center"><span id="label_notification" adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
-
+  <hr class="space xs">            
 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
                   <thead>
                     <tr>
@@ -129,18 +126,18 @@ $limit=$start_no_users. ',' . $number_of_pages;
      <?php
      if($get_action['module']=="Profile" || $get_action['module']=="Product")
      { ?>
-         <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:blue;font-size:12px;"><?php echo $date1; ?></td></tr>
+         <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:blue;font-size:12px;"><?php echo $date1; ?></td></tr>
           <tr><td class="listPageTRGap">&nbsp;</td></tr>
                       <?php }
                       elseif($get_action['module']=="Chat Message" )
                                   {
                        $orderID=$get_action['order_id'];
                        ?>
-                                      <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="superOrder_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                                      <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="superOrder_detail.php?id='.$orderID.'" style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                                         <tr><td class="listPageTRGap">&nbsp;</td></tr>
                                  <?php }
                        else {  ?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
   <?php   } ?>
@@ -159,7 +156,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
                           <li class="last disabled" aria-disabled="true"><a href="<?php echo "./csr_activity.php?page=".($Page_check);?>" class="button">»</a></li></ul>  </div>
                           <div class="col-sm-6 infoBar"style="margin-top:24px">
                           <div class="infos"><p align="right"><span adr_trans="label_showing">Showing</span> <?php  if(($start_no_users+1)<0){ echo "0";}else{ echo $start_no_users+1;}?><span adr_trans="label_to"> to</span> <?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?>  of <?php echo $total_no; ?><span adr_trans="label_entries"> entries</span></p></div>
-                            <br>  <br>
+                            <br> 
                           </div>
 
 

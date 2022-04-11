@@ -43,16 +43,8 @@ th{
 
 
 			</div>
-                <div class="col-md-10" style="background:#FFF;color:#000;opacity:0.8;padding:10px;padding-left:30px;margin-top: 24px;border-radius: 5px;">
+                <div class="col-md-10" style="background:#FFF;color:#000;opacity:0.8;padding:10px;margin-top: 24px;border-radius: 5px;">
 
-
-
-
-
-
-						<!-- <div class="col-md-8" style="background:#CCEDFC;opacity:0.8;padding:10px;"> -->
-
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products">List of Products</h5>
 					<table class="table-striped" style="width:100%;">
                 <thead>
                     <tr>
