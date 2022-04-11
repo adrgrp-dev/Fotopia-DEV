@@ -80,16 +80,24 @@ min-width:120px!important;
     padding-left: 0px!important;
     padding-right: 0px!important;
 }
-th
+/*th
 {
     background: #aad1d6;
     padding-top: 10px !important;
     padding-bottom: 10px;
     padding-left: 3px !important;
 }
+*/
 .infoBar .infos p
 {
 	margin-right: -10px;
+}
+
+thead > tr:last-child > th, th > span {
+    background: #aad1d6;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3px !important;
 }
 	</style>
 <?php include "header.php";  ?>
@@ -169,58 +177,58 @@ th
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
+                        </span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
 
-						<!-- <span class="icon fa "></span></a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
+						<!-- </a></th><th data-column-id="more-info" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">
 
                                 Type
 
                         </span> -->
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text"  id="label_details" adr_trans="label_details">
+						</th><th data-column-id="link-icon" class="text-center" style=""><span class="text"  id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></th></tr>
+                        </span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -321,64 +329,64 @@ th
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
+                        </span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
-                      <!--   <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_admin" adr_trans="label_admin">
+                      <!--   </th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_admin" adr_trans="label_admin">
 
                                 Admin
 
                         </span> -->
 
 
-						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_type" adr_trans="label_type">
+						</th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_type" adr_trans="label_type">
 
                                 Type
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
+						</th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></th></tr>
+                        </span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -490,58 +498,58 @@ th
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
+                        </span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_admin_csr" adr_trans="label_admin_csr">
+						</th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_admin_csr" adr_trans="label_admin_csr">
 
                                  Admin / CSR
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_city" adr_trans="label_city">
 
                                 City
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_state" adr_trans="label_state">
 
                                 State
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_profile_picture" adr_trans="label_profile_picture">
 
                                 Profile picture
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                                 Status
 
                         </span>
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
+						</th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></th></tr>
+                        </span></th></tr>
                 </thead>
                 <tbody>
 				<?php
@@ -704,48 +712,48 @@ header("location:csr_list1.php?ed=1");
 
                                 S.No
 
-                        </span><span class="icon fa "></span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
+                        </span></th><th data-column-id="name" class="text-left" style=""><span class="text" id="label_name" adr_trans="label_name">
 
                                 Name
 
                         </span>
-						<span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
+						</th><th data-column-id="logo" class="text-left" style=""><span class="text" id="label_organization" adr_trans="label_organization">
 
                                 Organization
 
                         </span>
 
-                        <span class="icon fa "></span></th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="">
+                        </th><th data-column-id="logo" class="text-left" style=""><span class="text" adr_trans="">
 
                                 Organization Website
 
                         </span>
 
 
-						 <span class="icon fa "></span></th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_email_address" adr_trans="label_email_address">
+						 </th><th data-column-id="more-info" class="text-left" style=""><span class="text" id="label_email_address" adr_trans="label_email_address">
 
                                 Email address
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
+						</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_contact" adr_trans="label_contact">
 
                                 Contact
 
                         </span>
-												<span class="icon fa "></span></th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+												</th><th data-column-id="link" class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                                 Photographer
 
                         </span>
 
 
-						<span class="icon fa "></span></th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
+						</th><th data-column-id="link-icon" class="text-center" style=""><span class="text" id="label_details" adr_trans="label_details">
 
                                 Details
 
-                        </span><span class="icon fa "></span></th></tr>
+                        </span></th></tr>
                 </thead>
                 <tbody>
 				<?php

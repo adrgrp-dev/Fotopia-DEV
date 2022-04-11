@@ -247,7 +247,7 @@ border:none;
 
 						<?php }  ?>
 						<div class="row">
-						<p align="left"><span style="padding-left:5px;color:#000;">PC Admin Dashboard</span>	
+						<!--<p align="left"><span style="padding-left:5px;color:#000;">PC Admin Dashboard</span>-->	
 						<a href="quick_create_order.php?u=0&pc_admin_id=<?php echo $_SESSION['admin_loggedin_id']; ?>" class="btn-sm btn" style="background:#aad1d6;color:#000;border-radius:5px;border:none;margin-right:15px;margin-bottom:10px;width:120px;padding:7px;font-size:11px!important; float:right">Quick Order</a> 
 					<div class="row" style="margin-left:0px;"></p></div>
 

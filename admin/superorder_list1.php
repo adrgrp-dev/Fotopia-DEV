@@ -216,12 +216,18 @@ ul.pagination > li.last > a
 {
   margin-right: -40px;
 }	 
-th,th > span
+/*th,th > span
 {
   background: #aad1d6;
   padding-top: 6px !important;
   padding-bottom: 10px !important;
   padding-left: 3px !important;
+}*/
+thead > tr:last-child > th, th > span {
+    background: #aad1d6;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 3px !important;
 }
 </style>
 
@@ -277,59 +283,57 @@ th,th > span
 
                           Order#
 
-                  </span
-
-                  >
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
+                  </span>
+                  </th><th  class="text-left" style=""><span adr_trans="label_created_by">Created By</span> / <span class="text" id="label_realtor" adr_trans="label_realtor" >
 
                           Realtor
 
                   </span>
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller" >
+                  </th><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller" >
 
                           Homeseller
 
                   </span>
 
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                  </th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                           Photographer
 
                   </span>
 
-          <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
+          <!-- </th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                           Product
 
                   </span> -->
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
+                  </th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                           Address
 
                   </span>
 
 
-                  <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_from_date" adr_trans="label_from_date">
+                  <!-- </th><th  class="text-left" style=""><span class="text" id="label_from_date" adr_trans="label_from_date">
 
                           Schedule date
 
                   </span> -->
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
+                  </th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                           Due date
 
                   </span>
-                  <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text">
+                  <!-- </th><th  class="text-left" style=""><span class="text">
 
                            Created By
 
                   </span> -->
-                  <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+                  </th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                            Status
 
                   </span>
-                  <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                  </th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                            Edit Details
 
@@ -559,51 +563,51 @@ th,th > span
                           Realtor
 
                     </span
-                    ><span class="icon fa "></span></th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                    ></th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                         Homeseller
 
                 </span>
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                </th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                         Photographer
 
                 </span>
 
-        <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
+        <!-- </th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                         Product
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
+                </th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                         Address
 
                 </span>
 
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                </th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                         From date & time
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
+                </th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                         Due date
 
                 </span>
-                <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text">
+                <!-- </th><th  class="text-left" style=""><span class="text">
 
                          Created By
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+                </th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                          Status
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                </th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                          Edit Details
 
@@ -828,51 +832,51 @@ th,th > span
 
                     </span
                     >
-                <span class="icon fa "></span></th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                </th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                         Homeseller
 
                 </span>
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                </th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                         Photographer
 
                 </span>
 
-        <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
+        <!-- </th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                         Product
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
+                </th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                         Address
 
                 </span>
 
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                </th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                         From date & time
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
+                </th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                         Due date
 
                 </span>
-                <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text">
+                <!-- </th><th  class="text-left" style=""><span class="text">
 
                          Created By
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+                </th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                          Status
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
+                </th><th  class="text-center" style=""><span class="text" id="label_edit_details" adr_trans="label_edit_details">
 
                          Edit Details
 
@@ -1096,56 +1100,56 @@ th,th > span
 
                     </span
                     >
-                    <span class="icon fa "></span></th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
+                    </th></a><th  class="text-left" style=""><span class="text" id="label_homeseller" adr_trans="label_homeseller">
 
                         Homeseller
 
                 </span>
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
+                </th><th  class="text-left" style=""><span class="text" id="label_photographer" adr_trans="label_photographer">
 
                         Photographer
 
                 </span>
 
-        <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
+        <!-- </th><th  class="text-left" style=""><span class="text" id="label_product" adr_trans="label_product">
 
                         Product
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
+                </th><th  class="text-left" style=""><span class="text" id="label_address" adr_trans="label_address">
 
                         Address
 
                 </span>
 
 
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
+                </th><th  class="text-left" style=""><span class="text" id="label_from_date_time" adr_trans="label_from_date_time">
 
                         From date & time
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
+                </th><th  class="text-left" style=""><span class="text" id="label_due_date" adr_trans="label_due_date">
 
                         Due date
 
                 </span>
-                <!-- <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text">
+                <!-- </th><th  class="text-left" style=""><span class="text">
 
                          Created By
 
                 </span> -->
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
+                </th><th  class="text-left" style=""><span class="text" id="label_status" adr_trans="label_status">
 
                          Status
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_order_summary" adr_trans="label_order_summary">
+                </th><th  class="text-left" style=""><span class="text" id="label_order_summary" adr_trans="label_order_summary">
 
                          Order Summary
 
                 </span>
-                <span class="icon fa "></span></th><th  class="text-left" style=""><span class="text" id="label_order_cost" adr_trans="label_order_cost">
+                </th><th  class="text-left" style=""><span class="text" id="label_order_cost" adr_trans="label_order_cost">
 
                          Order Cost
 
