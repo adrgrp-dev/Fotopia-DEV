@@ -2685,7 +2685,7 @@ if (@$_REQUEST['shar']) {
                       <p align="right">  <input type="button" id="done_hide"  class="circle-button btn-sm btn adr-save" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete"></p><br>
                     <?php }
                     elseif($get_summary['status_id']==3) {?>
-                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;margin-top: 5px;margin-right: 5px;" >Reopen</a><br><br>
+                        <a href="superOrder_detail.php?id=<?php echo $order_id; ?>&update=1" class="circle-button btn-sm btn adr-save" style="float:right;" >Reopen</a><br><br>
                   <?php  } ?>
                          <?php if($get_summary['status_id']==3||$get_summary['status_id']==1)
                          {
