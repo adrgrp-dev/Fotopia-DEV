@@ -187,7 +187,7 @@ if(isset($_REQUEST['send']))
 
 
 </div>
-<div class="col-md-10">
+<div class="col-md-9" style="background:white;margin-top:25px;border-radius:5px;padding:20px;">
   <div id="standard_photos_div" >
         <div id="error1" ></div>
     <form action="./dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type1;?>&user_id=<?php echo $_SESSION['loggedin_id'];?>&user_type=<?php echo $_SESSION['user_type'];?>" id='uploads' class="dropzone" style="100px">
@@ -202,7 +202,10 @@ if(isset($_REQUEST['send']))
        });
 
      </script>
-        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn btn-primary adr-save" style="background: black;float:left" adr_trans="label_preview">preview</a><p align="right"><a href="#" id="edit_button" class="btn btn-primary adr-save" style="background: black;position: relative; " adr_trans="label_upload">Upload</a></p>
+     <div class="col-md-12" style="margin-top:10px;padding-right: 0px !important;">
+      <a href="#" id="edit_button" class="btn btn-primary adr-save" style="float: right;margin-left: 10px;" adr_trans="">Submit</a>
+        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn btn-primary adr-save" style="float: right;" adr_trans="label_preview">preview</a>
+      </div>
 
       <input type="hidden"  id="order_id"  value="<?php echo $order_id?>"/>
        <input type="hidden"  id="service_name"  value="<?php echo $type1?>"/>

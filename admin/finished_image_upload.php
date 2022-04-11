@@ -188,6 +188,8 @@ width: 220px!important;
  .dropzone .dz-preview:first-child {
      margin-left: 40px !important;
     }
+
+
 </style>
  <div class="section-empty bgimage9">
         <div class="container" style="margin-left:0px;height:inherit">
@@ -198,8 +200,8 @@ width: 220px!important;
 
 
 </div>
-<div class="col-md-9">
-  <div id="standard_photos_div" style="margin-left:40px;margin-top:25px;" >
+<div class="col-md-9" style="background: white;padding: 20px;margin-top: 25px;border-radius: 5px;">
+  <div id="standard_photos_div" style="margin-left:0px;margin-top:25px;" >
         <div id="error1" ></div>
     <form action="../dropzone/upload1.php?id=<?php echo $order_id; ?>&type=<?php echo $type1;?>&user_id=<?php echo $_SESSION['admin_loggedin_id'];?>&user_type=<?php echo $_SESSION['admin_loggedin_type'];?>" id='uploads' class="dropzone" style="">
 
@@ -213,7 +215,10 @@ width: 220px!important;
        });
 
      </script>
-        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn adr-save" style="float:left;margin-top: 10px;"><span adr_trans="label_preview">preview</span></a><p align="right"><a href="#" id="edit_button" class="btn adr-save" style="position: relative;margin-top: 10px;"><span adr_trans="label_submit">Submit</span></a></p>
+     <div class="col-md-12" style="margin-top:10px;padding-right:  0px !important;">
+        <a href="#" id="edit_button" class="btn adr-save" style="float: right;margin-left: 10px;"><span adr_trans="label_submit">Submit</span></a>
+        <a href="preview3.php?id=<?php echo $order_id?>&type=<?php echo $type1?>&send=1" class="btn adr-save" style="float:right;"><span adr_trans="label_preview">preview</span></a>
+     </div>
 
       <input type="hidden"  id="order_id"  value="<?php echo $order_id?>"/>
        <input type="hidden"  id="service_name"  value="<?php echo $type1?>"/>

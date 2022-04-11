@@ -402,7 +402,7 @@ if (@$_REQUEST['shar']) {
  
 <?php } ?>
 
-                <div class="col-md-12">
+                <div class="col-md-8">
 
 <div class="tab-box"  data-tab-anima="show-scale" style="width:100%;padding-left: 20px;">
 
@@ -418,13 +418,13 @@ if (@$_REQUEST['shar']) {
 
 
 <div class="panel active" style="border: 1px solid black;border-radius: 5px;">
-    <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -55px;right: -15px;"> share
+    <button href="#tnc" class="btn adr-save lightbox link btn-sm"  name="send2" id="send2" adr_trans="label_share" style="float: right;position:relative;top: -55px;right: -15px;border-radius: 5px;"> share
 </button>
 
 	
-  <div class="maso-list gallery">
+  <div class="maso-list gallery" style="overflow:scroll;height: 550px;width: 100% !important;>
   
-    <div class="maso-box row no-margins" data-options="anima:fade-in">
+    <div class="maso-box row no-margins" data-options="anima:fade-in" style="position:relative;margin-left: 7%;">
 
       <?php
       $imagesDirectory = "./finished_images/order_".$id_url."/".$service;
@@ -442,7 +442,7 @@ if (@$_REQUEST['shar']) {
          if(($imgFileType == 'jpg') || ($imgFileType == 'png') || ($imgFileType == 'DNG') || ($imgFileType == 'CR2') || ($imgFileType == 'NEF') || ($imgFileType == 'ARW'))
          {
           ?>
-                  <div data-sort="1" class=" col-md-2 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
+                  <div data-sort="1" class=" col-md-3 cat1" style="visibility: visible;margin-top:5px;border:solid 2px #aaa;padding:5px;background:#ddd;margin:15px;">
                     <?php
                     $get_comment_querry=mysqli_query($con,"SELECT * FROM `image_naming` WHERE order_id=$id_url and image_name='$image'");
                     $get_comment=mysqli_fetch_assoc($get_comment_querry);
