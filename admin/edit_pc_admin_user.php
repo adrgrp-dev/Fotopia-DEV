@@ -220,18 +220,18 @@ function validate_email(val)
 
 <input type="hidden" name="id" value="<?php echo $_REQUEST['id']; ?>" />
 
-<div class="col-md-12"><center><hr class="space s">
+ <div class="row" align="right">
+<div class="col-md-12" style="text-align:right;"><hr class="space s">
 
   							<div class="error-box" style="display:none;">
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                           </div>
-						  </center>
-  						 <div class="row" align="right">
+  						
                               
 <a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>&nbsp;&nbsp;
   						 <button id="label_update" adr_trans="label_update" class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>
                          
-  </center>
+
   					   </div>
 
 					   </form>
