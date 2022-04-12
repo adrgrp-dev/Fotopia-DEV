@@ -60,7 +60,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 <div class="row">
 <div class="col-md-12">
   <hr class="space s">
-				<div class="col-md-4" style="float:left;padding-left:10px;">
+				<div class="col-md-4" style="float:left;padding-left:0px;margin-top: -16px!important;">
 
             <span style="font-style: bold;text-align:left;padding-left:20px;color:#000"><span class="text-center" id="label_calendar" adr_trans="label_calendar"> CSR Calendar</span> - <?php echo strtoupper($_SESSION['admin_loggedin_name']); ?></span>
 
@@ -101,7 +101,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
 				  
 				  
 				<div class="row" style="padding-left:15px;">
-<div class="col-md-12" style="text-align:center;margin-top:0px;"> <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></div></div>
+<div class="col-md-12" style="text-align:left;margin-top:-28px;margin-left: 5px;"> <?php if(@$_REQUEST['ph_name']) { echo strtoupper($_REQUEST['ph_name'])." (Photographer's) Calendar."; } ?></div></div>
 
 
 <link href='../lib/main.css' rel='stylesheet' />

@@ -188,16 +188,16 @@ $loggedin_id=$_SESSION["loggedin_id"];
 		  <tr><td align="right"><span>Organization Number</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_number']; ?></td></tr>
 		  <tr><td colspan="3"><hr class="space xs" /></td></tr>
 
-		    <tr><td align="right"  style="font-size: 10px;" adr_trans="label_contact_no">Contact number</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
-		   <tr><td align="right"  style="font-size: 10px;" adr_trans="label_email">Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['email']; ?></td></tr>
+		    <tr><td align="right"  style="font-size: 12px;" adr_trans="label_contact_no">Contact number</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><b><?php echo @$res1['contact_number']; ?></b></td></tr>
+		   <tr><td align="right"  style="font-size: 12px;" adr_trans="label_email">Email</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['email']; ?></td></tr>
 		   <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_portfolio_website">Portfolio/Website</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['portfolio']; ?></td></tr>
 
 		   <tr><td colspan="3"><hr class="space xs" /></td></tr>
-			  <tr><td align="right"  style="font-size: 10px;" adr_trans="label_address">Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['address_line1'].", ".@$res1['address_line2']; ?></td></tr>
-			   <tr><td align="right"  style="font-size: 10px;" adr_trans="label_city">City</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['city']; ?></td></tr>
-			    <tr><td align="right"  style="font-size: 10px;" adr_trans="label_state">State</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['state']; ?></td></tr>
-				 <tr><td align="right"  style="font-size: 10px;" adr_trans="label_zip_code">Zip Code</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['postal_code']; ?></td></tr>
-				  <tr><td align="right"  style="font-size: 10px;" adr_trans="label_country">Country</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['country']; ?></td></tr>
+			  <tr><td align="right"  style="font-size: 12px;" adr_trans="label_address">Address</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['address_line1'].", ".@$res1['address_line2']; ?></td></tr>
+			   <tr><td align="right"  style="font-size: 12px;" adr_trans="label_city">City</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['city']; ?></td></tr>
+			    <tr><td align="right"  style="font-size: 12px;" adr_trans="label_state">State</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['state']; ?></td></tr>
+				 <tr><td align="right"  style="font-size: 12px;" adr_trans="label_zip_code">Zip Code</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['postal_code']; ?></td></tr>
+				  <tr><td align="right"  style="font-size: 12px;" adr_trans="label_country">Country</td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['country']; ?></td></tr>
 
 			<tr><td colspan="3"><hr class="space xs" /></td></tr>   
 			  <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_fb_id">Facebook ID</span><span class="fa fa-facebook" style="margin-left: 5px;padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px !important;font-size: 8px;"></span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['facebook_id']; ?></td></tr>
