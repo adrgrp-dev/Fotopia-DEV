@@ -130,9 +130,8 @@ th:last-child > span
 }
 
 </style>
-<div class="col-md-10" >
+<div class="col-md-10" style="margin-top:23px;">
 <div class="tab-box" data-tab-anima="show-scale">
-  <h5 align="center"  adr_trans="label_list_order">List of Orders</h5>
    <!-- <p align="right" style="position: absolute;right: 15px;" > -->
     <?php
 $pht = $_SESSION['loggedin_id'];
@@ -301,9 +300,9 @@ $pht = $_SESSION['loggedin_id'];
 
           <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; }elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";} elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";} elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}  elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";} elseif($status==7){echo "<span adr_trans='label_working_customer' style='color:orange;font-weight:bold;'>Waiting for Customer</span>";} elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}?></td>
           <td class="text-center" style="padding-left: 5px !important"><a target="" href="photographerorder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-          <i class="fa fa-external-link"></i></a></td>
+          <i class="fa fa-chevron-circle-right fa-lg" style="margin: 10px;"></i></a></td>
 
-
+ 
           </tr>
 		  <tr><td class="listPageTRGap">&nbsp;</td></tr>
           <?php }} ?>
@@ -355,8 +354,8 @@ $pht = $_SESSION['loggedin_id'];
 												Order#
 
 							 </span></th>
-							 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_created_by" style="padding:0px !important">Created By</span> / <br /><span adr_trans="label_realtor_name" style="padding:0px !important">
-												Realtor Name
+							 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_created_by" style="padding:0px !important">Created By</span> / <span adr_trans="label_realtor" style="padding:0px !important">
+												Realtor
 
 								</span></th>
 							 <th  class="text-left" style="" id="label_homeseller" ><span adr_trans="label_homeseller">
@@ -492,7 +491,7 @@ $pht = $_SESSION['loggedin_id'];
 					<td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created'style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; }elseif($status==2){echo "<span adr_trans='label_wip' style='color:brown;font-weight:bold;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";} elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}?></td>
 
           <td class="text-center" style=""><a target="" href="photographerorder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-          <i class="fa fa-external-link"></i></a></td><td class="text-left" style="font-size: 13px;">
+          <i class="fa fa-chevron-circle-right fa-lg" style="margin: 10px;"></i></a></td><td class="text-left" style="font-size: 13px;">
 
 
           </tr>

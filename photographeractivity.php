@@ -70,14 +70,14 @@ $photographer_count_query="select count(*) as total from user_actions where ((ac
  ?>
 
 
-	      	<h4 class="text-center" adr_trans="label_notifications">Notifications(<?php echo $countIs; ?>)</h4>
+	      	<h5 class="text-left"><span id="label_notification" adr_trans="label_notification" style="color:#000">Notifications</span>(<?php echo $countIs; ?>)</h5>
           <div style="background-color:white;border-radius:5px;padding-top: 10px;">
                 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
           <thead>
                     <tr>
-                       <th ><span  adr_trans="label_s.no">S.no</span></th>
-                      <th ><span adr_trans="label_activity">Activity</span></th>
-					  <th ><span adr_trans="label_date_and_time">Date & Time</span></th>
+                       <th style="padding-left:25px!important"><span  adr_trans="label_s.no">S.no</span></th>
+                      <th style="padding-left:30px!important"><span adr_trans="label_activity">Activity</span></th>
+					  <th style="padding-left:30px!important"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>
@@ -161,7 +161,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
      <?php
      if($get_action['module']=="Profile" || $get_action['module']=="Product")
      { ?>
-         <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+         <tr class="listPageTR"><td style="padding-left:30px!important"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important"><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
           <tr><td class="listPageTRGap">&nbsp;</td></tr>  
                       <?php }
 
@@ -169,11 +169,11 @@ $limit=$start_no_users. ',' . $number_of_pages;
                                   {
                        $orderID=$get_action['order_id'];
                        ?>
-                                      <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="photographerorder_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                                      <tr class="listPageTR"><td style="padding-left:30px!important"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important"><?php echo'<a href="photographerorder_detail.php?id='.$orderID.'" style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
                                         <tr><td class="listPageTRGap">&nbsp;</td></tr>  
                                  <?php }
                        else {  ?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:30px!important"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important"><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>  
 
   <?php   } ?>
@@ -197,7 +197,7 @@ $limit=$start_no_users. ',' . $number_of_pages;
 
 
 
-                  <p align="right">   <a href="photographerDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home"><i class="fa fa-sign-out"></i>Back To Home</a></p>
+                  <!-- <p align="right">   <a href="photographerDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home"><i class="fa fa-sign-out"></i>Back To Home</a></p> -->
                 </div>
 
         </div>

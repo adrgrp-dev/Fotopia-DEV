@@ -68,18 +68,14 @@ th
 
 
 			</div>
-                <div class="col-md-10" style="color: #000;background: white;opacity:0.8;">
-
-
-
-
-
+                <div class="col-md-10" style="color: #000;background: white;opacity:0.8;border-radius:5px;margin-top: 23px;">
 
 						<!-- <div class="col-md-8" style="background:#CCEDFC;opacity:0.8;padding:10px;"> -->
 
-						<h5 class="text-center" id="label_list_products" adr_trans="label_list_products" style="color:#000">List of Products</h5>
-						<div id="" style="width:100%;scrollbar-width: none;overflow-x: hidden;overflow-y:hidden">
-					<table align="center" class="table-striped" width="98%">
+						<!-- <h5 class="text-center" id="label_list_products" adr_trans="label_list_products" style="color:#000">List of Products</h5> -->
+						<hr class="space xs">
+						<div id="" style="width:100%;">
+					<table align="center" class="table-striped" width="98%" style="margin-left: 15px;">
                 <thead>
                     <tr>
                         <th>#</th>
