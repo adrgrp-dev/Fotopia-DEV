@@ -248,13 +248,11 @@ if($_SESSION['admin_loggedin_type']!="PCAdmin"){
 </select>
   <?php } ?>
   
-  <?php if($_SESSION['admin_loggedin_type']!="PCAdmin"){ ?> 
-  <script>$("#photographer_radioID").click();  </script>
-  <?php } ?>
+  
 </div>
 
 <div class="col-md-3" style="margin-top:22px;width:220px;margin-left:20px; float:right">
-<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;height:30px; margin-left:-100px;">Search</button>
+<button type="submit" name="label_search" id="label_search" adr_trans="label_search" class="btn adr-save btn-sm" style="padding: 6px 10px !important;height:30px; margin-left:<?php if($_SESSION['admin_loggedin_type']=="PCAdmin"){ echo "-10px"; } else { echo "-100px"; } ?>;">Search</button>
 <a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download PDF"></i></a>&nbsp;&nbsp;
 <a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:28px;padding-left:10px;vertical-align: middle;float:right" title="Download Excel"></i></a>
 								</div>
@@ -736,6 +734,10 @@ $('#photographer_radioID').click();
 }
 
 ?>
-
+<?php if($_SESSION['admin_loggedin_type']!="PCAdmin"){ ?> 
+  <script>$("#photographer_radioID").click(); 
+ 
+  </script>
+  <?php } ?>
 
 		<?php include "footer.php";  ?>
