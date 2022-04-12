@@ -200,7 +200,7 @@ if (empty($_SESSION['usertype1']) && @$_REQUEST['user_type1']=='') {
 $q1 = "SELECT COUNT(first_name) as total FROM (SELECT first_name FROM `admin_users` where type_of_user='PCAdmin' and is_approved=1 UNION ALL SELECT first_name FROM `user_login` where type_of_user='Realtor' and email_verified=1) AS total;";
 }
 
-// echo $q1;
+//echo $q1;
 				//$q1="select count(*) as total from user_login WHERE type_of_user=''";
 				$result=mysqli_query($con,$q1);
 				if(@$result == "0"){
@@ -303,10 +303,14 @@ if (empty($_SESSION['usertype1']) && @$_REQUEST['user_type1']=='') {
 }
 // echo $q;
 ?>
-		<span style="position: absolute;right: 25px">
-				<form name="searchUser1" method="post" id="searchUser1" action="users.php" onsubmit="return validate1()" style="margin-left:5px;">
+
+     <div class="row" style="margin-left: 0px;">
+     	<div class="col-md-3">
+     		<span style="">
+
+				<form name="searchUser1" method="post" id="searchUser1" action="users.php" onsubmit="return validate1()" style="">
 				Search :
-				 <input type="text"  list="Suggestions1" class="form-control form-value" id="user_name1" name="user_name1" value="" style="display:inline;width:150px;" />
+				 <input type="text"  list="Suggestions1" class="form-control form-value" id="user_name1" name="user_name1" value="" style="display:inline;width:150px;height: 30px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
 
  <datalist id="Suggestions1"  >
@@ -332,14 +336,16 @@ if (empty($_SESSION['usertype1']) && @$_REQUEST['user_type1']=='') {
 							while(@$user_first_name=mysqli_fetch_assoc(@$user_name))
 							{
 							?>
-							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
+							<option value="<?php echo $user_first_name['first_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
 							<?php } ?>
 </datalist>
 
 </form>
 </span>
-<script type="text/javascript">
+     	</div>
+     	<div class="col-md-9" style="padding-right: 0px;">
+     		<script type="text/javascript">
  function validate1()
  {
     if(document.getElementById('user_name1').value == "")
@@ -392,18 +398,21 @@ var initialArray = [];
 		<input type="submit" name="clear_approved_user_filter_btn " value="Clear Filter" class="btn btn-primary btn-sm adr-save" style="height:30px;font-size: 12px;color: #000;" />
 		</form>
 		</div>
-<div class="col-md-2" style="float:right">
+<div class="" style="float:right;margin-right: 10px;">
 		<form name="search_filter1" method="post" action="users.php">
-<select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:160px;left: 15px;display:inline;height:30px;font-size: 12px;color: #000;">
+   <select name="user_type1" class="form-control" id="user_type1" onchange="this.form.submit()" style="width:160px;left: 15px;display:inline;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
 			
 			    <option value="Realtor" <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='Realtor' ) { echo "selected"; } else { echo " "; }  ?>>Realtor</option>
 			
 					<option value="PCAdmin" <?php if(isset($_SESSION['usertype1']) && $_SESSION['usertype1']=='PCAdmin' ) { echo "selected"; } else { echo " "; }  ?>>PCAdmin</option>
-		
   		</select>
 		</form>
 		</div>
+
+     	</div>
+     </div>
+		
 
 </div>
 
@@ -494,7 +503,7 @@ if (isset($_REQUEST['user_name1']) || !empty($_SESSION['usertype1'])) {
 <?php }
 
 	      	}
-								
+				// echo $q;				
 				@$res=mysqli_query($con,@$q);
 				if(@$res == "0"){
 					?><h5 align="center"> <?php echo "No Approved Users are Found";?> </h5>
@@ -730,12 +739,13 @@ if (empty($_SESSION['usertype2']) && @$_REQUEST['user_type2']=='') {
 
 
 ?>
-
-
-		<span style="position: absolute;right: 25px">
-				<form name="searchUser2" id="searchUser2" method="post" action="" onsubmit="return validate2()" style="margin-left:5px;">
+    
+    <div class="row" style="margin-left: 0px;">
+    	<div class="col-md-3">
+    		<span >
+				<form name="searchUser2" id="searchUser2" method="post" action="" onsubmit="return validate2()" style="margin-left:0px;">
 				Search :
-				 <input type="text"  list="Suggestions2" class="form-control form-value" id="user_name2" name="user_name2" value="" style="display:inline;width:150px;" />
+				 <input type="text"  list="Suggestions2" class="form-control form-value" id="user_name2" name="user_name2" value="" style="display:inline;width:150px;height: 30px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
 
  <datalist id="Suggestions2"  >
@@ -760,13 +770,16 @@ if (empty($_SESSION['usertype2']) && @$_REQUEST['user_type2']=='') {
 							{
 							?>
 
-							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
+							<option value="<?php echo $user_first_name['first_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
 							<?php } }?>
 
 </datalist>
 </form>
 </span>
+    	</div>
+    	<div class="col-md-9" style="padding-right: 0px;">
+    		
 <script type="text/javascript">
  function validate2()
  {
@@ -821,7 +834,7 @@ var initialArray = [];
 		</form>
 		</div>
 
-		<div class="col-md-2" style="float:right">
+		<div class="" style="float:right;margin-right:10px;">
 	<form name="search_filter2" method="post" action="users.php">
 <select name="user_type2" class="form-control" id="user_type2" onchange="this.form.submit()" style="width:160px;left: 15px;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
@@ -833,6 +846,11 @@ var initialArray = [];
   		</select>
 		</form>
 	</div>
+
+    	</div>
+    </div>
+
+		
 </div>
 
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
@@ -1186,11 +1204,12 @@ if (empty($_SESSION['usertype3']) && @$_REQUEST['user_type3']=='') {
 }
 
 	 ?>
-
-		<span style="position: absolute;right: 25px">
-				<form name="searchUser3" id="searchUser3" method="post" action="" onsubmit="return validate3()" style="margin-left:5px;">
+        <div class="row" style="margin-left: 0px;">
+        	<dic class="col-md-3">
+        		<span style="">
+				<form name="searchUser3" id="searchUser3" method="post" action="" onsubmit="return validate3()" style="margin-left:0px;">
 				Search :
-				 <input type="text"  list="Suggestions3" class="form-control form-value" id="user_name3" name="user_name3" value="" style="display:inline;width:150px;" />
+				 <input type="text"  list="Suggestions3" class="form-control form-value" id="user_name3" name="user_name3" value="" style="display:inline;width:150px;height:30px;" />
  <button type="submit" style="padding:2px!important;background:white;border:none;"><i class="fa fa-search" style="color:#006600"></i></button>
 
  <datalist id="Suggestions3"  >
@@ -1216,13 +1235,15 @@ if (empty($_SESSION['usertype3']) && @$_REQUEST['user_type3']=='') {
 							?>
 
 
-							<option value="<?php echo $user_first_name['first_name'].' '.$user_first_name['last_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
+							<option value="<?php echo $user_first_name['first_name']; ?>"><?php echo $user_first_name['first_name'].' '.$user_first_name['last_name'];  ?></option>
 
 							<?php }} ?>
 </datalist>
 </form>
 </span>
-<script type="text/javascript">
+        	</dic>
+        	<div class="col-md-9" style="padding-right: 0px;">
+        		<script type="text/javascript">
  function validate3()
  {
     if(document.getElementById('user_name3').value == "")
@@ -1276,7 +1297,7 @@ var initialArray = [];
 		</form>
 		</div>
 
-		<div class="col-md-2" style="float:right;">
+		<div class="" style="float:right;margin-right: 10px;">
 		<form name="search_filter3" method="post" action="users.php">
 <select name="user_type3" class="form-control" id="user_type3" onchange="this.form.submit()" style="width:160px;left: 15px;;height:30px;font-size: 12px;color: #000;">
 				<option value="">Select a user type</option>
@@ -1288,6 +1309,10 @@ var initialArray = [];
   		</select>
 		</form>
 	</div>
+
+        	</div>
+        </div>
+		
 
 </div>
 
