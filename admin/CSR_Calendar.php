@@ -67,7 +67,7 @@ header("location:CSR_Calendar.php?ph_id=$ph_id&ph_name=$ph_name");
         </div>
 
         <div class="col-md-4" style="float:left;"><form name="" method="post" action="" id="filterForm">
-<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name'];?>" placeholder="Select a photographer" autocomplete="off"  class="form-control" style="width:175px;margin-bottom:10px;font-size: 12px;height:30px;margin-left: 200px;"/>
+<input type="text" name="ph_name"  id="ph_name" list="phList" onchange="fillPhId();" value="<?php echo @$_REQUEST['ph_name'];?>" placeholder="Select a photographer" autocomplete="off"  class="form-control" style="width:190px;margin-bottom:10px;font-size: 12px;height:30px;margin-left: 200px;"/>
 
  <datalist id="phList">
      <option value="" id="label_select_photographer" adr_trans="label_select_photographer">Select a Photographer</option>
