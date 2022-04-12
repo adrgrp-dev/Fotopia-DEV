@@ -22,7 +22,7 @@ $id=@$_REQUEST['id'];
 
 			</div>
                  <div class="col-md-10" style="padiding-left:20px;">
-              	<h5 class="text-center" id="label_photographer_dashboard"><?php echo $cmsPage1['page_title']; ?></h5>
+              	<h5 class="text-left" id="label_photographer_dashboard"><?php echo $cmsPage1['page_title']; ?></h5>
 				<div style="font-weight:500;font-family:Geneva, Arial, Helvetica, sans-serif; width:100%; background: #FFF!important;
 color:#000!important;padding:3%;border-radius:10px;">
 				<?php

@@ -283,11 +283,10 @@ function validate_email1(val)
 
 			</div>
                 <div class="col-md-10">
-
-<hr class="space s">
+<h5 id="label_settings" adr_trans="label_settings" style="padding-left:15px;">Settings</h5>
 
 <table class="" id="myAcc" style="color: #000;background: #FFF;border-radius:10px;width:100%;font-weight:200; font-size:15px;margin-left:15px;" align="center">
-<tr><td colspan="3" align="center"><h4 id="label_settings" adr_trans="label_settings">Settings</h4>
+<tr><td colspan="3" align="center">
 
 <?php if(@isset($_REQUEST["u"])) { ?>
                         <div class="success-box" style="display:block;">

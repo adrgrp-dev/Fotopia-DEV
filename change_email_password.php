@@ -270,11 +270,11 @@ $("#moreInfoText").toggle(1000);
 
 			</div>
                 <div class="col-md-10">
+<h5 adr_trans="label_settings">Settings</h5>
 
-<hr class="space s" />
 
 <table class="table-stripped" id="myAcc" style="color: #000;background: #FFF;border-radius:10px;width:100%;font-weight:200; font-size:15px;" align="center">
-<tr><td colspan="3" align="center"><h4 adr_trans="label_settings">Settings</h4>
+<tr><td colspan="3" align="center">
 
 <?php if(@isset($_REQUEST["u"])) { ?>
                         <div class="success-box" style="display:block;">
@@ -299,19 +299,19 @@ $("#moreInfoText").toggle(1000);
                             <center><div class="text-success" adr_trans="label_email_updated">Email updated successfully.</div></center>
                         </div>
 						<?php }  ?>
-<tr><td style="padding-left:20px;"><h5 adr_trans="label_first_name">First Name</h5></td><td><?php echo $user1['first_name']; ?><br /></td></tr>
-<tr><td style="padding-left:20px;"><h5 adr_trans="label_last_name">Last  Name</h5></td><td>  <?php echo $user1['last_name']; ?><br /></td></tr>
-<tr><td style="padding-left:20px;"><h5 adr_trans="label_organization">Organization</h5></td><td>  <?php if($_SESSION['user_type']!='Photographer') {echo $user1['organization_name'];} else { echo $organization_name; } ?><td align="left">
+<tr><td style="padding-left:20px!important;"><h5 adr_trans="label_first_name">First Name</h5></td><td><?php echo $user1['first_name']; ?><br /></td></tr>
+<tr><td style="padding-left:20px!important;"><h5 adr_trans="label_last_name">Last  Name</h5></td><td>  <?php echo $user1['last_name']; ?><br /></td></tr>
+<tr><td style="padding-left:20px!important;"><h5 adr_trans="label_organization">Organization</h5></td><td>  <?php if($_SESSION['user_type']!='Photographer') {echo $user1['organization_name'];} else { echo $organization_name; } ?><td align="left">
 <?php if($_SESSION['user_type']!='Photographer'){?><a href="#changePersonal" id="uname" class="lightbox link btn  adr-save" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:blue;" adr_trans="label_update">Update</a></td></td></tr><?php } ?>
 
 
-<tr><td style="padding-left:20px;"><h5>Role </h5></td><td> <?php echo $user1['type_of_user']; ?><br /></td><td align="left">
+<tr><td style="padding-left:20px!important;"><h5>Role </h5></td><td> <?php echo $user1['type_of_user']; ?><br /></td><td align="left">
 <a href="#" id="moreInfo" onClick="showMore()" style="color:blue;" adr_trans="label_more" >More</a></td></tr>
 
 <tr><td colspan="3"><span id="moreInfoText" style="display:none" adr_trans="label_change_role">To change your role, kindly click on sign up in the home screen and register as a new user.</span></td></tr>
 </td></tr>
-<tr><td style="padding-left:20px;"><h5 adr_trans="label_user_name">User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link btn adr-save" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:blue;" adr_trans="label_update">Update</a><br /></td></tr>
-<tr><td style="padding-left:20px;padding-bottom:20px;"><h5 adr_trans="label_new_password">Password</h5></td><td>
+<tr><td style="padding-left:20px!important;"><h5 adr_trans="label_user_name">User Name </h5></td><td> <?php echo $user1['email']; ?><br /></td><td><a href="#changeemail" id="uname1" class="lightbox link btn adr-save" data-lightbox-anima="show-scale" style="font-size:13px;text-decoration:none;color:blue;" adr_trans="label_update">Update</a><br /></td></tr>
+<tr><td style="padding-left:20px!important;padding-bottom:20px;"><h5 adr_trans="label_new_password">Password</h5></td><td>
 
  <?php
 
