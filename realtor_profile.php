@@ -151,7 +151,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 
 					<tbody>
 						<tr><td colspan="3"><hr class="space xs" /></td></tr>
-            <tr><td align="center" colspan="3" style="font-size: 10px;"><span><h5>Realtor Profile</h5></span></td></tr>
+            <tr><td align="center" colspan="3" style="font-size: 10px;"><span></span></td></tr>
 	  <?php
 
 	  $userExist=mysqli_num_rows($res);
@@ -213,7 +213,7 @@ $loggedin_id=$_SESSION["loggedin_id"];
 				</tbody>
 				  </table>
 				  <br />
-				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="margin-left: 40%;" href="edit_realtor_profile.php" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
+				  <a class="anima-button circle-button btn-success btn-sm btn adr-save" style="float: right;" href="edit_realtor_profile.php" adr_trans="label_add_profile"><i class="fa fa-pencil"></i>Add / Edit profile</a>
 
 
 

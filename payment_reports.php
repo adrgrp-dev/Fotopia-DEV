@@ -112,15 +112,15 @@ return true;
 </script>
 <form name="searchForm" method="post" action="" onsubmit="return validateDates()">
 <div class="row">
-<div class="col-md-3" style="padding-left:15px;width:200px;">
+<div class="col-md-3" style="padding-left:15px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
-<input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; onchange="setSecondDate();" class="form-control" style="display:inline-table">
+<input type="date" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>"; onchange="setSecondDate();" class="form-control" style="display:inline-table;height:30px;">
 </div>
-<div class="col-md-3" style="padding-left:10px;width:200px;">
+<div class="col-md-3" style="padding-left:10px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control" style="">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control" style="height: 30px;">
 </div>
-<div class="col-md-3" style="padding-left:10px;width:200px;">
+<div class="col-md-3" style="padding-left:10px;">
 <p><h5 adr_trans="label_photo_company">Photo Company</h5></p>
 <?php
 if(!empty($_REQUEST['pcfilter'])){
@@ -132,7 +132,7 @@ if(!empty($_REQUEST['pcfilter'])){
 
 }
 ?>
-<input type="text" name="pcfilter" id="pcfilter" class="form-control" placeholder="<?php echo @$select_organization['org'];?>" list="pclist"  onchange="PCAdminSearch()"  autocomplete="off" />
+<input type="text" name="pcfilter" id="pcfilter" class="form-control" placeholder="<?php echo @$select_organization['org'];?>" list="pclist" style="height: 30px;" onchange="PCAdminSearch()"  autocomplete="off" />
 <datalist id="pclist">
  <?php
 							$city1=mysqli_query($con,"select distinct(organization_name) as org,pc_admin_id from photo_company_profile where pc_admin_id in (select id from admin_users where is_approved=1)");
@@ -143,11 +143,11 @@ if(!empty($_REQUEST['pcfilter'])){
 							<?php } ?>
 </datalist>
 </div>
-<div class="col-md-3" style="margin-top: 23px;padding-left: 10px;">
-    <button type="submit" id="submit" class="btn btn-default " style="padding:7px 10px !important;" adr_trans="label_search">Search</button>
+<div class="col-md-3" style="margin-top: 24px;padding-left: 10px;width: 220px;">
+    <button type="submit" id="submit" class="btn btn-default btn-sm" style="" adr_trans="label_search">Search</button>
 
-                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:30px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
+                          <a href="#" onclick="payment()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;vertical-align: middle;margin-top: 3px;float: right;" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;vertical-align: middle;margin-top: 3px;float: right;" title="Download Excel"></i></a>
 
   </div>
 </div>

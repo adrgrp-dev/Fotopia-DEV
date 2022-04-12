@@ -203,13 +203,17 @@ font-size:10px!important;
 	{
 	line-height:inherit!important;
 	}
+	.nav-tabs > li.active > a
+	{
+		padding: 5px !important;
+	}
 </style>
 <?php include "header.php";  ?>
  <div class="section-empty bgimage9">
         <div class="container-fluid" style="margin-left:0px;height:inherit;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="margin-left:-10px;">
+                <div class="col-md-2" style="margin-left:-15px;">
 	<?php include "sidebar.php"; ?>
 
 		<script>
@@ -536,7 +540,7 @@ margin-left:0px!important;
               	<div id='calendar' style="opacity:0.8;border-radius:5px;"></div>
                 <hr class="space s">
 
-                <center>  <a href="./csrRealtorCalendar.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i> View My Calender</a>    </center>
+                <center>  <a href="./csrRealtorCalendar.php" class="anima-button circle-button btn-sm btn adr-save" style="height:30px;" adr_trans="label_view_my_calender"><i class="fa fa-calendar"></i> View My Calender</a>    </center>
 
             </div>
 						<div class="col-md-6">
@@ -571,7 +575,7 @@ margin-left:0px!important;
 					  </div></div>
 					  <p align="center">
 
- <a class="anima-button circle-button btn-sm adr-save" href="order_list.php" style="margin-top:20px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
+ <a class="anima-button circle-button btn-sm adr-save" href="order_list.php" style="margin-top:20px;height: 30px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders </a>
 
 </p>
 
@@ -900,7 +904,7 @@ if($i<=$ratingIs)
 <p align="center" style="font-weight:600" adr_trans="label_photo_companies">Photo Companies</p>
 <form name="searchByLocation" method="post" action="./csrRealtorDashboard.php" style="margin-left:5px;">
 
-				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;"  placeholder="Search " list="cities" onchange="this.form.submit()" />
+				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;height: 30px;"  placeholder="Search " list="cities" onchange="this.form.submit()" />
 <datalist id="cities">
  <?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities");

@@ -198,7 +198,8 @@ th:last-child > span
                 </div>
 <div class="col-md-10" >
 <div class="tab-box">
-  <h5 align="center" adr_trans="label_list_order">List of Orders</h5>
+  <!-- <h5 align="center" adr_trans="label_list_order">List of Orders</h5> -->
+  <hr class="space s" style="margin-top: 2px;">
    <p align="right" style="position: absolute;right: 15px;" >
         <!-- <a href="create_order.php" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn"><i class="fa fa-calendar"></i> Create New Order</a> -->
         </p>
@@ -239,7 +240,7 @@ th:last-child > span
   <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden ">
 
 <form name="filterStatus" method="post" action="">
-<select name="filterByStatus" style="width:200px;margin-bottom:5px;" class="form-control" onchange="this.form.submit();">
+<select name="filterByStatus" style="width:200px;margin-bottom:5px;padding: 5px;height: 30px;" class="form-control" onchange="this.form.submit();">
 <option value="0">All</option>
 <option value="1" <?php if(@$_REQUEST['filterByStatus']==1||$_SESSION['status']==1) { echo "selected"; } ?>>Created</option>
 <option value="2" <?php if(@$_REQUEST['filterByStatus']==2||$_SESSION['status']==2) { echo "selected"; } ?>>Work in progress</option>
@@ -316,6 +317,7 @@ th:last-child > span
 
                 </tr>
           </thead>
+          <tr><td class="listPageTRGap">&nbsp;</td></tr>
           <?php
           $loggedin_id=$_SESSION["loggedin_id"];
 		  $q1="";
@@ -461,7 +463,7 @@ th:last-child > span
 
                           <td style=""><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' style='position: relative;top: -28px;right: -75px;color: black;' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
                                       <td style="" class="text-center"><a target="" href="order_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-          <i class="fa fa-external-link"></i></a></td>
+          <i class="fa fa-pencil fa-lg" style="color:#000"></i></a></td>
 
           </tr>
           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -542,7 +544,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 <div class="panel" id="tab2">
 
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="order_list.php?c=1" class="btn btn-default" id="view_button" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;padding:5px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;" placeholder="Search Address / Order # / PC / Homeseller " />
+<form name="searchOrder" method="post" action=""> <a href="order_list.php?c=1" class="btn btn-default btn-sm" id="view_button" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;height: 30px;" placeholder="Search Address / Order # / PC / Homeseller " />
 </form>
 </div>
 
@@ -610,6 +612,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
                   </span></tr>
           </thead>
+           <tr><td class="listPageTRGap">&nbsp;</td></tr>
           <?php
           $loggedin_id=$_SESSION["loggedin_id"];
             //  ---------------------------------  pagination starts ---------------------------------------
@@ -730,7 +733,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 
         <td class="text-center"  style=""><a onclick="mouseover(<?php echo $get_order['id']; ?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;''>Working With Customer</span>";}?></a></td>
         <td class="text-center" style=""><a target="" href="order_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-          <i class="fa fa-external-link"></i></a></td>
+          <i class="fa fa-chevron-circle-right fa-lg" style="color:#000"></i></a></td>
           <?php
           if($get_order['status_id']==3)
           {

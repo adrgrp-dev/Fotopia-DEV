@@ -126,11 +126,11 @@ var days = 1;
 <form>
 <div class="col-md-3" style="padding-left:0px;">
 <p><h5 adr_trans="label_from_date">From Date</h5></p>
-<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>" class="form-control">
+<input type="date" onchange="setSecondDate();" id="start" name="starting" value="<?php echo @$_REQUEST['starting'];?>" class="form-control" style="height: 30px;">
 </div>
 <div class="col-md-3" style="padding-left:5px;">
 <p><h5 adr_trans="label_to_date">To Date</h5></p>
-<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control">
+<input type="date" id="end" name="ending" value="<?php echo @$_REQUEST['ending'];?>" class="form-control"  style="height: 30px;">
 </div>
 
 
@@ -138,7 +138,7 @@ var days = 1;
 
 
 
-<select name="photoCompany" id="realtor" class="form-control" style="display:block;margin-top:25px;">
+<select name="photoCompany" id="realtor" class="form-control" style="display:block;margin-top:23px;height: 30px;padding: 4px;">
 <option value="">Select Photo Company</option>
 <?php
 $realtorID=$_SESSION['loggedin_id'];
@@ -158,9 +158,9 @@ $realtorID=$_SESSION['loggedin_id'];
 </div>
 
 <div class="col-md-3" style="margin-top:25px">
-<button type="submit" id="submit" name="label_search" class="btn btn-default btn-sm" style="padding: 8px 10px !important;" adr_trans="label_search">Search</button>
-<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:31px;padding-left:10px;vertical-align: middle;" title="Download PDF"></i></a>&nbsp;&nbsp;
-<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:31px;padding-left:10px;vertical-align: middle;" title="Download Excel"></i></a>
+<button type="submit" id="submit" name="label_search" class="btn btn-default btn-sm" style="" adr_trans="label_search">Search</button>
+<a href="#" onclick="Orders()"><i class="fa fa-file-pdf-o" style="color:#F20F00;font-size:25px;padding-left:10px;vertical-align: middle;margin-top: 3px;float:right" title="Download PDF"></i></a>&nbsp;&nbsp;
+<a href="#" class="dataExport" data-type="excel"><i class="fa fa-file-excel-o" style="color:#117C43;font-size:25px;padding-left:10px;vertical-align: middle;margin-top: 3px;float: right;" title="Download Excel"></i></a>
 								</div>
 </div>
 </form>

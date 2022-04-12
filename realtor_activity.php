@@ -51,7 +51,7 @@ th:last-child > span
         <div class="container" style="margin-left:0px;height:inherit">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" >
+                <div class="col-md-2" style="margin-left:-7px;">
 	<?php include "sidebar.php"; ?>
 
 
@@ -66,13 +66,13 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
  ?>
 
-              	<h5 class="text-center"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
+              	<h5 class="text-left"><span adr_trans="label_notification">Notifications</span>(<?php echo $countIs; ?>)</h5>
 
                <div style="background-color:white;padding-top: 10px;border-radius: 5px;">
  <table class="" align="center" style="color: #000;background: white;opacity:0.9;width:98%;padding-left:3px;" aria-busy="false">
                   <thead>
                     <tr>
-                      <th class="text-left"><span  adr_trans="label_s.no">S.no</span></th>
+                      <th class="text-left" style="padding-left:20px!important;width:100px;"><span  adr_trans="label_s.no">S.no</span></th>
                      <th class="text-left"><span adr_trans="label_activity">Activity</span></th>
            <th class="text-left"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
@@ -137,17 +137,17 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                        <?php
                        if($get_action['module']=="Order" || $get_action['module']=="Rework" || $get_action['module']=="Appointment" || $get_action['module']=="Profile"||$get_action['module']=="Canceled")
                        {?>
-                           <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                           <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#0000ff;font-size:12px;text-decoration:underline;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                       <?php }
                       elseif($get_action['module']=="Rating" )
                       {?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					  elseif($get_action['module']=="Finished images" )
                       {?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#000;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					 elseif($get_action['module']=="Chat Message" )
@@ -182,7 +182,7 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
 
 
 
-                  <p align="right">   <a href="./csrRealtorDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home">Back To Home</a></p>
+                <!--   <p align="right">   <a href="./csrRealtorDashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" adr_trans="label_back_home">Back To Home</a></p> -->
                 </div>
 
         </div>
