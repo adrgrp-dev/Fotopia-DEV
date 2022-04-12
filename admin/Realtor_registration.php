@@ -880,7 +880,7 @@ $("#country").css("border","solid 1px grey");
                             </div>
 
 
-                            <div class="col-md-12" align="center">
+                            <div class="col-md-12" align="right">
                                 <br><br>
 
                             <a class="anima-button circle-button btn-sm btn adr-save" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="client.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>

@@ -103,7 +103,7 @@ header("location:PCAdmin_Calender.php?ph_id=$ph_id&ph_name=$ph_name&busydate=$bu
 				  </form></div>
 				  
 				  <div class="col-md-3" style="float:right;text-align:right;margin-right:-40px;">
-               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="" class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order" style="font-size: 12px;"> Create New Order</span></a>
+               <a href="photographerCalendar1.php?pc_admin_id=<?php echo $_SESSION['admin_loggedin_id'];?>" id="" class="anima-button circle-button btn-sm btn adr-save" style="height:30px"><i class="fa fa-calendar"></i><span adr_trans="label_create_new_order" style="font-size: 12px;"> Create New Order</span></a>
                 </div>
 				  </div></div>
 

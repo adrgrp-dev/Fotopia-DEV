@@ -48,7 +48,7 @@ th{
 					<table class="table-striped" style="width:100%;">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th style="padding-left:30px!important;width:100px;">#</th>
                         <th><span adr_trans="label_product_name">Product name</span></th>
                         <th><span adr_trans="label_timeline">Timeline</span></th>
                         <th><span adr_trans="label_product_cost">Product cost</span></th>
@@ -129,7 +129,7 @@ th{
 	                  $cnt++;
 				          ?>
                     <tr class="listPageTR">
-                        <td scope="row"><?php echo $cnt;?></td>
+                        <td scope="row" style="padding-left:30px!important;;"><?php echo $cnt;?></td>
                         <td><?php echo $get_product['product_name']; ?></td>
                         <td><?php echo $get_product['timeline']; ?></td>
                         <td><?php echo $get_product['product_cost']; ?></td>

@@ -174,7 +174,7 @@ if($_SESSION['admin_loggedin_type']=="PCAdmin"){ ?>
 <?php }
 else{?>
 
-<input type="radio" value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?>  onchange="filter1(this.value)" onclick="filter1(this.value)"><span id="label_photographer" adr_trans="label_photographer">Photographer</span>&nbsp;
+<input type="radio" value="photographer" id="photographer_radioID" name="filter" <?php if(@$_REQUEST['filter']=='photographer'){echo'checked';} ?>  onchange="filter1(this.value)" onclick="filter1(this.value)">&nbsp;&nbsp;<span id="label_photographer" adr_trans="label_photographer">Photographer</span>&nbsp;
 
 <?php  } ?>
 </div>

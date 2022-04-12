@@ -1073,7 +1073,7 @@ thead > tr:last-child > th, th > span {
 <div class="panel" id="tab2">
 
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default view-btn btn-sm" style="">Reset Search</a><input type="text" name="searchAddress" class="form-control search-field" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:300px;float:right;margin-bottom:20px;font-size: 12px;height:30px;margin-right:20px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="superorder_list1.php?vAll=1" class="btn btn-default view-btn btn-sm" style="margin-left:15px">Reset Search</a><input type="text" name="searchAddress" class="form-control search-field" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:300px;float:right;margin-bottom:10px;font-size: 12px;height:30px;margin-right:12px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
 
