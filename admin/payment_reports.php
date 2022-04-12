@@ -44,7 +44,6 @@ if(isset($_REQUEST['loginbtn']))
   {
     background: white;
     padding: 0px 25px;
-    margin-right: -49px;
   }
   .nav > li {
   margin-right:10px;
