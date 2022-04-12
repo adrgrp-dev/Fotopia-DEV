@@ -2353,7 +2353,7 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
 
                       </div>
 
-                      <div class="panel" id="tab5">
+                      <div class="panel" id="tab5" style="padding:0px 15px 15px 15px">
 
 
         <p align="right"><a class="anima-button circle-button btn-sm btn adr-save " style="position: relative;margin-right:15px;margin-top: 5px;color:white !important;" id="mobileprint" onclick="printPage()"><i class="fa fa-print"></i><span adr_trans="label_print">Print</span></a></p>
