@@ -58,7 +58,7 @@ th:last-child > span
                   <div class="col-md-12">
 
                          <ul class="nav nav-pills" style="margin-left:0px;">
-                              <li class="active" style="margin-right: 5px;"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_order_reports">Order Report</a></li>
+                              <li class="active" style="margin-right: 10px;"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_order_reports">Order Report</a></li>
                               <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm adr-save"   adr_trans="label_payment_report">Payment Report</a></li>
                                 </ul>
 <br />
