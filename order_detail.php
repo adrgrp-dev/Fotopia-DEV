@@ -1699,7 +1699,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
 </div>
 
-<div class="panel" id="tab3" style="border-radius:5px;padding:10px;">
+<div class="panel" id="tab3" style="border-radius:5px;padding:10px;padding-top: 0px;">
             <input type="hidden" id="count">
             <input type="hidden" id="count2">
             <input type="hidden" id="count3">
@@ -1708,7 +1708,7 @@ $('.input'+iconid1).css("visibility","hidden");
 
 
 
-<div class="row" style="padding-top:10px;">
+<div class="row" style="">
  
  <div class="col-md-2">&nbsp;</div> 
 
@@ -1736,33 +1736,34 @@ if (@$_REQUEST['shar']) {
 <?php } ?>
 
 </div> 
-
- <div class="col-md-3" style="float:right;margin-right: -54px;">
-
-
   <?php if($get_summary['status_id']==2 || $get_summary['status_id']==4){?>
-              <input type="button" id="done_hide" style="font-size: 12px;" class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete">
-            <?php } ?>
+ <div class="col-md-3" style="float:right;margin-right: -54px;" id="CompleteDiv">
 
- <?php if($get_summary['status_id']==3)
-            {
-               echo '<script>$("#done_hide").hide();</script>';
-            }
-             ?>
+
+
+              <input type="button" id="done_hide" style="font-size: 12px;margin: 10px 0px;" class="btn btn-default" style="" onclick="done(<?php echo $id_url; ?>)"  value="Mark as Complete">
+           
 
 
           </div> 
+           <?php } ?>
+
+ <?php if($get_summary['status_id']==3)
+            {
+               echo '<script>$("#CompleteDiv").css("visibility","hidden");</script>';
+            }
+             ?>
 
 
 </div>
         
            
            
-			 <br >
+			
                       <div class="tab-box pills" data-tab-anima="fade-right">
-                          <ul class="nav nav-pills nav-justified">
-                              <li class="current-active active "><a href="#" class="" adr_trans="label_standard_photos">Standard Photos</a></li>
-                              <li class=""><a href="#" adr_trans="label_floor_plans1">Floor Plans</a></li>
+                          <ul class="nav nav-pills nav-justified" style="line-height: 10px;border: 2px solid #bbdade;border-radius: 5px;">
+                              <li class="current-active active "><a href="#" class="" style="border-radius: 0px" adr_trans="label_standard_photos">Standard Photos</a></li>
+                              <li class=""><a href="#" adr_trans="label_floor_plans1"  style="border-radius: 0px">Floor Plans</a></li>
                               <!-- <li class=""><a href="#" adr_trans="label_drone_photos">Drone Photos</a></li>
                                 <li class=""><a href="#" adr_trans="label_hdr_photos">Hdr Photos</a></li> -->
                           </ul>
