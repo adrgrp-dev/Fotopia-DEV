@@ -592,7 +592,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id and session_from_datetime!='0000-00-00 00:00:00' and photographer_id!='0' and status_id in(1,6,7,5)  order by id desc limit $limit");
                           if($get_order_query == "0"){
 
-                            ?><h5 align="center" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5>
+                            ?><tr><td colspan="8" style="padding:10px"><h5 align="center" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5></td></tr>
                           <?php
                           $cnt = 0;
                           $start_no_users = -1;
@@ -850,7 +850,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id and status_id in (2,4,8)  order by id desc limit $limit");
                           if($get_order_query == "0"){
 
-                            ?><h5 id="label_no_order" adr_trans="label_no_order" align="center"> <?php echo "No Orders Yet";?> </h5>
+                            ?><tr><td colspan="8" style="padding:10px"><h5 id="label_no_order" adr_trans="label_no_order" align="center"> <?php echo "No Orders Yet";?> </h5></td></tr>
                           <?php
                           $cnt = 0;
                           $start_no_users = -1;
