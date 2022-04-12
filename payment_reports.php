@@ -58,7 +58,7 @@ th:last-child > span
                   <div class="col-md-12">
 
                          <ul class="nav nav-pills" style="margin-left:0px;">
-                              <li class="active"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_order_reports">Order Report</a></li>
+                              <li class="active" style="margin-right: 5px;"><a href="order_reports.php" class="btn btn-default btn-sm " style="background:#FFF!important;color:#000!important;"  adr_trans="label_order_reports">Order Report</a></li>
                               <li class="active"><a href="payment_reports.php" class="btn btn-default btn-sm adr-save"   adr_trans="label_payment_report">Payment Report</a></li>
                                 </ul>
 <br />
@@ -155,11 +155,11 @@ if(!empty($_REQUEST['pcfilter'])){
 </form>
 <div style="margin-top: 5px;width:96%;border:solid 1px #fff;background-color:white">
 <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden">
-                              <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.9;width:96%;">
+                              <table id="dataTable" align="center" class="table-striped" style="background:#FFF;color:#000;opacity:0.9;width:96%;margin-top: 10px;">
 
 
                                     <thead>
-			<tr class="text-left"><th align="center" colspan="10"><center><b adr_trans="label_payment_report"><br />Payment Reports<br /></b></center></th></tr>
+			<!--  -->
                                         <tr><th data-column-id="id" class="text-left" style=""><span class="text" adr_trans="label_s.no">
 
                                               S.No

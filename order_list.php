@@ -544,7 +544,7 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
 <div class="panel" id="tab2">
 
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="order_list.php?c=1" class="btn btn-default btn-sm" id="view_button" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">View All</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;height: 30px;" placeholder="Search Address / Order # / PC / Homeseller " />
+<form name="searchOrder" method="post" action=""> <a href="order_list.php?c=1" class="btn btn-default btn-sm" id="view_button" style="display:inline-table;float:left;margin-left:20px;border-radius:20px;">Reset Search</a><input type="text" name="searchAddress" class="form-control" value="<?php echo @$_REQUEST['searchAddress'];?>" style="width:330px;float:right;margin-bottom:20px;height: 30px;" placeholder="Search Address / Order # / PC / Homeseller " />
 </form>
 </div>
 
@@ -741,16 +741,16 @@ color: black;" ><span style="color:red;font-size:13px;">Comment:</span><?php ech
            @$approved_check=mysqli_fetch_assoc(@$approved_check_query);
               if(@$approved_check['approved']==1)
                {
-                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="order_detail.php?c=1&id='.$get_order['id'].'" class="link">
+                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="order_detail.php?c=1&id='.$get_order['id'].'" class="link">
                  <i class="fa fa-file-text-o " title="View Order Cost"></i></a></td>';
                }
                else {
-                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
+                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
                  <i class="fa fa-file-o " title="Order Cost is not Approved"></i></a></td>';
                }
           }
           else {
-            echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
+            echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
             <i class="fa fa-file-o " title="Order Cost is not Ready"></i></a></td>';
           }
 

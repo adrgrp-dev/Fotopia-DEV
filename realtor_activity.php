@@ -142,25 +142,25 @@ $realtor_count_query="select count(*) as total from user_actions where ((action_
                       <?php }
                       elseif($get_action['module']=="Rating" )
                       {?>
-                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;text-decoration:underline;">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					  elseif($get_action['module']=="Finished images" )
                       {?>
-                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="#" style="color:#0000ff;font-size:12px;text-decoration:underline;">'.$get_action['module'].' '.  $get_action['action'].'ed';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
 					 elseif($get_action['module']=="Chat Message" )
                       {
 					  $orderID=$get_action['order_id'];
 					  ?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_detail.php?id='.$orderID.'" style="color:#000;font-size:12px;text-decoration:underline;color:#0000ff;">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                      <?php }
                          else {
                              $get_action_done_name=explode("@",$get_action['action_done_by_name']);
                         ?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:20px!important;width:100px;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="order_list.php" style="color:#000;font-size:12px;text-decoration:underline;color:#0000ff;">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action_done_name[0].'</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
                   <?php  }
                 } }?>

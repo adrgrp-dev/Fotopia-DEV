@@ -559,10 +559,10 @@ margin-left:0px!important;
 						  $get_address=mysqli_fetch_array($get_address1);
 					        ?>
 
-					        <div class="col-md-6 ">
+					        <div class="col-md-6 " style="">
 					          <a href="order_detail.php?id=<?php echo $get_latest_delivered['order_id']; ?>&f=1">
-					        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="120" style="padding-bottom:15px;"/>
-					     <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#FFF!important;padding:3px;opacity:0.6;width:100%;float:left;left:0px;font-weight:bold;font-size:12px;"><?php echo $get_address['property_address']; ?></span>
+					        <img id="delivered_image" src="./finished_images/order_<?php echo $get_latest_delivered['order_id']; ?>/<?php if($get_latest_delivered['service_id']==1){ echo "standard_photos" ;}elseif($get_latest_delivered['service_id']==2){ echo "floor_plans";}elseif($get_latest_delivered['service_id']==3){echo "Drone_photos";}else{ echo "Hdr_photos";}?>/<?php echo $get_latest_delivered['img']?>" width="230" height="120" style="margin-bottom: 10px;"/>
+					     <span id="delivered_address" style="position:absolute; text-align:center;z-index:2;color:#000;background:#FFF!important;padding:3px;opacity:0.6;width:93%;float:left;left:-1px;font-weight:bold;font-size:12px;"><?php echo $get_address['property_address']; ?></span>
 						    </a>
 
 
