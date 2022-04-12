@@ -36,14 +36,14 @@ $csr_count_query="select count(*) as total from user_actions where ((action_done
                   $csr_count_result=mysqli_query($con,$csr_count_query);
           $csr_data=mysqli_fetch_assoc($csr_count_result);
                   $countIs=$csr_data['total'];
- ?>
+ ?> 
   <hr class="space xs">            
 <table class="" align="center" style="color: #000;opacity:0.9;width:98%;" aria-busy="false">
                   <thead>
                     <tr>
-                       <th id="label_s.no" adr_trans="label_s.no">Sno</th>
-                      <th><span adr_trans="label_activity">Activity</span></th>
-					  <th><span adr_trans="label_date_and_time">Date & Time</span></th>
+                       <th id="label_s.no" adr_trans="label_s.no" style="padding-left:30px!important;">Sno</th>
+                      <th style="padding-left:30px!important;"><span adr_trans="label_activity">Activity</span></th>
+					  <th style="padding-left:30px!important;"><span adr_trans="label_date_and_time">Date & Time</span></th>
                    </tr>
                  </thead>
                 <tbody>
@@ -126,18 +126,18 @@ $limit=$start_no_users. ',' . $number_of_pages;
      <?php
      if($get_action['module']=="Profile" || $get_action['module']=="Product")
      { ?>
-         <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:blue;font-size:12px;"><?php echo $date1; ?></td></tr>
+         <tr class="listPageTR"><td style="padding-left:30px!important;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important;"><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by You </a>';?></td><td style="color:blue;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
           <tr><td class="listPageTRGap">&nbsp;</td></tr>
                       <?php }
                       elseif($get_action['module']=="Chat Message" )
                                   {
                        $orderID=$get_action['order_id'];
                        ?>
-                                      <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href="superOrder_detail.php?id='.$orderID.'" style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                                      <tr class="listPageTR"><td style="padding-left:30px!important;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important;"><?php echo'<a href="superOrder_detail.php?id='.$orderID.'" style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].'';?></td><td style="color:#000;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
                                         <tr><td class="listPageTRGap">&nbsp;</td></tr>
                                  <?php }
                        else {  ?>
-                          <tr class="listPageTR"><td><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;"><?php echo $date1; ?></td></tr>
+                          <tr class="listPageTR"><td style="padding-left:30px!important;"><?php if($cnt<0){ echo "0";}else{ echo $cnt;} ?></td><td style="padding-left:30px!important;"><?php echo'<a href='.$redirect.' style="color:blue;font-size:12px;text-decoration:underline">'.$get_action['module'].' '.  $get_action['action'].' by '.$get_action['action_done_by_name']. '</a>';?></td><td style="color:#000;font-size:12px;padding-left: 30px!important"><?php echo $date1; ?></td></tr>
                             <tr><td class="listPageTRGap">&nbsp;</td></tr>
 
   <?php   } ?>
@@ -161,8 +161,8 @@ $limit=$start_no_users. ',' . $number_of_pages;
 
 
 
-                  <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" style="margin-bottom: 10px;margin-right: 15px;" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
-
+                  <!-- <p align="right" id="label_back_home" adr_trans="label_back_home">   <a href="subcsr_dashboard.php" class="anima-button circle-button btn-sm btn adr-cancel" style="margin-bottom: 10px;margin-right: 15px;" ><i class="fa fa-sign-out"></i>Back To Home</a></p>
+ -->
         </div>
 
 

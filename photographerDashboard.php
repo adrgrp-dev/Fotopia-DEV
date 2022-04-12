@@ -127,7 +127,7 @@ height:fit-content!important;
         <div class="" style="margin-left:0px;height:inherit;width:100%;">
             <div class="row">
 			<hr class="space s">
-                <div class="col-md-2" style="padding-left:10px;">
+                <div class="col-md-2" style="padding-left:15px;">
 				
 	<?php include "sidebar.php"; ?>
 
@@ -414,7 +414,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
  <div id='calendar' style="border-radius:5px"></div>
     <br>
 
- <center> <a href="./photographerCalendar.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:5px;border:none;"><i class="fa fa-calendar"></i>View My Calender</a>  </center>
+ <center> <a href="./photographerCalendar.php" class="anima-button circle-button btn-sm btn adr-save" adr_trans="label_view_my_calender" style="background:#aad1d6;color:#000;border-radius:5px;border:none;height: 30px;font-size: 12px;"><i class="fa fa-calendar"></i>View My Calender</a>  </center>
   </div>
   <div class="col-md-6">
               <center>    <h5 adr_trans="label_latest_delivered">Latest Delivered Orders</h5></center>
@@ -443,7 +443,7 @@ window.location.href="./create_order.php?date="+date1+"&time="+time1;
   </div></div>
 <p align="center">
 <br /><br />
- <a class="anima-button circle-button btn-sm adr-save" href="photographerorder_list.php?c=1" style="margin-top:20px!important;background:#aad1d6;color:#000;border-radius:8px;border:none;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders</a>
+ <a class="anima-button circle-button btn-sm adr-save" href="photographerorder_list.php?c=1" style="margin-top:20px!important;background:#aad1d6;color:#000;border-radius:8px;border:none;height: 30px;font-size: 12px;" adr_trans="label_view_order"><i class="fa fa-long-arrow-right"></i>View My Orders</a>
 </p>
 
             </div>

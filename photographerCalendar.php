@@ -45,10 +45,11 @@ header("location:photographerCalendar.php?busydate=$busyDate");
 			</div>
                 <div class="col-md-10" style="margin-top:-5px;">
 <div class="row">
-<div class="col-md-12" style="padding-left:20px;height:30px;width:98%">
-				<div class="col-md-12" style="float:left;display:inline-block">
-				<center><h5> <span class="text-center" adr_trans="label_calendar"> Calendar</span> - <?php echo strtoupper($_SESSION['loggedin_name']); ?>
-				</h5></center></div>
+<div class="col-md-12" style="padding-left:21px;height:27px;width:98%">
+
+				<h5 style="color: #000;margin-top: 10px;"> <span class="text-center" adr_trans="label_calendar"> Calendar</span> - <?php echo strtoupper($_SESSION['loggedin_name']); ?>
+				</h5>
+
 				</div>
 			</div>
 

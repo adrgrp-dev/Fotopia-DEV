@@ -191,6 +191,13 @@ tr
 {
 line-height:23px;
 }
+
+.menuTable a
+{
+color:#000!important;
+line-height:23px;
+}
+
 </style>
 
     <script>
@@ -258,7 +265,7 @@ line-height:23px;
 
 
 
-<table align="center">
+<table align="center" class="menuTable">
 <tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csrRealtorDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
@@ -338,7 +345,7 @@ line-height:23px;
 <div class="hidden-xs hidden-sm" style="">
 <br />
 
-<table align="center">
+<table align="center" class="menuTable">
 <tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="photographerDashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>

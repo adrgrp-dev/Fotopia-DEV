@@ -171,10 +171,9 @@ header("location:subcsrOrder_list1.php?app=1");
 	   <?php include "sidebar.php";  ?>
 
                 </div>
-                <div class="col-md-10" style="padding-left:30px;">
+                <div class="col-md-10" style="padding-left:30px;margin-top: 23px;">
                 <div class="tab-box" data-tab-anima="show-scale">
-                  <h5 align="center" id="label_list_order" adr_trans="label_list_order" >List of Orders</h5>
-
+                 
                   <p align="right" style="position: absolute;right: 15px;" >
                       <?php
                        $csr_id=$_SESSION['admin_loggedin_id'];
@@ -182,7 +181,7 @@ header("location:subcsrOrder_list1.php?app=1");
                         $get_pcadmin=mysqli_fetch_array($get_pcadmin_query);
                         $pc_admin_id=$get_pcadmin['pc_admin_id'];
                       ?>
-                       <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i> Create New Order</a>
+                       <a href="photographerCalendar1.php?pc_admin_id=<?php echo $pc_admin_id;?>&csr_id=<?php echo $csr_id; ?>" style="margin-top: 3px;" id="label_create_new_order" adr_trans="label_create_new_order" class="anima-button circle-button btn-sm btn adr-save"><i class="fa fa-calendar"></i> Create New Order</a>
                         </p>
                 <ul class="nav nav-tabs">
                   <li class="active current-active" id="click3"><a href="#tab3" ><span id="label_new_orders" adr_trans="label_new_orders">New Orders</span></a></li>
@@ -331,7 +330,7 @@ header("location:subcsrOrder_list1.php?app=1");
                           $get_order_query=mysqli_query($con,"SELECT * FROM orders where csr_id=$loggedin_id and session_from_datetime='0000-00-00 00:00:00' and status_id in(1,6,7,5)  order by id desc limit $limit");
                           if($get_order_query == "0"){
 
-                            ?><h5 id="label_no_order" adr_trans="label_no_order" align="center"> <?php echo "No Orders Yet";?> </h5>
+                            ?><tr><td colspan="8" style="padding:10px"><h5 id="label_no_order" adr_trans="label_no_order" align="center"> <?php echo "No Orders Yet";?> </h5></td></tr>
                           <?php
                           $cnt = 0;
                           $start_no_users = -1;
@@ -400,7 +399,7 @@ header("location:subcsrOrder_list1.php?app=1");
                     <td class="text-left" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
                                             <td class="text-left" style="width: 100px;"><a onclick="mouseover(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Declined</span>";}elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle' style='position: relative;top: -17px;right: -73px;color: black;' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
-                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link"> <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
+                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link"> <i class="fa fa-pencil fa-lg"></i></a></td>
  
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -653,8 +652,8 @@ header("location:subcsrOrder_list1.php?app=1");
                           <td class="text-left" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
                                           <td class="text-left" style=""><a onclick="mouseover2(<?php echo $get_order['id']?>)"><?php $status=$get_order['status_id']; if($status==1) { echo "<span style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;' id='label_created' adr_trans='label_created'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Declined</span>";}  elseif($status==7){echo "<span id='label_working_customer' adr_trans='label_working_customer' style='color: #000; font-weight: bold;display: block; background: orange;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Working with Customer</span>";}elseif($status==5){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 75px;padding-bottom: 5px;text-align: center;'>Cancelled</span>";}?><?php if($status==5||$status==6||$status==7){ echo "  <i class='fa fa-question-circle mob-i' style='position: relative;top: -17px;right: -64px;color: black;' aria-hidden='true' aria-hidden='true' title='Click to view the reason'></i>";}?></a></td>
-                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-                          <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
+                                                      <td class="text-center" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
+                          <i class="fa fa-pencil fa-lg"></i></a></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -910,8 +909,8 @@ header("location:subcsrOrder_list1.php?app=1");
                           <td class="text-left" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
                                           <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span id='label_declined' adr_trans='label_declined' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Decline</span>";}elseif($status==8){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;' id='' adr_trans=''>Reopen</span>";}?></td>
-                                                      <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
-                          <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
+                                                      <td class="text-center" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
+                          <i class="fa fa-pencil fa-lg"></i></a></td>
 
                           </tr>
                           <tr><td class="listPageTRGap">&nbsp;</td></tr>
@@ -984,7 +983,7 @@ header("location:subcsrOrder_list1.php?app=1");
 
                 
 <div class="col-md-12" style="float:right">
-<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default view-btn" style="height: 30px;font-size:12px;">View All</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;height: 30px;font-size:12px;" placeholder="Search Address / City / Zip / Contact / Email" />
+<form name="searchOrder" method="post" action=""> <a href="subcsrOrder_list1.php?vAll=1" class="btn btn-default view-btn" style="height: 30px;font-size:12px;margin-left: 15px;">Reset Search</a><input type="text" name="searchAddress" value="<?php echo @$_REQUEST['searchAddress']; ?>" class="form-control" style="width:300px;float:right;margin-bottom:20px;height: 30px;font-size:12px;    margin-right: 10px;" placeholder="Search Address / City / Zip / Contact / Email" />
 </form>
 </div>
                 <p style="text-align: center;"><?php if(@isset($_REQUEST["s"])) { ?>
@@ -1136,7 +1135,7 @@ header("location:subcsrOrder_list1.php?app=1");
 						  }
                            if($get_order_query == "0"){
 
-                            ?><h5 align="center" id="label_no_order" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5>
+                            ?><tr><td colspan="10" style="padding:10px"><h5 align="center" id="label_no_order" adr_trans="label_no_order"> <?php echo "No Orders Yet";?> </h5></td></tr>
                           <?php
                            $cnt = 0;
                            $start_no_users = -1;
@@ -1195,7 +1194,7 @@ header("location:subcsrOrder_list1.php?app=1");
                             <td class="text-left" style=""><?php echo date('d/m/Y ',strtotime($get_order['order_due_date'])); ?></td>
 
                                             <td class="text-left" style=""><?php $status=$get_order['status_id']; if($status==1) { echo "<span id='label_created' adr_trans='label_created' style='color: #000; font-weight: bold;display: block; background: #86C4F0;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Created</span>"; } elseif($status==2){echo "<span id='label_wip' adr_trans='label_wip' style='color: #000; font-weight: bold;display: block; background: #FF8400; padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>WIP</span>";}elseif($status==3){echo "<span id='label_completed' adr_trans='label_completed' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>completed</span>";}elseif($status==4){echo "<span id='label_rework' adr_trans='label_rework' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Rework</span>";}elseif($status==6){echo "<span style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Decline</span>";}?></td>
-                                                        <td class="text-left" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
+                                                        <td class="text-center" style=""><a target="" href="superOrder_detail.php?id=<?php echo $get_order['id']; ?>" class="link">
                             <i class="fa fa-chevron-circle-right fa-lg"></i></a></td>
                           <?php
                           if($get_order['status_id']==3)
@@ -1204,16 +1203,16 @@ header("location:subcsrOrder_list1.php?app=1");
                            @$approved_check=mysqli_fetch_assoc(@$approved_check_query);
                               if(@$approved_check['approved']==1)
                                {
-                                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="superOrder_detail.php?c=1&id='.$get_order['id'].'" class="link">
+                                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="superOrder_detail.php?c=1&id='.$get_order['id'].'" class="link">
                                  <i class="fa fa-file-text-o " title="View Order Cost"></i></a></td>';
                                }
                                else {
-                                 echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
+                                 echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
                                  <i class="fa fa-file-o " title="Order Cost is not Approved"></i></a></td>';
                                }
                           }
                           else {
-                            echo '<td class="text-left" style="font-size: 18px;"><a target="" href="#" class="link">
+                            echo '<td class="text-center" style="font-size: 18px;"><a target="" href="#" class="link">
                             <i class="fa fa-file-o " title="Order Cost is not Ready"></i></a></td>';
                           }
 
