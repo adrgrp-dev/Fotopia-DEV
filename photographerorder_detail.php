@@ -1916,13 +1916,14 @@ src="https://www.google.com/maps/embed/v1/place?q=<?php echo $propAddress; ?>&ke
                                          if(is_dir($imagesDirectory_floor))
                                          {
                                          $floor_rework_count=countFilesInsideFolderExcludingSubFolder($imagesDirectory_floor);
-                                         }
+                                         
                                        if(($floor_rework_count==0)&&(@$floor['editor_email']==''))
                                        {
                                        ?>
 
                                          <center><a  href="<?php echo @$floor['images_url']."&rework=1" ?>" target="_blank">Click here to upload Finished Images</a></center>
                                        <?php
+                                       }
                                        }
                                        } 
                                        ?>
