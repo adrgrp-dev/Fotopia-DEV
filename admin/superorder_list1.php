@@ -884,7 +884,7 @@ thead > tr:last-child > th, th > span {
 
               </tr>
         </thead>
-		<tr><td class="listPageTRGap">&nbsp;</td></tr>
+		<hr class="space xs" />
           <?php
           $loggedin_id=$_SESSION['admin_loggedin_id'];
             //  ---------------------------------  pagination starts ---------------------------------------

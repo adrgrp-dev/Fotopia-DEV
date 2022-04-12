@@ -626,7 +626,7 @@ else
 
                             <!-- <td class="text-left" style=""><?php //echo $created_name; ?></td> -->
 
-							<td align="center">
+							<td align="left">
 
 							<?php
 							$HS_ID=$get_order2['home_seller_id'];
