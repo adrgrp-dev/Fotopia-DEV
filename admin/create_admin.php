@@ -315,7 +315,7 @@ function validate_email(val)
 
 
   						 <div class="row">
-                              <div class="col-md-12"><center><hr class="space s">
+                              <div class="col-md-12" align="right"><hr class="space s">
 
   							<div class="error-box" style="display:none;">
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>
@@ -323,7 +323,7 @@ function validate_email(val)
 
   						 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Create</button>
                          &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="admin_users.php"><i class="fa fa-times"></i>Cancel</a>
-  </center>
+  
   					   </div>
 
 					   </form>

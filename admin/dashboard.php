@@ -20,11 +20,12 @@ if(isset($_REQUEST['loginbtn']))
  
  
 			</div>
-                <div class="col-md-10" style="padding-left: 15px;margin-top: 3px;">
+                <div class="col-md-10" style="padding-left: 15px;margin-top: 3px; text-align:center">
 
 					<div class="row hidden-xs hidden-sm">
 <hr class="space s" />
-                <div class="col-md-6">
+<div class="col-md-2">&nbsp;</div>
+                <div class="col-md-5">
 
                         <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
@@ -45,7 +46,7 @@ if(isset($_REQUEST['loginbtn']))
 			 <?php echo $get_order["completed_no"]; }?>
 		 </p>
 													</div>
-													<div class="col-md-6">
+													<div class="col-md-6" style="padding-left:40px;">
 														<h5>Ongoing</h5>
 															<?php
 															$get_ongoing_query=mysqli_query($con,"select count(*) as ongoing_no from orders where status_id in(2,4,8)");
@@ -57,7 +58,7 @@ if(isset($_REQUEST['loginbtn']))
 												</div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
 
                     <div class=" advs-box boxed-inverse" style="background:#FFF!important;border-radius:10px;color:#000000;text-align:center;">
 
@@ -83,7 +84,7 @@ $get_photographer_query=mysqli_query($con,"select count(*) as photo_companies_no
 													
 													 </p>
 													</div>
-													<div class="col-md-6">
+													<div class="col-md-6" style="padding-left:50px;">
 														<h5>Realtors</h5>
 														<?php
 														$get_csr_query=mysqli_query($con,"select count(*) as realtor_no from user_login where type_of_user='Realtor'");
