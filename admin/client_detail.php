@@ -91,27 +91,24 @@ th
 
                   <div class="row">
 
-                   <h5 align="center" style="color:#333333;">Client Details</h5><br />
+                   <h5 align="left" style="color:#333333;padding-left: 15px;">Client Details</h5>
 
-                   <div class="col-md-1">
-
-
-                   </div>
+                  
 
 
-                   <div class="col-md-8">
+                   <div class="col-md-12">
 
-             <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a>
-			   <hr class="space s">
-         <div class="view" style="">
-                     <table class="table-stripped table-mobile" style="border:solid;background: white;">
+            <!--  <a style="float:right" href="client.php" class="anima-button circle-button btn-sm btn adr-cancel"><i class="fa fa-chevron-circle-left"></i><span adr_trans="label_back_clients">Back to Clients</span></a> -->
+			  
+         <div class="view" style="padding-left: 15px;">
+                     <table class="table-stripped table-mobile" style="background: white;border-radius: 5px;">
 					 <tr><td rowspan="21" style="width:300px;">
 					  <img style="border:none;" src="data:<?php echo @$get_data['logo_image_type']; ?>;base64,<?php echo base64_encode(@$get_data['logo']); ?>" width="290" height="200" />
 					 </td></tr>
                        <tr>
-                         <td align="left" class="text"><span adr_trans="label_name">Name</span></td>
-                         <td>:</td>
-                         <td align="left"><?php  echo @$get_data['first_name']." ".@$get_data['last_name']?></td>
+                         <td align="left" class="text" style="padding-top: 10px;"><span adr_trans="label_name">Name</span></td>
+                         <td style="padding-top: 10px;">:</td>
+                         <td align="left" style="padding-top:10px;"><?php  echo @$get_data['first_name']." ".@$get_data['last_name']?></td>
                        </tr>
                        <tr>
                          <td align="left"><span adr_trans="label_role">Role</span></td>
@@ -229,16 +226,15 @@ th
                    </div>
 
                    </div>
-                   <div class="col-md-1">
+                  
 
-                   </div>
-
-                   <div class="col-md-8">
-                     <hr class="space s">
+                   <div class="col-md-12">
+                    <hr class="space s">
+                   
 					 <div>
-                      <h5 style="color:#333333" align="center" adr_trans="label_products">Products</h5>
-                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:none;margin-left: -16px;">
-                     <table align="center" style="color: #000;opacity:0.9;width:100%;">
+                      <h5 style="color:#333333;padding-left:0px;" align="left" adr_trans="label_products">Products</h5>
+                      <div style="width:100%;scrollbar-width: none;overflow-x: scroll;overflow-y:hidden;background-color:none;margin-left: -10px;">
+                     <table align="center" style="color: #000;opacity:0.9;width:98%;">
                           <tr >
                            <th style="color:black;"><span> S.no</span></th>
                              <th style="color:black;"><span adr_trans="label_product">Product</span></th>

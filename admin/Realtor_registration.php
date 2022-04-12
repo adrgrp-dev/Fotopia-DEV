@@ -762,12 +762,13 @@ $("#country").css("border","solid 1px grey");
 
                 </div>
 
-<div class="container content">
+<div class="container">
 
-
+ <h5 align="left"> Realtor registration</h5>    
             <div class="row">
-            	
-<div class="col-md-10" style="color: #000;background: #fff;padding:10px;border-radius:5px;">                
+       	
+<div class="col-md-10" style="">            
+
 
 			  <form action="" class="form-box form-ajax" method="post"  enctype="multipart/form-data"  onSubmit="return validateData()" >
 
@@ -776,7 +777,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                <div class="col-md-12 mobile" style="">
+                <div class="col-md-12 mobile" style="background:#FFF;color: #000;padding:10px;border-radius:5px;">
 
 
                       		<br>
@@ -800,7 +801,7 @@ $("#country").css("border","solid 1px grey");
 
 
 
-                       <div class="col-md-12"><h3 align="center" > Realtor registration</h3></div>
+                      <!--  <div class="col-md-12"><h3 align="center" > Realtor registration</h3></div> -->
 
 
 
@@ -812,7 +813,7 @@ $("#country").css("border","solid 1px grey");
           <div id="step1" name="step1">
 
 
-      <div class="col-md-12">
+      <div class="col-md-12" style="display: none;">
         <center><label for="from_realtor">
           <input type="radio" id="for_whom" style="display:none;" name="for_whom" checked value="realtor"  />&nbsp;&nbsp;<span  style="display:none;"> </span>
         </label>
