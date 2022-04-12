@@ -62,7 +62,7 @@ header("location:pages.php");
 
 
 
-			<div style="width:100%;background-color: #fff;border-radius: 5px;padding-left: 92px;">
+			<div style="width:100%;background-color: #fff;border-radius: 5px;padding-left: 92px;padding-top: 10px;">
 			<form  name="savePages" method="post" action="">
 			<input type="hidden" name="pageId" value="<?php echo @$_REQUEST['id']; ?>" />
 			<table class="table-stripped">
