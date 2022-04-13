@@ -901,7 +901,7 @@ if($i<=$ratingIs)
 							<?php } ?>
 </datalist>
 				</p><?php */ ?>
-<p align="center" style="font-weight:600" adr_trans="label_photo_companies">Photo Companies</p>
+<p align="center" style="font-weight:600;color:#000" adr_trans="label_photo_companies">Photo Companies</p>
 <form name="searchByLocation" method="post" action="./csrRealtorDashboard.php" style="margin-left:5px;">
 
 				 <input type="text"  class="form-control form-value" name="companySearch" value="<?php echo @$_REQUEST['companySearch']; ?>" style="display:inline;font-size:12px;height: 30px;"  placeholder="Search " list="cities" onchange="this.form.submit()" />
