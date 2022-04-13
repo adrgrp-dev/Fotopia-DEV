@@ -2553,13 +2553,13 @@ if($get_order1['status_id']==3)
   <hr class="space s" >
 <form action="" method="GET" align="center">
 
-<input class="search-field form-control" style="" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
-<input id="submit" style="float: left;margin-left: 5px;" class="btn adr-save" type="submit" value="Search">
+<input class="search-field form-control" style="height: 30px;" id="search" type="text" placeholder="Type here" value="<?php echo @$get_info['address']; ?>">
+<input id="submit" style="float: left;margin-left: 5px;" class="btn adr-save btn-sm" type="submit" value="Search">
 </form>
 
 <hr class="space" >
 
-<center><h3>Exciting add ons coming soon!</h3></center>
+<center><h5>Exciting add ons coming soon!</h5></center>
 
 </div> <link rel="stylesheet" href="./css/style_invoice.css">
 <div class="panel" id="tab5" style="border-radius: 5px;">
