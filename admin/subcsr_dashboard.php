@@ -131,7 +131,7 @@ font-size: 10px!important;
 }
 .fc .fc-toolbar-title
 {
-font-size:10px!important;
+font-size:11px!important;
 }
 @media only screen and (max-width: 600px) {
   .fc-prev-button, .fc-next-button, .fc-button

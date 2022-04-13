@@ -153,7 +153,7 @@ margin:10px!important;
 }
 .fc .fc-toolbar-title
 {
-font-size:10px!important;
+font-size:11px!important;
 }
 #label_view12 i
 {
