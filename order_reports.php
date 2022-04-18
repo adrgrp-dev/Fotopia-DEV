@@ -135,10 +135,10 @@ var days = 1;
 
 
 <div class="col-md-3">
+<span><h5 adr_trans="label_photo_company">Photo Company</h5></span>
 
 
-
-<select name="photoCompany" id="realtor" class="form-control" style="display:block;margin-top:23px;height: 30px;padding: 4px;">
+<select name="photoCompany" id="realtor" class="form-control" style="display:block;margin-top:0px;height: 30px;padding: 4px;">
 <option value="">Select Photo Company</option>
 <?php
 $realtorID=$_SESSION['loggedin_id'];

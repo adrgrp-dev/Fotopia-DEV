@@ -205,7 +205,7 @@ height:fit-content!important;
                $get_prod_query=mysqli_fetch_array($get_prod_query1);
 
 									   ?>
-                                        <p class="counter" data-speed="1000" data-to=" <?php echo $get_prod_query['prodCount'];?>" style="color:000;font-size:25px;font-weight:600;padding-top:5px;">
+                                        <p class="counter" data-speed="1000" data-to=" <?php echo $get_prod_query['prodCount'];?>" style="color:000;font-size:25px;font-weight:600;padding-top: 3px;padding-bottom: 1px;">
 
                                        </p>
 <br />
