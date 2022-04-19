@@ -854,7 +854,7 @@ function get_states(cityIs) {
                         </div>
 						<?php } else { ?>
 				<div class="error-box"  style="display:none;">
-                            <div class="text-warning" id="label_session_expired" adr_trans="label_session_expired">Your session expired. Please login again.</div>
+                           
                         </div>
 						<?php } ?>
 
@@ -1047,7 +1047,7 @@ function get_states(cityIs) {
 
 							<div class="col-md-12">
                                 <p id="label_confirm_captcha" adr_trans="label_confirm_captcha">Confirm Captcha</p>
-                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_" data-callback="verifyCaptcha"></span>
+                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"></span>
         <span id="error"></span>
                             </div>
 
@@ -1090,6 +1090,7 @@ function get_states(cityIs) {
 		 <script>
 
 
+
     function validateData() {
 	$('.error-box').hide();
 	$('#error-msg').html('');
@@ -1110,7 +1111,7 @@ function get_states(cityIs) {
         var response = grecaptcha.getResponse();
         if(response.length == 0) {
 		$('#error-msg').html('Please Confirm with captcha');
-	$('.error-box').show();
+	  $('.error-box').show();
             //document.getElementById('error').innerHTML = '<span style="color:red;margin-left:20px;">  This field is required.</span>';
             return false;
         }

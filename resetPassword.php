@@ -116,7 +116,7 @@ if($exist!=0)
 
 						<div class="col-md-12">
                                <br />
-                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_" data-callback="verifyCaptcha"></span>
+                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"></span>
         <span id="error"></span>
                             </div>
 

@@ -795,7 +795,7 @@ $("#country").css("border","solid 1px grey");
                         </div>
 						<?php } else { ?>
 				<div class="error-box"  style="display:none;">
-                            <div class="text-warning" id="label_session_expired" adr_trans="label_session_expired">Your session expired. Please login again.</div>
+                           <!--  -->
                         </div>
 						<?php } ?>
 
@@ -982,7 +982,7 @@ $("#country").css("border","solid 1px grey");
 
 							<div class="col-md-12">
                                 <p id="label_confirm_captcha" adr_trans="label_confirm_captcha">Confirm Captcha</p>
-                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_" data-callback="verifyCaptcha"></span>
+                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"></span>
         <span id="error"></span>
                             </div>
 

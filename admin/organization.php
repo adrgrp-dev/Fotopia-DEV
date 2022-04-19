@@ -235,7 +235,7 @@ if(isset($_REQUEST['update_password']))
 
   <div class="col-md-4">
   <br />
-  <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_" data-callback="verifyCaptcha"></span>
+  <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"></span>
   <span id="error"></span>
   </div>
 
