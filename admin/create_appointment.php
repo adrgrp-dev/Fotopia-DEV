@@ -308,7 +308,7 @@ header("location:create_appointment.php?hs_id=$home_seller_id&&pc_admin_id=$pc_a
 
 }
 
- mysqli_query($con,"INSERT INTO `appointments` (`order_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
+ mysqli_query($con,"INSERT INTO `appointments` (`order_id`,`created_by_id`, `photographer_id`, `home_seller_id`, `from_datetime`, `to_datetime`, `status`, `active`) VALUES ('$order_id','$realtor_id', '$Photographer_id1', '$home_seller_id', '$chk_from', '$chk_to', '1', '1')");
 
 
 
