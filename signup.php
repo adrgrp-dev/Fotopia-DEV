@@ -3,7 +3,6 @@ ob_start();
 // session_start();
 include "connection.php";
 
-
 function getName($n) {
     $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $randomString = '';
@@ -18,6 +17,24 @@ function getName($n) {
 //Login Check
 if(isset($_REQUEST['signupbtn']))
 {
+   
+$captcha=$_REQUEST['g-recaptcha-response'];
+//echo "https://www.google.com/recaptcha/api/siteverify?secret=6LfcQV0aAAAAAE8XUGzbkDCRwKhHgtIFGkPmxb3c&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']."<br>";exit;
+$response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfcQV0aAAAAAE8XUGzbkDCRwKhHgtIFGkPmxb3c&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+
+ //  echo $response['success']."<br>";
+  // print_r($response);
+   //exit;
+    if($response['success'] == false)
+    {
+        header("location:signup.php");
+    }
+    else
+    {
+        
+    
+
+
 	$fname=$_REQUEST['fname'];
 	$lname=$_REQUEST['lname'];
 	// $org=$_REQUEST['org'];
@@ -123,7 +140,7 @@ header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofu
 
 
 
-
+}
 }
 ?>
 <?php include "header.php";  ?>
@@ -1047,7 +1064,7 @@ function get_states(cityIs) {
 
 							<div class="col-md-12">
                                 <p id="label_confirm_captcha" adr_trans="label_confirm_captcha">Confirm Captcha</p>
-                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"></span>
+                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"  data-callback='submit' data-action='submit'></span>
         <span id="error"></span>
                             </div>
 
