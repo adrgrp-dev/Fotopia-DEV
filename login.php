@@ -54,7 +54,7 @@ $_SESSION['EXPIRES'] = time() + 3600;
 		
 
 
-
+ 
 		$email_verification_code=getName(10);
 		mysqli_query($con,"update user_login set last_login_ip='$ipAddress',last_login=now(),online_now=1,email_verification_code='$email_verification_code' where id='$uid'");
 

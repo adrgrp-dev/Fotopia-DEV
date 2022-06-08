@@ -52,8 +52,34 @@ $is_approved=$getres['is_approved'];
 		header("location:dashboard.php");
 		}
 		if($type=='PCAdmin')
-		{
-		header("location:PCAdmin_dashboard.php");
+		{  
+
+			$id=$_SESSION['admin_loggedin_id'];
+    $pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
+    $pc_profile1=mysqli_fetch_array($pc_profile);
+    $aboutPC=$pc_profile1['about_us'];
+        $organization_number=$pc_profile1['organization_number'];
+
+    $products=mysqli_query($con,"select * from products where pc_admin_id='$pc_id'");
+    $productsFound=mysqli_num_rows($products);
+
+ if($organization_number=='' && !@$_REQUEST['first'])
+   { 
+
+	header("location:PCAdmin_dashboard.php?second=1");
+
+   }
+elseif($productsFound==0 && !@$_REQUEST['first']) 
+      {
+
+	header("location:PCAdmin_dashboard.php?third=1");
+
+       }
+else
+{
+	header("location:PCAdmin_dashboard.php");
+}
+		
 		}
 		if($type=='CSR')
 		{
