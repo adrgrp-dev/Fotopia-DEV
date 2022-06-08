@@ -433,7 +433,7 @@ while($city=mysqli_fetch_array($city1))
                                       <p align="center"><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span></p>
                                   </div>
 
-									<div class="col-md-6">
+									<div class="col-md-12">
 
 
 
