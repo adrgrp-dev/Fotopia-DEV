@@ -591,7 +591,7 @@ function get_states(cityIs)
 <hr class="space s">
 <center><p>Finish your registration in order to show up as a validated user</p><span>Please fill the profile details</span></center>
 <hr class="space m">
-<p align="center"><a href="edit_company_profile.php?first=1" class="btn anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
+<p align="center"><a href="edit_company_profile.php?first=1" class="btn btn-sm anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
 
 </td></tr></table>
 </div>
@@ -604,7 +604,7 @@ function get_states(cityIs)
       { 
        
  ?>
-      <input type="button" class="btn adr-save btn-sm" id="warningMsg2" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+      <input type="button" class="btn adr-save btn-sm" id="warningMsg2" onclick="document.getElementById('myModal').style='display:block;padding-top:120px;background:rgba(94,94,94,0.7)'" style="display:none" />
 
 <div id="myModal" class="modal" align="center" style="background:rgba(94,94,94,0.7)">
 <div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
@@ -616,7 +616,7 @@ function get_states(cityIs)
 <hr class="space s">
 <center><span>Please create the products</span></center>
 <hr class="space m">
-<p align="center"><a href="products.php?first=1" class="btn anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
+<p align="center"><a href="products.php?first=1" class="btn btn-sm anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
 
 </td></tr></table>
 </div>
