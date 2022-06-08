@@ -140,14 +140,14 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
      {
 $pcadmin1=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$loggedINID'");
 $pcadmin=mysqli_fetch_array($pcadmin1);
+
+        $organization_number=$pcadmin['organization_number'];
+
 ?>
 
 <div class="hidden-xs hidden-sm" style="">
 
-
-
-<?php
-       echo '<table align="center" class="menuTable">
+<table align="center" class="menuTable">
 <tr><td id="homeMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="PCAdmin_dashboard.php"><i class="fa fa-xs fa-home"></i><span adr_trans="label_home" style="padding-left:15px;font-size:13px;">Home</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
@@ -173,26 +173,32 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 <tr><td id="userMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="csr_list1.php"><i class="fa fa-xs fa-users"></i><span adr_trans="label_users" style="padding-left:15px;font-size:13px;">Users</span></a></td></tr>
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="company_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="company_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span><?php
+   if($organization_number=='' && !@$_REQUEST['first']) 
+   { 
+?>
+<span style="color:#f37321;float: right;margin-top: 1px;margin-right: 10px;font-size: 15px;"><i class="fa fa-exclamation-circle" aria-hidden="true" title="Get discovered by completing your profile!"></i></span>
+<?php
+}
+?></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 
 <div style="margin-left:7px;background:#F1F3F4!important;text-align:center;">
- <a target="_blank" href="'.$facebook_id.'"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
- <a target="_blank" href="'.$instagram_id.'"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="'.$twitter_id.'"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="'.$youtube_id.'"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
-<a target="_blank" href="'.$linkedin_id.'"><i class="fa fa-linkedin" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+ <a target="_blank" href="<?php echo $facebook_id;?>"><i class="fa fa-facebook" style="font-size:10px;padding:5px;border-radius:20px;padding-left:7px;padding-right:7px;padding-top:4px;padding-bottom:4px;background:#000;color:#FFF"></i></a>
+ <a target="_blank" href="<?php echo $instagram_id;?>"><i class="fa fa-instagram" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $twitter_id;?>"><i class="fa fa-twitter" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $youtube_id;?>"><i class="fa fa-youtube-play" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
+<a target="_blank" href="<?php echo $linkedin_id;?>"><i class="fa fa-linkedin" style="font-size:10px;padding:5px;border-radius:20px;padding:4px;background:#000;color:#FFF"></i></a>
                             </div>
 <br /><br />
 
 
 
 
-          </div>    ';
+          </div>   
 
-
-}?>
+<?php } ?>
 
 
 

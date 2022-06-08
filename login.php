@@ -60,7 +60,21 @@ $_SESSION['EXPIRES'] = time() + 3600;
 
 		if($user_type=='Realtor')
 		{
-		header("location:csrRealtorDashboard.php");
+			
+$uid=$_SESSION['loggedin_id'];
+   $realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$uid'");
+   $realtor_profile=mysqli_fetch_array($realtor_profile1);
+   $realtor_employer_id=$realtor_profile['realtor_employer_id'];
+   $organization_name=$realtor_profile['organization_name'];
+   if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
+   { 
+header("location:csrRealtorDashboard.php?second=1");
+}
+else{
+
+	header("location:csrRealtorDashboard.php");
+}
+		
 		}
 		else
 		{

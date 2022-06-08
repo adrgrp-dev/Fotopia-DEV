@@ -877,9 +877,10 @@ function get_states(cityIs) {
 
 
 
-                       <div class="col-md-12"><h3 align="center" id="label_signup" adr_trans="label_signup"> SignUp</h3></div>
-
-                       <br><i class="text-left" style="width:130px;word-wrap:break-word;padding-left:0px;text-align:"><span adr_trans="label_welcome_to_sign_up">Welcome to our signup page. Please pick your option as Realtor or Photo Company</span></i><br><br>
+                       <div class="col-md-12"><h3 align="center" id="label_signup" adr_trans=""> Create your Fotopia Account</h3></div>
+                       <br>
+                        <div class="col-md-12 text-center"><h4>Please tell us who you are</h4></div>
+                       <br><br>
 
                        <div class="error-box" id="validation_message" style="margin-left:20px;color:red;display:none;font-style:italic;" align="center">
                             <div class="text-warning" ></div>

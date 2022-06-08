@@ -11,35 +11,35 @@ if($type=="FotopiaAdmin")
 {
  $page="dashboard.php";
 }
-if($type=="PCAdmin")
-{
-		$id=$_SESSION['admin_loggedin_id'];
-		$pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
-		$pc_profile1=mysqli_fetch_array($pc_profile);
-		$aboutPC=$pc_profile1['about_us'];
-        $organization_number=$pc_profile1['organization_number'];
+// if($type=="PCAdmin") 
+// {
+// 		$id=$_SESSION['admin_loggedin_id'];
+// 		$pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
+// 		$pc_profile1=mysqli_fetch_array($pc_profile);
+// 		$aboutPC=$pc_profile1['about_us'];
+//         $organization_number=$pc_profile1['organization_number'];
 
-		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
-		$productsFound=mysqli_num_rows($products);
+// 		$products=mysqli_query($con,"select * from products where pc_admin_id='$id'");
+// 		$productsFound=mysqli_num_rows($products);
 
-		$DiscountPriceForRealtor=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$id'");
-		$DiscountFound=mysqli_num_rows($DiscountPriceForRealtor);
+// 		$DiscountPriceForRealtor=mysqli_query($con,"select * from realtor_product_cost where pc_admin_id='$id'");
+// 		$DiscountFound=mysqli_num_rows($DiscountPriceForRealtor);
 
-	$EarningsForPhotographer=mysqli_query($con,"select * from photographer_product_cost where pc_admin_id='$id'");
-	$EarningsFound=mysqli_num_rows($EarningsForPhotographer);
+// 	$EarningsForPhotographer=mysqli_query($con,"select * from photographer_product_cost where pc_admin_id='$id'");
+// 	$EarningsFound=mysqli_num_rows($EarningsForPhotographer);
 
-	$getCSR=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$id'");
-	$CSRFound=mysqli_num_rows($getCSR);
+// 	$getCSR=mysqli_query($con,"select * from admin_users where type_of_user='CSR' and pc_admin_id='$id'");
+// 	$CSRFound=mysqli_num_rows($getCSR);
 
- $getPhotographer=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and pc_admin_id='$id'");
-	$PhotographerFound=mysqli_num_rows($getPhotographer);
+//  $getPhotographer=mysqli_query($con,"select * from user_login where type_of_user='Photographer' and pc_admin_id='$id'");
+// 	$PhotographerFound=mysqli_num_rows($getPhotographer);
 
-	$getEditor=mysqli_query($con,"select * from editor where pc_admin_id='$id'");
-	$editorFound=mysqli_num_rows($getEditor);
+// 	$getEditor=mysqli_query($con,"select * from editor where pc_admin_id='$id'");
+// 	$editorFound=mysqli_num_rows($getEditor);
 
 
-		if($organization_number=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
-		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }
+// 		if($organization_number=='' && !@$_REQUEST['first']) { header("location:edit_company_profile.php?first=1"); exit; }
+// 		if($productsFound==0 && !@$_REQUEST['first']) { header("location:products.php?first=1"); exit; }
 		/*if($DiscountFound==0 && !@$_REQUEST['first']) { header("location:RealtorProducts.php?first=1"); exit; }
 		if($CSRFound==0 && !@$_REQUEST['first']) { header("location:create_csr.php?first=1"); exit; }
 	if($PhotographerFound==0 && !@$_REQUEST['first']) { header("location:create_photographer.php?first=1"); exit; }
@@ -49,8 +49,8 @@ if($type=="PCAdmin")
 
 
 
-$page="PCAdmin_dashboard.php";
-}
+// $page="PCAdmin_dashboard.php";
+// }
 if($type=="CSR")
 {
 $page="subcsr_dashboard.php";

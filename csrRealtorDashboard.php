@@ -215,7 +215,7 @@ font-size:11px!important;
 			<hr class="space s">
                 <div class="col-md-2" style="margin-left:-15px;">
 	<?php include "sidebar.php"; ?>
-
+ 
 		<script>
 		var id=null;
 		var title=null;
@@ -291,6 +291,38 @@ margin-left:0px!important;
 }
 		</style>
 			</div>
+
+<?php 
+ if (@$_REQUEST['second']) {
+
+$realtor_id=$_SESSION['loggedin_id'];
+   $realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$realtor_id'");
+   $realtor_profile=mysqli_fetch_array($realtor_profile1);
+   $realtor_employer_id=$realtor_profile['realtor_employer_id'];
+   $organization_name=$realtor_profile['organization_name'];
+   if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
+   { 
+
+?>
+<input type="button" class="btn adr-save btn-sm" id="warningMsg" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+
+<div id="myModal" class="modal" align="center">
+<div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
+ <hr class="space xs">
+<h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Profile Warning!<br /></h5>
+          <table class="table table-responsive"><tr><td>
+
+
+<hr class="space s">
+<center><span>Please fill the profile details</span></center>
+<hr class="space m">
+<p align="center"><a href="edit_realtor_profile.php?first=1" class="btn anima-button btn-sm adr-save"><i class="fa fa-check-circle"></i><span adr_trans="">Proceed</span></a>&nbsp;&nbsp;<a href="csrRealtorDashboard.php" class="btn anima-button btn-sm adr-cancel"><i class="fa fa-check-circle"></i><span adr_trans="">Skip for now</span></a></p>
+
+</td></tr></table>
+</div>
+</div>
+
+<?php }} ?>			
                 <div class="col-md-10" >
 
 
@@ -1195,6 +1227,12 @@ window.reload();
 
             </div>
 
+<script>
+$(document).ready(function() {
+    $("#warningMsg").click();
+});
+
+</script>
 
 <?php if(isset($_REQUEST['companySearch']) || @$_REQUEST['cw']) { ?>
 <script>

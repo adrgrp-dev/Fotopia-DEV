@@ -561,7 +561,71 @@ function get_states(cityIs)
 
 			</div>
 
+<?php
+ $type=$_SESSION['admin_loggedin_type'];
 
+ if($type=="PCAdmin") 
+{
+    $pc_id=$_SESSION['admin_loggedin_id'];
+    $pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$pc_id'");
+    $pc_profile1=mysqli_fetch_array($pc_profile);
+    $aboutPC=$pc_profile1['about_us'];
+        $organization_number=$pc_profile1['organization_number'];
+
+    $products=mysqli_query($con,"select * from products where pc_admin_id='$pc_id'");
+    $productsFound=mysqli_num_rows($products);
+
+
+    if($organization_number=='' && !@$_REQUEST['first']) 
+      { 
+        ?>
+      <input type="button" class="btn adr-save btn-sm" id="warningMsg" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+
+<div id="myModal" class="modal" align="center">
+<div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
+ <hr class="space xs">
+<h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Profile Warning!<br /></h5>
+          <table class="table table-responsive"><tr><td>
+
+
+<hr class="space s">
+<center><span>Please fill the profile details</span></center>
+<hr class="space m">
+<p align="center"><a href="edit_company_profile.php?first=1" class="btn anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
+
+</td></tr></table>
+</div>
+</div>
+  <?php  
+
+}
+
+    if($productsFound==0 && !@$_REQUEST['first']) 
+      { 
+       
+ ?>
+      <input type="button" class="btn adr-save btn-sm" id="warningMsg2" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+
+<div id="myModal" class="modal" align="center">
+<div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
+ <hr class="space xs">
+<h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Product Warning!<br /></h5>
+          <table class="table table-responsive"><tr><td>
+
+
+<hr class="space s">
+<center><span>Please create the products</span></center>
+<hr class="space m">
+<p align="center"><a href="products.php?first=1" class="btn anima-button adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
+
+</td></tr></table>
+</div>
+</div>
+  <?php  
+
+      }
+}
+?>
       <div class="col-md-10" style="padding-top:10px;">
 
 
@@ -1053,6 +1117,17 @@ $("#from_homeseller").removeAttr("required");
 
 
 <?php } ?>
+
+<script>
+$(document).ready(function() {
+    $("#warningMsg").click();
+});
+
+$(document).ready(function() {
+    $("#warningMsg2").click();
+});
+
+</script>
 
  <script>
             function init() {

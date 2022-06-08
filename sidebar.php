@@ -281,8 +281,23 @@ line-height:23px;
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
 <tr><td id="notificationMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;"><a href="realtor_activity.php"><i class="fa fa-xs fa-bell-o"></i><span adr_trans="label_notification" style="padding-left:15px;font-size:13px;">Notification</span></a></td></tr>
 
+<?php 
+$realtor_id=$_SESSION['loggedin_id'];
+   $realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$realtor_id'");
+   $realtor_profile=mysqli_fetch_array($realtor_profile1);
+   $realtor_employer_id=$realtor_profile['realtor_employer_id'];
+   $organization_name=$realtor_profile['organization_name'];
+   ?>
+
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
-<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="realtor_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span></a></td></tr>
+<tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="realtor_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span><?php
+   if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
+   { 
+?>
+<span style="color:#f37321;float: right;margin-top: 4px;margin-right: 10px;font-size: 15px;"><i class="fa fa-exclamation-circle" aria-hidden="true" title="Get discovered by completing your profile!"></i></span>
+<?php
+}
+?></a></td></tr>
 <tr><td>&nbsp;</td></tr>
 </table>
 

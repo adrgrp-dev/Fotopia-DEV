@@ -216,6 +216,7 @@ $params="hs_id=".$inserted_id."&pc_admin_id=".$pc_admin_id1."&Photographer_id=".
  ?>
 <?php include "header.php";  ?>
 <script>
+ 
 
 function myfunc()
 {
@@ -449,7 +450,7 @@ function getAddressApi()
       var cityval=city[citylength-2].value;
       get_states(cityval);
       $('#city').val(cityval);
-      $('#address').val(locationTextField);
+      $('#address').val(locationTextField); 
       
     }
   });
@@ -478,14 +479,38 @@ function validateAddress()
 
       </div>
 
+<?php 
+$realtor_id=$_SESSION['loggedin_id'];
+   $realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$realtor_id'");
+   $realtor_profile=mysqli_fetch_array($realtor_profile1);
+   $realtor_employer_id=$realtor_profile['realtor_employer_id'];
+   $organization_name=$realtor_profile['organization_name'];
+   if(($realtor_employer_id=='' && !@$_REQUEST['first']) || ($organization_name=='' && !@$_REQUEST['first']))
+   { 
+
+?>
+<input type="button" class="btn adr-save btn-sm" id="warningMsg" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+
+<div id="myModal" class="modal" align="center">
+<div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
+ <hr class="space xs">
+<h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Profile Warning!<br /></h5>
+          <table class="table table-responsive"><tr><td>
+
+
+<hr class="space s">
+<center><span>Please fill the profile details</span></center>
+<hr class="space m">
+<p align="center"><a href="edit_realtor_profile.php?first=1" class="btn btn-default anima-button circle-button btn-sm adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
+
+</td></tr></table>
+</div>
+</div>
+
+<?php } ?>
+
 
       <div class="col-md-10" style="padding-top:10px;">
-
-
-
-
-
-
 
   <div class="breadcrumb1 hidden-xs hidden-sm">
     <a href="#" class="btn btn-default" id="firstStep"><i class="fa fa-camera-retro" style="font-size:40px;color:#000"></i>
@@ -790,6 +815,14 @@ if($user_type=="Photographer")
             </div>
         </div>
      </div>
+
+<script>
+$(document).ready(function() {
+    $("#warningMsg").click();
+});
+
+</script>
+
      <script>
             function init() {
                 var input = document.getElementById('locationTextField');
