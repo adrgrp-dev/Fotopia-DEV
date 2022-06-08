@@ -145,7 +145,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p>Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p>Email
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off" onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $csr['email']; ?>">
 
@@ -216,6 +216,8 @@ function validate_email(val)
 
   						 <div class="row">
                               <div class="col-md-12"><center><hr class="space s">
+
+                              	<p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span></p>
 
   							<div class="error-box" style="display:none;">
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>

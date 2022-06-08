@@ -141,7 +141,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
                             </div>
 
 								<div class="col-md-6">
-                               <p id="label_email" adr_trans="label_email">Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center"  class="alert-warning"></span>
+                               <p id="label_email" adr_trans="label_email">Email
 						</p>
 	<input id="email" name="email" onblur="this.value=this.value.trim()" placeholder="Email" value="<?php echo @$res11['email']; ?>" type="email" autocomplete="off" class="form-control form-value" required="">
                             </div>
@@ -168,6 +168,7 @@ $res=mysqli_query($con,"update editor set first_name='$fname',last_name='$lname'
 
 
 							<div class="col-md-12">
+								<p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center"  class="alert-warning"></span></p>
                                 <p align="center" style="padding-top:10px;">
                                 	<button id="label_save" adr_trans="label_save" class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Save</button>
                          &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn" href="editor_list.php"><i class="fa fa-times"></i>Cancel</a>

@@ -155,7 +155,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p><span id="label_email" adr_trans="label_email">Email</span><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p><span id="label_email" adr_trans="label_email">Email</span>
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="" value="<?php echo $pcAdmin['email']; ?>">
 
@@ -226,7 +226,7 @@ function validate_email(val)
   							<div class="error-box" style="display:none;">
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                           </div>
-  						
+  						<p align="center"><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span></p>
                               
 <a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>&nbsp;&nbsp;
   						 <button id="label_update" adr_trans="label_update" class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Update</button>

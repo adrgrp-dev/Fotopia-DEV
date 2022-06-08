@@ -200,6 +200,43 @@ function validate_email(val)
   xhttp.send();
 }
 }
+ function get_companies(val,e)
+  {
+    //console.log(e.key);
+   
+    if(e.key!="Backspace"&&val!="")
+     {
+       $.ajax(
+      {
+      url:"../get_norway_company.php?company_name="+val,
+      success:function(result2)
+      {
+         //$('#companies').html('');
+        
+         $('#companies1').html(result2);
+      }
+    })
+     }
+  }
+  function companies(val)
+  {
+    $.ajax(
+    {
+      url:"../get_norway_company_detail.php?company_name="+val,
+      success:function(result)
+      {
+         var company_detail=JSON.parse(result);
+         $('#organization_number').val(company_detail.company_number);
+          var city=capitalizeFirstLetter(company_detail.place);
+         $('#city').val(city).change();
+         $('#zip').val(company_detail.zip_code);
+
+      }
+    })
+  }
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 </script>
 
 
@@ -221,14 +258,17 @@ function validate_email(val)
                                <input type="hidden" name="old_logo" value="<?php  echo @"../".$res1['logo_image_url'] ?>" />
 
                                <br/>
-                               <span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span>
+                               
 								</div>
 
 								<br>
 
  								<div class="col-md-6">
                                 <p style="color:#000;" id="label_org_name" adr_trans="label_org_name">Organization name</p>
-                                <input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_name']; ?>">
+                                <input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" list="companies1" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)"  required="" value="<?php echo @$res1['organization_name']; ?>">
+                                <datalist id="companies1">
+                                 
+                                </datalist>
 								</div>
 
 								<div class="col-md-6">
@@ -265,7 +305,7 @@ function validate_email(val)
 
   						<div class="col-md-6">
   							 <p style="color:#000;" id="label_city" adr_trans="label_city">City</p>
-  							<select name="city" class="form-control form-value" required="">
+  							<select name="city" id="city" class="form-control form-value" required="">
 							<?php
 							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 							while($city=mysqli_fetch_array($city1))
@@ -389,8 +429,9 @@ while($city=mysqli_fetch_array($city1))
                                 <p><span id="label_set_tax" adr_trans="labelabel_set_taxl_tax" style="color:#000;">Set tax</span><span id="label_percentage_tax" adr_trans="label_percentage_tax">(Enter the percentage of tax)</span></p>
                                 <input id="tax" name="tax" type="number" step="any" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['tax']; ?>">
 								</div>
-
-
+                                <div class="col-md-12">
+                                      <p align="center"><span style="margin-left:20px;color:red;display:none;font-size:9px;" id="Email_exist_error" align="center" class="alert-warning"></span></p>
+                                  </div>
 
 									<div class="col-md-6">
 

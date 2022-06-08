@@ -190,7 +190,7 @@ function validate_email(val)
 						 <div class="col-md-12"><h5 align="center" id="label_edit_photographer" adr_trans="label_edit_photographer"> Edit Photographer</h5></div>
 <br/>
 
-<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+
   						<div class="col-md-6">
                                   <p id="label_first_name" adr_trans="label_first_name">First Name</p>
                                   <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="" value="<?php echo $csr['first_name']; ?>">
@@ -385,6 +385,7 @@ while($CSRList1=mysqli_fetch_array($CSRList))
 
   						 <div class="row" align="right">
                               <div class="col-md-12">
+                                <p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span></p>
 <?php
 
 if($_SESSION['admin_loggedin_type'] == "PCAdmin")

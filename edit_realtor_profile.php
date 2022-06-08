@@ -173,7 +173,42 @@ margin-left:0px!important;
     x.type = "password";
   }
 }
+  function get_companies(val,e)
+  {
+    //console.log(e.key);
+    
+    if(e.key!="Backspace"&&val!="")
+     {
+       $.ajax(
+      {
+      url:"get_norway_company.php?company_name="+val,
+      success:function(result2)
+      {
+         //$('#companies').html('');
+         $('#companies').html(result2);
+      }
+    })
+     }
+  }
+  function companies(val)
+  {
+    $.ajax(
+    {
+      url:"get_norway_company_detail.php?company_name="+val,
+      success:function(result)
+      {
+         var company_detail=JSON.parse(result);
+         $('#realtor_employer_id').val(company_detail.company_number);
+          var city=capitalizeFirstLetter(company_detail.place);
+         $('#city').val(city).change();
+         $('#zip').val(company_detail.zip_code);
 
+      }
+    })
+  }
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 </script>
 
                 <div class="col-md-10">
@@ -202,7 +237,10 @@ margin-left:0px!important;
 
  								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_org_name">Organization name</p>
-                                <input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['organization_name']; ?>">
+                                <input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" list="companies" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)" required="" value="<?php echo @$res1['organization_name']; ?>">
+                                <datalist id="companies">
+                                 
+                                </datalist>
 								</div>
 
 								<div class="col-md-6">
@@ -302,7 +340,7 @@ margin-left:0px!important;
 
               <div class="col-md-6">
                  <p style="color:#000;" adr_trans="label_city">City</p>
-                <select name="city" class="form-control form-value" required="">
+                <select name="city" id="city" class="form-control form-value" required="">
               <?php
               $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
               while($city=mysqli_fetch_array($city1))

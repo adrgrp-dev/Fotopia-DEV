@@ -155,55 +155,7 @@ else{
                 <div class="col-md-6" style="padding-left:50px;">
 
 				<br>
-						<?php if(@isset($_REQUEST["success"])) { ?>
-                        <div class="success-box" style="display:block;">
-                            <div class="text-success" id="label_msg_sent" adr_trans="label_msg_sent"><i style="font-size: initial;    color: #00b300;"
-                            >Congratulations. Your message has been sent successfully</i></div>
-                        </div>
-						<?php } ?>
-
-						<?php if(@isset($_REQUEST["blocked"])) { ?>
-                        <div class="error-box" style="display:block;">
-                            <div class="text-danger" adr_trans=""><i style="font-size: initial;    color: #ff3300;"  adr_trans="label_blocked_admin">You are Blocked by the Admin.</i></div>
-                        </div>
-						<?php } ?>
-
-						<?php if(@isset($_REQUEST["logout"])) { ?>
-                        <div class="success-box" style="display:block;">
-                            <div class="text-success" id="label_logged_out_success" adr_trans="label_logged_out_success"><i style="font-size: initial;    color: #00b300;"
-                            >Your are logged out successfully.</i></div>
-                        </div>
-						<?php } ?>
-						<?php if(isset($_REQUEST["failed"])) { ?>
-                        <div class="error-box"  style="display:block;">
-                            <div class="text-danger" id="label_invalid_loggin" adr_trans="label_invalid_loggin">
-                            	<i style="font-size: initial;color: #ff3300;">  Invalid login  credentials. Please try again.</i></div>
-                        </div>
-						<?php } ?>
-
-						<?php if(isset($_REQUEST["sessexp"])) { ?>
-                        <div class="error-box"  style="display:block;">
-                            <div class="text-danger" id="label_session_expired" adr_trans="label_session_expired"><i style="font-size: initial;color: #ff3300;"
-                            >Your session expired. Please login again.</i></div>
-                        </div>
-						<?php } ?>
-
-						<?php if(isset($_REQUEST["activate"])) { ?>
-                        <div class="error-box"  style="display:block;">
-                            <div class="text-danger" id="label_acc_not_approved"
-                            adr_trans="label_acc_not_approved"><i style="font-size: initial;color: #ff3300;">Your account is not yet Approved by Admin.</i></div>
-
-                            <div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="font-size: initial;color: #ff3300;">You will be notified in email when Admin approved.</i></div>
-                        </div>
-						<?php } ?>
-
-				<?php if(!isset($_REQUEST["activate"]) && !isset($_REQUEST["sessexp"]) && !isset($_REQUEST["success"]) && !isset($_REQUEST["failed"]) && !isset($_REQUEST["logout"]))
-				{
-
-				?>
-				<div style="height:75px;">&nbsp;</div>
-				<?php
-				} ?>
+						
                     <form action="" class="form-box form-ajax" method="post">
                         <br><h3 id="label_user_login" adr_trans="label_user_login">User Login</h3>
                         <div class="row">
@@ -223,6 +175,57 @@ else{
 						<a href="forgotPassword.php" style="text-decoration:underline;color:blue;" id="label_forgot_password" adr_trans="label_forgot_password">&nbsp;&nbsp;Forgot password?</a>
 						<br>
 						 <div class="row">
+						 	<div class="col-md-12">
+						 		<?php if(@isset($_REQUEST["success"])) { ?>
+                        <div class="success-box" style="display:block;">
+                            <div class="text-success" id="label_msg_sent" adr_trans="label_msg_sent"><i style="font-size: initial;    color: #00b300;"
+                            >Congratulations. Your message has been sent successfully</i></div>
+                        </div>
+						<?php } ?>
+
+						<?php if(@isset($_REQUEST["blocked"])) { ?>
+                        <div class="error-box" style="display:block;">
+                            <div class="text-danger" adr_trans=""><i style="    color: #ff3300;"  adr_trans="label_blocked_admin">You are Blocked by the Admin.</i></div>
+                        </div>
+						<?php } ?>
+
+						<?php if(@isset($_REQUEST["logout"])) { ?>
+                        <div class="success-box" style="display:block;">
+                            <div class="text-success" id="label_logged_out_success" adr_trans="label_logged_out_success"><i style="   color: #00b300;"
+                            >Your are logged out successfully.</i></div>
+                        </div>
+						<?php } ?>
+						<?php if(isset($_REQUEST["failed"])) { ?>
+                        <div class="error-box"  style="display:block;">
+                            <div class="text-danger" id="label_invalid_loggin" adr_trans="label_invalid_loggin">
+                            	<i style="color: #ff3300;">  Invalid login  credentials. Please try again.</i></div>
+                        </div>
+						<?php } ?>
+
+						<?php if(isset($_REQUEST["sessexp"])) { ?>
+                        <div class="error-box"  style="display:block;">
+                            <div class="text-danger" id="label_session_expired" adr_trans="label_session_expired"><i style="color: #ff3300;"
+                            >Your session expired. Please login again.</i></div>
+                        </div>
+						<?php } ?>
+
+						<?php if(isset($_REQUEST["activate"])) { ?>
+                        <div class="error-box"  style="display:block;">
+                            <div class="text-danger" id="label_acc_not_approved"
+                            adr_trans="label_acc_not_approved"><i style="color: #ff3300;">Your account is not yet Approved by Admin.</i></div>
+
+                            <div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="color: #ff3300;">You will be notified in email when Admin approved.</i></div>
+                        </div>
+						<?php } ?>
+
+				<?php if(!isset($_REQUEST["activate"]) && !isset($_REQUEST["sessexp"]) && !isset($_REQUEST["success"]) && !isset($_REQUEST["failed"]) && !isset($_REQUEST["logout"]))
+				{
+
+				?>
+				<!-- <div style="height:75px;">&nbsp;</div> -->
+				<?php
+				} ?>
+						 	</div>
                             <div class="col-md-12"><hr class="space s">
 						 <button class="anima-button circle-button btn-sm btn adr-save" type="submit" name="loginbtn"  ><i class="fa fa-sign-in"></i><span adr_trans="label_login">Login</span></button>
                        &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>

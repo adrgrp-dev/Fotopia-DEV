@@ -31,7 +31,7 @@ $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/
     }
     else
     {
-        
+       // echo $_REQUEST["for_whom"];
     
 
 
@@ -41,20 +41,20 @@ $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/
 	// $typeofuser=$_REQUEST['typeofuser'];
 	$email=$_REQUEST['email'];
 	$password=$_REQUEST['password'];
-	$contactno=$_REQUEST['contactno'];
+// 	$contactno=$_REQUEST['contactno'];
 
-$org_name=$_REQUEST['org_name'];
-$org_branch=$_REQUEST['org_branch'];
-$org_email=$_REQUEST['org_email'];
-$org_no=$_REQUEST['org_no'];
+// $org_name=$_REQUEST['org_name'];
+// $org_branch=$_REQUEST['org_branch'];
+// $org_email=$_REQUEST['org_email'];
+// $org_no=$_REQUEST['org_no'];
 
 
-	$addressline1=$_REQUEST['addressline1'];
-	$addressline2=$_REQUEST['addressline2'];
-	$city=$_REQUEST['city'];
-	$state=$_REQUEST['state'];
-	$zip=$_REQUEST['zip'];
-	$country=$_REQUEST['country'];
+// 	$addressline1=$_REQUEST['addressline1'];
+// 	$addressline2=$_REQUEST['addressline2'];
+// 	$city=$_REQUEST['city'];
+// 	$state=$_REQUEST['state'];
+// 	$zip=$_REQUEST['zip'];
+// 	$country=$_REQUEST['country'];
 
 $for_whom = $_REQUEST["for_whom"];
 
@@ -83,12 +83,18 @@ if($for_whom=="realtor"){
 
 $typeofuser = "Realtor";
 $inserted_id=0;
-   mysqli_query($con,"insert into user_login (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,email_verification_code,email_verified,profile_pic,profile_pic_image_type,registered_on)values('$typeofuser','$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$email_verification_code',0,'$imgData','$imageType',now())");
+   mysqli_query($con,"insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())");
+
+   echo "insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())";
+   
+
 $inserted_id=mysqli_insert_id($con);
 if($inserted_id!=0)
 {
-mysqli_query($con,"insert into realtor_profile (organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,realtor_id)values('$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType','$inserted_id')");
+mysqli_query($con,"insert into realtor_profile (first_name,last_name,email,password,realtor_id)values('$fname','$lname','$email','$password','$inserted_id')");
 }
+
+
 
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
 
@@ -101,7 +107,9 @@ $typeofuser = "Photo Company";
 
 $user = "PCAdmin";
 $inserted_id=0;
-mysqli_query($con,"insert into admin_users (type_of_user,organization_name,organization_branch,organization_contact_number,organization_email,first_name,last_name,email,password,contact_number,address_line1,address_line2,city,state,postal_code,country,profile_pic,profile_pic_image_type,registered_on)values('$user','$org_name','$org_branch','$org_no','$org_email','$fname','$lname','$email','$password','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$imgData','$imageType',now())");
+mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,registered_on)values('$user','$fname','$lname','$email','$password',now())");
+
+
 $inserted_id=mysqli_insert_id($con);
 if($inserted_id!=0)
 {
@@ -126,8 +134,10 @@ if (count($_FILES) > 0) {
 
 
 
-mysqli_query($con,"insert into photo_company_profile (organization_name,organization_branch,email,contact_number,address_line1,address_line2,city,state,postal_code,country,pc_admin_id,logo_image_url,logo_image_type)values('$org_name','$org_branch','$email','$contactno','$addressline1','$addressline2','$city','$state','$zip','$country','$inserted_id','$rootdirectory','$imageType')");
+mysqli_query($con,"insert into photo_company_profile (email,pc_admin_id)values('$email','$inserted_id')");
 }
+
+
 
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
 
@@ -136,8 +146,6 @@ header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofu
 
 
 	//echo "select * from user_login where email='$email' and password='$pass'";
-
-
 
 
 }
@@ -201,7 +209,7 @@ color:#333333!important;
 
 	function validate_email(val)
 {
-// alert(type);
+ // alert(val);
 var email=$("#email").val(); 
 if(email==""){
 
@@ -212,10 +220,11 @@ else{
 
 	val=email;
 }
-var type= $("input[name='for_whom']:checked").val();
+//alert();
+var type= $("#from_whom").val();
+//alert(type);
 
-
-if(val!="" && typeof type !== 'undefined')
+if(val!="" && typeof type !== '')
 {
 	// alert(type); 
   var xhttp= new XMLHttpRequest();
@@ -555,34 +564,34 @@ $("#validation_message").css("display","none");
 }
 
 
-if($('input:radio[name=for_whom]').is(':checked')){
+// if($('input:radio[name=for_whom]').is(':checked')){
 
- $("#validation_message").css("display","none");
-}
+//  $("#validation_message").css("display","none");
+// }
 
-else{
-var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
-		var alertmsg='';
-		if(langIs=='no')
-		{
-		$("#validation_message").html("Vennligst velg brukertype!");
-		}
-		else
-		{
-	 $("#validation_message").html("Please select the user type!");
-		}
+// else{
+// var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
+// 		var alertmsg='';
+// 		if(langIs=='no')
+// 		{
+// 		$("#validation_message").html("Vennligst velg brukertype!");
+// 		}
+// 		else
+// 		{
+// 	 $("#validation_message").html("Please select the user type!");
+// 		}
 
-  $("#validation_message").css("display","block");
-  $("#for_whom").focus();
-  return false;
-}
-
-
+//   $("#validation_message").css("display","block");
+//   $("#for_whom").focus();
+//   return false;
+// }
 
 
 
-   document.getElementById('step1').style.display = "none";
-   document.getElementById('step2').style.display = "block";
+
+
+   // document.getElementById('step1').style.display = "none";
+   // document.getElementById('step2').style.display = "block";
 
 }
 
@@ -856,25 +865,6 @@ function get_states(cityIs) {
                 <div class="col-md-6" style="padding-left:30px;">
 
 
-                      		<br>
-						<?php if(@isset($_REQUEST["success"])) { ?>
-                        <div class="success-box" style="display:block;">
-                            <div class="text-success" id="label_msg_sent" adr_trans="label_msg_sent">Congratulations. Your message has been sent successfully</div>
-                        </div>
-						<?php } elseif(isset($_REQUEST["failed"])) { ?>
-                        <div class="error-box"  style="display:block;">
-                            <div class="text-warning" id="label_invalid_loggin" adr_trans="label_invalid_loggin">Invalid login  credentials. Please try again.</div>
-                        </div>
-						<?php }  elseif(isset($_REQUEST["sessexp"])) { ?>
-                        <div class="error-box"  style="display:block;">
-                            <div class="text-warning" id="label_session_expired" adr_trans="label_session_expired">Your session expired. Please login again.</div>
-                        </div>
-						<?php } else { ?>
-				<div class="error-box"  style="display:none;">
-                           
-                        </div>
-						<?php } ?>
-
 
 
                        <div class="col-md-12"><h3 align="center" id="label_signup" adr_trans=""> Create your Fotopia Account</h3></div>
@@ -882,14 +872,12 @@ function get_states(cityIs) {
                         <div class="col-md-12 text-center"><h4>Please tell us who you are</h4></div>
                        <br><br>
 
-                       <div class="error-box" id="validation_message" style="margin-left:20px;color:red;display:none;font-style:italic;" align="center">
-                            <div class="text-warning" ></div>
-                        </div>
-			<span style="margin-left:110px;color:red;display:none;font-style:italic;" id="Email_exist_error" align="center" class=""></span>
+                       
+			
 
           <div id="step1" name="step1">
 
-             <div class="col-md-6">
+           <!--   <div class="col-md-6">
     <center><label for="from_homeseller"> 
           <input type="radio" name="for_whom" onchange="validate_email('aa')" value="realtor" required />&nbsp;&nbsp;<span adr_trans="label_realtor">Realtor </span>
         </label>
@@ -902,17 +890,57 @@ function get_states(cityIs) {
         </label>
         </center>
         <br>
-      </div>
+      </div> -->
+
+            <script>
+
+
+
+function setColor(val)
+{
+
+
+
+$("#realtorDiv").removeAttr("style");
+$("#pcadminDiv").removeAttr("style");
+if(val=='Realtor')
+{
+$("#realtorDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
+$("#pcadminDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
+$('#from_whom').val('realtor');
+$('#realtoricon').attr("style","display:inline;margin-right: 5px;font-size: 18px;vertical-align: middle;");
+$('#pcadminicon').attr("style","display:none;margin-right: 5px;font-size: 18px;vertical-align: middle;");
+}
+else
+{
+$("#pcadminDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
+$("#realtorDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
+$('#from_whom').val('photo_company');
+$('#realtoricon').attr("style","display:none;margin-right: 5px;font-size: 18px;vertical-align: middle;");
+$('#pcadminicon').attr("style","display:inline;margin-right: 5px;font-size: 18px;vertical-align: middle;");
+}
+}
+</script>
+
+
+
+<div class="col-md-12" style="background:#aad1d6;height:60px;padding:8px;border-radius:80px;margin: 0px 13px;width: 95%;margin-bottom: 20px;">
+<div class="col-md-6" style="color:#000;background:#aad1d6;height:44px;border-radius:80px 20px 20px 80px;text-align: center;line-height: 44px;" id="realtorDiv" onClick="setColor('Realtor');"><i class="fa fa-check-circle-o" id="realtoricon" style="margin-right: 5px;font-size: 18px;vertical-align: middle;"></i>Realtor</div>
+<div class="col-md-6" style="color:#000;background:#FFF;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;" id="pcadminDiv"onclick="setColor('PCAdmin');"><i class="fa fa-check-circle-o" id="pcadminicon" style="display: none;margin-right: 5px;font-size: 18px;vertical-align: middle;" ></i>PCAdmin</div>
+</div>
+<br>
 						<div class="col-md-6">
                                 <p><span id="label_first_name" adr_trans="label_first_name">First Name</span></p>
                                 <input id="fname" name="fname" placeholder="First name" type="text" autocomplete="off" class="form-control form-value" onblur="return validate_fname(this.value)" minlength="1" maxlength="20" required="" >
+                                <input type="hidden" name="for_whom" id="from_whom" value="realtor">
                             </div>
 
 							<div class="col-md-6">
                                 <p id="label_last_name" adr_trans="label_last_name">Last Name</p>
                                 <input id="lname" name="lname" placeholder="Last name" type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control form-value" required="">
+                                
                             </div>
-
+                           
 							<!-- <div class="col-md-6">
                                 <p id="label_organization" adr_trans="label_organization">Organization</p>
                                 <input id="org" name="org" placeholder="Organization" type="text" autocomplete="off" class="form-control form-value" required="">
@@ -934,10 +962,10 @@ function get_states(cityIs) {
                             </div>
 
 
-							 <div class="col-md-6">
+							<!--  <div class="col-md-6">
                                 <p id="label_contact_no" adr_trans="label_contact_no">Contact Number</p>
            <input id="contactno" name="contactno" placeholder="Contact number" type="tel"  onblur="return validate_tel(this.value)" min="1" autocomplete="off" class="form-control form-value" required="">
-                            </div>
+                            </div> -->
 
 
                             <div class="col-md-6">
@@ -953,6 +981,21 @@ function get_states(cityIs) {
 
 
                             </div>
+
+
+							<div class="col-md-6">
+                               <br>
+                                <input id="terms" name="terms" type="checkbox" class=" form-value" required="" />&nbsp;&nbsp;<span id="label_accept" adr_trans="label_accept">Accept our</span>
+                                <a href="#tnc" class="lightbox link" data-lightbox-anima="show-scale" style="color:blue;text-decoration:underline" id="label_terms" adr_trans="label_terms">Terms & Conditions</a><br />
+                            </div>
+
+
+							<div class="col-md-12">
+                                <p id="label_confirm_captcha" adr_trans="label_confirm_captcha">Confirm Captcha</p>
+                               <span class="g-recaptcha" data-sitekey="6LfcQV0aAAAAALoVQq1XWMiLQDmIOadNhXqLStI_"  data-callback='submit' data-action='submit'></span>
+        <span id="error"></span>
+                            </div>
+
 <div class="col-md-12"><span style="font-style:italic; line-height:normal; font-weight:500">Password Must contain at least 1 number, 1 uppercase letter and at least 8 or more characters</span></div>
                             <br>
 
@@ -962,12 +1005,37 @@ function get_states(cityIs) {
 
 
                             </div>
-
+                            <div class="col-md-12">
+                             	
+						<?php if(@isset($_REQUEST["success"])) { ?>
+                        <div class="success-box" style="display:block;">
+                            <div class="text-success" id="label_msg_sent" adr_trans="label_msg_sent">Congratulations. Your message has been sent successfully</div>
+                        </div>
+						<?php } elseif(isset($_REQUEST["failed"])) { ?>
+                        <div class="error-box"  style="display:block;">
+                            <div class="text-warning" id="label_invalid_loggin" adr_trans="label_invalid_loggin">Invalid login  credentials. Please try again.</div>
+                        </div>
+						<?php }  elseif(isset($_REQUEST["sessexp"])) { ?>
+                        <div class="error-box"  style="display:block;">
+                            <div class="text-warning" id="label_session_expired" adr_trans="label_session_expired">Your session expired. Please login again.</div>
+                        </div>
+						<?php } else { ?>
+				<div class="error-box"  style="display:none;">
+                           
+                        </div>
+						<?php } ?>
+					
+						<div class="error-box" id="validation_message" style="color:red;display:none;font-style:italic;text-align: justify;" >
+                            <div class="text-warning" ></div>
+                        </div>
+                        
+                        <span style="color:red;display:none;font-style:italic;text-align: justify;" id="Email_exist_error" align="center" class=""></span></div>
 
                             <div class="col-md-6" align="left">
-                                <br><br>
-
-                            <a class="anima-button circle-button btn-sm btn adr-save" onclick="return showStep2()" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a>&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
+                            <br>
+                              
+                            <button class="anima-button circle-button btn-sm btn adr-save"  onclick="return showStep2()" type="submit" name="signupbtn" id="label_signup" ><i class="fa fa-sign-in"></i><span  adr_trans="label_signup">Signup</span></button>
+                            <!-- <a class="anima-button circle-button btn-sm btn adr-save" id="next" name="next" adr_trans="label_next" ><i class="fa fa-chevron-circle-right"></i>Next</a> -->&nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn adr-cancel" href="index.php" id="label_cancel" adr_trans="label_cancel"><i class="fa fa-times"></i>Cancel</a>
 
 
 
@@ -977,7 +1045,7 @@ function get_states(cityIs) {
 
 
 
-<div id="step2" name="step2" style="display:none" >
+<!-- <div id="step2" name="step2" style="display:none" >
 
 
     <div class="col-md-6">
@@ -1017,12 +1085,13 @@ function get_states(cityIs) {
 							<select name="city" id="city" onchange="get_states(this.value)" class="form-control form-value" required="">
 								<option value="">Select City</option>
 							<?php
-							$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
-							while($city=mysqli_fetch_array($city1))
-							{
+							//$city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
+							//while($city=mysqli_fetch_array($city1))
+							//{
 							?>
-							<option value="<?php echo $city['cities']; ?>"><?php echo $city['cities']; ?></option>
-							<?php } ?>
+							<option value="<?php //echo $city['cities']; ?>"><?php //echo $city['cities']; ?></option>
+							<?php 
+							// } ?>
 							</select>
 							</div>
 
@@ -1084,7 +1153,7 @@ function get_states(cityIs) {
 </center>
 					   </div>
                         </div>
-</div>
+</div> -->
 
                 </div> </form>
 

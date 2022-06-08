@@ -751,6 +751,45 @@ $("#country").css("border","solid 1px grey");
 }
 
 }
+
+ function get_companies(val,e)
+  {
+    //console.log(e.key);
+    
+    if(e.key!="Backspace"&&val!="")
+     {
+       $.ajax(
+      {
+      url:"../get_norway_company.php?company_name="+val,
+      success:function(result2)
+      {
+      
+         //$('#companies').html('');
+         $('#companies1').html(result2);
+      }
+    })
+     }
+  }
+  function companies(val)
+  {
+    $.ajax(
+    {
+      url:"../get_norway_company_detail.php?company_name="+val,
+      success:function(result)
+      {
+         var company_detail=JSON.parse(result);
+         $('#realtor_employer_id').val(company_detail.company_number);
+          var city=capitalizeFirstLetter(company_detail.place);
+         get_states(city);
+         $('#city').val(city).change();
+         $('#zip').val(company_detail.zip_code);
+
+      }
+    })
+  }
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 	</script>
 
 
@@ -899,7 +938,10 @@ $("#country").css("border","solid 1px grey");
 
     <div class="col-md-6">
                                 <p adr_trans="label_org_name">Organization name</p>
-                                <input id="org_name" name="org_name" placeholder="Organization name" type="text" autocomplete="off" class="form-control form-value" required="" >
+                                <input id="org_name" name="org_name" placeholder="Organization name" type="text" autocomplete="off" class="form-control form-value" list="companies1" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)" required="" >
+                                <datalist id="companies1">
+                                 
+                                </datalist>
                             </div>
 
                             <div class="col-md-6">

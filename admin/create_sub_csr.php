@@ -230,7 +230,7 @@ function validate_email(val)
 
 
                               <div class="col-md-6">
-                                  <p>Email<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+                                  <p>Email
 						</p>
 	<input id="email" name="email" placeholder="Email" type="email" autocomplete="off"   onblur="this.value=this.value.trim();validate_email(this.value)" class="form-control form-value" required="">
 
@@ -326,7 +326,7 @@ function validate_email(val)
   							<div class="error-box" style="display:none;">
                               <div class="alert alert-warning" id="error-msg">&nbsp;</div>
                           </div>
-
+                         <p align="center"><span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span></p>
   						 <button class="anima-button circle-button btn-sm btn" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Create</button>
                          &nbsp;&nbsp;<a class="anima-button circle-button btn-sm btn" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>
   </center>

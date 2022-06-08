@@ -489,9 +489,9 @@ $realtor_id=$_SESSION['loggedin_id'];
    { 
 
 ?>
-<input type="button" class="btn adr-save btn-sm" id="warningMsg" onclick="document.getElementById('myModal').style='display:block;padding-top:120px'" style="display:none" />
+<input type="button" class="btn adr-save btn-sm" id="warningMsg" onclick="document.getElementById('myModal').style='display:block;padding-top:120px;background:rgba(94,94,94,0.7)'" style="display:none" />
 
-<div id="myModal" class="modal" align="center">
+<div id="myModal" class="modal" align="center" style="">
 <div class="modal-content" align="center" style="width:26%!important;height:40%!important;border-radius:12px">
  <hr class="space xs">
 <h5 class="text-center" id="label_warning" adr_trans="label_warning" style="color:orange!important;">Profile Warning!<br /></h5>
@@ -499,7 +499,7 @@ $realtor_id=$_SESSION['loggedin_id'];
 
 
 <hr class="space s">
-<center><span>Please fill the profile details</span></center>
+<center><p>Finish your registration in order to show up as a validated user</p><span>Please fill the profile details</span></center>
 <hr class="space m">
 <p align="center"><a href="edit_realtor_profile.php?first=1" class="btn btn-default anima-button circle-button btn-sm adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
 

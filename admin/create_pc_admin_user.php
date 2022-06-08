@@ -264,7 +264,7 @@ function showPassword2() {
 </script>
 			</div>
                 <div class="col-md-8" style="padding-top:30px;">
-<span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span>
+
 						  <form action="" class="form-box form-ajax" method="post" enctype="multipart/form-data" onsubmit="return validateData()"  style="color: #000;background: #FFF;opacity:0.8;width:100%;border-radius:10px!important;padding:20px;">
 <div class="col-md-12"><h5 align="center" id="label_create_admin_user" adr_trans="label_create_admin_user"> Create Admin user</h5></div>
 
@@ -373,7 +373,9 @@ function showPassword2() {
                           </div>
 </div>
   						 <div class="row" align="right">
-                            
+                <div class="col-md-12" style="text-align:-webkit-center">
+                <span style="margin-left:20px;color:red;display:none" id="Email_exist_error" align="center" class="alert-warning"></span></div>
+                <br>
   						 <button id="label_create" adr_trans="label_create" class="anima-button circle-button btn-sm btn adr-save" type="submit" name="signupbtn"><i class="fa fa-sign-in"></i>Create</button>
                          &nbsp;&nbsp;<a id="label_cancel" adr_trans="label_cancel" class="anima-button circle-button btn-sm btn adr-cancel" href="csr_list1.php"><i class="fa fa-times"></i>Cancel</a>
   
