@@ -315,7 +315,7 @@ $realtor_id=$_SESSION['loggedin_id'];
 
 <hr class="space s">
 <center>
-<p>Finish your registration in order to show up as a validated user</p></center>
+<h5>Finish your registration in order to show up as a validated user.</h5></center>
 <hr class="space m">
 <p align="center"><a href="edit_realtor_profile.php?first=1" class="btn anima-button btn-sm adr-save"><i class="fa fa-check-circle"></i><span adr_trans="">Proceed</span></a>&nbsp;&nbsp;<a href="csrRealtorDashboard.php" class="btn anima-button btn-sm adr-cancel"><i class="fa fa-check-circle"></i><span adr_trans="">Skip for now</span></a></p>
 

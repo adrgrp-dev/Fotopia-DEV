@@ -499,8 +499,8 @@ $realtor_id=$_SESSION['loggedin_id'];
 
 
 <hr class="space s">
-<center><p>Finish your registration in order to show up as a validated user</p><span>Please fill the profile details</span></center>
-<hr class="space m">
+<center><h5>Finish your registration in order to show up as a validated user.</h5><h5>Please fill the profile details</h5></center>
+<hr class="space s">
 <p align="center"><a href="edit_realtor_profile.php?first=1" class="btn anima-button btn-sm adr-save"><i class="fa fa-check-circle"></i><span adr_trans="label_got_it">Got it</span></a></p>
 
 </td></tr></table>
