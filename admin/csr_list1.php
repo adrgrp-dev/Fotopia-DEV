@@ -638,7 +638,7 @@ thead > tr:last-child > th, th > span {
 
 				<td class="text-left" style="word-break:break-all;"><?php echo $res1['contact_number']; ?></td>
 				<td class="text-left" style=""><?php $approved=$res1['email_verified']; if($approved==0) { echo "<span id='label_pending' adr_trans='label_pending' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Pending</span>"; } elseif($approved==2) { echo "<span id='label_blocked' adr_trans='label_blocked' style='color: #000; font-weight: bold;display: block; background:#F58883;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Blocked</span>"; } else { echo "<span id='label_approved' adr_trans='label_approved' style='color: #000; font-weight: bold;display: block; background:#76EA97;padding-top: 5px; max-width: 200px;padding-bottom: 5px;text-align: center;'>Approved</span>"; } ?></td>
-				<td class="text-center" style=""><a target="" href="userDetails.php?val=2&id=<?php echo $res1['id']; ?>" class="link">
+				<td class="text-center" style=""><a target="" href="userDetails_pc.php?val=2&id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-chevron-circle-right fa-lg"></i></a>&nbsp;&nbsp;<a target="" href="edit_photographer.php?id=<?php echo $res1['id']; ?>" class="link">
 				<i class="fa fa-pencil fa-lg" style="padding-left:3px" title="Edit photographer details"></i></td>
 				</tr>
