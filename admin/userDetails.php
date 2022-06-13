@@ -162,25 +162,25 @@ if(isset($_REQUEST['profilebtn']))
 if(@$_REQUEST['id'])
 {
 
-// 	$imgData="";
-// 	$imageProperties="";
-// 	$imageType="";
-// 	if (count($_FILES) > 0) {
-//     if (is_uploaded_file($_FILES['logo']['tmp_name'])) {
-//         $imgData = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
-//         $imageType = $_FILES['logo']['type'];
-//     }
-// }
+	$imgData="";
+	$imageProperties="";
+	$imageType="";
+	if (count($_FILES) > 0) {
+    if (is_uploaded_file($_FILES['logo']['tmp_name'])) {
+        $imgData = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
+        $imageType = $_FILES['logo']['type'];
+    }
+}
 
-//   $imgData1="";
-//   $imageProperties1="";
-//   $imageType1="";
-//   if (count($_FILES) > 0) {
-//     if (is_uploaded_file($_FILES['profile_pic']['tmp_name'])) {
-//         $imgData1 = addslashes(file_get_contents($_FILES['profile_pic']['tmp_name']));
-//         $imageType1 = $_FILES['profile_pic']['type'];
-//     }
-// }
+  $imgData1="";
+  $imageProperties1="";
+  $imageType1="";
+  if (count($_FILES) > 0) {
+    if (is_uploaded_file($_FILES['profile_pic']['tmp_name'])) {
+        $imgData1 = addslashes(file_get_contents($_FILES['profile_pic']['tmp_name']));
+        $imageType1 = $_FILES['profile_pic']['type'];
+    }
+}
 
 
 $portfolio=$_REQUEST['portfolio'];
@@ -203,42 +203,42 @@ $twitter_id=$_REQUEST['twitter_id'];
 $contact_number=$_REQUEST['contact_number'];
 $fname=$_REQUEST['fname'];
 $lname=$_REQUEST['lname'];
-$id=$_REQUEST['id'];
+$loggedin_id=$_REQUEST['id'];
 
 
 
-// if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0) {
+if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0) {
 
-mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname' where realtor_id='$id'");
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname' where realtor_id='$loggedin_id'");
 
-mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$id'");
-// }
+mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
+}
 
-// elseif($_FILES['profile_pic']['size'] == 0){
-
-
-//   mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
-
-//   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
-
-// }
-
-// elseif($_FILES['logo']['size'] == 0){
+elseif($_FILES['profile_pic']['size'] == 0){
 
 
-//   mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType' where realtor_id='$loggedin_id'");
 
-//   mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+  mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname' where id='$loggedin_id'");
 
-// }
+}
 
-// else {
+elseif($_FILES['logo']['size'] == 0){
 
-// mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
-// mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+  mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
 
-// }
+  mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+
+}
+
+else {
+
+mysqli_query($con,"update realtor_profile set realtor_employer_id='$realtor_employer_id',portfolio='$portfolio',organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',first_name='$fname',last_name='$lname',logo='$imgData',logo_image_type='$imageType',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where realtor_id='$loggedin_id'");
+
+mysqli_query($con,"update user_login set organization_name='$organization_name',organization_branch='$organization_branch',organization_contact_number='$organization_contact_number',organization_email='$organization_email',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+
+}
 
 }
 
@@ -246,32 +246,7 @@ elseif($_REQUEST['id1'])
 {
 
 
-// 	$imgData="";
-// 	$imageProperties="";
-// 	$imageType="";
-// 	if (count($_FILES) > 0) {
-//     if (is_uploaded_file($_FILES['logo']['tmp_name'])) {
-//         $filename=$loggedin_id."_".time().$_FILES['logo']['name'];
-// 		$filename=str_replace(" ","",$filename);
-//         $imgData = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
-//         $imageType = $_FILES['logo']['type'];
-//         $rootdirectory="../pc_admin_logo/".$filename;
-//         unlink($_REQUEST['old_logo']);
-//         move_uploaded_file($_FILES['logo']['tmp_name'], $rootdirectory);
-//         $image_directory="pc_admin_logo/".$filename;
-//     }
-// }
 
-
-//   $imgData1="";
-//   $imageProperties1="";
-//   $imageType1="";
-//   if (count($_FILES) > 0) {
-//     if (is_uploaded_file($_FILES['profile_pic']['tmp_name'])) {
-//       echo   $imgData1 = addslashes(file_get_contents($_FILES['profile_pic']['tmp_name']));
-//       echo   $imageType1 = $_FILES['profile_pic']['type'];
-//     }
-// }
 
 $aboutus=addslashes($_REQUEST['aboutus']);
 $skills=$_REQUEST['skills'];
@@ -294,52 +269,81 @@ $instagram_id=$_REQUEST['instagram_id'];
 $twitter_id=$_REQUEST['twitter_id'];
 $youtube_id=$_REQUEST['youtube_id'];
 $tax=$_REQUEST['tax'];
-$id1=$_REQUEST['id1'];
+$loggedin_id=$_REQUEST['id1'];
 $fname=$_REQUEST['fname'];
 $lname=$_REQUEST['lname'];
 $organization_contact_number=$_REQUEST['organization_contact_number'];
 
-// if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0){
+
+	$imgData="";
+	$imageProperties="";
+	$imageType="";
+	if (count($_FILES) > 0) {
+    if (is_uploaded_file($_FILES['logo']['tmp_name'])) {
+        $filename=$loggedin_id."_".time().$_FILES['logo']['name'];
+		$filename=str_replace(" ","",$filename);
+        $imgData = addslashes(file_get_contents($_FILES['logo']['tmp_name']));
+        $imageType = $_FILES['logo']['type'];
+        $rootdirectory="../pc_admin_logo/".$filename;
+        unlink($_REQUEST['old_logo']);
+        move_uploaded_file($_FILES['logo']['tmp_name'], $rootdirectory);
+        $image_directory="pc_admin_logo/".$filename;
+    }
+}
+
+
+  $imgData1="";
+  $imageProperties1="";
+  $imageType1="";
+  if (count($_FILES) > 0) {
+    if (is_uploaded_file($_FILES['profile_pic']['tmp_name'])) {
+      $imgData1 = addslashes(file_get_contents($_FILES['profile_pic']['tmp_name']));
+      $imageType1 = $_FILES['profile_pic']['type'];
+    }
+}
+
+
+if($_FILES['logo']['size'] == 0 && $_FILES['profile_pic']['size'] == 0){
 
 mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'
- where pc_admin_id='$id1'"); 
+ where pc_admin_id='$loggedin_id'"); 
 
 mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_contact_number='$organization_contact_number',organization_branch='$organization_branch',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',first_name='$fname',last_name='$lname'
- where id='$id1'");
+ where id='$loggedin_id'");
 
-// }
+}
 
-// elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
+elseif($_FILES['logo']['size'] == 1 || $_FILES['profile_pic']['size'] == 0) {
 
-//     mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
-//   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country' where id='$loggedin_id'");
-
-//   mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
-
-// }
+  mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country' where id='$loggedin_id'");
 
 
-// elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
-//     mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
-
-//   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
-
-//   mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
-
-// }
+}
 
 
-// else {
+elseif($_FILES['logo']['size'] == 0 || $_FILES['profile_pic']['size'] == 1) {
 
-// 	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+    mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
 
-//   mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',email='$email',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+  mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
 
-//   mysqli_query($con,"INSERT INTO `user_actions`( `module`, `action`, `action_done_by_name`, `action_done_by_id`,`action_done_by_type`, `pc_admin_id`,`action_date`) VALUES ('Profile','Updated','$loggedin_name',$loggedin_id,'PCAdmin',$loggedin_id,now())");
+  
 
-// }
+}
+
+
+else {
+
+	mysqli_query($con,"update photo_company_profile set about_us='$aboutus',skills='$skills',portfolio='$portfolio',location='$location',organization_name='$organization_name',organization_branch='$organization_branch',organization_number='$organization_number',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',linkedin_id='$linkedin_id',logo='$imgData',logo_image_url='$image_directory',logo_image_type='$imageType',facebook_id='$facebook_id',instagram_id='$instagram_id',youtube_id='$youtube_id',twitter_id='$twitter_id',tax='$tax'where pc_admin_id='$loggedin_id'");
+
+  mysqli_query($con,"update admin_users set organization_name='$organization_name',organization_branch='$organization_branch',contact_number='$contact_number',address_line1='$address_line1',address_line2='$address_line2',city='$city',state='$state',postal_code='$zip',country='$country',profile_pic='$imgData1',profile_pic_image_type='$imageType1' where id='$loggedin_id'");
+
+ 
+
+}
 
 }
 }
@@ -349,6 +353,46 @@ mysqli_query($con,"update admin_users set organization_name='$organization_name'
 
 <?php include "header.php";  ?>
 
+<script>
+	
+	function get_companies(val,e)
+  {
+    //console.log(e.key);
+   
+    if(e.key!="Backspace"&&val!="")
+     {
+       $.ajax(
+      {
+      url:"../get_norway_company.php?company_name="+val,
+      success:function(result2)
+      {
+         //$('#companies').html('');
+        
+         $('#companies1').html(result2);
+      }
+    })
+     }
+  }
+  function companies(val)
+  {
+    $.ajax(
+    {
+      url:"../get_norway_company_detail.php?company_name="+val,
+      success:function(result)
+      {
+         var company_detail=JSON.parse(result);
+         $('#organization_number').val(company_detail.company_number);
+          var city=capitalizeFirstLetter(company_detail.place);
+         $('#city').val(city).change();
+         $('#zip').val(company_detail.zip_code);
+
+      }
+    })
+  }
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+</script>
 
 <div class="section-empty bgimage7">
 	<hr class="space xs">
@@ -358,7 +402,7 @@ mysqli_query($con,"update admin_users set organization_name='$organization_name'
 			<div class="col-md-2" style="padding-left:15px;">
 				<hr class="space s">
 				<script>
-				   $(".hidden-xs").css("margin-right":"46px");
+				   $(".hidden-xs").css("margin-right","46px");
 				</script>
 
 	<?php include "sidebar.php"; ?>
@@ -393,22 +437,22 @@ $approved=$res1['is_approved'];
 			}
 				?>
 
-				<form name="profile" method="get" action="" enctype="multipart/form-data" >
+				<form name="profile" method="post" action="" enctype="multipart/form-data" >
 
 
 
 
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_first_name">First name</p>
-<input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['first_name']; ?>">
+<input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20"  value="<?php echo @$res1['first_name']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_last_name">Last name</p>
-<input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
+<input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20"  value="<?php echo @$res1['last_name']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_contact_no">Contact number</p>
-<input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
+<input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20"  value="<?php echo @$res1['contact_number']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="">profile picture</p>
@@ -416,25 +460,25 @@ $approved=$res1['is_approved'];
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="">Company name</p>
-<input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" list="companies" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)" required="" value="<?php echo @$res1['organization_name']; ?>">
-<datalist id="companies">
+<input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" list="companies1" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)"  value="<?php echo @$res1['organization_name']; ?>">
+<datalist id="companies1">
 </datalist>
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="">Any Company Branch?</p>
-<input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20" required="" value="<?php echo @$res1['organization_branch']; ?>">
+<input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20"  value="<?php echo @$res1['organization_branch']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;">Company ID / Organination No</p>
-<input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['realtor_employer_id']; ?>">
+<input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off"  class="form-control form-value"  value="<?php echo @$res1['realtor_employer_id']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_org_contact_no">Organization Contact number</p>
-<input id="organization_contact_number" name="organization_contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['organization_contact_number']; ?>">
+<input id="organization_contact_number" name="organization_contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20"  value="<?php echo @$res1['organization_contact_number']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_org_email">Organization Email</p>
-<input id="organization_email" name="organization_email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()" required="" value="<?php echo @$res1['organization_email']; ?>">
+<input id="organization_email" name="organization_email" type="email" autocomplete="off" class="form-control form-value" onblur="this.value=this.value.trim()"  value="<?php echo @$res1['organization_email']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="">Company logo</p>
@@ -442,7 +486,7 @@ $approved=$res1['is_approved'];
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_address_line1">Address line 1</p>
-<input id="address_line1" name="address_line1" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" required="" value="<?php echo @$res1['address_line1']; ?>">
+<input id="address_line1" name="address_line1" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30"  value="<?php echo @$res1['address_line1']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_address_line2">Address line 2</p>
@@ -451,7 +495,7 @@ $approved=$res1['is_approved'];
 
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_city">City</p>
-<select name="city" id="city" class="form-control form-value" required="">
+<select name="city" id="city" class="form-control form-value" >
 <?php
 $city1=mysqli_query($con,"select cities from norway_states_cities order by cities asc");
 while($city=mysqli_fetch_array($city1))
@@ -463,7 +507,7 @@ while($city=mysqli_fetch_array($city1))
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_state">State</p>
-<select name="state" class="form-control form-value" required="" >
+<select name="state" class="form-control form-value"  >
 <?php
 $state1=mysqli_query($con,"select distinct(states) from norway_states_cities order by states asc");
 while($state=mysqli_fetch_array($state1))
@@ -475,11 +519,11 @@ while($state=mysqli_fetch_array($state1))
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_zip_code">Zip code</p>
-<input id="zip" name="zip" type="number" autocomplete="off" class="form-control form-value" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8" required="" value="<?php echo @$res1['postal_code']; ?>">
+<input id="zip" name="zip" type="number" autocomplete="off" class="form-control form-value" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8"  value="<?php echo @$res1['postal_code']; ?>">
 </div>
 <div class="col-md-6">
 <p style="color:#000;" adr_trans="label_country">Country</p>
-<select name="country" class="form-control form-value" required="">
+<select name="country" class="form-control form-value" >
 <option value="Norway">Norway</option>
 <option value="US">US</option>
 </select>
@@ -497,7 +541,7 @@ if (@$_REQUEST['id1']) {
 
 <p><span id="label_set_location" adr_trans="label_set_location" style="color:#000;">Set Location</span> (Add multiple locations seperated by comma)</p>
 
-<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="location" value="<?php echo @$res1['location']; ?>" autocomplete="off" required />
+<input type="text" list="Suggestions" multiple="multiple" class="form-control form-value" name="location" value="<?php echo @$res1['location']; ?>" autocomplete="off"  />
 
 <datalist id="Suggestions">
 <?php
@@ -512,7 +556,7 @@ while($city=mysqli_fetch_array($city1))
 
 <div class="col-md-6">
 <p><span id="label_set_tax" adr_trans="labelabel_set_taxl_tax" style="color:#000;">Set tax</span><span id="label_percentage_tax" adr_trans="label_percentage_tax">(Enter the percentage of tax)</span></p>
-<input id="tax" name="tax" type="number" step="any" autocomplete="off" class="form-control form-value" required="" value="<?php echo @$res1['tax']; ?>">
+<input id="tax" name="tax" type="number" step="any" autocomplete="off" class="form-control form-value"  value="<?php echo @$res1['tax']; ?>">
 </div>
 <div class="col-md-6">
 <p id="label_about_me" adr_trans="label_about_us" style="color:#000;">About Us</p>
@@ -569,11 +613,11 @@ elseif(@$_REQUEST['id1']){
 	<input type="hidden" name="id1" value="<?php echo @$_REQUEST['id1']?>">
 	<?php } ?>
 <hr class="space s">
-<button class="anima-button btn-sm btn adr-save" type="submit" name="profilebtn" id="label_update_profile" adr_trans=""><i class="fa fa-sign-in"></i>Save</button>
+<button class="hidden" type="submit" name="profilebtn" id="label_update_profile" adr_trans=""><i class="fa fa-sign-in"></i>Save</button>
 </form>
 
          <div align="right" style="margin-top:10px;margin-right: 82px;">
-         	
+         	     <input type="button" class="btn-sm btn adr-save" id="save" value="save" style="padding:4px 20px; ">
 				<?php if($res1['type_of_user']!='PCAdmin'){ if(@$res1['email_verified']==2) { ?>
 				<a class="anima-button circle-button btn-sm btn adr-save" href="userDetails.php?val=2&approve=1&id=<?php echo $res1['id']; ?>"><i class="fa fa-check"></i><span adr_trans="label_approve">Approve</span></a> <?php }
 
@@ -661,6 +705,73 @@ elseif($res1['is_approved']==1) { ?>
 
 
             </div>
+
+
+<script>
+ 
+ $('#save').on('click',function()
+ {
+   $('#label_update_profile').click();
+ });
+document.addEventListener("DOMContentLoaded", function () {
+const separator = ',';
+for (const input of document.getElementsByTagName("input")) {
+if (!input.multiple) {
+continue;
+}
+if (input.list instanceof HTMLDataListElement) {
+const optionsValues = Array.from(input.list.options).map(opt => opt.value);
+let valueCount = input.value.split(separator).length;
+input.addEventListener("input", () => {
+const currentValueCount = input.value.split(separator).length;
+// Do not update list if the user doesn't add/remove a separator
+// Current value: "a, b, c"; New value: "a, b, cd" => Do not change the list
+// Current value: "a, b, c"; New value: "a, b, c," => Update the list
+// Current value: "a, b, c"; New value: "a, b" => Update the list
+if (valueCount !== currentValueCount) {
+const lsIndex = input.value.lastIndexOf(separator);
+const str = lsIndex !== -1 ? input.value.substr(0, lsIndex) + separator : "";
+filldatalist(input, optionsValues, str);
+valueCount = currentValueCount;
+}
+});
+}
+}
+function filldatalist(input, optionValues, optionPrefix) {
+const list = input.list;
+if (list && optionValues.length > 0) {
+list.innerHTML = "";
+const usedOptions = optionPrefix.split(separator).map(value => value.trim());
+for (const optionsValue of optionValues) {
+if (usedOptions.indexOf(optionsValue) < 0) {
+const option = document.createElement("option");
+option.value = optionPrefix + optionsValue;
+list.append(option);
+}
+}
+}
+}
+});
+$("#logo").change(function () {
+var fileExtension = ['jpeg', 'jpg', 'png', 'gif'];
+if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+var langIs='<?php echo $_SESSION['Selected_Language_Session']; ?>';
+var profile_pic_alert='';
+if(langIs=='no')
+{
+profile_pic_alert="Profilbilde skal bare v�re i det gitte formatet";
+}
+else
+{
+profile_pic_alert="Profile Pic should be only in the given format";
+}
+alert(profile_pic_alert+": "+fileExtension.join(', '));
+$("#logo").val("");
+}
+});
+</script>
+
+
 
 
 		<?php include "footer.php";  ?>
