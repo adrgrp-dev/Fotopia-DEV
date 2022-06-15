@@ -4,6 +4,20 @@ include "connection.php";
 
 //echo $_SESSION['Selected_Language_Session'];
 //Login Check
+if(isset($_REQUEST['approve']))
+{
+  $email=;
+  $verifiation_code=;
+  $get_approved_query=mysqli_query($con,"select count(*) from admin_users where email=$email and email_verification_code=$verifiation_code");
+  if($mysqli_num_rows($get_approved_query)==1)
+  {
+    mysqli_query($con,"update user_login set is_approved=1");
+  }
+  else{
+  	header("location:index.php?activate=1");
+  }
+}
+
 if(isset($_REQUEST['loginbtn']))
 {
 

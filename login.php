@@ -3,6 +3,20 @@ ob_start();
 // session_start();
 include "connection.php";
 
+if(isset($_REQUEST['approve']))
+{
+  $email=;
+  $verifiation_code=;
+  $get_approved_query=mysqli_query($con,"select count(*) from user_login where email=$email and email_verification_code=$verifiation_code");
+  if($mysqli_num_rows($get_approved_query)==1)
+  {
+    mysqli_query($con,"update user_login set email_verified=1");
+  }
+  else{
+  	header("location:login.php?activate=1");
+  }
+}
+
 function getName($n) {
     $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $randomString = '';

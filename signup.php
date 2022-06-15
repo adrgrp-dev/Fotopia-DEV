@@ -83,7 +83,7 @@ if($for_whom=="realtor"){
 
 $typeofuser = "Realtor";
 $inserted_id=0;
-   mysqli_query($con,"insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',1,now())");
+   mysqli_query($con,"insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())");
 
    // echo "insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())";
    
@@ -107,7 +107,7 @@ $typeofuser = "Photo Company";
 
 $user = "PCAdmin";
 $inserted_id=0;
-mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,is_approved,registered_on)values('$user','$fname','$lname','$email','$password',1,now())");
+mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,is_approved,registered_on)values('$user','$fname','$lname','$email','$password',0,now())");
 
 
 $inserted_id=mysqli_insert_id($con);
