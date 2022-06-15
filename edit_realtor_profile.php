@@ -210,6 +210,12 @@ margin-left:0px!important;
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 </script>
+<style type="text/css">
+  .form-control
+  {
+    margin-bottom: 10px;
+  }
+</style>
 
                 <div class="col-md-10">
 
@@ -222,7 +228,7 @@ margin-left:0px!important;
 						<div class="col-md-12"><h5 align="center" style="color:#000" adr_trans="label_edit_realtor">Add / Edit Realtor profile</h5></div>
 
 						<form name="profile" method="post" action="" enctype="multipart/form-data">
-
+              
  								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_logo">Logo</p>
                                <img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" />
@@ -234,6 +240,27 @@ margin-left:0px!important;
                 </div>
 
 								<br>
+                <div class="col-md-6">
+                                <p style="color:#000;" adr_trans="label_first_name">First name</p>
+                                <input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['first_name']; ?>">
+                </div>
+
+                <div class="col-md-6">
+                                <p style="color:#000;" adr_trans="label_last_name">Last name</p>
+                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
+                </div>
+
+
+                <div class="col-md-6">
+                                <p style="color:#000;" adr_trans="label_contact_no">Contact number</p>
+                                <input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
+                </div>
+
+                 <div class="col-md-6">
+                                   <p style="color:#000;" adr_trans="label_change_profile_picture">Change profile picture</p>
+                                  <input id="profile_pic" name="profile_pic" placeholder="Profile picture" type="file" autocomplete="off" class="form-control form-value" >
+
+                              </div>
 
  								<div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_org_name">Organization name</p>
@@ -274,61 +301,6 @@ margin-left:0px!important;
 
 
                               <div class="col-md-6">
-                                <p style="color:#000;"><span adr_trans="label_linkedin_profile">LinkedIN profile</span>&nbsp;<span class="fa fa-linkedin" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
-                                <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
-								</div>
-
-								<div class="col-md-6">
-                                <p  style="color:#000;" ><span adr_trans="label_fb_profile">Facebook profile</span>&nbsp;<span class="fa fa-facebook" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
-                                <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['facebook_id']; ?>">
-								</div>
-
-								<div class="col-md-6">
-                                <p style="color:#000;"><span adr_trans="label_insta_profile">Instagram profile</span>&nbsp;<span class="fa fa-instagram" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
-                                <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['instagram_id']; ?>">
-								</div>
-                <div class="col-md-6">
-                                <p style="color:#000;" ><span adr_trans="label_youtube_profile">Youtube profile</span>&nbsp;<span class="fa fa-youtube" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
-                                <input id="youtube_id" name="youtube_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['youtube_id']; ?>">
-                </div>
-                <div class="col-md-6">
-                                <p style="color:#000;"><span adr_trans="label_twitter_profile">Twitter profile</span>&nbsp;<span class="fa fa-twitter" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
-                                <input id="twitter_id" name="twitter_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['twitter_id']; ?>">
-                </div>
-
-
-				              <div class="col-md-6">
-
-
-                                <p id="label_portfolio" adr_trans="label_portfolio" style="color:#000;" adr_trans="label_portfolio">Portfolio</p>
-                                <input id="portfolio" name="portfolio" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo @$res1['portfolio']; ?>">
-
-								</div>
-
-
-                <div class="col-md-6">
-                                <p style="color:#000;" adr_trans="label_first_name">First name</p>
-                                <input id="fname" name="fname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['first_name']; ?>">
-                </div>
-
-                <div class="col-md-6">
-                                <p style="color:#000;" adr_trans="label_last_name">Last name</p>
-                                <input id="lname" name="lname" type="text" autocomplete="off" class="form-control form-value" minlength="1" maxlength="20" required="" value="<?php echo @$res1['last_name']; ?>">
-                </div>
-
-
-                <div class="col-md-6">
-                                <p style="color:#000;" adr_trans="label_contact_no">Contact number</p>
-                                <input id="contact_number" name="contact_number" type="tel" pattern="[0-9+.\(\)\-\s+]*" autocomplete="off" class="form-control form-value" minlength="6" maxlength="20" required="" value="<?php echo @$res1['contact_number']; ?>">
-                </div>
-
-                <!-- <div class="col-md-6">
-                                <p style="color:#000;">Email</p>
-                                <input id="email" name="email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php //echo @$res1['email']; ?>">
-                </div> -->
-
-
-                <div class="col-md-6">
                 <p style="color:#000;" adr_trans="label_address_line1">Address line 1</p>
                  <input id="address_line1" name="address_line1" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="30" required="" value="<?php echo @$res1['address_line1']; ?>">
                </div>
@@ -381,6 +353,51 @@ margin-left:0px!important;
                               <option value="US">US</option>
                               </select>
                 </div>
+ 
+                <div class="col-md-12 text-center">
+                  <p style="margin:20px 0px">Social Media</p>
+                </div>
+                              <div class="col-md-6">
+                                <p style="color:#000;"><span adr_trans="label_linkedin_profile">LinkedIN profile</span>&nbsp;<span class="fa fa-linkedin" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
+								</div>
+
+								<div class="col-md-6">
+                                <p  style="color:#000;" ><span adr_trans="label_fb_profile">Facebook profile</span>&nbsp;<span class="fa fa-facebook" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="facebook_id" name="facebook_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['facebook_id']; ?>">
+								</div>
+
+								<div class="col-md-6">
+                                <p style="color:#000;"><span adr_trans="label_insta_profile">Instagram profile</span>&nbsp;<span class="fa fa-instagram" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="instagram_id" name="instagram_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['instagram_id']; ?>">
+								</div>
+                <div class="col-md-6">
+                                <p style="color:#000;" ><span adr_trans="label_youtube_profile">Youtube profile</span>&nbsp;<span class="fa fa-youtube" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="youtube_id" name="youtube_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['youtube_id']; ?>">
+                </div>
+                <div class="col-md-6">
+                                <p style="color:#000;"><span adr_trans="label_twitter_profile">Twitter profile</span>&nbsp;<span class="fa fa-twitter" style="    padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
+                                <input id="twitter_id" name="twitter_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['twitter_id']; ?>">
+                </div>
+
+
+				              <div class="col-md-6">
+
+
+                                <p id="label_portfolio" adr_trans="label_portfolio" style="color:#000;" adr_trans="label_portfolio">Portfolio</p>
+                                <input id="portfolio" name="portfolio" type="text" autocomplete="off" class="form-control form-value" placeholder="Listing, own website, etc." value="<?php echo @$res1['portfolio']; ?>">
+
+								</div>
+
+
+                
+                <!-- <div class="col-md-6">
+                                <p style="color:#000;">Email</p>
+                                <input id="email" name="email" type="email" autocomplete="off" class="form-control form-value" required="" value="<?php //echo @$res1['email']; ?>">
+                </div> -->
+
+
+                
 
 
 
@@ -393,11 +410,7 @@ margin-left:0px!important;
 
 
 
-                <div class="col-md-6">
-                                   <p style="color:#000;" adr_trans="label_change_profile_picture">Change profile picture</p>
-                                  <input id="profile_pic" name="profile_pic" placeholder="Profile picture" type="file" autocomplete="off" class="form-control form-value" >
-
-                              </div>
+               
    <?php /*
                 <div class="col-md-6">
                                 <p style="color:#000;" adr_trans="label_password">Password</p>

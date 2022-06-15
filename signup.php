@@ -83,9 +83,9 @@ if($for_whom=="realtor"){
 
 $typeofuser = "Realtor";
 $inserted_id=0;
-   mysqli_query($con,"insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())");
+   mysqli_query($con,"insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',1,now())");
 
-   echo "insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())";
+   // echo "insert into user_login (type_of_user,first_name,last_name,email,password,email_verification_code,email_verified,registered_on)values('$typeofuser','$fname','$lname','$email','$password','$email_verification_code',0,now())";
    
 
 $inserted_id=mysqli_insert_id($con);
@@ -107,13 +107,12 @@ $typeofuser = "Photo Company";
 
 $user = "PCAdmin";
 $inserted_id=0;
-mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,registered_on)values('$user','$fname','$lname','$email','$password',now())");
+mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,is_approved,registered_on)values('$user','$fname','$lname','$email','$password',1,now())");
 
 
 $inserted_id=mysqli_insert_id($con);
 if($inserted_id!=0)
 {
-
 $rootdirectory="";
 if (count($_FILES) > 0) {
     if (is_uploaded_file($_FILES['profilepic']['tmp_name'])) {
@@ -126,28 +125,13 @@ if (count($_FILES) > 0) {
         $imageType = $_FILES['profilepic']['type'];
         $rootdirectory="pc_admin_logo/".$filename;
         move_uploaded_file($_FILES['profilepic']['tmp_name'], $rootdirectory);
-       
-
-     
     }
 }
-
-
-
 mysqli_query($con,"insert into photo_company_profile (email,pc_admin_id)values('$email','$inserted_id')");
 }
-
-
-
 header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
-
 }
-
-
-
 	//echo "select * from user_login where email='$email' and password='$pass'";
-
-
 }
 }
 ?>
@@ -905,16 +889,16 @@ $("#realtorDiv").removeAttr("style");
 $("#pcadminDiv").removeAttr("style");
 if(val=='Realtor')
 {
-$("#realtorDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
-$("#pcadminDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
+$("#realtorDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
+$("#pcadminDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
 $('#from_whom').val('realtor');
 $('#realtoricon').attr("style","display:inline;margin-right: 5px;font-size: 18px;vertical-align: middle;");
 $('#pcadminicon').attr("style","display:none;margin-right: 5px;font-size: 18px;vertical-align: middle;");
 }
 else
 {
-$("#pcadminDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
-$("#realtorDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
+$("#pcadminDiv").attr("style","color:#000;background:#fff;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;");
+$("#realtorDiv").attr("style","color:#000;background:#aad1d6;height:44px;border-radius:80px 20px 20px 80px;text-align:center;line-height: 44px;");
 $('#from_whom').val('photo_company');
 $('#realtoricon').attr("style","display:none;margin-right: 5px;font-size: 18px;vertical-align: middle;");
 $('#pcadminicon').attr("style","display:inline;margin-right: 5px;font-size: 18px;vertical-align: middle;");
@@ -925,8 +909,8 @@ $('#pcadminicon').attr("style","display:inline;margin-right: 5px;font-size: 18px
 
 
 <div class="col-md-12" style="background:#aad1d6;height:60px;padding:8px;border-radius:80px;margin: 0px 13px;width: 95%;margin-bottom: 20px;">
-<div class="col-md-6" style="color:#000;background:#aad1d6;height:44px;border-radius:80px 20px 20px 80px;text-align: center;line-height: 44px;" id="realtorDiv" onClick="setColor('Realtor');"><i class="fa fa-check-circle-o" id="realtoricon" style="margin-right: 5px;font-size: 18px;vertical-align: middle;"></i>Realtor</div>
-<div class="col-md-6" style="color:#000;background:#FFF;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;" id="pcadminDiv"onclick="setColor('PCAdmin');"><i class="fa fa-check-circle-o" id="pcadminicon" style="display: none;margin-right: 5px;font-size: 18px;vertical-align: middle;" ></i>PCAdmin</div>
+<div class="col-md-6" style="color:#000;background:#fff;height:44px;border-radius:80px 20px 20px 80px;text-align: center;line-height: 44px;" id="realtorDiv" onClick="setColor('Realtor');"><i class="fa fa-check-circle-o" id="realtoricon" style="margin-right: 5px;font-size: 18px;vertical-align: middle;"></i>Realtor</div>
+<div class="col-md-6" style="color:#000;background:#aad1d6;height:44px;border-radius:20px 80px 80px 20px;text-align:center;line-height: 44px;" id="pcadminDiv"onclick="setColor('PCAdmin');"><i class="fa fa-check-circle-o" id="pcadminicon" style="display: none;margin-right: 5px;font-size: 18px;vertical-align: middle;" ></i>PCAdmin</div>
 </div>
 <br>
 						<div class="col-md-6">

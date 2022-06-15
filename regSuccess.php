@@ -78,21 +78,25 @@ try {
 	echo $e->getMessage();
     echo "Mailer Error: " . $mail->ErrorInfo;
 }
-?>
+?> 
 <div class="container content box-middle-container full-screen-size" data-sub-height="238">
             <div class="row">
                 <div class="col-md-12 text-center box-middle">
+
                     <div>
                         <hr class="space m">
                         <h1 style="font-size:80px"><i class="fa fa-check" style="color:green"></i></h1>
                         <h1 id="label_registration_success" adr_trans="label_registration_success">Registration Successful!</h1>
-                        <h5>
-                        You are successfully registered as a <?php echo @$_REQUEST['type']; ?><br />
-                        <span id="label_admin_approved_email" adr_trans="label_admin_approved_email">You will be notified in email when Admin approved.</span> <br />
-                        <span id="label_admin_not_approved" adr_trans="label_admin_not_approved">You can login only after admin approved your account.</span>
-                        </h5>
+                        <br>
+                        <div class="col-md-3">&nbsp;</div>
+                        <div class="col-md-6" style="margin-left:3.3%;text-align:left;">
+                        <h5 >
+                        Welcome to Fotopia!</h5>
+                        <h5>Please click on Login button to explore more about Fotopia application.</h5>
+                        
+                        </div>
                         <hr class="space m">
-                        <a class="anima-button btn-ms btn adr-cancel circle-button" id="label_go_back_home" adr_trans="label_go_back_home" href="index.php"><i class="fa fa-long-arrow-left"></i>Go back to home</a>
+                        <a class="anima-button btn-ms btn adr-save circle-button"  href="login.php"><i class="fa fa-long-arrow-left"></i>Login</a>
                     </div>
                 </div>
             </div>
