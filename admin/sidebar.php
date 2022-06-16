@@ -142,6 +142,9 @@ $pcadmin1=mysqli_query($con,"select * from photo_company_profile where pc_admin_
 $pcadmin=mysqli_fetch_array($pcadmin1);
 
         $organization_number=$pcadmin['organization_number'];
+       $organization_name=$pcadmin['organization_name'];
+        $organization_tax=$pcadmin['tax'];
+         $organization_location=$pcadmin['location'];
 
 ?>
 
@@ -174,7 +177,7 @@ $pcadmin=mysqli_fetch_array($pcadmin1);
 
 <tr style="line-height:8px;"><td>&nbsp;</td></tr>
 <tr><td id="profileMenu" style="padding:5px;background:#FFF;color:#000;font-weight:bold;width:150px;border-radius:5px 5px 5px 5px;font-size:15px;"><a href="company_profile.php"><i class="fa fa-xs fa-user"></i><span id="label_my_profile" adr_trans="label_my_profile" style="padding-left:15px;font-size:13px;">My Profile</span><?php
-   if($organization_number=='' && !@$_REQUEST['first']) 
+   if($organization_number=='' && !@$_REQUEST['first'] || $organization_name=='' && !@$_REQUEST['first'] || $organization_tax=='' && !@$_REQUEST['first'] || $organization_location=='' && !@$_REQUEST['first']) 
    { 
 ?>
 <span style="color:#f37321;float: right;margin-top: 1px;margin-right: 10px;font-size: 15px;"><i class="fa fa-exclamation-circle" aria-hidden="true" title="Get discovered by completing your profile!"></i></span>

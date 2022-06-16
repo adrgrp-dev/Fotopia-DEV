@@ -105,7 +105,7 @@ input[type="submit"]
                    
                     <ul class="nav nav-tabs">
 <li  id="tab11" class="active"><a onclick="" class="click" href="#">Approved Users</a></li>
-<li id="tab21"><a class="click" href="#">Pending Users</a></li>
+<li id="tab21" style="display:none"><a class="click" href="#">Pending Users</a></li>
 <li id="tab31"><a href="#">Denied Users</a></li>
 </ul>
 

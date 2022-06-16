@@ -201,9 +201,9 @@ header("location:PCAdmin_dashboard.php");
 						<?php if(isset($_REQUEST["activate"])) { ?>
 												<div class="error-box"  style="display:block;">
 														<div class="text-danger" id="label_acc_not_approved"
-														adr_trans=""><i style="font-size: initial;color: #ff3300;">Your Email ID is not verified.</i></div>
+														adr_trans=""><i style="font-size: initial;color: #ff3300;">Your Email is not verified.</i></div>
 
-														<div class="text-danger" id="label_notified_approved" adr_trans=""><i style="font-size: initial;color: #ff3300;">Please click to verify your Email Id in gmail account.</i></div>
+														<div class="text-danger" id="label_notified_approved" adr_trans=""><i style="font-size: initial;color: #ff3300;">Please check your email and verify your account.</i></div>
 												</div>
 						<?php } ?>
                             	</p>

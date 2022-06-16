@@ -61,10 +61,10 @@ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,A
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
 You are successfully registered as a {{Type_of_user}}.<br>
-Please click here to verify your email.<br><br>
-<a href={{login_url}} style=\"color:#000;padding: 5px;background: #aad1d6;border-radius: 5px;text-decoration: none;\">Verify Email</a><br>
-<p>Click the below link for the steps to follow for syncing the google calendar.</p>
-<a href={{project_url}}googleCalender_sync.pdf download>Google calender syncing document</a>
+Please click on the below button to verify your email.<br>
+<a href={{login_url}} style=\"color:#000;padding: 5px;background: #aad1d6;border-radius: 5px;text-decoration: none;\">Verify Email</a><br><br>
+<p>Please follow the below link for the instructions to enable your calendar sync with fotopia.</p>
+<a href={{project_url}}Calendar-setup-instructions.pdf download>Instructions to sync your calendar with fotopia</a>
 <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
@@ -73,7 +73,7 @@ $mail->Body.="<br><br></td></tr></table></html>";
 $mail->Body=str_replace('{{Type_of_user}}', $_REQUEST['type'], $mail->Body);
 $mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'], $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$_REQUEST['name']." ".$_REQUEST['lname'], $mail->Body);
-if($_REQUEST['type']=='realtor')
+if($_REQUEST['type']=='Realtor')
 {
 $mail->Body=str_replace('{{login_url}}', $_SESSION['project_url']."login.php?approve=1&email=".$_REQUEST['email']."&code=".$_REQUEST['code'], $mail->Body);
 }
