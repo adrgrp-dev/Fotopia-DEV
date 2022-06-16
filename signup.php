@@ -96,7 +96,7 @@ mysqli_query($con,"insert into realtor_profile (first_name,last_name,email,passw
 
 
 
-header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
+header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email."&code=".$email_verification_code);
 
 }
 
@@ -104,10 +104,10 @@ else{
 
 
 $typeofuser = "Photo Company";
-
+$secret_code = getName(10);
 $user = "PCAdmin";
 $inserted_id=0;
-mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,is_approved,registered_on)values('$user','$fname','$lname','$email','$password',0,now())");
+mysqli_query($con,"insert into admin_users (type_of_user,first_name,last_name,email,password,is_approved,secret_code,registered_on)values('$user','$fname','$lname','$email','$password',0,'$secret_code',now())");
 
 
 $inserted_id=mysqli_insert_id($con);
@@ -129,7 +129,7 @@ if (count($_FILES) > 0) {
 }
 mysqli_query($con,"insert into photo_company_profile (email,pc_admin_id)values('$email','$inserted_id')");
 }
-header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email);
+header("location:regSuccess.php?name=".$fname."&lname=".$lname."&type=".$typeofuser."&email=".$email."&code=".$secret_code);
 }
 	//echo "select * from user_login where email='$email' and password='$pass'";
 }

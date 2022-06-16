@@ -6,12 +6,12 @@ include "connection.php";
 //Login Check
 if(isset($_REQUEST['approve']))
 {
-  $email=;
-  $verifiation_code=;
-  $get_approved_query=mysqli_query($con,"select count(*) from admin_users where email=$email and email_verification_code=$verifiation_code");
-  if($mysqli_num_rows($get_approved_query)==1)
+  $email=$_REQUEST['email'];
+  $verifiation_code=$_REQUEST['code'];
+  $get_approved_query=mysqli_query($con,"select * from admin_users where email='$email' and secret_code='$verifiation_code'");
+  if(mysqli_num_rows($get_approved_query)>0)
   {
-    mysqli_query($con,"update user_login set is_approved=1");
+    mysqli_query($con,"update admin_users set is_approved=1 where email='$email'");
   }
   else{
   	header("location:index.php?activate=1");
@@ -20,13 +20,11 @@ if(isset($_REQUEST['approve']))
 
 if(isset($_REQUEST['loginbtn']))
 {
-
 	$email=$_REQUEST['email'];
 	$pass=$_REQUEST['password'];
 
 	$res=mysqli_query($con,"select * from admin_users where email='$email' and password='$pass'");
-$user_exist=mysqli_num_rows($res);
-
+    $user_exist=mysqli_num_rows($res);
 	$pc_admin_user=mysqli_query($con,"select * from photo_company_admin where email='$email' and password='$pass'");
 	$pc_admin_user_exist=mysqli_num_rows($pc_admin_user);
 	
@@ -36,7 +34,7 @@ $user_exist=mysqli_num_rows($res);
 		$getres=mysqli_fetch_array($res);
 		$user_name=$getres['first_name']." ".$getres['last_name'];
 		$id=$getres['id'];
-$is_approved=$getres['is_approved'];
+        $is_approved=$getres['is_approved'];
 		$type=$getres['type_of_user'];
 		$org=$getres['organization_name'];
 		$_SESSION["admin_loggedin_email"]=$email;
@@ -49,12 +47,12 @@ $is_approved=$getres['is_approved'];
 		{
 		header("location:index.php?blocked=1");
 		exit;
-	  }
+	    }
 		elseif($is_approved==0)
 		{
 		header("location:index.php?activate=1");
 		exit;
-	  }
+	    }
 
 
 
@@ -203,9 +201,9 @@ header("location:PCAdmin_dashboard.php");
 						<?php if(isset($_REQUEST["activate"])) { ?>
 												<div class="error-box"  style="display:block;">
 														<div class="text-danger" id="label_acc_not_approved"
-														adr_trans="label_acc_not_approved"><i style="font-size: initial;color: #ff3300;">Your account is not yet Approved by Admin.</i></div>
+														adr_trans="label_acc_not_approved"><i style="font-size: initial;color: #ff3300;">Your Email ID is not verified.</i></div>
 
-														<div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="font-size: initial;color: #ff3300;">You will be notified in email when Admin approved.</i></div>
+														<div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="font-size: initial;color: #ff3300;">Please click to verify your Email Id in gmail account.</i></div>
 												</div>
 						<?php } ?>
                             	</p>

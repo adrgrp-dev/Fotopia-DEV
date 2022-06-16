@@ -29,6 +29,7 @@ $mail->Port = $_SESSION['emailPort'];
 $mail->From = $_SESSION['emailUserID'];
 $mail->FromName = "Fotopia";
 
+
 //To address and name
 // ;
 // // //Recipient name is optional
@@ -49,8 +50,9 @@ $mail->addReplyTo($_SESSION['emailUserID'], "Reply");
 //Send HTML or Plain Text email
 $mail->isHTML(true);
 
-$mail->Subject = @$_REQUEST['type']." Registration";
-$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\"> ".strtoupper($_REQUEST['type'])." REGISTRATION SUCCESSFUL</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
+
+$mail->Subject = "Signup Successful";
+$mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,Arial,sans-serif;font-weight:600;font-size:18px;color:#0275D8 }.emailCss { width:100%;border:solid 1px #DDD;font-family: \"Roboto\",Helvetica,Arial,sans-serif; } </style></head><table cellpadding=\"5\" class=\"emailCss\"><tr><td align=\"left\"><img src=\"".$_SESSION['project_url']."logo.png\" /></td><td align=\"center\" class=\"titleCss\">REGISTRATION SUCCESSFUL</td><td align=\"right\">".$_SESSION['support_team_email']."<br>".$_SESSION['support_team_phone']."</td></tr><tr><td colspan=\"2\"><br><br>";
 //$mail->AltBody = "This is the plain text version of the email content";
 
 
@@ -58,15 +60,27 @@ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,A
 
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
-You are successfully registered as a {{Type_of_user}} in our Fotopia application.<br>
-You will be notified via email once a Fotopia Admin approves your registration. (*Please note that you will not be able to login until approved).
+You are successfully registered as a {{Type_of_user}}.<br>
+To complete email verification, please press the button below.<br><br>
+<a href={{login_url}} style=\"color:#000;padding: 5px;background: #aad1d6;border-radius: 5px;text-decoration: none;\">Verify Email</a><br>
+<p>Google calender sync email steps docs is attached below,</p>
+<a href={{project_url}}googleCalender_sync.pdf download>Google calender sync</a>
 <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
 
 $mail->Body.="<br><br></td></tr></table></html>";
 $mail->Body=str_replace('{{Type_of_user}}', $_REQUEST['type'], $mail->Body);
+$mail->Body=str_replace('{{project_url}}', $_SESSION['project_url'], $mail->Body);
 $mail->Body=str_replace('{{Registrered_User_Name}}',$_REQUEST['name']." ".$_REQUEST['lname'], $mail->Body);
+if($_REQUEST['type']=='realtor')
+{
+$mail->Body=str_replace('{{login_url}}', $_SESSION['project_url']."login.php?approve=1&email=".$_REQUEST['email']."&code=".$_REQUEST['code'], $mail->Body);
+}
+else
+{
+$mail->Body=str_replace('{{login_url}}', $_SESSION['project_url']."admin/index.php?approve=1&email=".$_REQUEST['email']."&code=".$_REQUEST['code'], $mail->Body);
+}
 //echo $mail->Body;exit;
 
 
@@ -90,13 +104,11 @@ try {
                         <br>
                         <div class="col-md-3">&nbsp;</div>
                         <div class="col-md-6" style="margin-left:3.3%;text-align:left;">
-                        <h5 >
-                        Welcome to Fotopia!</h5>
-                        <h5>Please click on Login button to explore more about Fotopia application.</h5>
-                        
+                        <h5>Welcome to Fotopia!</h5>
+                        <h5>Please verify your email id by following the steps which is given in the email which is sent to you.</h5>
                         </div>
                         <hr class="space m">
-                        <a class="anima-button btn-ms btn adr-save circle-button"  href="login.php"><i class="fa fa-long-arrow-left"></i>Login</a>
+                        <a class="anima-button btn-ms btn adr-cancel circle-button"  href="index.php"><i class="fa fa-long-arrow-left"></i>Back to home</a>
                     </div>
                 </div>
             </div>

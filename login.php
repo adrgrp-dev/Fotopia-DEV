@@ -5,12 +5,12 @@ include "connection.php";
 
 if(isset($_REQUEST['approve']))
 {
-  $email=;
-  $verifiation_code=;
-  $get_approved_query=mysqli_query($con,"select count(*) from user_login where email=$email and email_verification_code=$verifiation_code");
-  if($mysqli_num_rows($get_approved_query)==1)
+  $email=$_REQUEST['email'];
+  $verifiation_code=$_REQUEST['code'];
+  $get_approved_query=mysqli_query($con,"select * from user_login where email='$email' and email_verification_code='$verifiation_code'");
+  if(mysqli_num_rows($get_approved_query)>0)
   {
-    mysqli_query($con,"update user_login set email_verified=1");
+    mysqli_query($con,"update user_login set email_verified=1 where email='$email'");
   }
   else{
   	header("location:login.php?activate=1");
@@ -226,9 +226,8 @@ else{
 						<?php if(isset($_REQUEST["activate"])) { ?>
                         <div class="error-box"  style="display:block;">
                             <div class="text-danger" id="label_acc_not_approved"
-                            adr_trans="label_acc_not_approved"><i style="color: #ff3300;">Your account is not yet Approved by Admin.</i></div>
-
-                            <div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="color: #ff3300;">You will be notified in email when Admin approved.</i></div>
+                            adr_trans="label_acc_not_approved"><i style="color: #ff3300;">Your Email ID is not verified.</i></div>
+                            <div class="text-danger" id="label_notified_approved" adr_trans="label_notified_approved"><i style="color: #ff3300;">Please click to verify your Email Id in gmail account.</i></div>
                         </div>
 						<?php } ?>
 
