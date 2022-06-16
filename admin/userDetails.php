@@ -469,7 +469,7 @@ $approved=$res1['is_approved'];
 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value" minlength="5" maxlength="20"  value="<?php echo @$res1['organization_branch']; ?>">
 </div>
 <div class="col-md-6">
-<p style="color:#000;">Company ID / Organination No</p>
+<p style="color:#000;">Company ID/Organization no.</p>
 <input id="realtor_employer_id" name="realtor_employer_id" type="text" autocomplete="off"  class="form-control form-value"  value="<?php echo @$res1['realtor_employer_id']; ?>">
 </div>
 <div class="col-md-6">

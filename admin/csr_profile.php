@@ -186,7 +186,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 	   <tr><td align="right"  style="font-size: 10px;"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /><br /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
 		 <tr><td colspan="3"><hr class="space m" /></td></tr>
-		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
+		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Any company branch?</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
 		  <tr><td align="right"><span>Organization Number</span></td><td style="padding-left:5px;padding-right:15px;">:</td><td align="left"><?php echo @$res1['organization_number']; ?></td></tr>
 		  <tr><td colspan="3"><hr class="space xs" /></td></tr>
 

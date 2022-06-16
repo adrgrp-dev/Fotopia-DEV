@@ -842,8 +842,8 @@ $appointment_update_details=mysqli_fetch_array($appointment_update);
                         value="<?php echo  @$appointment_update_details['request_address'];?>" class="form-control form-value" required>
     </div>
 	 <div class="col-md-6">
-                        <p>COMPANY ID</p>
-                        <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Company ID" type="text" autocomplete="off"
+                        <p>Company ID/Organization no.</p>
+                        <input id="realtor_employer_id" name="realtor_employer_id" placeholder="Enter The Company ID/Organization no." type="text" autocomplete="off"
                         value="<?php if(@$_REQUEST['u']){if(@$employer_count!=0){ echo @$get_realtor_id['realtor_employer_id']; }elseif(!empty($_SESSION['realtor_employer_id'])){echo $_SESSION['realtor_employer_id'];}elseif(!empty($appointment_update_details['request_employer_id'])){ echo $appointment_update_details['request_employer_id'];}else{ echo "UNKNOWN";}}else{ echo @$appointment_update_details['request_employer_id'];}?>" class="form-control form-value" required>
     </div>
 	<div class="col-md-6">

@@ -73,7 +73,7 @@ $loggedin_id=$_SESSION["admin_loggedin_id"];
 	   <!--<tr><td colspan="3" style="padding-top:10px;"> <h5 class="text-center" style="margin-left:-10px;" id="label_company_details" adr_trans="label_company_details">Company details</h5></td></tr>-->
   <tr><td style="width:250px;font-size: 10px;vertical-align: baseline;padding-top: 0px;padding-bottom: 30px" align="right"><img src="<?php echo @"../".$res1['logo_image_url'] ?>" width="50" height="50" /></td><td style="padding-left:15px;padding-right:15px;padding-top: 10px;padding-bottom: 10px"></td><td style="font-size: 20px;padding-top: 0px;padding-bottom: 30px"><?php echo @$res1['organization_name']; ?></td></tr>
 	    
-		 <tr><td align="left" style="font-size: 10px;padding-left:40px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:15px;padding-right:15px;">:</td><td><?php echo @$res1['organization_branch']; ?></td></tr>
+		 <tr><td align="left" style="font-size: 10px;padding-left:40px;"><span adr_trans="label_org_branch">Any company branch?</span></td><td style="padding-left:15px;padding-right:15px;">:</td><td><?php echo @$res1['organization_branch']; ?></td></tr>
 
 		 <tr><td align="left" style="font-size: 10px;padding-left:40px;padding-bottom: 20px"><span adr_trans="label_org_number">Organization Number</span></td><td style="padding-left:15px;padding-right:15px;padding-bottom: 20px">:</td><td style="padding-bottom: 20px"><?php echo @$res1['organization_number']; ?></td></tr>
 

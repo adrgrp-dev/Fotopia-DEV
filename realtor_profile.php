@@ -168,8 +168,8 @@ $loggedin_id=$_SESSION["loggedin_id"];
 	    <tr><td id="table2" align="right"  style="font-size: 10px;"><img src="data:<?php echo @$res1['logo_image_type']; ?>;base64,<?php echo base64_encode(@$res1['logo']); ?>" width="60" height="60" /></td><td style="padding-left:5px;padding-right:15px;">&nbsp;</td><td align="left" style="font-size:20px;"><?php echo @$res1['organization_name']; ?>
 		 </td></tr>
 		 <tr><td colspan="3"><hr class="space xs" /></td></tr>
-		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Organization branch</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
-		  <tr><td align="right"  style="font-size: 10px;"><span>Company ID</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['realtor_employer_id']; ?>
+		 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_org_branch">Any company branch?</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['organization_branch']; ?></td></tr>
+		  <tr><td align="right"  style="font-size: 10px;"><span>Company ID/Organization no.</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['realtor_employer_id']; ?>
 		  
 		  </td></tr>
 <tr><td align="right"  style="font-size: 10px;"><span adr_trans="label_portfolio_website">Portfolio/Website</span></td><td style="padding-left:5px;padding-right:15px;width:30px!important">:</td><td align="left"><?php echo @$res1['portfolio']; ?></td></tr><tr><td colspan="3"><hr class="space xs" /></td></tr>

@@ -1033,13 +1033,13 @@ $('#pcadminicon').attr("style","display:inline;margin-right: 5px;font-size: 18px
 
 
     <div class="col-md-6">
-                                <p adr_trans="label_org_name">Organization name</p>
-                                <input id="org_name" name="org_name" placeholder="Organization name" type="text" autocomplete="off" class="form-control form-value" required="" >
+                                <p adr_trans="label_org_name">Company name</p>
+                                <input id="org_name" name="org_name" placeholder="Company name" type="text" autocomplete="off" class="form-control form-value" required="" >
                             </div>
 
                             <div class="col-md-6">
-                                <p adr_trans="label_org_branch">Organization branch</p>
-                                <input id="org_branch" name="org_branch" placeholder="Organization name" type="text" autocomplete="off" class="form-control form-value" required="">
+                                <p adr_trans="label_org_branch">Any company branch?</p>
+                                <input id="org_branch" name="org_branch" placeholder="Any company branch?" type="text" autocomplete="off" class="form-control form-value" required="">
                             </div>
 
                             <div class="col-md-6">

@@ -61,10 +61,10 @@ $mail->Body = "<html><head><style>.titleCss {font-family: \"Roboto\",Helvetica,A
 $mail->Body.="<b>Dear {{Registrered_User_Name}},</b><br><br>
 
 You are successfully registered as a {{Type_of_user}}.<br>
-To complete email verification, please press the button below.<br><br>
+Please click here to verify your email.<br><br>
 <a href={{login_url}} style=\"color:#000;padding: 5px;background: #aad1d6;border-radius: 5px;text-decoration: none;\">Verify Email</a><br>
-<p>Google calender sync email steps docs is attached below,</p>
-<a href={{project_url}}googleCalender_sync.pdf download>Google calender sync</a>
+<p>Click the below link for the steps to follow for syncing the google calendar.</p>
+<a href={{project_url}}googleCalender_sync.pdf download>Google calender syncing document</a>
 <br><br><span style=\"font-size:10px;font-weight:bold;\">*This is an auto generated email notification from Fotopia. Please do not reply back to this email. For any support please write to support@fotopia.no</span><br><br>
 Thanks,<br>
 Fotopia Team.";
@@ -105,7 +105,7 @@ try {
                         <div class="col-md-3">&nbsp;</div>
                         <div class="col-md-6" style="margin-left:3.3%;text-align:left;">
                         <h5>Welcome to Fotopia!</h5>
-                        <h5>Please verify your email id by following the steps which is given in the email which is sent to you.</h5>
+                        <h5>Please check your email and click on "Verify email" to activate your account.</h5>
                         </div>
                         <hr class="space m">
                         <a class="anima-button btn-ms btn adr-cancel circle-button"  href="index.php"><i class="fa fa-long-arrow-left"></i>Back to home</a>

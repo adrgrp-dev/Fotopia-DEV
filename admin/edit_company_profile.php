@@ -282,7 +282,7 @@ function validate_email(val)
                               </div>
 
  								<div class="col-md-6">
-                                <p style="color:#000;" id="label_org_name" adr_trans="label_org_name">Organization name</p>
+                                <p style="color:#000;" id="label_org_name" adr_trans="label_org_name">Company name</p>
                                 <input id="organization_name" name="organization_name" type="text" autocomplete="off" class="form-control form-value" list="companies1" onkeyup="get_companies(this.value,event)" onchange="companies(this.value)"  required="" value="<?php echo @$res1['organization_name']; ?>">
                                 <datalist id="companies1">
                                  
@@ -290,7 +290,7 @@ function validate_email(val)
 								</div>
 
 								<div class="col-md-6">
-                                <p style="color:#000;" id="label_org_branch" adr_trans="label_org_branch">Organization branch</p>
+                                <p style="color:#000;" id="label_org_branch" adr_trans="label_org_branch">Any company branch?</p>
                                 <input id="organization_branch" name="organization_branch" type="text" autocomplete="off" class="form-control form-value"  required="" value="<?php echo @$res1['organization_branch']; ?>">
 								</div>
 

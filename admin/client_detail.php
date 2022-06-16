@@ -116,13 +116,13 @@ th
                          <td align="left"><span adr_trans="label_realtor" style="font-size:13px;">Realtor</span></td>
                        </tr>
                        <tr>
-                         <td align="left"><span adr_trans="label_org_name">Organization Name</span></td>
+                         <td align="left"><span adr_trans="label_org_name">Company name</span></td>
                          <td>:</td>
                          <td align="left"><?php echo @$get_data['organization_name']?></td>
                        </tr>
 
                         <tr>
-                         <td align="left"><span adr_trans="label_org_branch">Organization Branch</span></td>
+                         <td align="left"><span adr_trans="label_org_branch">Any company branch?</span></td>
                          <td>:</td>
                          <td align="left"><?php echo @$get_data['organization_branch']?></td>
                        </tr>
@@ -140,7 +140,7 @@ th
                        </tr>
 
                        <tr>
-                         <td align="left"><span adr_trans="">Company ID</span></td>
+                         <td align="left"><span adr_trans="">Company ID/Organization no.</span></td>
                          <td>:</td>
                          <td align="left"><?php echo @$get_data['realtor_employer_id'] ?></td>
                        </tr>
