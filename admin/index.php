@@ -70,12 +70,17 @@ if(isset($_REQUEST['loginbtn']))
     $pc_profile=mysqli_query($con,"select * from photo_company_profile where pc_admin_id='$id'");
     $pc_profile1=mysqli_fetch_array($pc_profile);
     $aboutPC=$pc_profile1['about_us'];
-        $organization_number=$pc_profile1['organization_number'];
 
+        $organization_number=$pc_profile1['organization_number'];
+           $organization_name=$pc_profile1['organization_name'];
+        $organization_tax=$pc_profile1['tax'];
+         $organization_location=$pc_profile1['location'];
+
+ 
     $products=mysqli_query($con,"select * from products where pc_admin_id='$pc_id'");
     $productsFound=mysqli_num_rows($products);
 
- if($organization_number=='' && !@$_REQUEST['first'])
+ if($organization_number=='' && !@$_REQUEST['first'] || $organization_name=='' && !@$_REQUEST['first'] || $organization_tax=='' && !@$_REQUEST['first'] || $organization_location=='' && !@$_REQUEST['first'])
    { 
 
 	header("location:PCAdmin_dashboard.php?second=1");
