@@ -6,8 +6,8 @@ include "project-environment.php";
 {
 $type=$_SESSION['user_type'];
 
-// if($type=="Realtor")
-// {
+if($type=="Realtor")
+{
 
 // $id=$_SESSION['loggedin_id'];
 // 		$realtor_profile1=mysqli_query($con,"select * from realtor_profile where realtor_id='$id'");
@@ -19,8 +19,8 @@ $type=$_SESSION['user_type'];
 
 
 
-//  $page="csrRealtorDashboard.php";
-// }
+ $page="csrRealtorDashboard.php";
+}
 if($type=="Photographer")
 {
 $id=$_SESSION['loggedin_id'];

@@ -11,6 +11,11 @@ if($type=="FotopiaAdmin")
 {
  $page="dashboard.php";
 }
+
+if($type=="PCAdmin")
+{
+ $page="PCAdmin_dashboard.php";
+}
 // if($type=="PCAdmin") 
 // {
 // 		$id=$_SESSION['admin_loggedin_id'];
