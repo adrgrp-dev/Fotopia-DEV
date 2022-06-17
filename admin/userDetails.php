@@ -402,7 +402,7 @@ else {
 			<div class="col-md-2" style="padding-left:15px;">
 				<hr class="space s">
 				<script>
-				   $(".hidden-xs").css("margin-right","46px");
+				//   $(".hidden-xs").css("margin-right","46px");
 				</script>
 
 	<?php include "sidebar.php"; ?>
@@ -535,7 +535,7 @@ if (@$_REQUEST['id1']) {
 ?>
 <div class="col-md-12" style="padding-right: 0px;">
 <div class="col-md-12">
-<p style="font-size: 12px;margin: 20px 0px;" align="center">Which Cities Would You Like To Get Assignments In?</p>
+<p style="margin: 20px 0px;" align="center">Which Cities Would You Like To Get Assignments In?</p>
 </div>
 <div class="col-md-6">
 
@@ -572,7 +572,7 @@ while($city=mysqli_fetch_array($city1))
 <?php } ?>
 
 <div class="col-md-12">
-<p style="font-size: 12px;margin: 20px 0px;" align="center">Social Media</p></div>
+<p style="margin: 20px 0px;" align="center">Social Media</p></div>
 <div class="col-md-6">
 <p style="color:#000;"><span adr_trans="label_linkedin_profile">LinkedIN profile</span>&nbsp;<span class="fa fa-linkedin" style=" padding: 4px;background: #aad1d6;color: #000;font-weight: bold;border-radius: 20px;font-size: 10px;"></span></p>
 <input id="linkedin_id" name="linkedin_id" type="text" autocomplete="off" class="form-control form-value" value="<?php echo @$res1['linkedin_id']; ?>">
